@@ -58,5 +58,5 @@ type Infusion =
 
     member private this.GetAllModifiersFromThing<'T when 'T :> Thing>(thing: 'T): list<StatMod> =
         compOfThing<Comp.Infusion> thing
-        |> Option.map (fun comp -> comp.GetAllStatModsForStat this.parentStat)
+        |> Option.map (Comp.allModsForStat this.parentStat)
         |> Option.defaultValue List.empty

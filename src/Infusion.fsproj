@@ -13,6 +13,7 @@
     <Compile Include="Comp.fs" />
     <Compile Include="StatPart.fs" />
     <Compile Include="ITab.fs" />
+    <Compile Include="DebugActions.fs" />
     <Compile Include="Harmonize/CompQuality.fs" />
     <Compile Include="Harmonize/StatWorker.fs" />
     <Compile Include="Mod.fs" />

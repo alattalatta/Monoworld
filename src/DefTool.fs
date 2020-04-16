@@ -33,6 +33,9 @@ let getLabelOfTier (tier: Tier) =
     | Tier.Artifact -> translate "Infused.Artifact"
     | _ -> ""
 
+// 2, 1, 1, 1, 2, 3, 4
+let maxInfusionsFor (quality: QualityCategory) = max 1 (abs (int quality - 2))
+
 let tierToColor (tier: Tier) =
     match tier with
     | Tier.Awful

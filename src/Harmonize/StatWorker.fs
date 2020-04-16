@@ -53,5 +53,9 @@ module StatOffsetFromGear =
         let baseValue = gear.def.equippedStatOffsets.GetStatOffsetFromList stat
 
         match compOfThing<Comp.Infusion> gear with
-        | Some compInf -> (compInf.GetAllStatModsForStat stat |> List.fold (+) StatMod.empty).offset + baseValue
+        | Some compInf ->
+            (compInf
+             |> Comp.allModsForStat stat
+             |> List.fold (+) StatMod.empty).offset
+            + baseValue
         | None -> returned

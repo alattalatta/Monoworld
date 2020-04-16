@@ -79,5 +79,7 @@ type InfusionDef =
     interface IComparable with
         member this.CompareTo(ob: obj) =
             match ob with
-            | :? InfusionDef as infDef -> this.defName.CompareTo(infDef.defName)
+            | :? InfusionDef as infDef ->
+                let byTier = this.tier.CompareTo infDef.tier
+                if byTier <> 0 then byTier else this.defName.CompareTo infDef.defName
             | _ -> 0
