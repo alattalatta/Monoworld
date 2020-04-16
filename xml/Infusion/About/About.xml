@@ -3,7 +3,7 @@
   <packageId>latta.infusion</packageId>
   <name>Infusion 2</name>
   <author>latta</author>
-  <url>https://ludeon.com/forums/index.php?topic=21884.0</url>
+  <url>https://ludeon.com/forums/index.php?topic=51712.0</url>
   <supportedVersions>
     <li>1.1</li>
   </supportedVersions>
@@ -24,6 +24,7 @@
       <packageId>latta.fsharp.core</packageId>
       <displayName>FSharp.Core</displayName>
       <steamWorkshopUrl>steam://url/CommunityFilePage/2059725183</steamWorkshopUrl>
+      <downloadUrl>https://ludeon.com/forums/index.php?topic=51711.0</downloadUrl>
     </li>
   </modDependencies>
   <description>Extra equipment randomization for weapons and apparels</description>
