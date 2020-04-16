@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+  <Infusion.InfusionDef Abstract="True" Name="AwfulBase">
+    <!-- <chances>
+      <awful>0.5</awful>
+      <poor>0.2</poor>
+    </chances> -->
+    <!-- <weights>
+      <awful>1</awful>
+      <poor>0.5</poor>
+    </weights> -->
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>0.6</multiplier>
+        </value>
+      </li>
+    </stats>
+    <tier>Awful</tier>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef Abstract="True" Name="PoorBase">
+    <!-- <chances>
+      <awful>0.8</awful>
+      <poor>0.6</poor>
+    </chances> -->
+    <!-- <weights>
+      <awful>0.5</awful>
+      <poor>1</poor>
+    </weights> -->
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>0.8</multiplier>
+        </value>
+      </li>
+    </stats>
+    <tier>Poor</tier>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef Abstract="True" Name="UncommonBase">
+    <chances>
+      <normal>0.4</normal>
+      <good>0.6</good>
+      <excellent>0.8</excellent>
+      <masterwork>1</masterwork>
+    </chances>
+    <weights>
+      <normal>1</normal>
+      <good>1</good>
+      <excellent>0.6</excellent>
+      <masterwork>0.2</masterwork>
+    </weights>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>1.1</multiplier>
+        </value>
+      </li>
+    </stats>
+    <tier>Uncommon</tier>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef Abstract="True" Name="RareBase">
+    <chances>
+      <good>0.6</good>
+      <excellent>0.8</excellent>
+      <masterwork>1</masterwork>
+      <legendary>1</legendary>
+    </chances>
+    <weights>
+      <good>0.5</good>
+      <excellent>1</excellent>
+      <masterwork>0.6</masterwork>
+      <legendary>0.2</legendary>
+    </weights>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>1.3</multiplier>
+        </value>
+      </li>
+    </stats>
+    <tier>Rare</tier>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef Abstract="True" Name="EpicBase">
+    <chances>
+      <good>0.3</good>
+      <excellent>0.7</excellent>
+      <masterwork>1</masterwork>
+      <legendary>1</legendary>
+    </chances>
+    <weights>
+      <good>0.1</good>
+      <excellent>0.4</excellent>
+      <masterwork>1</masterwork>
+      <legendary>0.8</legendary>
+    </weights>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>1.5</multiplier>
+        </value>
+      </li>
+    </stats>
+    <tier>Epic</tier>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef Abstract="True" Name="LegendaryBase">
+    <chances>
+      <excellent>0.4</excellent>
+      <masterwork>0.7</masterwork>
+      <legendary>0.8</legendary>
+    </chances>
+    <weights>
+      <excellent>0.2</excellent>
+      <masterwork>0.7</masterwork>
+      <legendary>1</legendary>
+    </weights>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>2</multiplier>
+        </value>
+      </li>
+    </stats>
+    <tier>Legendary</tier>
+  </Infusion.InfusionDef>
+</Defs>

@@ -1,0 +1,8 @@
+STORAGE: NONE
+RESTRICTION: == net472
+NUGET
+  remote: https://api.nuget.org/v3/index.json
+    FSharp.Core (4.7.1)
+    Lib.Harmony (2.0.0.9)
+    UnlimitedHugs.Rimworld.HugsLib (7.1.4)
+      Lib.Harmony (>= 2.0.0.8)

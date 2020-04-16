@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+  <Infusion.InfusionDef Abstract="True" Name="RareAllTechBase" ParentName="RareBase">
+    <requirements>
+      <techLevel>
+        <li>Neolithic</li>
+        <li>Medieval</li>
+        <li>Industrial</li>
+        <li>Spacer</li>
+        <li>Ultra</li>
+        <li>Archotech</li>
+      </techLevel>
+    </requirements>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareAllTechBase">
+    <defName>Lightweight</defName>
+    <label>lightweight</label>
+    <labelShort>lite</labelShort>
+    <requirements>
+      <allowance>
+        <apparel>true</apparel>
+        <melee>true</melee>
+        <ranged>true</ranged>
+      </allowance>
+    </requirements>
+    <stats>
+      <li>
+        <key>Mass</key>
+        <value>
+          <multiplier>0.75</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- apparels -->
+  <Infusion.InfusionDef Abstract="True" Name="RareApparelBase" ParentName="RareAllTechBase">
+    <requirements>
+      <allowance>
+        <apparel>true</apparel>
+      </allowance>
+    </requirements>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareApparelBase">
+    <defName>Adjustable</defName>
+    <label>adjustable</label>
+    <labelShort>adjst</labelShort>
+    <stats>
+      <li>
+        <key>EquipDelay</key>
+        <value>
+          <multiplier>0.75</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareApparelBase">
+    <defName>Absorbing</defName>
+    <label>absorbing</label>
+    <labelShort>absrb</labelShort>
+    <stats>
+      <li>
+        <key>ArmorRating_Blunt</key>
+        <value>
+          <multiplier>1.2</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareApparelBase">
+    <defName>Deflecting</defName>
+    <label>deflecting</label>
+    <labelShort>deflct</labelShort>
+    <stats>
+      <li>
+        <key>ArmorRating_Sharp</key>
+        <value>
+          <multiplier>1.2</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareApparelBase">
+    <defName>Calming</defName>
+    <label>calming</label>
+    <labelShort>calm</labelShort>
+    <stats>
+      <li>
+        <key>MentalBreakThreshold</key>
+        <value>
+          <offset>-0.05</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareApparelBase">
+    <defName>Tough</defName>
+    <label>tough</label>
+    <stats>
+      <li>
+        <key>ArmorRating_Sharp</key>
+        <value>
+          <multiplier>1.1</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>ArmorRating_Blunt</key>
+        <value>
+          <multiplier>1.1</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>MaxHitPoints</key>
+        <value>
+          <multiplier>1.2</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareApparelBase">
+    <defName>Wild</defName>
+    <label>wild</label>
+    <position>Suffix</position>
+    <stats>
+      <li>
+        <key>ForagedNutritionPerDay</key>
+        <value>
+          <offset>0.3</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- melee -->
+  <Infusion.InfusionDef Abstract="True" Name="RareMeleeBase" ParentName="RareAllTechBase">
+    <requirements>
+      <allowance>
+        <melee>true</melee>
+      </allowance>
+    </requirements>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareMeleeBase">
+    <defName>Feral</defName>
+    <label>feral</label>
+    <stats>
+      <li>
+        <key>MeleeWeapon_DamageMultiplier</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareMeleeBase">
+    <defName>Nimble</defName>
+    <label>nimble</label>
+    <stats>
+      <li>
+        <key>MeleeDodgeChance</key>
+        <value>
+          <offset>0.15</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- ranged -->
+  <Infusion.InfusionDef ParentName="RareBase">
+    <defName>Silent</defName>
+    <label>silent</label>
+    <requirements>
+      <allowance>
+        <ranged>true</ranged>
+      </allowance>
+    </requirements>
+    <stats>
+      <li>
+        <key>HuntingStealth</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- maybe bows -->
+  <Infusion.InfusionDef ParentName="RareBase">
+    <defName>Tearing</defName>
+    <label>tearing</label>
+    <labelShort>tear</labelShort>
+    <requirements>
+      <allowance>
+        <ranged>true</ranged>
+      </allowance>
+      <techLevel>
+        <li>Neolithic</li>
+      </techLevel>
+    </requirements>
+    <stats>
+      <li>
+        <key>RangedWeapon_DamageMultiplier</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- maybe guns and crossbows -->
+  <Infusion.InfusionDef Abstract="True" Name="RareGunBase" ParentName="RareBase">
+    <requirements>
+      <allowance>
+        <ranged>true</ranged>
+      </allowance>
+      <techLevel>
+        <li>Medieval</li>
+        <li>Industrial</li>
+        <li>Spacer</li>
+        <li>Ultra</li>
+        <li>Archotech</li>
+      </techLevel>
+    </requirements>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareGunBase">
+    <defName>Shortened</defName>
+    <label>shortened</label>
+    <labelShort>short</labelShort>
+    <requirements>
+      <allowance>
+        <ranged>true</ranged>
+      </allowance>
+    </requirements>
+    <stats>
+      <li>
+        <key>AccuracyTouch</key>
+        <value>
+          <multiplier>1.1</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyMedium</key>
+        <value>
+          <multiplier>0.96</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyLong</key>
+        <value>
+          <multiplier>0.93</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>AimingDelayFactor</key>
+        <value>
+          <offset>-0.2</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareGunBase">
+    <defName>Extended</defName>
+    <label>extended</label>
+    <labelShort>ext</labelShort>
+    <requirements>
+      <allowance>
+        <ranged>true</ranged>
+      </allowance>
+    </requirements>
+    <stats>
+      <li>
+        <key>AccuracyTouch</key>
+        <value>
+          <multiplier>0.98</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyShort</key>
+        <value>
+          <multiplier>1.03</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyMedium</key>
+        <value>
+          <multiplier>1.07</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyLong</key>
+        <value>
+          <multiplier>1.14</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>AimingDelayFactor</key>
+        <value>
+          <offset>0.05</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+</Defs>

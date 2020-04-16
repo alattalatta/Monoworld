@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+  <Infusion.InfusionDef Abstract="True" Name="LegendaryAllTechBase" ParentName="LegendaryBase">
+    <requirements>
+      <techLevel>
+        <li>Neolithic</li>
+        <li>Medieval</li>
+        <li>Industrial</li>
+        <li>Spacer</li>
+        <li>Ultra</li>
+        <li>Archotech</li>
+      </techLevel>
+    </requirements>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef Abstract="True" Name="LegendaryAllItemsBase" ParentName="LegendaryAllTechBase">
+    <requirements>
+      <allowance>
+        <apparel>true</apparel>
+        <melee>true</melee>
+        <ranged>true</ranged>
+      </allowance>
+    </requirements>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryAllItemsBase">
+    <defName>Massless</defName>
+    <label>massless</label>
+    <labelShort>mslss</labelShort>
+    <stats>
+      <li>
+        <key>Mass</key>
+        <value>
+          <multiplier>0.25</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- apparels -->
+  <Infusion.InfusionDef Abstract="True" Name="LegendaryApparelBase" ParentName="LegendaryAllTechBase">
+    <requirements>
+      <allowance>
+        <apparel>true</apparel>
+      </allowance>
+    </requirements>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryApparelBase">
+    <defName>Amplifying</defName>
+    <label>amplifying</label>
+    <labelShort>ampl</labelShort>
+    <stats>
+      <li>
+        <key>PsychicSensitivity</key>
+        <value>
+          <offset>0.5</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryApparelBase">
+    <defName>Interfering</defName>
+    <label>suppressive</label>
+    <labelShort>supp</labelShort>
+    <stats>
+      <li>
+        <key>PsychicSensitivity</key>
+        <value>
+          <offset>-0.5</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryApparelBase">
+    <defName>Glittering</defName>
+    <label>glittering</label>
+    <labelShort>glitter</labelShort>
+    <stats>
+      <li>
+        <key>PawnBeauty</key>
+        <value>
+          <offset>2</offset>
+        </value>
+      </li>
+      <li>
+        <key>SocialImpact</key>
+        <value>
+          <offset>0.4</offset>
+        </value>
+      </li>
+      <li>
+        <key>TradePriceImprovement</key>
+        <value>
+          <offset>0.4</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryApparelBase">
+    <defName>Circulating</defName>
+    <label>circulating</label>
+    <labelShort>circ</labelShort>
+    <stats>
+      <li>
+        <key>Insulation_Heat</key>
+        <value>
+          <multiplier>1.35</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>Insulation_Cold</key>
+        <value>
+          <multiplier>1.35</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>ToxicSensitivity</key>
+        <value>
+          <offset>-0.3</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryApparelBase">
+    <defName>Protective</defName>
+    <label>protective</label>
+    <labelShort>prot</labelShort>
+    <stats>
+      <li>
+        <key>MaxHitPoints</key>
+        <value>
+          <multiplier>1.5</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>ArmorRating_Blunt</key>
+        <value>
+          <multiplier>1.3</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>ArmorRating_Sharp</key>
+        <value>
+          <multiplier>1.3</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>ArmorRating_Heat</key>
+        <value>
+          <multiplier>1.3</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryApparelBase">
+    <defName>Synchronizing</defName>
+    <label>synchronizing</label>
+    <labelShort>sync</labelShort>
+    <stats>
+      <li>
+        <key>GlobalLearningFactor</key>
+        <value>
+          <offset>0.3</offset>
+        </value>
+      </li>
+      <li>
+        <key>WorkSpeedGlobal</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+      <li>
+        <key>EquipDelay</key>
+        <value>
+          <multiplier>0.5</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryApparelBase">
+    <defName>Endurance</defName>
+    <label>endurance</label>
+    <labelShort>end</labelShort>
+    <position>Suffix</position>
+    <stats>
+      <li>
+        <key>MentalBreakThreshold</key>
+        <value>
+          <offset>-0.3</offset>
+        </value>
+      </li>
+      <li>
+        <key>PainShockThreshold</key>
+        <value>
+          <offset>0.3</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- weapons -->
+  <Infusion.InfusionDef ParentName="LegendaryAllTechBase">
+    <defName>Entropic</defName>
+    <label>entropic</label>
+    <labelShort>entr</labelShort>
+    <requirements>
+      <allowance>
+        <melee>true</melee>
+        <ranged>true</ranged>
+      </allowance>
+    </requirements>
+    <stats>
+      <li>
+        <key>PsychicEntropyMax</key>
+        <value>
+          <multiplier>1.5</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>PsychicEntropyGain</key>
+        <value>
+          <multiplier>1.2</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>PsychicEntropyRecoveryRate</key>
+        <value>
+          <multiplier>1.1</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- melee -->
+  <Infusion.InfusionDef Abstract="True" Name="LegendaryMeleeBase" ParentName="LegendaryAllTechBase">
+    <requirements>
+      <allowance>
+        <melee>true</melee>
+      </allowance>
+    </requirements>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryMeleeBase">
+    <defName>Accelerated</defName>
+    <label>accelerated</label>
+    <labelShort>accel</labelShort>
+    <stats>
+      <li>
+        <key>MeleeWeapon_CooldownMultiplier</key>
+        <value>
+          <offset>-0.4</offset>
+        </value>
+      </li>
+      <li>
+        <key>MeleeDodgeChance</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryMeleeBase">
+    <defName>Hatred</defName>
+    <label>hatred</label>
+    <position>Suffix</position>
+    <stats>
+      <li>
+        <key>PawnBeauty</key>
+        <value>
+          <offset>-3</offset>
+        </value>
+      </li>
+      <li>
+        <key>MeleeWeapon_DamageMultiplier</key>
+        <value>
+          <offset>0.6</offset>
+        </value>
+      </li>
+      <li>
+        <key>MeleeWeapon_CooldownMultiplier</key>
+        <value>
+          <offset>-0.5</offset>
+        </value>
+      </li>
+      <li>
+        <key>MeleeDodgeChance</key>
+        <value>
+          <offset>0.3</offset>
+        </value>
+      </li>
+      <li>
+        <key>MentalBreakThreshold</key>
+        <value>
+          <offset>0.05</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- ranged -->
+  <Infusion.InfusionDef Abstract="True" Name="LegendaryRangedBase" ParentName="LegendaryAllTechBase">
+    <requirements>
+      <allowance>
+        <melee>true</melee>
+      </allowance>
+    </requirements>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryRangedBase">
+    <defName>Guided</defName>
+    <label>guided</label>
+    <stats>
+      <li>
+        <key>ShootingAccuracyPawn</key>
+        <value>
+          <offset>0.3</offset>
+        </value>
+      </li>
+      <li>
+        <key>RangedWeapon_DamageMultiplier</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryRangedBase">
+    <defName>Boosted</defName>
+    <label>boosted</label>
+    <labelShort>boost</labelShort>
+    <stats>
+      <li>
+        <key>RangedWeapon_DamageMultiplier</key>
+        <value>
+          <offset>0.6</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryRangedBase">
+    <defName>Responsive</defName>
+    <label>responsive</label>
+    <labelShort>resp</labelShort>
+    <stats>
+      <li>
+        <key>AimingDelayFactor</key>
+        <value>
+          <offset>-0.4</offset>
+        </value>
+      </li>
+      <li>
+        <key>RangedWeapon_Cooldown</key>
+        <value>
+          <multiplier>0.5</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+</Defs>

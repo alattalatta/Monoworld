@@ -1,0 +1,12 @@
+.fake
+.ionide
+.paket
+paket-files
+
+libs
+.fake
+.ionide
+
+obj
+src/bin
+dist

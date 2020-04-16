@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+  <Infusion.InfusionDef Abstract="True" Name="PoorAllTechBase" ParentName="PoorBase">
+    <requirements>
+      <techLevel>
+        <li>Neolithic</li>
+        <li>Medieval</li>
+        <li>Industrial</li>
+        <li>Spacer</li>
+        <li>Ultra</li>
+        <li>Archotech</li>
+      </techLevel>
+    </requirements>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="PoorAllTechBase">
+    <defName>Flimsy</defName>
+    <label>flimsy</label>
+    <requirements>
+      <allowance>
+        <apparel>true</apparel>
+      </allowance>
+    </requirements>
+    <stats>
+      <li>
+        <key>MaxHitPoints</key>
+        <value>
+          <multiplier>0.75</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="PoorAllTechBase">
+    <defName>Inadequate</defName>
+    <label>inadequate</label>
+    <requirements>
+      <allowance>
+        <apparel>true</apparel>
+      </allowance>
+    </requirements>
+    <stats>
+      <li>
+        <key>ArmorRating_Sharp</key>
+        <value>
+          <multiplier>0.75</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>ArmorRating_Blunt</key>
+        <value>
+          <multiplier>0.75</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="PoorAllTechBase">
+    <defName>Ugly</defName>
+    <label>ugly</label>
+    <requirements>
+      <allowance>
+        <apparel>true</apparel>
+        <melee>true</melee>
+        <ranged>true</ranged>
+      </allowance>
+    </requirements>
+    <stats>
+      <li>
+        <key>PawnBeauty</key>
+        <value>
+          <offset>-1</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="PoorAllTechBase">
+    <defName>CumbersomeApparel</defName>
+    <label>cumbersome</label>
+    <requirements>
+      <allowance>
+        <apparel>true</apparel>
+      </allowance>
+    </requirements>
+    <stats>
+      <li>
+        <key>MoveSpeed</key>
+        <value>
+          <offset>-0.1</offset>
+        </value>
+      </li>
+      <li>
+        <key>MentalBreakThreshold</key>
+        <value>
+          <offset>0.03</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="PoorAllTechBase">
+    <defName>CumbersomeRanged</defName>
+    <label>cumbersome</label>
+    <requirements>
+      <allowance>
+        <ranged>true</ranged>
+      </allowance>
+    </requirements>
+    <stats>
+      <li>
+        <key>MoveSpeed</key>
+        <value>
+          <offset>-0.1</offset>
+        </value>
+      </li>
+      <li>
+        <key>RangedWeapon_Cooldown</key>
+        <value>
+          <multiplier>1.1</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="PoorAllTechBase">
+    <defName>CumbersomeMelee</defName>
+    <label>cumbersome</label>
+    <requirements>
+      <allowance>
+        <melee>true</melee>
+      </allowance>
+    </requirements>
+    <stats>
+      <li>
+        <key>MoveSpeed</key>
+        <value>
+          <offset>-0.1</offset>
+        </value>
+      </li>
+      <li>
+        <key>MeleeWeapon_CooldownMultiplier</key>
+        <value>
+          <offset>0.1</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="PoorAllTechBase">
+    <defName>Cracking</defName>
+    <label>cracking</label>
+    <requirements>
+      <allowance>
+        <melee>true</melee>
+        <ranged>true</ranged>
+      </allowance>
+    </requirements>
+    <stats>
+      <li>
+        <key>DeteriorationRate</key>
+        <value>
+          <multiplier>1.4</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+</Defs>

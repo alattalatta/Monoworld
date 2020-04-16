@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+  <Infusion.InfusionDef Abstract="True" Name="EpicAllTechBase" ParentName="EpicBase">
+    <requirements>
+      <techLevel>
+        <li>Neolithic</li>
+        <li>Medieval</li>
+        <li>Industrial</li>
+        <li>Spacer</li>
+        <li>Ultra</li>
+        <li>Archotech</li>
+      </techLevel>
+    </requirements>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="EpicAllTechBase">
+    <defName>Weightless</defName>
+    <label>weightless</label>
+    <labelShort>wghtlss</labelShort>
+    <requirements>
+      <allowance>
+        <apparel>true</apparel>
+        <melee>true</melee>
+        <ranged>true</ranged>
+      </allowance>
+    </requirements>
+    <stats>
+      <li>
+        <key>Mass</key>
+        <value>
+          <multiplier>0.5</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- apparels -->
+  <Infusion.InfusionDef Abstract="True" Name="EpicApparelBase" ParentName="EpicAllTechBase">
+    <requirements>
+      <allowance>
+        <apparel>true</apparel>
+      </allowance>
+    </requirements>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="EpicApparelBase">
+    <defName>Beautiful</defName>
+    <label>beautiful</label>
+    <labelShort>beaut</labelShort>
+    <stats>
+      <li>
+        <key>PawnBeauty</key>
+        <value>
+          <offset>0.6</offset>
+        </value>
+      </li>
+      <li>
+        <key>SocialImpact</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="EpicApparelBase">
+    <defName>Harmonious</defName>
+    <label>harmonious</label>
+    <labelShort>hrmny</labelShort>
+    <stats>
+      <li>
+        <key>MentalBreakThreshold</key>
+        <value>
+          <offset>-0.1</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="EpicApparelBase">
+    <defName>Quickening</defName>
+    <label>quickening</label>
+    <labelShort>quick</labelShort>
+    <stats>
+      <li>
+        <key>MoveSpeed</key>
+        <value>
+          <offset>0.15</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="EpicApparelBase">
+    <defName>Reinforced</defName>
+    <label>reinforced</label>
+    <labelShort>reinf</labelShort>
+    <stats>
+      <li>
+        <key>MaxHitPoints</key>
+        <value>
+          <multiplier>1.4</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>ArmorRating_Sharp</key>
+        <value>
+          <multiplier>1.2</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>ArmorRating_Blunt</key>
+        <value>
+          <multiplier>1.2</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="EpicApparelBase">
+    <defName>Warming</defName>
+    <label>warming</label>
+    <labelShort>warm</labelShort>
+    <stats>
+      <li>
+        <key>ArmorRating_Heat</key>
+        <value>
+          <multiplier>1.1</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>Insulation_Cold</key>
+        <value>
+          <multiplier>1.2</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="EpicApparelBase">
+    <defName>Cooling</defName>
+    <label>cooling</label>
+    <labelShort>cool</labelShort>
+    <stats>
+      <li>
+        <key>ArmorRating_Heat</key>
+        <value>
+          <multiplier>1.1</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>Insulation_Heat</key>
+        <value>
+          <multiplier>1.2</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="EpicApparelBase">
+    <defName>Labor</defName>
+    <label>labor</label>
+    <labelShort>labr</labelShort>
+    <position>Suffix</position>
+    <stats>
+      <li>
+        <key>WorkSpeedGlobal</key>
+        <value>
+          <offset>0.1</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="EpicApparelBase">
+    <defName>Memory</defName>
+    <label>memory</label>
+    <labelShort>mem</labelShort>
+    <stats>
+      <li>
+        <key>GlobalLearningFactor</key>
+        <value>
+          <offset>0.15</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- melee -->
+  <Infusion.InfusionDef ParentName="EpicAllTechBase">
+    <defName>Dancing</defName>
+    <label>dancing</label>
+    <labelShort>dance</labelShort>
+    <requirements>
+      <allowance>
+        <melee>true</melee>
+      </allowance>
+    </requirements>
+    <stats>
+      <li>
+        <key>MeleeWeapon_CooldownMultiplier</key>
+        <value>
+          <offset>-0.4</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="EpicAllTechBase">
+    <defName>Fierce</defName>
+    <label>fierce</label>
+    <requirements>
+      <allowance>
+        <melee>true</melee>
+      </allowance>
+    </requirements>
+    <stats>
+      <li>
+        <key>MeleeWeapon_DamageMultiplier</key>
+        <value>
+          <offset>0.3</offset>
+        </value>
+      </li>
+      <li>
+        <key>MeleeWeapon_CooldownMultiplier</key>
+        <value>
+          <offset>-0.1</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- ranged -->
+  <Infusion.InfusionDef ParentName="EpicAllTechBase">
+    <defName>Optimized</defName>
+    <label>optimized</label>
+    <labelShort>opti</labelShort>
+    <requirements>
+      <allowance>
+        <ranged>true</ranged>
+      </allowance>
+    </requirements>
+    <stats>
+      <li>
+        <key>RangedWeapon_DamageMultiplier</key>
+        <value>
+          <offset>0.4</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="EpicAllTechBase">
+    <defName>Rapid</defName>
+    <label>rapid</label>
+    <requirements>
+      <allowance>
+        <ranged>true</ranged>
+      </allowance>
+    </requirements>
+    <stats>
+      <li>
+        <key>AimingDelayFactor</key>
+        <value>
+          <offset>-0.2</offset>
+        </value>
+      </li>
+      <li>
+        <key>RangedWeapon_Cooldown</key>
+        <value>
+          <multiplier>0.7</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="EpicAllTechBase">
+    <defName>Pinpoint</defName>
+    <label>pinpoint</label>
+    <labelShort>pin</labelShort>
+    <requirements>
+      <allowance>
+        <ranged>true</ranged>
+      </allowance>
+    </requirements>
+    <stats>
+      <li>
+        <key>ShootingAccuracyPawn</key>
+        <value>
+          <offset>0.15</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+</Defs>

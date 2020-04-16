@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <TargetFramework>net472</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Lib.fs" />
+    <Compile Include="VerseInterop.fs" />
+    <Compile Include="StatMod.fs" />
+    <Compile Include="DefFields.fs" />
+    <Compile Include="DefTool.fs" />
+    <Compile Include="InfusionDef.fs" />
+    <Compile Include="Comp.fs" />
+    <Compile Include="StatPart.fs" />
+    <Compile Include="ITab.fs" />
+    <Compile Include="Harmonize/CompQuality.fs" />
+    <Compile Include="Harmonize/StatWorker.fs" />
+    <Compile Include="Mod.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="..\libs\*.dll" />
+    <Reference Include="netstandard" />
+  </ItemGroup>
+  <ItemGroup>
+    <Artifact Include=".\bin\**\Infusion.dll" />
+    <CoreLib Include=".\bin\**\FSharp.Core.dll" />
+    <XmlDocs Include="..\xml\**\*.*" />
+  </ItemGroup>
+  <Target Name="Copy" AfterTargets="Build">
+    <RemoveDir Directories="..\dist" />
+    <Copy SourceFiles="@(XmlDocs)" DestinationFolder="..\dist\%(RecursiveDir)" />
+    <Copy SourceFiles="@(Artifact)" DestinationFiles="..\dist\Infusion\Assemblies\Infusion.dll" />
+    <Copy SourceFiles="@(CoreLib)" DestinationFiles="..\dist\FSharp.Core\Assemblies\FSharp.Core.dll" />
+  </Target>
+  <Import Project="..\.paket\Paket.Restore.targets" />
+</Project>

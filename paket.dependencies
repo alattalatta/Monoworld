@@ -1,0 +1,7 @@
+source https://api.nuget.org/v3/index.json
+
+storage: none
+framework: net472
+nuget FSharp.Core
+nuget Lib.Harmony
+nuget UnlimitedHugs.Rimworld.HugsLib

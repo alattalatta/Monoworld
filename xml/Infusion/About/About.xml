@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ModMetaData>
+  <packageId>latta.infusion</packageId>
+  <name>Infusion 2</name>
+  <author>latta</author>
+  <url>https://ludeon.com/forums/index.php?topic=21884.0</url>
+  <supportedVersions>
+    <li>1.1</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+    <li>
+      <packageId>UnlimitedHugs.HugsLib</packageId>
+      <displayName>HugsLib</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/818773962</steamWorkshopUrl>
+      <downloadUrl>https://github.com/UnlimitedHugs/RimworldHugsLib/releases</downloadUrl>
+    </li>
+    <li>
+      <packageId>latta.fsharp.core</packageId>
+      <displayName>FSharp.Core</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2059725183</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <description>Extra equipment randomization for weapons and apparels</description>
+</ModMetaData>

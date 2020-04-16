@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LanguageData>
+  <Infusion.Awful>awful</Infusion.Awful>
+  <Infusion.Poor>poor</Infusion.Poor>
+  <Infusion.Common>common</Infusion.Common>
+  <Infusion.Uncommon>uncommon</Infusion.Uncommon>
+  <Infusion.Rare>rare</Infusion.Rare>
+  <Infusion.Epic>epic</Infusion.Epic>
+  <Infusion.Legendary>legendary</Infusion.Legendary>
+  <Infusion.Artifact>artifact</Infusion.Artifact>
+
+  <Infusion.StatPart.Start>Infusion: </Infusion.StatPart.Start>
+
+  <Infusion.ITab>Infusions</Infusion.ITab>
+</LanguageData>
