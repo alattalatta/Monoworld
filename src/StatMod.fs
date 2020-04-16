@@ -30,6 +30,10 @@ type StatMod =
                 |> (if isNull stat.formatString
                     then id
                     else (fun str -> System.String.Format(stat.formatString, str)))
+
+            // force add plus sign, formatStrings don't have it
+            if this.offset > 0.0f then do sb.Append("+") |> ignore
+
             do sb.Append(styled) |> ignore
 
         string sb

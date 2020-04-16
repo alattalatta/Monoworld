@@ -7,8 +7,6 @@ XML documents such as `InfusionDefs` and `LanguageData` are in `xml` directory.
 
 _Infusion 2_ requires `dotnet` CLI, and targets .NET 4.7.2. It's using [Paket](https://fsprojects.github.io/Paket/) for dependency management.
 
-### `InfusionDef`
-
 ### Assembly building
 ```
 > cd src
