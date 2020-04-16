@@ -176,6 +176,7 @@
     <defName>Memory</defName>
     <label>memory</label>
     <labelShort>mem</labelShort>
+    <position>Suffix</position>
     <stats>
       <li>
         <key>GlobalLearningFactor</key>
