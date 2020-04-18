@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <HugsLib.UpdateFeatureDef Abstract="true" Name="UpdateFeatureBase">
+    <modNameReadable>Infusion 2</modNameReadable>
+    <modIdentifier>latta.infusion</modIdentifier>
+    <linkUrl>https://ludeon.com/forums/index.php?topic=51712.0</linkUrl>
+  </HugsLib.UpdateFeatureDef>
+
+  <HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+    <defName>infusion_120</defName>
+    <assemblyVersion>1.2.0</assemblyVersion>
+    <content>Now with configurable infusion weights and chances!|img:images/120|feature: Added mod options for infusion weight and chance factor.
+feature: Implemented HugsLib mod update news support.
+feature: Added 7 new infusions.
+balance: Decreased default weight factor to 0.5. (was 1)
+balance: Decreased maximum chance for infusions to 0.9. (was 1)
+fix: Reverted pawn accuracy stat to weapon accuracy stats.
+</content>
+  </HugsLib.UpdateFeatureDef>
+</Defs>
