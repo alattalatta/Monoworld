@@ -64,6 +64,40 @@
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="EpicApparelBase">
+    <defName>Cooling</defName>
+    <label>cooling</label>
+    <labelShort>cool</labelShort>
+    <stats>
+      <li>
+        <key>ArmorRating_Heat</key>
+        <value>
+          <multiplier>1.1</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>Insulation_Heat</key>
+        <value>
+          <multiplier>1.2</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="EpicApparelBase">
+    <defName>Energizing</defName>
+    <label>energizing</label>
+    <labelShort>enrg</labelShort>
+    <stats>
+      <li>
+        <key>RestRateMultiplier</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="EpicApparelBase">
     <defName>Harmonious</defName>
     <label>harmonious</label>
     <labelShort>hrmny</labelShort>
@@ -138,26 +172,6 @@
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="EpicApparelBase">
-    <defName>Cooling</defName>
-    <label>cooling</label>
-    <labelShort>cool</labelShort>
-    <stats>
-      <li>
-        <key>ArmorRating_Heat</key>
-        <value>
-          <multiplier>1.1</multiplier>
-        </value>
-      </li>
-      <li>
-        <key>Insulation_Heat</key>
-        <value>
-          <multiplier>1.2</multiplier>
-        </value>
-      </li>
-    </stats>
-  </Infusion.InfusionDef>
-
-  <Infusion.InfusionDef ParentName="EpicApparelBase">
     <defName>Labor</defName>
     <label>labor</label>
     <labelShort>labr</labelShort>
@@ -188,15 +202,18 @@
   </Infusion.InfusionDef>
 
   <!-- melee -->
-  <Infusion.InfusionDef ParentName="EpicAllTechBase">
-    <defName>Dancing</defName>
-    <label>dancing</label>
-    <labelShort>dance</labelShort>
+  <Infusion.InfusionDef Abstract="True" Name="EpicMeleeBase" ParentName="EpicAllTechBase">
     <requirements>
       <allowance>
         <melee>true</melee>
       </allowance>
     </requirements>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="EpicMeleeBase">
+    <defName>Dancing</defName>
+    <label>dancing</label>
+    <labelShort>dance</labelShort>
     <stats>
       <li>
         <key>MeleeWeapon_CooldownMultiplier</key>
@@ -207,14 +224,9 @@
     </stats>
   </Infusion.InfusionDef>
 
-  <Infusion.InfusionDef ParentName="EpicAllTechBase">
+  <Infusion.InfusionDef ParentName="EpicMeleeBase">
     <defName>Fierce</defName>
     <label>fierce</label>
-    <requirements>
-      <allowance>
-        <melee>true</melee>
-      </allowance>
-    </requirements>
     <stats>
       <li>
         <key>MeleeWeapon_DamageMultiplier</key>
@@ -226,6 +238,25 @@
         <key>MeleeWeapon_CooldownMultiplier</key>
         <value>
           <offset>-0.1</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="EpicMeleeBase">
+    <defName>Protecting</defName>
+    <label>protecting</label>
+    <stats>
+      <li>
+        <key>ArmorRating_Sharp</key>
+        <value>
+          <offset>0.3</offset>
+        </value>
+      </li>
+      <li>
+        <key>ArmorRating_Blunt</key>
+        <value>
+          <offset>0.3</offset>
         </value>
       </li>
     </stats>
@@ -286,9 +317,55 @@
     </requirements>
     <stats>
       <li>
-        <key>ShootingAccuracyPawn</key>
+        <key>AccuracyTouch</key>
         <value>
-          <offset>0.15</offset>
+          <multiplier>1.15</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyShort</key>
+        <value>
+          <multiplier>1.15</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyMedium</key>
+        <value>
+          <multiplier>1.15</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyLong</key>
+        <value>
+          <multiplier>1.15</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="EpicBase">
+    <defName>Towering</defName>
+    <label>towering</label>
+    <labelShort>towr</labelShort>
+    <requirements>
+      <allowance>
+        <ranged>true</ranged>
+      </allowance>
+      <techLevel>
+        <li>Neolithic</li>
+      </techLevel>
+    </requirements>
+    <stats>
+      <li>
+        <key>RangedWeapon_DamageMultiplier</key>
+        <value>
+          <offset>0.6</offset>
+        </value>
+      </li>
+      <li>
+        <key>RangedWeapon_Cooldown</key>
+        <value>
+          <multiplier>1.1</multiplier>
         </value>
       </li>
     </stats>

@@ -72,6 +72,20 @@
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="RareApparelBase">
+    <defName>Calming</defName>
+    <label>calming</label>
+    <labelShort>calm</labelShort>
+    <stats>
+      <li>
+        <key>MentalBreakThreshold</key>
+        <value>
+          <offset>-0.05</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareApparelBase">
     <defName>Deflecting</defName>
     <label>deflecting</label>
     <labelShort>deflct</labelShort>
@@ -86,14 +100,14 @@
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="RareApparelBase">
-    <defName>Calming</defName>
-    <label>calming</label>
-    <labelShort>calm</labelShort>
+    <defName>Refreshing</defName>
+    <label>refreshing</label>
+    <labelShort>refr</labelShort>
     <stats>
       <li>
-        <key>MentalBreakThreshold</key>
+        <key>RestRateMultiplier</key>
         <value>
-          <offset>-0.05</offset>
+          <offset>0.1</offset>
         </value>
       </li>
     </stats>
@@ -161,8 +175,29 @@
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="RareMeleeBase">
+    <defName>Parrying</defName>
+    <label>parrying</label>
+    <labelShort>parr</labelShort>
+    <stats>
+      <li>
+        <key>ArmorRating_Sharp</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+      <li>
+        <key>ArmorRating_Blunt</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareMeleeBase">
     <defName>Nimble</defName>
     <label>nimble</label>
+    <labelShort>nimb</labelShort>
     <stats>
       <li>
         <key>MeleeDodgeChance</key>

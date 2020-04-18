@@ -134,6 +134,26 @@
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="UncommonMeleeBase">
+    <defName>Blocking</defName>
+    <label>blocking</label>
+    <labelShort>blok</labelShort>
+    <stats>
+      <li>
+        <key>ArmorRating_Sharp</key>
+        <value>
+          <offset>0.1</offset>
+        </value>
+      </li>
+      <li>
+        <key>ArmorRating_Blunt</key>
+        <value>
+          <offset>0.1</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="UncommonMeleeBase">
     <defName>Fine</defName> <!-- [todo] FineMelee -->
     <label>fine</label>
     <stats>
