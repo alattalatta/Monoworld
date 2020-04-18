@@ -12,4 +12,18 @@
   <Infusion.StatPart.Start>Infusion: </Infusion.StatPart.Start>
 
   <Infusion.ITab>Infusions</Infusion.ITab>
+
+  <Infusion.Settings.WeightFactor>Weight factor</Infusion.Settings.WeightFactor>
+  <Infusion.Settings.WeightFactor.Description>Multiplies weight of infusions. Possible values are 0.0 ~ 2.0.
+
+2.0 only picks one of the highest weights for a quality. 0.0 means everything is possible.
+
+Note: Chances still applies.
+  </Infusion.Settings.WeightFactor.Description>
+
+  <Infusion.Settings.ChanceFactor>Probability factor</Infusion.Settings.ChanceFactor>
+  <Infusion.Settings.ChanceFactor.Description>Multiplies probability of infusions. Possible values are 0.0 ~ 100.0.
+
+With default infusions, 10 would be sufficient to ensure everything will pass. 0.0 will effectively disable new infusions.
+  </Infusion.Settings.ChanceFactor.Description>
 </LanguageData>

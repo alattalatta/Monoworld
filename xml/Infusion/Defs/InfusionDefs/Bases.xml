@@ -13,7 +13,7 @@
       <li>
         <key>MarketValue</key>
         <value>
-          <multiplier>0.6</multiplier>
+          <multiplier>0.7</multiplier>
         </value>
       </li>
     </stats>
@@ -33,7 +33,7 @@
       <li>
         <key>MarketValue</key>
         <value>
-          <multiplier>0.8</multiplier>
+          <multiplier>0.9</multiplier>
         </value>
       </li>
     </stats>
@@ -45,7 +45,7 @@
       <normal>0.4</normal>
       <good>0.6</good>
       <excellent>0.8</excellent>
-      <masterwork>1</masterwork>
+      <masterwork>0.9</masterwork>
     </chances>
     <weights>
       <normal>1</normal>
@@ -68,8 +68,8 @@
     <chances>
       <good>0.6</good>
       <excellent>0.8</excellent>
-      <masterwork>1</masterwork>
-      <legendary>1</legendary>
+      <masterwork>0.9</masterwork>
+      <legendary>0.9</legendary>
     </chances>
     <weights>
       <good>0.5</good>
@@ -92,8 +92,8 @@
     <chances>
       <good>0.3</good>
       <excellent>0.7</excellent>
-      <masterwork>1</masterwork>
-      <legendary>1</legendary>
+      <masterwork>0.9</masterwork>
+      <legendary>0.9</legendary>
     </chances>
     <weights>
       <good>0.1</good>

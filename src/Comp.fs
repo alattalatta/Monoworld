@@ -205,12 +205,12 @@ let pickInfusions (quality: QualityCategory) (parent: ThingWithComps) =
 
     // chance
     let checkChance (infDef: InfusionDef) =
-        let chance = infDef.ChanceFor(quality)
+        let chance = infDef.ChanceFor(quality) * Settings.getChanceFactor()
         Rand.Chance chance
 
     DefDatabase<InfusionDef>.AllDefs
     |> Seq.filter (checkAllowance <&> checkTechLevel <&> checkQuality)
-    |> Seq.map (fun infDef -> (infDef, (infDef.WeightFor quality * 1.2f) + Rand.Value)) // weighted, duh
+    |> Seq.map (fun infDef -> (infDef, (infDef.WeightFor quality) * (Settings.getWeightFactor()) + Rand.Value)) // weighted, duh
     |> Seq.sortByDescending snd
     |> Seq.truncate (maxInfusionsFor quality)
     |> Seq.map fst

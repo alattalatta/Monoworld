@@ -11,6 +11,7 @@
     <Compile Include="DefFields.fs" />
     <Compile Include="DefTool.fs" />
     <Compile Include="InfusionDef.fs" />
+    <Compile Include="Settings.fs" />
     <Compile Include="Comp.fs" />
     <Compile Include="StatPart.fs" />
     <Compile Include="ITab.fs" />

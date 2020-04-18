@@ -9,23 +9,21 @@ open Verse
 
 open DefTool
 
-type Mod(content) =
-    inherit Verse.Mod(content)
-    do Harmony("com.alattalatta.infusion").PatchAll(Assembly.GetExecutingAssembly())
-
-
 let hasQualityNoInfusion (def: ThingDef) =
     def.HasComp(typedefof<CompQuality>) && not (def.HasComp(typedefof<Comp.Infusion>))
 
 type ModBase() =
     inherit HugsLib.ModBase()
 
-    /// Inject CompInfusion to all equipments.
-    member this.Inject() =
+    override this.ModIdentifier = "latta.infusion"
+
+    override this.DefsLoaded() =
+        do Settings.initialize()
+        do this.Inject()
+
+    member private this.Inject() =
         this.InjectToThings()
         this.InjectToStats()
-
-    override this.DefsLoaded() = do this.Inject()
 
     member private this.InjectToThings() =
         let infusionCandidates =
@@ -56,3 +54,7 @@ type ModBase() =
                if (isNull def.parts) then do def.parts <- ResizeArray<StatPart>(1)
 
                do def.parts.Add statPart)
+
+type Mod(content) =
+    inherit Verse.Mod(content)
+    do Harmony("com.alattalatta.infusion").PatchAll(Assembly.GetExecutingAssembly())
