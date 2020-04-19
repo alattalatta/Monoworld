@@ -180,12 +180,17 @@ type Infusion() =
             | None -> ()
 
     override this.PostExposeData() =
-        let mutable savedData = ResizeArray infusions
+        let mutable savedQuality = QualityCategory.Normal
+        if (Scribe.mode = LoadSaveMode.LoadingVars) then
+            do Scribe_Values.Look(&savedQuality, "quality")
 
+            do this.Quality <- savedQuality
+
+        let mutable savedData = ResizeArray infusions
         if (Scribe.mode = LoadSaveMode.LoadingVars || (Scribe.mode = LoadSaveMode.Saving && savedData.Any())) then
             do Scribe_Collections.Look(&savedData, "infusion", LookMode.Def)
 
-            if not (isNull savedData) && Scribe.mode = LoadSaveMode.LoadingVars then do this.Infusions <- set savedData
+            if not (isNull savedData) && Scribe.mode = LoadSaveMode.LoadingVars then do this.Infusions <- savedData
 
     override this.AllowStackWith(_) = false
 
