@@ -162,6 +162,25 @@
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="RareMeleeBase">
+    <defName>Bladed</defName>
+    <label>bladed</label>
+    <labelShort>blde</labelShort>
+    <requirements>
+      <meleeDamageType>Blunt</meleeDamageType>
+    </requirements>
+    <extraMeleeDamages>
+      <li>
+        <def>Stab</def>
+        <amount>6</amount>
+        <chance>0.8</chance>
+      </li>
+    </extraMeleeDamages>
+    <extraDescriptions>
+      <li>80% chance to deal extra 6 stab damage.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareMeleeBase">
     <defName>Feral</defName>
     <label>feral</label>
     <stats>
@@ -169,6 +188,36 @@
         <key>MeleeWeapon_DamageMultiplier</key>
         <value>
           <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareMeleeBase">
+    <defName>Fiery</defName>
+    <label>fiery</label>
+    <labelShort>fire</labelShort>
+    <extraMeleeDamages>
+      <li>
+        <def>Burn</def>
+        <amount>6</amount>
+        <chance>0.8</chance>
+      </li>
+    </extraMeleeDamages>
+    <extraDescriptions>
+      <li>80% chance to deal extra 6 burn damage.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareMeleeBase">
+    <defName>Nimble</defName>
+    <label>nimble</label>
+    <labelShort>nimb</labelShort>
+    <stats>
+      <li>
+        <key>MeleeDodgeChance</key>
+        <value>
+          <offset>0.15</offset>
         </value>
       </li>
     </stats>
@@ -195,17 +244,27 @@
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="RareMeleeBase">
-    <defName>Nimble</defName>
-    <label>nimble</label>
-    <labelShort>nimb</labelShort>
+    <defName>Taunting</defName>
+    <label>taunting</label>
+    <labelShort>taunt</labelShort>
     <stats>
       <li>
-        <key>MeleeDodgeChance</key>
+        <key>MeleeWeapon_CooldownMultiplier</key>
         <value>
-          <offset>0.15</offset>
+          <offset>0.1</offset>
         </value>
       </li>
     </stats>
+    <extraMeleeDamages>
+      <li>
+        <def>Stun</def>
+        <amount>4</amount>
+        <chance>0.5</chance>
+      </li>
+    </extraMeleeDamages>
+    <extraDescriptions>
+      <li>50% chance to stun by 4 points.</li>
+    </extraDescriptions>
   </Infusion.InfusionDef>
 
   <!-- ranged -->

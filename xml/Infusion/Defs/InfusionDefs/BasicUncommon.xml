@@ -180,6 +180,25 @@
     </stats>
   </Infusion.InfusionDef>
 
+  <Infusion.InfusionDef ParentName="UncommonMeleeBase">
+    <defName>Spiked</defName>
+    <label>spiked</label>
+    <labelShort>spk</labelShort>
+    <requirements>
+      <meleeDamageType>Blunt</meleeDamageType>
+    </requirements>
+    <extraMeleeDamages>
+      <li>
+        <def>Stab</def>
+        <amount>3</amount>
+        <chance>0.8</chance>
+      </li>
+    </extraMeleeDamages>
+    <extraDescriptions>
+      <li>80% chance to deal extra 3 stab damage.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
   <!-- ranged -->
   <Infusion.InfusionDef ParentName="UncommonAllTechBase">
     <defName>Accurate</defName>

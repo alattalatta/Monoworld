@@ -244,8 +244,25 @@
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="EpicMeleeBase">
+    <defName>Igneous</defName>
+    <label>igneous</label>
+    <labelShort>igni</labelShort>
+    <extraMeleeDamages>
+      <li>
+        <def>Flame</def>
+        <amount>8</amount>
+        <chance>0.5</chance>
+      </li>
+    </extraMeleeDamages>
+    <extraDescriptions>
+      <li>50% chance to deal extra 8 flame damage.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="EpicMeleeBase">
     <defName>Protecting</defName>
     <label>protecting</label>
+    <labelShort>prot</labelShort>
     <stats>
       <li>
         <key>ArmorRating_Sharp</key>
@@ -260,6 +277,22 @@
         </value>
       </li>
     </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="EpicMeleeBase">
+    <defName>Surging</defName>
+    <label>surging</label>
+    <labelShort>surg</labelShort>
+    <extraMeleeDamages>
+      <li>
+        <def>EMP</def>
+        <amount>8</amount>
+        <chance>0.8</chance>
+      </li>
+    </extraMeleeDamages>
+    <extraDescriptions>
+      <li>80% chance to deal extra 8 EMP damage.</li>
+    </extraDescriptions>
   </Infusion.InfusionDef>
 
   <!-- ranged -->

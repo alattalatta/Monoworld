@@ -268,6 +268,46 @@
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="LegendaryMeleeBase">
+    <defName>Blazing</defName>
+    <label>blazing</label>
+    <labelShort>blaz</labelShort>
+    <extraMeleeDamages>
+      <li>
+        <def>Flame</def>
+        <amount>12</amount>
+        <chance>0.8</chance>
+      </li>
+    </extraMeleeDamages>
+    <extraDescriptions>
+      <li>80% chance to deal extra 12 flame damage.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryMeleeBase">
+    <defName>Overwhelming</defName>
+    <label>overwhelming</label>
+    <labelShort>over</labelShort>
+    <stats>
+      <li>
+        <key>MeleeWeapon_CooldownMultiplier</key>
+        <value>
+          <offset>0.1</offset>
+        </value>
+      </li>
+    </stats>
+    <extraMeleeDamages>
+      <li>
+        <def>Stun</def>
+        <amount>8</amount>
+        <chance>0.5</chance>
+      </li>
+    </extraMeleeDamages>
+    <extraDescriptions>
+      <li>50% chance to stun by 8 points.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryMeleeBase">
     <defName>Hatred</defName>
     <label>hatred</label>
     <position>Suffix</position>
