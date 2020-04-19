@@ -1,6 +1,7 @@
 module Infusion.Comp
 
 open System
+open System.Collections.Generic
 open System.Text
 
 open RimWorld
@@ -18,10 +19,12 @@ type Infusion() =
 
     let mutable infusions = Set.empty<InfusionDef>
 
+    let mutable quality = QualityCategory.Normal
+
     let mutable bestInfusionCache = None
     let mutable inspectStringCache = None
 
-    let mutable quality = QualityCategory.Normal
+    let infusionsStatCache = Dictionary<StatDef, option<Set<InfusionDef>>>()
 
     member this.Quality
         with get () = quality
@@ -69,7 +72,7 @@ type Infusion() =
             string sb
         | None -> ""
 
-    member this.LabelFull =
+    member this.InspectionLabel =
         let pickLabel (def: InfusionDef) = def.label
 
         if Set.isEmpty infusions then
@@ -101,11 +104,25 @@ type Infusion() =
 
     member this.Size = Set.count infusions
 
-    member this.HasInfusionForStat(stat: StatDef) = infusions |> Set.exists (fun inf -> inf.stats.ContainsKey stat)
+    member this.PopulateInfusionsStatCache(stat: StatDef) =
+        if not (infusionsStatCache.ContainsKey stat) then
+            let those = infusions |> Set.filter (fun inf -> inf.stats.ContainsKey stat)
+            do infusionsStatCache.Add
+                (stat,
+                 (if Set.isEmpty those then None else Some(those)))
+
+    member this.GetInfusionsForStat(stat: StatDef) =
+        do this.PopulateInfusionsStatCache(stat)
+        infusionsStatCache.TryGetValue(stat, None) |> Option.defaultValue Set.empty
+
+    member this.HasInfusionForStat(stat: StatDef) =
+        do this.PopulateInfusionsStatCache(stat)
+        infusionsStatCache.TryGetValue(stat, None) |> Option.isSome
 
     member this.InvalidateCache() =
         do bestInfusionCache <- None
         do inspectStringCache <- None
+        do infusionsStatCache.Clear()
 
     override this.TransformLabel label =
         match this.BestInfusion with
@@ -149,7 +166,7 @@ type Infusion() =
         match inspectStringCache with
         | Some cache -> cache
         | None ->
-            let inspectString = this.LabelFull
+            let inspectString = this.InspectionLabel
             do inspectStringCache <- Some inspectString
             inspectString
 
@@ -180,8 +197,7 @@ let addInfusion (infDef: InfusionDef) (comp: Infusion) =
         }
 
 let allModsForStat (stat: StatDef) (comp: Infusion) =
-    comp.Infusions
-    |> Seq.filter (fun inf -> inf.stats.ContainsKey stat)
+    comp.GetInfusionsForStat stat
     |> Seq.map (fun inf -> inf.stats.TryGetValue stat)
     |> List.ofSeq
 

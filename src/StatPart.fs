@@ -20,12 +20,10 @@ type Infusion =
 
     override this.TransformValue(req, value: byref<float32>) =
         if not this.isPawnStat then
-            let trv =
+            do value <-
                 match req.Thing with
                 | null -> value
                 | thing -> this.TransformThingStat(value, thing)
-
-            do value <- trv
 
     override this.ExplanationPart req =
         if not this.isPawnStat then
@@ -52,9 +50,6 @@ type Infusion =
             do sb.Append(translate "Infusion.StatPart.Start").Append(statModSum) |> ignore
 
         string sb
-
-    member private this.GetAllModifiersFromThings<'T when 'T :> Thing>(things: list<'T>): list<StatMod> =
-        List.collect this.GetAllModifiersFromThing things
 
     member private this.GetAllModifiersFromThing<'T when 'T :> Thing>(thing: 'T): list<StatMod> =
         compOfThing<Comp.Infusion> thing

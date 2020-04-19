@@ -37,7 +37,7 @@ type Infused() =
             | Some inf -> tierToColor inf.tier
             | None -> Color.white
 
-        let label = compInf.LabelFull
+        let label = compInf.InspectionLabel
         Widgets.Label(rectLabel, label)
 
         // subLabel
