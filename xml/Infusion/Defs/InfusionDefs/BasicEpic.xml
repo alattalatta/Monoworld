@@ -255,7 +255,7 @@
       </li>
     </extraMeleeDamages>
     <extraDescriptions>
-      <li>50% chance to deal extra 8 flame damage.</li>
+      <li>50% chance to deal extra 8 flame damage, igniting the target.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -277,22 +277,6 @@
         </value>
       </li>
     </stats>
-  </Infusion.InfusionDef>
-
-  <Infusion.InfusionDef ParentName="EpicMeleeBase">
-    <defName>Surging</defName>
-    <label>surging</label>
-    <labelShort>surg</labelShort>
-    <extraMeleeDamages>
-      <li>
-        <def>EMP</def>
-        <amount>8</amount>
-        <chance>0.8</chance>
-      </li>
-    </extraMeleeDamages>
-    <extraDescriptions>
-      <li>80% chance to deal extra 8 EMP damage.</li>
-    </extraDescriptions>
   </Infusion.InfusionDef>
 
   <!-- ranged -->

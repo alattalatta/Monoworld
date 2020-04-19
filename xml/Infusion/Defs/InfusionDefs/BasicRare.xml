@@ -259,7 +259,7 @@
       <li>
         <def>Stun</def>
         <amount>4</amount>
-        <chance>0.5</chance>
+        <chance>0.3</chance>
       </li>
     </extraMeleeDamages>
     <extraDescriptions>

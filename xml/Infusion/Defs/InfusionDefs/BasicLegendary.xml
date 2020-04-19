@@ -279,7 +279,7 @@
       </li>
     </extraMeleeDamages>
     <extraDescriptions>
-      <li>80% chance to deal extra 12 flame damage.</li>
+      <li>80% chance to deal extra 12 flame damage, igniting the target.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
