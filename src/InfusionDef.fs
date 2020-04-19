@@ -18,6 +18,8 @@ type InfusionDef =
 
     val mutable labelShort: string
     val mutable chances: QualityMap
+    val mutable extraMeleeDamages: ResizeArray<ExtraDamage>
+    val mutable extraDescriptions: ResizeArray<string>
     val mutable position: Position
     val mutable requirements: Requirements
     val mutable stats: Dictionary<StatDef, StatMod>
@@ -28,11 +30,15 @@ type InfusionDef =
         { inherit Def()
           labelShort = ""
           chances = QualityMap()
+          extraMeleeDamages = null
+          extraDescriptions = ResizeArray()
           position = Position.Prefix
           requirements = Requirements()
           stats = Dictionary()
           tier = Tier.Common
           weights = QualityMap() }
+
+    member this.ExtraMeleeDamages = Option.ofObj this.extraMeleeDamages
 
     member this.ChanceFor(quality: QualityCategory) =
         match quality with
@@ -59,13 +65,21 @@ type InfusionDef =
     member this.GetDescriptionString() =
         let label = ((StringBuilder(string (this.LabelCap)).Append(" (").Append(this.tier).Append(") :")) |> string)
 
-        let statsDescription =
+        let statsDescriptions =
             dictseq this.stats
             |> Seq.fold (fun (acc: StringBuilder) cur ->
                 acc.Append("  ").Append(cur.Key.LabelCap).Append(" ... ")
                    .AppendLine((cur.Value.ToStringForStat(cur.Key)))) (StringBuilder("\n"))
 
-        string (StringBuilder(label.Colorize(tierToColor this.tier)).Append(statsDescription))
+        let extraDescriptions =
+            if (this.extraDescriptions.NullOrEmpty()) then
+                ""
+            else
+                Seq.fold (fun (acc: StringBuilder) cur -> acc.Append("  ").AppendLine(cur)) (StringBuilder("\n"))
+                |> string
+
+        string
+            (StringBuilder(label.Colorize(tierToColor this.tier)).Append(statsDescriptions).Append(extraDescriptions))
 
     override this.Equals(ob: obj) =
         match ob with
@@ -83,3 +97,6 @@ type InfusionDef =
                 let byTier = this.tier.CompareTo infDef.tier
                 if byTier <> 0 then byTier else this.defName.CompareTo infDef.defName
             | _ -> 0
+
+module Def =
+    let hasExtraMeleeDamage (def: InfusionDef) = Option.isSome def.ExtraMeleeDamages

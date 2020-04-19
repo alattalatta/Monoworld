@@ -185,12 +185,6 @@ let allModsForStat (stat: StatDef) (comp: Infusion) =
     |> Seq.map (fun inf -> inf.stats.TryGetValue stat)
     |> List.ofSeq
 
-let removeAllInfusions (comp: Infusion) = do comp.Infusions <- Set.empty
-
-let removeInfusion (infDef: InfusionDef) (comp: Infusion) = do comp.Infusions <- Set.remove infDef comp.InfusionsRaw
-
-let resetHP (comp: ThingComp) = do comp.parent.HitPoints <- comp.parent.MaxHitPoints
-
 /// Picks elligible `InfusionDef` for the `Thing`.
 let pickInfusions (quality: QualityCategory) (parent: ThingWithComps) =
     // requirement fields
@@ -203,13 +197,22 @@ let pickInfusions (quality: QualityCategory) (parent: ThingWithComps) =
     let checkTechLevel (infDef: InfusionDef) = infDef.requirements.techLevel |> Seq.contains parent.def.techLevel
     let checkQuality (infDef: InfusionDef) = (infDef.ChanceFor quality) > 0.0f
 
+    let checkDamageType (infDef: InfusionDef) =
+        if parent.def.IsApparel || infDef.requirements.meleeDamageType = DamageType.Anything then
+            true
+        else
+            parent.def.tools
+            |> Seq.reduce (fun a b ->
+                if a.power > b.power then a else b)
+            |> isToolCapableOfDamageType infDef.requirements.meleeDamageType
+
     // chance
     let checkChance (infDef: InfusionDef) =
         let chance = infDef.ChanceFor(quality) * Settings.getChanceFactor()
         Rand.Chance chance
 
     DefDatabase<InfusionDef>.AllDefs
-    |> Seq.filter (checkAllowance <&> checkTechLevel <&> checkQuality)
+    |> Seq.filter (checkAllowance <&> checkTechLevel <&> checkQuality <&> checkDamageType)
     |> Seq.map (fun infDef -> (infDef, (infDef.WeightFor quality) * (Settings.getWeightFactor()) + Rand.Value)) // weighted, duh
     |> Seq.sortByDescending snd
     |> Seq.truncate (maxInfusionsFor quality)
@@ -217,3 +220,9 @@ let pickInfusions (quality: QualityCategory) (parent: ThingWithComps) =
     |> Seq.filter checkChance
     |> List.ofSeq // need to "finalize" the random sort
     |> List.sortBy (fun infDef -> infDef.tier)
+
+let removeAllInfusions (comp: Infusion) = do comp.Infusions <- Set.empty
+
+let removeInfusion (infDef: InfusionDef) (comp: Infusion) = do comp.Infusions <- Set.remove infDef comp.InfusionsRaw
+
+let resetHP (comp: ThingComp) = do comp.parent.HitPoints <- comp.parent.MaxHitPoints

@@ -18,6 +18,7 @@
     <Compile Include="DebugActions.fs" />
     <Compile Include="Harmonize/CompQuality.fs" />
     <Compile Include="Harmonize/StatWorker.fs" />
+    <Compile Include="Harmonize/VerbMeleeAttackDamage.fs" />
     <Compile Include="Mod.fs" />
   </ItemGroup>
   <ItemGroup>

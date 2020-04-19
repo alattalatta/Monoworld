@@ -22,6 +22,17 @@ let apparelOrWeapon (def: ThingDef) =
     ThingCategoryDefOf.Apparel.ContainedInThisOrDescendant def
     || ThingCategoryDefOf.Weapons.ContainedInThisOrDescendant def
 
+// 2, 1, 1, 1, 2, 3, 4
+let maxInfusionsFor (quality: QualityCategory) = max 1 (abs (int quality - 2))
+
+let rec isToolCapableOfDamageType (dt: DamageType) (tool: Tool) =
+    match dt with
+    | DamageType.Anything -> true
+    | DamageType.Blunt ->
+        tool.capacities |> Seq.exists (fun capacity -> capacity.defName = "Blunt" || capacity.defName = "Poke")
+    | DamageType.Sharp -> not (isToolCapableOfDamageType DamageType.Blunt tool) // assuming reverse of blunt is sharp...
+    | _ -> false
+
 let getLabelOfTier (tier: Tier) =
     match tier with
     | Tier.Awful -> translate "Infused.Awful"
@@ -32,9 +43,6 @@ let getLabelOfTier (tier: Tier) =
     | Tier.Legendary -> translate "Infused.Legendary"
     | Tier.Artifact -> translate "Infused.Artifact"
     | _ -> ""
-
-// 2, 1, 1, 1, 2, 3, 4
-let maxInfusionsFor (quality: QualityCategory) = max 1 (abs (int quality - 2))
 
 let tierToColor (tier: Tier) =
     match tier with

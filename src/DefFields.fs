@@ -36,13 +36,21 @@ type Position =
     | Suffix = 1
 
 
+type DamageType =
+    | Anything = 0
+    | Blunt = 1
+    | Sharp = 2
+
+
 type Requirements =
     val mutable allowance: Allowance
     val mutable techLevel: ResizeArray<TechLevel>
+    val mutable meleeDamageType: DamageType
 
     new() =
         { allowance = Allowance()
-          techLevel = ResizeArray() }
+          techLevel = ResizeArray()
+          meleeDamageType = DamageType.Anything }
 
 
 type Tier =
