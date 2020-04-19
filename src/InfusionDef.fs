@@ -76,12 +76,12 @@ type InfusionDef =
                 ""
             else
                 this.extraDescriptions
-                |> Seq.fold (fun (acc: StringBuilder) cur -> acc.Append("  ").AppendLine(cur)) (StringBuilder("\n"))
+                |> Seq.fold (fun (acc: StringBuilder) cur -> acc.Append("  ").AppendLine(cur)) (StringBuilder())
                 |> string
 
         string
             (StringBuilder(label.Colorize(tierToColor this.tier)).Append(statsDescriptions)
-                .Append(extraDescriptions.Colorize(tierToColor Tier.Uncommon)))
+                .AppendLine(extraDescriptions.Colorize(tierToColor Tier.Uncommon)))
 
     override this.Equals(ob: obj) =
         match ob with

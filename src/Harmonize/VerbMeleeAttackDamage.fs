@@ -34,15 +34,12 @@ module DamageInfosToApply =
     // prefix1(assign true) -> prefix2 -> postfix1(assign false) -> postfix2
     let mutable dangerouslyModifyingResults = false
 
-    let Prefix(target: LocalTargetInfo, __instance: Verb_MeleeAttackDamage) =
-        Log.Message(sprintf "premod for %s" __instance.Caster.Label)
-        do dangerouslyModifyingResults <- true
+    let Prefix(target: LocalTargetInfo, __instance: Verb_MeleeAttackDamage) = do dangerouslyModifyingResults <- true
 
     let Postfix(returned: IEnumerable<DamageInfo>, target: LocalTargetInfo, __instance: Verb_MeleeAttackDamage) =
         if Seq.isEmpty returned || not dangerouslyModifyingResults then
             returned
         else
-            Log.Message(sprintf "modifying for %s" __instance.Caster.Label)
             let damages =
                 Option.ofObj __instance.EquipmentSource
                 |> Option.bind compOfThing<Comp.Infusion>
@@ -58,7 +55,5 @@ module DamageInfosToApply =
                 |> Option.defaultValue returned
 
             do dangerouslyModifyingResults <- false
-
-            Log.Message(sprintf "%A" damages)
 
             seq damages
