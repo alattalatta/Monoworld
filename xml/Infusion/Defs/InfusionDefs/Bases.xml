@@ -46,6 +46,7 @@
       <good>0.6</good>
       <excellent>0.8</excellent>
       <masterwork>0.9</masterwork>
+      <legendary>0.1</legendary>
     </chances>
     <weights>
       <normal>1</normal>
@@ -66,6 +67,7 @@
 
   <Infusion.InfusionDef Abstract="True" Name="RareBase">
     <chances>
+      <normal>0.1</normal>
       <good>0.6</good>
       <excellent>0.8</excellent>
       <masterwork>0.9</masterwork>
@@ -73,7 +75,7 @@
     </chances>
     <weights>
       <good>0.5</good>
-      <excellent>1</excellent>
+      <excellent>0.8</excellent>
       <masterwork>0.6</masterwork>
       <legendary>0.2</legendary>
     </weights>
@@ -90,14 +92,15 @@
 
   <Infusion.InfusionDef Abstract="True" Name="EpicBase">
     <chances>
+      <normal>0.1</normal>
       <good>0.3</good>
       <excellent>0.7</excellent>
       <masterwork>0.9</masterwork>
       <legendary>0.9</legendary>
     </chances>
     <weights>
-      <good>0.1</good>
-      <excellent>0.4</excellent>
+      <good>0.2</good>
+      <excellent>0.6</excellent>
       <masterwork>1</masterwork>
       <legendary>0.8</legendary>
     </weights>
@@ -114,6 +117,8 @@
 
   <Infusion.InfusionDef Abstract="True" Name="LegendaryBase">
     <chances>
+      <normal>0.1</normal>
+      <good>0.1</good>
       <excellent>0.4</excellent>
       <masterwork>0.7</masterwork>
       <legendary>0.8</legendary>
