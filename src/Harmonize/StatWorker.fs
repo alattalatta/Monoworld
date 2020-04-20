@@ -41,15 +41,18 @@ module RelevantGear =
 
 [<HarmonyPatch(typeof<StatWorker>, "StatOffsetFromGear")>]
 module StatOffsetFromGear =
+    // despite not being IEnumerable, Prefix and Postfix are being called twice
+    // see Harmonize.VerbMeleeAttackDamage.DamageInfosToApply for more
+    let mutable dangerouslyModifyingResult = false
+
+    let Prefix(gear: Thing, stat: StatDef) = do dangerouslyModifyingResult <- true
+
     /// Adds infusions to Core stat calculation.
     /// Note that we can only use `StatMod#offset` because it is "stat _offset_ from gear."
     let Postfix(returned: float32, gear: Thing, stat: StatDef) =
-        let baseValue = gear.def.equippedStatOffsets.GetStatOffsetFromList stat
-
-        match compOfThing<Comp.Infusion> gear with
-        | Some compInf ->
-            (compInf
-             |> Comp.allModsForStat stat
-             |> List.fold (+) StatMod.empty).offset
-            + baseValue
-        | None -> returned
+        if not dangerouslyModifyingResult then
+            returned
+        else
+            match compOfThing<Comp.Infusion> gear with
+            | Some compInf -> (compInf.GetModForStat stat).offset + returned
+            | None -> returned

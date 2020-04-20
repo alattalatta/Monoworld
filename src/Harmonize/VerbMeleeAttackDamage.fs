@@ -28,7 +28,7 @@ module DamageInfosToApply =
         |> DamageInfo.setBodyRegion BodyPartHeight.Undefined BodyPartDepth.Outside
         |> DamageInfo.setWeaponBodyPartGroup (instance.verbProps.AdjustedLinkedBodyPartsGroup instance.tool)
 
-    // due to the lazy nature of IEnumberables, Postfix is causing multiple createDamageInfo() calls
+    // by some unknown reasons, Postfix is causing multiple createDamageInfo() calls
     // note that flow isn't prefix1 -> postfix2 -> prefix1 -> postfix2, but prefix1 -> prefix2 -> postfix1 -> postfix2
     // so we are making a flag to stop postfix2 (and any subsequent postfixN) from doing anything
     // prefix1(assign true) -> prefix2 -> postfix1(assign false) -> postfix2

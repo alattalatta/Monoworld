@@ -10,6 +10,7 @@ open Verse
 open DefFields
 open DefTool
 open Lib
+open StatMod
 open VerseInterop
 
 // Holds an equipment's infusions.
@@ -24,7 +25,7 @@ type Infusion() =
     let mutable bestInfusionCache = None
     let mutable inspectStringCache = None
 
-    let infusionsStatCache = Dictionary<StatDef, option<Set<InfusionDef>>>()
+    let infusionsStatModCache = Dictionary<StatDef, option<StatMod>>()
 
     member this.Quality
         with get () = quality
@@ -104,25 +105,35 @@ type Infusion() =
 
     member this.Size = Set.count infusions
 
-    member this.PopulateInfusionsStatCache(stat: StatDef) =
-        if not (infusionsStatCache.ContainsKey stat) then
-            let those = infusions |> Set.filter (fun inf -> inf.stats.ContainsKey stat)
-            do infusionsStatCache.Add
-                (stat,
-                 (if Set.isEmpty those then None else Some(those)))
+    member this.PopulateInfusionsStatModCache(stat: StatDef) =
+        if not (infusionsStatModCache.ContainsKey stat) then
+            let elligibles =
+                infusions
+                |> Seq.filter (fun inf -> inf.stats.ContainsKey stat)
+                |> Seq.map (fun inf -> inf.stats.TryGetValue stat)
 
-    member this.GetInfusionsForStat(stat: StatDef) =
-        do this.PopulateInfusionsStatCache(stat)
-        infusionsStatCache.TryGetValue(stat, None) |> Option.defaultValue Set.empty
+            let statMod =
+                if Seq.isEmpty elligibles then
+                    None
+                else
+                    elligibles
+                    |> Seq.fold (+) StatMod.empty
+                    |> Some
+
+            do infusionsStatModCache.Add(stat, statMod)
+
+    member this.GetModForStat(stat: StatDef) =
+        do this.PopulateInfusionsStatModCache(stat)
+        infusionsStatModCache.TryGetValue(stat, None) |> Option.defaultValue StatMod.empty
 
     member this.HasInfusionForStat(stat: StatDef) =
-        do this.PopulateInfusionsStatCache(stat)
-        infusionsStatCache.TryGetValue(stat, None) |> Option.isSome
+        do this.PopulateInfusionsStatModCache(stat)
+        infusionsStatModCache.TryGetValue(stat, None) |> Option.isSome
 
     member this.InvalidateCache() =
         do bestInfusionCache <- None
         do inspectStringCache <- None
-        do infusionsStatCache.Clear()
+        do infusionsStatModCache.Clear()
 
     override this.TransformLabel label =
         match this.BestInfusion with
@@ -200,11 +211,6 @@ let addInfusion (infDef: InfusionDef) (comp: Infusion) =
             yield infDef
             yield! comp.Infusions
         }
-
-let allModsForStat (stat: StatDef) (comp: Infusion) =
-    comp.GetInfusionsForStat stat
-    |> Seq.map (fun inf -> inf.stats.TryGetValue stat)
-    |> List.ofSeq
 
 /// Picks elligible `InfusionDef` for the `Thing`.
 let pickInfusions (quality: QualityCategory) (parent: ThingWithComps) =
