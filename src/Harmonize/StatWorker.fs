@@ -7,8 +7,8 @@ open RimWorld
 open Verse
 
 open Infusion
-open Infusion.StatMod
-open Infusion.VerseInterop
+open DefTool
+open VerseInterop
 
 [<HarmonyPatch(typeof<StatWorker>, "RelevantGear")>]
 module RelevantGear =
@@ -50,9 +50,11 @@ module StatOffsetFromGear =
     /// Adds infusions to Core stat calculation.
     /// Note that we can only use `StatMod#offset` because it is "stat _offset_ from gear."
     let Postfix(returned: float32, gear: Thing, stat: StatDef) =
-        if not dangerouslyModifyingResult then
-            returned
-        else
+        // just to be safe, this patch is only for Pawns
+        if Set.contains stat.category.defName pawnStatCategories && dangerouslyModifyingResult then
+            do dangerouslyModifyingResult <- false
             match compOfThing<Comp.Infusion> gear with
             | Some compInf -> (compInf.GetModForStat stat).offset + returned
             | None -> returned
+        else
+            returned
