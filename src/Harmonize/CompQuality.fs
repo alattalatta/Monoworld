@@ -8,7 +8,7 @@ open VerseInterop
 
 [<HarmonyPatch(typeof<CompQuality>, "SetQuality")>]
 module SetQuality =
-    /// Applies infusions to the `Thing` based on its quality.
+    /// Applies infusions to a `Thing` based on its quality.
     // Note: The name "q" can't be changed
     let Prefix(__instance: CompQuality, q: QualityCategory, source: ArtGenerationContext) =
         compOfThing<Comp.Infusion> __instance.parent
@@ -16,7 +16,7 @@ module SetQuality =
             do compInfusion.Quality <- q
             do compInfusion.Infusions <- Comp.pickInfusions q __instance.parent)
 
-    /// Resets `HitPoints` to its own `MaxHitPoints`, reflecting changes from infusions
+    /// Resets a `Thing`'s `HitPoints` to its own `MaxHitPoints` to reflect HP changes caused by infusions.
     let Postfix(__instance: CompQuality) =
         // All hit points of a pawn's apparels are determined *after* SetQuality() call,
         // see: PawnGenerator.PostProcessGeneratedGear()
