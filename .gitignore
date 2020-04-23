@@ -10,3 +10,5 @@ libs
 obj
 src/bin
 dist
+
+PublishedFieldId.txt
