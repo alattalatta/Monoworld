@@ -30,7 +30,7 @@ type StatMod =
         let sb = StringBuilder()
 
         if fneq0 this.multiplier then
-            do sb.Append(this.multiplier.ToString("+0.##%p;-0.##%p")) |> ignore
+            do sb.Append(this.multiplier.ToString("+0.##%;-0.##%")) |> ignore
 
             if fneq0 this.multiplier && fneq0 this.offset then do sb.Append(", ") |> ignore
 
@@ -49,7 +49,7 @@ let stringForStat (stat: StatDef) (statMod: StatMod) =
 
     // multiplier
     if fneq0 statMod.multiplier then
-        do sb.Append(statMod.multiplier.ToString("+0.##%p;-0.##%p")) |> ignore
+        do sb.Append(statMod.multiplier.ToString("+0.##%;-0.##%")) |> ignore
 
         // separator
         if fneq0 statMod.offset then do sb.Append(", ") |> ignore
