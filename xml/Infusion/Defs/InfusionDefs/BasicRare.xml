@@ -14,9 +14,9 @@
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="RareAllTechBase">
-    <defName>Lightweight</defName>
-    <label>lightweight</label>
-    <labelShort>lite</labelShort>
+    <defName>Weightless</defName>
+    <label>weightless</label>
+    <labelShort>wghtlss</labelShort>
     <requirements>
       <allowance>
         <apparel>true</apparel>
@@ -28,7 +28,7 @@
       <li>
         <key>Mass</key>
         <value>
-          <multiplier>0.75</multiplier>
+          <multiplier>-0.5</multiplier>
         </value>
       </li>
     </stats>
@@ -51,7 +51,7 @@
       <li>
         <key>EquipDelay</key>
         <value>
-          <multiplier>0.75</multiplier>
+          <multiplier>-0.25</multiplier>
         </value>
       </li>
     </stats>
@@ -65,7 +65,7 @@
       <li>
         <key>ArmorRating_Blunt</key>
         <value>
-          <multiplier>1.2</multiplier>
+          <offset>0.25</offset>
         </value>
       </li>
     </stats>
@@ -93,7 +93,27 @@
       <li>
         <key>ArmorRating_Sharp</key>
         <value>
-          <multiplier>1.2</multiplier>
+          <offset>0.25</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareApparelBase">
+    <defName>Ornate</defName>
+    <label>ornate</label>
+    <labelShort>orn</labelShort>
+    <stats>
+      <li>
+        <key>PawnBeauty</key>
+        <value>
+          <offset>0.5</offset>
+        </value>
+      </li>
+      <li>
+        <key>SocialImpact</key>
+        <value>
+          <offset>0.1</offset>
         </value>
       </li>
     </stats>
@@ -118,21 +138,21 @@
     <label>tough</label>
     <stats>
       <li>
+        <key>MaxHitPoints</key>
+        <value>
+          <multiplier>0.3</multiplier>
+        </value>
+      </li>
+      <li>
         <key>ArmorRating_Sharp</key>
         <value>
-          <multiplier>1.1</multiplier>
+          <offset>0.2</offset>
         </value>
       </li>
       <li>
         <key>ArmorRating_Blunt</key>
         <value>
-          <multiplier>1.1</multiplier>
-        </value>
-      </li>
-      <li>
-        <key>MaxHitPoints</key>
-        <value>
-          <multiplier>1.2</multiplier>
+          <offset>0.2</offset>
         </value>
       </li>
     </stats>
@@ -147,6 +167,20 @@
         <key>ForagedNutritionPerDay</key>
         <value>
           <offset>0.3</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareApparelBase">
+    <defName>Will</defName>
+    <label>will</label>
+    <position>Suffix</position>
+    <stats>
+      <li>
+        <key>MentalBreakThreshold</key>
+        <value>
+          <offset>-0.05</offset>
         </value>
       </li>
     </stats>
@@ -217,7 +251,7 @@
       <li>
         <key>MeleeDodgeChance</key>
         <value>
-          <offset>0.15</offset>
+          <offset>0.075</offset>
         </value>
       </li>
     </stats>
@@ -231,13 +265,13 @@
       <li>
         <key>ArmorRating_Sharp</key>
         <value>
-          <offset>0.2</offset>
+          <offset>0.15</offset>
         </value>
       </li>
       <li>
         <key>ArmorRating_Blunt</key>
         <value>
-          <offset>0.2</offset>
+          <offset>0.15</offset>
         </value>
       </li>
     </stats>
@@ -338,19 +372,19 @@
       <li>
         <key>AccuracyTouch</key>
         <value>
-          <multiplier>1.1</multiplier>
+          <multiplier>0.1</multiplier>
         </value>
       </li>
       <li>
         <key>AccuracyMedium</key>
         <value>
-          <multiplier>0.96</multiplier>
+          <multiplier>-0.04</multiplier>
         </value>
       </li>
       <li>
         <key>AccuracyLong</key>
         <value>
-          <multiplier>0.93</multiplier>
+          <multiplier>-0.07</multiplier>
         </value>
       </li>
       <li>
@@ -375,25 +409,25 @@
       <li>
         <key>AccuracyTouch</key>
         <value>
-          <multiplier>0.98</multiplier>
+          <multiplier>-0.02</multiplier>
         </value>
       </li>
       <li>
         <key>AccuracyShort</key>
         <value>
-          <multiplier>1.03</multiplier>
+          <multiplier>0.03</multiplier>
         </value>
       </li>
       <li>
         <key>AccuracyMedium</key>
         <value>
-          <multiplier>1.07</multiplier>
+          <multiplier>0.07</multiplier>
         </value>
       </li>
       <li>
         <key>AccuracyLong</key>
         <value>
-          <multiplier>1.14</multiplier>
+          <multiplier>0.14</multiplier>
         </value>
       </li>
       <li>
