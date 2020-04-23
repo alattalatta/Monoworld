@@ -12,31 +12,12 @@ type StatMod =
     val mutable multiplier: float32
 
     new() =
-        { offset = 0.f
-          multiplier = 1.f }
+        { offset = 0.0f
+          multiplier = 0.0f }
 
     new(ofst, mult) =
         { offset = ofst
           multiplier = mult }
-
-    member this.ToStringForStat(stat: StatDef) =
-        let sb = StringBuilder()
-
-        if fneq this.multiplier 1.0f then do sb.Append("x").Append(this.multiplier.ToString("0.##%")) |> ignore
-        if fneq this.multiplier 1.0f && fneq0 this.offset then do sb.Append(", ") |> ignore
-        if fneq0 this.offset then
-            let styled =
-                this.offset.ToStringByStyle(stat.toStringStyle)
-                |> (if isNull stat.formatString
-                    then id
-                    else (fun str -> System.String.Format(stat.formatString, str)))
-
-            // force add plus sign, formatStrings don't have it
-            if this.offset > 0.0f then do sb.Append("+") |> ignore
-
-            do sb.Append(styled) |> ignore
-
-        string sb
 
     override this.Equals(ob: obj) =
         match ob with
@@ -48,14 +29,42 @@ type StatMod =
     override this.ToString() =
         let sb = StringBuilder()
 
-        if fneq this.multiplier 1.0f then do sb.Append("x").Append(this.multiplier.ToString("0.##%")) |> ignore
-        if fneq this.multiplier 1.0f && fneq0 this.offset then do sb.Append(", ") |> ignore
+        if fneq0 this.multiplier then
+            do sb.Append(this.multiplier.ToString("+0.##%p;-0.##%p")) |> ignore
+
+            if fneq0 this.multiplier && fneq0 this.offset then do sb.Append(", ") |> ignore
+
         if fneq0 this.offset then do sb.Append(this.offset.ToString("+0.##;-0.##")) |> ignore
 
         string sb
 
     static member empty = StatMod()
 
-    static member (+) (a: StatMod, b: StatMod) = StatMod(a.offset + b.offset, a.multiplier * b.multiplier)
+    static member (+) (a: StatMod, b: StatMod) = StatMod(a.offset + b.offset, a.multiplier + b.multiplier)
 
-let applyTo (value: float32) (statMod: StatMod) = value * statMod.multiplier + statMod.offset
+let applyTo (value: float32) (statMod: StatMod) = value + statMod.offset + value * statMod.multiplier
+
+let stringForStat (stat: StatDef) (statMod: StatMod) =
+    let sb = StringBuilder()
+
+    // multiplier
+    if fneq0 statMod.multiplier then
+        do sb.Append(statMod.multiplier.ToString("+0.##%p;-0.##%p")) |> ignore
+
+        // separator
+        if fneq0 statMod.offset then do sb.Append(", ") |> ignore
+
+    // offset
+    if fneq0 statMod.offset then
+        let styled =
+            statMod.offset.ToStringByStyle(stat.toStringStyle)
+            |> (if isNull stat.formatString
+                then id
+                else (fun str -> System.String.Format(stat.formatString, str)))
+
+        // force add plus sign, StatDef#formatString don't have it
+        if statMod.offset > 0.0f then do sb.Append("+") |> ignore
+
+        do sb.Append(styled) |> ignore
+
+    string sb

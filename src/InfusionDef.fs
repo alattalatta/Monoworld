@@ -69,7 +69,7 @@ type InfusionDef =
             dictseq this.stats
             |> Seq.fold (fun (acc: StringBuilder) cur ->
                 acc.Append("  ").Append(cur.Key.LabelCap).Append(" ... ")
-                   .AppendLine((cur.Value.ToStringForStat(cur.Key)))) (StringBuilder("\n"))
+                   .AppendLine((stringForStat cur.Key cur.Value))) (StringBuilder("\n"))
 
         let extraDescriptions =
             if (this.extraDescriptions.NullOrEmpty()) then
