@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+  <SpecialThingFilterDef>
+    <defName>Infusion_AllowInfusedApparels</defName>
+    <label>allow infused</label>
+    <description>Allow apparels with one or more infusions.</description>
+    <parentCategory>Apparel</parentCategory>
+    <allowedByDefault>true</allowedByDefault>
+    <saveKey>allowInfusedApparels</saveKey>
+    <workerClass>Infusion.SpecialThingFilterWorkers.InfusedApparels</workerClass>
+  </SpecialThingFilterDef>
+
+  <SpecialThingFilterDef>
+    <defName>Infusion_AllowNonInfusedApparels</defName>
+    <label>allow non-infused</label>
+    <description>Allow apparels without any infusion.</description>
+    <parentCategory>Apparel</parentCategory>
+    <allowedByDefault>true</allowedByDefault>
+    <saveKey>allowNonInfusedApparels</saveKey>
+    <workerClass>Infusion.SpecialThingFilterWorkers.NonInfusedApparels</workerClass>
+  </SpecialThingFilterDef>
+
+  <SpecialThingFilterDef>
+    <defName>Infusion_AllowInfusedWeapons</defName>
+    <label>allow infused</label>
+    <description>Allow weapons with one or more infusions.</description>
+    <parentCategory>Weapons</parentCategory>
+    <allowedByDefault>true</allowedByDefault>
+    <saveKey>allowInfusedWeapons</saveKey>
+    <workerClass>Infusion.SpecialThingFilterWorkers.InfusedWeapons</workerClass>
+  </SpecialThingFilterDef>
+
+  <SpecialThingFilterDef>
+    <defName>Infusion_AllowNonInfusedWeapons</defName>
+    <label>allow non-infused</label>
+    <description>Allow weapons without any infusion.</description>
+    <parentCategory>Weapons</parentCategory>
+    <allowedByDefault>true</allowedByDefault>
+    <saveKey>allowNonInfusedWeapons</saveKey>
+    <workerClass>Infusion.SpecialThingFilterWorkers.NonInfusedWeapons</workerClass>
+  </SpecialThingFilterDef>
+</Defs>

@@ -3,8 +3,6 @@ module Infusion.VerseInterop
 open RimWorld
 open Verse
 
-open Lib
-
 let apparelsOfPawn (pawn: Pawn): option<list<Apparel>> =
     Option.ofObj pawn.apparel |> Option.map (fun tracker -> List.ofSeq tracker.WornApparel)
 
