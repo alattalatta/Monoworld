@@ -17,6 +17,8 @@ let stuffOfThing (thing: Thing) = Option.ofObj thing.Stuff
 
 let translate (key: string) = key.TranslateSimple()
 
+let translate2 (key: string) a b = key.Translate(NamedArgument(a, null), NamedArgument(b, null))
+
 module DamageInfo =
     let setAngle angle (di: DamageInfo) =
         di.SetAngle angle

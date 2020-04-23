@@ -46,7 +46,8 @@ type Infusion =
         let statModSum = this.GetAllModifiersFromThing thing
 
         if statModSum <> StatMod.empty then
-            do sb.Append(translate "Infusion.StatPart.Start").Append(this.GetAllModifiersFromThing thing) |> ignore
+            do sb.Append(translate "Infusion.StatPart.Start")
+                 .Append(stringForStat this.parentStat (this.GetAllModifiersFromThing thing)) |> ignore
 
         string sb
 

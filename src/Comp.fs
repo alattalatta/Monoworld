@@ -74,28 +74,31 @@ type Infusion() =
         | None -> ""
 
     member this.InspectionLabel =
-        let pickLabel (def: InfusionDef) = def.label
+        let pickLabels = List.map (fun (def: InfusionDef) -> def.label)
 
         if Set.isEmpty infusions then
             ""
         else
             let (prefixes, suffixes) = this.InfusionsByPosition
-            let sb = StringBuilder()
 
-            if not (List.isEmpty prefixes) then
-                do (prefixes
-                    |> List.map pickLabel
-                    |> String.concat " "
-                    |> sb.Append).Append(" ")
-                   |> ignore
+            let prefixedPart =
+                if List.isEmpty prefixes then
+                    this.parent.def.label
+                else
+                    let prefix =
+                        prefixes
+                        |> pickLabels
+                        |> String.concat " "
+                    string (translate2 "Infusion.Label.Prefixed" prefix this.parent.def.label)
 
-            do sb.Append(this.parent.def.label) |> ignore
+            let suffixedPart =
+                if List.isEmpty suffixes then
+                    prefixedPart
+                else
+                    let suffix = (suffixes |> pickLabels).ToCommaList(true)
+                    string (translate2 "Infusion.Label.Suffixed" suffix prefixedPart)
 
-            if not (List.isEmpty suffixes) then
-                let infusions = (suffixes |> List.map pickLabel).ToCommaList(true)
-                do sb.Append(" ").Append(translate "OfLower").Append(" ").Append(infusions) |> ignore
-
-            string sb |> GenText.CapitalizeFirst
+            suffixedPart.CapitalizeFirst()
 
     member this.Descriptions =
         this.Infusions
@@ -143,9 +146,10 @@ type Infusion() =
 
             let sb =
                 match bestInf.position with
-                | Position.Prefix -> sprintf "%s %s" this.BestInfusionLabel baseLabel
-                | Position.Suffix -> sprintf "%s %s %s" baseLabel (translate "OfLower") this.BestInfusionLabel
-                | _ -> raise (ArgumentException("Position must be one either Prefix or Suffix"))
+                | Position.Prefix -> translate2 "Infusion.Label.Prefixed" this.BestInfusionLabel baseLabel
+                | Position.Suffix -> translate2 "Infusion.Label.Suffixed" this.BestInfusionLabel baseLabel
+                | _ -> raise (ArgumentException("Position must be either Prefix or Suffix"))
+                |> string
                 |> StringBuilder
 
             // components
