@@ -31,6 +31,6 @@ Note: Chances still applies.
 With default infusions, 10 would be sufficient to ensure everything will pass. 0.0 will effectively disable new infusions.
   </Infusion.Settings.ChanceFactor.Description>
 
-  <Infusion.Settings.Slots.OpenSlotSettings>Open infusion slots per quality config</Infusion.Settings.Slots.OpenSlotSettings>
-  <Infusion.Settings.Slots.CloseSlotSettings>Close infusion slots per quality config</Infusion.Settings.Slots.CloseSlotSettings>
+  <Infusion.Settings.Slots.OpenSlotSettings>Open options for infusion slots per quality</Infusion.Settings.Slots.OpenSlotSettings>
+  <Infusion.Settings.Slots.CloseSlotSettings>Close options for infusion slots per quality</Infusion.Settings.Slots.CloseSlotSettings>
 </LanguageData>

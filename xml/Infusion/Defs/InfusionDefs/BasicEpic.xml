@@ -184,6 +184,7 @@
     <defName>Harmonious</defName> <!-- [todo] Volition -->
     <label>volition</label>
     <labelShort>voli</labelShort>
+    <position>Suffix</position>
     <stats>
       <li>
         <key>MentalBreakThreshold</key>

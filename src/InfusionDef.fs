@@ -63,7 +63,9 @@ type InfusionDef =
         | _ -> 0.0f
 
     member this.GetDescriptionString() =
-        let label = ((StringBuilder(string (this.LabelCap)).Append(" (").Append(this.tier).Append(") :")) |> string)
+        let label =
+            ((StringBuilder(string (this.LabelCap)).Append(" (").Append(getLabelOfTier this.tier).Append(") :"))
+             |> string)
 
         let statsDescriptions =
             dictseq this.stats

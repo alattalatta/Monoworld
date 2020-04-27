@@ -32,13 +32,13 @@ let rec isToolCapableOfDamageType (dt: DamageType) (tool: Tool) =
 
 let getLabelOfTier (tier: Tier) =
     match tier with
-    | Tier.Awful -> translate "Infused.Awful"
-    | Tier.Poor -> translate "Infused.Poor"
-    | Tier.Uncommon -> translate "Infused.Uncommon"
-    | Tier.Rare -> translate "Infused.Rare"
-    | Tier.Epic -> translate "Infused.Epic"
-    | Tier.Legendary -> translate "Infused.Legendary"
-    | Tier.Artifact -> translate "Infused.Artifact"
+    | Tier.Awful -> translate "Infusion.Awful"
+    | Tier.Poor -> translate "Infusion.Poor"
+    | Tier.Uncommon -> translate "Infusion.Uncommon"
+    | Tier.Rare -> translate "Infusion.Rare"
+    | Tier.Epic -> translate "Infusion.Epic"
+    | Tier.Legendary -> translate "Infusion.Legendary"
+    | Tier.Artifact -> translate "Infusion.Artifact"
     | _ -> ""
 
 let tierToColor (tier: Tier) =
