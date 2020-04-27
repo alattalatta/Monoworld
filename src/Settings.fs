@@ -1,28 +1,74 @@
 module Infusion.Settings
 
+open System
+
 open HugsLib
 open HugsLib.Settings
+open RimWorld
+open Verse
 
 open VerseInterop
 
-let mutable chanceFactor: option<SettingHandle<float32>> = None
-let mutable weightFactor: option<SettingHandle<float32>> = None
+// [todo] separate
 
-let getChanceFactor() = Option.map float32 chanceFactor |> Option.defaultValue 1.0f
-let getWeightFactor() = Option.map float32 weightFactor |> Option.defaultValue 0.5f
+// choice factors
+let mutable chanceFactor: SettingHandle<float32> = null
+let mutable weightFactor: SettingHandle<float32> = null
+
+let getChanceFactor() = float32 chanceFactor
+let getWeightFactor() = float32 weightFactor
+
+// slots
+let mutable slots: Map<QualityCategory, SettingHandle<int>> = Map.empty
+
+let getBaseSlotsFor (quality: QualityCategory) =
+    Map.tryFind quality slots
+    |> Option.map int
+    |> Option.defaultValue 1
+
+// internal states
+let mutable settingsOpened = false
 
 let initialize() =
     let pack = HugsLibController.SettingsManager.GetModSettings("latta.infusion")
 
+    // choice factors
     do chanceFactor <-
-        Some
-            (pack.GetHandle
-                ("chanceFactor", (translate "Infusion.Settings.ChanceFactor"),
-                 (translate "Infusion.Settings.ChanceFactor.Description"), 1.0f,
-                 Validators.FloatRangeValidator(0.0f, 100.0f)))
+        (pack.GetHandle
+            ("chanceFactor", (translate "Infusion.Settings.ChanceFactor"),
+             (translate "Infusion.Settings.ChanceFactor.Description"), 1.0f,
+             Validators.FloatRangeValidator(0.0f, 100.0f)))
     do weightFactor <-
-        Some
-            (pack.GetHandle
-                ("weightFactor", (translate "Infusion.Settings.WeightFactor"),
-                 (translate "Infusion.Settings.WeightFactor.Description"), 0.5f,
-                 Validators.FloatRangeValidator(0.0f, 2.0f)))
+        (pack.GetHandle
+            ("weightFactor", (translate "Infusion.Settings.WeightFactor"),
+             (translate "Infusion.Settings.WeightFactor.Description"), 0.5f, Validators.FloatRangeValidator(0.0f, 2.0f)))
+
+    // slots
+    let slotSettingOpener = pack.GetHandle("slotsOpened", "", translate "", false)
+    do slotSettingOpener.CustomDrawer <-
+        (fun rect ->
+            let buttonLabel =
+                if settingsOpened
+                then "Infusion.Settings.Slots.CloseSlotSettings"
+                else "Infusion.Settings.Slots.OpenSlotSettings"
+
+            let clicked = Widgets.ButtonText(rect, translate buttonLabel)
+            if clicked then do settingsOpened <- not settingsOpened
+            false)
+
+    let slotSettingHandle (quality: QualityCategory) defaultValue =
+        let qualityName = Enum.GetName(typeof<QualityCategory>, quality)
+        let handle =
+            pack.GetHandle
+                (sprintf "slots%s" qualityName,
+                 (translate (sprintf "QualityCategory_%s" qualityName)).CapitalizeFirst(), "", defaultValue,
+                 Validators.IntRangeValidator(0, 20))
+        // bonus point for "<- fun () ->"
+        do handle.VisibilityPredicate <- fun () -> settingsOpened
+
+        (quality, handle)
+
+    do slots <-
+        slots.Add(slotSettingHandle QualityCategory.Normal 1).Add(slotSettingHandle QualityCategory.Good 1)
+             .Add(slotSettingHandle QualityCategory.Excellent 2).Add(slotSettingHandle QualityCategory.Masterwork 3)
+             .Add(slotSettingHandle QualityCategory.Legendary 4)

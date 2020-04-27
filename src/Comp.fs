@@ -35,7 +35,7 @@ type Infusion() =
         with get () = infusions |> Seq.sortByDescending (fun inf -> inf.tier)
         and set (value: seq<InfusionDef>) =
             do this.InvalidateCache()
-            infusions <- Seq.truncate (maxInfusionsFor quality) value |> Set.ofSeq
+            infusions <- Seq.truncate (Settings.getBaseSlotsFor quality) value |> Set.ofSeq
 
     member this.InfusionsRaw = infusions
 
@@ -85,17 +85,14 @@ type Infusion() =
                 if List.isEmpty prefixes then
                     this.parent.def.label
                 else
-                    let prefix =
-                        prefixes
-                        |> pickLabels
-                        |> String.concat " "
+                    let prefix = (pickLabels prefixes).ToCommaList(true)
                     string (translate2 "Infusion.Label.Prefixed" prefix this.parent.def.label)
 
             let suffixedPart =
                 if List.isEmpty suffixes then
                     prefixedPart
                 else
-                    let suffix = (suffixes |> pickLabels).ToCommaList(true)
+                    let suffix = (pickLabels suffixes).ToCommaList(true)
                     string (translate2 "Infusion.Label.Suffixed" suffix prefixedPart)
 
             suffixedPart.CapitalizeFirst()
@@ -177,14 +174,6 @@ type Infusion() =
 
     override this.GetDescriptionPart() = this.Descriptions
 
-    override this.CompInspectStringExtra() =
-        match inspectStringCache with
-        | Some cache -> cache
-        | None ->
-            let inspectString = this.InspectionLabel
-            do inspectStringCache <- Some inspectString
-            inspectString
-
     override this.DrawGUIOverlay() =
         if Find.CameraDriver.CurrentZoom <= CameraZoomRange.Close then
             match this.BestInfusion with
@@ -246,7 +235,7 @@ let pickInfusions (quality: QualityCategory) (parent: ThingWithComps) =
     |> Seq.filter (checkAllowance <&> checkTechLevel <&> checkQuality <&> checkDamageType)
     |> Seq.map (fun infDef -> (infDef, (infDef.WeightFor quality) * (Settings.getWeightFactor()) + Rand.Value)) // weighted, duh
     |> Seq.sortByDescending snd
-    |> Seq.truncate (maxInfusionsFor quality)
+    |> Seq.truncate (Settings.getBaseSlotsFor quality)
     |> Seq.map fst
     |> Seq.filter checkChance
     |> List.ofSeq // need to "finalize" the random sort
