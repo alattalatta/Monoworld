@@ -16,7 +16,11 @@ type Infusion =
     val isPawnStat: bool
 
     new(stat: StatDef) =
-        { inherit StatPart(parentStat = stat); isPawnStat = Set.contains stat.category.defName pawnStatCategories }
+        { inherit StatPart(parentStat = stat)
+          isPawnStat =
+              Option.ofObj stat.category
+              |> Option.map (fun catDef -> Set.contains catDef.defName pawnStatCategories)
+              |> Option.defaultValue false }
 
     override this.TransformValue(req, value: byref<float32>) =
         if not this.isPawnStat then

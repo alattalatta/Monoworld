@@ -14,30 +14,34 @@ open VerseInterop
 module RelevantGear =
     /// Adds hyperlink entries in the pawn's inspection window.
     let Postfix(returned: IEnumerable<Thing>, pawn: Pawn, stat: StatDef) =
-        let map = Dictionary<string, Thing>()
-        returned |> Seq.iter (fun thing -> map.Add(thing.ThingID, thing))
+        if Set.contains stat.category.defName pawnStatCategories then
+            let map = Dictionary<string, Thing>()
+            returned |> Seq.iter (fun thing -> map.Add(thing.ThingID, thing))
 
-        match apparelsOfPawn pawn with
-        | Some apparels ->
-            apparels
-            |> Seq.filter (fun apparel ->
-                match compOfThing<Comp.Infusion> apparel with
-                | Some compInf -> compInf.HasInfusionForStat stat
-                | None -> false)
-        | None -> Seq.empty
-        |> Seq.iter (fun apparel -> map.SetOrAdd(apparel.ThingID, apparel))
+            match apparelsOfPawn pawn with
+            | Some apparels ->
+                apparels
+                |> Seq.filter (fun apparel ->
+                    match compOfThing<Comp.Infusion> apparel with
+                    | Some compInf -> compInf.HasInfusionForStat stat
+                    | None -> false)
+            | None -> Seq.empty
+            |> Seq.iter (fun apparel -> map.SetOrAdd(apparel.ThingID, apparel))
 
-        match equipmentsOfPawn pawn with
-        | Some equipments ->
-            equipments
-            |> Seq.filter (fun equipment ->
-                match compOfThing<Comp.Infusion> equipment with
-                | Some compInf -> compInf.HasInfusionForStat stat
-                | None -> false)
-        | None -> Seq.empty
-        |> Seq.iter (fun equipment -> map.SetOrAdd(equipment.ThingID, equipment))
+            match equipmentsOfPawn pawn with
+            | Some equipments ->
+                equipments
+                |> Seq.filter (fun equipment ->
+                    match compOfThing<Comp.Infusion> equipment with
+                    | Some compInf -> compInf.HasInfusionForStat stat
+                    | None -> false)
+            | None -> Seq.empty
+            |> Seq.iter (fun equipment -> map.SetOrAdd(equipment.ThingID, equipment))
 
-        seq (map.Values)
+            seq (map.Values)
+
+        else
+            returned
 
 [<HarmonyPatch(typeof<StatWorker>, "StatOffsetFromGear")>]
 module StatOffsetFromGear =
@@ -56,5 +60,6 @@ module StatOffsetFromGear =
             match compOfThing<Comp.Infusion> gear with
             | Some compInf -> (compInf.GetModForStat stat).offset + returned
             | None -> returned
+
         else
             returned
