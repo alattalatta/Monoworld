@@ -61,7 +61,7 @@ let initialize() =
         let handle =
             pack.GetHandle
                 (sprintf "slots%s" qualityName,
-                 (translate (sprintf "QualityCategory_%s" qualityName)).CapitalizeFirst(), "", defaultValue,
+                 (translate (sprintf "QualityCategory_%s" qualityName)).CapitalizeFirst(), "0 ~ 20", defaultValue,
                  Validators.IntRangeValidator(0, 20))
         // bonus point for "<- fun () ->"
         do handle.VisibilityPredicate <- fun () -> settingsOpened

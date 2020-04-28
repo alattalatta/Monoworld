@@ -24,6 +24,7 @@ type InfusionDef =
     val mutable extraDescriptions: ResizeArray<string>
 
     val mutable chances: QualityMap
+    val mutable disabled: bool
     val mutable extraMeleeDamages: ResizeArray<ExtraDamage>
     val mutable position: Position
     val mutable requirements: Requirements
@@ -34,9 +35,11 @@ type InfusionDef =
     new() =
         { inherit Def()
           labelShort = ""
-          chances = QualityMap()
-          extraMeleeDamages = null
           extraDescriptions = ResizeArray()
+
+          chances = QualityMap()
+          disabled = false
+          extraMeleeDamages = null
           position = Position.Prefix
           requirements = Requirements()
           stats = Dictionary()

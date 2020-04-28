@@ -215,6 +215,7 @@ let pickInfusions (quality: QualityCategory) (parent: ThingWithComps) =
         elif parent.def.IsRangedWeapon then infDef.requirements.allowance.ranged
         else false
 
+    let checkDisabled (infDef: InfusionDef) = not infDef.disabled
     let checkTechLevel (infDef: InfusionDef) = infDef.requirements.techLevel |> Seq.contains parent.def.techLevel
     let checkQuality (infDef: InfusionDef) = (infDef.ChanceFor quality) > 0.0f
 
@@ -233,7 +234,7 @@ let pickInfusions (quality: QualityCategory) (parent: ThingWithComps) =
         Rand.Chance chance
 
     DefDatabase<InfusionDef>.AllDefs
-    |> Seq.filter (checkAllowance <&> checkTechLevel <&> checkQuality <&> checkDamageType)
+    |> Seq.filter (checkDisabled <&> checkAllowance <&> checkTechLevel <&> checkQuality <&> checkDamageType)
     |> Seq.map (fun infDef -> (infDef, (infDef.WeightFor quality) * (Settings.getWeightFactor()) + Rand.Value)) // weighted, duh
     |> Seq.sortByDescending snd
     |> Seq.truncate (Settings.getBaseSlotsFor quality)

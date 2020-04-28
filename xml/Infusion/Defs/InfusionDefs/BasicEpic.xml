@@ -287,7 +287,7 @@
       <li>
         <key>RangedWeapon_DamageMultiplier</key>
         <value>
-          <offset>0.4</offset>
+          <offset>0.3</offset>
         </value>
       </li>
     </stats>
@@ -370,7 +370,7 @@
       <li>
         <key>RangedWeapon_DamageMultiplier</key>
         <value>
-          <offset>0.6</offset>
+          <offset>0.5</offset>
         </value>
       </li>
       <li>

@@ -241,7 +241,7 @@
       <li>
         <key>MeleeWeapon_CooldownMultiplier</key>
         <value>
-          <offset>-0.4</offset>
+          <offset>-0.3</offset>
         </value>
       </li>
       <li>
@@ -294,44 +294,6 @@
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="LegendaryMeleeBase">
-    <defName>Hatred</defName>
-    <label>hatred</label>
-    <position>Suffix</position>
-    <stats>
-      <li>
-        <key>PawnBeauty</key>
-        <value>
-          <offset>-3</offset>
-        </value>
-      </li>
-      <li>
-        <key>MeleeWeapon_DamageMultiplier</key>
-        <value>
-          <offset>0.6</offset>
-        </value>
-      </li>
-      <li>
-        <key>MeleeWeapon_CooldownMultiplier</key>
-        <value>
-          <offset>-0.5</offset>
-        </value>
-      </li>
-      <li>
-        <key>MeleeDodgeChance</key>
-        <value>
-          <offset>0.3</offset>
-        </value>
-      </li>
-      <li>
-        <key>MentalBreakThreshold</key>
-        <value>
-          <offset>0.05</offset>
-        </value>
-      </li>
-    </stats>
-  </Infusion.InfusionDef>
-
-  <Infusion.InfusionDef ParentName="LegendaryMeleeBase">
     <defName>Guardian</defName>
     <label>guardian</label>
     <labelShort>guard</labelShort>
@@ -368,43 +330,6 @@
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="LegendaryRangedBase">
-    <defName>Guided</defName>
-    <label>guided</label>
-    <stats>
-      <li>
-        <key>AccuracyTouch</key>
-        <value>
-          <multiplier>0.3</multiplier>
-        </value>
-      </li>
-      <li>
-        <key>AccuracyShort</key>
-        <value>
-          <multiplier>0.3</multiplier>
-        </value>
-      </li>
-      <li>
-        <key>AccuracyMedium</key>
-        <value>
-          <multiplier>0.3</multiplier>
-        </value>
-      </li>
-      <li>
-        <key>AccuracyLong</key>
-        <value>
-          <multiplier>0.3</multiplier>
-        </value>
-      </li>
-      <li>
-        <key>RangedWeapon_DamageMultiplier</key>
-        <value>
-          <offset>0.2</offset>
-        </value>
-      </li>
-    </stats>
-  </Infusion.InfusionDef>
-
-  <Infusion.InfusionDef ParentName="LegendaryRangedBase">
     <defName>Boosted</defName>
     <label>boosted</label>
     <labelShort>boost</labelShort>
@@ -412,7 +337,44 @@
       <li>
         <key>RangedWeapon_DamageMultiplier</key>
         <value>
-          <offset>0.6</offset>
+          <offset>0.45</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryRangedBase">
+    <defName>Guided</defName>
+    <label>guided</label>
+    <stats>
+      <li>
+        <key>AccuracyTouch</key>
+        <value>
+          <multiplier>0.25</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyShort</key>
+        <value>
+          <multiplier>0.25</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyMedium</key>
+        <value>
+          <multiplier>0.25</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyLong</key>
+        <value>
+          <multiplier>0.25</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>RangedWeapon_DamageMultiplier</key>
+        <value>
+          <offset>0.2</offset>
         </value>
       </li>
     </stats>
@@ -432,7 +394,47 @@
       <li>
         <key>RangedWeapon_Cooldown</key>
         <value>
-          <multiplier>-0.5</multiplier>
+          <multiplier>-0.4</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- disabled -->
+  <Infusion.InfusionDef ParentName="LegendaryMeleeBase">
+    <defName>Hatred</defName>
+    <label>hatred</label>
+    <disabled>true</disabled>
+    <position>Suffix</position>
+    <stats>
+      <li>
+        <key>PawnBeauty</key>
+        <value>
+          <offset>-3</offset>
+        </value>
+      </li>
+      <li>
+        <key>MeleeWeapon_DamageMultiplier</key>
+        <value>
+          <offset>0.6</offset>
+        </value>
+      </li>
+      <li>
+        <key>MeleeWeapon_CooldownMultiplier</key>
+        <value>
+          <offset>-0.5</offset>
+        </value>
+      </li>
+      <li>
+        <key>MeleeDodgeChance</key>
+        <value>
+          <offset>0.3</offset>
+        </value>
+      </li>
+      <li>
+        <key>MentalBreakThreshold</key>
+        <value>
+          <offset>0.05</offset>
         </value>
       </li>
     </stats>
