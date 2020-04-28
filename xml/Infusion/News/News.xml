@@ -7,6 +7,15 @@
   </HugsLib.UpdateFeatureDef>
 
   <HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+    <defName>infusion_150</defName>
+    <assemblyVersion>1.5.0</assemblyVersion>
+    <content>Configurable max infusions per quality!|img:images/150|feature: Added mod options for max infusion counts.
+
+To view the full update history, visit https://git.io/JfmlW
+</content>
+  </HugsLib.UpdateFeatureDef>
+
+  <HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
     <defName>infusion_120</defName>
     <assemblyVersion>1.2.0</assemblyVersion>
     <content>Now with configurable infusion weights and chances!|img:images/120|feature: Added mod options for infusion weight and chance factor.
