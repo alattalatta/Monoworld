@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LanguageData>
+  <Infusion.Uncommon>고급</Infusion.Uncommon>
+  <Infusion.Rare>희귀</Infusion.Rare>
+  <Infusion.Epic>영웅</Infusion.Epic>
+  <Infusion.Legendary>전설</Infusion.Legendary>
+
+  <!-- {0}: infusions, {1}: label. -->
+  <Infusion.Label.Prefixed>{0} {1}</Infusion.Label.Prefixed>
+  <Infusion.Label.Suffixed>{0}의 {1}</Infusion.Label.Suffixed>
+
+  <Infusion.StatPart.Start>마법부여: </Infusion.StatPart.Start>
+
+  <Infusion.ITab>마법부여</Infusion.ITab>
+
+  <Infusion.Settings.WeightFactor>가중치 계수</Infusion.Settings.WeightFactor>
+  <Infusion.Settings.WeightFactor.Description>마법부여 선택 시 사용하는 가중치에 곱하는 값입니다. 가능한 값은 0.0 ~ 2.0입니다.
+
+2.0으로 설정하면 품질 내에서 가장 높은 가중치를 가진 마법부여를 무조건 먼저 선택합니다. 0.0에서는 뭐든지 가능합니다.
+
+참고: 확률의 영향은 여전히 받습니다.
+  </Infusion.Settings.WeightFactor.Description>
+
+  <Infusion.Settings.ChanceFactor>확률 계수</Infusion.Settings.ChanceFactor>
+  <Infusion.Settings.ChanceFactor.Description>마법부여의 확률에 곱하는 값입니다. 가능한 값은 0.0 ~ 100.0입니다.
+
+기본 마법부여 세트에서는 10만 지정해도 모든 마법부여가 확률을 통과합니다. 0.0을 설정하면 신규 마법부여를 비활성화합니다.
+  </Infusion.Settings.ChanceFactor.Description>
+
+  <Infusion.Settings.Slots.OpenSlotSettings>품질별 마법부여 칸 설정 열기</Infusion.Settings.Slots.OpenSlotSettings>
+  <Infusion.Settings.Slots.CloseSlotSettings>품질별 마법부여 칸 설정 닫기</Infusion.Settings.Slots.CloseSlotSettings>
+</LanguageData>

@@ -16,10 +16,15 @@ open StatMod
 type InfusionDef =
     inherit Def
 
+    /// Label for map overlay.
+    [<MustTranslate>]
     val mutable labelShort: string
+
+    [<MustTranslate>]
+    val mutable extraDescriptions: ResizeArray<string>
+
     val mutable chances: QualityMap
     val mutable extraMeleeDamages: ResizeArray<ExtraDamage>
-    val mutable extraDescriptions: ResizeArray<string>
     val mutable position: Position
     val mutable requirements: Requirements
     val mutable stats: Dictionary<StatDef, StatMod>

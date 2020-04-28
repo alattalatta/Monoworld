@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <Massless.label>솜털같은</Massless.label>
+  <Massless.labelShort>솜털</Massless.labelShort>
+
+  <!-- apparels -->
+  <Beautiful.label>아름다운</Beautiful.label>
+  <Beautiful.labelShort>아름</Beautiful.labelShort>
+
+  <Cooling.label>냉각하는</Cooling.label>
+  <Cooling.labelShort>냉각</Cooling.labelShort>
+
+  <Energizing.label>활력의</Energizing.label>
+  <Energizing.labelShort>활력</Energizing.labelShort>
+
+  <Reinforced.label>강화한</Reinforced.label>
+  <Reinforced.labelShort>강화</Reinforced.labelShort>
+
+  <Quickening.label>증속의</Quickening.label>
+  <Quickening.labelShort>증속</Quickening.labelShort>
+
+  <Warming.label>열기의</Warming.label>
+  <Warming.labelShort>열기</Warming.labelShort>
+
+  <Labor.label>노동</Labor.label>
+  <Labor.labelShort>노동</Labor.labelShort>
+
+  <Memory.label>기억</Memory.label>
+  <Memory.labelShort>기억</Memory.labelShort>
+
+  <Harmonious.label>이성</Harmonious.label>
+  <Harmonious.labelShort>이성</Harmonious.labelShort>
+
+  <!-- melee -->
+  <Dancing.label>춤추는</Dancing.label>
+  <Dancing.labelShort>춤</Dancing.labelShort>
+
+  <Fierce.label>강렬한</Fierce.label>
+  <Fierce.labelShort>강렬</Fierce.labelShort>
+
+  <Igneous.label>불타는</Igneous.label>
+  <Igneous.labelShort>불타는</Igneous.labelShort>
+  <Igneous.extraDescriptions.0>50% 확률로 8의 화염 피해를 입혀 불태웁니다.</Igneous.extraDescriptions.0>
+
+  <Protecting.label>방호의</Protecting.label>
+  <Protecting.labelShort>방호</Protecting.labelShort>
+
+  <!-- ranged -->
+  <Optimized.label>최적의</Optimized.label>
+  <Optimized.labelShort>최적</Optimized.labelShort>
+
+  <Rapid.label>신속한</Rapid.label>
+  <Rapid.labelShort>신속한</Rapid.labelShort>
+
+  <Pinpoint.label>정밀한</Pinpoint.label>
+  <Pinpoint.labelShort>정밀</Pinpoint.labelShort>
+
+  <Towering.label>거대한</Towering.label>
+  <Towering.labelShort>거대</Towering.labelShort>
+</LanguageData>

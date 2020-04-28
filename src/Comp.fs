@@ -74,28 +74,29 @@ type Infusion() =
         | None -> ""
 
     member this.InspectionLabel =
-        let pickLabels = List.map (fun (def: InfusionDef) -> def.label)
-
         if Set.isEmpty infusions then
             ""
         else
             let (prefixes, suffixes) = this.InfusionsByPosition
 
-            let prefixedPart =
-                if List.isEmpty prefixes then
-                    this.parent.def.label
-                else
-                    let prefix = (pickLabels prefixes).ToCommaList(true)
-                    string (translate2 "Infusion.Label.Prefixed" prefix this.parent.def.label)
-
             let suffixedPart =
                 if List.isEmpty suffixes then
-                    prefixedPart
+                    this.parent.def.label
                 else
-                    let suffix = (pickLabels suffixes).ToCommaList(true)
-                    string (translate2 "Infusion.Label.Suffixed" suffix prefixedPart)
+                    let suffixString = (suffixes |> List.map (fun def -> def.label)).ToCommaList(true)
+                    string (translate2 "Infusion.Label.Suffixed" suffixString this.parent.def.label)
 
-            suffixedPart.CapitalizeFirst()
+            let prefixedPart =
+                if List.isEmpty prefixes then
+                    suffixedPart
+                else
+                    let prefixString =
+                        prefixes
+                        |> List.map (fun def -> def.label)
+                        |> String.concat " "
+                    string (translate2 "Infusion.Label.Prefixed" prefixString suffixedPart)
+
+            prefixedPart.CapitalizeFirst()
 
     member this.Descriptions =
         this.Infusions

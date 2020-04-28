@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <Weightless.label>가뿐한</Weightless.label>
+  <Weightless.labelShort>가뿐</Weightless.labelShort>
+
+  <!-- apparels -->
+  <Adjustable.label>조절 가능한</Adjustable.label>
+  <Adjustable.labelShort>조절</Adjustable.labelShort>
+
+  <Absorbing.label>흡수하는</Absorbing.label>
+  <Absorbing.labelShort>흡수</Absorbing.labelShort>
+
+  <Calming.label>침착한</Calming.label>
+  <Calming.labelShort>침착</Calming.labelShort>
+
+  <Deflecting.label>튕겨내는</Deflecting.label>
+  <Deflecting.labelShort>튕김</Deflecting.labelShort>
+
+  <Ornate.label>치장한</Ornate.label>
+  <Ornate.labelShort>치장</Ornate.labelShort>
+
+  <Refreshing.label>휴식하는</Refreshing.label>
+  <Refreshing.labelShort>휴식</Refreshing.labelShort>
+
+  <Tough.label>견고한</Tough.label>
+  <Tough.labelShort>견고</Tough.labelShort>
+
+  <Wild.label>야생</Wild.label>
+  <Wild.labelShort>야생</Wild.labelShort>
+
+  <Will.label>의지</Will.label>
+  <Will.labelShort>의지</Will.labelShort>
+
+  <!-- melee -->
+  <Bladed.label>날 선</Bladed.label>
+  <Bladed.labelShort>날 섬</Bladed.labelShort>
+  <Bladed.extraDescriptions.0>80% 확률로 6의 베기 피해를 입힙니다.</Bladed.extraDescriptions.0>
+
+  <Feral.label>야성의</Feral.label>
+  <Feral.labelShort>야성</Feral.labelShort>
+
+  <Fiery.label>뜨거운</Fiery.label>
+  <Fiery.labelShort>뜨거움</Fiery.labelShort>
+  <Fiery.extraDescriptions.0>80% 확률로 6의 화상 피해를 입힙니다.</Fiery.extraDescriptions.0>
+
+  <Nimble.label>날랜</Nimble.label>
+  <Nimble.labelShort>날램</Nimble.labelShort>
+
+  <Parrying.label>막아내는</Parrying.label>
+  <Parrying.labelShort>막음</Parrying.labelShort>
+
+  <Taunting.label>위협적인</Taunting.label>
+  <Taunting.labelShort>위협</Taunting.labelShort>
+  <Taunting.extraDescriptions.0>50% 확률로 4포인트만큼 기절시킵니다.</Taunting.extraDescriptions.0>
+
+  <!-- ranged -->
+  <Silent.label>조용한</Silent.label>
+  <Silent.labelShort>조용</Silent.labelShort>
+
+  <!-- maybe bows -->
+  <Tearing.label>분쇄의</Tearing.label>
+  <Tearing.labelShort>분쇄</Tearing.labelShort>
+
+  <!-- maybe guns and crossbows -->
+  <Shortened.label>단축형</Shortened.label>
+  <Shortened.labelShort>단축</Shortened.labelShort>
+
+  <Extended.label>연장형</Extended.label>
+  <Extended.labelShort>연장</Extended.labelShort>
+</LanguageData>

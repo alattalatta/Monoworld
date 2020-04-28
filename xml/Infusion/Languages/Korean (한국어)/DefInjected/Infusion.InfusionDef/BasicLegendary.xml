@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <!-- apparels -->
+  <Amplifying.label>증폭하는</Amplifying.label>
+  <Amplifying.labelShort>증폭</Amplifying.labelShort>
+
+  <Circulating.label>순환하는</Circulating.label>
+  <Circulating.labelShort>순환</Circulating.labelShort>
+
+  <Glittering.label>반짝이는</Glittering.label>
+  <Glittering.labelShort>반짝이는</Glittering.labelShort>
+
+  <Interfering.label>간섭하는</Interfering.label>
+  <Interfering.labelShort>간섭</Interfering.labelShort>
+
+  <Protective.label>보호하는</Protective.label>
+  <Protective.labelShort>보호</Protective.labelShort>
+
+  <Synchronizing.label>동기화된</Synchronizing.label>
+  <Synchronizing.labelShort>동기</Synchronizing.labelShort>
+
+  <Endurance.label>인내</Endurance.label>
+  <Endurance.labelShort>인내</Endurance.labelShort>
+
+  <!-- weapons -->
+  <Entropic.label>혼돈의</Entropic.label>
+  <Entropic.labelShort>혼돈</Entropic.labelShort>
+
+  <!-- melee -->
+  <Accelerated.label>가속된</Accelerated.label>
+  <Accelerated.labelShort>가속</Accelerated.labelShort>
+
+  <Blazing.label>타오르는</Blazing.label>
+  <Blazing.labelShort>타오름</Blazing.labelShort>
+  <Blazing.extraDescriptions.0>80% 확률로 12의 화염 피해를 입혀 불태웁니다.</Blazing.extraDescriptions.0>
+
+  <Overwhelming.label>압도하는</Overwhelming.label>
+  <Overwhelming.labelShort>압도</Overwhelming.labelShort>
+  <Overwhelming.extraDescriptions.0>50% 확률로 8포인트만큼 기절시킵니다.</Overwhelming.extraDescriptions.0>
+
+  <Hatred.label>증오</Hatred.label>
+  <Hatred.labelShort>증오</Hatred.labelShort>
+
+  <Guardian.label>수호</Guardian.label>
+  <Guardian.labelShort>수호</Guardian.labelShort>
+
+  <!-- ranged -->
+  <Guided.label>유도형</Guided.label>
+  <Guided.labelShort>유도</Guided.labelShort>
+
+  <Boosted.label>추진형</Boosted.label>
+  <Boosted.labelShort>추진</Boosted.labelShort>
+
+  <Responsive.label>반응형</Responsive.label>
+  <Responsive.labelShort>반응</Responsive.labelShort>
+</LanguageData>
