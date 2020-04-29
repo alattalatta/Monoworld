@@ -20,6 +20,7 @@ let private addActionFor (infDef: InfusionDef) =
               allowedGameStates = AllowedGameStates.PlayingOnMap)>]
 let addInfusion() =
     DefDatabase<InfusionDef>.AllDefs
+    |> Seq.filter (fun def -> not def.disabled)
     |> Seq.sort
     |> Seq.map
         (fun infDef -> DebugMenuOption(infDef.defName, DebugMenuOptionMode.Tool, (fun () -> addActionFor infDef)))

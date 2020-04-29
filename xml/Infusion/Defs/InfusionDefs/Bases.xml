@@ -18,6 +18,7 @@
       </li>
     </stats>
     <tier>Awful</tier>
+    <disabled>true</disabled>
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef Abstract="True" Name="PoorBase">
@@ -38,6 +39,7 @@
       </li>
     </stats>
     <tier>Poor</tier>
+    <disabled>true</disabled>
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef Abstract="True" Name="UncommonBase">
