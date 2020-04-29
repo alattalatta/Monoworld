@@ -192,6 +192,7 @@
   </Infusion.InfusionDef>
 
   <!-- weapons -->
+  <!-- requires Royalty -->
   <Infusion.InfusionDef ParentName="LegendaryAllTechBase">
     <defName>Entropic</defName>
     <label>entropic</label>
