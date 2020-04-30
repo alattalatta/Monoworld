@@ -47,6 +47,20 @@
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="LegendaryApparelBase">
+    <defName>Circadian</defName>
+    <label>circadian</label>
+    <labelShort>circ</labelShort>
+    <stats>
+      <li>
+        <key>RestRateMultiplier</key>
+        <value>
+          <offset>0.4</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryApparelBase">
     <defName>Circulating</defName>
     <label>circulating</label>
     <labelShort>circ</labelShort>
@@ -126,13 +140,13 @@
       <li>
         <key>ArmorRating_Blunt</key>
         <value>
-          <offset>0.75</offset>
+          <offset>0.5</offset>
         </value>
       </li>
       <li>
         <key>ArmorRating_Sharp</key>
         <value>
-          <offset>0.75</offset>
+          <offset>0.5</offset>
         </value>
       </li>
       <li>
@@ -258,13 +272,13 @@
     <defName>Blazing</defName>
     <label>blazing</label>
     <labelShort>blaz</labelShort>
-    <extraMeleeDamages>
+    <extraDamages>
       <li>
         <def>Flame</def>
         <amount>12</amount>
         <chance>0.8</chance>
       </li>
-    </extraMeleeDamages>
+    </extraDamages>
     <extraDescriptions>
       <li>80% chance to deal extra 12 flame damage, igniting the target.</li>
     </extraDescriptions>
@@ -282,13 +296,13 @@
         </value>
       </li>
     </stats>
-    <extraMeleeDamages>
+    <extraDamages>
       <li>
         <def>Stun</def>
         <amount>8</amount>
         <chance>0.5</chance>
       </li>
-    </extraMeleeDamages>
+    </extraDamages>
     <extraDescriptions>
       <li>50% chance to stun by 8 points.</li>
     </extraDescriptions>
@@ -312,12 +326,6 @@
           <offset>0.4</offset>
         </value>
       </li>
-      <li>
-        <key>MoveSpeed</key>
-        <value>
-          <offset>0.2</offset>
-        </value>
-      </li>
     </stats>
   </Infusion.InfusionDef>
 
@@ -338,44 +346,53 @@
       <li>
         <key>RangedWeapon_DamageMultiplier</key>
         <value>
-          <offset>0.45</offset>
+          <offset>0.4</offset>
         </value>
       </li>
     </stats>
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="LegendaryRangedBase">
-    <defName>Guided</defName>
-    <label>guided</label>
+    <defName>Guided</defName> <!-- [todo] Homing -->
+    <label>homing</label>
+    <labelShort>hom</labelShort>
     <stats>
       <li>
         <key>AccuracyTouch</key>
         <value>
-          <multiplier>0.25</multiplier>
+          <offset>0.25</offset>
         </value>
       </li>
       <li>
         <key>AccuracyShort</key>
         <value>
-          <multiplier>0.25</multiplier>
+          <offset>0.25</offset>
         </value>
       </li>
       <li>
         <key>AccuracyMedium</key>
         <value>
-          <multiplier>0.25</multiplier>
+          <offset>0.25</offset>
         </value>
       </li>
       <li>
         <key>AccuracyLong</key>
         <value>
-          <multiplier>0.25</multiplier>
+          <offset>0.25</offset>
         </value>
       </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryRangedBase">
+    <defName>Recuperating</defName>
+    <label>recuperating</label>
+    <labelShort>recu</labelShort>
+    <stats>
       <li>
-        <key>RangedWeapon_DamageMultiplier</key>
+        <key>RangedWeapon_Cooldown</key>
         <value>
-          <offset>0.2</offset>
+          <multiplier>-0.6</multiplier>
         </value>
       </li>
     </stats>
@@ -395,7 +412,7 @@
       <li>
         <key>RangedWeapon_Cooldown</key>
         <value>
-          <multiplier>-0.4</multiplier>
+          <multiplier>-0.2</multiplier>
         </value>
       </li>
     </stats>

@@ -44,20 +44,6 @@
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="RareApparelBase">
-    <defName>Adjustable</defName>
-    <label>adjustable</label>
-    <labelShort>adjst</labelShort>
-    <stats>
-      <li>
-        <key>EquipDelay</key>
-        <value>
-          <multiplier>-0.25</multiplier>
-        </value>
-      </li>
-    </stats>
-  </Infusion.InfusionDef>
-
-  <Infusion.InfusionDef ParentName="RareApparelBase">
     <defName>Absorbing</defName>
     <label>absorbing</label>
     <labelShort>absrb</labelShort>
@@ -140,7 +126,7 @@
       <li>
         <key>MaxHitPoints</key>
         <value>
-          <multiplier>0.3</multiplier>
+          <multiplier>0.2</multiplier>
         </value>
       </li>
       <li>
@@ -153,6 +139,21 @@
         <key>ArmorRating_Blunt</key>
         <value>
           <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareApparelBase">
+    <defName>Gourmand</defName>
+    <label>gourmand</label>
+    <labelShort>gorm</labelShort>
+    <position>Suffix</position>
+    <stats>
+      <li>
+        <key>EatingSpeed</key>
+        <value>
+          <offset>0.25</offset>
         </value>
       </li>
     </stats>
@@ -202,13 +203,13 @@
     <requirements>
       <meleeDamageType>Blunt</meleeDamageType>
     </requirements>
-    <extraMeleeDamages>
+    <extraDamages>
       <li>
         <def>Stab</def>
         <amount>6</amount>
         <chance>0.8</chance>
       </li>
-    </extraMeleeDamages>
+    </extraDamages>
     <extraDescriptions>
       <li>80% chance to deal extra 6 stab damage.</li>
     </extraDescriptions>
@@ -231,13 +232,13 @@
     <defName>Fiery</defName>
     <label>fiery</label>
     <labelShort>fire</labelShort>
-    <extraMeleeDamages>
+    <extraDamages>
       <li>
         <def>Burn</def>
         <amount>6</amount>
         <chance>0.8</chance>
       </li>
-    </extraMeleeDamages>
+    </extraDamages>
     <extraDescriptions>
       <li>80% chance to deal extra 6 burn damage.</li>
     </extraDescriptions>
@@ -265,13 +266,13 @@
       <li>
         <key>ArmorRating_Sharp</key>
         <value>
-          <offset>0.15</offset>
+          <offset>0.1</offset>
         </value>
       </li>
       <li>
         <key>ArmorRating_Blunt</key>
         <value>
-          <offset>0.15</offset>
+          <offset>0.1</offset>
         </value>
       </li>
     </stats>
@@ -289,13 +290,13 @@
         </value>
       </li>
     </stats>
-    <extraMeleeDamages>
+    <extraDamages>
       <li>
         <def>Stun</def>
         <amount>4</amount>
         <chance>0.3</chance>
       </li>
-    </extraMeleeDamages>
+    </extraDamages>
     <extraDescriptions>
       <li>50% chance to stun by 4 points.</li>
     </extraDescriptions>
@@ -372,19 +373,19 @@
       <li>
         <key>AccuracyTouch</key>
         <value>
-          <multiplier>0.1</multiplier>
+          <offset>0.1</offset>
         </value>
       </li>
       <li>
         <key>AccuracyMedium</key>
         <value>
-          <multiplier>-0.04</multiplier>
+          <offset>-0.04</offset>
         </value>
       </li>
       <li>
         <key>AccuracyLong</key>
         <value>
-          <multiplier>-0.07</multiplier>
+          <offset>-0.07</offset>
         </value>
       </li>
       <li>
@@ -409,25 +410,25 @@
       <li>
         <key>AccuracyTouch</key>
         <value>
-          <multiplier>-0.02</multiplier>
+          <offset>-0.02</offset>
         </value>
       </li>
       <li>
         <key>AccuracyShort</key>
         <value>
-          <multiplier>0.03</multiplier>
+          <offset>0.03</offset>
         </value>
       </li>
       <li>
         <key>AccuracyMedium</key>
         <value>
-          <multiplier>0.07</multiplier>
+          <offset>0.07</offset>
         </value>
       </li>
       <li>
         <key>AccuracyLong</key>
         <value>
-          <multiplier>0.14</multiplier>
+          <offset>0.14</offset>
         </value>
       </li>
       <li>

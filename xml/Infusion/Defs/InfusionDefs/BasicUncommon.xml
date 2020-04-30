@@ -44,6 +44,20 @@
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="UncommonApparelBase">
+    <defName>Adjustable</defName>
+    <label>adjustable</label>
+    <labelShort>adjst</labelShort>
+    <stats>
+      <li>
+        <key>EquipDelay</key>
+        <value>
+          <multiplier>-0.25</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="UncommonApparelBase">
     <defName>Comfortable</defName>
     <label>comfortable</label>
     <labelShort>comfy</labelShort>
@@ -162,7 +176,7 @@
       <li>
         <key>ArmorRating_Sharp</key>
         <value>
-          <offset>0.1</offset>
+          <offset>0.075</offset>
         </value>
       </li>
     </stats>
@@ -202,13 +216,13 @@
     <requirements>
       <meleeDamageType>Blunt</meleeDamageType>
     </requirements>
-    <extraMeleeDamages>
+    <extraDamages>
       <li>
         <def>Stab</def>
         <amount>3</amount>
         <chance>0.8</chance>
       </li>
-    </extraMeleeDamages>
+    </extraDamages>
     <extraDescriptions>
       <li>80% chance to deal extra 3 stab damage.</li>
     </extraDescriptions>
@@ -228,25 +242,25 @@
       <li>
         <key>AccuracyTouch</key>
         <value>
-          <multiplier>0.05</multiplier>
+          <offset>0.05</offset>
         </value>
       </li>
       <li>
         <key>AccuracyShort</key>
         <value>
-          <multiplier>0.05</multiplier>
+          <offset>0.05</offset>
         </value>
       </li>
       <li>
         <key>AccuracyMedium</key>
         <value>
-          <multiplier>0.05</multiplier>
+          <offset>0.05</offset>
         </value>
       </li>
       <li>
         <key>AccuracyLong</key>
         <value>
-          <multiplier>0.05</multiplier>
+          <offset>0.05</offset>
         </value>
       </li>
     </stats>

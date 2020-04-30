@@ -77,6 +77,20 @@
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="EpicApparelBase">
+    <defName>Digesting</defName>
+    <label>digesting</label>
+    <labelShort>dgst</labelShort>
+    <stats>
+      <li>
+        <key>EatingSpeed</key>
+        <value>
+          <offset>0.5</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="EpicApparelBase">
     <defName>Energizing</defName>
     <label>energizing</label>
     <labelShort>enrg</labelShort>
@@ -104,13 +118,13 @@
       <li>
         <key>ArmorRating_Sharp</key>
         <value>
-          <offset>0.45</offset>
+          <offset>0.4</offset>
         </value>
       </li>
       <li>
         <key>ArmorRating_Blunt</key>
         <value>
-          <offset>0.45</offset>
+          <offset>0.4</offset>
         </value>
       </li>
     </stats>
@@ -241,13 +255,13 @@
     <defName>Igneous</defName>
     <label>igneous</label>
     <labelShort>igni</labelShort>
-    <extraMeleeDamages>
+    <extraDamages>
       <li>
         <def>Flame</def>
         <amount>8</amount>
         <chance>0.5</chance>
       </li>
-    </extraMeleeDamages>
+    </extraDamages>
     <extraDescriptions>
       <li>50% chance to deal extra 8 flame damage, igniting the target.</li>
     </extraDescriptions>
@@ -261,13 +275,13 @@
       <li>
         <key>ArmorRating_Sharp</key>
         <value>
-          <offset>0.25</offset>
+          <offset>0.2</offset>
         </value>
       </li>
       <li>
         <key>ArmorRating_Blunt</key>
         <value>
-          <offset>0.25</offset>
+          <offset>0.2</offset>
         </value>
       </li>
     </stats>
@@ -311,7 +325,7 @@
       <li>
         <key>RangedWeapon_Cooldown</key>
         <value>
-          <multiplier>-0.3</multiplier>
+          <multiplier>-0.2</multiplier>
         </value>
       </li>
     </stats>
@@ -330,25 +344,25 @@
       <li>
         <key>AccuracyTouch</key>
         <value>
-          <multiplier>0.15</multiplier>
+          <offset>0.15</offset>
         </value>
       </li>
       <li>
         <key>AccuracyShort</key>
         <value>
-          <multiplier>0.15</multiplier>
+          <offset>0.15</offset>
         </value>
       </li>
       <li>
         <key>AccuracyMedium</key>
         <value>
-          <multiplier>0.15</multiplier>
+          <offset>0.15</offset>
         </value>
       </li>
       <li>
         <key>AccuracyLong</key>
         <value>
-          <multiplier>0.15</multiplier>
+          <offset>0.15</offset>
         </value>
       </li>
     </stats>
@@ -370,7 +384,7 @@
       <li>
         <key>RangedWeapon_DamageMultiplier</key>
         <value>
-          <offset>0.5</offset>
+          <offset>0.4</offset>
         </value>
       </li>
       <li>
