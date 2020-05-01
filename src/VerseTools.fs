@@ -1,4 +1,4 @@
-module Infusion.DefTool
+module Infusion.VerseTools
 
 open RimWorld
 open UnityEngine
@@ -51,3 +51,5 @@ let tierToColor (tier: Tier) =
     | Tier.Legendary -> Color(1.0f, 0.5f, 0.0f)
     | Tier.Artifact -> Color(0.89f, 0.8f, 0.5f)
     | _ -> Color.white
+
+let resetHP<'T when 'T :> Thing and 'T: null> (thing: 'T) = do thing.HitPoints <- thing.MaxHitPoints

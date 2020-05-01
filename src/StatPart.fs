@@ -5,9 +5,9 @@ open System.Text
 open RimWorld
 open Verse
 
-open DefTool
 open StatMod
 open VerseInterop
+open VerseTools
 
 // Handles stat transformation.
 type Infusion =

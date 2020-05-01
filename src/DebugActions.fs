@@ -4,6 +4,9 @@ open Verse
 
 open Lib
 open VerseInterop
+open VerseTools
+
+let private resetCompParentHP: ThingComp -> unit = parentOfComp >> resetHP
 
 let private pointedThings() = Find.CurrentMap.thingGrid.ThingsAt(UI.MouseCell())
 
@@ -14,7 +17,7 @@ let private firstCompAtPointer (things: seq<Thing>) =
 let private addActionFor (infDef: InfusionDef) =
     pointedThings()
     |> firstCompAtPointer
-    |> Option.iter (tap (Comp.addInfusion infDef) >> Comp.resetHP)
+    |> Option.iter (tap (Comp.addInfusion infDef) >> resetCompParentHP)
 
 [<DebugAction("Infusion", "Add an infusion...", actionType = DebugActionType.Action,
               allowedGameStates = AllowedGameStates.PlayingOnMap)>]
@@ -37,9 +40,9 @@ let removeInfusion() =
             DebugMenuOption
                 (infDef.defName, DebugMenuOptionMode.Action,
                  (fun () ->
-                     comp
-                     |> tap (Comp.removeInfusion infDef)
-                     |> Comp.resetHP))))
+                     do comp
+                        |> tap (Comp.removeInfusion infDef)
+                        |> resetCompParentHP))))
     |> Option.map Dialog_DebugOptionListLister
     |> Option.iter Find.WindowStack.Add
 
@@ -47,12 +50,15 @@ let removeInfusion() =
 let removeAllInfusions() =
     pointedThings()
     |> firstCompAtPointer
-    |> Option.iter ((tap Comp.removeAllInfusions) >> Comp.resetHP)
+    |> Option.iter (tap Comp.removeAllInfusions >> resetCompParentHP)
 
 [<DebugAction("Infusion", "Reroll infusions", actionType = DebugActionType.ToolMap)>]
 let rerollInfusions() =
     pointedThings()
     |> firstCompAtPointer
     |> Option.iter (fun comp ->
-        do comp.Infusions <- Comp.pickInfusions comp.Quality comp.parent
-        do Comp.resetHP comp)
+        let infusions = Comp.pickInfusions comp.Quality comp.parent
+
+        comp
+        |> tap (Comp.setInfusions infusions)
+        |> resetCompParentHP)

@@ -28,10 +28,11 @@ module DamageInfosToApply =
         |> DamageInfo.setBodyRegion BodyPartHeight.Undefined BodyPartDepth.Outside
         |> DamageInfo.setWeaponBodyPartGroup (instance.verbProps.AdjustedLinkedBodyPartsGroup instance.tool)
 
-    // by some unknown reasons, Postfix is causing multiple createDamageInfo() calls
-    // note that flow isn't prefix1 -> postfix2 -> prefix1 -> postfix2, but prefix1 -> prefix2 -> postfix1 -> postfix2
+    // by some unknown reasons, Postfix is always called twice
+    // note that the flow isn't prefix1 -> postfix1 -> prefix2 -> postfix2, but prefix1 -> prefix2 -> postfix1 -> postfix2
+    // (maybe patches are being applied twice?)
     // so we are making a flag to stop postfix2 (and any subsequent postfixN) from doing anything
-    // prefix1(assign true) -> prefix2 -> postfix1(assign false) -> postfix2
+    // prefix1(assign true) -> prefix2 -> postfix1(assign false) -> postfix2(does nothing)
     let mutable dangerouslyModifyingResults = false
 
     let Prefix(target: LocalTargetInfo, __instance: Verb_MeleeAttackDamage) = do dangerouslyModifyingResults <- true
@@ -44,12 +45,9 @@ module DamageInfosToApply =
                 Option.ofObj __instance.EquipmentSource
                 |> Option.bind compOfThing<Comp.Infusion>
                 |> Option.map (fun comp ->
-                    comp.Infusions
-                    |> Seq.filter Def.hasExtraMeleeDamage
-                    |> Seq.collect (fun def ->
-                        def.extraMeleeDamages
-                        |> Seq.filter (fun damage -> Rand.Chance damage.chance)
-                        |> Seq.map (createDamageInfo __instance comp.parent target.Thing.Position)))
+                    comp.ExtraDamages
+                    |> Seq.filter (fun damage -> Rand.Chance damage.chance)
+                    |> Seq.map (createDamageInfo __instance comp.parent target.Thing.Position))
                 // need to prepend, as combat log is only associated with the last damage
                 |> Option.map (fun damages -> Seq.append damages returned)
                 |> Option.defaultValue returned

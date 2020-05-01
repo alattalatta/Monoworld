@@ -9,7 +9,7 @@
     <Compile Include="VerseInterop.fs" />
     <Compile Include="StatMod.fs" />
     <Compile Include="DefFields.fs" />
-    <Compile Include="DefTool.fs" />
+    <Compile Include="VerseTools.fs" />
     <Compile Include="InfusionDef.fs" />
     <Compile Include="Settings.fs" />
     <Compile Include="Comp.fs" />

@@ -7,7 +7,7 @@ open RimWorld
 open Verse
 
 open Infusion
-open DefTool
+open VerseTools
 open VerseInterop
 
 [<HarmonyPatch(typeof<StatWorker>, "RelevantGear")>]

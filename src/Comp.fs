@@ -8,10 +8,14 @@ open RimWorld
 open Verse
 
 open DefFields
-open DefTool
+open VerseTools
 open Lib
 open StatMod
 open VerseInterop
+
+type BestInfusionLabelLength =
+    | Long
+    | Short
 
 // Holds an equipment's infusions.
 [<AllowNullLiteral>]
@@ -23,7 +27,7 @@ type Infusion() =
     let mutable quality = QualityCategory.Normal
 
     let mutable bestInfusionCache = None
-    let mutable inspectStringCache = None
+    let mutable extraDamageCache = None
 
     let infusionsStatModCache = Dictionary<StatDef, option<StatMod>>()
 
@@ -35,7 +39,7 @@ type Infusion() =
         with get () = infusions |> Seq.sortByDescending (fun inf -> inf.tier)
         and set (value: seq<InfusionDef>) =
             do this.InvalidateCache()
-            infusions <- Seq.truncate (Settings.getBaseSlotsFor quality) value |> Set.ofSeq
+            infusions <- value |> Set.ofSeq
 
     member this.InfusionsRaw = infusions
 
@@ -54,24 +58,21 @@ type Infusion() =
             bestInfusionCache
         | _ -> bestInfusionCache
 
-    member this.BestInfusionLabel =
-        match this.BestInfusion with
-        | Some bestInf ->
-            let sb = StringBuilder(bestInf.label)
-            if this.Size > 1 then do sb.Append("(+").Append(this.Size - 1).Append(")") |> ignore
+    member this.ExtraDamages =
+        if Option.isNone extraDamageCache then
+            do extraDamageCache <-
+                infusions
+                |> Seq.map (fun def -> def.ExtraDamages)
+                |> Seq.choose id
+                |> Seq.concat
+                |> Some
 
-            string sb
-        | None -> ""
+        Option.defaultValue Seq.empty extraDamageCache
 
-    member this.BestInfusionLabelShort =
-        match this.BestInfusion with
-        | Some bestInf ->
-            let sb =
-                StringBuilder(if bestInf.labelShort.NullOrEmpty() then bestInf.label else bestInf.labelShort)
-            if this.Size > 1 then do sb.Append("(+").Append(this.Size - 1).Append(")") |> ignore
-
-            string sb
-        | None -> ""
+    member this.Descriptions =
+        this.Infusions
+        |> Seq.map (fun inf -> inf.GetDescriptionString())
+        |> String.concat ""
 
     member this.InspectionLabel =
         if Set.isEmpty infusions then
@@ -97,12 +98,6 @@ type Infusion() =
                     string (translate2 "Infusion.Label.Prefixed" prefixString suffixedPart)
 
             prefixedPart.CapitalizeFirst()
-
-    member this.Descriptions =
-        this.Infusions
-        |> Seq.map (fun inf -> inf.GetDescriptionString())
-        |> Seq.fold (fun (acc: StringBuilder) cur -> acc.Append(cur)) (StringBuilder())
-        |> string
 
     member this.Size = Set.count infusions
 
@@ -133,8 +128,17 @@ type Infusion() =
 
     member this.InvalidateCache() =
         do bestInfusionCache <- None
-        do inspectStringCache <- None
         do infusionsStatModCache.Clear()
+
+    member this.MakeBestInfusionLabel length =
+        match this.BestInfusion with
+        | Some bestInf ->
+            let sb =
+                StringBuilder(if length = Long then bestInf.label else bestInf.LabelShort)
+            if this.Size > 1 then do sb.Append("(+").Append(this.Size - 1).Append(")") |> ignore
+
+            string sb
+        | None -> ""
 
     override this.TransformLabel label =
         match this.BestInfusion with
@@ -144,8 +148,10 @@ type Infusion() =
 
             let sb =
                 match bestInf.position with
-                | Position.Prefix -> translate2 "Infusion.Label.Prefixed" this.BestInfusionLabel baseLabel
-                | Position.Suffix -> translate2 "Infusion.Label.Suffixed" this.BestInfusionLabel baseLabel
+                | Position.Prefix ->
+                    translate2 "Infusion.Label.Prefixed" (this.MakeBestInfusionLabel Long) baseLabel
+                | Position.Suffix ->
+                    translate2 "Infusion.Label.Suffixed" (this.MakeBestInfusionLabel Long) baseLabel
                 | _ -> raise (ArgumentException("Position must be either Prefix or Suffix"))
                 |> string
                 |> StringBuilder
@@ -180,7 +186,7 @@ type Infusion() =
             match this.BestInfusion with
             | Some bestInf ->
                 do GenMapUI.DrawThingLabel
-                    (GenMapUI.LabelDrawPosFor(this.parent, -0.6499999762f), this.BestInfusionLabelShort,
+                    (GenMapUI.LabelDrawPosFor(this.parent, -0.6499999762f), this.MakeBestInfusionLabel Short,
                      tierToColor bestInf.tier)
             | None -> ()
 
@@ -205,6 +211,8 @@ let addInfusion (infDef: InfusionDef) (comp: Infusion) =
             yield infDef
             yield! comp.Infusions
         }
+
+let setInfusions (infDefs: seq<InfusionDef>) (comp: Infusion) = do comp.Infusions <- infDefs
 
 /// Picks elligible `InfusionDef` for the `Thing`.
 let pickInfusions (quality: QualityCategory) (parent: ThingWithComps) =
@@ -233,11 +241,18 @@ let pickInfusions (quality: QualityCategory) (parent: ThingWithComps) =
         let chance = infDef.ChanceFor(quality) * Settings.getChanceFactor()
         Rand.Chance chance
 
+    // slots
+    let slotBonuses =
+        Option.ofObj parent.def.apparel
+        // one more per 4 body part groups, one more per layers
+        |> Option.map (fun s -> (max 0 (s.bodyPartGroups.Count - 4)) + s.layers.Count - 1)
+        |> Option.defaultValue 0
+
     DefDatabase<InfusionDef>.AllDefs
     |> Seq.filter (checkDisabled <&> checkAllowance <&> checkTechLevel <&> checkQuality <&> checkDamageType)
     |> Seq.map (fun infDef -> (infDef, (infDef.WeightFor quality) * (Settings.getWeightFactor()) + Rand.Value)) // weighted, duh
     |> Seq.sortByDescending snd
-    |> Seq.truncate (Settings.getBaseSlotsFor quality)
+    |> Seq.truncate (Settings.getBaseSlotsFor quality + slotBonuses)
     |> Seq.map fst
     |> Seq.filter checkChance
     |> List.ofSeq // need to "finalize" the random sort
@@ -246,5 +261,3 @@ let pickInfusions (quality: QualityCategory) (parent: ThingWithComps) =
 let removeAllInfusions (comp: Infusion) = do comp.Infusions <- Set.empty
 
 let removeInfusion (infDef: InfusionDef) (comp: Infusion) = do comp.Infusions <- Set.remove infDef comp.InfusionsRaw
-
-let resetHP (comp: ThingComp) = do comp.parent.HitPoints <- comp.parent.MaxHitPoints

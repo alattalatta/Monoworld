@@ -11,7 +11,7 @@ let equipmentsOfPawn (pawn: Pawn): option<list<ThingWithComps>> =
 
 let compOfThing<'C when 'C :> ThingComp and 'C: null> (thing: Thing) = Option.ofObj (thing.TryGetComp<'C>())
 
-let stuffOfThing (thing: Thing) = Option.ofObj thing.Stuff
+let parentOfComp (comp: ThingComp) = comp.parent
 
 let translate (key: string) = key.TranslateSimple()
 

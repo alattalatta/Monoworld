@@ -6,8 +6,8 @@ open RimWorld
 open UnityEngine
 open Verse
 
-open DefTool
 open VerseInterop
+open VerseTools
 
 type Infused() =
     inherit ITab(size = Vector2(400.0f, 550.0f), labelKey = "Infusion.ITab")

@@ -8,7 +8,7 @@ open RimWorld
 open Verse
 
 open DefFields
-open DefTool
+open VerseTools
 open Lib
 open StatMod
 
@@ -17,15 +17,14 @@ type InfusionDef =
     inherit Def
 
     /// Label for map overlay.
-    [<MustTranslate>]
     val mutable labelShort: string
 
-    [<MustTranslate>]
+    /// Descriptions for special effects.
     val mutable extraDescriptions: ResizeArray<string>
 
     val mutable chances: QualityMap
     val mutable disabled: bool
-    val mutable extraMeleeDamages: ResizeArray<ExtraDamage>
+    val mutable extraDamages: ResizeArray<ExtraDamage>
     val mutable position: Position
     val mutable requirements: Requirements
     val mutable stats: Dictionary<StatDef, StatMod>
@@ -39,14 +38,17 @@ type InfusionDef =
 
           chances = QualityMap()
           disabled = false
-          extraMeleeDamages = null
+          extraDamages = null
           position = Position.Prefix
           requirements = Requirements()
           stats = Dictionary()
           tier = Tier.Common
           weights = QualityMap() }
 
-    member this.ExtraMeleeDamages = Option.ofObj this.extraMeleeDamages
+    member this.LabelShort =
+        if this.labelShort.NullOrEmpty() then this.label else this.labelShort
+
+    member this.ExtraDamages = Option.ofObj this.extraDamages
 
     member this.ChanceFor(quality: QualityCategory) =
         match quality with
@@ -109,6 +111,3 @@ type InfusionDef =
                 let byTier = this.tier.CompareTo infDef.tier
                 if byTier <> 0 then byTier else this.defName.CompareTo infDef.defName
             | _ -> 0
-
-module Def =
-    let hasExtraMeleeDamage (def: InfusionDef) = Option.isSome def.ExtraMeleeDamages
