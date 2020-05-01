@@ -1,9 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-  <Lightweight.label>경량</Lightweight.label>
-  <Lightweight.labelShort>경량</Lightweight.labelShort>
+  <Lightweight.label>가벼운</Lightweight.label>
+  <Lightweight.labelShort>가벼운</Lightweight.labelShort>
 
   <!-- apparels -->
+  <Adjustable.label>조절 가능한</Adjustable.label>
+  <Adjustable.labelShort>조절</Adjustable.labelShort>
+
   <Comfortable.label>편안한</Comfortable.label>
   <Comfortable.labelShort>편안</Comfortable.labelShort>
 

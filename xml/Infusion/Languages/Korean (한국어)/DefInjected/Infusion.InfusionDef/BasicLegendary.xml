@@ -4,6 +4,9 @@
   <Amplifying.label>증폭하는</Amplifying.label>
   <Amplifying.labelShort>증폭</Amplifying.labelShort>
 
+  <Circadian.label>일주기의</Circadian.label>
+  <Circadian.labelShort>일주기</Circadian.labelShort>
+
   <Circulating.label>순환하는</Circulating.label>
   <Circulating.labelShort>순환</Circulating.labelShort>
 
@@ -50,6 +53,9 @@
 
   <Boosted.label>추진형</Boosted.label>
   <Boosted.labelShort>추진</Boosted.labelShort>
+
+  <Recuperating.label>반동감소</Recuperating.label>
+  <Recuperating.labelShort>반동</Recuperating.labelShort>
 
   <Responsive.label>반응형</Responsive.label>
   <Responsive.labelShort>반응</Responsive.labelShort>

@@ -4,9 +4,6 @@
   <Weightless.labelShort>가뿐</Weightless.labelShort>
 
   <!-- apparels -->
-  <Adjustable.label>조절 가능한</Adjustable.label>
-  <Adjustable.labelShort>조절</Adjustable.labelShort>
-
   <Absorbing.label>흡수하는</Absorbing.label>
   <Absorbing.labelShort>흡수</Absorbing.labelShort>
 
@@ -24,6 +21,9 @@
 
   <Tough.label>견고한</Tough.label>
   <Tough.labelShort>견고</Tough.labelShort>
+
+  <Gourmand.label>미식</Gourmand.label>
+  <Gourmand.labelShort>미식</Gourmand.labelShort>
 
   <Wild.label>야생</Wild.label>
   <Wild.labelShort>야생</Wild.labelShort>

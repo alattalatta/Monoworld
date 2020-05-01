@@ -178,7 +178,7 @@
       <li>
         <key>EquipDelay</key>
         <value>
-          <multiplier>0.25</multiplier>
+          <multiplier>-0.75</multiplier>
         </value>
       </li>
     </stats>
