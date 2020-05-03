@@ -7,8 +7,16 @@ open Verse
 open DefFields
 open VerseInterop
 
-// Because StatCategoryDef doesn't implement IComparable,
+// Because StatDef doesn't implement IComparable,
 // defs can't be used directly for Sets.
+let accuracyStats =
+    Set.ofList
+        [ StatDefOf.AccuracyTouch.defName
+          StatDefOf.AccuracyShort.defName
+          StatDefOf.AccuracyMedium.defName
+          StatDefOf.AccuracyLong.defName ]
+
+// Same as StatDef.
 let pawnStatCategories =
     Set.ofList
         [ StatCategoryDefOf.BasicsPawn.defName

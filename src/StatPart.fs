@@ -4,6 +4,7 @@ open System.Text
 
 open RimWorld
 open Verse
+open UnityEngine
 
 open StatMod
 open VerseInterop
@@ -13,24 +14,34 @@ open VerseTools
 type Infusion =
     inherit StatPart
 
-    val isPawnStat: bool
+    val IsPawnStat: bool
 
     new(stat: StatDef) =
         { inherit StatPart(parentStat = stat)
-          isPawnStat =
+          IsPawnStat =
               Option.ofObj stat.category
               |> Option.map (fun catDef -> Set.contains catDef.defName pawnStatCategories)
               |> Option.defaultValue false }
 
     override this.TransformValue(req, value: byref<float32>) =
-        if not this.isPawnStat then
+        if not this.IsPawnStat then
             do value <-
                 match req.Thing with
                 | null -> value
                 | thing -> this.TransformThingStat(value, thing)
 
+            if Set.contains this.parentStat.defName accuracyStats
+               && (value >= 1.0f) then
+                if Settings.getAccuracyOvercapEnabled () then
+                    let overcaps =
+                        Mathf.Log((value - 1.0f) * 10.0f, 2.0f) / 10.0f
+
+                    do value <- 1.0f + overcaps
+                else
+                    do value <- 1.0f
+
     override this.ExplanationPart req =
-        if not this.isPawnStat then
+        if not this.IsPawnStat then
             match req.Thing with
             | null -> null
             | thing -> this.ExplainForThing thing

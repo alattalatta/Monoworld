@@ -17,6 +17,9 @@
 
   <Infusion.ITab>Infusions</Infusion.ITab>
 
+  <Infusion.Settings.AccuracyOvercapping>Enable accuracy overcapping</Infusion.Settings.AccuracyOvercapping>
+  <Infusion.Settings.AccuracyOvercapping.Description>Allows ranged weapon accuracy to go over 100%, with diminishing returns.</Infusion.Settings.AccuracyOvercapping.Description>
+
   <Infusion.Settings.WeightFactor>Weight factor</Infusion.Settings.WeightFactor>
   <Infusion.Settings.WeightFactor.Description>Multiplies weight of infusions. Possible values are 0.0 ~ 2.0.
 

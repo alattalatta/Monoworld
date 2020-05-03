@@ -11,6 +11,11 @@ open VerseInterop
 
 // [todo] separate
 
+// accuracy overcapping
+let mutable accuracyOvercapEnabled: SettingHandle<bool> = null
+
+let getAccuracyOvercapEnabled () = accuracyOvercapEnabled.Value
+
 // choice factors
 let mutable chanceFactor: SettingHandle<float32> = null
 let mutable weightFactor: SettingHandle<float32> = null
@@ -32,6 +37,14 @@ let mutable settingsOpened = false
 let initialize () =
     let pack =
         HugsLibController.SettingsManager.GetModSettings("latta.infusion")
+
+    // accuracy overcapping
+    do accuracyOvercapEnabled <-
+        (pack.GetHandle
+            ("accuracyOvercapping",
+             (translate "Infusion.Settings.AccuracyOvercapping"),
+             (translate "Infusion.Settings.AccuracyOvercapping.Description"),
+             true))
 
     // choice factors
     do chanceFactor <-
