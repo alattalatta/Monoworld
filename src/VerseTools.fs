@@ -26,7 +26,10 @@ let rec isToolCapableOfDamageType (dt: DamageType) (tool: Tool) =
     match dt with
     | DamageType.Anything -> true
     | DamageType.Blunt ->
-        tool.capacities |> Seq.exists (fun capacity -> capacity.defName = "Blunt" || capacity.defName = "Poke")
+        tool.capacities
+        |> Seq.exists (fun capacity ->
+            capacity.defName = "Blunt"
+            || capacity.defName = "Poke")
     | DamageType.Sharp -> not (isToolCapableOfDamageType DamageType.Blunt tool) // assuming reverse of blunt is sharp...
     | _ -> false
 

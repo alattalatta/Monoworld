@@ -19,10 +19,6 @@ let dictseq (dict: Dictionary<_, _>) =
             yield entry
     }
 
-let tap fn a =
-    do fn a
-    a
-
 let shuffle seq =
     let array = Seq.toArray seq
     let random = Random()
@@ -33,3 +29,7 @@ let shuffle seq =
         array.[j] <- pom
 
     array |> Array.toSeq
+
+let tap fn a =
+    do fn a
+    a
