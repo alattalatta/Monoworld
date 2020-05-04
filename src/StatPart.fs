@@ -34,7 +34,11 @@ type Infusion =
                && (value >= 1.0f) then
                 if Settings.getAccuracyOvercapEnabled () then
                     let overcaps =
-                        Mathf.Log((value - 1.0f) * 10.0f, 2.0f) / 10.0f
+                        if value <= 1.1f then
+                            0.1f
+                        else
+                            Mathf.Log((value - 1.0f) * 10.0f + 1.0f, 2.0f)
+                            / 10.0f
 
                     do value <- 1.0f + overcaps
                 else
