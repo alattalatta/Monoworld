@@ -344,25 +344,25 @@
       <li>
         <key>AccuracyTouch</key>
         <value>
-          <offset>0.15</offset>
+          <offset>0.1</offset>
         </value>
       </li>
       <li>
         <key>AccuracyShort</key>
         <value>
-          <offset>0.15</offset>
+          <offset>0.1</offset>
         </value>
       </li>
       <li>
         <key>AccuracyMedium</key>
         <value>
-          <offset>0.15</offset>
+          <offset>0.1</offset>
         </value>
       </li>
       <li>
         <key>AccuracyLong</key>
         <value>
-          <offset>0.15</offset>
+          <offset>0.1</offset>
         </value>
       </li>
     </stats>

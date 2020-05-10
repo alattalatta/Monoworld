@@ -361,9 +361,42 @@
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="RareGunBase">
+    <defName>Extended</defName>
+    <label>extended</label>
+    <labelShort>ext</labelShort>
+    <requirements>
+      <allowance>
+        <ranged>true</ranged>
+      </allowance>
+    </requirements>
+    <stats>
+      <li>
+        <key>AccuracyTouch</key>
+        <value>
+          <offset>-0.05</offset>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyMedium</key>
+        <value>
+          <offset>0.06</offset>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyLong</key>
+        <value>
+          <offset>0.12</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- disabled -->
+  <Infusion.InfusionDef ParentName="RareGunBase">
     <defName>Shortened</defName>
     <label>shortened</label>
     <labelShort>short</labelShort>
+    <disabled>true</disabled>
     <requirements>
       <allowance>
         <ranged>true</ranged>
@@ -392,49 +425,6 @@
         <key>AimingDelayFactor</key>
         <value>
           <offset>-0.2</offset>
-        </value>
-      </li>
-    </stats>
-  </Infusion.InfusionDef>
-
-  <Infusion.InfusionDef ParentName="RareGunBase">
-    <defName>Extended</defName>
-    <label>extended</label>
-    <labelShort>ext</labelShort>
-    <requirements>
-      <allowance>
-        <ranged>true</ranged>
-      </allowance>
-    </requirements>
-    <stats>
-      <li>
-        <key>AccuracyTouch</key>
-        <value>
-          <offset>-0.02</offset>
-        </value>
-      </li>
-      <li>
-        <key>AccuracyShort</key>
-        <value>
-          <offset>0.03</offset>
-        </value>
-      </li>
-      <li>
-        <key>AccuracyMedium</key>
-        <value>
-          <offset>0.07</offset>
-        </value>
-      </li>
-      <li>
-        <key>AccuracyLong</key>
-        <value>
-          <offset>0.14</offset>
-        </value>
-      </li>
-      <li>
-        <key>AimingDelayFactor</key>
-        <value>
-          <offset>0.05</offset>
         </value>
       </li>
     </stats>
