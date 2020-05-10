@@ -32,7 +32,7 @@ type Infusion =
 
             if Set.contains this.parentStat.defName accuracyStats
                && (value >= 1.0f) then
-                if Settings.getAccuracyOvercapEnabled () then
+                if Settings.AccuracyOvercap.handle.Value then
                     let overcaps =
                         if value <= 1.1f then
                             value - 1.0f

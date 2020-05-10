@@ -317,7 +317,7 @@ let pickInfusions (quality: QualityCategory) (parent: ThingWithComps) =
     let checkChance (infDef: InfusionDef) =
         let chance =
             infDef.ChanceFor(quality)
-            * Settings.getChanceFactor ()
+            * Settings.SelectionConsts.chanceHandle.Value
 
         Rand.Chance chance
 
@@ -341,10 +341,12 @@ let pickInfusions (quality: QualityCategory) (parent: ThingWithComps) =
     |> Seq.map (fun infDef ->
         (infDef,
          (infDef.WeightFor quality)
-         * (Settings.getWeightFactor ())
+         * Settings.SelectionConsts.weightHandle.Value
          + Rand.Value)) // weighted, duh
     |> Seq.sortByDescending snd
-    |> Seq.truncate (Settings.getBaseSlotsFor quality + slotBonuses)
+    |> Seq.truncate
+        (Settings.Slots.getBaseSlotsFor quality
+         + slotBonuses)
     |> Seq.map fst
     |> Seq.filter checkChance
     |> List.ofSeq // need to "finalize" the random sort

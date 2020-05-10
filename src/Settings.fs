@@ -9,77 +9,49 @@ open Verse
 
 open VerseInterop
 
-// [todo] separate
+module AccuracyOvercap =
+    let mutable handle: SettingHandle<bool> = null
 
-// accuracy overcapping
-let mutable accuracyOvercapEnabled: SettingHandle<bool> = null
+    let draw (pack: ModSettingsPack) =
+        do handle <-
+            (pack.GetHandle
+                ("accuracyOvercapping",
+                 (translate "Infusion.Settings.AccuracyOvercapping"),
+                 (translate "Infusion.Settings.AccuracyOvercapping.Description"),
+                 true))
+        pack
 
-let getAccuracyOvercapEnabled () = accuracyOvercapEnabled.Value
+module SelectionConsts =
+    let mutable chanceHandle: SettingHandle<float32> = null
+    let mutable weightHandle: SettingHandle<float32> = null
 
-// choice factors
-let mutable chanceFactor: SettingHandle<float32> = null
-let mutable weightFactor: SettingHandle<float32> = null
+    let draw (pack: ModSettingsPack) =
+        do chanceHandle <-
+            (pack.GetHandle
+                ("chanceFactor",
+                 (translate "Infusion.Settings.ChanceFactor"),
+                 (translate "Infusion.Settings.ChanceFactor.Description"),
+                 1.0f,
+                 Validators.FloatRangeValidator(0.0f, 100.0f)))
+        do weightHandle <-
+            (pack.GetHandle
+                ("weightFactor",
+                 (translate "Infusion.Settings.WeightFactor"),
+                 (translate "Infusion.Settings.WeightFactor.Description"),
+                 0.5f,
+                 Validators.FloatRangeValidator(0.0f, 2.0f)))
+        pack
 
-let getChanceFactor () = chanceFactor.Value
-let getWeightFactor () = weightFactor.Value
+module Slots =
+    let mutable handles: Map<QualityCategory, SettingHandle<int>> = Map.empty
+    let mutable settingsOpened = false
 
-// slots
-let mutable slots: Map<QualityCategory, SettingHandle<int>> = Map.empty
+    let getBaseSlotsFor (quality: QualityCategory) =
+        Map.tryFind quality handles
+        |> Option.map int
+        |> Option.defaultValue 0
 
-let getBaseSlotsFor (quality: QualityCategory) =
-    Map.tryFind quality slots
-    |> Option.map int
-    |> Option.defaultValue 1
-
-// internal states
-let mutable settingsOpened = false
-
-let initialize () =
-    let pack =
-        HugsLibController.SettingsManager.GetModSettings("latta.infusion")
-
-    // accuracy overcapping
-    do accuracyOvercapEnabled <-
-        (pack.GetHandle
-            ("accuracyOvercapping",
-             (translate "Infusion.Settings.AccuracyOvercapping"),
-             (translate "Infusion.Settings.AccuracyOvercapping.Description"),
-             true))
-
-    // choice factors
-    do chanceFactor <-
-        (pack.GetHandle
-            ("chanceFactor",
-             (translate "Infusion.Settings.ChanceFactor"),
-             (translate "Infusion.Settings.ChanceFactor.Description"),
-             1.0f,
-             Validators.FloatRangeValidator(0.0f, 100.0f)))
-    do weightFactor <-
-        (pack.GetHandle
-            ("weightFactor",
-             (translate "Infusion.Settings.WeightFactor"),
-             (translate "Infusion.Settings.WeightFactor.Description"),
-             0.5f,
-             Validators.FloatRangeValidator(0.0f, 2.0f)))
-
-    // slots
-    let slotSettingOpener =
-        pack.GetHandle("slotsOpened", "", translate "", false)
-
-    do slotSettingOpener.CustomDrawer <-
-        (fun rect ->
-            let buttonLabel =
-                if settingsOpened
-                then "Infusion.Settings.Slots.CloseSlotSettings"
-                else "Infusion.Settings.Slots.OpenSlotSettings"
-
-            let clicked =
-                Widgets.ButtonText(rect, translate buttonLabel)
-
-            if clicked then do settingsOpened <- not settingsOpened
-            false)
-
-    let slotSettingHandle (quality: QualityCategory) defaultValue =
+    let private slotSettingHandle (quality: QualityCategory) defaultValue (pack: ModSettingsPack) =
         let qualityName =
             Enum.GetName(typeof<QualityCategory>, quality)
 
@@ -95,7 +67,37 @@ let initialize () =
 
         (quality, handle)
 
-    do slots <-
-        slots.Add(slotSettingHandle QualityCategory.Normal 1).Add(slotSettingHandle QualityCategory.Good 1)
-             .Add(slotSettingHandle QualityCategory.Excellent 2).Add(slotSettingHandle QualityCategory.Masterwork 3)
-             .Add(slotSettingHandle QualityCategory.Legendary 4)
+    let draw (pack: ModSettingsPack) =
+        let slotSettingOpener =
+            pack.GetHandle("slotsOpened", "", translate "", false)
+
+        do slotSettingOpener.CustomDrawer <-
+            (fun rect ->
+                let buttonLabel =
+                    if settingsOpened
+                    then "Infusion.Settings.Slots.CloseSlotSettings"
+                    else "Infusion.Settings.Slots.OpenSlotSettings"
+
+                let clicked =
+                    Widgets.ButtonText(rect, translate buttonLabel)
+
+                if clicked then do settingsOpened <- not settingsOpened
+                // nothing is really being changed, just return false
+                false)
+
+        do handles <-
+            [ slotSettingHandle QualityCategory.Normal 0
+              slotSettingHandle QualityCategory.Good 1
+              slotSettingHandle QualityCategory.Excellent 2
+              slotSettingHandle QualityCategory.Masterwork 3
+              slotSettingHandle QualityCategory.Legendary 4 ]
+            |> List.map (fun f -> f pack) // consider it as a reversed mapping
+            |> Map.ofList
+        pack
+
+let initialize () =
+    HugsLibController.SettingsManager.GetModSettings("latta.infusion")
+    |> AccuracyOvercap.draw
+    |> SelectionConsts.draw
+    |> Slots.draw
+    |> ignore

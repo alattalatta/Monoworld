@@ -92,7 +92,7 @@ type Infused() =
         let tooltipStringKey =
             if markedForRemoval then "Infusion.ITab.UnmarkForRemoval" else "Infusion.ITab.MarkForRemoval"
 
-        TooltipHandler.TipRegion(container, TipSignal(translate tooltipStringKey))
+        do TooltipHandler.TipRegion(container, TipSignal(translate tooltipStringKey))
 
         if Widgets.ButtonInvisible(container) then
             if markedForRemoval then
