@@ -12,3 +12,5 @@ src/bin
 dist
 
 PublishedFileId.txt
+
+*.code-workspace
