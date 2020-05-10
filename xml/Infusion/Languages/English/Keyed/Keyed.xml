@@ -17,6 +17,9 @@
 
   <Infusion.ITab>Infusions</Infusion.ITab>
 
+  <Infusion.ITab.MarkForRemoval>Click to mark this infusion for removal.\n\nOne of your colonist with crafting will remove it.</Infusion.ITab.MarkForRemoval>
+  <Infusion.ITab.UnmarkForRemoval>Click to unmark this infusion for removal.</Infusion.ITab.UnmarkForRemoval>
+
   <Infusion.Settings.AccuracyOvercapping>Enable accuracy overcapping</Infusion.Settings.AccuracyOvercapping>
   <Infusion.Settings.AccuracyOvercapping.Description>Allows ranged weapon accuracy to go over 100%, with diminishing returns.</Infusion.Settings.AccuracyOvercapping.Description>
 
@@ -34,6 +37,6 @@ Note: Chances still applies.
 With default infusions, 10 would be sufficient to ensure everything will pass. 0.0 will effectively disable new infusions.
   </Infusion.Settings.ChanceFactor.Description>
 
-  <Infusion.Settings.Slots.OpenSlotSettings>Open options for infusion slots per quality</Infusion.Settings.Slots.OpenSlotSettings>
-  <Infusion.Settings.Slots.CloseSlotSettings>Close options for infusion slots per quality</Infusion.Settings.Slots.CloseSlotSettings>
+  <Infusion.Settings.Slots.OpenSlotSettings>Open infusion slot options</Infusion.Settings.Slots.OpenSlotSettings>
+  <Infusion.Settings.Slots.CloseSlotSettings>Close infusion slot options</Infusion.Settings.Slots.CloseSlotSettings>
 </LanguageData>

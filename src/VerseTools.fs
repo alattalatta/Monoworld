@@ -64,3 +64,14 @@ let tierToColor (tier: Tier) =
     | _ -> Color.white
 
 let resetHP<'T when 'T :> Thing and 'T: null> (thing: 'T) = do thing.HitPoints <- thing.MaxHitPoints
+
+let scribeDefCollection key (defs: seq<'a>): option<seq<'a>> =
+    let mutable out = ResizeArray defs
+
+    if (Scribe.mode = LoadSaveMode.LoadingVars
+        || (Scribe.mode = LoadSaveMode.Saving
+            && not (out.NullOrEmpty()))) then
+        do Scribe_Collections.Look(&out, key, LookMode.Def)
+
+    Option.ofObj out
+    |> Option.map (fun a -> seq { yield! a })

@@ -45,8 +45,7 @@ type InfusionDef =
           tier = Tier.Common
           weights = QualityMap() }
 
-    member this.LabelShort =
-        if this.labelShort.NullOrEmpty() then this.label else this.labelShort
+    member this.LabelShort = if this.labelShort.NullOrEmpty() then this.label else this.labelShort
 
     member this.ExtraDamages = Option.ofObj this.extraDamages
 
@@ -80,20 +79,20 @@ type InfusionDef =
         let statsDescriptions =
             dictseq this.stats
             |> Seq.fold (fun (acc: StringBuilder) cur ->
-                acc.Append("  ").Append(cur.Key.LabelCap).Append(" ... ")
-                   .AppendLine((stringForStat cur.Key cur.Value))) (StringBuilder("\n"))
+                acc.Append("\n  ").Append(cur.Key.LabelCap).Append(" ... ").Append((stringForStat cur.Key cur.Value)))
+                   (StringBuilder())
 
         let extraDescriptions =
             if (this.extraDescriptions.NullOrEmpty()) then
                 ""
             else
                 this.extraDescriptions
-                |> Seq.fold (fun (acc: StringBuilder) cur -> acc.Append("  ").AppendLine(cur)) (StringBuilder())
+                |> Seq.fold (fun (acc: StringBuilder) cur -> acc.Append("\n  ").AppendLine(cur)) (StringBuilder())
                 |> string
 
         string
             (StringBuilder(label.Colorize(tierToColor this.tier)).Append(statsDescriptions)
-                .AppendLine(extraDescriptions.Colorize(tierToColor Tier.Uncommon)))
+                .Append(extraDescriptions.Colorize(tierToColor Tier.Uncommon)))
 
     override this.Equals(ob: obj) =
         match ob with

@@ -34,6 +34,7 @@ module DamageInfosToApply =
         |> DamageInfo.setBodyRegion BodyPartHeight.Undefined BodyPartDepth.Outside
         |> DamageInfo.setWeaponBodyPartGroup (instance.verbProps.AdjustedLinkedBodyPartsGroup instance.tool)
 
+    // Adds new DamageInfo from infusions' extraDamages.
     let Postfix (returned: IEnumerable<DamageInfo>, target: LocalTargetInfo, __instance: Verb_MeleeAttackDamage) =
         if Seq.isEmpty returned then
             returned
@@ -45,8 +46,7 @@ module DamageInfosToApply =
                     comp.ExtraDamages
                     |> Seq.filter (fun damage -> Rand.Chance damage.chance)
                     |> Seq.map (createDamageInfo __instance comp.parent target.Thing.Position))
-                // need to prepend, as combat log is only associated with the last damage
-                |> Option.map (fun damages -> Seq.append damages returned)
-                |> Option.defaultValue returned
+                |> Option.defaultValue Seq.empty
 
-            seq damages
+            // need to prepend, as combat log is only associated with the last damage
+            Seq.append damages returned

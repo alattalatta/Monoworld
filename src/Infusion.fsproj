@@ -16,6 +16,8 @@
     <Compile Include="StatPart.fs" />
     <Compile Include="ITab.fs" />
     <Compile Include="DebugActions.fs" />
+    <Compile Include="JobDriver.fs" />
+    <Compile Include="WorkGiver.fs" />
     <Compile Include="SpecialThingFilterWorkers/Everything.fs" />
     <Compile Include="Harmonize/CompQuality.fs" />
     <Compile Include="Harmonize/StatWorker.fs" />

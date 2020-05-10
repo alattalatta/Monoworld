@@ -13,6 +13,9 @@
 
   <Infusion.ITab>마법부여</Infusion.ITab>
 
+  <Infusion.ITab.MarkForRemoval>클릭해서 마법부여 제거 지정\n\n제작 작업을 맡은 정착민이 와서 제거할 것입니다.</Infusion.ITab.MarkForRemoval>
+  <Infusion.ITab.UnmarkForRemoval>클릭해서 마법부여 제거 해제</Infusion.ITab.UnmarkForRemoval>
+
   <Infusion.Settings.AccuracyOvercapping>명중률 제한 해제</Infusion.Settings.AccuracyOvercapping>
   <Infusion.Settings.AccuracyOvercapping.Description>원거리 무기의 명중률이 100%를 초과할 수 있도록 허용합니다.</Infusion.Settings.AccuracyOvercapping.Description>
 
@@ -30,6 +33,6 @@
 기본 마법부여 세트에서는 10만 지정해도 모든 마법부여가 확률을 통과합니다. 0.0을 설정하면 신규 마법부여를 비활성화합니다.
   </Infusion.Settings.ChanceFactor.Description>
 
-  <Infusion.Settings.Slots.OpenSlotSettings>품질별 마법부여 칸 설정 열기</Infusion.Settings.Slots.OpenSlotSettings>
-  <Infusion.Settings.Slots.CloseSlotSettings>품질별 마법부여 칸 설정 닫기</Infusion.Settings.Slots.CloseSlotSettings>
+  <Infusion.Settings.Slots.OpenSlotSettings>마법부여 칸 설정 열기</Infusion.Settings.Slots.OpenSlotSettings>
+  <Infusion.Settings.Slots.CloseSlotSettings>마법부여 칸 설정 닫기</Infusion.Settings.Slots.CloseSlotSettings>
 </LanguageData>
