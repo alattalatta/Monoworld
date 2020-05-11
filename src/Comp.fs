@@ -278,17 +278,17 @@ type Infusion() =
                 this.parent.ThingID.CompareTo thingID
             | _ -> 0
 
-let addInfusion (infDef: InfusionDef) (comp: Infusion) =
+let addInfusion infDef (comp: Infusion) =
     do comp.Infusions <-
         seq {
             yield infDef
             yield! comp.Infusions
         }
 
-let setInfusions (infDefs: seq<InfusionDef>) (comp: Infusion) = do comp.Infusions <- infDefs
+let setInfusions infDefs (comp: Infusion) = do comp.Infusions <- infDefs
 
 /// Picks elligible `InfusionDef` for the `Thing`.
-let pickInfusions (quality: QualityCategory) (parent: ThingWithComps) =
+let pickInfusions quality (parent: ThingWithComps) =
     // requirement fields
     let checkAllowance (infDef: InfusionDef) =
         if parent.def.IsApparel then infDef.requirements.allowance.apparel
@@ -322,14 +322,22 @@ let pickInfusions (quality: QualityCategory) (parent: ThingWithComps) =
         Rand.Chance chance
 
     // slots
-    let slotBonuses =
-        Option.ofObj parent.def.apparel
-        // one more per 4 body part groups, one more per layers
-        |> Option.map (fun s ->
-            (max 0 (s.bodyPartGroups.Count - 4))
-            + s.layers.Count
-            - 1)
+    let apparelProps = Option.ofObj parent.def.apparel
+
+    let bodyPartBonus =
+        apparelProps
+        |> Option.map (fun a ->
+            if Settings.SlotBonuses.bodyPartHandle.Value
+            then max 0 (a.bodyPartGroups.Count - 4)
+            else 0)
         |> Option.defaultValue 0
+
+    let layerBonus =
+        apparelProps
+        |> Option.map (fun a -> if Settings.SlotBonuses.layerHandle.Value then a.layers.Count - 1 else 0)
+        |> Option.defaultValue 0
+
+    let slotBonuses = bodyPartBonus + layerBonus
 
     DefDatabase<InfusionDef>.AllDefs
     |> Seq.filter
@@ -358,5 +366,5 @@ let removeMarkedInfusions (comp: Infusion) =
 
 let removeAllInfusions (comp: Infusion) = do comp.Infusions <- Set.empty
 
-let removeInfusion (infDef: InfusionDef) (comp: Infusion) =
-    do comp.Infusions <- Set.remove infDef comp.InfusionsRaw
+let removeInfusion def (comp: Infusion) =
+    do comp.Infusions <- Set.remove def comp.InfusionsRaw

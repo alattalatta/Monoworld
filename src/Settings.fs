@@ -42,6 +42,25 @@ module SelectionConsts =
                  Validators.FloatRangeValidator(0.0f, 2.0f)))
         pack
 
+module SlotBonuses =
+    let mutable bodyPartHandle: SettingHandle<bool> = null
+    let mutable layerHandle: SettingHandle<bool> = null
+
+    let draw (pack: ModSettingsPack) =
+        do bodyPartHandle <-
+            (pack.GetHandle
+                ("bodyPartBonuses",
+                 (translate "Infusion.Settings.BodyPartBonuses"),
+                 (translate "Infusion.Settings.BodyPartBonuses.Description"),
+                 true))
+        do layerHandle <-
+            (pack.GetHandle
+                ("layerBonuses",
+                 (translate "Infusion.Settings.LayerBonuses"),
+                 (translate "Infusion.Settings.LayerBonuses.Description"),
+                 true))
+        pack
+
 module Slots =
     let mutable handles: Map<QualityCategory, SettingHandle<int>> = Map.empty
     let mutable settingsOpened = false
@@ -99,5 +118,6 @@ let initialize () =
     HugsLibController.SettingsManager.GetModSettings("latta.infusion")
     |> AccuracyOvercap.draw
     |> SelectionConsts.draw
+    |> SlotBonuses.draw
     |> Slots.draw
     |> ignore

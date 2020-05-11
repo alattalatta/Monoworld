@@ -20,11 +20,12 @@
   <Infusion.ITab.MarkForRemoval>Click to mark this infusion for removal.\n\nOne of your colonist with crafting will remove it.</Infusion.ITab.MarkForRemoval>
   <Infusion.ITab.UnmarkForRemoval>Click to unmark this infusion for removal.</Infusion.ITab.UnmarkForRemoval>
 
+  <!-- settings -->
   <Infusion.Settings.AccuracyOvercapping>Enable accuracy overcapping</Infusion.Settings.AccuracyOvercapping>
   <Infusion.Settings.AccuracyOvercapping.Description>Allows ranged weapon accuracy to go over 100%, with diminishing returns.</Infusion.Settings.AccuracyOvercapping.Description>
 
   <Infusion.Settings.WeightFactor>Weight factor</Infusion.Settings.WeightFactor>
-  <Infusion.Settings.WeightFactor.Description>Multiplies weight of infusions. Possible values are 0.0 ~ 2.0.
+  <Infusion.Settings.WeightFactor.Description>Multiplies weight of infusions. Possible values are 0.0 ~ 2.0. Default is 0.3.
 
 2.0 strictly picks the highest weights for a quality first. 0.0 means everything is possible.
 
@@ -32,10 +33,16 @@ Note: Chances still applies.
   </Infusion.Settings.WeightFactor.Description>
 
   <Infusion.Settings.ChanceFactor>Probability factor</Infusion.Settings.ChanceFactor>
-  <Infusion.Settings.ChanceFactor.Description>Multiplies probability of infusions. Possible values are 0.0 ~ 100.0.
+  <Infusion.Settings.ChanceFactor.Description>Multiplies probability of infusions. Possible values are 0.0 ~ 100.0. Default is 1.0.
 
 With default infusions, 10 would be sufficient to ensure everything will pass. 0.0 will effectively disable new infusions.
   </Infusion.Settings.ChanceFactor.Description>
+
+  <Infusion.Settings.BodyPartBonuses>More infusions for more body parts covered</Infusion.Settings.BodyPartBonuses>
+  <Infusion.Settings.BodyPartBonuses.Description>Increases max infusions by 1, per 4 body part groups an apparel covers.</Infusion.Settings.BodyPartBonuses.Description>
+
+  <Infusion.Settings.LayerBonuses>More infusions for more layers occupied</Infusion.Settings.LayerBonuses>
+  <Infusion.Settings.LayerBonuses.Description>Increases max infusions by 1, per a layer an apparel occupies.</Infusion.Settings.LayerBonuses.Description>
 
   <Infusion.Settings.Slots.OpenSlotSettings>Open infusion slot options</Infusion.Settings.Slots.OpenSlotSettings>
   <Infusion.Settings.Slots.CloseSlotSettings>Close infusion slot options</Infusion.Settings.Slots.CloseSlotSettings>
