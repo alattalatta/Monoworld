@@ -79,7 +79,7 @@
       <good>0.5</good>
       <excellent>0.8</excellent>
       <masterwork>0.6</masterwork>
-      <legendary>0.2</legendary>
+      <legendary>0.3</legendary>
     </weights>
     <stats>
       <li>
@@ -103,8 +103,8 @@
     <weights>
       <good>0.2</good>
       <excellent>0.6</excellent>
-      <masterwork>1</masterwork>
-      <legendary>0.8</legendary>
+      <masterwork>0.8</masterwork>
+      <legendary>0.7</legendary>
     </weights>
     <stats>
       <li>
@@ -122,13 +122,13 @@
       <normal>0.1</normal>
       <good>0.1</good>
       <excellent>0.4</excellent>
-      <masterwork>0.7</masterwork>
+      <masterwork>0.6</masterwork>
       <legendary>0.8</legendary>
     </chances>
     <weights>
       <excellent>0.2</excellent>
       <masterwork>0.7</masterwork>
-      <legendary>1</legendary>
+      <legendary>0.8</legendary>
     </weights>
     <stats>
       <li>
