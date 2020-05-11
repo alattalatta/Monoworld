@@ -107,9 +107,9 @@ module Slots =
         do handles <-
             [ slotSettingHandle QualityCategory.Normal 0
               slotSettingHandle QualityCategory.Good 1
-              slotSettingHandle QualityCategory.Excellent 2
-              slotSettingHandle QualityCategory.Masterwork 3
-              slotSettingHandle QualityCategory.Legendary 4 ]
+              slotSettingHandle QualityCategory.Excellent 1
+              slotSettingHandle QualityCategory.Masterwork 2
+              slotSettingHandle QualityCategory.Legendary 3 ]
             |> List.map (fun f -> f pack) // consider it as a reversed mapping
             |> Map.ofList
         pack
