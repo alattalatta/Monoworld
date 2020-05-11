@@ -361,8 +361,14 @@ let pickInfusions quality (parent: ThingWithComps) =
     |> List.sortBy (fun infDef -> infDef.tier)
 
 let removeMarkedInfusions (comp: Infusion) =
+    let hitPointsRatio =
+        float32 comp.parent.HitPoints
+        / float32 comp.parent.MaxHitPoints
+
     do comp.Infusions <- Set.difference comp.InfusionsRaw comp.RemovalSet
     do comp.RemovalSet <- Set.empty
+
+    do comp.parent.HitPoints <- int (round (float32 comp.parent.MaxHitPoints * hitPointsRatio))
 
 let removeAllInfusions (comp: Infusion) = do comp.Infusions <- Set.empty
 
