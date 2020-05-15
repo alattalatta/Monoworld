@@ -248,37 +248,30 @@ type Infusion() =
             | None -> ()
 
     override this.PostExposeData() =
-        let mutable savedQuality = QualityCategory.Normal
-        if (Scribe.mode = LoadSaveMode.LoadingVars) then
-            do Scribe_Values.Look(&savedQuality, "quality")
+        scribeValue "quality" this.Quality
+        |> Option.iter (fun qc -> do this.Quality <- qc)
 
-            do this.Quality <- savedQuality
+        scribeDefCollection "infusion" infusions
+        |> Option.iter (fun infs -> do this.Infusions <- infs)
 
-        let savedInfusions =
-            scribeDefCollection "infusion" infusions
-            |> Option.defaultValue Seq.empty
+        scribeDefCollection "removal" removalSet
+        |> Option.map Set.ofSeq
+        |> Option.iter (fun infs -> do removalSet <- infs)
 
-        let savedRemovals =
-            scribeDefCollection "removal" removalSet
-            |> Option.map Set.ofSeq
-            |> Option.defaultValue Set.empty
-
-        if (Scribe.mode = LoadSaveMode.LoadingVars) then
-            do this.Infusions <- savedInfusions
-            // registering / unregistering is covered by PostSpawnSetup / PostDeSpawn
-            do removalSet <- savedRemovals
-
-    override this.AllowStackWith(_) = false
+    override this.AllowStackWith(other) =
+        compOfThing<Infusion> other
+        |> Option.map (fun comp -> infusions = comp.InfusionsRaw)
+        |> Option.defaultValue false
 
     override this.GetHashCode() = this.parent.thingIDNumber
 
-    override this.Equals(ob: obj) =
+    override this.Equals(ob) =
         match ob with
         | :? Infusion as comp -> this.parent.thingIDNumber = comp.parent.thingIDNumber
         | _ -> false
 
     interface IComparable with
-        member this.CompareTo(ob: obj) =
+        member this.CompareTo(ob) =
             match ob with
             | :? Infusion as comp ->
                 let thingID = comp.parent.ThingID

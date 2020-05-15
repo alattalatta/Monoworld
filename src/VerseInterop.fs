@@ -12,7 +12,7 @@ let equipmentsOfPawn (pawn: Pawn): option<list<ThingWithComps>> =
     Option.ofObj pawn.equipment
     |> Option.map (fun tracker -> List.ofSeq tracker.AllEquipmentListForReading)
 
-let compOfThing<'C when 'C :> ThingComp and 'C: null> (thing: Thing) = Option.ofObj (thing.TryGetComp<'C>())
+let compOfThing<'a when 'a :> ThingComp and 'a: null> (thing: Thing) = Option.ofObj (thing.TryGetComp<'a>())
 
 let parentOfComp (comp: ThingComp) = comp.parent
 

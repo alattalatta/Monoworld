@@ -5,6 +5,7 @@ open Verse
 open Verse.AI
 
 open VerseInterop
+open VerseTools
 
 module JobDriver =
     let hasNoInfusionToRemove (thing: Thing) =
@@ -59,4 +60,6 @@ type JobDriverRemoveInfusions() =
 
     override this.ExposeData() =
         base.ExposeData()
-        Scribe_Values.Look(&worksDone, "worksDone", 0.0f)
+
+        scribeValue "worksDone" worksDone
+        |> Option.iter (fun a -> do worksDone <- a)
