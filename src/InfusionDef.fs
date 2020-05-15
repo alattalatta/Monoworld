@@ -25,6 +25,7 @@ type InfusionDef =
     val mutable chances: QualityMap
     val mutable disabled: bool
     val mutable extraDamages: ResizeArray<ExtraDamage>
+    val mutable extraExplosions: ResizeArray<ExtraExplosion>
     val mutable position: Position
     val mutable requirements: Requirements
     val mutable stats: Dictionary<StatDef, StatMod>
@@ -39,6 +40,7 @@ type InfusionDef =
           chances = QualityMap()
           disabled = false
           extraDamages = null
+          extraExplosions = null
           position = Position.Prefix
           requirements = Requirements()
           stats = Dictionary()
@@ -48,6 +50,8 @@ type InfusionDef =
     member this.LabelShort = if this.labelShort.NullOrEmpty() then this.label else this.labelShort
 
     member this.ExtraDamages = Option.ofObj this.extraDamages
+
+    member this.ExtraExplosions = Option.ofObj this.extraExplosions
 
     member this.ChanceFor(quality: QualityCategory) =
         match quality with

@@ -1,6 +1,7 @@
 module Infusion.DefFields
 
 open RimWorld
+open Verse
 
 type Allowance =
     val mutable apparel: bool
@@ -11,6 +12,18 @@ type Allowance =
         { apparel = false
           melee = false
           ranged = false }
+
+type ExtraExplosion =
+    val mutable amount: int
+    val mutable chance: float32
+    val mutable def: DamageDef
+    val mutable radius: float32
+
+    new() =
+        { amount = -1
+          chance = 1.0f
+          def = DamageDefOf.Bomb
+          radius = 1.4f }
 
 type QualityMap =
     val mutable awful: float32
@@ -45,11 +58,13 @@ type DamageType =
 type Requirements =
     val mutable allowance: Allowance
     val mutable techLevel: ResizeArray<TechLevel>
+    val mutable needBulletClass: bool
     val mutable meleeDamageType: DamageType
 
     new() =
         { allowance = Allowance()
           techLevel = ResizeArray()
+          needBulletClass = false
           meleeDamageType = DamageType.Anything }
 
 

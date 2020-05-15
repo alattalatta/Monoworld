@@ -17,6 +17,13 @@ type BestInfusionLabelLength =
     | Long
     | Short
 
+let private collectExtraEffects (getter: InfusionDef -> 'a option) (infusions: Set<InfusionDef>) =
+    infusions
+    |> Seq.map getter
+    |> Seq.choose id
+    |> Seq.concat
+    |> Some
+
 // Holds an equipment's infusions.
 [<AllowNullLiteral>]
 type Infusion() =
@@ -31,6 +38,7 @@ type Infusion() =
 
     let mutable bestInfusionCache = None
     let mutable extraDamageCache = None
+    let mutable extraExplosionCache = None
 
     let infusionsStatModCache = Dictionary<StatDef, option<StatMod>>()
 
@@ -84,15 +92,16 @@ type Infusion() =
         | _ -> bestInfusionCache
 
     member this.ExtraDamages =
-        if Option.isNone extraDamageCache then
-            do extraDamageCache <-
-                infusions
-                |> Seq.map (fun def -> def.ExtraDamages)
-                |> Seq.choose id
-                |> Seq.concat
-                |> Some
+        if Option.isNone extraDamageCache
+        then do extraDamageCache <- collectExtraEffects (fun def -> def.ExtraDamages) infusions
 
         Option.defaultValue Seq.empty extraDamageCache
+
+    member this.ExtraExplosions =
+        if Option.isNone extraExplosionCache
+        then do extraExplosionCache <- collectExtraEffects (fun def -> def.ExtraExplosions) infusions
+
+        Option.defaultValue Seq.empty extraExplosionCache
 
     member this.Descriptions =
         this.Infusions
@@ -304,6 +313,20 @@ let pickInfusions quality (parent: ThingWithComps) =
 
     let checkQuality (infDef: InfusionDef) = (infDef.ChanceFor quality) > 0.0f
 
+    // 'complex' requirements
+    // is the projectile of parent _the_ Bullet?
+    // needed, as I can't patch all the possible bullet classes
+    let checkBulletClass (infDef: InfusionDef) =
+        if not parent.def.IsRangedWeapon
+           || not (infDef.requirements.needBulletClass) then
+            true
+        else
+            Seq.tryHead parent.def.Verbs
+            |> Option.bind (fun a -> Option.ofObj a.defaultProjectile)
+            |> Option.map (fun a -> a.thingClass = typeof<Bullet>)
+            |> Option.defaultValue false
+
+    // is the damage Sharp/Blunt?
     let checkDamageType (infDef: InfusionDef) =
         if parent.def.IsApparel
            || infDef.requirements.meleeDamageType = DamageType.Anything then
@@ -345,7 +368,9 @@ let pickInfusions quality (parent: ThingWithComps) =
          <&> checkAllowance
          <&> checkTechLevel
          <&> checkQuality
+         <&> checkBulletClass
          <&> checkDamageType)
+    // (infusionDef * weight)
     |> Seq.map (fun infDef ->
         (infDef,
          (infDef.WeightFor quality)
@@ -366,7 +391,7 @@ let removeMarkedInfusions (comp: Infusion) =
         / float32 comp.parent.MaxHitPoints
 
     do comp.Infusions <- Set.difference comp.InfusionsRaw comp.RemovalSet
-    do comp.RemovalSet <- Set.empty
+    do comp.RemovalSet <- Set.empty // maybe not needed
 
     do comp.parent.HitPoints <- int (round (float32 comp.parent.MaxHitPoints * hitPointsRatio))
 

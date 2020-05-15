@@ -418,6 +418,46 @@
     </stats>
   </Infusion.InfusionDef>
 
+  <Infusion.InfusionDef ParentName="LegendaryRangedBase">
+    <defName>Unstable</defName>
+    <label>unstable</label>
+    <labelShort>unst</labelShort>
+    <requirements>
+      <needBulletClass>true</needBulletClass>
+    </requirements>
+    <stats>
+      <li>
+        <key>RangedWeapon_Cooldown</key>
+        <value>
+          <multiplier>0.2</multiplier>
+        </value>
+      </li>
+    </stats>
+    <extraExplosions>
+      <li>
+        <def>Bomb</def>
+        <amount>6</amount>
+        <chance>0.1</chance>
+        <radius>3.14</radius>
+      </li>
+      <li>
+        <def>Flame</def>
+        <amount>6</amount>
+        <chance>0.1</chance>
+        <radius>3.14</radius>
+      </li>
+      <li>
+        <def>EMP</def>
+        <amount>12</amount>
+        <chance>0.1</chance>
+        <radius>3.14</radius>
+      </li>
+    </extraExplosions>
+    <extraDescriptions>
+      <li>On hit, 10% chance to explode on hit, dealing 6 explosive, 6 flame, and/or 12 EMP damages.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
   <!-- disabled -->
   <Infusion.InfusionDef ParentName="LegendaryMeleeBase">
     <defName>Hatred</defName>

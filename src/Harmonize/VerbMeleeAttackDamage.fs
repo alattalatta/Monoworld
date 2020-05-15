@@ -36,12 +36,28 @@ module DamageInfosToApply =
 
     // Adds new DamageInfo from infusions' extraDamages.
     let Postfix (returned: IEnumerable<DamageInfo>, target: LocalTargetInfo, __instance: Verb_MeleeAttackDamage) =
+        let comp =
+            Option.ofObj __instance.EquipmentSource
+            |> Option.bind compOfThing<Comp.Infusion>
+
+        // explosions
+        do comp
+           |> Option.map (fun a ->
+               (a.parent,
+                a.ExtraExplosions
+                |> Seq.filter (fun expl -> Rand.Chance expl.chance)))
+           |> Option.iter (fun (equipment, expls) ->
+               expls
+               |> Seq.iter (fun expl ->
+                   do GenExplosion.DoExplosion
+                       (target.Cell, __instance.caster.Map, expl.radius, expl.def, equipment, expl.amount)))
+
+        // damages
         if Seq.isEmpty returned then
             returned
         else
             let damages =
-                Option.ofObj __instance.EquipmentSource
-                |> Option.bind compOfThing<Comp.Infusion>
+                comp
                 |> Option.map (fun comp ->
                     comp.ExtraDamages
                     |> Seq.filter (fun damage -> Rand.Chance damage.chance)
