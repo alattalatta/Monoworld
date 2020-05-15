@@ -4,7 +4,6 @@ open RimWorld
 open Verse
 open Verse.AI
 
-open Lib
 open VerseInterop
 
 module JobDriver =

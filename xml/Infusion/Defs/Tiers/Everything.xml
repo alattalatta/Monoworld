@@ -1,48 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Defs>
-  <Infusion.InfusionDef Abstract="True" Name="AwfulBase">
-    <!-- <chances>
-      <awful>0.5</awful>
-      <poor>0.2</poor>
-    </chances> -->
-    <!-- <weights>
-      <awful>1</awful>
-      <poor>0.5</poor>
-    </weights> -->
-    <stats>
-      <li>
-        <key>MarketValue</key>
-        <value>
-          <multiplier>0.7</multiplier>
-        </value>
-      </li>
-    </stats>
-    <tier>Awful</tier>
-    <disabled>true</disabled>
-  </Infusion.InfusionDef>
-
-  <Infusion.InfusionDef Abstract="True" Name="PoorBase">
-    <!-- <chances>
-      <awful>0.8</awful>
-      <poor>0.6</poor>
-    </chances> -->
-    <!-- <weights>
-      <awful>0.5</awful>
-      <poor>1</poor>
-    </weights> -->
-    <stats>
-      <li>
-        <key>MarketValue</key>
-        <value>
-          <multiplier>0.9</multiplier>
-        </value>
-      </li>
-    </stats>
-    <tier>Poor</tier>
-    <disabled>true</disabled>
-  </Infusion.InfusionDef>
-
-  <Infusion.InfusionDef Abstract="True" Name="UncommonBase">
+  <Infusion.TierDef>
+    <defName>Uncommon</defName>
+    <label>uncommon</label>
+    <priority>0</priority>
+    <color>(0.11, 1.0, 0.0)</color>
     <chances>
       <normal>0.4</normal>
       <good>0.6</good>
@@ -64,10 +26,13 @@
         </value>
       </li>
     </stats>
-    <tier>Uncommon</tier>
-  </Infusion.InfusionDef>
+  </Infusion.TierDef>
 
-  <Infusion.InfusionDef Abstract="True" Name="RareBase">
+  <Infusion.TierDef>
+    <defName>Rare</defName>
+    <label>rare</label>
+    <priority>10</priority>
+    <color>(0.0, 0.43, 0.86)</color>
     <chances>
       <normal>0.1</normal>
       <good>0.6</good>
@@ -89,10 +54,13 @@
         </value>
       </li>
     </stats>
-    <tier>Rare</tier>
-  </Infusion.InfusionDef>
+  </Infusion.TierDef>
 
-  <Infusion.InfusionDef Abstract="True" Name="EpicBase">
+  <Infusion.TierDef>
+    <defName>Epic</defName>
+    <label>epic</label>
+    <priority>20</priority>
+    <color>(0.57, 0.27, 1.0)</color>
     <chances>
       <normal>0.1</normal>
       <good>0.3</good>
@@ -114,10 +82,14 @@
         </value>
       </li>
     </stats>
-    <tier>Epic</tier>
-  </Infusion.InfusionDef>
+  </Infusion.TierDef>
 
-  <Infusion.InfusionDef Abstract="True" Name="LegendaryBase">
+  <Infusion.TierDef>
+    <defName>Legendary</defName>
+    <label>legendary</label>
+    <priority>30</priority>
+    <color>(1.0, 0.5, 0.0)</color>
+    <maxCount>1</maxCount>
     <chances>
       <normal>0.1</normal>
       <good>0.1</good>
@@ -138,6 +110,5 @@
         </value>
       </li>
     </stats>
-    <tier>Legendary</tier>
-  </Infusion.InfusionDef>
+  </Infusion.TierDef>
 </Defs>

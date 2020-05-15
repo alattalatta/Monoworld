@@ -11,6 +11,7 @@
     <Compile Include="StatMod.fs" />
     <Compile Include="DefFields.fs" />
     <Compile Include="VerseTools.fs" />
+    <Compile Include="TierDef.fs" />
     <Compile Include="InfusionDef.fs" />
     <Compile Include="Settings.fs" />
     <Compile Include="Comp.fs" />

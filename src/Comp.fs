@@ -57,9 +57,7 @@ type Infusion() =
         and set value = do quality <- value
 
     member this.Infusions
-        with get () =
-            infusions
-            |> Seq.sortByDescending (fun inf -> inf.tier)
+        with get () = infusions |> Seq.sortDescending
         and set (value: seq<InfusionDef>) =
             do this.InvalidateCache()
             do infusions <- value |> Set.ofSeq
@@ -246,7 +244,7 @@ type Infusion() =
                 do GenMapUI.DrawThingLabel
                     (GenMapUI.LabelDrawPosFor(this.parent, -0.6499999762f),
                      this.MakeBestInfusionLabel Short,
-                     tierToColor bestInf.tier)
+                     bestInf.tier.color)
             | None -> ()
 
     override this.PostExposeData() =
@@ -383,7 +381,7 @@ let pickInfusions quality (parent: ThingWithComps) =
     |> Seq.map fst
     |> Seq.filter checkChance
     |> List.ofSeq // need to "finalize" the random sort
-    |> List.sortBy (fun infDef -> infDef.tier)
+    |> List.sort
 
 let removeMarkedInfusions (comp: Infusion) =
     let hitPointsRatio =

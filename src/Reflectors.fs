@@ -5,6 +5,7 @@ open System.Reflection
 
 open Verse
 
+// Why would you be private to me
 module Projectile =
     type private intendedTarget = System.Func<Projectile, LocalTargetInfo>
 

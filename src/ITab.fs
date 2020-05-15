@@ -8,7 +8,6 @@ open Verse
 open Verse.Sound
 
 open VerseInterop
-open VerseTools
 
 let trashTex =
     ContentFinder<Texture2D>.Get("UI/Infusion_Trash")
@@ -33,7 +32,7 @@ type Infused() =
         do Text.Font <- GameFont.Medium
         do GUI.color <-
             match compInf.BestInfusion with
-            | Some inf -> tierToColor inf.tier
+            | Some inf -> inf.tier.color
             | None -> Color.white
         do Widgets.Label(parentRect, label)
 

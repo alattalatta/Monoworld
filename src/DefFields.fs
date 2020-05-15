@@ -1,7 +1,11 @@
 module Infusion.DefFields
 
+open System
+
 open RimWorld
 open Verse
+
+// [todo] group with modules
 
 type Allowance =
     val mutable apparel: bool
@@ -42,6 +46,17 @@ type QualityMap =
           excellent = 0.0f
           masterwork = 0.0f
           legendary = 0.0f }
+
+let valueFor quality (qmap: QualityMap) =
+    match quality with
+    | QualityCategory.Awful -> qmap.awful
+    | QualityCategory.Poor -> qmap.poor
+    | QualityCategory.Normal -> qmap.normal
+    | QualityCategory.Good -> qmap.good
+    | QualityCategory.Excellent -> qmap.excellent
+    | QualityCategory.Masterwork -> qmap.masterwork
+    | QualityCategory.Legendary -> qmap.legendary
+    | _ -> raise (ArgumentException(sprintf "Unknown quality received: %A" quality))
 
 
 type Position =

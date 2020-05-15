@@ -6,9 +6,9 @@ open System.Text
 
 open RimWorld
 open Verse
+open UnityEngine
 
 open DefFields
-open VerseTools
 open Lib
 open StatMod
 
@@ -22,30 +22,26 @@ type InfusionDef =
     /// Descriptions for special effects.
     val mutable extraDescriptions: ResizeArray<string>
 
-    val mutable chances: QualityMap
     val mutable disabled: bool
     val mutable extraDamages: ResizeArray<ExtraDamage>
     val mutable extraExplosions: ResizeArray<ExtraExplosion>
     val mutable position: Position
     val mutable requirements: Requirements
     val mutable stats: Dictionary<StatDef, StatMod>
-    val mutable tier: Tier // [todo] Replace with InfusionTierDef: color, label, priority
-    val mutable weights: QualityMap
+    val mutable tier: TierDef
 
     new() =
         { inherit Def()
           labelShort = ""
           extraDescriptions = ResizeArray()
 
-          chances = QualityMap()
           disabled = false
           extraDamages = null
           extraExplosions = null
           position = Position.Prefix
           requirements = Requirements()
           stats = Dictionary()
-          tier = Tier.Common
-          weights = QualityMap() }
+          tier = null }
 
     member this.LabelShort = if this.labelShort.NullOrEmpty() then this.label else this.labelShort
 
@@ -53,31 +49,13 @@ type InfusionDef =
 
     member this.ExtraExplosions = Option.ofObj this.extraExplosions
 
-    member this.ChanceFor(quality: QualityCategory) =
-        match quality with
-        | QualityCategory.Awful -> this.chances.awful
-        | QualityCategory.Poor -> this.chances.poor
-        | QualityCategory.Normal -> this.chances.normal
-        | QualityCategory.Good -> this.chances.good
-        | QualityCategory.Excellent -> this.chances.excellent
-        | QualityCategory.Masterwork -> this.chances.masterwork
-        | QualityCategory.Legendary -> this.chances.legendary
-        | _ -> 0.0f
+    member this.ChanceFor(quality: QualityCategory) = valueFor quality this.tier.chances
 
-    member this.WeightFor(quality: QualityCategory) =
-        match quality with
-        | QualityCategory.Awful -> this.weights.awful
-        | QualityCategory.Poor -> this.weights.poor
-        | QualityCategory.Normal -> this.weights.normal
-        | QualityCategory.Good -> this.weights.good
-        | QualityCategory.Excellent -> this.weights.excellent
-        | QualityCategory.Masterwork -> this.weights.masterwork
-        | QualityCategory.Legendary -> this.weights.legendary
-        | _ -> 0.0f
+    member this.WeightFor(quality: QualityCategory) = valueFor quality this.tier.weights
 
     member this.GetDescriptionString() =
         let label =
-            ((StringBuilder(string (this.LabelCap)).Append(" (").Append(getLabelOfTier this.tier).Append(") :"))
+            ((StringBuilder(string (this.LabelCap)).Append(" (").Append(this.tier.label).Append(") :"))
              |> string)
 
         let statsDescriptions =
@@ -95,8 +73,8 @@ type InfusionDef =
                 |> string
 
         string
-            (StringBuilder(label.Colorize(tierToColor this.tier)).Append(statsDescriptions)
-                .Append(extraDescriptions.Colorize(tierToColor Tier.Uncommon)))
+            (StringBuilder(label.Colorize(this.tier.color)).Append(statsDescriptions)
+                .Append(extraDescriptions.Colorize(Color(0.11f, 1.0f, 0.0f))))
 
     override this.Equals(ob: obj) =
         match ob with
@@ -111,6 +89,8 @@ type InfusionDef =
         member this.CompareTo(ob: obj) =
             match ob with
             | :? InfusionDef as infDef ->
-                let byTier = this.tier.CompareTo infDef.tier
-                if byTier <> 0 then byTier else this.defName.CompareTo infDef.defName
+                let byTierPriority =
+                    this.tier.priority.CompareTo infDef.tier.priority
+
+                if byTierPriority <> 0 then byTierPriority else this.defName.CompareTo infDef.defName
             | _ -> 0

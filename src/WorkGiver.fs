@@ -4,8 +4,6 @@ open RimWorld
 open Verse
 open Verse.AI
 
-open Lib
-
 type WorkGiverRemoveInfusions() =
     inherit WorkGiver_Scanner()
 
