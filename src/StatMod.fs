@@ -7,10 +7,24 @@ open Verse
 
 open Lib
 
-
 type StatMod =
-    { offset: float32
-      multiplier: float32 }
+    val mutable offset: float32
+    val mutable multiplier: float32
+
+    new() = { offset = 0.0f; multiplier = 0.0f }
+
+    new(ofst, mult) = { offset = ofst; multiplier = mult }
+
+    override this.Equals(ob: obj) =
+        match ob with
+        | :? StatMod as statMod ->
+            feq this.offset statMod.offset
+            && feq this.multiplier statMod.multiplier
+        | _ -> false
+
+    override this.GetHashCode() =
+        this.offset.GetHashCode()
+        ^^^ this.multiplier.GetHashCode()
 
     override this.ToString() =
         let sb = StringBuilder()
@@ -28,11 +42,9 @@ type StatMod =
 
         string sb
 
-    static member (+)(a: StatMod, b: StatMod) =
-        { offset = a.offset + b.offset
-          multiplier = a.multiplier + b.multiplier }
+    static member empty = StatMod()
 
-    static member empty = { offset = 0.0f; multiplier = 0.0f }
+    static member (+)(a: StatMod, b: StatMod) = StatMod(a.offset + b.offset, a.multiplier + b.multiplier)
 
 let applyTo (value: float32) (statMod: StatMod) =
     value
