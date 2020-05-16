@@ -252,11 +252,17 @@ type Infusion() =
         |> Option.iter (fun qc -> do this.Quality <- qc)
 
         scribeDefCollection "infusion" infusions
-        |> Option.iter (fun infs -> do this.Infusions <- infs)
+        |> Option.iter (fun infs ->
+            do this.Infusions <-
+                infs
+                |> Seq.filter (InfusionDef.gracefullyDie >> not))
 
         scribeDefCollection "removal" removalSet
         |> Option.map Set.ofSeq
-        |> Option.iter (fun infs -> do removalSet <- infs)
+        |> Option.iter (fun infs ->
+            do removalSet <-
+                infs
+                |> Set.filter (InfusionDef.gracefullyDie >> not))
 
     override this.AllowStackWith(other) =
         compOfThing<Infusion> other
@@ -295,8 +301,6 @@ let pickInfusions quality (parent: ThingWithComps) =
         elif parent.def.IsMeleeWeapon then infDef.requirements.allowance.melee
         elif parent.def.IsRangedWeapon then infDef.requirements.allowance.ranged
         else false
-
-    let checkDisabled (infDef: InfusionDef) = not infDef.disabled
 
     let checkTechLevel (infDef: InfusionDef) =
         infDef.requirements.techLevel
@@ -355,7 +359,7 @@ let pickInfusions quality (parent: ThingWithComps) =
 
     DefDatabase<InfusionDef>.AllDefs
     |> Seq.filter
-        (checkDisabled
+        ((InfusionDef.disabled >> not)
          <&> checkAllowance
          <&> checkTechLevel
          <&> checkQuality

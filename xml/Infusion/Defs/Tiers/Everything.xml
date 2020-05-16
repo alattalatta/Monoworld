@@ -18,14 +18,6 @@
       <excellent>0.6</excellent>
       <masterwork>0.2</masterwork>
     </weights>
-    <stats>
-      <li>
-        <key>MarketValue</key>
-        <value>
-          <multiplier>0.03</multiplier>
-        </value>
-      </li>
-    </stats>
   </Infusion.TierDef>
 
   <Infusion.TierDef>
@@ -46,14 +38,6 @@
       <masterwork>0.6</masterwork>
       <legendary>0.3</legendary>
     </weights>
-    <stats>
-      <li>
-        <key>MarketValue</key>
-        <value>
-          <multiplier>0.05</multiplier>
-        </value>
-      </li>
-    </stats>
   </Infusion.TierDef>
 
   <Infusion.TierDef>
@@ -74,14 +58,6 @@
       <masterwork>0.8</masterwork>
       <legendary>0.7</legendary>
     </weights>
-    <stats>
-      <li>
-        <key>MarketValue</key>
-        <value>
-          <multiplier>0.15</multiplier>
-        </value>
-      </li>
-    </stats>
   </Infusion.TierDef>
 
   <Infusion.TierDef>
@@ -102,13 +78,5 @@
       <masterwork>0.7</masterwork>
       <legendary>0.8</legendary>
     </weights>
-    <stats>
-      <li>
-        <key>MarketValue</key>
-        <value>
-          <multiplier>0.3</multiplier>
-        </value>
-      </li>
-    </stats>
   </Infusion.TierDef>
 </Defs>

@@ -36,6 +36,7 @@
     <defName>Amplifying</defName>
     <label>amplifying</label>
     <labelShort>ampl</labelShort>
+    <gracefullyDie>true</gracefullyDie>
     <stats>
       <li>
         <key>PsychicSensitivity</key>

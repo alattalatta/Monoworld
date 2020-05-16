@@ -12,7 +12,6 @@ open DefFields
 open Lib
 open StatMod
 
-// The definition.
 type InfusionDef =
     inherit Def
 
@@ -23,6 +22,8 @@ type InfusionDef =
     val mutable extraDescriptions: ResizeArray<string>
 
     val mutable disabled: bool
+    /// Removes itself when loading. Implies disabled.
+    val mutable gracefullyDie: bool
     val mutable extraDamages: ResizeArray<ExtraDamage>
     val mutable extraExplosions: ResizeArray<ExtraExplosion>
     val mutable position: Position
@@ -36,6 +37,7 @@ type InfusionDef =
           extraDescriptions = ResizeArray()
 
           disabled = false
+          gracefullyDie = false
           extraDamages = null
           extraExplosions = null
           position = Position.Prefix
@@ -94,3 +96,8 @@ type InfusionDef =
 
                 if byTierPriority <> 0 then byTierPriority else this.defName.CompareTo infDef.defName
             | _ -> 0
+
+module InfusionDef =
+    let gracefullyDie (infDef: InfusionDef) = infDef.gracefullyDie
+
+    let disabled (infDef: InfusionDef) = gracefullyDie infDef || infDef.disabled
