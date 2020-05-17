@@ -7,37 +7,20 @@
   </HugsLib.UpdateFeatureDef>
 
   <HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
-    <defName>infusion_181</defName>
-    <assemblyVersion>1.8.1</assemblyVersion>
-    <content>DEFAULT SETTINGS CHANGED
+    <defName>infusion_182</defName>
+    <assemblyVersion>1.8.2</assemblyVersion>
+    <content>Important message: Breaking changes incoming
 
-Base slots for quality values have been reduced to 0/1/1/2/3, from 1/1/2/3/4.
+2.0.0 test build is out on GitHub!
 
-Note: Even if you had changed them, make sure that the values are still yours.
+2.0.0 will host lots and lots of changes, ranging from super-frequently-requested extracting and applying infusions, explosive infusions, and rebalanced everythings.
 
-To view the full update history, visit https://git.io/JfmlW
-</content>
-  </HugsLib.UpdateFeatureDef>
+Even though the update is classified as a "breaking" one, there are automatic migrations to keep your save safe.
+(But almost all of your existing infusions will be affected, being removed or changed.)
 
-  <HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
-    <defName>infusion_180</defName>
-    <assemblyVersion>1.8.0</assemblyVersion>
-    <content>img:images/180|Remove your infusions!
+If you would like to opt out of incoming changes, use Mod Manager to backup this version (1.8.2), or download 1.8.1 from GitHub and install it manually.
 
-Get rid of unwanted infusions, and reduce your base value.
-
-To view the full update history, visit https://git.io/JfmlW
-</content>
-  </HugsLib.UpdateFeatureDef>
-
-  <HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
-    <defName>infusion_170</defName>
-    <assemblyVersion>1.7.0</assemblyVersion>
-    <content>img:images/170|Configurable accuracy overcapping! Your legendary homing sniper rifle can finally enhance someone's accuracy.
-
-Amounts over 100% have diminishing returns, so normally, accuracy won't become unreasonably high.
-
-To view the full update history, visit https://git.io/JfmlW
+To download the latest release including 2.0.0, visit https://git.io/JfmlW
 </content>
   </HugsLib.UpdateFeatureDef>
 </Defs>
