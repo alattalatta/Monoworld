@@ -3,7 +3,7 @@
   <JobDef>
     <defName>Infusion_ExtractInfusion</defName>
     <driverClass>Infusion.JobDriverExtractInfusion</driverClass>
-    <reportString>extraction infusion from TargetA.</reportString>
+    <reportString>extracting infusion from TargetA.</reportString>
     <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
   </JobDef>
 

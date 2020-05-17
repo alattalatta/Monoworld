@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- apparels -->
+
+  <Airtight.label>밀폐형</Airtight.label>
+  <Airtight.labelShort>밀폐형</Airtight.labelShort>
+
+  <Restless.label>부지런한</Restless.label>
+  <Restless.labelShort>부지런</Restless.labelShort>
+
+  <Protective.label>보호하는</Protective.label>
+  <Protective.labelShort>보호</Protective.labelShort>
+
+  <Temptating.label>매혹하는</Temptating.label>
+  <Temptating.labelShort>매혹</Temptating.labelShort>
+
+  <Synchronizing.label>동기적</Synchronizing.label>
+  <Synchronizing.labelShort>동기</Synchronizing.labelShort>
+
+  <Endurance.label>인내</Endurance.label>
+  <Endurance.labelShort>인내</Endurance.labelShort>
+
+  <Amplifying.label>증폭하는</Amplifying.label>
+  <Amplifying.labelShort>증폭</Amplifying.labelShort>
+
+
+  <!-- weapons -->
+
+  <Guardian.label>수호자</Guardian.label>
+  <Guardian.labelShort>수호</Guardian.labelShort>
+
+
+  <!-- melee -->
+
+  <Accelerated.label>가속된</Accelerated.label>
+  <Accelerated.labelShort>가속</Accelerated.labelShort>
+
+  <Blazing.label>화염의</Blazing.label>
+  <Blazing.labelShort>화염의</Blazing.labelShort>
+
+  <Critical.label>치명적인</Critical.label>
+  <Critical.labelShort>치명</Critical.labelShort>
+
+  <Overwhelming.label>압도하는</Overwhelming.label>
+  <Overwhelming.labelShort>압도</Overwhelming.labelShort>
+
+  <Surging.label>고전압</Surging.label>
+  <Surging.labelShort>고전압</Surging.labelShort>
+
+
+  <!-- ranged -->
+
+  <Boosted.label>증폭형</Boosted.label>
+  <Boosted.labelShort>증폭형</Boosted.labelShort>
+
+  <Disrupting.label>방해하는</Disrupting.label>
+  <Disrupting.labelShort>방해</Disrupting.labelShort>
+
+  <Homing.label>유도형</Homing.label>
+  <Homing.labelShort>유도</Homing.labelShort>
+
+  <Responsive.label>반응형</Responsive.label>
+  <Responsive.labelShort>반응</Responsive.labelShort>
+
+  <Suppressive.label>제압형</Suppressive.label>
+  <Suppressive.labelShort>제압</Suppressive.labelShort>
+
+  <Volatile.label>휘발성</Volatile.label>
+  <Volatile.labelShort>휘발성</Volatile.labelShort>
+
+
+</LanguageData>
