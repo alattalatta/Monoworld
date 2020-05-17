@@ -5,7 +5,7 @@
   <Infusion.Label.Suffixed>{1} of {0}</Infusion.Label.Suffixed>
   <Infusion.Label.NotInfused>{0} (not infused)</Infusion.Label.NotInfused>
 
-  <Infusion.Infuser.Label>infuser</Infusion.Infuser.Label>
+  <Infusion.Infuser.Label>{0} infuser</Infusion.Infuser.Label>
   <Infusion.Infuser.Description>A single-use canister containing mechanites programmed to enhance an equipment.</Infusion.Infuser.Description>
 
   <Infusion.StatPart.Start>Infusions: </Infusion.StatPart.Start>

@@ -32,9 +32,12 @@ type ModBase() =
         this.InjectToStats()
 
         makeInfuserDefs ()
-        |> Seq.map (tap DefGenerator.AddImpliedDef<ThingDef>)
         |> Seq.iter (fun def ->
             do def.ResolveReferences()
+            do DefGenerator.AddImpliedDef<ThingDef>(def)
+            do Option.ofObj def.thingCategories
+               |> Option.iter (Seq.iter (fun cat -> cat.childThingDefs.Add def))
+
             do HugsLib.Utils.InjectedDefHasher.GiveShortHashToDef(def, typeof<ThingDef>))
 
     member private this.InjectToThings() =

@@ -5,6 +5,9 @@
     <label>empty infuser</label>
     <description>An empty canister that can scarape off and hold equipment enhancing mechanites.</description>
     <category>Item</category>
+    <thingCategories>
+      <li>Items</li>
+    </thingCategories>
     <thingClass>Infusion.Extractor</thingClass>
     <selectable>true</selectable>
     <comps>
@@ -18,7 +21,6 @@
     <statBases>
       <MaxHitPoints>80</MaxHitPoints>
       <Mass>0.5</Mass>
-      <DeteriorationRate>2</DeteriorationRate>
       <MarketValue>500</MarketValue>
     </statBases>
     <techLevel>Ultra</techLevel>
