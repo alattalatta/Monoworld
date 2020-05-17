@@ -1,63 +1,70 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Defs>
   <Infusion.TierDef>
-    <defName>Uncommon</defName>
-    <label>uncommon</label>
+    <defName>Common</defName>
+    <label>common</label>
     <priority>0</priority>
-    <color>(0.11, 1.0, 0.0)</color>
-    <chances>
-      <normal>0.4</normal>
-      <good>0.6</good>
-      <excellent>0.8</excellent>
-      <masterwork>0.8</masterwork>
-      <legendary>0.1</legendary>
-    </chances>
+    <color>(1, 1, 1)</color>
+    <infuserValue>300</infuserValue>
+    <extractionChance>1</extractionChance>
     <weights>
       <normal>1</normal>
-      <good>1</good>
-      <excellent>0.6</excellent>
-      <masterwork>0.2</masterwork>
+      <good>0.7</good>
+      <excellent>0.5</excellent>
+      <masterwork>0.3</masterwork>
+      <legendary>0.1</legendary>
     </weights>
+    <chances>
+      <normal>0.3</normal>
+      <good>0.5</good>
+      <excellent>0.6</excellent>
+      <masterwork>0.8</masterwork>
+      <legendary>0.9</legendary>
+    </chances>
+  </Infusion.TierDef>
+
+  <Infusion.TierDef>
+    <defName>Uncommon</defName>
+    <label>uncommon</label>
+    <priority>10</priority>
+    <color>(0.11, 1.0, 0.0)</color>
+    <infuserValue>500</infuserValue>
+    <extractionChance>0.8</extractionChance>
+    <weights>
+      <good>0.2</good>
+      <excellent>0.25</excellent>
+      <masterwork>0.3</masterwork>
+      <legendary>0.1</legendary>
+    </weights>
+    <chances>
+      <normal>0.1</normal>
+      <good>0.5</good>
+      <excellent>0.6</excellent>
+      <masterwork>0.8</masterwork>
+      <legendary>0.9</legendary>
+    </chances>
   </Infusion.TierDef>
 
   <Infusion.TierDef>
     <defName>Rare</defName>
     <label>rare</label>
-    <priority>10</priority>
-    <color>(0.0, 0.43, 0.86)</color>
-    <chances>
-      <normal>0.1</normal>
-      <good>0.6</good>
-      <excellent>0.8</excellent>
-      <masterwork>0.8</masterwork>
-      <legendary>0.8</legendary>
-    </chances>
-    <weights>
-      <good>0.5</good>
-      <excellent>0.8</excellent>
-      <masterwork>0.6</masterwork>
-      <legendary>0.3</legendary>
-    </weights>
-  </Infusion.TierDef>
-
-  <Infusion.TierDef>
-    <defName>Epic</defName>
-    <label>epic</label>
     <priority>20</priority>
-    <color>(0.57, 0.27, 1.0)</color>
+    <color>(1, 1, 0)</color>
+    <infuserValue>900</infuserValue>
+    <extractionChance>0.5</extractionChance>
+    <weights>
+      <good>0.05</good>
+      <excellent>0.15</excellent>
+      <masterwork>0.25</masterwork>
+      <legendary>0.6</legendary>
+    </weights>
     <chances>
       <normal>0.1</normal>
-      <good>0.3</good>
-      <excellent>0.7</excellent>
-      <masterwork>0.8</masterwork>
-      <legendary>0.8</legendary>
-    </chances>
-    <weights>
       <good>0.2</good>
-      <excellent>0.6</excellent>
-      <masterwork>0.8</masterwork>
-      <legendary>0.7</legendary>
-    </weights>
+      <excellent>0.3</excellent>
+      <masterwork>0.5</masterwork>
+      <legendary>0.6</legendary>
+    </chances>
   </Infusion.TierDef>
 
   <Infusion.TierDef>
@@ -66,17 +73,20 @@
     <priority>30</priority>
     <color>(1.0, 0.5, 0.0)</color>
     <maxCount>1</maxCount>
+    <infuserValue>1500</infuserValue>
+    <extractionChance>0.3</extractionChance>
+    <weights>
+      <good>0.05</good>
+      <excellent>0.1</excellent>
+      <masterwork>0.15</masterwork>
+      <legendary>0.3</legendary>
+    </weights>
     <chances>
       <normal>0.1</normal>
-      <good>0.1</good>
-      <excellent>0.4</excellent>
-      <masterwork>0.6</masterwork>
-      <legendary>0.8</legendary>
+      <good>0.2</good>
+      <excellent>0.3</excellent>
+      <masterwork>0.5</masterwork>
+      <legendary>0.6</legendary>
     </chances>
-    <weights>
-      <excellent>0.2</excellent>
-      <masterwork>0.7</masterwork>
-      <legendary>0.8</legendary>
-    </weights>
   </Infusion.TierDef>
 </Defs>

@@ -1,13 +1,11 @@
 namespace Infusion
 
-open Verse
 open UnityEngine
 
 open DefFields
 
-[<AllowNullLiteral>]
 type TierDef =
-    inherit Def
+    inherit HashEqualDef
 
     val mutable color: Color
 
@@ -19,9 +17,25 @@ type TierDef =
     // used for sorting infusions, higher being higher
     val mutable priority: int
 
+    // should generator generate an infuser for this tier?
+    val mutable infusable: bool
+    // market value of the generated infuser
+    val mutable infuserValue: float32
+    // extraction success chance
+    val mutable extractionChance: float32
+
     new() =
-        { color = Color.white
+        { inherit HashEqualDef()
+          color = Color.white
           chances = QualityMap()
           weights = QualityMap()
           maxCount = -1
-          priority = 0 }
+          priority = 0
+          infusable = true
+          infuserValue = 100.0f
+          extractionChance = 1.0f }
+
+module TierDef =
+    let empty = TierDef()
+
+    let isEmpty (tier: TierDef) = tier.defName = "UnnamedDef"

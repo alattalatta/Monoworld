@@ -18,13 +18,13 @@ type Allowance =
           ranged = false }
 
 type ExtraExplosion =
-    val mutable amount: int
+    val mutable amount: float32
     val mutable chance: float32
     val mutable def: DamageDef
     val mutable radius: float32
 
     new() =
-        { amount = -1
+        { amount = -1.0f
           chance = 1.0f
           def = DamageDefOf.Bomb
           radius = 1.4f }
@@ -74,12 +74,14 @@ type Requirements =
     val mutable allowance: Allowance
     val mutable techLevel: ResizeArray<TechLevel>
     val mutable needBulletClass: bool
+    val mutable shieldBelt: bool
     val mutable meleeDamageType: DamageType
 
     new() =
         { allowance = Allowance()
           techLevel = ResizeArray()
           needBulletClass = false
+          shieldBelt = false
           meleeDamageType = DamageType.Anything }
 
 
@@ -92,3 +94,12 @@ type Tier =
     | Epic = 5
     | Legendary = 6
     | Artifact = 7
+
+[<AllowNullLiteral>]
+type Migration<'a when 'a :> Def and 'a: null> =
+    val mutable remove: bool
+    val mutable replace: 'a
+
+    new() = { remove = false; replace = null }
+
+    member this.Replace = Option.ofObj this.replace

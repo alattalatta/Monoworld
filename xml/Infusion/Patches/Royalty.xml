@@ -4,10 +4,42 @@
     <mods>
       <li>Royalty</li>
     </mods>
-    <nomatch Class="PatchOperationAdd">
-      <xpath>/Defs/Infusion.InfusionDef[defName="Entropic"]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>/Defs</xpath>
       <value>
-        <disabled>true</disabled>
+        <Infusion.InfusionDef ParentName="LegendaryApparelBase">
+          <defName>Amplifying</defName>
+          <label>amplifying</label>
+          <labelShort>ampl</labelShort>
+          <stats>
+            <li>
+              <key>PsychicSensitivity</key>
+              <value>
+                <offset>0.2</offset>
+              </value>
+            </li>
+            <li>
+              <key>PsychicEntropyMax</key>
+              <value>
+                <multiplier>0.2</multiplier>
+              </value>
+            </li>
+            <li>
+              <key>PsychicEntropyRecoveryRate</key>
+              <value>
+                <multiplier>0.1</multiplier>
+              </value>
+            </li>
+          </stats>
+        </Infusion.InfusionDef>
+      </value>
+    </match>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs</xpath>
+      <value>
+        <Infusion.InfusionDef ParentName="CompatBase">
+          <defName>Amplifying</defName>
+        </Infusion.InfusionDef>
       </value>
     </nomatch>
   </Operation>

@@ -13,11 +13,13 @@ type BaseFilterWorker(flag: bool) =
 
     let matchAgainst flag thing =
         flag =
-            (compOfThing<Comp.Infusion> thing
+            (compOfThing<CompInfusion> thing
              |> Option.map (fun comp -> comp.Size > 0)
              |> Option.defaultValue false)
 
-    override this.Matches thing = this.CanEverMatch thing.def && matchAgainst flag thing
+    override this.Matches thing =
+        this.CanEverMatch thing.def
+        && matchAgainst flag thing
 
 type InfusedApparels() =
     inherit BaseFilterWorker(true)

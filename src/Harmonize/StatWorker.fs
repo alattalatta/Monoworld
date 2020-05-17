@@ -23,7 +23,7 @@ module RelevantGear =
             | Some apparels ->
                 apparels
                 |> Seq.filter (fun apparel ->
-                    match compOfThing<Comp.Infusion> apparel with
+                    match compOfThing<CompInfusion> apparel with
                     | Some compInf -> compInf.HasInfusionForStat stat
                     | None -> false)
             | None -> Seq.empty
@@ -33,7 +33,7 @@ module RelevantGear =
             | Some equipments ->
                 equipments
                 |> Seq.filter (fun equipment ->
-                    match compOfThing<Comp.Infusion> equipment with
+                    match compOfThing<CompInfusion> equipment with
                     | Some compInf -> compInf.HasInfusionForStat stat
                     | None -> false)
             | None -> Seq.empty
@@ -51,7 +51,7 @@ module StatOffsetFromGear =
     let Postfix (returned: float32, gear: Thing, stat: StatDef) =
         // just to be safe, this patch is only for Pawns
         if Set.contains stat.category.defName pawnStatCategories then
-            match compOfThing<Comp.Infusion> gear with
+            match compOfThing<CompInfusion> gear with
             | Some compInf -> (compInf.GetModForStat stat).offset + returned
             | None -> returned
         else

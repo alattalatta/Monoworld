@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Piercing</defName>
+    <migration>
+      <replace>PiercingMelee</replace>
+    </migration>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Fine</defName>
+    <migration>
+      <replace>FineMelee</replace>
+    </migration>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>SunBlocking</defName>
+    <migration>
+      <replace>Shadowing</replace>
+    </migration>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Wild</defName>
+    <migration>
+      <replace>Wilderness</replace>
+    </migration>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Labor</defName>
+    <migration>
+      <replace>Adaption</replace>
+    </migration>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Guided</defName>
+    <migration>
+      <replace>Homing</replace>
+    </migration>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Glittering</defName>
+    <migration>
+      <replace>Temptating</replace>
+    </migration>
+  </Infusion.InfusionDef>
+
+  <!-- die -->
+  <Infusion.InfusionDef Abstract="True" Name="CompatDieBase">
+    <migration>
+      <remove>true</remove>
+    </migration>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Lightweight</defName>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Weightless</defName>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Gourmand</defName>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Will</defName>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Bladed</defName>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Feral</defName>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Parrying</defName>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Extended</defName>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Shortened</defName>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Massless</defName>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Cooling</defName>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Digesting</defName>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Energizing</defName>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Reinforced</defName>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Warming</defName>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Memory</defName>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Harmonious</defName>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Fierce</defName>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Igneous</defName>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Protecting</defName>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Rapid</defName>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Pinpoint</defName>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Towering</defName>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Circadian</defName>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Interfering</defName>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Entropic</defName>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Recuperating</defName>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CompatDieBase">
+    <defName>Hatred</defName>
+  </Infusion.InfusionDef>
+</Defs>

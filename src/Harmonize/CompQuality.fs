@@ -12,10 +12,10 @@ module SetQuality =
     /// Applies infusions to a `Thing` based on its quality.
     // Note: The name "q" can't be changed
     let Prefix (__instance: CompQuality, q: QualityCategory, source: ArtGenerationContext) =
-        do compOfThing<Comp.Infusion> __instance.parent
+        do compOfThing<CompInfusion> __instance.parent
            |> Option.iter (fun compInfusion ->
                do compInfusion.Quality <- q
-               do compInfusion.Infusions <- Comp.pickInfusions q __instance.parent)
+               do compInfusion.Infusions <- CompInfusion.pickInfusions q compInfusion)
 
     /// Resets a `Thing`'s `HitPoints` to its own `MaxHitPoints` to reflect HP changes caused by infusions.
     let Postfix (__instance: CompQuality) =

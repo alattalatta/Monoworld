@@ -15,9 +15,10 @@ module DamageInfosToApply =
         (instance: Verb_MeleeAttackDamage)
         (source: ThingWithComps)
         (targetPos: IntVec3)
+        baseDamage
         (extraDamage: ExtraDamage)
         =
-        let amount = extraDamage.amount
+        let amount = baseDamage * extraDamage.amount
 
         let pos =
             (targetPos - instance.caster.Position).ToVector3()
@@ -38,7 +39,10 @@ module DamageInfosToApply =
     let Postfix (returned: IEnumerable<DamageInfo>, target: LocalTargetInfo, __instance: Verb_MeleeAttackDamage) =
         let comp =
             Option.ofObj __instance.EquipmentSource
-            |> Option.bind compOfThing<Comp.Infusion>
+            |> Option.bind compOfThing<CompInfusion>
+
+        let baseDamage =
+            __instance.verbProps.AdjustedMeleeDamageAmount(__instance, __instance.CasterPawn)
 
         // explosions
         do comp
@@ -50,7 +54,12 @@ module DamageInfosToApply =
                expls
                |> Seq.iter (fun expl ->
                    do GenExplosion.DoExplosion
-                       (target.Cell, __instance.caster.Map, expl.radius, expl.def, equipment, expl.amount)))
+                       (target.Cell,
+                        __instance.caster.Map,
+                        expl.radius,
+                        expl.def,
+                        equipment,
+                        int (baseDamage * (float32 expl.amount)))))
 
         // damages
         if Seq.isEmpty returned then
@@ -61,7 +70,7 @@ module DamageInfosToApply =
                 |> Option.map (fun comp ->
                     comp.ExtraDamages
                     |> Seq.filter (fun damage -> Rand.Chance damage.chance)
-                    |> Seq.map (createDamageInfo __instance comp.parent target.Thing.Position))
+                    |> Seq.map (createDamageInfo __instance comp.parent target.Thing.Position baseDamage))
                 |> Option.defaultValue Seq.empty
 
             // need to prepend, as combat log is only associated with the last damage

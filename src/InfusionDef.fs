@@ -12,8 +12,9 @@ open DefFields
 open Lib
 open StatMod
 
+[<AllowNullLiteral>]
 type InfusionDef =
-    inherit Def
+    inherit HashEqualDef
 
     /// Label for map overlay.
     val mutable labelShort: string
@@ -22,8 +23,7 @@ type InfusionDef =
     val mutable extraDescriptions: ResizeArray<string>
 
     val mutable disabled: bool
-    /// Removes itself when loading. Implies disabled.
-    val mutable gracefullyDie: bool
+    val mutable migration: Migration<InfusionDef>
     val mutable extraDamages: ResizeArray<ExtraDamage>
     val mutable extraExplosions: ResizeArray<ExtraExplosion>
     val mutable position: Position
@@ -32,24 +32,26 @@ type InfusionDef =
     val mutable tier: TierDef
 
     new() =
-        { inherit Def()
+        { inherit HashEqualDef()
           labelShort = ""
           extraDescriptions = ResizeArray()
 
           disabled = false
-          gracefullyDie = false
+          migration = null
           extraDamages = null
           extraExplosions = null
           position = Position.Prefix
           requirements = Requirements()
           stats = Dictionary()
-          tier = null }
+          tier = TierDef.empty }
 
     member this.LabelShort = if this.labelShort.NullOrEmpty() then this.label else this.labelShort
 
     member this.ExtraDamages = Option.ofObj this.extraDamages
 
     member this.ExtraExplosions = Option.ofObj this.extraExplosions
+
+    member this.Migration = Option.ofObj this.migration
 
     member this.ChanceFor(quality: QualityCategory) = valueFor quality this.tier.chances
 
@@ -71,24 +73,20 @@ type InfusionDef =
                 ""
             else
                 this.extraDescriptions
-                |> Seq.fold (fun (acc: StringBuilder) cur -> acc.Append("\n  ").AppendLine(cur)) (StringBuilder())
+                |> Seq.fold (fun (acc: StringBuilder) cur -> acc.Append("\n  ").Append(cur)) (StringBuilder())
                 |> string
 
         string
             (StringBuilder(label.Colorize(this.tier.color)).Append(statsDescriptions)
                 .Append(extraDescriptions.Colorize(Color(0.11f, 1.0f, 0.0f))))
 
-    override this.Equals(ob: obj) =
-        match ob with
-        | :? InfusionDef as infDef -> this.defName = infDef.defName
-        | _ -> false
-
-    override this.GetHashCode() = this.defName.GetHashCode()
-
     override this.ToString() = sprintf "%s (%s)" (base.ToString()) this.label
 
+    override this.Equals(ob) = base.Equals(ob)
+    override this.GetHashCode() = base.GetHashCode()
+
     interface IComparable with
-        member this.CompareTo(ob: obj) =
+        member this.CompareTo(ob) =
             match ob with
             | :? InfusionDef as infDef ->
                 let byTierPriority =
@@ -98,6 +96,17 @@ type InfusionDef =
             | _ -> 0
 
 module InfusionDef =
-    let gracefullyDie (infDef: InfusionDef) = infDef.gracefullyDie
+
+    let gracefullyDie (infDef: InfusionDef) =
+        infDef.Migration
+        |> Option.map (fun m -> m.remove)
+        |> Option.defaultValue false
 
     let disabled (infDef: InfusionDef) = gracefullyDie infDef || infDef.disabled
+
+    let collectExtraEffects (getter: InfusionDef -> 'a option) (infusions: Set<InfusionDef>) =
+        infusions
+        |> Seq.map getter
+        |> Seq.choose id
+        |> Seq.concat
+        |> Some

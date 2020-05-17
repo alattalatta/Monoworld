@@ -42,14 +42,14 @@ let rec isToolCapableOfDamageType (dt: DamageType) (tool: Tool) =
     | DamageType.Sharp -> not (isToolCapableOfDamageType DamageType.Blunt tool) // assuming reverse of blunt is sharp...
     | _ -> false
 
-let resetHP<'T when 'T :> Thing and 'T: null> (thing: 'T) = do thing.HitPoints <- thing.MaxHitPoints
+let resetHP<'T when 'T :> Thing> (thing: 'T) = do thing.HitPoints <- thing.MaxHitPoints
 
 /// Scribes a value.
 ///
 /// When saving, returns None.
 ///
 /// When loading, if the saved data exists, returns it in Some. Otherwise returns None.
-let scribeValue key (value: 'a): 'a option =
+let scribeValue key value =
     let mutable out = value
 
     match Scribe.mode with
@@ -61,12 +61,24 @@ let scribeValue key (value: 'a): 'a option =
         None
     | _ -> None
 
+let scribeValueWithDefault key defaultValue value =
+    let mutable out = value
+
+    match Scribe.mode with
+    | LoadSaveMode.LoadingVars ->
+        do Scribe_Values.Look(&out, key, defaultValue)
+        Some out
+    | LoadSaveMode.Saving ->
+        do Scribe_Values.Look(&out, key, defaultValue)
+        None
+    | _ -> None
+
 /// Scribes a nullable value.
 ///
 /// When saving, returns None.
 ///
 /// When loading, if the saved data exists, returns it in Some. Otherwise returns None.
-let scribeValueNullable key (value: 'a): 'a option =
+let scribeValueNullable key value =
     let mutable out = value
 
     match Scribe.mode with
@@ -83,7 +95,7 @@ let scribeValueNullable key (value: 'a): 'a option =
 /// When saving, returns None.
 ///
 /// When loading, if the saved data exists, returns it in Some. Otherwise returns None.
-let scribeDefCollection<'a when 'a :> Def> key (defs: seq<'a>): seq<'a> option =
+let scribeDefCollection<'a when 'a :> Def> key (defs: 'a seq) =
     let mutable out = ResizeArray defs
 
     match Scribe.mode with

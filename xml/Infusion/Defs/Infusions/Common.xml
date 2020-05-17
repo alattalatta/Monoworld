@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+  <Infusion.InfusionDef Abstract="True" Name="CommonDefaultBase">
+    <requirements>
+      <techLevel>
+        <li>Neolithic</li>
+        <li>Medieval</li>
+        <li>Industrial</li>
+        <li>Spacer</li>
+        <li>Ultra</li>
+        <li>Archotech</li>
+      </techLevel>
+    </requirements>
+    <tier>Common</tier>
+  </Infusion.InfusionDef>
+
+  <!-- apparels -->
+  <Infusion.InfusionDef Abstract="True" Name="CommonApparelBase" ParentName="CommonDefaultBase">
+    <requirements>
+      <allowance>
+        <apparel>true</apparel>
+      </allowance>
+    </requirements>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CommonApparelBase">
+    <defName>Absorbing</defName>
+    <label>absorbing</label>
+    <labelShort>absrb</labelShort>
+    <stats>
+      <li>
+        <key>ArmorRating_Blunt</key>
+        <value>
+          <offset>0.075</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CommonApparelBase">
+    <defName>Adjustable</defName>
+    <label>adjustable</label>
+    <labelShort>adjst</labelShort>
+    <stats>
+      <li>
+        <key>EquipDelay</key>
+        <value>
+          <multiplier>-0.25</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CommonApparelBase">
+    <defName>Comfortable</defName>
+    <label>comfortable</label>
+    <labelShort>comfy</labelShort>
+    <stats>
+      <li>
+        <key>MentalBreakThreshold</key>
+        <value>
+          <offset>-0.01</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CommonApparelBase">
+    <defName>Decorated</defName>
+    <label>decorated</label>
+    <labelShort>deco</labelShort>
+    <stats>
+      <li>
+        <key>PawnBeauty</key>
+        <value>
+          <offset>0.1</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CommonApparelBase">
+    <defName>Durable</defName>
+    <label>durable</label>
+    <labelShort>dura</labelShort>
+    <stats>
+      <li>
+        <key>MaxHitPoints</key>
+        <value>
+          <multiplier>0.05</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CommonApparelBase">
+    <defName>Efficient</defName>
+    <label>efficient</label>
+    <labelShort>effc</labelShort>
+    <requirements>
+      <shieldBelt>true</shieldBelt>
+    </requirements>
+    <stats>
+      <li>
+        <key>ArmorRating_Sharp</key>
+        <value>
+          <offset>0.075</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CommonApparelBase">
+    <defName>Hardened</defName>
+    <label>hardened</label>
+    <labelShort>hard</labelShort>
+    <stats>
+      <li>
+        <key>ArmorRating_Sharp</key>
+        <value>
+          <offset>0.075</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CommonApparelBase">
+    <defName>Warm</defName>
+    <label>warm</label>
+    <stats>
+      <li>
+        <key>Insulation_Cold</key>
+        <value>
+          <offset>5</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CommonApparelBase">
+    <defName>Shadowing</defName>
+    <label>shadowing</label>
+    <labelShort>shdw</labelShort>
+    <stats>
+      <li>
+        <key>Insulation_Heat</key>
+        <value>
+          <offset>5</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- melee -->
+  <Infusion.InfusionDef Abstract="True" Name="CommonMeleeBase" ParentName="CommonDefaultBase">
+    <requirements>
+      <allowance>
+        <melee>true</melee>
+      </allowance>
+    </requirements>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CommonMeleeBase">
+    <defName>FineMelee</defName>
+    <label>fine</label>
+    <stats>
+      <li>
+        <key>MeleeWeapon_CooldownMultiplier</key>
+        <value>
+          <offset>-0.05</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CommonMeleeBase">
+    <defName>HeavierMelee</defName>
+    <label>heavier</label>
+    <labelShort>hevy</labelShort>
+    <stats>
+      <li>
+        <key>MeleeWeapon_DamageMultiplier</key>
+        <value>
+          <offset>0.05</offset>
+        </value>
+      </li>
+      <li>
+        <key>Mass</key>
+        <value>
+          <multiplier>0.1</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CommonMeleeBase">
+    <defName>Keen</defName>
+    <label>keen</label>
+    <stats>
+      <li>
+        <key>MeleeDodgeChance</key>
+        <value>
+          <offset>0.025</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- ranged -->
+  <Infusion.InfusionDef Abstract="True" Name="CommonRangedBase" ParentName="CommonDefaultBase">
+    <requirements>
+      <allowance>
+        <ranged>true</ranged>
+      </allowance>
+    </requirements>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CommonRangedBase">
+    <defName>Accurate</defName>
+    <label>accurate</label>
+    <labelShort>accu</labelShort>
+    <stats>
+      <li>
+        <key>AccuracyTouch</key>
+        <value>
+          <offset>0.03</offset>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyShort</key>
+        <value>
+          <offset>0.03</offset>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyMedium</key>
+        <value>
+          <offset>0.03</offset>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyLong</key>
+        <value>
+          <offset>0.03</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CommonRangedBase">
+    <defName>FineRanged</defName>
+    <label>fine</label>
+    <stats>
+      <li>
+        <key>RangedWeapon_Cooldown</key>
+        <value>
+          <multiplier>-0.05</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CommonRangedBase">
+    <defName>HeavierRangede</defName>
+    <label>heavier</label>
+    <labelShort>hevy</labelShort>
+    <stats>
+      <li>
+        <key>RangedWeapon_DamageMultiplier</key>
+        <value>
+          <offset>0.05</offset>
+        </value>
+      </li>
+      <li>
+        <key>Mass</key>
+        <value>
+          <multiplier>0.1</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+</Defs>

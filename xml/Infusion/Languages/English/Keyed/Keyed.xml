@@ -1,31 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <LanguageData>
-  <Infusion.Awful>awful</Infusion.Awful>
-  <Infusion.Poor>poor</Infusion.Poor>
-  <Infusion.Common>common</Infusion.Common>
-  <Infusion.Uncommon>uncommon</Infusion.Uncommon>
-  <Infusion.Rare>rare</Infusion.Rare>
-  <Infusion.Epic>epic</Infusion.Epic>
-  <Infusion.Legendary>legendary</Infusion.Legendary>
-  <Infusion.Artifact>artifact</Infusion.Artifact>
-
   <!-- {0}: infusions, {1}: label. -->
   <Infusion.Label.Prefixed>{0} {1}</Infusion.Label.Prefixed>
   <Infusion.Label.Suffixed>{1} of {0}</Infusion.Label.Suffixed>
+  <Infusion.Label.NotInfused>{0} (not infused)</Infusion.Label.NotInfused>
+
+  <Infusion.Infuser.Label>infuser</Infusion.Infuser.Label>
+  <Infusion.Infuser.Description>A single-use canister containing mechanites programmed to enhance an equipment.</Infusion.Infuser.Description>
 
   <Infusion.StatPart.Start>Infusions: </Infusion.StatPart.Start>
 
+  <Infusion.Job.Message.ExtractionFailure>Extraction of {0} from {1} has failed. The infuser was destroyed.</Infusion.Job.Message.ExtractionFailure>
+  <Infusion.Job.FailReason.NoExtractor>No reachable, un-reserved empty infuser.</Infusion.Job.FailReason.NoExtractor>
+  <Infusion.Job.FailReason.NoMatchingInfuser>No reachable, un-reserved, suitable infuser.</Infusion.Job.FailReason.NoMatchingInfuser>
+
   <Infusion.ITab>Infusions</Infusion.ITab>
 
-  <Infusion.ITab.MarkForRemoval>Click to mark this infusion for removal.\n\nOne of your colonist with crafting will remove it.</Infusion.ITab.MarkForRemoval>
-  <Infusion.ITab.UnmarkForRemoval>Click to unmark this infusion for removal.</Infusion.ITab.UnmarkForRemoval>
+  <Infusion.ITab.ApplyInfuser>Apply infuser...</Infusion.ITab.ApplyInfuser>
+  <Infusion.ITab.ApplyInfuser.Description>Only infusers usable on this equipment will be shown.</Infusion.ITab.ApplyInfuser.Description>
+
+  <Infusion.ITab.MarkForExtraction>Click to mark this infusion for an extraction. (Success rate {0})
+
+One of your colonist with crafting will extract it using an empty infuser.
+
+Extraction may fail, which destroys both infusion and infuser.
+</Infusion.ITab.MarkForExtraction>
+  <Infusion.ITab.MarkForRemoval>Click to mark this infusion for a removal.
+
+One of your colonist with crafting will remove it without any cost.
+
+Removal never fails and costs nothing.
+</Infusion.ITab.MarkForRemoval>
+  <Infusion.ITab.Unmark>Click to unmark this infusion.</Infusion.ITab.Unmark>
 
   <!-- settings -->
   <Infusion.Settings.AccuracyOvercapping>Enable accuracy overcapping</Infusion.Settings.AccuracyOvercapping>
   <Infusion.Settings.AccuracyOvercapping.Description>Allows ranged weapon accuracy to go over 100%, with diminishing returns.</Infusion.Settings.AccuracyOvercapping.Description>
 
   <Infusion.Settings.WeightFactor>Weight factor</Infusion.Settings.WeightFactor>
-  <Infusion.Settings.WeightFactor.Description>Multiplies weight of infusions. Possible values are 0.0 ~ 2.0. Default is 0.3.
+  <Infusion.Settings.WeightFactor.Description>Multiplies weight of infusions. Possible values are 0.0 ~ 2.0. Default is 1.0.
 
 2.0 strictly picks the highest weights for a quality first. 0.0 means everything is possible.
 
@@ -35,15 +48,20 @@ Note: Chances still applies.
   <Infusion.Settings.ChanceFactor>Probability factor</Infusion.Settings.ChanceFactor>
   <Infusion.Settings.ChanceFactor.Description>Multiplies probability of infusions. Possible values are 0.0 ~ 100.0. Default is 1.0.
 
-With default infusions, 10 would be sufficient to ensure everything will pass. 0.0 will effectively disable new infusions.
+With default infusions, 100 would ensure everything will pass. 0 will effectively disable new infusions.
   </Infusion.Settings.ChanceFactor.Description>
 
-  <Infusion.Settings.BodyPartBonuses>More infusions for more body parts covered</Infusion.Settings.BodyPartBonuses>
-  <Infusion.Settings.BodyPartBonuses.Description>Increases max infusions by 1, per 4 body part groups an apparel covers.</Infusion.Settings.BodyPartBonuses.Description>
+  <Infusion.Settings.BodyPartLimit>Limit infusions by body parts covered</Infusion.Settings.BodyPartLimit>
+  <Infusion.Settings.BodyPartLimit.Description>Maximum infusion slot count will be limited to numbers of body part groups an apparel covers.</Infusion.Settings.BodyPartLimit.Description>
 
   <Infusion.Settings.LayerBonuses>More infusions for more layers occupied</Infusion.Settings.LayerBonuses>
-  <Infusion.Settings.LayerBonuses.Description>Increases max infusions by 1, per a layer an apparel occupies.</Infusion.Settings.LayerBonuses.Description>
+  <Infusion.Settings.LayerBonuses.Description>Increases max infusions by 1, per a layer an apparel occupies.
+
+Applied after the body part limit, i.e. an apparel which only protects arms and torso will have its slots limited to 2, but if it occupies 3 layers, the limit will become 4 instead.
+  </Infusion.Settings.LayerBonuses.Description>
 
   <Infusion.Settings.Slots.OpenSlotSettings>Open infusion slot options</Infusion.Settings.Slots.OpenSlotSettings>
   <Infusion.Settings.Slots.CloseSlotSettings>Close infusion slot options</Infusion.Settings.Slots.CloseSlotSettings>
+
+  <Infusion.Settings.Slot>0 ~ 20, default {0}</Infusion.Settings.Slot>
 </LanguageData>

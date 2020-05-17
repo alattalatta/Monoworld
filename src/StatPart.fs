@@ -72,6 +72,6 @@ type Infusion =
         string sb
 
     member private this.GetAllModifiersFromThing<'T when 'T :> Thing>(thing: 'T): StatMod =
-        compOfThing<Comp.Infusion> thing
+        compOfThing<CompInfusion> thing
         |> Option.map (fun comp -> comp.GetModForStat this.parentStat)
         |> Option.defaultValue StatMod.empty
