@@ -3,24 +3,17 @@
   <HugsLib.UpdateFeatureDef Abstract="true" Name="UpdateFeatureBase">
     <modNameReadable>Infusion 2</modNameReadable>
     <modIdentifier>latta.infusion</modIdentifier>
-    <linkUrl>https://ludeon.com/forums/index.php?topic=51712.0</linkUrl>
+    <linkUrl>https://git.io/JfmlW</linkUrl>
   </HugsLib.UpdateFeatureDef>
 
   <HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
-    <defName>infusion_182</defName>
-    <assemblyVersion>1.8.2</assemblyVersion>
-    <content>Important message: Breaking changes incoming
+    <defName>infusion_200</defName>
+    <assemblyVersion>2.0.0</assemblyVersion>
+    <content>img:images/200|caption:Welcome to v2.0.0! This major patch adds infusers, infusion extraction, and explosive infusions!
 
-2.0.0 test build is out on GitHub!
+You will also notice that infusions are overall weaker and much harder to get. If you nerfed the settings before, you might want to reset them.
 
-2.0.0 will host lots and lots of changes, ranging from super-frequently-requested extracting and applying infusions, explosive infusions, and rebalanced everythings.
-
-Even though the update is classified as a "breaking" one, there are automatic migrations to keep your save safe.
-(But almost all of your existing infusions will be affected, being removed or changed.)
-
-If you would like to opt out of incoming changes, use Mod Manager to backup this version (1.8.2), or download 1.8.1 from GitHub and install it manually.
-
-To download the latest release including 2.0.0, visit https://git.io/JfmlW
+To read the full patch log, click Link on the news header.
 </content>
   </HugsLib.UpdateFeatureDef>
 </Defs>
