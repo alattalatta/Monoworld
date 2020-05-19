@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <!-- exotic may get one more empty infuser (ExoticMisc may generate filled infusers) -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/TraderKindDef[defName="Orbital_Exotic"]/stockGenerators</xpath>
+    <value>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Infusion_InfuserEmpty</thingDef>
+        <countRange>0~1</countRange>
+        <price>Expensive</price>
+      </li>
+    </value>
+  </Operation>
+
+  <!-- combat may get up to two filled infusers (expensive) -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/TraderKindDef[defName="Orbital_CombatSupplier"]/stockGenerators</xpath>
+    <value>
+      <li Class="StockGenerator_Tag">
+        <tradeTag>Infusion_Infuser</tradeTag>
+        <countRange>0~2</countRange>
+        <price>Exorbitant</price>
+      </li>
+    </value>
+  </Operation>
+</Patch>

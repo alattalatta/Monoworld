@@ -2,23 +2,37 @@
   <PropertyGroup>
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
     <TargetFramework>net472</TargetFramework>
-    <Version>1.8.2</Version>
+    <Version>2.0.0</Version>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Lib.fs" />
     <Compile Include="VerseInterop.fs" />
+    <Compile Include="Reflectors.fs" />
+    <Compile Include="L18N.fs" />
     <Compile Include="StatMod.fs" />
     <Compile Include="DefFields.fs" />
     <Compile Include="VerseTools.fs" />
+    <Compile Include="HashEqualDef.fs" />
+    <Compile Include="TierDef.fs" />
+    <Compile Include="Complex/Complex.fs" />
     <Compile Include="InfusionDef.fs" />
+    <Compile Include="Complex/EquipmentType.fs" />
+    <Compile Include="Complex/Negate.fs" />
+    <Compile Include="Complex/ProjectileBullet.fs" />
+    <Compile Include="Complex/ShieldBelt.fs" />
+    <Compile Include="Complex/ToolCapacity.fs" />
     <Compile Include="Settings.fs" />
-    <Compile Include="Comp.fs" />
-    <Compile Include="StatPart.fs" />
+    <Compile Include="CompInfusion.fs" />
+    <Compile Include="Infuser.fs" />
+    <Compile Include="Extractor.fs" />
+    <Compile Include="DefGenerator.fs" />
     <Compile Include="ITab.fs" />
     <Compile Include="DebugActions.fs" />
+    <Compile Include="StatPart.fs" />
     <Compile Include="JobDriver.fs" />
     <Compile Include="WorkGiver.fs" />
     <Compile Include="SpecialThingFilterWorkers/Everything.fs" />
+    <Compile Include="Harmonize/Bullet.fs" />
     <Compile Include="Harmonize/CompQuality.fs" />
     <Compile Include="Harmonize/StatWorker.fs" />
     <Compile Include="Harmonize/VerbMeleeAttackDamage.fs" />

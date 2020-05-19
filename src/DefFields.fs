@@ -1,6 +1,11 @@
 module Infusion.DefFields
 
+open System
+
 open RimWorld
+open Verse
+
+// [todo] group with modules
 
 type Allowance =
     val mutable apparel: bool
@@ -11,6 +16,18 @@ type Allowance =
         { apparel = false
           melee = false
           ranged = false }
+
+type ExtraExplosion =
+    val mutable amount: float32
+    val mutable chance: float32
+    val mutable def: DamageDef
+    val mutable radius: float32
+
+    new() =
+        { amount = -1.0f
+          chance = 1.0f
+          def = DamageDefOf.Bomb
+          radius = 1.4f }
 
 type QualityMap =
     val mutable awful: float32
@@ -30,35 +47,28 @@ type QualityMap =
           masterwork = 0.0f
           legendary = 0.0f }
 
+let valueFor quality (qmap: QualityMap) =
+    match quality with
+    | QualityCategory.Awful -> qmap.awful
+    | QualityCategory.Poor -> qmap.poor
+    | QualityCategory.Normal -> qmap.normal
+    | QualityCategory.Good -> qmap.good
+    | QualityCategory.Excellent -> qmap.excellent
+    | QualityCategory.Masterwork -> qmap.masterwork
+    | QualityCategory.Legendary -> qmap.legendary
+    | _ -> raise (ArgumentException(sprintf "Unknown quality received: %A" quality))
+
 
 type Position =
     | Prefix = 0
     | Suffix = 1
 
 
-type DamageType =
-    | Anything = 0
-    | Blunt = 1
-    | Sharp = 2
+[<AllowNullLiteral>]
+type Migration<'a when 'a :> Def and 'a: null> =
+    val mutable remove: bool
+    val mutable replace: 'a
 
+    new() = { remove = false; replace = null }
 
-type Requirements =
-    val mutable allowance: Allowance
-    val mutable techLevel: ResizeArray<TechLevel>
-    val mutable meleeDamageType: DamageType
-
-    new() =
-        { allowance = Allowance()
-          techLevel = ResizeArray()
-          meleeDamageType = DamageType.Anything }
-
-
-type Tier =
-    | Awful = 0
-    | Poor = 1
-    | Common = 2
-    | Uncommon = 3
-    | Rare = 4
-    | Epic = 5
-    | Legendary = 6
-    | Artifact = 7
+    member this.Replace = Option.ofObj this.replace

@@ -5,12 +5,13 @@ open System
 open RimWorld
 open Verse
 
+open DefGenerator
 open Lib
 open VerseTools
 
 let hasQualityNoInfusion (def: ThingDef) =
     def.HasComp(typedefof<CompQuality>)
-    && not (def.HasComp(typedefof<Comp.Infusion>))
+    && not (def.HasComp(typedefof<CompInfusion>))
 
 let isSingleUse (def: ThingDef) =
     Option.ofObj def.thingSetMakerTags
@@ -30,6 +31,15 @@ type ModBase() =
         this.InjectToThings()
         this.InjectToStats()
 
+        makeInfuserDefs ()
+        |> Seq.iter (fun def ->
+            do def.ResolveReferences()
+            do DefGenerator.AddImpliedDef<ThingDef>(def)
+            do Option.ofObj def.thingCategories
+               |> Option.iter (Seq.iter (fun cat -> cat.childThingDefs.Add def))
+
+            do HugsLib.Utils.InjectedDefHasher.GiveShortHashToDef(def, typeof<ThingDef>))
+
     member private this.InjectToThings() =
         let infusionCandidates =
             DefDatabase<ThingDef>.AllDefs
@@ -46,7 +56,7 @@ type ModBase() =
         infusionCandidates
         |> Seq.iter (fun def ->
             // Needs to be the first, label making is order-dependent
-            do def.comps.Insert(0, CompProperties(typeof<Comp.Infusion>))
+            do def.comps.Insert(0, CompProperties(typeof<CompInfusion>))
             if def.inspectorTabs.NullOrEmpty() then
                 do def.inspectorTabs <- ResizeArray<Type>(1)
                 do def.inspectorTabsResolved <- ResizeArray<InspectTabBase>(1)

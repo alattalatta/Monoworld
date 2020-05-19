@@ -19,6 +19,8 @@ let dictseq (dict: Dictionary<_, _>) =
             yield entry
     }
 
+let flip f a b = f b a
+
 let shuffle seq =
     let array = Seq.toArray seq
     let random = Random()
@@ -33,3 +35,21 @@ let shuffle seq =
 let tap fn a =
     do fn a
     a
+
+module Option =
+    let tap f a =
+        match a with
+        | Some a2 ->
+            do f (a2)
+            a
+        | None -> None
+
+    let tapNone f a =
+        match a with
+        | Some a2 -> a
+        | None ->
+            do f ()
+            None
+
+    let ofSeq a =
+        if Seq.length a = 0 then None else Some a

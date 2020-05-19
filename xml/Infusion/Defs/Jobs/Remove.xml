@@ -13,6 +13,6 @@
     <giverClass>Infusion.WorkGiverRemoveInfusions</giverClass>
     <workType>Crafting</workType>
     <verb>remove</verb>
-    <gerund>removing</gerund>
+    <gerund>removing infusions</gerund>
   </WorkGiverDef>
 </Defs>

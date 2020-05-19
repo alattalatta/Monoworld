@@ -26,52 +26,78 @@ let pawnStatCategories =
           StatCategoryDefOf.PawnSocial.defName
           StatCategoryDefOf.PawnWork.defName ]
 
+/// Predicate for determining whether given ThingDef is an apparel, a weapon, or not.
 let apparelOrWeapon (def: ThingDef) =
     ThingCategoryDefOf.Apparel.ContainedInThisOrDescendant def
     || ThingCategoryDefOf.Weapons.ContainedInThisOrDescendant def
 
-let rec isToolCapableOfDamageType (dt: DamageType) (tool: Tool) =
-    match dt with
-    | DamageType.Anything -> true
-    | DamageType.Blunt ->
-        tool.capacities
-        |> Seq.exists (fun capacity ->
-            capacity.defName = "Blunt"
-            || capacity.defName = "Poke")
-    | DamageType.Sharp -> not (isToolCapableOfDamageType DamageType.Blunt tool) // assuming reverse of blunt is sharp...
-    | _ -> false
+let resetHP<'T when 'T :> Thing> (thing: 'T) = do thing.HitPoints <- thing.MaxHitPoints
 
-let getLabelOfTier (tier: Tier) =
-    match tier with
-    | Tier.Awful -> translate "Infusion.Awful"
-    | Tier.Poor -> translate "Infusion.Poor"
-    | Tier.Uncommon -> translate "Infusion.Uncommon"
-    | Tier.Rare -> translate "Infusion.Rare"
-    | Tier.Epic -> translate "Infusion.Epic"
-    | Tier.Legendary -> translate "Infusion.Legendary"
-    | Tier.Artifact -> translate "Infusion.Artifact"
-    | _ -> ""
+/// Scribes a value.
+///
+/// When saving, returns None.
+///
+/// When loading, if the saved data exists, returns it in Some. Otherwise returns None.
+let scribeValue key value =
+    let mutable out = value
 
-let tierToColor (tier: Tier) =
-    match tier with
-    | Tier.Awful
-    | Tier.Poor -> Color(0.61f, 0.61f, 0.61f)
-    | Tier.Uncommon -> Color(0.11f, 1.0f, 0.0f)
-    | Tier.Rare -> Color(0.0f, 0.43f, 0.86f)
-    | Tier.Epic -> Color(0.57f, 0.27f, 1.0f)
-    | Tier.Legendary -> Color(1.0f, 0.5f, 0.0f)
-    | Tier.Artifact -> Color(0.89f, 0.8f, 0.5f)
-    | _ -> Color.white
+    match Scribe.mode with
+    | LoadSaveMode.LoadingVars ->
+        do Scribe_Values.Look(&out, key)
+        Some out
+    | LoadSaveMode.Saving ->
+        do Scribe_Values.Look(&out, key)
+        None
+    | _ -> None
 
-let resetHP<'T when 'T :> Thing and 'T: null> (thing: 'T) = do thing.HitPoints <- thing.MaxHitPoints
+/// Scribes a value, with the default value.
+///
+/// When saving, returns None.
+///
+/// When loading, if the saved data exists, returns it in Some. Otherwise returns None.
+let scribeValueWithDefault key defaultValue value =
+    let mutable out = value
 
-let scribeDefCollection key (defs: seq<'a>): option<seq<'a>> =
+    match Scribe.mode with
+    | LoadSaveMode.LoadingVars ->
+        do Scribe_Values.Look(&out, key, defaultValue)
+        Some out
+    | LoadSaveMode.Saving ->
+        do Scribe_Values.Look(&out, key, defaultValue)
+        None
+    | _ -> None
+
+/// Scribes a nullable value.
+///
+/// When saving, returns None.
+///
+/// When loading, if the saved data exists, returns it in Some. Otherwise returns None.
+let scribeValueNullable key value =
+    let mutable out = value
+
+    match Scribe.mode with
+    | LoadSaveMode.LoadingVars ->
+        do Scribe_Values.Look(&out, key)
+        Option.ofObj out
+    | LoadSaveMode.Saving ->
+        do Scribe_Values.Look(&out, key)
+        None
+    | _ -> None
+
+/// Scribes a sequence of defs.
+///
+/// When saving, returns None.
+///
+/// When loading, if the saved data exists, returns it in Some. Otherwise returns None.
+let scribeDefCollection<'a when 'a :> Def> key (defs: 'a seq) =
     let mutable out = ResizeArray defs
 
-    if (Scribe.mode = LoadSaveMode.LoadingVars
-        || (Scribe.mode = LoadSaveMode.Saving
-            && not (out.NullOrEmpty()))) then
+    match Scribe.mode with
+    | LoadSaveMode.LoadingVars ->
         do Scribe_Collections.Look(&out, key, LookMode.Def)
-
-    Option.ofObj out
-    |> Option.map (fun a -> seq { yield! a })
+        Option.ofObj out
+        |> Option.map (fun a -> seq { yield! a })
+    | LoadSaveMode.Saving ->
+        do Scribe_Collections.Look(&out, key, LookMode.Def)
+        None
+    | _ -> None

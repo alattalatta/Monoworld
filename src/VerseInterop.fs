@@ -12,11 +12,13 @@ let equipmentsOfPawn (pawn: Pawn): option<list<ThingWithComps>> =
     Option.ofObj pawn.equipment
     |> Option.map (fun tracker -> List.ofSeq tracker.AllEquipmentListForReading)
 
-let compOfThing<'C when 'C :> ThingComp and 'C: null> (thing: Thing) = Option.ofObj (thing.TryGetComp<'C>())
+let compOfThing<'a when 'a :> ThingComp and 'a: null> (thing: Thing) = Option.ofObj (thing.TryGetComp<'a>())
 
 let parentOfComp (comp: ThingComp) = comp.parent
 
 let translate (key: string) = key.TranslateSimple()
+
+let translate1 (key: string) a = key.Translate(NamedArgument(a, null))
 
 let translate2 (key: string) a b =
     key.Translate(NamedArgument(a, null), NamedArgument(b, null))
@@ -61,7 +63,7 @@ module Toil =
         do toil.defaultCompleteMode <- mode
         toil
 
-    let addProgressBar targetIndex progressFn (toil: Toil) =
-        do toil.WithProgressBar(targetIndex, new System.Func<float32>(progressFn))
+    let addProgressBar targetIndex (toil: Toil) =
+        do toil.WithProgressBarToilDelay(targetIndex)
            |> ignore
         toil

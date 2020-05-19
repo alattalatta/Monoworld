@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- apparels -->
+
+  <Calming.label>차분한</Calming.label>
+  <Calming.labelShort>차분</Calming.labelShort>
+
+  <Cyclic.label>순환형</Cyclic.label>
+  <Cyclic.labelShort>순환</Cyclic.labelShort>
+
+  <Expanded.label>확장형</Expanded.label>
+  <Expanded.labelShort>확장</Expanded.labelShort>
+
+  <Impactful.label>인상적인</Impactful.label>
+  <Impactful.labelShort>인상</Impactful.labelShort>
+
+  <Insulating.label>방열</Insulating.label>
+  <Insulating.labelShort>방열</Insulating.labelShort>
+
+  <Ornate.label>장식한</Ornate.label>
+  <Ornate.labelShort>장식</Ornate.labelShort>
+
+  <Plated.label>판갑</Plated.label>
+  <Plated.labelShort>판갑</Plated.labelShort>
+
+  <Padded.label>덧댄</Padded.label>
+  <Padded.labelShort>덧댐</Padded.labelShort>
+
+  <Refreshing.label>상쾌한</Refreshing.label>
+  <Refreshing.labelShort>상쾌</Refreshing.labelShort>
+
+  <Tough.label>질긴</Tough.label>
+  <Tough.labelShort>질긴</Tough.labelShort>
+
+  <Quickening.label>빠른</Quickening.label>
+  <Quickening.labelShort>빠름</Quickening.labelShort>
+
+
+  <!-- weapons -->
+
+  <Blocking.label>막아내는</Blocking.label>
+  <Blocking.labelShort>막음</Blocking.labelShort>
+
+
+  <!-- melee -->
+
+  <Fiery.label>불타는</Fiery.label>
+  <Fiery.labelShort>불탐</Fiery.labelShort>
+  <Fiery.extraDescriptions.0>타격 성공 시, 30% 확률로 무기 피해량의 20%만큼 화상 피해를 입힙니다.</Fiery.extraDescriptions.0>
+
+  <Nimble.label>날렵한</Nimble.label>
+  <Nimble.labelShort>날렵한</Nimble.labelShort>
+
+  <Sharpened.label>날선</Sharpened.label>
+  <Sharpened.labelShort>날섬</Sharpened.labelShort>
+
+  <Spiked.label>가시박힌</Spiked.label>
+  <Spiked.labelShort>가시</Spiked.labelShort>
+  <Spiked.extraDescriptions.0>타격 성공 시, 50% 확률로 무기 피해량의 15%만큼 찌르기 피해를 입힙니다.</Spiked.extraDescriptions.0>
+
+  <Taunting.label>위협적인</Taunting.label>
+  <Taunting.labelShort>위협</Taunting.labelShort>
+  <Taunting.extraDescriptions.0>타격 성공 시, 20% 확률로 무기 피해량의 20%만큼 기절시킵니다.</Taunting.extraDescriptions.0>
+
+
+  <!-- ranged -->
+
+  <Silent.label>조용한</Silent.label>
+  <Silent.labelShort>조용</Silent.labelShort>
+
+  <Tearing.label>가르는</Tearing.label>
+  <Tearing.labelShort>가름</Tearing.labelShort>
+
+  <Wieldy.label>용이한</Wieldy.label>
+  <Wieldy.labelShort>용이</Wieldy.labelShort>
+
+
+</LanguageData>

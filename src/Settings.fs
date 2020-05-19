@@ -38,20 +38,20 @@ module SelectionConsts =
                 ("weightFactor",
                  (translate "Infusion.Settings.WeightFactor"),
                  (translate "Infusion.Settings.WeightFactor.Description"),
-                 0.5f,
+                 1.0f,
                  Validators.FloatRangeValidator(0.0f, 2.0f)))
         pack
 
-module SlotBonuses =
+module SlotModifiers =
     let mutable bodyPartHandle: SettingHandle<bool> = null
     let mutable layerHandle: SettingHandle<bool> = null
 
     let draw (pack: ModSettingsPack) =
         do bodyPartHandle <-
             (pack.GetHandle
-                ("bodyPartBonuses",
-                 (translate "Infusion.Settings.BodyPartBonuses"),
-                 (translate "Infusion.Settings.BodyPartBonuses.Description"),
+                ("bodyPartLimit",
+                 (translate "Infusion.Settings.BodyPartLimit"),
+                 (translate "Infusion.Settings.BodyPartLimit.Description"),
                  true))
         do layerHandle <-
             (pack.GetHandle
@@ -78,7 +78,7 @@ module Slots =
             pack.GetHandle
                 (sprintf "slots%s" qualityName,
                  (translate (sprintf "QualityCategory_%s" qualityName)).CapitalizeFirst(),
-                 "0 ~ 20",
+                 string (translate1 "Infusion.Settings.Slot" defaultValue),
                  defaultValue,
                  Validators.IntRangeValidator(0, 20))
         // bonus point for "<- fun () ->"
@@ -105,11 +105,11 @@ module Slots =
                 false)
 
         do handles <-
-            [ slotSettingHandle QualityCategory.Normal 0
+            [ slotSettingHandle QualityCategory.Normal 1
               slotSettingHandle QualityCategory.Good 1
-              slotSettingHandle QualityCategory.Excellent 1
-              slotSettingHandle QualityCategory.Masterwork 2
-              slotSettingHandle QualityCategory.Legendary 3 ]
+              slotSettingHandle QualityCategory.Excellent 2
+              slotSettingHandle QualityCategory.Masterwork 3
+              slotSettingHandle QualityCategory.Legendary 4 ]
             |> List.map (fun f -> f pack) // consider it as a reversed mapping
             |> Map.ofList
         pack
@@ -118,6 +118,6 @@ let initialize () =
     HugsLibController.SettingsManager.GetModSettings("latta.infusion")
     |> AccuracyOvercap.draw
     |> SelectionConsts.draw
-    |> SlotBonuses.draw
+    |> SlotModifiers.draw
     |> Slots.draw
     |> ignore
