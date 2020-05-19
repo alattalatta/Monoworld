@@ -50,21 +50,26 @@
 
   <Burning.label>타오르는</Burning.label>
   <Burning.labelShort>타오름</Burning.labelShort>
+  <Burning.extraDescriptions.0>타격 성공 시, 30% 확률로 무기 피해량의 30%만큼 화염 피해를 입혀 적을 불태웁니다.</Burning.extraDescriptions.0>
 
   <Dancing.label>춤추는</Dancing.label>
   <Dancing.labelShort>춤</Dancing.labelShort>
 
   <Electromagnetic.label>전자기</Electromagnetic.label>
   <Electromagnetic.labelShort>전자기</Electromagnetic.labelShort>
+  <Electromagnetic.extraDescriptions.0>타격 성공 시, 25% 확률로 작은 전자기폭발이 발생해 무기 피해량의 100%만큼 피해를 입힙니다.</Electromagnetic.extraDescriptions.0>
 
   <PiercingMelee.label>관통하는</PiercingMelee.label>
   <PiercingMelee.labelShort>관통</PiercingMelee.labelShort>
+  <PiercingMelee.extraDescriptions.0>타격 성공 시, 20% 확률로 무기 피해량의 25%만큼 관통력 70%의 찌르기 피해를 입힙니다.</PiercingMelee.extraDescriptions.0>
 
   <Reactive.label>폭발적인</Reactive.label>
   <Reactive.labelShort>폭발적</Reactive.labelShort>
+  <Reactive.extraDescriptions.0>타격 성공 시, 20% 확률로 작은 폭발이 발생해 무기 피해량의 75%만큼 피해를 입힙니다.</Reactive.extraDescriptions.0>
 
   <Stunning.label>충격적인</Stunning.label>
   <Stunning.labelShort>충격</Stunning.labelShort>
+  <Stunning.extraDescriptions.0>타격 성공 시, 20% 확률로 무기 피해량의 40%만큼 기절시킵니다.</Stunning.extraDescriptions.0>
 
 
   <!-- ranged -->
@@ -74,18 +79,22 @@
 
   <Concussive.label>충격형</Concussive.label>
   <Concussive.labelShort>충격형</Concussive.labelShort>
+  <Concussive.extraDescriptions.0>탄환 명중 시, 10% 확률로 무기 피해량의 40%만큼 기절시킵니다.</Concussive.extraDescriptions.0>
 
   <Explosive.label>폭발형</Explosive.label>
   <Explosive.labelShort>폭발형</Explosive.labelShort>
+  <Explosive.extraDescriptions.0>탄환 충돌 시, 10% 확률로 폭발해 반경 1.4칸 내에 무기 피해량의 75%만큼 피해를 입힙니다.</Explosive.extraDescriptions.0>
 
   <Optimized.label>최적화한</Optimized.label>
   <Optimized.labelShort>최적</Optimized.labelShort>
 
   <PiercingRanged.label>관통하는</PiercingRanged.label>
   <PiercingRanged.labelShort>관통</PiercingRanged.labelShort>
+  <PiercingRanged.extraDescriptions.0>탄환 명중 시, 10% 확률로 무기 피해량의 25%만큼 관통력 70%의 찌르기 피해를 입힙니다.</PiercingRanged.extraDescriptions.0>
 
   <Thermal.label>고열</Thermal.label>
   <Thermal.labelShort>고열</Thermal.labelShort>
+  <Thermal.extraDescriptions.0>탄환 충돌 시, 10% 확률로 작은 화염 폭발이 발생해 무기 피해량의 75%만큼 피해를 입힙니다.</Thermal.extraDescriptions.0>
 
 
 </LanguageData>

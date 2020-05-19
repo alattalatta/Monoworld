@@ -38,15 +38,19 @@
 
   <Blazing.label>화염의</Blazing.label>
   <Blazing.labelShort>화염의</Blazing.labelShort>
+  <Blazing.extraDescriptions.0>타격 성공 시, 25% 확률로 작은 화염 폭발이 발생해 무기 피해량의 50%만큼 피해를 입힙니다.</Blazing.extraDescriptions.0>
 
   <Critical.label>치명적인</Critical.label>
   <Critical.labelShort>치명</Critical.labelShort>
+  <Critical.extraDescriptions.0>타격 성공 시, 8% 확률로 작은 폭발이 발생해 무기 피해량의 300%만큼 피해를 입힙니다.</Critical.extraDescriptions.0>
 
   <Overwhelming.label>압도하는</Overwhelming.label>
   <Overwhelming.labelShort>압도</Overwhelming.labelShort>
+  <Overwhelming.extraDescriptions.0>타격 성공 시, 30% 확률로 무기 피해량의 60%만큼 기절시킵니다.</Overwhelming.extraDescriptions.0>
 
   <Surging.label>고전압</Surging.label>
   <Surging.labelShort>고전압</Surging.labelShort>
+  <Surging.extraDescriptions.0>타격 성공 시, 70% 확률로 전자기폭발이 발생해 주변 반경 3.5칸 내에 무기 피해량의 300%만큼 피해를 입힙니다.</Surging.extraDescriptions.0>
 
 
   <!-- ranged -->
@@ -56,6 +60,7 @@
 
   <Disrupting.label>방해하는</Disrupting.label>
   <Disrupting.labelShort>방해</Disrupting.labelShort>
+  <Disrupting.extraDescriptions.0>탄환 충돌 시, 25% 확률로 전자기폭발이 발생해 반경 1.4칸 내에 무기 피해량의 100%만큼 피해를 입힙니다.</Disrupting.extraDescriptions.0>
 
   <Homing.label>유도형</Homing.label>
   <Homing.labelShort>유도</Homing.labelShort>
@@ -65,9 +70,13 @@
 
   <Suppressive.label>제압형</Suppressive.label>
   <Suppressive.labelShort>제압</Suppressive.labelShort>
+  <Suppressive.extraDescriptions.0>탄환 명중 시, 10% 확률로 무기 피해량의 80%만큼 기절시킵니다.</Suppressive.extraDescriptions.0>
 
   <Volatile.label>휘발성</Volatile.label>
   <Volatile.labelShort>휘발성</Volatile.labelShort>
+  <Suppressive.extraDescriptions.0>탄환 충돌 시, 20% 확률로 폭발이 발생합니다.</Suppressive.extraDescriptions.0>
+  <Suppressive.extraDescriptions.1>탄환 충돌 시, 20% 확률로 화염 폭발이 발생합니다.</Suppressive.extraDescriptions.1>
+  <Suppressive.extraDescriptions.2>두 폭발 모두 반경 1.4칸 내에 무기 피해량의 50%만큼 피해를 입힙니다.</Suppressive.extraDescriptions.2>
 
 
 </LanguageData>

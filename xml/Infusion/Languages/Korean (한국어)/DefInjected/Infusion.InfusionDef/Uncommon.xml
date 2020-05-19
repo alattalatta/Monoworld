@@ -47,6 +47,7 @@
 
   <Fiery.label>불타는</Fiery.label>
   <Fiery.labelShort>불탐</Fiery.labelShort>
+  <Fiery.extraDescriptions.0>타격 성공 시, 30% 확률로 무기 피해량의 20%만큼 화상 피해를 입힙니다.</Fiery.extraDescriptions.0>
 
   <Nimble.label>날렵한</Nimble.label>
   <Nimble.labelShort>날렵한</Nimble.labelShort>
@@ -56,9 +57,11 @@
 
   <Spiked.label>가시박힌</Spiked.label>
   <Spiked.labelShort>가시</Spiked.labelShort>
+  <Spiked.extraDescriptions.0>타격 성공 시, 50% 확률로 무기 피해량의 15%만큼 찌르기 피해를 입힙니다.</Spiked.extraDescriptions.0>
 
   <Taunting.label>위협적인</Taunting.label>
   <Taunting.labelShort>위협</Taunting.labelShort>
+  <Taunting.extraDescriptions.0>타격 성공 시, 20% 확률로 무기 피해량의 20%만큼 기절시킵니다.</Taunting.extraDescriptions.0>
 
 
   <!-- ranged -->
