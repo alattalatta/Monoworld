@@ -258,20 +258,27 @@ type CompInfusion() =
     member this.MakeBestInfusionLabel length =
         match this.BestInfusion with
         | Some bestInf ->
-            let sb =
-                StringBuilder(if length = Long then bestInf.label else bestInf.LabelShort)
+            let label =
+                match length with
+                | Long -> bestInf.label
+                | Short -> bestInf.LabelShort
 
             if this.Size > 1 then
-                do sb.Append("(+").Append(this.Size - 1).Append(")")
-                   |> ignore
-
-            string sb
+                StringBuilder(label).Append("(+").Append(this.Size - 1).Append(")")
+                |> string
+            else
+                label
         | None -> ""
 
     override this.TransformLabel label =
         match this.BestInfusion with
         | Some bestInf ->
             let parent = this.parent
+
+            let isInfuser =
+                Option.ofObj this.parent.def.tradeTags
+                |> Option.map (Seq.contains "Infusion_Infuser")
+                |> Option.defaultValue false
 
             let baseLabel =
                 GenLabel.ThingLabel(parent.def, parent.Stuff)
@@ -305,7 +312,22 @@ type CompInfusion() =
                 | :? Apparel as apparel -> if apparel.WornByCorpse then Some(translate "WornByCorpseChar") else None
                 | _ -> None
 
-            do [ quality; hitPoints; tainted ]
+            // infuser applicability
+            let applicability =
+                if isInfuser then
+                    this.BestInfusion
+                    |> Option.map (fun inf ->
+                        inf.complexes
+                        |> Seq.map (fun complex -> complex.BuildRequirementString())
+                        |> Seq.choose id)
+                    |> Option.map (String.concat ", ")
+                else
+                    None
+
+            do [ applicability
+                 quality
+                 hitPoints
+                 tainted ]
                |> List.choose id
                |> String.concat " "
                |> (fun str ->
@@ -398,61 +420,6 @@ module CompInfusion =
 
     let setInfusions infDefs (comp: CompInfusion) = do comp.Infusions <- infDefs
 
-    let compatibleWith (comp: CompInfusion) (infDef: InfusionDef) =
-        let parent = comp.parent
-
-        // requirement fields
-        let checkAllowance (infDef: InfusionDef) =
-            if parent.def.IsApparel then infDef.requirements.allowance.apparel
-            elif parent.def.IsMeleeWeapon then infDef.requirements.allowance.melee
-            elif parent.def.IsRangedWeapon then infDef.requirements.allowance.ranged
-            else false
-
-        let checkTechLevel (infDef: InfusionDef) =
-            infDef.requirements.techLevel
-            |> Seq.contains parent.def.techLevel
-
-        let checkQuality (infDef: InfusionDef) = (infDef.ChanceFor comp.Quality) > 0.0f
-
-        // 'complex' requirements
-        // is the projectile of parent _the_ Bullet?
-        // needed, as I can't patch all the possible bullet classes
-        // [todo] make it XML-able, i.e. <li Class="Infusion.Complex.RequireBullet" />
-        let checkBulletClass (infDef: InfusionDef) =
-            if not parent.def.IsRangedWeapon
-               || not (infDef.requirements.needBulletClass) then
-                true
-            else
-                Seq.tryHead parent.def.Verbs
-                |> Option.bind (fun a -> Option.ofObj a.defaultProjectile)
-                |> Option.map (fun a -> a.thingClass = typeof<Bullet>)
-                |> Option.defaultValue false
-
-        // is the parent ShieldBelt?
-        let checkShieldBelt (infDef: InfusionDef) =
-            if not infDef.requirements.allowance.apparel
-               || not infDef.requirements.shieldBelt then
-                true
-            else
-                parent.def.thingClass = typeof<ShieldBelt>
-
-        // is the damage Sharp/Blunt?
-        let checkDamageType (infDef: InfusionDef) =
-            if parent.def.IsApparel
-               || infDef.requirements.meleeDamageType = DamageType.Anything then
-                true
-            else
-                parent.def.tools
-                |> Seq.reduce (fun a b -> if a.power > b.power then a else b)
-                |> isToolCapableOfDamageType infDef.requirements.meleeDamageType
-
-        (checkAllowance
-         <&> checkTechLevel
-         <&> checkQuality
-         <&> checkBulletClass
-         <&> checkShieldBelt
-         <&> checkDamageType) infDef
-
     /// Picks elligible `InfusionDef` for the `Thing`.
     let pickInfusions quality (comp: CompInfusion) =
         // chance
@@ -466,7 +433,7 @@ module CompInfusion =
         DefDatabase<InfusionDef>.AllDefs
         |> Seq.filter
             ((InfusionDef.disabled >> not)
-             <&> compatibleWith comp)
+             <&> InfusionDef.checkAllComplexes comp.parent quality)
         // (infusionDef * weight)
         |> Seq.map (fun infDef ->
             (infDef,

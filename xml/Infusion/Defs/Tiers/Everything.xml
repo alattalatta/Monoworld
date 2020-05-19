@@ -50,7 +50,7 @@
     <label>rare</label>
     <priority>20</priority>
     <color>(1, 1, 0)</color>
-    <infuserValue>900</infuserValue>
+    <infuserValue>1100</infuserValue>
     <extractionChance>0.5</extractionChance>
     <weights>
       <good>0.05</good>
@@ -73,7 +73,7 @@
     <priority>30</priority>
     <color>(1.0, 0.5, 0.0)</color>
     <maxCount>1</maxCount>
-    <infuserValue>1500</infuserValue>
+    <infuserValue>1800</infuserValue>
     <extractionChance>0.3</extractionChance>
     <weights>
       <good>0.05</good>

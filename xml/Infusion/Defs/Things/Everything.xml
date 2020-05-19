@@ -6,7 +6,7 @@
     <description>An empty canister that can scarape off and hold equipment enhancing mechanites.</description>
     <category>Item</category>
     <thingCategories>
-      <li>Items</li>
+      <li>Infusion_Infusers</li>
     </thingCategories>
     <thingClass>Infusion.Extractor</thingClass>
     <selectable>true</selectable>
@@ -22,6 +22,7 @@
       <MaxHitPoints>80</MaxHitPoints>
       <Mass>0.5</Mass>
       <MarketValue>500</MarketValue>
+      <SellPriceFactor>0.2</SellPriceFactor>
     </statBases>
     <techLevel>Ultra</techLevel>
     <alwaysHaulable>true</alwaysHaulable>
@@ -30,6 +31,7 @@
     <stackLimit>25</stackLimit>
     <tradeTags>
       <li>ExoticMisc</li>
+      <li>Infusion_InfuserEmpty</li>
     </tradeTags>
     <thingSetMakerTags>
       <li>RewardStandardMidFreq</li>

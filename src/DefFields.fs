@@ -64,37 +64,6 @@ type Position =
     | Suffix = 1
 
 
-type DamageType =
-    | Anything = 0
-    | Blunt = 1
-    | Sharp = 2
-
-
-type Requirements =
-    val mutable allowance: Allowance
-    val mutable techLevel: ResizeArray<TechLevel>
-    val mutable needBulletClass: bool
-    val mutable shieldBelt: bool
-    val mutable meleeDamageType: DamageType
-
-    new() =
-        { allowance = Allowance()
-          techLevel = ResizeArray()
-          needBulletClass = false
-          shieldBelt = false
-          meleeDamageType = DamageType.Anything }
-
-
-type Tier =
-    | Awful = 0
-    | Poor = 1
-    | Common = 2
-    | Uncommon = 3
-    | Rare = 4
-    | Epic = 5
-    | Legendary = 6
-    | Artifact = 7
-
 [<AllowNullLiteral>]
 type Migration<'a when 'a :> Def and 'a: null> =
     val mutable remove: bool

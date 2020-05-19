@@ -31,17 +31,6 @@ let apparelOrWeapon (def: ThingDef) =
     ThingCategoryDefOf.Apparel.ContainedInThisOrDescendant def
     || ThingCategoryDefOf.Weapons.ContainedInThisOrDescendant def
 
-let rec isToolCapableOfDamageType (dt: DamageType) (tool: Tool) =
-    match dt with
-    | DamageType.Anything -> true
-    | DamageType.Blunt ->
-        tool.capacities
-        |> Seq.exists (fun capacity ->
-            capacity.defName = "Blunt"
-            || capacity.defName = "Poke")
-    | DamageType.Sharp -> not (isToolCapableOfDamageType DamageType.Blunt tool) // assuming reverse of blunt is sharp...
-    | _ -> false
-
 let resetHP<'T when 'T :> Thing> (thing: 'T) = do thing.HitPoints <- thing.MaxHitPoints
 
 /// Scribes a value.
@@ -61,6 +50,11 @@ let scribeValue key value =
         None
     | _ -> None
 
+/// Scribes a value, with the default value.
+///
+/// When saving, returns None.
+///
+/// When loading, if the saved data exists, returns it in Some. Otherwise returns None.
 let scribeValueWithDefault key defaultValue value =
     let mutable out = value
 

@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Defs>
   <Infusion.InfusionDef Abstract="True" Name="LegendaryDefaultBase">
-    <requirements>
-      <techLevel>
-        <li>Neolithic</li>
-        <li>Medieval</li>
-        <li>Industrial</li>
-        <li>Spacer</li>
-        <li>Ultra</li>
-        <li>Archotech</li>
-      </techLevel>
-    </requirements>
     <stats>
       <li>
         <key>MarketValue</key>
@@ -24,11 +14,11 @@
 
   <!-- apparels -->
   <Infusion.InfusionDef Abstract="True" Name="LegendaryApparelBase" ParentName="LegendaryDefaultBase">
-    <requirements>
-      <allowance>
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
         <apparel>true</apparel>
-      </allowance>
-    </requirements>
+      </li>
+    </complexes>
     <stats>
       <li>
         <key>MaxHitPoints</key>
@@ -40,11 +30,11 @@
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef Abstract="True" Name="LegendaryApparelCleanBase" ParentName="LegendaryDefaultBase">
-    <requirements>
-      <allowance>
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
         <apparel>true</apparel>
-      </allowance>
-    </requirements>
+      </li>
+    </complexes>
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="LegendaryApparelBase">
@@ -210,12 +200,12 @@
     <label>guardian</label>
     <labelShort>guard</labelShort>
     <position>Suffix</position>
-    <requirements>
-      <allowance>
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
         <melee>true</melee>
         <ranged>true</ranged>
-      </allowance>
-    </requirements>
+      </li>
+    </complexes>
     <stats>
       <li>
         <key>IncomingDamageFactor</key>
@@ -240,11 +230,11 @@
 
   <!-- melee -->
   <Infusion.InfusionDef Abstract="True" Name="LegendaryMeleeBase" ParentName="LegendaryDefaultBase">
-    <requirements>
-      <allowance>
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
         <melee>true</melee>
-      </allowance>
-    </requirements>
+      </li>
+    </complexes>
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="LegendaryMeleeBase">
@@ -409,11 +399,11 @@
 
   <!-- ranged -->
   <Infusion.InfusionDef Abstract="True" Name="LegendaryRangedBase" ParentName="LegendaryDefaultBase">
-    <requirements>
-      <allowance>
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
         <ranged>true</ranged>
-      </allowance>
-    </requirements>
+      </li>
+    </complexes>
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="LegendaryRangedBase">
@@ -458,9 +448,9 @@
     <defName>Disrupting</defName>
     <label>disrupting</label>
     <labelShort>dsrpt</labelShort>
-    <requirements>
-      <needBulletClass>true</needBulletClass>
-    </requirements>
+    <complexes>
+      <li Class="Infusion.Complex.ProjectileBullet" />
+    </complexes>
     <stats>
       <li>
         <key>PsychicSensitivity</key>
@@ -579,9 +569,9 @@
     <defName>Suppressive</defName>
     <label>suppressive</label>
     <labelShort>sprs</labelShort>
-    <requirements>
-      <needBulletClass>true</needBulletClass>
-    </requirements>
+    <complexes>
+      <li Class="Infusion.Complex.ProjectileBullet" />
+    </complexes>
     <stats>
       <li>
         <key>AimingDelayFactor</key>
@@ -618,9 +608,9 @@
     <defName>Volatile</defName>
     <label>volatile</label>
     <labelShort>vola</labelShort>
-    <requirements>
-      <needBulletClass>true</needBulletClass>
-    </requirements>
+    <complexes>
+      <li Class="Infusion.Complex.ProjectileBullet" />
+    </complexes>
     <stats>
       <li>
         <key>RangedWeapon_DamageMultiplier</key>
@@ -644,8 +634,9 @@
       </li>
     </extraExplosions>
     <extraDescriptions>
-      <li>20% chance to cause an explosion on impact, dealing 50% of weapon damage within a radius of 1.4 cells.</li>
-      <li>20% chance to cause a flame explosion on impact, dealing 50% of weapon damage within a radius of 1.4 cells.</li>
+      <li>20% chance to cause an explosion on impact.</li>
+      <li>20% chance to cause a flame explosion on impact.</li>
+      <li>Both deal 50% of weapon damage each, within a radius of 1.4 cells.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 </Defs>

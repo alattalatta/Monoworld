@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Defs>
   <Infusion.InfusionDef Abstract="True" Name="UncommonDefaultBase">
-    <requirements>
-      <techLevel>
-        <li>Neolithic</li>
-        <li>Medieval</li>
-        <li>Industrial</li>
-        <li>Spacer</li>
-        <li>Ultra</li>
-        <li>Archotech</li>
-      </techLevel>
-    </requirements>
     <stats>
-      <li>
-        <key>Mass</key>
-        <value>
-          <multiplier>-0.1</multiplier>
-        </value>
-      </li>
       <li>
         <key>MarketValue</key>
         <value>
@@ -30,11 +14,11 @@
 
   <!-- apparels -->
   <Infusion.InfusionDef Abstract="True" Name="UncommonApparelBase" ParentName="UncommonDefaultBase">
-    <requirements>
-      <allowance>
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
         <apparel>true</apparel>
-      </allowance>
-    </requirements>
+      </li>
+    </complexes>
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="UncommonApparelBase">
@@ -55,9 +39,9 @@
     <defName>Cyclic</defName>
     <label>cyclic</label>
     <labelShort>cycl</labelShort>
-    <requirements>
-      <shieldBelt>true</shieldBelt>
-    </requirements>
+    <complexes>
+      <li Class="Infusion.Complex.ShieldBelt" />
+    </complexes>
     <stats>
       <li>
         <key>EnergyShieldRechargeRate</key>
@@ -72,9 +56,9 @@
     <defName>Expanded</defName>
     <label>expanded</label>
     <labelShort>expn</labelShort>
-    <requirements>
-      <shieldBelt>true</shieldBelt>
-    </requirements>
+    <complexes>
+      <li Class="Infusion.Complex.ShieldBelt" />
+    </complexes>
     <stats>
       <li>
         <key>EnergyShieldEnergyMax</key>
@@ -201,12 +185,12 @@
     <defName>Blocking</defName>
     <label>blocking</label>
     <labelShort>blok</labelShort>
-    <requirements>
-      <allowance>
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
         <melee>true</melee>
         <ranged>true</ranged>
-      </allowance>
-    </requirements>
+      </li>
+    </complexes>
     <stats>
       <li>
         <key>IncomingDamageFactor</key>
@@ -219,11 +203,11 @@
 
   <!-- melee -->
   <Infusion.InfusionDef Abstract="True" Name="UncommonMeleeBase" ParentName="UncommonDefaultBase">
-    <requirements>
-      <allowance>
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
         <melee>true</melee>
-      </allowance>
-    </requirements>
+      </li>
+    </complexes>
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="UncommonMeleeBase">
@@ -260,9 +244,16 @@
     <defName>Sharpened</defName>
     <label>sharpened</label>
     <labelShort>sharp</labelShort>
-    <requirements>
-      <meleeDamageType>Sharp</meleeDamageType>
-    </requirements>
+    <complexes>
+      <li Class="Infusion.Complex.Negate">
+        <value Class="Infusion.Complex.ToolCapacity">
+          <defs>
+            <li>Blunt</li>
+            <li>Poke</li>
+          </defs>
+        </value>
+      </li>
+    </complexes>
     <stats>
       <li>
         <key>MeleeWeapon_DamageMultiplier</key>
@@ -277,9 +268,14 @@
     <defName>Spiked</defName>
     <label>spiked</label>
     <labelShort>spk</labelShort>
-    <requirements>
-      <meleeDamageType>Blunt</meleeDamageType>
-    </requirements>
+    <complexes>
+      <li Class="Infusion.Complex.ToolCapacity">
+        <defs>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </defs>
+      </li>
+    </complexes>
     <extraDamages>
       <li>
         <def>Stab</def>
@@ -318,11 +314,11 @@
 
   <!-- ranged -->
   <Infusion.InfusionDef Abstract="True" Name="UncommonRangedBase" ParentName="UncommonDefaultBase">
-    <requirements>
-      <allowance>
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
         <ranged>true</ranged>
-      </allowance>
-    </requirements>
+      </li>
+    </complexes>
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="UncommonRangedBase">

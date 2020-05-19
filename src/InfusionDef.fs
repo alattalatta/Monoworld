@@ -11,6 +11,7 @@ open UnityEngine
 open DefFields
 open Lib
 open StatMod
+open Infusion.Complex
 
 [<AllowNullLiteral>]
 type InfusionDef =
@@ -22,12 +23,13 @@ type InfusionDef =
     /// Descriptions for special effects.
     val mutable extraDescriptions: ResizeArray<string>
 
+    val mutable complexes: ResizeArray<Complex<InfusionDef>>
+
     val mutable disabled: bool
     val mutable migration: Migration<InfusionDef>
     val mutable extraDamages: ResizeArray<ExtraDamage>
     val mutable extraExplosions: ResizeArray<ExtraExplosion>
     val mutable position: Position
-    val mutable requirements: Requirements
     val mutable stats: Dictionary<StatDef, StatMod>
     val mutable tier: TierDef
 
@@ -36,12 +38,13 @@ type InfusionDef =
           labelShort = ""
           extraDescriptions = ResizeArray()
 
+          complexes = ResizeArray()
+
           disabled = false
           migration = null
           extraDamages = null
           extraExplosions = null
           position = Position.Prefix
-          requirements = Requirements()
           stats = Dictionary()
           tier = TierDef.empty }
 
@@ -110,3 +113,7 @@ module InfusionDef =
         |> Seq.choose id
         |> Seq.concat
         |> Some
+
+    let checkAllComplexes target quality (infDef: InfusionDef) =
+        (infDef.ChanceFor quality) > 0.0f
+        && infDef.complexes.TrueForAll(fun complex -> complex.Match target infDef)

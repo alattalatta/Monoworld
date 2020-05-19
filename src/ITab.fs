@@ -235,7 +235,7 @@ type Infused() =
             Infuser.AllInfusersByDef
             |> Seq.filter (fun kv ->
                 not (Set.contains kv.Key comp.InfusionsRaw)
-                && CompInfusion.compatibleWith comp kv.Key)
+                && InfusionDef.checkAllComplexes comp.parent comp.Quality kv.Key)
             |> Option.ofSeq
             |> Option.filter (fun _ ->
                 do TooltipHandler.TipRegion(infuserView, TipSignal(translate "Infusion.ITab.ApplyInfuser.Description"))

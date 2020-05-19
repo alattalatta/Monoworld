@@ -1,26 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Defs>
   <Infusion.InfusionDef Abstract="True" Name="CommonDefaultBase">
-    <requirements>
-      <techLevel>
-        <li>Neolithic</li>
-        <li>Medieval</li>
-        <li>Industrial</li>
-        <li>Spacer</li>
-        <li>Ultra</li>
-        <li>Archotech</li>
-      </techLevel>
-    </requirements>
     <tier>Common</tier>
   </Infusion.InfusionDef>
 
   <!-- apparels -->
   <Infusion.InfusionDef Abstract="True" Name="CommonApparelBase" ParentName="CommonDefaultBase">
-    <requirements>
-      <allowance>
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
         <apparel>true</apparel>
-      </allowance>
-    </requirements>
+      </li>
+    </complexes>
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="CommonApparelBase">
@@ -97,9 +87,9 @@
     <defName>Efficient</defName>
     <label>efficient</label>
     <labelShort>effc</labelShort>
-    <requirements>
-      <shieldBelt>true</shieldBelt>
-    </requirements>
+    <complexes>
+      <li Class="Infusion.Complex.ShieldBelt" />
+    </complexes>
     <stats>
       <li>
         <key>ArmorRating_Sharp</key>
@@ -153,11 +143,11 @@
 
   <!-- melee -->
   <Infusion.InfusionDef Abstract="True" Name="CommonMeleeBase" ParentName="CommonDefaultBase">
-    <requirements>
-      <allowance>
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
         <melee>true</melee>
-      </allowance>
-    </requirements>
+      </li>
+    </complexes>
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="CommonMeleeBase">
@@ -208,11 +198,11 @@
 
   <!-- ranged -->
   <Infusion.InfusionDef Abstract="True" Name="CommonRangedBase" ParentName="CommonDefaultBase">
-    <requirements>
-      <allowance>
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
         <ranged>true</ranged>
-      </allowance>
-    </requirements>
+      </li>
+    </complexes>
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="CommonRangedBase">

@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Defs>
   <Infusion.InfusionDef Abstract="True" Name="RareDefaultBase">
-    <requirements>
-      <techLevel>
-        <li>Neolithic</li>
-        <li>Medieval</li>
-        <li>Industrial</li>
-        <li>Spacer</li>
-        <li>Ultra</li>
-        <li>Archotech</li>
-      </techLevel>
-    </requirements>
     <stats>
       <li>
         <key>MarketValue</key>
@@ -24,11 +14,11 @@
 
   <!-- apparels -->
   <Infusion.InfusionDef Abstract="True" Name="RareApparelBase" ParentName="RareDefaultBase">
-    <requirements>
-      <allowance>
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
         <apparel>true</apparel>
-      </allowance>
-    </requirements>
+      </li>
+    </complexes>
     <stats>
       <li>
         <key>MaxHitPoints</key>
@@ -40,11 +30,11 @@
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef Abstract="True" Name="RareApparelCleanBase" ParentName="RareDefaultBase">
-    <requirements>
-      <allowance>
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
         <apparel>true</apparel>
-      </allowance>
-    </requirements>
+      </li>
+    </complexes>
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="RareApparelBase">
@@ -71,9 +61,9 @@
     <defName>Auxiliary</defName>
     <label>auxiliary</label>
     <labelShort>aux</labelShort>
-    <requirements>
-      <shieldBelt>true</shieldBelt>
-    </requirements>
+    <complexes>
+      <li Class="Infusion.Complex.ShieldBelt" />
+    </complexes>
     <stats>
       <li>
         <key>MaxHitPoints</key>
@@ -120,9 +110,9 @@
     <defName>Charged</defName>
     <label>charged</label>
     <labelShort>chrg</labelShort>
-    <requirements>
-      <shieldBelt>true</shieldBelt>
-    </requirements>
+    <complexes>
+      <li Class="Infusion.Complex.ShieldBelt" />
+    </complexes>
     <stats>
       <li>
         <key>MoveSpeed</key>
@@ -203,9 +193,9 @@
     <defName>Overloaded</defName>
     <label>overloaded</label>
     <labelShort>ovlod</labelShort>
-    <requirements>
-      <shieldBelt>true</shieldBelt>
-    </requirements>
+    <complexes>
+      <li Class="Infusion.Complex.ShieldBelt" />
+    </complexes>
     <stats>
       <li>
         <key>EnergyShieldRechargeRate</key>
@@ -316,12 +306,12 @@
     <defName>Shielding</defName>
     <label>shielding</label>
     <labelShort>shield</labelShort>
-    <requirements>
-      <allowance>
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
         <melee>true</melee>
         <ranged>true</ranged>
-      </allowance>
-    </requirements>
+      </li>
+    </complexes>
     <stats>
       <li>
         <key>IncomingDamageFactor</key>
@@ -346,11 +336,11 @@
 
   <!-- melee -->
   <Infusion.InfusionDef Abstract="True" Name="RareMeleeBase" ParentName="RareDefaultBase">
-    <requirements>
-      <allowance>
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
         <melee>true</melee>
-      </allowance>
-    </requirements>
+      </li>
+    </complexes>
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="RareMeleeBase">
@@ -488,11 +478,11 @@
 
   <!-- ranged -->
   <Infusion.InfusionDef Abstract="True" Name="RareRangedBase" ParentName="RareDefaultBase">
-    <requirements>
-      <allowance>
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
         <ranged>true</ranged>
-      </allowance>
-    </requirements>
+      </li>
+    </complexes>
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="RareRangedBase">
@@ -518,9 +508,9 @@
     <defName>Concussive</defName>
     <label>concussive</label>
     <labelShort>conc</labelShort>
-    <requirements>
-      <needBulletClass>true</needBulletClass>
-    </requirements>
+    <complexes>
+      <li Class="Infusion.Complex.ProjectileBullet" />
+    </complexes>
     <stats>
       <li>
         <key>RangedWeapon_DamageMultiplier</key>
@@ -551,9 +541,9 @@
     <defName>Explosive</defName>
     <label>explosive</label>
     <labelShort>expl</labelShort>
-    <requirements>
-      <needBulletClass>true</needBulletClass>
-    </requirements>
+    <complexes>
+      <li Class="Infusion.Complex.ProjectileBullet" />
+    </complexes>
     <extraExplosions>
       <li>
         <def>Bomb</def>
@@ -571,11 +561,6 @@
     <defName>Optimized</defName>
     <label>optimized</label>
     <labelShort>opti</labelShort>
-    <requirements>
-      <allowance>
-        <ranged>true</ranged>
-      </allowance>
-    </requirements>
     <stats>
       <li>
         <key>RangedWeapon_DamageMultiplier</key>
@@ -614,9 +599,9 @@
     <defName>PiercingRanged</defName>
     <label>piercing</label>
     <labelShort>pierce</labelShort>
-    <requirements>
-      <needBulletClass>true</needBulletClass>
-    </requirements>
+    <complexes>
+      <li Class="Infusion.Complex.ProjectileBullet" />
+    </complexes>
     <stats>
       <li>
         <key>RangedWeapon_DamageMultiplier</key>
@@ -642,9 +627,9 @@
     <defName>Thermal</defName>
     <label>thermal</label>
     <labelShort>therm</labelShort>
-    <requirements>
-      <needBulletClass>true</needBulletClass>
-    </requirements>
+    <complexes>
+      <li Class="Infusion.Complex.ProjectileBullet" />
+    </complexes>
     <extraExplosions>
       <li>
         <def>Flame</def>
