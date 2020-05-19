@@ -27,7 +27,7 @@ type ExtraExplosion =
         { amount = -1.0f
           chance = 1.0f
           def = DamageDefOf.Bomb
-          radius = 1.4f }
+          radius = 1.0f }
 
 type QualityMap =
     val mutable awful: float32

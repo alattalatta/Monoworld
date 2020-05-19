@@ -286,6 +286,7 @@
         <def>Flame</def>
         <amount>0.5</amount>
         <chance>0.25</chance>
+        <radius>1</radius>
       </li>
     </extraExplosions>
     <extraDescriptions>
