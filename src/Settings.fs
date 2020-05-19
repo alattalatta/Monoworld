@@ -38,7 +38,7 @@ module SelectionConsts =
                 ("weightFactor",
                  (translate "Infusion.Settings.WeightFactor"),
                  (translate "Infusion.Settings.WeightFactor.Description"),
-                 0.5f,
+                 1.0f,
                  Validators.FloatRangeValidator(0.0f, 2.0f)))
         pack
 
