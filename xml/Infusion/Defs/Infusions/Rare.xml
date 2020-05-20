@@ -396,7 +396,7 @@
         <def>EMP</def>
         <amount>1</amount>
         <chance>0.25</chance>
-        <radius>1</radius>
+        <radius>0.5</radius>
       </li>
     </extraExplosions>
     <extraDescriptions>
@@ -438,7 +438,7 @@
         <def>Bomb</def>
         <amount>0.75</amount>
         <chance>0.2</chance>
-        <radius>1</radius>
+        <radius>0.5</radius>
       </li>
     </extraExplosions>
     <extraDescriptions>
@@ -635,7 +635,7 @@
         <def>Flame</def>
         <amount>0.75</amount>
         <chance>0.15</chance>
-        <radius>1</radius>
+        <radius>0.5</radius>
       </li>
     </extraExplosions>
     <extraDescriptions>

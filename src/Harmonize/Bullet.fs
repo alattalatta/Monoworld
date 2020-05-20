@@ -9,6 +9,8 @@ open VerseInterop
 
 [<HarmonyPatch(typeof<Bullet>, "Impact")>]
 module Impact =
+    let mutable hasReportedError = false
+
     let Prefix (hitThing: Thing, __instance: Bullet, __state: outref<Map>) = do __state <- __instance.Map
 
     let Postfix (hitThing: Thing, __instance: Bullet, __state: Map) =
@@ -32,8 +34,27 @@ module Impact =
                    let direction =
                        __instance.ExactPosition.AngleToFlat(__instance.ExactPosition)
 
+                   // protection against unexpected reflection errors
                    let intendedTarget =
-                       Reflectors.Projectile.intendedTargetOf __instance
+                       try
+                           Reflectors.Projectile.intendedTargetOf __instance
+                           |> Some
+                       with
+                       // [todo] Remove duplicated
+                       | :? System.ArgumentNullException as ex ->
+                           if not hasReportedError then
+                               do Log.Warning
+                                   (sprintf "[Infusion 2] Reflection against Bullet#intendedTarget failed. Please report this with your mods list.\n%A"
+                                        ex)
+                               do hasReportedError <- true
+                           None
+                       | ex ->
+                           if not hasReportedError then
+                               do Log.Warning
+                                   (sprintf "[Infusion 2] Unknown error occured while getting Bullet#intendedTarget. Please report this with your mods list.\n%A"
+                                        ex)
+                               do hasReportedError <- true
+                           None
 
                    // damages
                    exdams
@@ -65,7 +86,10 @@ module Impact =
                             expl.def,
                             __instance.Launcher,
                             int (expl.amount * float32 __instance.DamageAmount),
-                            intendedTarget = intendedTarget.Thing,
+                            intendedTarget =
+                                (intendedTarget
+                                 |> Option.map (fun t -> t.Thing)
+                                 |> Option.defaultValue (null)),
                             weapon = comp.parent.def,
                             projectile = __instance.def,
                             direction = new System.Nullable<float32>(direction))))

@@ -286,7 +286,7 @@
         <def>Flame</def>
         <amount>0.5</amount>
         <chance>0.25</chance>
-        <radius>1</radius>
+        <radius>0.5</radius>
       </li>
     </extraExplosions>
     <extraDescriptions>
@@ -323,7 +323,7 @@
         <def>Bomb</def>
         <amount>2</amount>
         <chance>0.08</chance>
-        <radius>1</radius>
+        <radius>0.5</radius>
       </li>
     </extraExplosions>
     <extraDescriptions>

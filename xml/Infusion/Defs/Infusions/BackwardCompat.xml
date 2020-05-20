@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Defs>
-  <Infusion.InfusionDef ParentName="CompatDieBase">
+  <Infusion.InfusionDef>
     <defName>Piercing</defName>
     <migration>
       <replace>PiercingMelee</replace>
     </migration>
   </Infusion.InfusionDef>
 
-  <Infusion.InfusionDef ParentName="CompatDieBase">
+  <Infusion.InfusionDef>
     <defName>Fine</defName>
     <migration>
       <replace>FineMelee</replace>
     </migration>
   </Infusion.InfusionDef>
 
-  <Infusion.InfusionDef ParentName="CompatDieBase">
+  <Infusion.InfusionDef>
     <defName>SunBlocking</defName>
     <migration>
       <replace>Shadowing</replace>
     </migration>
   </Infusion.InfusionDef>
 
-  <Infusion.InfusionDef ParentName="CompatDieBase">
+  <Infusion.InfusionDef>
     <defName>Wild</defName>
     <migration>
       <replace>Wilderness</replace>
     </migration>
   </Infusion.InfusionDef>
 
-  <Infusion.InfusionDef ParentName="CompatDieBase">
+  <Infusion.InfusionDef>
     <defName>Labor</defName>
     <migration>
       <replace>Adaption</replace>
     </migration>
   </Infusion.InfusionDef>
 
-  <Infusion.InfusionDef ParentName="CompatDieBase">
+  <Infusion.InfusionDef>
     <defName>Guided</defName>
     <migration>
       <replace>Homing</replace>
     </migration>
   </Infusion.InfusionDef>
 
-  <Infusion.InfusionDef ParentName="CompatDieBase">
+  <Infusion.InfusionDef>
     <defName>Glittering</defName>
     <migration>
       <replace>Temptating</replace>
