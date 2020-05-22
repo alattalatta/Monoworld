@@ -61,7 +61,12 @@ module Option =
 
 
 module Result =
-    let iterError f =
+    let tapError f =
         Result.mapError (fun a ->
             do f (a)
             a)
+
+    let iterOk f r =
+        match r with
+        | Ok a -> do f a
+        | _ -> ()

@@ -37,8 +37,8 @@ module Impact =
 
                    // protection against unexpected reflection errors
                    let intendedTarget =
-                       Reflectors.Projectile.intendedTargetOf __instance
-                       |> Result.iterError (fun e ->
+                       Reflectors.Projectile.getIntendedTarget __instance
+                       |> Result.tapError (fun e ->
                            if not hasReportedError then
                                match e with
                                | :? System.ArgumentNullException as ex ->
