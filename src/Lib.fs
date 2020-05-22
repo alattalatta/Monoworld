@@ -51,5 +51,17 @@ module Option =
             do f ()
             None
 
+    let ofResult a =
+        match a with
+        | Ok a -> Some a
+        | Error _ -> None
+
     let ofSeq a =
         if Seq.length a = 0 then None else Some a
+
+
+module Result =
+    let iterError f =
+        Result.mapError (fun a ->
+            do f (a)
+            a)

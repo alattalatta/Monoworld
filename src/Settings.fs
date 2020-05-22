@@ -7,7 +7,9 @@ open HugsLib.Settings
 open RimWorld
 open Verse
 
+open Lib
 open VerseInterop
+
 
 module AccuracyOvercap =
     let mutable handle: SettingHandle<bool> = null
@@ -20,6 +22,7 @@ module AccuracyOvercap =
                  (translate "Infusion.Settings.AccuracyOvercapping.Description"),
                  true))
         pack
+
 
 module SelectionConsts =
     let mutable chanceHandle: SettingHandle<float32> = null
@@ -42,6 +45,7 @@ module SelectionConsts =
                  Validators.FloatRangeValidator(0.0f, 2.0f)))
         pack
 
+
 module SlotModifiers =
     let mutable bodyPartHandle: SettingHandle<bool> = null
     let mutable layerHandle: SettingHandle<bool> = null
@@ -61,58 +65,132 @@ module SlotModifiers =
                  true))
         pack
 
+
+module ListSettingMaker =
+    type handleInfoSet<'a> =
+        { key: string
+          label: string
+          desc: string
+          defaultValue: 'a
+          validator: Settings.SettingHandle.ValueIsValid }
+
+    let make<'a, 'b when 'a: comparison> (infoOf: 'a -> handleInfoSet<'b>) uniq keys =
+        let mutable settingsOpened = false
+
+        let makeHandle (pack: ModSettingsPack) (a: 'a) =
+            let { key = key; label = label; desc = desc; defaultValue = defaultValue } = infoOf a
+
+            let handle =
+                pack.GetHandle(key, label, desc, defaultValue)
+            // bonus point for "<- fun () ->"
+            do handle.VisibilityPredicate <- fun () -> settingsOpened
+
+            (a, handle)
+
+        let populate pack =
+            keys |> List.map (makeHandle pack) |> Map.ofList
+
+        let draw (pack: ModSettingsPack) =
+            let slotSettingOpener =
+                pack.GetHandle("slotsOpened_" + uniq, "", translate "", false)
+
+            do slotSettingOpener.CustomDrawer <-
+                (fun rect ->
+                    let buttonLabel =
+                        if settingsOpened
+                        then sprintf "Infusion.Settings.%s.CloseSettings" uniq
+                        else sprintf "Infusion.Settings.%s.OpenSettings" uniq
+
+                    let clicked =
+                        Widgets.ButtonText(rect, translate buttonLabel)
+
+                    if clicked then do settingsOpened <- not settingsOpened
+                    // nothing is really being changed, just return false
+                    false)
+
+            pack
+
+        (populate, draw)
+
+
 module Slots =
-    let mutable handles: Map<QualityCategory, SettingHandle<int>> = Map.empty
-    let mutable settingsOpened = false
+    open ListSettingMaker
 
-    let getBaseSlotsFor (quality: QualityCategory) =
-        Map.tryFind quality handles
-        |> Option.map int
-        |> Option.defaultValue 0
+    let mutable handles = Map.empty
 
-    let private slotSettingHandle (quality: QualityCategory) defaultValue (pack: ModSettingsPack) =
+    let keys =
+        [ QualityCategory.Normal
+          QualityCategory.Good
+          QualityCategory.Excellent
+          QualityCategory.Masterwork
+          QualityCategory.Legendary ]
+
+    let defaults = [| 1; 1; 2; 3; 4 |]
+
+    let makeInfoSet (defaultValue: int) (quality: QualityCategory) =
         let qualityName =
             Enum.GetName(typeof<QualityCategory>, quality)
 
-        let handle =
-            pack.GetHandle
-                (sprintf "slots%s" qualityName,
-                 (translate (sprintf "QualityCategory_%s" qualityName)).CapitalizeFirst(),
-                 string (translate1 "Infusion.Settings.Slot" defaultValue),
-                 defaultValue,
-                 Validators.IntRangeValidator(0, 20))
-        // bonus point for "<- fun () ->"
-        do handle.VisibilityPredicate <- fun () -> settingsOpened
+        let label =
+            translate (sprintf "QualityCategory_%s" qualityName)
+            |> GenText.CapitalizeFirst
 
-        (quality, handle)
+        { key = "slots" + qualityName
+          label = label
+          desc = string (translate1 "Infusion.Settings.Slot.Description" defaultValue)
+          defaultValue = defaults.[int (quality - QualityCategory.Normal)]
+          validator = Validators.IntRangeValidator(0, 20) }
 
-    let draw (pack: ModSettingsPack) =
-        let slotSettingOpener =
-            pack.GetHandle("slotsOpened", "", translate "", false)
+    let draw pack =
+        let (populate, draw) =
+            make<QualityCategory, int> (makeInfoSet 3) "Slots" keys
 
-        do slotSettingOpener.CustomDrawer <-
-            (fun rect ->
-                let buttonLabel =
-                    if settingsOpened
-                    then "Infusion.Settings.Slots.CloseSlotSettings"
-                    else "Infusion.Settings.Slots.OpenSlotSettings"
+        do handles <- populate pack
+        draw pack
 
-                let clicked =
-                    Widgets.ButtonText(rect, translate buttonLabel)
+    let getBaseSlotsFor quality =
+        Map.tryFind quality handles
+        |> Option.map (fun h -> h.Value)
+        |> Option.defaultValue 0
 
-                if clicked then do settingsOpened <- not settingsOpened
-                // nothing is really being changed, just return false
-                false)
 
-        do handles <-
-            [ slotSettingHandle QualityCategory.Normal 1
-              slotSettingHandle QualityCategory.Good 1
-              slotSettingHandle QualityCategory.Excellent 2
-              slotSettingHandle QualityCategory.Masterwork 3
-              slotSettingHandle QualityCategory.Legendary 4 ]
-            |> List.map (fun f -> f pack) // consider it as a reversed mapping
-            |> Map.ofList
-        pack
+module Tiers =
+    open ListSettingMaker
+
+    let mutable handles = Map.empty
+
+    let keys =
+        DefDatabase<TierDef>.AllDefsListForReading
+        |> List.ofSeq
+
+    let makeInfoSet (tier: TierDef) =
+        let infusionsCount =
+            DefDatabase<InfusionDef>.AllDefsListForReading
+            |> Seq.filter (fun inf -> inf.tier = tier)
+            |> Seq.length
+
+        let label =
+            sprintf "%s (%s)" tier.defName tier.label
+
+        { key = "tier_" + tier.defName
+          label = label
+          desc = sprintf "%d defs found" infusionsCount
+          defaultValue = true
+          validator = null }
+
+    let draw pack =
+        let (populate, draw) =
+            make<TierDef, bool> makeInfoSet "Tiers" keys
+
+        do handles <- populate pack
+
+        draw pack
+
+    let isEnabled tier =
+        Map.tryFind tier handles
+        |> Option.map (fun t -> t.Value)
+        |> Option.defaultValue false
+
 
 let initialize () =
     HugsLibController.SettingsManager.GetModSettings("latta.infusion")
@@ -120,4 +198,5 @@ let initialize () =
     |> SelectionConsts.draw
     |> SlotModifiers.draw
     |> Slots.draw
+    |> Tiers.draw
     |> ignore

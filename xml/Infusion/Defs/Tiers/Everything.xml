@@ -26,7 +26,7 @@
   <Infusion.TierDef>
     <defName>Uncommon</defName>
     <label>uncommon</label>
-    <priority>10</priority>
+    <priority>100</priority>
     <color>(0.11, 1.0, 0.0)</color>
     <infuserValue>500</infuserValue>
     <extractionChance>0.8</extractionChance>
@@ -48,7 +48,7 @@
   <Infusion.TierDef>
     <defName>Rare</defName>
     <label>rare</label>
-    <priority>20</priority>
+    <priority>200</priority>
     <color>(1, 1, 0)</color>
     <infuserValue>1100</infuserValue>
     <extractionChance>0.5</extractionChance>
@@ -70,9 +70,8 @@
   <Infusion.TierDef>
     <defName>Legendary</defName>
     <label>legendary</label>
-    <priority>30</priority>
+    <priority>300</priority>
     <color>(1.0, 0.5, 0.0)</color>
-    <maxCount>1</maxCount>
     <infuserValue>1800</infuserValue>
     <extractionChance>0.3</extractionChance>
     <weights>

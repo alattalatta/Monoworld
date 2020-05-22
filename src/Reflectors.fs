@@ -22,4 +22,7 @@ module Projectile =
     let private intendedTargetGetter =
         Expression.Lambda<intendedTarget>(Expression.Convert(fieldExp, localTargetInfoT), param).Compile()
 
-    let intendedTargetOf projectile = intendedTargetGetter.Invoke projectile
+    let intendedTargetOf projectile =
+        try
+            intendedTargetGetter.Invoke projectile |> Ok
+        with ex -> Error ex

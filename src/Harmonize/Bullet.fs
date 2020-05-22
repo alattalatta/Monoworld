@@ -5,6 +5,7 @@ open RimWorld
 open Verse
 
 open Infusion
+open Lib
 open VerseInterop
 
 [<HarmonyPatch(typeof<Bullet>, "Impact")>]
@@ -36,25 +37,21 @@ module Impact =
 
                    // protection against unexpected reflection errors
                    let intendedTarget =
-                       try
-                           Reflectors.Projectile.intendedTargetOf __instance
-                           |> Some
-                       with
-                       // [todo] Remove duplicated
-                       | :? System.ArgumentNullException as ex ->
+                       Reflectors.Projectile.intendedTargetOf __instance
+                       |> Result.iterError (fun e ->
                            if not hasReportedError then
-                               do Log.Warning
-                                   (sprintf "[Infusion 2] Reflection against Bullet#intendedTarget failed. Please report this with your mods list.\n%A"
-                                        ex)
-                               do hasReportedError <- true
-                           None
-                       | ex ->
-                           if not hasReportedError then
-                               do Log.Warning
-                                   (sprintf "[Infusion 2] Unknown error occured while getting Bullet#intendedTarget. Please report this with your mods list.\n%A"
-                                        ex)
-                               do hasReportedError <- true
-                           None
+                               match e with
+                               | :? System.ArgumentNullException as ex ->
+                                   do Log.Warning
+                                       (sprintf "[Infusion 2] Reflection against Bullet#intendedTarget failed with ArgNull. Please report this with your mods list.\n%A"
+                                            ex)
+                               | ex ->
+                                   do Log.Warning
+                                       (sprintf "[Infusion 2] Unknown error for reflection against Bullet#intendedTarget. Please report this with your mods list.\n%A"
+                                            ex)
+                               do hasReportedError <- true)
+                       |> Result.map (fun t -> t.Thing)
+                       |> Option.ofResult
 
                    // damages
                    exdams
@@ -86,10 +83,7 @@ module Impact =
                             expl.def,
                             __instance.Launcher,
                             int (expl.amount * float32 __instance.DamageAmount),
-                            intendedTarget =
-                                (intendedTarget
-                                 |> Option.map (fun t -> t.Thing)
-                                 |> Option.defaultValue (null)),
+                            intendedTarget = (intendedTarget |> Option.defaultValue (null)),
                             weapon = comp.parent.def,
                             projectile = __instance.def,
                             direction = new System.Nullable<float32>(direction))))

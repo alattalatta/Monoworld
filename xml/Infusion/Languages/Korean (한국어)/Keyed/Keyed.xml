@@ -66,8 +66,13 @@
 부위 수 제한 이후에 계산합니다. 즉, 팔과 몸통만 보호하는 의류는 마법부여를 2개까지만 받을 수 있지만, 착용 위치가 3개라면 최대 마법부여 수는 4입니다.
   </Infusion.Settings.LayerBonuses.Description>
 
-  <Infusion.Settings.Slots.OpenSlotSettings>마법부여 칸 설정 열기</Infusion.Settings.Slots.OpenSlotSettings>
-  <Infusion.Settings.Slots.CloseSlotSettings>마법부여 칸 설정 닫기</Infusion.Settings.Slots.CloseSlotSettings>
+  <Infusion.Settings.Slots.OpenSettings>마법부여 칸 설정 열기</Infusion.Settings.Slots.OpenSettings>
+  <Infusion.Settings.Slots.CloseSettings>마법부여 칸 설정 닫기</Infusion.Settings.Slots.CloseSettings>
 
-  <Infusion.Settings.Slot>0 ~ 20, 기본값 {0}</Infusion.Settings.Slot>
+  <Infusion.Settings.Slot.Description>0 ~ 20, 기본값 {0}</Infusion.Settings.Slot.Description>
+
+  <Infusion.Settings.Tiers.OpenSettings>등급 설정 열기</Infusion.Settings.Tiers.OpenSettings>
+  <Infusion.Settings.Tiers.CloseSettings>등급 설정 열기</Infusion.Settings.Tiers.CloseSettings>
+
+  <Infusion.Settings.Tier.Description>{0}개 마법부여 발견</Infusion.Settings.Tier.Description>
 </LanguageData>

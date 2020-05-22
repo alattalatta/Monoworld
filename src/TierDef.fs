@@ -1,5 +1,7 @@
 namespace Infusion
 
+open System
+
 open UnityEngine
 
 open DefFields
@@ -34,6 +36,17 @@ type TierDef =
           infusable = true
           infuserValue = 100.0f
           extractionChance = 1.0f }
+
+    override this.Equals ob = base.Equals ob
+
+    override this.GetHashCode() = base.GetHashCode()
+
+    interface IComparable with
+        member this.CompareTo(ob) =
+            match ob with
+            | :? TierDef as def -> this.defName.CompareTo def.defName
+            | _ -> 0
+
 
 module TierDef =
     let empty = TierDef()

@@ -66,8 +66,13 @@ With default infusions, 100 would ensure everything will pass. 0 will effectivel
 Applied after the body part limit, i.e. an apparel which only protects arms and torso will have its slots limited to 2, but if it occupies 3 layers, the limit will become 4 instead.
   </Infusion.Settings.LayerBonuses.Description>
 
-  <Infusion.Settings.Slots.OpenSlotSettings>Open infusion slot options</Infusion.Settings.Slots.OpenSlotSettings>
-  <Infusion.Settings.Slots.CloseSlotSettings>Close infusion slot options</Infusion.Settings.Slots.CloseSlotSettings>
+  <Infusion.Settings.Slots.OpenSettings>Open infusion slot options</Infusion.Settings.Slots.OpenSettings>
+  <Infusion.Settings.Slots.CloseSettings>Close infusion slot options</Infusion.Settings.Slots.CloseSettings>
 
-  <Infusion.Settings.Slot>0 ~ 20, default {0}</Infusion.Settings.Slot>
+  <Infusion.Settings.Slot.Description>0 ~ 20, default {0}</Infusion.Settings.Slot.Description>
+
+  <Infusion.Settings.Tiers.OpenSettings>Open tier availabilities</Infusion.Settings.Tiers.OpenSettings>
+  <Infusion.Settings.Tiers.CloseSettings>Close tier availabilities</Infusion.Settings.Tiers.CloseSettings>
+
+  <Infusion.Settings.Tier.Description>{0} infusions found</Infusion.Settings.Tier.Description>
 </LanguageData>
