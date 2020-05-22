@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+  <Infusion.InfusionDef ParentName="UncommonRangedBase">
+    <defName>Wieldy</defName>
+    <migration>
+      <replace>FlawlessRanged</replace>
+    </migration>
+  </Infusion.InfusionDef>
+</Defs>

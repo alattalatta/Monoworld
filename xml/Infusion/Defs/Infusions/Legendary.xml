@@ -135,7 +135,7 @@
       <li>
         <key>TradePriceImprovement</key>
         <value>
-          <offset>0.4</offset>
+          <multiplier>0.1</multiplier>
         </value>
       </li>
     </stats>
@@ -161,7 +161,7 @@
       <li>
         <key>MoveSpeed</key>
         <value>
-          <offset>0.1</offset>
+          <offset>0.2</offset>
         </value>
       </li>
     </stats>
@@ -257,7 +257,7 @@
       <li>
         <key>MeleeDodgeChance</key>
         <value>
-          <offset>0.15</offset>
+          <multiplier>0.25</multiplier>
         </value>
       </li>
     </stats>
@@ -337,6 +337,12 @@
     <labelShort>over</labelShort>
     <stats>
       <li>
+        <key>MeleeWeapon_CooldownMultiplier</key>
+        <value>
+          <offset>0.3</offset>
+        </value>
+      </li>
+      <li>
         <key>MeleeWeapon_DamageMultiplier</key>
         <value>
           <offset>0.2</offset>
@@ -345,13 +351,7 @@
       <li>
         <key>MeleeDodgeChance</key>
         <value>
-          <offset>0.15</offset>
-        </value>
-      </li>
-      <li>
-        <key>MeleeWeapon_CooldownMultiplier</key>
-        <value>
-          <offset>0.3</offset>
+          <multiplier>0.25</multiplier>
         </value>
       </li>
     </stats>
@@ -583,7 +583,7 @@
       <li>
         <key>RangedWeapon_Cooldown</key>
         <value>
-          <multiplier>-0.075</multiplier>
+          <multiplier>-0.1</multiplier>
         </value>
       </li>
       <li>
