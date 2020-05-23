@@ -203,7 +203,7 @@
       <li>
         <key>TradePriceImprovement</key>
         <value>
-          <multiplier>0.05</multiplier>
+          <offset>0.25</offset>
         </value>
       </li>
     </stats>
@@ -401,7 +401,7 @@
       <li>
         <key>MeleeDodgeChance</key>
         <value>
-          <multiplier>0.15</multiplier>
+          <offset>1.5</offset>
         </value>
       </li>
     </stats>

@@ -190,7 +190,7 @@
       <li>
         <key>MeleeDodgeChance</key>
         <value>
-          <multiplier>0.05</multiplier>
+          <offset>0.5</offset>
         </value>
       </li>
     </stats>

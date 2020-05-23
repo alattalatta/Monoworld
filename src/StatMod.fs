@@ -65,7 +65,7 @@ let stringForStat (stat: StatDef) (statMod: StatMod) =
     // offset
     if fneq0 statMod.offset then
         let styled =
-            statMod.offset.ToStringByStyle(stat.toStringStyle)
+            statMod.offset.ToStringByStyle(stat.ToStringStyleUnfinalized)
             |> (if isNull stat.formatString
                 then id
                 else (fun str -> System.String.Format(stat.formatString, str)))

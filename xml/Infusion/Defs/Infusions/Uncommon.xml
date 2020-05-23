@@ -263,7 +263,7 @@
       <li>
         <key>MeleeDodgeChance</key>
         <value>
-          <multiplier>0.1</multiplier>
+          <offset>1</offset>
         </value>
       </li>
     </stats>
