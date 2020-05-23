@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+  <Infusion.InfusionDef Abstract="True" Name="Lex_LegendaryDefaultBase">
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>0.3</multiplier>
+        </value>
+      </li>
+    </stats>
+    <tier>LegendaryLegacy</tier>
+  </Infusion.InfusionDef>
+
+  <!-- apparels -->
+  <Infusion.InfusionDef Abstract="True" Name="Lex_LegendaryApparel" ParentName="Lex_LegendaryDefaultBase">
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
+        <apparel>true</apparel>
+      </li>
+    </complexes>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_LegendaryApparel">
+    <defName>Lex_Circadian</defName>
+    <label>circadian</label>
+    <labelShort>circ</labelShort>
+    <stats>
+      <li>
+        <key>RestRateMultiplier</key>
+        <value>
+          <offset>0.5</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_LegendaryApparel">
+    <defName>Lex_Glittering</defName>
+    <label>glittering</label>
+    <labelShort>glitt</labelShort>
+    <stats>
+      <li>
+        <key>PawnBeauty</key>
+        <value>
+          <offset>2</offset>
+        </value>
+      </li>
+      <li>
+        <key>SocialImpact</key>
+        <value>
+          <offset>0.4</offset>
+        </value>
+      </li>
+      <li>
+        <key>TradePriceImprovement</key>
+        <value>
+          <multiplier>0.15</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_LegendaryApparel">
+    <defName>Lex_Homeostatic</defName>
+    <label>homeostatic</label>
+    <labelShort>hmstat</labelShort>
+    <stats>
+      <li>
+        <key>Insulation_Cold</key>
+        <value>
+          <offset>25</offset>
+        </value>
+      </li>
+      <li>
+        <key>Insulation_Heat</key>
+        <value>
+          <offset>25</offset>
+        </value>
+      </li>
+      <li>
+        <key>ToxicSensitivity</key>
+        <value>
+          <offset>-0.5</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_LegendaryApparel">
+    <defName>Lex_Integrated</defName>
+    <label>integrated</label>
+    <labelShort>integ</labelShort>
+    <stats>
+      <li>
+        <key>GlobalLearningFactor</key>
+        <value>
+          <offset>0.3</offset>
+        </value>
+      </li>
+      <li>
+        <key>WorkSpeedGlobal</key>
+        <value>
+          <offset>0.3</offset>
+        </value>
+      </li>
+      <li>
+        <key>MoveSpeed</key>
+        <value>
+          <offset>0.3</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_LegendaryApparel">
+    <defName>Lex_Interfering</defName>
+    <label>interfering</label>
+    <labelShort>intrf</labelShort>
+    <stats>
+      <li>
+        <key>PsychicSensitivity</key>
+        <value>
+          <offset>-0.5</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_LegendaryApparel">
+    <defName>Lex_Invulnerable</defName>
+    <label>invulnerable</label>
+    <labelShort>invuln</labelShort>
+    <stats>
+      <li>
+        <key>MaxHitPoints</key>
+        <value>
+          <multiplier>0.6</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>ArmorRating_Blunt</key>
+        <value>
+          <offset>0.5</offset>
+        </value>
+      </li>
+      <li>
+        <key>ArmorRating_Sharp</key>
+        <value>
+          <offset>0.5</offset>
+        </value>
+      </li>
+      <li>
+        <key>ArmorRating_Heat</key>
+        <value>
+          <offset>0.5</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_LegendaryApparel">
+    <defName>Lex_Unbreakable</defName>
+    <label>unbreakable</label>
+    <labelShort>unbreak</labelShort>
+    <position>Suffix</position>
+    <stats>
+      <li>
+        <key>MentalBreakThreshold</key>
+        <value>
+          <offset>-0.3</offset>
+        </value>
+      </li>
+      <li>
+        <key>PainShockThreshold</key>
+        <value>
+          <offset>0.3</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- weapons -->
+  <Infusion.InfusionDef ParentName="Lex_LegendaryApparel">
+    <defName>Lex_Divinity</defName>
+    <label>divinity</label>
+    <labelShort>dvnity</labelShort>
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
+        <melee>true</melee>
+        <ranged>true</ranged>
+      </li>
+    </complexes>
+    <stats>
+      <li>
+        <key>IncomingDamageFactor</key>
+        <value>
+          <offset>-0.15</offset>
+        </value>
+      </li>
+      <li>
+        <key>ArmorRating_Sharp</key>
+        <value>
+          <offset>0.4</offset>
+        </value>
+      </li>
+      <li>
+        <key>ArmorRating_Blunt</key>
+        <value>
+          <offset>0.4</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- melee -->
+  <Infusion.InfusionDef Abstract="True" Name="Lex_LegendaryMeleeBase" ParentName="Lex_LegendaryDefaultBase">
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
+        <melee>true</melee>
+      </li>
+    </complexes>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_LegendaryMeleeBase">
+    <defName>Lex_Formiddable</defName>
+    <label>formidable</label>
+    <labelShort>frmid</labelShort>
+    <stats>
+      <li>
+        <key>MeleeWeapon_CooldownMultiplier</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
+    <extraDamages>
+      <li>
+        <def>Stun</def>
+        <amount>1</amount>
+        <chance>0.3</chance>
+      </li>
+    </extraDamages>
+    <extraDescriptions>
+      <li>On hit, 30% chance to stun target for 100% of weapon damage.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_LegendaryMeleeBase">
+    <defName>Lex_Hurricane</defName>
+    <label>hurricane</label>
+    <labelShort>hrcane</labelShort>
+    <position>Suffix</position>
+    <stats>
+      <li>
+        <key>MeleeWeapon_CooldownMultiplier</key>
+        <value>
+          <offset>-0.3</offset>
+        </value>
+      </li>
+      <li>
+        <key>MeleeDodgeChance</key>
+        <value>
+          <multiplier>0.4</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- ranged -->
+  <Infusion.InfusionDef Abstract="True" Name="Lex_LegendaryRangedBase" ParentName="Lex_LegendaryDefaultBase">
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
+        <ranged>true</ranged>
+      </li>
+    </complexes>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_LegendaryRangedBase">
+    <defName>Lex_Guiding</defName>
+    <label>guiding</label>
+    <labelShort>guide</labelShort>
+    <stats>
+      <li>
+        <key>AccuracyTouch</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyShort</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyMedium</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyLong</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_LegendaryRangedBase">
+    <defName>Lex_Overpowered</defName>
+    <label>overpowered</label>
+    <labelShort>ovrpwer</labelShort>
+    <stats>
+      <li>
+        <key>RangedWeapon_DamageMultiplier</key>
+        <value>
+          <offset>0.5</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_LegendaryRangedBase">
+    <defName>Lex_Recuperating</defName>
+    <label>recuperating</label>
+    <labelShort>recup</labelShort>
+    <stats>
+      <li>
+        <key>RangedWeapon_Cooldown</key>
+        <value>
+          <multiplier>-0.6</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_LegendaryRangedBase">
+    <defName>Lex_Awareness</defName>
+    <label>awareness</label>
+    <labelShort>aware</labelShort>
+    <position>Suffix</position>
+    <stats>
+      <li>
+        <key>AimingDelayFactor</key>
+        <value>
+          <offset>-0.4</offset>
+        </value>
+      </li>
+      <li>
+        <key>RangedWeapon_Cooldown</key>
+        <value>
+          <multiplier>-0.2</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+</Defs>

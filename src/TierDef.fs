@@ -1,6 +1,9 @@
 namespace Infusion
 
+open System
+
 open UnityEngine
+open Verse
 
 open DefFields
 
@@ -17,12 +20,12 @@ type TierDef =
     // used for sorting infusions, higher being higher
     val mutable priority: int
 
-    // should generator generate an infuser for this tier?
-    val mutable infusable: bool
     // market value of the generated infuser
     val mutable infuserValue: float32
     // extraction success chance
     val mutable extractionChance: float32
+
+    val mutable infuser: ThingDef
 
     new() =
         { inherit HashEqualDef()
@@ -31,9 +34,21 @@ type TierDef =
           weights = QualityMap()
           maxCount = -1
           priority = 0
-          infusable = true
           infuserValue = 100.0f
-          extractionChance = 1.0f }
+          extractionChance = 1.0f
+
+          infuser = null }
+
+    override this.Equals ob = base.Equals ob
+
+    override this.GetHashCode() = base.GetHashCode()
+
+    interface IComparable with
+        member this.CompareTo(ob) =
+            match ob with
+            | :? TierDef as def -> this.defName.CompareTo def.defName
+            | _ -> 0
+
 
 module TierDef =
     let empty = TierDef()

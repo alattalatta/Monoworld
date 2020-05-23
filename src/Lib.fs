@@ -51,5 +51,22 @@ module Option =
             do f ()
             None
 
+    let ofResult a =
+        match a with
+        | Ok a -> Some a
+        | Error _ -> None
+
     let ofSeq a =
         if Seq.length a = 0 then None else Some a
+
+
+module Result =
+    let tapError f =
+        Result.mapError (fun a ->
+            do f (a)
+            a)
+
+    let iterOk f r =
+        match r with
+        | Ok a -> do f a
+        | _ -> ()

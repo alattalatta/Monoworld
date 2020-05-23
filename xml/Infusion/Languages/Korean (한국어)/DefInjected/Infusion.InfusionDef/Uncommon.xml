@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
+  <Featherweight.label>깃털같은</Featherweight.label>
+  <Featherweight.labelShort>깃털</Featherweight.labelShort>
 
   <!-- apparels -->
 
@@ -49,6 +51,9 @@
   <Fiery.labelShort>불탐</Fiery.labelShort>
   <Fiery.extraDescriptions.0>타격 성공 시, 30% 확률로 무기 피해량의 20%만큼 화상 피해를 입힙니다.</Fiery.extraDescriptions.0>
 
+  <FlawlessMelee.label>뛰어난</FlawlessMelee.label>
+  <FlawlessMelee.labelShort>뛰어남</FlawlessMelee.labelShort>
+
   <Nimble.label>날렵한</Nimble.label>
   <Nimble.labelShort>날렵한</Nimble.labelShort>
 
@@ -65,6 +70,9 @@
 
 
   <!-- ranged -->
+
+  <FlawlessRanged.label>뛰어난</FlawlessRanged.label>
+  <FlawlessRanged.labelShort>뛰어남</FlawlessRanged.labelShort>
 
   <Silent.label>조용한</Silent.label>
   <Silent.labelShort>조용</Silent.labelShort>

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <Lex_Lightweight.label>경량</Lex_Lightweight.label>
+  <Lex_Lightweight.labelShort>경량</Lex_Lightweight.labelShort>
+
+
+  <!-- apparels -->
+
+  <Lex_Adorned.label>장식한</Lex_Adorned.label>
+  <Lex_Adorned.labelShort>장식</Lex_Adorned.labelShort>
+
+  <Lex_Chilling.label>서늘한</Lex_Chilling.label>
+  <Lex_Chilling.labelShort>서늘</Lex_Chilling.labelShort>
+
+  <Lex_Cozy.label>아늑한</Lex_Cozy.label>
+  <Lex_Cozy.labelShort>아늑</Lex_Cozy.labelShort>
+
+  <Customizable.label>맞춤형</Customizable.label>
+  <Customizable.labelShort>맞춤</Customizable.labelShort>
+
+  <Lex_Heating.label>훈훈한</Lex_Heating.label>
+  <Lex_Heating.labelShort>훈훈</Lex_Heating.labelShort>
+
+  <Lex_Sturdy.label>견고한</Lex_Sturdy.label>
+  <Lex_Sturdy.labelShort>견고</Lex_Sturdy.labelShort>
+
+
+  <!-- weapons -->
+
+  <Lex_Fending.label>받아내는</Lex_Fending.label>
+  <Lex_Fending.labelShort>받아냄</Lex_Fending.labelShort>
+
+
+  <!-- melee -->
+
+  <Lex_Dense.label>고밀도</Lex_Dense.label>
+  <Lex_Dense.labelShort>고밀도</Lex_Dense.labelShort>
+
+  <Lex_ImprovedMelee.label>개선한</Lex_ImprovedMelee.label>
+  <Lex_ImprovedMelee.labelShort>개선</Lex_ImprovedMelee.labelShort>
+
+
+  <!-- ranged -->
+
+  <Lex_Careful.label>조심스러운</Lex_Careful.label>
+  <Lex_Careful.labelShort>조심</Lex_Careful.labelShort>
+
+  <Lex_ImprovedRanged.label>개선한</Lex_ImprovedRanged.label>
+  <Lex_ImprovedRanged.labelShort>개선</Lex_ImprovedRanged.labelShort>
+
+
+</LanguageData>

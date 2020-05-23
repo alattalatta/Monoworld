@@ -2,7 +2,7 @@
   <PropertyGroup>
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
     <TargetFramework>net472</TargetFramework>
-    <Version>2.0.3</Version>
+    <Version>2.1.0</Version>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Lib.fs" />
@@ -26,6 +26,7 @@
     <Compile Include="Infuser.fs" />
     <Compile Include="Extractor.fs" />
     <Compile Include="DefGenerator.fs" />
+    <Compile Include="StockGenerator.fs" />
     <Compile Include="ITab.fs" />
     <Compile Include="DebugActions.fs" />
     <Compile Include="StatPart.fs" />

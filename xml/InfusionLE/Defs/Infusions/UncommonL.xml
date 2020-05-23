@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+  <Infusion.InfusionDef Abstract="True" Name="Lex_UncommonDefaultBase">
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>0.03</multiplier>
+        </value>
+      </li>
+    </stats>
+    <tier>UncommonLegacy</tier>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_UncommonDefaultBase">
+    <defName>Lex_Lightweight</defName>
+    <label>lightweight</label>
+    <labelShort>lite</labelShort>
+    <stats>
+      <li>
+        <key>Mass</key>
+        <value>
+          <multiplier>-0.15</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- apparels -->
+  <Infusion.InfusionDef Abstract="True" Name="Lex_UncommonApparel" ParentName="Lex_UncommonDefaultBase">
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
+        <apparel>true</apparel>
+      </li>
+    </complexes>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_UncommonApparel">
+    <defName>Lex_Adorned</defName>
+    <label>adorned</label>
+    <labelShort>adorn</labelShort>
+    <stats>
+      <li>
+        <key>PawnBeauty</key>
+        <value>
+          <offset>0.15</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_UncommonApparel">
+    <defName>Lex_Chilling</defName>
+    <label>chill</label>
+    <stats>
+      <li>
+        <key>Insulation_Heat</key>
+        <value>
+          <offset>7</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_UncommonApparel">
+    <defName>Lex_Cozy</defName>
+    <label>cozy</label>
+    <stats>
+      <li>
+        <key>MentalBreakThreshold</key>
+        <value>
+          <offset>-0.02</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_UncommonApparel">
+    <defName>Customizable</defName>
+    <label>customizable</label>
+    <labelShort>custm</labelShort>
+    <stats>
+      <li>
+        <key>EquipDelay</key>
+        <value>
+          <multiplier>-0.33</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_UncommonApparel">
+    <defName>Lex_Heating</defName>
+    <label>heating</label>
+    <labelShort>heat</labelShort>
+    <stats>
+      <li>
+        <key>Insulation_Cold</key>
+        <value>
+          <offset>7</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_UncommonApparel">
+    <defName>Lex_Sturdy</defName>
+    <label>sturdy</label>
+    <stats>
+      <li>
+        <key>ArmorRating_Blunt</key>
+        <value>
+          <offset>0.075</offset>
+        </value>
+      </li>
+      <li>
+        <key>ArmorRating_Sharp</key>
+        <value>
+          <offset>0.075</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- weapons -->
+  <Infusion.InfusionDef ParentName="Lex_UncommonDefaultBase">
+    <defName>Lex_Fending</defName>
+    <label>fending</label>
+    <labelShort>fend</labelShort>
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
+        <melee>true</melee>
+        <ranged>true</ranged>
+      </li>
+    </complexes>
+    <stats>
+      <li>
+        <key>IncomingDamageFactor</key>
+        <value>
+          <offset>-0.02</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- melee -->
+  <Infusion.InfusionDef Abstract="True" Name="Lex_UncommonMeleeBase" ParentName="Lex_UncommonDefaultBase">
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
+        <melee>true</melee>
+      </li>
+    </complexes>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_UncommonMeleeBase">
+    <defName>Lex_Dense</defName>
+    <label>dense</label>
+    <stats>
+      <li>
+        <key>MeleeWeapon_DamageMultiplier</key>
+        <value>
+          <offset>0.075</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_UncommonMeleeBase">
+    <defName>Lex_ImprovedMelee</defName>
+    <label>improved</label>
+    <labelShort>impr</labelShort>
+    <stats>
+      <li>
+        <key>MeleeWeapon_CooldownMultiplier</key>
+        <value>
+          <offset>-0.075</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- ranged -->
+  <Infusion.InfusionDef Abstract="True" Name="Lex_UncommonRangedBase" ParentName="Lex_UncommonDefaultBase">
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
+        <ranged>true</ranged>
+      </li>
+    </complexes>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_UncommonRangedBase">
+    <defName>Lex_Careful</defName>
+    <label>careful</label>
+    <stats>
+      <li>
+        <key>AccuracyTouch</key>
+        <value>
+          <offset>0.05</offset>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyShort</key>
+        <value>
+          <offset>0.05</offset>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyMedium</key>
+        <value>
+          <offset>0.05</offset>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyLong</key>
+        <value>
+          <offset>0.05</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_UncommonRangedBase">
+    <defName>Lex_ImprovedRanged</defName>
+    <label>improved</label>
+    <labelShort>impr</labelShort>
+    <stats>
+      <li>
+        <key>RangedWeapon_Cooldown</key>
+        <value>
+          <multiplier>-0.075</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+</Defs>

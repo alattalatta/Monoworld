@@ -18,6 +18,20 @@ let isSingleUse (def: ThingDef) =
     |> Option.map (Seq.contains "SingleUseWeapon")
     |> Option.defaultValue false
 
+
+[<StaticConstructorOnStartup>]
+type StartupConstructor() =
+    static do
+        makeInfuserDefs ()
+        |> Seq.iter (fun def ->
+            do def.ResolveReferences()
+            do DefGenerator.AddImpliedDef<ThingDef>(def)
+            do Option.ofObj def.thingCategories
+               |> Option.iter (Seq.iter (fun cat -> cat.childThingDefs.Add def))
+
+            do HugsLib.Utils.InjectedDefHasher.GiveShortHashToDef(def, typeof<ThingDef>))
+
+
 type ModBase() =
     inherit HugsLib.ModBase()
 
@@ -30,15 +44,6 @@ type ModBase() =
     member private this.Inject() =
         this.InjectToThings()
         this.InjectToStats()
-
-        makeInfuserDefs ()
-        |> Seq.iter (fun def ->
-            do def.ResolveReferences()
-            do DefGenerator.AddImpliedDef<ThingDef>(def)
-            do Option.ofObj def.thingCategories
-               |> Option.iter (Seq.iter (fun cat -> cat.childThingDefs.Add def))
-
-            do HugsLib.Utils.InjectedDefHasher.GiveShortHashToDef(def, typeof<ThingDef>))
 
     member private this.InjectToThings() =
         let infusionCandidates =

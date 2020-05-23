@@ -6,11 +6,10 @@ open Verse.AI
 
 open Lib
 open VerseInterop
+open VerseTools
 
 module WorkGiver =
     let hasSameMap (a: Thing) (b: Thing) = a.Map = b.Map
-
-    let upcastToThing a = a :> Thing
 
     let chooseSameMapOnly target comps =
         comps

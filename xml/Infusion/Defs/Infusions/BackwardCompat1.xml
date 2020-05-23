@@ -61,10 +61,6 @@
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="CompatDieBase">
-    <defName>Weightless</defName>
-  </Infusion.InfusionDef>
-
-  <Infusion.InfusionDef ParentName="CompatDieBase">
     <defName>Gourmand</defName>
   </Infusion.InfusionDef>
 

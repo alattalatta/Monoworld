@@ -431,6 +431,7 @@ module CompInfusion =
             Rand.Chance chance
 
         DefDatabase<InfusionDef>.AllDefs
+        |> Seq.filter (fun infDef -> Settings.Tiers.isEnabled infDef.tier)
         |> Seq.filter
             ((InfusionDef.disabled >> not)
              <&> InfusionDef.checkAllComplexes comp.parent quality)

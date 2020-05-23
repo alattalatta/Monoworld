@@ -5,11 +5,26 @@
       <li>
         <key>MarketValue</key>
         <value>
-          <multiplier>0.03</multiplier>
+          <multiplier>0.05</multiplier>
         </value>
       </li>
     </stats>
     <tier>Uncommon</tier>
+  </Infusion.InfusionDef>
+
+
+  <Infusion.InfusionDef ParentName="UncommonDefaultBase">
+    <defName>Featherweight</defName>
+    <label>featherweight</label>
+    <labelShort>fthr</labelShort>
+    <stats>
+      <li>
+        <key>Mass</key>
+        <value>
+          <multiplier>-0.25</multiplier>
+        </value>
+      </li>
+    </stats>
   </Infusion.InfusionDef>
 
   <!-- apparels -->
@@ -160,7 +175,7 @@
       <li>
         <key>MaxHitPoints</key>
         <value>
-          <multiplier>0.1</multiplier>
+          <multiplier>0.15</multiplier>
         </value>
       </li>
     </stats>
@@ -227,6 +242,20 @@
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="UncommonMeleeBase">
+    <defName>FlawlessMelee</defName>
+    <label>flawless</label>
+    <labelShort>flawless</labelShort>
+    <stats>
+      <li>
+        <key>MeleeWeapon_CooldownMultiplier</key>
+        <value>
+          <offset>-0.1</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="UncommonMeleeBase">
     <defName>Nimble</defName>
     <label>nimble</label>
     <labelShort>nimb</labelShort>
@@ -234,7 +263,7 @@
       <li>
         <key>MeleeDodgeChance</key>
         <value>
-          <offset>0.5</offset>
+          <multiplier>0.1</multiplier>
         </value>
       </li>
     </stats>
@@ -258,7 +287,7 @@
       <li>
         <key>MeleeWeapon_DamageMultiplier</key>
         <value>
-          <offset>0.075</offset>
+          <offset>0.1</offset>
         </value>
       </li>
     </stats>
@@ -321,6 +350,20 @@
     </complexes>
   </Infusion.InfusionDef>
 
+  <Infusion.InfusionDef ParentName="UncommonMeleeBase">
+    <defName>FlawlessRanged</defName>
+    <label>flawless</label>
+    <labelShort>flawless</labelShort>
+    <stats>
+      <li>
+        <key>RangedWeapon_Cooldown</key>
+        <value>
+          <multiplier>-0.1</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
   <Infusion.InfusionDef ParentName="UncommonRangedBase">
     <defName>Silent</defName>
     <label>silent</label>
@@ -342,20 +385,7 @@
       <li>
         <key>RangedWeapon_DamageMultiplier</key>
         <value>
-          <offset>0.075</offset>
-        </value>
-      </li>
-    </stats>
-  </Infusion.InfusionDef>
-
-  <Infusion.InfusionDef ParentName="UncommonRangedBase">
-    <defName>Wieldy</defName>
-    <label>wieldy</label>
-    <stats>
-      <li>
-        <key>RangedWeapon_Cooldown</key>
-        <value>
-          <multiplier>-0.1</multiplier>
+          <offset>0.1</offset>
         </value>
       </li>
     </stats>

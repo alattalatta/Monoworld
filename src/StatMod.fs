@@ -56,7 +56,7 @@ let stringForStat (stat: StatDef) (statMod: StatMod) =
 
     // multiplier
     if fneq0 statMod.multiplier then
-        do sb.Append(statMod.multiplier.ToString("+0.##%;-0.##%"))
+        do sb.Append(statMod.multiplier.ToString("x+0.##%;x-0.##%"))
            |> ignore
 
         // separator
