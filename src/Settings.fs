@@ -67,23 +67,24 @@ module SlotModifiers =
 
 
 module ListSettingMaker =
-    type handleInfoSet<'a> =
+    type handleInfoSet<'b> =
         { key: string
           label: string
           desc: string
-          defaultValue: 'a
+          defaultValue: 'b
           validator: Settings.SettingHandle.ValueIsValid }
 
     let make<'a, 'b when 'a: comparison> (infoOf: 'a -> handleInfoSet<'b>) uniq keys =
         let mutable settingsOpened = false
 
         let makeHandle (pack: ModSettingsPack) (a: 'a) =
-            let { key = key; label = label; desc = desc; defaultValue = defaultValue } = infoOf a
+            let { key = key; label = label; desc = desc; defaultValue = defaultValue; validator = validator } = infoOf a
 
             let handle =
                 pack.GetHandle(key, label, desc, defaultValue)
-            // bonus point for "<- fun () ->"
+
             do handle.VisibilityPredicate <- fun () -> settingsOpened
+            do handle.Validator <- validator
 
             (a, handle)
 
@@ -93,6 +94,8 @@ module ListSettingMaker =
         let draw (pack: ModSettingsPack) =
             let slotSettingOpener =
                 pack.GetHandle("slotsOpened_" + uniq, "", translate "", false)
+
+            do slotSettingOpener.Unsaved <- true
 
             do slotSettingOpener.CustomDrawer <-
                 (fun rect ->
