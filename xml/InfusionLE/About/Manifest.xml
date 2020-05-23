@@ -2,7 +2,7 @@
 <Manifest>
   <identifier>Infusion_LE</identifier>
   <version>1.0.0</version>
-  <manifestUri>https://raw.githubusercontent.com/alattalatta/RimWorld-Infusion2/master/xml/InfusionLEx/About/Manifest.xml</manifestUri>
+  <manifestUri>https://raw.githubusercontent.com/alattalatta/RimWorld-Infusion2/master/xml/InfusionLE/About/Manifest.xml</manifestUri>
   <downloadUri>https://github.com/alattalatta/RimWorld-Infusion2/releases/latest</downloadUri>
   <dependencies>
     <li>Infusion &gt;= 2.1.0</li>
