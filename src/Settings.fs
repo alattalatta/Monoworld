@@ -5,6 +5,7 @@ open System
 open HugsLib
 open HugsLib.Settings
 open RimWorld
+open UnityEngine
 open Verse
 
 open Lib
@@ -93,7 +94,7 @@ module ListSettingMaker =
 
         let draw (pack: ModSettingsPack) =
             let slotSettingOpener =
-                pack.GetHandle("slotsOpened_" + uniq, "", translate "", false)
+                pack.GetHandle("slotsOpened_" + uniq, "", "", false)
 
             do slotSettingOpener.Unsaved <- true
 
@@ -195,11 +196,30 @@ module Tiers =
         |> Option.defaultValue false
 
 
+module Divider =
+    let draw key (pack: ModSettingsPack) =
+        let divider =
+            pack.GetHandle("__divider__" + key, "", "", false)
+
+        do divider.Unsaved <- true
+
+        do divider.CustomDrawer <-
+            (fun rect ->
+                do GUI.color <- Color(1.0f, 1.0f, 1.0f, 0.7f)
+                do Widgets.DrawLineHorizontal(rect.xMin, rect.yMin + (rect.height / 2.0f), rect.width)
+                do GUI.color <- Color.white
+                false)
+
+        pack
+
+
 let initialize () =
     HugsLibController.SettingsManager.GetModSettings("latta.infusion")
     |> AccuracyOvercap.draw
     |> SelectionConsts.draw
     |> SlotModifiers.draw
+    |> Divider.draw "1"
     |> Slots.draw
+    |> Divider.draw "2"
     |> Tiers.draw
     |> ignore
