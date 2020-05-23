@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <Manifest>
   <identifier>Infusion</identifier>
-  <version>2.1.0</version>
+  <version>2.1.1</version>
   <manifestUri>https://raw.githubusercontent.com/alattalatta/RimWorld-Infusion2/master/xml/Infusion/About/Manifest.xml</manifestUri>
   <downloadUri>https://github.com/alattalatta/RimWorld-Infusion2/releases/latest</downloadUri>
 </Manifest>
