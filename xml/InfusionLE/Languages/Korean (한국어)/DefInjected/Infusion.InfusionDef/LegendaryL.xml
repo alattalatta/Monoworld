@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- apparels -->
+
+  <Lex_Circadian.label>일주기의</Lex_Circadian.label>
+  <Lex_Circadian.labelShort>일주기</Lex_Circadian.labelShort>
+
+  <Lex_Glittering.label>반짝이는</Lex_Glittering.label>
+  <Lex_Glittering.labelShort>반짝</Lex_Glittering.labelShort>
+
+  <Lex_Homeostatic.label>항상성</Lex_Homeostatic.label>
+  <Lex_Homeostatic.labelShort>항상</Lex_Homeostatic.labelShort>
+
+  <Lex_Integrated.label>통합형</Lex_Integrated.label>
+  <Lex_Integrated.labelShort>통합</Lex_Integrated.labelShort>
+
+  <Lex_Interfering.label>간섭하는</Lex_Interfering.label>
+  <Lex_Interfering.labelShort>간섭</Lex_Interfering.labelShort>
+
+  <Lex_Invulnerable.label>무적의</Lex_Invulnerable.label>
+  <Lex_Invulnerable.labelShort>무적</Lex_Invulnerable.labelShort>
+
+  <Lex_Unbreakable.label>불변</Lex_Unbreakable.label>
+  <Lex_Unbreakable.labelShort>불변</Lex_Unbreakable.labelShort>
+
+
+  <!-- weapons -->
+
+  <Lex_Divinity.label>신성</Lex_Divinity.label>
+  <Lex_Divinity.labelShort>신성</Lex_Divinity.labelShort>
+
+
+  <!-- melee -->
+
+  <Lex_Formiddable.label>공포스러운</Lex_Formiddable.label>
+  <Lex_Formiddable.labelShort>공포</Lex_Formiddable.labelShort>
+
+  <Lex_Hurricane.label>폭풍</Lex_Hurricane.label>
+  <Lex_Hurricane.labelShort>폭풍</Lex_Hurricane.labelShort>
+
+
+  <!-- ranged -->
+
+  <Lex_Guiding.label>이끄는</Lex_Guiding.label>
+  <Lex_Guiding.labelShort>이끔</Lex_Guiding.labelShort>
+
+  <Lex_Overpowered.label>초강력</Lex_Overpowered.label>
+  <Lex_Overpowered.labelShort>초강력</Lex_Overpowered.labelShort>
+
+  <Lex_Recuperating.label>반동감소</Lex_Recuperating.label>
+  <Lex_Recuperating.labelShort>반동감소</Lex_Recuperating.labelShort>
+
+  <Lex_Awareness.label>상황인지</Lex_Awareness.label>
+  <Lex_Awareness.labelShort>인식</Lex_Awareness.labelShort>
+
+
+</LanguageData>

@@ -135,7 +135,7 @@
       <li>
         <key>TradePriceImprovement</key>
         <value>
-          <multiplier>0.1</multiplier>
+          <multiplier>0.075</multiplier>
         </value>
       </li>
     </stats>

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+  <Infusion.InfusionDef Abstract="True" Name="Lex_RareDefaultBase">
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>0.075</multiplier>
+        </value>
+      </li>
+    </stats>
+    <tier>RareLegacy</tier>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_RareDefaultBase">
+    <defName>Lex_Weightless</defName>
+    <label>weightless</label>
+    <labelShort>wghtls</labelShort>
+    <stats>
+      <li>
+        <key>Mass</key>
+        <value>
+          <multiplier>-0.35</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- apparels -->
+  <Infusion.InfusionDef Abstract="True" Name="Lex_RareApparel" ParentName="Lex_RareDefaultBase">
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
+        <apparel>true</apparel>
+      </li>
+    </complexes>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_RareApparel">
+    <defName>Lex_Buffered</defName>
+    <label>buffered</label>
+    <stats>
+      <li>
+        <key>ArmorRating_Blunt</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_RareApparel">
+    <defName>Lex_Diverting</defName>
+    <label>diverting</label>
+    <stats>
+      <li>
+        <key>ArmorRating_Sharp</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_RareApparel">
+    <defName>Lex_Embellished</defName>
+    <label>embellished</label>
+    <labelShort>embel</labelShort>
+    <stats>
+      <li>
+        <key>PawnBeauty</key>
+        <value>
+          <offset>0.4</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareApparelBase">
+    <defName>Lex_Renewing</defName>
+    <label>renewing</label>
+    <labelShort>renew</labelShort>
+    <stats>
+      <li>
+        <key>RestRateMultiplier</key>
+        <value>
+          <offset>0.3</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_RareApparel">
+    <defName>Lex_Soothing</defName>
+    <label>sooth</label>
+    <stats>
+      <li>
+        <key>MentalBreakThreshold</key>
+        <value>
+          <offset>-0.06</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_RareApparel">
+    <defName>Lex_Gourmand</defName>
+    <label>gourmand</label>
+    <labelShort>grmnd</labelShort>
+    <position>Suffix</position>
+    <stats>
+      <li>
+        <key>EatingSpeed</key>
+        <value>
+          <offset>0.25</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_RareApparel">
+    <defName>Lex_Wild</defName>
+    <label>wild</label>
+    <position>Suffix</position>
+    <stats>
+      <li>
+        <key>ForagedNutritionPerDay</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- melee -->
+  <Infusion.InfusionDef Abstract="True" Name="Lex_RareMeleeBase" ParentName="Lex_RareDefaultBase">
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
+        <melee>true</melee>
+      </li>
+    </complexes>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_RareMeleeBase">
+    <defName>Lex_Agile</defName>
+    <label>agile</label>
+    <stats>
+      <li>
+        <key>MeleeDodgeChance</key>
+        <value>
+          <multiplier>0.15</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_RareMeleeBase">
+    <defName>Lex_Feral</defName>
+    <label>feral</label>
+    <stats>
+      <li>
+        <key>MeleeWeapon_DamageMultiplier</key>
+        <value>
+          <offset>0.15</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_RareMeleeBase">
+    <defName>Lex_Parrying</defName>
+    <label>parrying</label>
+    <labelShort>parry</labelShort>
+    <stats>
+      <li>
+        <key>ArmorRating_Blunt</key>
+        <value>
+          <offset>0.15</offset>
+        </value>
+      </li>
+      <li>
+        <key>ArmorRating_Sharp</key>
+        <value>
+          <offset>0.15</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- ranged -->
+  <Infusion.InfusionDef Abstract="True" Name="Lex_RareRangedBase" ParentName="Lex_RareDefaultBase">
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
+        <ranged>true</ranged>
+      </li>
+    </complexes>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_RareRangedBase">
+    <defName>Lex_Muted</defName>
+    <label>muted</label>
+    <stats>
+      <li>
+        <key>HuntingStealth</key>
+        <value>
+          <offset>0.3</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="Lex_RareRangedBase">
+    <defName>Lex_Shredding</defName>
+    <label>shredding</label>
+    <labelShort>shred</labelShort>
+    <stats>
+      <li>
+        <key>RangedWeapon_DamageMultiplier</key>
+        <value>
+          <offset>0.15</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+</Defs>

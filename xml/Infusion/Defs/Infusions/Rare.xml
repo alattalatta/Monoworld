@@ -189,6 +189,26 @@
     </stats>
   </Infusion.InfusionDef>
 
+  <Infusion.InfusionDef ParentName="RareApparelBase">
+    <defName>Ethereal</defName>
+    <label>ethereal</label>
+    <labelShort>ether</labelShort>
+    <stats>
+      <li>
+        <key>Mass</key>
+        <value>
+          <multiplier>-0.5</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>TradePriceImprovement</key>
+        <value>
+          <multiplier>0.05</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
   <Infusion.InfusionDef ParentName="RareApparelCleanBase">
     <defName>Overloaded</defName>
     <label>overloaded</label>
@@ -213,26 +233,6 @@
         <key>MaxHitPoints</key>
         <value>
           <multiplier>-0.2</multiplier>
-        </value>
-      </li>
-    </stats>
-  </Infusion.InfusionDef>
-
-  <Infusion.InfusionDef ParentName="RareApparelBase">
-    <defName>Weightless</defName>
-    <label>weightless</label>
-    <labelShort>wghtls</labelShort>
-    <stats>
-      <li>
-        <key>Mass</key>
-        <value>
-          <multiplier>-0.5</multiplier>
-        </value>
-      </li>
-      <li>
-        <key>MoveSpeed</key>
-        <value>
-          <offset>0.15</offset>
         </value>
       </li>
     </stats>

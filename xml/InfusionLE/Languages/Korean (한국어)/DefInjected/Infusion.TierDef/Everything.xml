@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <UncommonLegacy.label>고급 유산</UncommonLegacy.label>
+  <RareLegacy.label>희귀 유산</RareLegacy.label>
+  <EpicLegacy.label>영웅 유산</EpicLegacy.label>
+  <LegendaryLegacy.label>전설 유산</LegendaryLegacy.label>
+
+
+</LanguageData>
