@@ -22,6 +22,6 @@ module GetHitChanceFactor =
            | Some s -> do insts.[s].operand <- 2.0f
            | None ->
                do Log.Warning
-                   ("[Infusion 2] Couldn't find matching opCode for VerbProperties.GetHitChanceFactor(). Please report this to the mod author.")
+                   ("[Infusion 2] Couldn't find matching opCode for VerbProperties.GetHitChanceFactor(). Accuracy overcapping can't be applied.")
 
         seq insts

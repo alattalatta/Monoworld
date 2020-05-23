@@ -1,11 +1,7 @@
 module Infusion.VerseTools
 
 open RimWorld
-open UnityEngine
 open Verse
-
-open DefFields
-open VerseInterop
 
 // Because StatDef doesn't implement IComparable,
 // defs can't be used directly for Sets.
@@ -32,6 +28,8 @@ let apparelOrWeapon (def: ThingDef) =
     || ThingCategoryDefOf.Weapons.ContainedInThisOrDescendant def
 
 let resetHP<'T when 'T :> Thing> (thing: 'T) = do thing.HitPoints <- thing.MaxHitPoints
+
+let upcastToThing a = a :> Thing
 
 /// Scribes a value.
 ///
