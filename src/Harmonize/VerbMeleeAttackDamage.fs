@@ -39,6 +39,8 @@ module DamageInfosToApply =
     let Postfix (returned: IEnumerable<DamageInfo>, target: LocalTargetInfo, __instance: Verb_MeleeAttackDamage) =
         let comp =
             Option.ofObj __instance.EquipmentSource
+            // really this should only apply to melee weapons
+            |> Option.filter (fun e -> e.def.IsMeleeWeapon)
             |> Option.bind compOfThing<CompInfusion>
 
         let baseDamage =
