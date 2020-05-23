@@ -5,7 +5,7 @@
     <label>common</label>
     <priority>0</priority>
     <color>(1, 1, 1)</color>
-    <infuserValue>300</infuserValue>
+    <infuserValue>200</infuserValue>
     <extractionChance>1</extractionChance>
     <weights>
       <normal>1</normal>
