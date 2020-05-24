@@ -33,6 +33,10 @@ module JobDriver =
             yield Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch)
         }
 
+    let destroyCarriedThing (pawn: Pawn) =
+        do Option.ofObj pawn.carryTracker.CarriedThing
+           |> Option.iter (fun t -> t.Destroy())
+
 
     module ApplyInfuser =
         let failOnNoWantingSet target (job: IJobEndable) =
@@ -118,7 +122,7 @@ type JobDriverApplyInfuser() =
                           infuser.Content
                           |> Option.map (fun inf -> (comp, inf)))
                       |> Option.tap (fun (comp, inf) -> do CompInfusion.addInfusion inf comp)
-                      |> Option.iter (fun _ -> do infuser.Destroy()))
+                      |> Option.iter (fun _ -> do destroyCarriedThing this.pawn))
         }
 
 
@@ -167,14 +171,14 @@ type JobDriverExtractInfusion() =
                               do infuser.SetContent inf
 
                               if GenPlace.TryPlaceThing(infuser, this.pawn.Position, this.pawn.Map, ThingPlaceMode.Near)
-                              then do extractor.Destroy()
+                              then do destroyCarriedThing this.pawn
                           else
                               Messages.Message
                                   (string
                                       (translate2 "Infusion.Job.Message.ExtractionFailure" inf.label target.def.label),
                                    LookTargets(extractor),
                                    MessageTypeDefOf.NegativeEvent)
-                              do extractor.Destroy()))
+                              do destroyCarriedThing this.pawn))
         }
 
 
