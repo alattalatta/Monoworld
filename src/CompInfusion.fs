@@ -232,6 +232,8 @@ type CompInfusion() =
 
     member this.InvalidateCache() =
         do bestInfusionCache <- None
+        do extraDamageCache <- None
+        do extraExplosionCache <- None
         do infusionsStatModCache.Clear()
 
     member this.MarkForInfuser(infDef: InfusionDef) = do this.WantingSet <- Set.add infDef wantingSet
