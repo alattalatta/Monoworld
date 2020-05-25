@@ -1,20 +1,17 @@
 module Infusion.Reflectors
 
 open System.Linq.Expressions
-open System.Reflection
 
+open HarmonyLib
 open RimWorld
 open Verse
-
 
 module Reflectors =
     let param = Expression.Parameter(typeof<obj>)
 
     let fieldGetter<'klass, 'field> classType fieldType fieldName =
         let fieldExp =
-            Expression.Field
-                (Expression.Convert(param, classType),
-                 classType.GetField(fieldName, BindingFlags.NonPublic ||| BindingFlags.Instance))
+            Expression.Field(Expression.Convert(param, classType), AccessTools.Field(classType, fieldName))
 
         let getter =
             Expression.Lambda<System.Func<'klass, 'field>>(Expression.Convert(fieldExp, fieldType), param).Compile()
