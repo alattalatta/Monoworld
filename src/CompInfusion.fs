@@ -80,11 +80,21 @@ type CompInfusion() =
     member this.Infusions
         with get () = infusions |> Seq.sortDescending
         and set (value: seq<InfusionDef>) =
+            let hitPointsRatio =
+                float32 this.parent.HitPoints
+                / float32 this.parent.MaxHitPoints
+
             do this.InvalidateCache()
             do infusions <- value |> Set.ofSeq
             do wantingSet <- Set.difference wantingSet infusions
             do extractionSet <- Set.intersect extractionSet infusions
             do removalSet <- Set.intersect removalSet infusions
+
+            do this.parent.HitPoints <-
+                (float32 this.parent.MaxHitPoints * hitPointsRatio)
+                |> round
+                |> int
+                |> min this.parent.MaxHitPoints
 
             this.FinalizeSetMutations()
 
@@ -374,7 +384,7 @@ type CompInfusion() =
         |> Option.iter (fun infs ->
             do this.Infusions <-
                 infs
-                |> Seq.filter (InfusionDef.gracefullyDie >> not)
+                |> Seq.filter (InfusionDef.gracefullyDies >> not)
                 |> Seq.map (fun inf ->
                     inf.Migration
                     |> Option.bind (fun m -> m.Replace)
@@ -389,7 +399,7 @@ type CompInfusion() =
         |> Option.iter (fun infs ->
             do removalSet <-
                 infs
-                |> Set.filter (InfusionDef.gracefullyDie >> not))
+                |> Set.filter (InfusionDef.gracefullyDies >> not))
 
     override this.AllowStackWith(other) =
         compOfThing<CompInfusion> other
@@ -435,9 +445,9 @@ module CompInfusion =
         DefDatabase<InfusionDef>.AllDefs
         |> Seq.filter (fun infDef -> Settings.Tiers.isEnabled infDef.tier)
         |> Seq.filter
-            ((InfusionDef.disabled >> not)
+            (InfusionDef.activeForUse
              <&> InfusionDef.checkAllComplexes comp.parent quality)
-        // (infusionDef * weight)
+        // -> (infusionDef * weight)
         |> Seq.map (fun infDef ->
             (infDef,
              (infDef.WeightFor quality)
@@ -450,15 +460,12 @@ module CompInfusion =
         |> List.ofSeq // need to "finalize" the random sort
         |> List.sort
 
-    let removeMarkedInfusions (comp: CompInfusion) =
-        let hitPointsRatio =
-            float32 comp.parent.HitPoints
-            / float32 comp.parent.MaxHitPoints
+    let rerollInfusions (comp: CompInfusion) =
+        (pickInfusions comp.Quality comp |> setInfusions) comp
 
+    let removeMarkedInfusions (comp: CompInfusion) =
         do comp.Infusions <- Set.difference comp.InfusionsRaw comp.RemovalSet
         do comp.RemovalSet <- Set.empty // maybe not needed
-
-        do comp.parent.HitPoints <- int (round (float32 comp.parent.MaxHitPoints * hitPointsRatio))
 
     let removeAllInfusions (comp: CompInfusion) = do comp.Infusions <- Set.empty
 

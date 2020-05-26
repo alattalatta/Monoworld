@@ -15,14 +15,16 @@ type TierDef =
     val mutable chances: QualityMap
     val mutable weights: QualityMap
 
+    /// Not used.
     val mutable maxCount: int
 
-    // used for sorting infusions, higher being higher
+    /// Used for sorting infusions, higher being higher.
     val mutable priority: int
 
-    // market value of the generated infuser
+    /// Market value of its generated infuser.
     val mutable infuserValue: float32
-    // extraction success chance
+
+    /// Extraction success chance.
     val mutable extractionChance: float32
 
     val mutable infuser: ThingDef

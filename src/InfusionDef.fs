@@ -23,15 +23,24 @@ type InfusionDef =
     /// Descriptions for special effects.
     val mutable extraDescriptions: ResizeArray<string>
 
+    /// The Complex filters.
     val mutable complexes: ResizeArray<Complex<InfusionDef>>
 
+    /// Will not used for new infusions.
     val mutable disabled: bool
+
+    /// Will migrate itself, by removing or replacing itself.
     val mutable migration: Migration<InfusionDef>
+
+    /// Postfix or Suffix.
+    val mutable position: Position
+
+    /// The tier of this infusion.
+    val mutable tier: TierDef
+
     val mutable extraDamages: ResizeArray<ExtraDamage>
     val mutable extraExplosions: ResizeArray<ExtraExplosion>
-    val mutable position: Position
     val mutable stats: Dictionary<StatDef, StatMod>
-    val mutable tier: TierDef
 
     new() =
         { inherit HashEqualDef()
@@ -79,13 +88,14 @@ type InfusionDef =
                 |> Seq.fold (fun (acc: StringBuilder) cur -> acc.Append("\n  ").Append(cur)) (StringBuilder())
                 |> string
 
-        string
-            (StringBuilder(label.Colorize(this.tier.color)).Append(statsDescriptions)
-                .Append(extraDescriptions.Colorize(Color(0.11f, 1.0f, 0.0f))))
+        StringBuilder(label.Colorize(this.tier.color)).Append(statsDescriptions)
+            .Append(extraDescriptions.Colorize(Color(0.11f, 1.0f, 0.0f)))
+        |> string
 
     override this.ToString() = sprintf "%s (%s)" (base.ToString()) this.label
 
     override this.Equals(ob) = base.Equals(ob)
+
     override this.GetHashCode() = base.GetHashCode()
 
     interface IComparable with
@@ -98,14 +108,15 @@ type InfusionDef =
                 if byTierPriority <> 0 then byTierPriority else this.defName.CompareTo infDef.defName
             | _ -> 0
 
-module InfusionDef =
 
-    let gracefullyDie (infDef: InfusionDef) =
+module InfusionDef =
+    let activeForUse (infDef: InfusionDef) =
+        not infDef.disabled && isNull infDef.migration
+
+    let gracefullyDies (infDef: InfusionDef) =
         infDef.Migration
         |> Option.map (fun m -> m.remove)
         |> Option.defaultValue false
-
-    let disabled (infDef: InfusionDef) = gracefullyDie infDef || infDef.disabled
 
     let collectExtraEffects (getter: InfusionDef -> 'a option) (infusions: Set<InfusionDef>) =
         infusions

@@ -1,72 +1,93 @@
 module Infusion.DebugActions
 
+open System
+
 open Verse
 
 open Lib
 open VerseInterop
-open VerseTools
-
-let private resetCompParentHP: ThingComp -> unit = parentOfComp >> resetHP
+open RimWorld
 
 let private pointedThings () =
     Find.CurrentMap.thingGrid.ThingsAt(UI.MouseCell())
 
-let private firstCompAtPointer (things: seq<Thing>) =
-    Seq.tryFind (fun thing -> compOfThing<CompInfusion> thing |> Option.isSome) things
-    |> Option.bind compOfThing<CompInfusion>
+let private firstCompAtPointer<'T when 'T :> ThingComp and 'T: null> (things: seq<Thing>) =
+    Seq.tryFind (fun thing -> compOfThing<'T> thing |> Option.isSome) things
+    |> Option.bind compOfThing<'T>
 
 let private addActionFor (infDef: InfusionDef) =
     pointedThings ()
     |> firstCompAtPointer
-    |> Option.iter
-        (tap (CompInfusion.addInfusion infDef)
-         >> resetCompParentHP)
+    |> Option.iter (CompInfusion.addInfusion infDef)
 
-[<DebugAction("Infusion",
-              "Add an infusion...",
-              actionType = DebugActionType.Action,
-              allowedGameStates = AllowedGameStates.PlayingOnMap)>]
+let allQualities =
+    seq {
+        for qc in Enum.GetValues(typeof<QualityCategory>) do
+            yield qc :?> QualityCategory
+    }
+
+
+[<DebugAction("Infusion", "Force set quality...", actionType = DebugActionType.ToolMap)>]
+let forceSetQuality () =
+    pointedThings ()
+    |> firstCompAtPointer<CompQuality>
+    |> Option.map (fun comp ->
+        allQualities
+        |> Seq.map (fun qc ->
+            DebugMenuOption
+                (Enum.GetName(typeof<QualityCategory>, qc),
+                 DebugMenuOptionMode.Action,
+                 (fun () -> do comp.SetQuality(qc, ArtGenerationContext.Colony)))))
+    |> Option.map Dialog_DebugOptionListLister
+    |> Option.iter Find.WindowStack.Add
+
+
+[<DebugAction("Infusion", "Add an infusion to...", actionType = DebugActionType.Action)>]
 let addInfusion () =
     DefDatabase<InfusionDef>.AllDefs
-    |> Seq.filter (fun def -> not def.disabled)
+    |> Seq.filter InfusionDef.activeForUse
     |> Seq.sort
     |> Seq.map (fun infDef -> DebugMenuOption(infDef.defName, DebugMenuOptionMode.Tool, (fun () -> addActionFor infDef)))
     |> Dialog_DebugOptionListLister
     |> Find.WindowStack.Add
 
-[<DebugAction("Infusion", "Remove an infusion...", actionType = DebugActionType.ToolMap)>]
+
+[<DebugAction("Infusion", "Remove an infusion of...", actionType = DebugActionType.ToolMap)>]
 let removeInfusion () =
     pointedThings ()
-    |> firstCompAtPointer
+    |> firstCompAtPointer<CompInfusion>
     |> Option.map (fun comp ->
         comp.Infusions
         |> Seq.map (fun infDef ->
             DebugMenuOption
-                (infDef.defName,
-                 DebugMenuOptionMode.Action,
-                 (fun () ->
-                     do comp
-                        |> tap (CompInfusion.removeInfusion infDef)
-                        |> resetCompParentHP))))
+                (infDef.defName, DebugMenuOptionMode.Action, (fun () -> do comp |> CompInfusion.removeInfusion infDef))))
     |> Option.map Dialog_DebugOptionListLister
     |> Option.iter Find.WindowStack.Add
 
-[<DebugAction("Infusion", "Remove all infusions", actionType = DebugActionType.ToolMap)>]
+
+[<DebugAction("Infusion", "Remove all infusions of...", actionType = DebugActionType.ToolMap)>]
 let removeAllInfusions () =
     pointedThings ()
     |> firstCompAtPointer
-    |> Option.iter
-        (tap CompInfusion.removeAllInfusions
-         >> resetCompParentHP)
+    |> Option.iter CompInfusion.removeAllInfusions
 
-[<DebugAction("Infusion", "Reroll infusions", actionType = DebugActionType.ToolMap)>]
+
+[<DebugAction("Infusion", "Reroll infusions of...", actionType = DebugActionType.ToolMap)>]
 let rerollInfusions () =
     pointedThings ()
     |> firstCompAtPointer
-    |> Option.iter (fun comp ->
-        let infusions =
-            CompInfusion.pickInfusions comp.Quality comp
+    |> Option.iter CompInfusion.rerollInfusions
 
-        comp
-        |> tap (CompInfusion.setInfusions infusions)
-        |> resetCompParentHP)
+
+[<DebugAction("Infusion",
+              "Reroll everything of current map",
+              actionType = DebugActionType.Action,
+              allowedGameStates = AllowedGameStates.PlayingOnMap)>]
+let rerollEverything () =
+    let thingLister = Find.CurrentMap.listerThings
+
+    thingLister.ThingsInGroup(ThingRequestGroup.Weapon)
+    |> Seq.append (thingLister.ThingsInGroup(ThingRequestGroup.Apparel))
+    |> Seq.choose compOfThing<CompInfusion>
+    |> Seq.filter (fun comp -> comp.SlotCount > 0)
+    |> Seq.iter CompInfusion.rerollInfusions
