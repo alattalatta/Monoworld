@@ -2,7 +2,6 @@ module Infusion.Harmonize.StatWorker
 
 open System.Collections.Generic
 open System.Reflection.Emit
-open System.Text
 
 open HarmonyLib
 open RimWorld

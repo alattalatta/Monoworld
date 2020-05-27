@@ -52,7 +52,7 @@ let addInfusion () =
     |> Find.WindowStack.Add
 
 
-[<DebugAction("Infusion", "Remove an infusion of...", actionType = DebugActionType.ToolMap)>]
+[<DebugAction("Infusion", "Remove an infusion from...", actionType = DebugActionType.ToolMap)>]
 let removeInfusion () =
     pointedThings ()
     |> firstCompAtPointer<CompInfusion>
@@ -65,7 +65,7 @@ let removeInfusion () =
     |> Option.iter Find.WindowStack.Add
 
 
-[<DebugAction("Infusion", "Remove all infusions of...", actionType = DebugActionType.ToolMap)>]
+[<DebugAction("Infusion", "Remove all infusions from...", actionType = DebugActionType.ToolMap)>]
 let removeAllInfusions () =
     pointedThings ()
     |> firstCompAtPointer
@@ -80,7 +80,7 @@ let rerollInfusions () =
 
 
 [<DebugAction("Infusion",
-              "Reroll everything of current map",
+              "Reroll everything in current map",
               actionType = DebugActionType.Action,
               allowedGameStates = AllowedGameStates.PlayingOnMap)>]
 let rerollEverything () =
