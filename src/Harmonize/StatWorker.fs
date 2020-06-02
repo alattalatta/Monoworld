@@ -15,6 +15,13 @@ open VerseInterop
 open System.Reflection
 
 
+let extraStatsToConsider =
+    Set.ofList
+        [ StatDefOf.ArmorRating_Blunt.defName
+          StatDefOf.ArmorRating_Heat.defName
+          StatDefOf.ArmorRating_Sharp.defName ]
+
+
 module StatWorker =
     let apparelsAndEquipments (pawn: Pawn) =
         let fromApparels =
@@ -40,7 +47,8 @@ module RelevantGear =
     /// Adds hyperlink entries in the pawn's inspection window.
     /// Why not a "GearAffectsStat"? Because it uses a ThingDef, not a Thing.
     let Postfix (returned: Thing seq, pawn: Pawn, stat: StatDef) =
-        if Set.contains stat.category.defName pawnStatCategories then
+        if Set.contains stat.category.defName pawnStatCategories
+           || Set.contains stat.defName extraStatsToConsider then
             let map = Dictionary<string, Thing>()
             returned
             |> Seq.iter (fun thing -> map.Add(thing.ThingID, thing))
@@ -120,7 +128,8 @@ module StatOffsetFromGear =
     /// Adds infusions to Core stat calculation.
     /// Note that we can only use `StatMod#offset` because it is "stat _offset_ from gear."
     let Postfix (returned: float32, gear: Thing, stat: StatDef) =
-        if Set.contains stat.category.defName pawnStatCategories then
+        if Set.contains stat.category.defName pawnStatCategories
+           || Set.contains stat.defName extraStatsToConsider then
 
             match compOfThing<CompInfusion> gear with
             | Some compInf -> (compInf.GetModForStat stat).offset + returned
