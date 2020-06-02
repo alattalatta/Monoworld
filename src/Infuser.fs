@@ -76,6 +76,17 @@ type Infuser() =
 
         do allInfusers <- Set.remove this allInfusers
 
+    override this.SplitOff(count) =
+        let otherOne = base.SplitOff(count)
+
+        do this.Content
+           |> Option.bind (fun inf ->
+               compOfThing<CompInfusion> otherOne
+               |> Option.map (fun comp -> (comp, inf)))
+           |> Option.iter (fun (comp, inf) -> do comp.Infusions <- seq { yield inf })
+
+        otherOne
+
     override this.Equals(ob: obj) =
         match ob with
         | :? Thing as thing -> this.ThingID = thing.ThingID

@@ -406,6 +406,10 @@ type CompInfusion() =
         |> Option.map (fun comp -> infusions = comp.InfusionsRaw)
         |> Option.defaultValue false
 
+    override this.PostSplitOff(other) =
+        do compOfThing<CompInfusion> other
+           |> Option.iter (fun comp -> do comp.Infusions <- this.Infusions)
+
     override this.GetHashCode() = this.parent.thingIDNumber
 
     override this.Equals(ob) =
