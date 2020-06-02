@@ -27,6 +27,7 @@
     <Compile Include="Extractor.fs" />
     <Compile Include="DefGenerator.fs" />
     <Compile Include="StockGenerator.fs" />
+    <Compile Include="ThingSetMaker.fs" />
     <Compile Include="ITab.fs" />
     <Compile Include="DebugActions.fs" />
     <Compile Include="StatPart.fs" />
