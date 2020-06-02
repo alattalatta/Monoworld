@@ -11,25 +11,25 @@
   <Infusion.Complex.Negate>[$0] 제외</Infusion.Complex.Negate>
   <Infusion.Complex.ShieldBelt>보호막 벨트</Infusion.Complex.ShieldBelt>
 
-  <Infusion.Infuser.Label>{0} 마법부여기</Infusion.Infuser.Label>
-  <Infusion.Infuser.Description>장비를 강화할 수 있는 일회용 메카나이트 분사기입니다.</Infusion.Infuser.Description>
+  <Infusion.Infuser.Label>{0} 연마기</Infusion.Infuser.Label>
+  <Infusion.Infuser.Description>장비를 강화할 수 있는 메카나이트를 담은 일회용 연마기입니다.</Infusion.Infuser.Description>
 
   <Infusion.StatPart.Start>마법부여: </Infusion.StatPart.Start>
 
-  <Infusion.Job.Message.ExtractionFailure>{1}에서 {0}을 추출하던 중 실패했습니다. 마법부여기가 파괴됐습니다.</Infusion.Job.Message.ExtractionFailure>
-  <Infusion.Job.FailReason.NoExtractor>접근 가능하고 선점 가능한 빈 마법부여기 없음</Infusion.Job.FailReason.NoExtractor>
-  <Infusion.Job.FailReason.NoMatchingInfuser>접근 가능하고 선점 가능하며 적합한 마법부여기 없음</Infusion.Job.FailReason.NoMatchingInfuser>
+  <Infusion.Job.Message.ExtractionFailure>{1}에서 {0}을 추출하던 중 실패했습니다. 연마기가 파괴됐습니다.</Infusion.Job.Message.ExtractionFailure>
+  <Infusion.Job.FailReason.NoExtractor>접근 가능하고 선점 가능한 빈 연마기 없음</Infusion.Job.FailReason.NoExtractor>
+  <Infusion.Job.FailReason.NoMatchingInfuser>접근 가능하고 선점 가능하며 적합한 연마기 없음</Infusion.Job.FailReason.NoMatchingInfuser>
 
   <Infusion.ITab>마법부여</Infusion.ITab>
 
-  <Infusion.ITab.ApplyInfuser>마법부여기 사용...</Infusion.ITab.ApplyInfuser>
-  <Infusion.ITab.ApplyInfuser.Description>이 장비에 적합한 마법부여기만 보여집니다.</Infusion.ITab.ApplyInfuser.Description>
+  <Infusion.ITab.ApplyInfuser>연마기 사용...</Infusion.ITab.ApplyInfuser>
+  <Infusion.ITab.ApplyInfuser.Description>이 장비에 적합한 연마기만 보여집니다.</Infusion.ITab.ApplyInfuser.Description>
 
   <Infusion.ITab.MarkForExtraction>클릭하면 이 마법부여의 추출을 지정합니다. (성공률 {0})
 
-제작 작업을 맡은 정착민이 빈 마법부여기를 사용해 추출할 것입니다.
+제작 작업을 맡은 정착민이 빈 연마기를 사용해 추출할 것입니다.
     
-추출은 실패할 수 있으며, 이 때 마법부여와 마법부여기 모두 파괴됩니다,
+추출은 실패할 수 있으며, 이 때 마법부여와 연마기가 모두 파괴됩니다,
   </Infusion.ITab.MarkForExtraction>
   <Infusion.ITab.MarkForRemoval>클릭하면 이 마법부여의 제거를 지정합니다.
     
