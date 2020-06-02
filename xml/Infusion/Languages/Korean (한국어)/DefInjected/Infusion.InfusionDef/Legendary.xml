@@ -74,9 +74,9 @@
 
   <Volatile.label>휘발성</Volatile.label>
   <Volatile.labelShort>휘발성</Volatile.labelShort>
-  <Suppressive.extraDescriptions.0>탄환 충돌 시, 20% 확률로 폭발이 발생합니다.</Suppressive.extraDescriptions.0>
-  <Suppressive.extraDescriptions.1>탄환 충돌 시, 20% 확률로 화염 폭발이 발생합니다.</Suppressive.extraDescriptions.1>
-  <Suppressive.extraDescriptions.2>두 폭발 모두 반경 1.4칸 내에 무기 피해량의 50%만큼 피해를 입힙니다.</Suppressive.extraDescriptions.2>
+  <Volatile.extraDescriptions.0>탄환 충돌 시, 20% 확률로 폭발이 발생합니다.</Volatile.extraDescriptions.0>
+  <Volatile.extraDescriptions.1>탄환 충돌 시, 20% 확률로 화염 폭발이 발생합니다.</Volatile.extraDescriptions.1>
+  <Volatile.extraDescriptions.2>두 폭발 모두 반경 1.4칸 내에 무기 피해량의 50%만큼 피해를 입힙니다.</Volatile.extraDescriptions.2>
 
 
 </LanguageData>
