@@ -281,6 +281,7 @@
             <li>Poke</li>
           </defs>
         </value>
+        <requirementString>sharp</requirementString>
       </li>
     </complexes>
     <stats>
@@ -303,6 +304,7 @@
           <li>Blunt</li>
           <li>Poke</li>
         </defs>
+        <requirementString>blunt</requirementString>
       </li>
     </complexes>
     <extraDamages>
