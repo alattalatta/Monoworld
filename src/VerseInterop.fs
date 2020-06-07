@@ -12,6 +12,8 @@ let equipmentsOfPawn (pawn: Pawn): option<list<ThingWithComps>> =
     Option.ofObj pawn.equipment
     |> Option.map (fun tracker -> List.ofSeq tracker.AllEquipmentListForReading)
 
+let compOfHediff<'a when 'a :> HediffComp and 'a: null> (hediff: Hediff) = Option.ofObj (hediff.TryGetComp<'a>())
+
 let compOfThing<'a when 'a :> ThingComp and 'a: null> (thing: Thing) = Option.ofObj (thing.TryGetComp<'a>())
 
 let parentOfComp (comp: ThingComp) = comp.parent
@@ -22,6 +24,7 @@ let translate1 (key: string) a = key.Translate(NamedArgument(a, null))
 
 let translate2 (key: string) a b =
     key.Translate(NamedArgument(a, null), NamedArgument(b, null))
+
 
 module DamageInfo =
     let setAngle angle (di: DamageInfo) =
@@ -35,6 +38,11 @@ module DamageInfo =
     let setWeaponBodyPartGroup bodyPartGroup (di: DamageInfo) =
         di.SetWeaponBodyPartGroup(bodyPartGroup)
         di
+
+
+module Thing =
+    let isDestroyed (t: Thing) = t.Destroyed
+
 
 module Toil =
     let setInitAction fn (toil: Toil) =
@@ -67,3 +75,7 @@ module Toil =
         do toil.WithProgressBarToilDelay(targetIndex)
            |> ignore
         toil
+
+
+module Pawn =
+    let isDead (pawn: Pawn) = pawn.Dead

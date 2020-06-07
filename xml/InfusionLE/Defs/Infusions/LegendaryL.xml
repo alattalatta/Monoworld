@@ -234,13 +234,13 @@
         </value>
       </li>
     </stats>
-    <extraDamages>
-      <li>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.CreateExplosion">
         <def>Stun</def>
         <amount>1</amount>
         <chance>0.3</chance>
       </li>
-    </extraDamages>
+    </onHits>
     <extraDescriptions>
       <li>On hit, 30% chance to stun target for 100% of weapon damage.</li>
     </extraDescriptions>

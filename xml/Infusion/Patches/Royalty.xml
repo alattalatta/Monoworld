@@ -13,12 +13,6 @@
           <labelShort>ampl</labelShort>
           <stats>
             <li>
-              <key>PsychicSensitivity</key>
-              <value>
-                <offset>0.2</offset>
-              </value>
-            </li>
-            <li>
               <key>PsychicEntropyMax</key>
               <value>
                 <multiplier>0.2</multiplier>
@@ -30,8 +24,89 @@
                 <multiplier>0.1</multiplier>
               </value>
             </li>
+            <li>
+              <key>PsychicSensitivity</key>
+              <value>
+                <offset>0.2</offset>
+              </value>
+            </li>
           </stats>
           <tier>Legendary</tier>
+        </Infusion.InfusionDef>
+
+        <Infusion.InfusionDef ParentName="LegendaryDefaultBase">
+          <defName>Chaotic</defName>
+          <label>chaotic</label>
+          <labelShort>chaos</labelShort>
+          <complexes>
+            <li Class="Infusion.Complex.EquipmentType">
+              <melee>true</melee>
+              <ranged>true</ranged>
+            </li>
+            <li Class="Infusion.Complex.ProjectileBullet" />
+          </complexes>
+          <onHits>
+            <li Class="Infusion.OnHitWorkers.ApplyHediff">
+              <def>PsychicBurden</def>
+              <amount>0.75</amount>
+              <chance>0.8</chance>
+              <severityScaleBy>PsychicSensitivity</severityScaleBy>
+            </li>
+            <li Class="Infusion.OnHitWorkers.ApplyHediff">
+              <def>PsychicBlindness</def>
+              <amount>0.75</amount>
+              <chance>0.04</chance>
+              <severityScaleBy>PsychicSensitivity</severityScaleBy>
+            </li>
+            <li Class="Infusion.OnHitWorkers.ApplyHediff">
+              <def>PsychicVertigo</def>
+              <amount>0.5</amount>
+              <chance>0.02</chance>
+              <severityScaleBy>PsychicSensitivity</severityScaleBy>
+            </li>
+          </onHits>
+          <extraDescriptions>
+            <li>8% chance to slow down the target.</li>
+            <li>4% chance to blind the target.</li>
+            <li>2% chance to induce vertigo to the target.</li>
+          </extraDescriptions>
+        </Infusion.InfusionDef>
+
+        <Infusion.InfusionDef ParentName="LegendaryRangedBase">
+          <defName>Stimulating</defName>
+          <label>stimulating</label>
+          <labelShort>stim</labelShort>
+          <complexes>
+            <li Class="Infusion.Complex.ProjectileBullet" />
+          </complexes>
+          <stats>
+            <li>
+              <key>RangedWeapon_Cooldown</key>
+              <value>
+                <multiplier>-0.1</multiplier>
+              </value>
+            </li>
+          </stats>
+          <onHits>
+            <li Class="Infusion.OnHitWorkers.Sequence">
+              <chance>0.1</chance>
+              <value>
+                <li Class="Infusion.OnHitWorkers.ApplyHediff">
+                  <def>PsychicFocus</def>
+                  <amount>0.5</amount>
+                  <selfCast>true</selfCast>
+                  <severityScaleBy>PsychicSensitivity</severityScaleBy>
+                </li>
+                <li Class="Infusion.OnHitWorkers.PlaySound">
+                  <def>PsycastPsychicEffect</def>
+                  <selfCast>true</selfCast>
+                </li>
+              </value>
+            </li>
+          </onHits>
+          <extraDescriptions>
+            <li>10% chance to grant psychic focus to wielder for a short time, boosting combat capabilities.</li>
+          </extraDescriptions>
         </Infusion.InfusionDef>
       </value>
     </match>

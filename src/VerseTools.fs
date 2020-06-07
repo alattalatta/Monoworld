@@ -3,6 +3,9 @@ module Infusion.VerseTools
 open RimWorld
 open Verse
 
+open Lib
+open VerseInterop
+
 // Because StatDef doesn't implement IComparable,
 // defs can't be used directly for Sets.
 let accuracyStats =
@@ -99,3 +102,13 @@ let scribeDefCollection<'a when 'a :> Def> key (defs: 'a seq) =
         do Scribe_Collections.Look(&out, key, LookMode.Def)
         None
     | _ -> None
+
+
+module Pawn =
+    let isAliveAndWell thing =
+        if Thing.isDestroyed thing then
+            false
+        else
+            tryCast<Pawn> thing
+            |> Option.map (Pawn.isDead >> not)
+            |> Option.defaultValue false

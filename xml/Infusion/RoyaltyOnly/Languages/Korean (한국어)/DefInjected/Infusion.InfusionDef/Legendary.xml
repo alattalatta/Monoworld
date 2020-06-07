@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- apparels -->
+
+  <Amplifying.label>증폭하는</Amplifying.label>
+  <Amplifying.labelShort>증폭</Amplifying.labelShort>
+
+
+  <!-- weapons -->
+
+  <Chaotic.label>혼돈의</Chaotic.label>
+  <Chaotic.labelShort>혼돈</Chaotic.labelShort>
+  <Chaotic.extraDescriptions.0>8% 확률로 대상을 느리게 만듭니다.</Chaotic.extraDescriptions.0>
+  <Chaotic.extraDescriptions.1>4% 확률로 대상의 눈을 멀게 합니다.</Chaotic.extraDescriptions.1>
+  <Chaotic.extraDescriptions.2>2% 확률로 대상을 어지럽게 만듭니다.</Chaotic.extraDescriptions.2>
+
+
+  <!-- ranged -->
+
+  <Stimulating.label>자극성</Stimulating.label>
+  <Stimulating.labelShort>자극</Stimulating.labelShort>
+  <Stimulating.extraDescriptions.0>10% 확률로 착용자에게 짧은 집중 효과를 부여합니다.</Stimulating.extraDescriptions.0>
+
+
+</LanguageData>

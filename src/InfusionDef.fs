@@ -12,6 +12,7 @@ open DefFields
 open Lib
 open StatMod
 open Infusion.Complex
+open Infusion.OnHitWorkers
 
 [<AllowNullLiteral>]
 type InfusionDef =
@@ -26,6 +27,9 @@ type InfusionDef =
     /// The Complex filters.
     val mutable complexes: ResizeArray<Complex<InfusionDef>>
 
+    /// On-hit effect workers.
+    val mutable onHits: ResizeArray<OnHitWorker>
+
     /// Will not used for new infusions.
     val mutable disabled: bool
 
@@ -38,8 +42,6 @@ type InfusionDef =
     /// The tier of this infusion.
     val mutable tier: TierDef
 
-    val mutable extraDamages: ResizeArray<ExtraDamage>
-    val mutable extraExplosions: ResizeArray<ExtraExplosion>
     val mutable stats: Dictionary<StatDef, StatMod>
 
     new() =
@@ -48,20 +50,17 @@ type InfusionDef =
           extraDescriptions = ResizeArray()
 
           complexes = ResizeArray()
+          onHits = null
 
           disabled = false
           migration = null
-          extraDamages = null
-          extraExplosions = null
           position = Position.Prefix
           stats = Dictionary()
           tier = TierDef.empty }
 
     member this.LabelShort = if this.labelShort.NullOrEmpty() then this.label else this.labelShort
 
-    member this.ExtraDamages = Option.ofObj this.extraDamages
-
-    member this.ExtraExplosions = Option.ofObj this.extraExplosions
+    member this.OnHits = Option.ofObj this.onHits
 
     member this.Migration = Option.ofObj this.migration
 
@@ -117,13 +116,6 @@ module InfusionDef =
         infDef.Migration
         |> Option.map (fun m -> m.remove)
         |> Option.defaultValue false
-
-    let collectExtraEffects (getter: InfusionDef -> 'a option) (infusions: Set<InfusionDef>) =
-        infusions
-        |> Seq.map getter
-        |> Seq.choose id
-        |> Seq.concat
-        |> Some
 
     let checkAllComplexes target quality (infDef: InfusionDef) =
         (infDef.ChanceFor quality) > 0.0f

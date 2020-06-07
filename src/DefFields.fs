@@ -17,17 +17,6 @@ type Allowance =
           melee = false
           ranged = false }
 
-type ExtraExplosion =
-    val mutable amount: float32
-    val mutable chance: float32
-    val mutable def: DamageDef
-    val mutable radius: float32
-
-    new() =
-        { amount = -1.0f
-          chance = 1.0f
-          def = DamageDefOf.Bomb
-          radius = 1.0f }
 
 type QualityMap =
     val mutable awful: float32
@@ -46,6 +35,7 @@ type QualityMap =
           excellent = 0.0f
           masterwork = 0.0f
           legendary = 0.0f }
+
 
 let valueFor quality (qmap: QualityMap) =
     match quality with

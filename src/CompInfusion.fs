@@ -36,8 +36,7 @@ type CompInfusion() =
     let mutable quality = QualityCategory.Normal
 
     let mutable bestInfusionCache = None
-    let mutable extraDamageCache = None
-    let mutable extraExplosionCache = None
+    let mutable onHitsCache = None
 
     let infusionsStatModCache = Dictionary<StatDef, option<StatMod>>()
 
@@ -143,17 +142,17 @@ type CompInfusion() =
             bestInfusionCache
         | _ -> bestInfusionCache
 
-    member this.ExtraDamages =
-        if Option.isNone extraDamageCache
-        then do extraDamageCache <- InfusionDef.collectExtraEffects (fun def -> def.ExtraDamages) infusions
+    member this.OnHits =
+        if Option.isNone onHitsCache then
+            do onHitsCache <-
+                infusions
+                |> Seq.map (fun inf -> inf.OnHits)
+                |> Seq.choose id
+                |> Seq.concat
+                |> List.ofSeq
+                |> Some
 
-        Option.defaultValue Seq.empty extraDamageCache
-
-    member this.ExtraExplosions =
-        if Option.isNone extraExplosionCache
-        then do extraExplosionCache <- InfusionDef.collectExtraEffects (fun def -> def.ExtraExplosions) infusions
-
-        Option.defaultValue Seq.empty extraExplosionCache
+        Option.defaultValue List.empty onHitsCache
 
     member this.SlotCount = slotCount
 
@@ -242,8 +241,7 @@ type CompInfusion() =
 
     member this.InvalidateCache() =
         do bestInfusionCache <- None
-        do extraDamageCache <- None
-        do extraExplosionCache <- None
+        do onHitsCache <- None
         do infusionsStatModCache.Clear()
 
     member this.MarkForInfuser(infDef: InfusionDef) = do this.WantingSet <- Set.add infDef wantingSet
@@ -288,7 +286,7 @@ type CompInfusion() =
             let parent = this.parent
 
             let isInfuser =
-                Option.ofObj this.parent.def.tradeTags
+                Option.ofObj parent.def.tradeTags
                 |> Option.map (Seq.contains "Infusion_Infuser")
                 |> Option.defaultValue false
 
@@ -330,7 +328,7 @@ type CompInfusion() =
                     this.BestInfusion
                     |> Option.map (fun inf ->
                         inf.complexes
-                        |> Seq.map (fun complex -> complex.BuildRequirementString())
+                        |> Seq.map (fun complex -> complex.RequirementString)
                         |> Seq.choose id)
                     |> Option.map (String.concat ", ")
                 else

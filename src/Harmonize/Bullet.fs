@@ -5,6 +5,7 @@ open RimWorld
 open Verse
 
 open Infusion
+open Infusion.OnHitWorkers
 open Lib
 open VerseInterop
 
@@ -16,74 +17,23 @@ module Impact =
 
     let Postfix (hitThing: Thing, __instance: Bullet, __state: Map) =
         let primaryEquipment =
-            match __instance.Launcher with
-            | :? Pawn as p -> equipmentsOfPawn p
-            | _ -> None
+            tryCast<Pawn> __instance.Launcher
+            |> Option.bind equipmentsOfPawn
             |> Option.bind (Seq.tryFind (fun e -> e.def.equipmentType = EquipmentType.Primary))
 
-        do primaryEquipment
-           |> Option.bind compOfThing<CompInfusion>
-           |> Option.map (fun comp ->
-               (comp,
-                comp.ExtraDamages
-                |> Seq.filter (fun exdam -> Rand.Chance exdam.chance),
-                comp.ExtraExplosions
-                |> Seq.filter (fun expl -> Rand.Chance expl.chance)))
-           |> Option.iter (fun (comp, exdams, expls) ->
-               let direction =
-                   __instance.ExactPosition.AngleToFlat(__instance.ExactPosition)
+        let comp =
+            Option.bind compOfThing<CompInfusion> primaryEquipment
 
-               // protection against unexpected reflection errors
-               // [todo] remove after the new release, intendedTarget became public
-               let intendedTarget =
-                   Reflectors.Projectile.getIntendedTarget __instance
-                   |> Result.tapError (fun e ->
-                       if not hasReportedError then
-                           match e with
-                           | :? System.ArgumentNullException as ex ->
-                               do Log.Warning
-                                   (sprintf "[Infusion 2] Reflection against Bullet#intendedTarget failed with ArgNull. Please report this with your mods list.\n%A"
-                                        ex)
-                           | ex ->
-                               do Log.Warning
-                                   (sprintf "[Infusion 2] Unknown error for reflection against Bullet#intendedTarget. Please report this with your mods list.\n%A"
-                                        ex)
-                           do hasReportedError <- true)
-                   |> Result.map (fun t -> t.Thing)
-                   |> Option.ofResult
+        let baseDamage = float32 __instance.DamageAmount
 
-               // explosions
-               do expls
-                  |> Seq.iter (fun expl ->
-                      GenExplosion.DoExplosion
-                          (__instance.Position,
-                           __state,
-                           1.0f,
-                           expl.def,
-                           __instance.Launcher,
-                           int (expl.amount * float32 __instance.DamageAmount),
-                           intendedTarget = (intendedTarget |> Option.defaultValue (null)),
-                           weapon = comp.parent.def,
-                           projectile = __instance.def,
-                           direction = new System.Nullable<float32>(direction)))
-
-               // damages, only if it hits something
-               if not (isNull hitThing) then
-                   do exdams
-                      |> Seq.iter (fun exdam ->
-                          let ap =
-                              if exdam.armorPenetration >= 0.0f then
-                                  exdam.armorPenetration
-                              else
-                                  __instance.ArmorPenetration
-
-                          let dinfo =
-                              DamageInfo
-                                  (exdam.def,
-                                   exdam.amount * float32 __instance.DamageAmount,
-                                   ap,
-                                   __instance.ExactRotation.eulerAngles.y,
-                                   __instance.Launcher,
-                                   weapon = comp.parent.def)
-
-                          do hitThing.TakeDamage dinfo |> ignore))
+        do comp
+           |> Option.iter (fun c ->
+               c.OnHits
+               |> List.filter (fun onHit -> Rand.Chance onHit.chance)
+               |> List.iter (fun onHit ->
+                   do onHit.BulletHit
+                       { baseDamage = baseDamage
+                         map = __state
+                         projectile = __instance
+                         target = Option.ofObj hitThing
+                         sourceDef = __instance.EquipmentDef }))

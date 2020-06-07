@@ -36,6 +36,11 @@ let tap fn a =
     do fn a
     a
 
+let tryCast<'a> (o: obj) =
+    match o with
+    | :? 'a as o' -> Some o'
+    | _ -> None
+
 module Option =
     let tap f a =
         match a with

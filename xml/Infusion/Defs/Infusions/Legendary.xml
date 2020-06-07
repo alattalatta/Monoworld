@@ -210,19 +210,19 @@
       <li>
         <key>IncomingDamageFactor</key>
         <value>
-          <offset>-0.1</offset>
+          <offset>-0.2</offset>
         </value>
       </li>
       <li>
         <key>ArmorRating_Sharp</key>
         <value>
-          <offset>0.3</offset>
+          <offset>0.4</offset>
         </value>
       </li>
       <li>
         <key>ArmorRating_Blunt</key>
         <value>
-          <offset>0.3</offset>
+          <offset>0.4</offset>
         </value>
       </li>
     </stats>
@@ -269,28 +269,21 @@
     <labelShort>blaz</labelShort>
     <stats>
       <li>
-        <key>MeleeWeapon_DamageMultiplier</key>
-        <value>
-          <offset>0.2</offset>
-        </value>
-      </li>
-      <li>
         <key>ArmorRating_Heat</key>
         <value>
-          <offset>0.3</offset>
+          <offset>0.5</offset>
         </value>
       </li>
     </stats>
-    <extraExplosions>
-      <li>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.CreateExplosion">
         <def>Flame</def>
-        <amount>0.5</amount>
+        <amount>0.3</amount>
         <chance>0.25</chance>
-        <radius>0.5</radius>
       </li>
-    </extraExplosions>
+    </onHits>
     <extraDescriptions>
-      <li>On hit, 25% chance to cause a small flame explosion, dealing 50% of weapon damage.</li>
+      <li>25% chance to cause a small flame explosion, dealing 30% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -318,16 +311,15 @@
         </value>
       </li>
     </stats>
-    <extraExplosions>
-      <li>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.CreateExplosion">
         <def>Bomb</def>
         <amount>2</amount>
         <chance>0.08</chance>
-        <radius>0.5</radius>
       </li>
-    </extraExplosions>
+    </onHits>
     <extraDescriptions>
-      <li>On hit, 8% chance to explode target, dealing 200% of weapon damage.</li>
+      <li>8% chance to explode the target, dealing 200% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -339,7 +331,7 @@
       <li>
         <key>MeleeWeapon_CooldownMultiplier</key>
         <value>
-          <offset>0.3</offset>
+          <offset>0.2</offset>
         </value>
       </li>
       <li>
@@ -355,15 +347,15 @@
         </value>
       </li>
     </stats>
-    <extraDamages>
-      <li>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.ApplyDamage">
         <def>Stun</def>
         <amount>0.6</amount>
-        <chance>0.3</chance>
+        <chance>0.5</chance>
       </li>
-    </extraDamages>
+    </onHits>
     <extraDescriptions>
-      <li>On hit, 30% chance to stun target for 60% of weapon damage.</li>
+      <li>50% chance to stun the target for 60% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -373,28 +365,75 @@
     <labelShort>surg</labelShort>
     <stats>
       <li>
-        <key>MeleeWeapon_DamageMultiplier</key>
-        <value>
-          <offset>-0.3</offset>
-        </value>
-      </li>
-      <li>
         <key>MeleeWeapon_CooldownMultiplier</key>
         <value>
           <offset>0.5</offset>
         </value>
       </li>
-    </stats>
-    <extraExplosions>
       <li>
+        <key>MeleeWeapon_DamageMultiplier</key>
+        <value>
+          <offset>-0.3</offset>
+        </value>
+      </li>
+    </stats>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.CreateExplosion">
         <def>EMP</def>
         <amount>3</amount>
-        <chance>0.7</chance>
-        <radius>3.5</radius>
+        <chance>0.8</chance>
+        <radius>4</radius>
       </li>
-    </extraExplosions>
+    </onHits>
     <extraDescriptions>
-      <li>On hit, 70% chance to cause an EMP explosion, dealing 300% of weapon damage within a radius of 3.5 cells.</li>
+      <li>80% chance to cause a large EMP explosion, stunning machines within a radius of 4 cells for 300% of the damage.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryMeleeBase">
+    <defName>Vampiric</defName>
+    <label>vampiric</label>
+    <labelShort>vamp</labelShort>
+    <complexes>
+      <li Class="Infusion.Complex.Negate">
+        <value Class="Infusion.Complex.ToolCapacity">
+          <defs>
+            <li>Blunt</li>
+            <li>Poke</li>
+          </defs>
+        </value>
+        <requirementString>sharp</requirementString>
+      </li>
+    </complexes>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.IfBioTargetHit">
+        <value Class="Infusion.OnHitWorkers.Sequence">
+          <value>
+            <li Class="Infusion.OnHitWorkers.ApplyHediff">
+              <def>BloodLoss</def>
+              <amount>0.2</amount>
+            </li>
+            <li Class="Infusion.OnHitWorkers.ReduceSeverity">
+              <def>BloodLoss</def>
+              <amount>0.2</amount>
+              <selfCast>true</selfCast>
+            </li>
+            <li Class="Infusion.OnHitWorkers.HealCaster">
+              <amount>0.075</amount>
+            </li>
+            <li Class="Infusion.OnHitWorkers.ThrowMoteIcon">
+              <def>Mote_HealingCross</def>
+              <selfCast>true</selfCast>
+            </li>
+          </value>
+        </value>
+      </li>
+    </onHits>
+    <extraDescriptions>
+      <li>Drains living flesh target's blood for 20% of the damage.</li>
+      <li>· Restores wielder's blood by the amount of the drained blood.</li>
+      <li>· Heals wielder's random injury for 7.5% of the damage</li>
+      <li>· This effect cannot heal scars.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -421,25 +460,25 @@
       <li>
         <key>AccuracyTouch</key>
         <value>
-          <offset>-0.15</offset>
+          <offset>-0.2</offset>
         </value>
       </li>
       <li>
         <key>AccuracyShort</key>
         <value>
-          <offset>-0.15</offset>
+          <offset>-0.2</offset>
         </value>
       </li>
       <li>
         <key>AccuracyMedium</key>
         <value>
-          <offset>-0.15</offset>
+          <offset>-0.2</offset>
         </value>
       </li>
       <li>
         <key>AccuracyLong</key>
         <value>
-          <offset>-0.15</offset>
+          <offset>-0.2</offset>
         </value>
       </li>
     </stats>
@@ -466,15 +505,16 @@
         </value>
       </li>
     </stats>
-    <extraExplosions>
-      <li>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.CreateExplosion">
         <def>EMP</def>
         <amount>1</amount>
         <chance>0.25</chance>
+        <radius>1.4</radius>
       </li>
-    </extraExplosions>
+    </onHits>
     <extraDescriptions>
-      <li>25% chance to cause an EMP explosion on impact, dealing 100% of weapon damage within a radius of 1.4 cells.</li>
+      <li>25% chance to fire a bullet which causes an EMP explosion, stunning machines within a radius of 1.4 cells for 100% of the damage</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -486,37 +526,31 @@
       <li>
         <key>AimingDelayFactor</key>
         <value>
-          <offset>-0.15</offset>
-        </value>
-      </li>
-      <li>
-        <key>RangedWeapon_DamageMultiplier</key>
-        <value>
           <offset>0.2</offset>
         </value>
       </li>
       <li>
         <key>AccuracyTouch</key>
         <value>
-          <offset>0.12</offset>
+          <offset>0.16</offset>
         </value>
       </li>
       <li>
         <key>AccuracyShort</key>
         <value>
-          <offset>0.12</offset>
+          <offset>0.16</offset>
         </value>
       </li>
       <li>
         <key>AccuracyMedium</key>
         <value>
-          <offset>0.12</offset>
+          <offset>0.16</offset>
         </value>
       </li>
       <li>
         <key>AccuracyLong</key>
         <value>
-          <offset>0.12</offset>
+          <offset>0.16</offset>
         </value>
       </li>
     </stats>
@@ -530,37 +564,13 @@
       <li>
         <key>AimingDelayFactor</key>
         <value>
-          <offset>-0.15</offset>
+          <offset>-0.2</offset>
         </value>
       </li>
       <li>
         <key>RangedWeapon_Cooldown</key>
         <value>
-          <multiplier>-0.15</multiplier>
-        </value>
-      </li>
-      <li>
-        <key>AccuracyTouch</key>
-        <value>
-          <offset>0.08</offset>
-        </value>
-      </li>
-      <li>
-        <key>AccuracyShort</key>
-        <value>
-          <offset>0.08</offset>
-        </value>
-      </li>
-      <li>
-        <key>AccuracyMedium</key>
-        <value>
-          <offset>0.08</offset>
-        </value>
-      </li>
-      <li>
-        <key>AccuracyLong</key>
-        <value>
-          <offset>0.08</offset>
+          <multiplier>-0.2</multiplier>
         </value>
       </li>
     </stats>
@@ -593,15 +603,15 @@
         </value>
       </li>
     </stats>
-    <extraDamages>
-      <li>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.ApplyDamage">
         <def>Stun</def>
         <amount>0.8</amount>
         <chance>0.1</chance>
       </li>
-    </extraDamages>
+    </onHits>
     <extraDescriptions>
-      <li>On hit, 10% chance to stun target for 80% of weapon damage.</li>
+      <li>10% chance to stun the target for 80% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -620,24 +630,24 @@
         </value>
       </li>
     </stats>
-    <extraExplosions>
-      <li>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.CreateExplosion">
         <def>Bomb</def>
         <amount>0.5</amount>
         <chance>0.2</chance>
         <radius>1.4</radius>
       </li>
-      <li>
+      <li Class="Infusion.OnHitWorkers.CreateExplosion">
         <def>Flame</def>
         <amount>0.5</amount>
-        <chance>0.2</chance>
+        <chance>0.1</chance>
         <radius>1.4</radius>
       </li>
-    </extraExplosions>
+    </onHits>
     <extraDescriptions>
-      <li>20% chance to cause an explosion on impact.</li>
-      <li>20% chance to cause a flame explosion on impact.</li>
-      <li>Both deal 50% of weapon damage each, within a radius of 1.4 cells.</li>
+      <li>20% chance for an bullet to explode.</li>
+      <li>Another 10% chance for the bullet to explode in flame.</li>
+      <li>· Each explosion deals 50% of the damage within a radius of 1.4 cells.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 </Defs>

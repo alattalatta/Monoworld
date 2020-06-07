@@ -77,7 +77,7 @@
       <li>
         <key>MaxHitPoints</key>
         <value>
-          <multiplier>0.05</multiplier>
+          <multiplier>0.1</multiplier>
         </value>
       </li>
     </stats>

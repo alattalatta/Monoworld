@@ -44,12 +44,16 @@
   <Blocking.label>막아내는</Blocking.label>
   <Blocking.labelShort>막음</Blocking.labelShort>
 
+  <Poisonous.label>독성</Poisonous.label>
+  <Poisonous.labelShort>독성</Poisonous.labelShort>
+  <Poisonous.extraDescriptions.0>대상을 피해량의 10%만큼 증독시킵니다.</Poisonous.extraDescriptions.0>
+
 
   <!-- melee -->
 
   <Fiery.label>불타는</Fiery.label>
   <Fiery.labelShort>불탐</Fiery.labelShort>
-  <Fiery.extraDescriptions.0>타격 성공 시, 30% 확률로 무기 피해량의 20%만큼 화상 피해를 입힙니다.</Fiery.extraDescriptions.0>
+  <Fiery.extraDescriptions.0>30% 확률로 대상에게 피해량의 20%만큼 화상 피해를 입힙니다.</Fiery.extraDescriptions.0>
 
   <FlawlessMelee.label>뛰어난</FlawlessMelee.label>
   <FlawlessMelee.labelShort>뛰어남</FlawlessMelee.labelShort>
@@ -59,17 +63,22 @@
 
   <Sharpened.label>날선</Sharpened.label>
   <Sharpened.labelShort>날섬</Sharpened.labelShort>
+  <Sharpened.complexes.1.requirementString>날카로움</Sharpened.complexes.1.requirementString>
 
   <Spiked.label>가시박힌</Spiked.label>
   <Spiked.labelShort>가시</Spiked.labelShort>
-  <Spiked.extraDescriptions.0>타격 성공 시, 50% 확률로 무기 피해량의 15%만큼 찌르기 피해를 입힙니다.</Spiked.extraDescriptions.0>
+  <Spiked.complexes.1.requirementString>둔탁함</Spiked.complexes.1.requirementString>
+  <Spiked.extraDescriptions.0>50% 확률로 대상에게 피해량의 15%만큼 찌르기 피해를 입힙니다.</Spiked.extraDescriptions.0>
 
   <Taunting.label>위협적인</Taunting.label>
   <Taunting.labelShort>위협</Taunting.labelShort>
-  <Taunting.extraDescriptions.0>타격 성공 시, 20% 확률로 무기 피해량의 20%만큼 기절시킵니다.</Taunting.extraDescriptions.0>
+  <Taunting.extraDescriptions.0>20% 확률로 대상을 피해량의 20%만큼 기절시킵니다.</Taunting.extraDescriptions.0>
 
 
   <!-- ranged -->
+
+  <Blunt.label>뭉툭한</Blunt.label>
+  <Blunt.labelShort>뭉툭</Blunt.labelShort>
 
   <FlawlessRanged.label>뛰어난</FlawlessRanged.label>
   <FlawlessRanged.labelShort>뛰어남</FlawlessRanged.labelShort>

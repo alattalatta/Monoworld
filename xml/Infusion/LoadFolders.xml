@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<loadFolders>
+  <default>
+    <li>/</li>
+    <li IfModActive="Ludeon.RimWorld.Royalty">RoyaltyOnly</li>
+  </default>
+</loadFolders>

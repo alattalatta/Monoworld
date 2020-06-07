@@ -336,22 +336,45 @@
       <li>
         <key>IncomingDamageFactor</key>
         <value>
-          <offset>-0.06</offset>
+          <offset>-0.12</offset>
         </value>
       </li>
       <li>
         <key>ArmorRating_Sharp</key>
         <value>
-          <offset>0.15</offset>
+          <offset>0.2</offset>
         </value>
       </li>
       <li>
         <key>ArmorRating_Blunt</key>
         <value>
-          <offset>0.15</offset>
+          <offset>0.2</offset>
         </value>
       </li>
     </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareDefaultBase">
+    <defName>Venomous</defName>
+    <label>venomous</label>
+    <labelShort>venom</labelShort>
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
+        <melee>true</melee>
+        <ranged>true</ranged>
+      </li>
+      <li Class="Infusion.Complex.ProjectileBullet" />
+    </complexes>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.ApplyHediff">
+        <def>ToxicBuildup</def>
+        <amount>0.2</amount>
+        <severityScaleBy>ToxicSensitivity</severityScaleBy>
+      </li>
+    </onHits>
+    <extraDescriptions>
+      <li>Increases toxic buildup of the target by 20% of the damage.</li>
+    </extraDescriptions>
   </Infusion.InfusionDef>
 
   <!-- melee -->
@@ -367,23 +390,15 @@
     <defName>Burning</defName>
     <label>burning</label>
     <labelShort>burn</labelShort>
-    <stats>
-      <li>
-        <key>MeleeWeapon_DamageMultiplier</key>
-        <value>
-          <offset>0.15</offset>
-        </value>
-      </li>
-    </stats>
-    <extraDamages>
-      <li>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.ApplyDamage">
         <def>Flame</def>
         <amount>0.3</amount>
-        <chance>0.3</chance>
+        <chance>0.2</chance>
       </li>
-    </extraDamages>
+    </onHits>
     <extraDescriptions>
-      <li>On hit, 30% chance to deal flame damage equal to 30% of weapon damage, igniting target.</li>
+      <li>20% chance to deal flame damage equal to 30% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -411,16 +426,15 @@
     <defName>Electromagnetic</defName>
     <label>electromagnetic</label>
     <labelShort>emp</labelShort>
-    <extraExplosions>
-      <li>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.CreateExplosion">
         <def>EMP</def>
         <amount>1</amount>
         <chance>0.25</chance>
-        <radius>0.5</radius>
       </li>
-    </extraExplosions>
+    </onHits>
     <extraDescriptions>
-      <li>On hit, 25% chance to cause a small EMP explosion at target, dealing 100% of weapon damage.</li>
+      <li>25% chance to cause a small EMP explosion, stunning the machine target for 100% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -436,16 +450,16 @@
         </value>
       </li>
     </stats>
-    <extraDamages>
-      <li>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.ApplyDamage">
         <def>Stab</def>
         <amount>0.25</amount>
-        <chance>0.20</chance>
         <armorPenetration>0.7</armorPenetration>
+        <chance>0.20</chance>
       </li>
-    </extraDamages>
+    </onHits>
     <extraDescriptions>
-      <li>On hit, 20% chance to deal sharp damage equal to 25% of weapon damage, with 70% armor penetration.</li>
+      <li>20% chance to deal sharp damage equal to 25% of the damage, with 70% armor penetration.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -453,16 +467,15 @@
     <defName>Reactive</defName>
     <label>reactive</label>
     <labelShort>react</labelShort>
-    <extraExplosions>
-      <li>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.CreateExplosion">
         <def>Bomb</def>
         <amount>0.75</amount>
         <chance>0.2</chance>
-        <radius>0.5</radius>
       </li>
-    </extraExplosions>
+    </onHits>
     <extraDescriptions>
-      <li>On hit, 20% chance to explode target, dealing 75% of weapon damage.</li>
+      <li>20% chance to explode the target, dealing 75% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -484,15 +497,57 @@
         </value>
       </li>
     </stats>
-    <extraDamages>
-      <li>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.ApplyDamage">
         <def>Stun</def>
         <amount>0.4</amount>
         <chance>0.2</chance>
       </li>
-    </extraDamages>
+    </onHits>
     <extraDescriptions>
-      <li>On hit, 20% chance to stun target for 40% of weapon damage.</li>
+      <li>20% chance to stun the target for 40% of the damage.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareMeleeBase">
+    <defName>Transfusion</defName>
+    <label>transfusion</label>
+    <labelShort>trans</labelShort>
+    <position>Suffix</position>
+    <complexes>
+      <li Class="Infusion.Complex.Negate">
+        <value Class="Infusion.Complex.ToolCapacity">
+          <defs>
+            <li>Blunt</li>
+            <li>Poke</li>
+          </defs>
+        </value>
+        <requirementString>sharp</requirementString>
+      </li>
+    </complexes>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.IfBioTargetHit">
+        <value Class="Infusion.OnHitWorkers.Sequence">
+          <value>
+            <li Class="Infusion.OnHitWorkers.ApplyHediff">
+              <def>BloodLoss</def>
+              <amount>0.2</amount>
+            </li>
+            <li Class="Infusion.OnHitWorkers.ReduceSeverity">
+              <def>BloodLoss</def>
+              <amount>0.2</amount>
+              <selfCast>true</selfCast>
+            </li>
+            <li Class="Infusion.OnHitWorkers.ThrowMoteIcon">
+              <def>Mote_HealingCross</def>
+              <selfCast>true</selfCast>
+            </li>
+          </value>
+        </value>
+      </li>
+    </onHits>
+    <extraDescriptions>
+      <li>Drains living flesh target's blood and restores wielder's for 20% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -545,15 +600,15 @@
         </value>
       </li>
     </stats>
-    <extraDamages>
-      <li>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.ApplyDamage">
         <def>Stun</def>
         <amount>0.4</amount>
         <chance>0.1</chance>
       </li>
-    </extraDamages>
+    </onHits>
     <extraDescriptions>
-      <li>On hit, 10% chance to stun target for 40% of weapon damage.</li>
+      <li>10% chance to stun the target for 40% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -564,16 +619,16 @@
     <complexes>
       <li Class="Infusion.Complex.ProjectileBullet" />
     </complexes>
-    <extraExplosions>
-      <li>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.CreateExplosion">
         <def>Bomb</def>
         <amount>0.75</amount>
         <chance>0.1</chance>
         <radius>1.4</radius>
       </li>
-    </extraExplosions>
+    </onHits>
     <extraDescriptions>
-      <li>10% chance to explode on impact, dealing 75% of weapon damage within a radius of 1.4 cells.</li>
+      <li>10% chance to fire an explosive bullet, dealing 75% of the damage within a radius of 1.4 cells.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -630,16 +685,16 @@
         </value>
       </li>
     </stats>
-    <extraDamages>
-      <li>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.ApplyDamage">
         <def>Stab</def>
         <amount>0.25</amount>
-        <chance>0.1</chance>
         <armorPenetration>0.7</armorPenetration>
+        <chance>0.1</chance>
       </li>
-    </extraDamages>
+    </onHits>
     <extraDescriptions>
-      <li>On hit, 10% chance to deal sharp damage equal to 25% of weapon damage, with 70% armor penetration.</li>
+      <li>10% chance to fire an armor piercing bullet, dealing sharp damage equal to 25% of the damage with 70% armor penetration.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -650,16 +705,15 @@
     <complexes>
       <li Class="Infusion.Complex.ProjectileBullet" />
     </complexes>
-    <extraExplosions>
-      <li>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.CreateExplosion">
         <def>Flame</def>
-        <amount>0.75</amount>
-        <chance>0.15</chance>
-        <radius>0.5</radius>
+        <amount>0.3</amount>
+        <chance>0.1</chance>
       </li>
-    </extraExplosions>
+    </onHits>
     <extraDescriptions>
-      <li>15% chance to cause a small flame explosion on impact, dealing 75% of weapon damage.</li>
+      <li>10% chance to fire a bullet which explodes in flame, dealing 30% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 </Defs>

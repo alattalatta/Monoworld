@@ -47,9 +47,8 @@ type StatMod =
     static member (+)(a: StatMod, b: StatMod) = StatMod(a.offset + b.offset, a.multiplier + b.multiplier)
 
 let applyTo (value: float32) (statMod: StatMod) =
-    value
-    + statMod.offset
-    + value * statMod.multiplier
+    (value + statMod.offset)
+    * (1.0f + statMod.multiplier)
 
 let stringForStat (stat: StatDef) (statMod: StatMod) =
     let sb = StringBuilder()
