@@ -6,6 +6,9 @@
   <Airtight.label>밀폐형</Airtight.label>
   <Airtight.labelShort>밀폐형</Airtight.labelShort>
 
+  <Amplifying.label>증폭하는</Amplifying.label>
+  <Amplifying.labelShort>증폭</Amplifying.labelShort>
+
   <Restless.label>부지런한</Restless.label>
   <Restless.labelShort>부지런</Restless.labelShort>
 
@@ -36,6 +39,12 @@
   <Blazing.label>화염의</Blazing.label>
   <Blazing.labelShort>화염의</Blazing.labelShort>
   <Blazing.extraDescriptions.0>25% 확률로 작은 화염 폭발이 발생해 피해량의 30%만큼 피해를 입힙니다.</Blazing.extraDescriptions.0>
+
+  <Chaotic.label>혼돈의</Chaotic.label>
+  <Chaotic.labelShort>혼돈</Chaotic.labelShort>
+  <Chaotic.extraDescriptions.0>8% 확률로 대상을 느리게 만듭니다.</Chaotic.extraDescriptions.0>
+  <Chaotic.extraDescriptions.1>4% 확률로 대상의 눈을 멀게 합니다.</Chaotic.extraDescriptions.1>
+  <Chaotic.extraDescriptions.2>2% 확률로 대상을 어지럽게 만듭니다.</Chaotic.extraDescriptions.2>
 
   <Critical.label>치명적인</Critical.label>
   <Critical.labelShort>치명</Critical.labelShort>
@@ -73,6 +82,10 @@
   <Responsive.label>반응형</Responsive.label>
   <Responsive.labelShort>반응</Responsive.labelShort>
 
+  <Stimulating.label>자극성</Stimulating.label>
+  <Stimulating.labelShort>자극</Stimulating.labelShort>
+  <Stimulating.extraDescriptions.0>10% 확률로 착용자에게 짧은 집중 효과를 부여합니다.</Stimulating.extraDescriptions.0>
+
   <Suppressive.label>제압형</Suppressive.label>
   <Suppressive.labelShort>제압</Suppressive.labelShort>
   <Suppressive.extraDescriptions.0>10% 확률로 대상을 피해량의 80%만큼 기절시킵니다.</Suppressive.extraDescriptions.0>
@@ -80,7 +93,7 @@
   <Volatile.label>휘발성</Volatile.label>
   <Volatile.labelShort>휘발성</Volatile.labelShort>
   <Volatile.extraDescriptions.0>20% 확률로 총알이 폭발합니다.</Volatile.extraDescriptions.0>
-  <Volatile.extraDescriptions.1>또한 10% 확률로 총알이 화염으로서 폭발합니다.</Volatile.extraDescriptions.1>
+  <Volatile.extraDescriptions.1>10% 확률로 총알에서 화염 폭발이 발생합니다.</Volatile.extraDescriptions.1>
   <Volatile.extraDescriptions.2>· 두 폭발 모두 반경 1.4칸 내에 피해량의 50%만큼 피해를 입힙니다.</Volatile.extraDescriptions.2>
 
 
