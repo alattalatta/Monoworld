@@ -15,7 +15,7 @@ open VerseInterop
 open System.Reflection
 
 
-let extraStatsToConsider =
+let armorStats =
     Set.ofList
         [ StatDefOf.ArmorRating_Blunt.defName
           StatDefOf.ArmorRating_Heat.defName
@@ -45,15 +45,29 @@ module StatWorker =
 [<HarmonyPatch(typeof<StatWorker>, "RelevantGear")>]
 module RelevantGear =
     /// Adds hyperlink entries in the pawn's inspection window.
-    /// Why not a "GearAffectsStat"? Because it uses a ThingDef, not a Thing.
+    /// Why not the "GearAffectsStat"? Because it uses a ThingDef, not a Thing.
     let Postfix (returned: Thing seq, pawn: Pawn, stat: StatDef) =
-        if Set.contains stat.category.defName pawnStatCategories
-           || Set.contains stat.defName extraStatsToConsider then
+        let isPawnStat =
+            Set.contains stat.category.defName pawnStatCategories
+
+        let isArmorStat = Set.contains stat.defName armorStats
+
+        if isPawnStat || isArmorStat then
             let map = Dictionary<string, Thing>()
+
             returned
             |> Seq.iter (fun thing -> map.Add(thing.ThingID, thing))
 
-            StatWorker.apparelsAndEquipments pawn
+            let thingsToConsider =
+                if isPawnStat then
+                    StatWorker.apparelsAndEquipments pawn
+                else
+                    // armor stats = only weapons
+                    match equipmentsOfPawn pawn with
+                    | Some equipments -> equipments |> List.map upcastToThing
+                    | None -> List.empty
+
+            thingsToConsider
             |> List.choose (fun t ->
                 compOfThing<CompInfusion> t
                 |> Option.filter (fun comp -> comp.HasInfusionForStat stat))
@@ -63,6 +77,30 @@ module RelevantGear =
 
         else
             returned
+
+
+[<HarmonyPatch(typeof<StatWorker>, "StatOffsetFromGear")>]
+module StatOffsetFromGear =
+    /// Adds infusions to Core stat calculation.
+    /// Note that we can only use `StatMod#offset` because it is "stat _offset_ from gear."
+    let Postfix (returned: float32, gear: Thing, stat: StatDef) =
+        let isPawnStat =
+            Set.contains stat.category.defName pawnStatCategories
+
+        let isArmorStat = Set.contains stat.defName armorStats
+
+        if isPawnStat || isArmorStat then
+            match compOfThing<CompInfusion> gear with
+            | Some compInf ->
+                // for general stats, consider both weapons and apparels into account
+                // for armor stats, only check weapons
+                if isPawnStat || (isArmorStat && gear.def.IsWeapon)
+                then (compInf.GetModForStat stat).offset + returned
+                else returned
+            | None -> returned
+        else
+            returned
+
 
 
 [<HarmonyPatch(typeof<StatWorker>, "InfoTextLineFromGear")>]
@@ -121,18 +159,3 @@ module GetExplanationUnfinalized =
                 do inst.operand <- gearOrInfusionAffectsStatMI
 
         Seq.ofList insts
-
-
-[<HarmonyPatch(typeof<StatWorker>, "StatOffsetFromGear")>]
-module StatOffsetFromGear =
-    /// Adds infusions to Core stat calculation.
-    /// Note that we can only use `StatMod#offset` because it is "stat _offset_ from gear."
-    let Postfix (returned: float32, gear: Thing, stat: StatDef) =
-        if Set.contains stat.category.defName pawnStatCategories
-           || Set.contains stat.defName extraStatsToConsider then
-
-            match compOfThing<CompInfusion> gear with
-            | Some compInf -> (compInf.GetModForStat stat).offset + returned
-            | None -> returned
-        else
-            returned
