@@ -524,9 +524,9 @@
     <labelShort>hom</labelShort>
     <stats>
       <li>
-        <key>AimingDelayFactor</key>
+        <key>RangedWeapon_DamageMultiplier</key>
         <value>
-          <offset>0.2</offset>
+          <offset>0.1</offset>
         </value>
       </li>
       <li>
