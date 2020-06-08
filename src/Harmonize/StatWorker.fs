@@ -47,36 +47,40 @@ module RelevantGear =
     /// Adds hyperlink entries in the pawn's inspection window.
     /// Why not the "GearAffectsStat"? Because it uses a ThingDef, not a Thing.
     let Postfix (returned: Thing seq, pawn: Pawn, stat: StatDef) =
-        let isPawnStat =
-            Set.contains stat.category.defName pawnStatCategories
-
-        let isArmorStat = Set.contains stat.defName armorStats
-
-        if isPawnStat || isArmorStat then
-            let map = Dictionary<string, Thing>()
-
+        // Just skip animals
+        if not pawn.def.race.Humanlike then
             returned
-            |> Seq.iter (fun thing -> map.Add(thing.ThingID, thing))
-
-            let thingsToConsider =
-                if isPawnStat then
-                    StatWorker.apparelsAndEquipments pawn
-                else
-                    // armor stats = only weapons
-                    match equipmentsOfPawn pawn with
-                    | Some equipments -> equipments |> List.map upcastToThing
-                    | None -> List.empty
-
-            thingsToConsider
-            |> List.choose (fun t ->
-                compOfThing<CompInfusion> t
-                |> Option.filter (fun comp -> comp.HasInfusionForStat stat))
-            |> List.iter (fun t -> map.SetOrAdd(t.parent.ThingID, t.parent))
-
-            seq (map.Values)
-
         else
-            returned
+            let isPawnStat =
+                Set.contains stat.category.defName pawnStatCategories
+
+            let isArmorStat = Set.contains stat.defName armorStats
+
+            if isPawnStat || isArmorStat then
+                let map = Dictionary<string, Thing>()
+
+                returned
+                |> Seq.iter (fun thing -> map.Add(thing.ThingID, thing))
+
+                let thingsToConsider =
+                    if isPawnStat then
+                        StatWorker.apparelsAndEquipments pawn
+                    else
+                        // armor stats = only weapons
+                        match equipmentsOfPawn pawn with
+                        | Some equipments -> equipments |> List.map upcastToThing
+                        | None -> List.empty
+
+                thingsToConsider
+                |> List.choose (fun t ->
+                    compOfThing<CompInfusion> t
+                    |> Option.filter (fun comp -> comp.HasInfusionForStat stat))
+                |> List.iter (fun t -> map.SetOrAdd(t.parent.ThingID, t.parent))
+
+                seq (map.Values)
+
+            else
+                returned
 
 
 [<HarmonyPatch(typeof<StatWorker>, "StatOffsetFromGear")>]
