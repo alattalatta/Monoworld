@@ -229,7 +229,7 @@
     <onHits>
       <li Class="Infusion.OnHitWorkers.ApplyHediff">
         <def>ToxicBuildup</def>
-        <amount>0.1</amount>
+        <amount>0.05</amount>
         <severityScaleBy>ToxicSensitivity</severityScaleBy>
       </li>
     </onHits>

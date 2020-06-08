@@ -411,11 +411,11 @@
           <value>
             <li Class="Infusion.OnHitWorkers.ApplyHediff">
               <def>BloodLoss</def>
-              <amount>0.2</amount>
+              <amount>0.1</amount>
             </li>
             <li Class="Infusion.OnHitWorkers.ReduceSeverity">
               <def>BloodLoss</def>
-              <amount>0.2</amount>
+              <amount>0.1</amount>
               <selfCast>true</selfCast>
             </li>
             <li Class="Infusion.OnHitWorkers.HealCaster">
@@ -576,7 +576,7 @@
     </stats>
   </Infusion.InfusionDef>
 
-  <Infusion.InfusionDef ParentName="LegendaryMeleeBase">
+  <Infusion.InfusionDef ParentName="LegendaryRangedBase">
     <defName>Suppressive</defName>
     <label>suppressive</label>
     <labelShort>sprs</labelShort>
