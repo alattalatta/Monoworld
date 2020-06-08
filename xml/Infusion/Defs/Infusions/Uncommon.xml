@@ -397,7 +397,7 @@
     </extraDescriptions>
   </Infusion.InfusionDef>
 
-  <Infusion.InfusionDef ParentName="UncommonMeleeBase">
+  <Infusion.InfusionDef ParentName="UncommonRangedBase">
     <defName>FlawlessRanged</defName>
     <label>flawless</label>
     <labelShort>flawless</labelShort>
