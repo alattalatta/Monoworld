@@ -20,24 +20,32 @@
   <Infusion.Job.FailReason.NoExtractor>No reachable, un-reserved empty infuser.</Infusion.Job.FailReason.NoExtractor>
   <Infusion.Job.FailReason.NoMatchingInfuser>No reachable, un-reserved, suitable infuser.</Infusion.Job.FailReason.NoMatchingInfuser>
 
+  <!-- inspection tab -->
   <Infusion.ITab>Infusions</Infusion.ITab>
+
+  <Infusion.ITab.Hint>Click an infusion to designate for an extraction/removal</Infusion.ITab.Hint>
 
   <Infusion.ITab.ApplyInfuser>Apply infuser...</Infusion.ITab.ApplyInfuser>
   <Infusion.ITab.ApplyInfuser.Description>Only infusers usable on this equipment will be shown.</Infusion.ITab.ApplyInfuser.Description>
 
-  <Infusion.ITab.MarkForExtraction>Click to mark this infusion for an extraction. (Success rate {0})
+  <Infusion.ITab.ApplyInfuser.SlotsFull>Can't apply infuser:\nSlots full</Infusion.ITab.ApplyInfuser.SlotsFull>
+  <Infusion.ITab.ApplyInfuser.NoSuitableInfuser>Can't apply infuser:\nNo suitable infuser</Infusion.ITab.ApplyInfuser.NoSuitableInfuser>
 
-One of your colonist with crafting will extract it using an empty infuser.
+  <Infusion.ITab.MarkForExtraction>Click to mark this infusion for an extraction. (Success rate {0})</Infusion.ITab.MarkForExtraction>
+  <Infusion.ITab.MarkForRemoval>Marked for an extraction. (Success rate {0})
+Extraction costs an empty infuser. Failing it will result it loss of both the infusion and the empty infuser.
 
-Extraction may fail, which destroys both infusion and infuser.
-</Infusion.ITab.MarkForExtraction>
-  <Infusion.ITab.MarkForRemoval>Click to mark this infusion for a removal.
+One of your colonist with crafting job will extract it.
 
-One of your colonist with crafting will remove it without any cost.
 
-Removal never fails and costs nothing.
-</Infusion.ITab.MarkForRemoval>
-  <Infusion.ITab.Unmark>Click to unmark this infusion.</Infusion.ITab.Unmark>
+Click again to mark this infusion for a removal instead.</Infusion.ITab.MarkForRemoval>
+  <Infusion.ITab.Unmark>Marked for a removal.
+Removing infusion costs nothing.
+
+One of your colonist with crafting job will remove it.
+
+
+Click again to cancel the removal.</Infusion.ITab.Unmark>
 
   <!-- settings -->
   <Infusion.Settings.AccuracyOvercapping>Enable accuracy overcapping</Infusion.Settings.AccuracyOvercapping>

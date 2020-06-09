@@ -42,6 +42,14 @@ let tryCast<'a> (o: obj) =
     | _ -> None
 
 module Option =
+    let ofResult a =
+        match a with
+        | Ok a -> Some a
+        | Error _ -> None
+
+    let ofSeq as_ =
+        if Seq.length as_ = 0 then None else Some as_
+
     let tap f a =
         match a with
         | Some a2 ->
@@ -51,21 +59,16 @@ module Option =
 
     let tapNone f a =
         match a with
-        | Some a2 -> a
+        | Some _ -> a
         | None ->
             do f ()
-            None
-
-    let ofResult a =
-        match a with
-        | Ok a -> Some a
-        | Error _ -> None
-
-    let ofSeq a =
-        if Seq.length a = 0 then None else Some a
+            a
 
 
 module Result =
+    let ofSeq e as_ =
+        if Seq.length as_ = 0 then Error e else Ok as_
+
     let tapError f =
         Result.mapError (fun a ->
             do f (a)
@@ -75,3 +78,8 @@ module Result =
         match r with
         | Ok a -> do f a
         | _ -> ()
+
+    let iterBoth fe fa r =
+        match r with
+        | Ok a -> do fa a
+        | Error e -> do fe e

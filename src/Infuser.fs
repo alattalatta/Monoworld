@@ -63,6 +63,7 @@ type Infuser() =
                    seq {
                        yield DefDatabase<InfusionDef>.AllDefs
                              |> Seq.filter (fun inf -> inf.tier = props.forcedTier)
+                             |> Seq.filter InfusionDef.activeForUse
                              |> GenCollection.RandomElement
                    })
 

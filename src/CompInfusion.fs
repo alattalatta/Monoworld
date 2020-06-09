@@ -158,7 +158,7 @@ type CompInfusion() =
 
     member this.Descriptions =
         this.Infusions
-        |> Seq.map (fun inf -> inf.GetDescriptionString())
+        |> Seq.map InfusionDef.makeDescriptionString
         |> String.concat "\n\n"
 
     // [todo] move to under ITab
@@ -326,11 +326,7 @@ type CompInfusion() =
             let applicability =
                 if isInfuser then
                     this.BestInfusion
-                    |> Option.map (fun inf ->
-                        inf.complexes
-                        |> Seq.map (fun complex -> complex.RequirementString)
-                        |> Seq.choose id)
-                    |> Option.map (String.concat ", ")
+                    |> Option.map InfusionDef.makeRequirementString
                 else
                     None
 

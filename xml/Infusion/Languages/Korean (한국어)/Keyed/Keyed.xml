@@ -20,24 +20,32 @@
   <Infusion.Job.FailReason.NoExtractor>접근 가능하고 선점 가능한 빈 연마기 없음</Infusion.Job.FailReason.NoExtractor>
   <Infusion.Job.FailReason.NoMatchingInfuser>접근 가능하고 선점 가능하며 적합한 연마기 없음</Infusion.Job.FailReason.NoMatchingInfuser>
 
+  <!-- inspection tab -->
   <Infusion.ITab>마법부여</Infusion.ITab>
+
+  <Infusion.ITab.Hint>마법부여를 클릭해 추출/제거 지정</Infusion.ITab.Hint>
 
   <Infusion.ITab.ApplyInfuser>연마기 사용...</Infusion.ITab.ApplyInfuser>
   <Infusion.ITab.ApplyInfuser.Description>이 장비에 적합한 연마기만 보여집니다.</Infusion.ITab.ApplyInfuser.Description>
 
-  <Infusion.ITab.MarkForExtraction>클릭하면 이 마법부여의 추출을 지정합니다. (성공률 {0})
+  <Infusion.ITab.ApplyInfuser.SlotsFull>연마기 사용 불가:\n마법부여 칸 없음</Infusion.ITab.ApplyInfuser.SlotsFull>
+  <Infusion.ITab.ApplyInfuser.NoSuitableInfuser>연마기 사용 불가:\n적합한 연마기 없음</Infusion.ITab.ApplyInfuser.NoSuitableInfuser>
 
-제작 작업을 맡은 정착민이 빈 연마기를 사용해 추출할 것입니다.
-    
-추출은 실패할 수 있으며, 이 때 마법부여와 연마기가 모두 파괴됩니다,
-  </Infusion.ITab.MarkForExtraction>
-  <Infusion.ITab.MarkForRemoval>클릭하면 이 마법부여의 제거를 지정합니다.
-    
+  <Infusion.ITab.MarkForExtraction>클릭하면 마법부여의 추출을 지정합니다. (성공률 {0})</Infusion.ITab.MarkForExtraction>
+  <Infusion.ITab.MarkForRemoval>추출을 지정한 마법부여입니다. (성공률 {0})
+추출에는 빈 연마기가 필요합니다. 실패하면 마법부여와 연마기 모두 사라집니다.
+
+제작 작업을 맡은 정착민이 추출할 것입니다.
+
+
+다시 클릭하면 추출 대신 제거를 지정합니다.</Infusion.ITab.MarkForRemoval>
+  <Infusion.ITab.Unmark>제거를 지정한 마법부여입니다.
+마법부여 제거에는 아무것도 필요하지 않습니다.
+
 제작 작업을 맡은 정착민이 제거할 것입니다.
-    
-제거는 실패하지 않습니다.
-  </Infusion.ITab.MarkForRemoval>
-  <Infusion.ITab.Unmark>마법부여에 지정한 명령을 제거합니다.</Infusion.ITab.Unmark>
+
+
+다시 클릭하면 제거를 취소합니다.</Infusion.ITab.Unmark>
 
   <!-- settings -->
   <Infusion.Settings.AccuracyOvercapping>명중률 제한 해제</Infusion.Settings.AccuracyOvercapping>

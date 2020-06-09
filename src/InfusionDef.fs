@@ -68,29 +68,6 @@ type InfusionDef =
 
     member this.WeightFor(quality: QualityCategory) = valueFor quality this.tier.weights
 
-    member this.GetDescriptionString() =
-        let label =
-            ((StringBuilder(string (this.LabelCap)).Append(" (").Append(this.tier.label).Append(") :"))
-             |> string)
-
-        let statsDescriptions =
-            dictseq this.stats
-            |> Seq.fold (fun (acc: StringBuilder) cur ->
-                acc.Append("\n  ").Append(cur.Key.LabelCap).Append(" ... ").Append((stringForStat cur.Key cur.Value)))
-                   (StringBuilder())
-
-        let extraDescriptions =
-            if (this.extraDescriptions.NullOrEmpty()) then
-                ""
-            else
-                this.extraDescriptions
-                |> Seq.fold (fun (acc: StringBuilder) cur -> acc.Append("\n  ").Append(cur)) (StringBuilder())
-                |> string
-
-        StringBuilder(label.Colorize(this.tier.color)).Append(statsDescriptions)
-            .Append(extraDescriptions.Colorize(Color(0.11f, 1.0f, 0.0f)))
-        |> string
-
     override this.ToString() = sprintf "%s (%s)" (base.ToString()) this.label
 
     override this.Equals(ob) = base.Equals(ob)
@@ -120,3 +97,39 @@ module InfusionDef =
     let checkAllComplexes target quality (infDef: InfusionDef) =
         (infDef.ChanceFor quality) > 0.0f
         && infDef.complexes.TrueForAll(fun complex -> complex.Match target infDef)
+
+    let makeRequirementString (infDef: InfusionDef) =
+        infDef.complexes
+        |> Seq.map (fun complex -> complex.RequirementString)
+        |> Seq.choose id
+        |> String.concat ", "
+
+    let makeDescriptionString (infDef: InfusionDef) =
+        let labelSB = string infDef.LabelCap |> StringBuilder
+        let reqString = makeRequirementString infDef
+
+        do labelSB.Append(" (").Append(infDef.tier.label)
+           |> ignore
+
+        if String.length reqString > 0
+        then do labelSB.Append(" ― ").Append(reqString) |> ignore
+
+        let label = labelSB.Append(")") |> string
+
+        let statsDescriptions =
+            dictseq infDef.stats
+            |> Seq.fold (fun (acc: StringBuilder) cur ->
+                acc.Append("\n  ").Append(cur.Key.LabelCap).Append(" ... ").Append((stringForStat cur.Key cur.Value)))
+                   (StringBuilder())
+
+        let extraDescriptions =
+            if (infDef.extraDescriptions.NullOrEmpty()) then
+                ""
+            else
+                infDef.extraDescriptions
+                |> Seq.fold (fun (acc: StringBuilder) cur -> acc.Append("\n  ").Append(cur)) (StringBuilder())
+                |> string
+
+        StringBuilder(label.Colorize(infDef.tier.color)).Append(statsDescriptions)
+            .Append(extraDescriptions.Colorize(Color(0.11f, 1.0f, 0.0f)))
+        |> string

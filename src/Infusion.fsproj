@@ -55,8 +55,8 @@
     <Compile Include="Mod.fs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="..\libs\*.dll" />
     <Reference Include="netstandard" />
+    <Reference Include="..\libs\*.dll" />
   </ItemGroup>
   <ItemGroup>
     <Artifact Include=".\bin\**\Infusion.dll" />

@@ -9,11 +9,16 @@ open Verse.Sound
 
 open Lib
 open VerseInterop
+open System.Collections.Generic
 
 let gray = Color(0.61f, 0.61f, 0.61f)
 
+let resetStyles () =
+    do Text.Font <- GameFont.Small
+    do GUI.color <- Color.white
+
 type Infused() =
-    inherit ITab(size = Vector2(400.0f, 550.0f), labelKey = "Infusion.ITab")
+    inherit ITab(size = Vector2(460.0f, 550.0f), labelKey = "Infusion.ITab")
 
     let mutable scrollPos = Vector2.zero
 
@@ -24,7 +29,7 @@ type Infused() =
         | Some thing -> compOfThing<CompInfusion> thing
         | None -> None
 
-    member this.DrawLabel(parentRect: Rect) =
+    member private this.DrawLabel(parentRect: Rect) =
         let compInf = this.CompInf.Value
 
         let label = compInf.InspectionLabel
@@ -36,9 +41,13 @@ type Infused() =
             | None -> gray
         do Widgets.Label(parentRect, label)
 
-        Text.CalcHeight(label, parentRect.width)
+        let labelHeight = Text.CalcHeight(label, parentRect.width)
+        do resetStyles ()
 
-    member this.DrawSubLabel(parentRect: Rect) =
+        labelHeight
+
+
+    member private this.DrawSubLabel(parentRect: Rect) =
         let compInf = this.CompInf.Value
         let compQuality = compOfThing<CompQuality> this.SelThing
 
@@ -57,27 +66,37 @@ type Infused() =
            |> ignore
 
         let subLabel = (string subLabelSB).CapitalizeFirst()
-
-        do Text.Font <- GameFont.Small
-        do GUI.color <- Color.white
         do Widgets.Label(parentRect, subLabel)
 
-        Text.CalcHeight(subLabel, parentRect.width)
+        let subLabelHeight =
+            Text.CalcHeight(subLabel, parentRect.width)
 
-    member this.DrawBaseInfusion (parentRect: Rect) yOffset (infDef: InfusionDef) =
-        let compInf = this.CompInf.Value // assumes this.Comp to be always Some
+        do Text.Font <- GameFont.Tiny
+        do GUI.color <- Color.gray
 
-        let description = infDef.GetDescriptionString()
+        let hint = translate "Infusion.ITab.Hint"
+        let hintHeight = Text.CalcHeight(hint, parentRect.width)
+
+        let hintView =
+            Rect(parentRect.xMin, parentRect.yMin + subLabelHeight + 4.0f, parentRect.width, hintHeight)
+
+        do Widgets.Label(hintView, hint)
+        do resetStyles ()
+
+        subLabelHeight + hintHeight + 4.0f
+
+    member private this.DrawBaseInfusion (parentRect: Rect) yOffset (infDef: InfusionDef) =
+        let description = InfusionDef.makeDescriptionString infDef
 
         let contentsHeight =
-            Text.CalcHeight(description, parentRect.width)
+            Text.CalcHeight(description, parentRect.width - 16.0f)
             + 16.0f
 
         let container =
             Rect(parentRect.x, yOffset, parentRect.width, contentsHeight)
 
         let body =
-            Rect(container.x, container.y + 8.0f, container.xMax, container.yMax - 8.0f)
+            Rect(container.x + 8.0f, container.y + 8.0f, container.xMax - 8.0f, container.yMax - 8.0f)
 
         let hovered = Mouse.IsOver container
 
@@ -85,12 +104,11 @@ type Infused() =
         if hovered
         then do GUI.DrawTexture(container, TexUI.HighlightTex)
 
-        do GUI.color <- Color.white
         do Widgets.Label(body, description)
 
         container
 
-    member this.DrawInfusion (parentRect: Rect) yOffset (infDef: InfusionDef) =
+    member private this.DrawInfusion (parentRect: Rect) yOffset (infDef: InfusionDef) =
         let compInf = this.CompInf.Value // assumes this.Comp to be always Some
 
         let container =
@@ -113,7 +131,7 @@ type Infused() =
 
         let tooltipStringKey =
             if markedForExtraction
-            then translate "Infusion.ITab.MarkForRemoval"
+            then string (translate1 "Infusion.ITab.MarkForRemoval" (infDef.tier.extractionChance.ToStringPercent()))
             elif markedForRemoval
             then translate "Infusion.ITab.Unmark"
             else string (translate1 "Infusion.ITab.MarkForExtraction" (infDef.tier.extractionChance.ToStringPercent()))
@@ -133,7 +151,7 @@ type Infused() =
 
         container
 
-    member this.DrawPendingInfusion (parentRect: Rect) yOffset (infDef: InfusionDef) =
+    member private this.DrawPendingInfusion (parentRect: Rect) yOffset (infDef: InfusionDef) =
         let compInf = this.CompInf.Value // assumes this.Comp to be always Some
 
         let container =
@@ -153,16 +171,16 @@ type Infused() =
 
         container
 
-    member this.DrawInfusionList(parentRect: Rect) =
+    member private this.DrawInfusionList(parentRect: Rect) =
         let comp = this.CompInf.Value
 
-        let scrollerWidth = parentRect.width - 20.0f
+        let scrollerWidth = parentRect.width - 24.0f
 
         let calculateInfusionsHeight (infusions: InfusionDef seq) =
             infusions
             |> Seq.fold (fun acc cur ->
                 acc
-                + Text.CalcHeight(cur.GetDescriptionString(), scrollerWidth)
+                + Text.CalcHeight(InfusionDef.makeDescriptionString cur, scrollerWidth)
                 + 24.0f) 0.0f
 
         let totalHeight =
@@ -189,7 +207,49 @@ type Infused() =
 
         do Widgets.EndScrollView()
 
-        do GUI.color <- Color.white
+        do resetStyles ()
+
+    member private this.DrawApplyButton(parentRect: Rect) =
+        let comp = this.CompInf.Value
+
+        let drawUnavailableReason (reason: string) =
+            do GUI.color <- gray
+            do Text.Anchor <- TextAnchor.MiddleCenter
+            do Text.Font <- GameFont.Tiny
+
+            do Widgets.Label(parentRect, reason)
+
+            do GUI.color <- Color.white
+            do Text.Anchor <- TextAnchor.UpperLeft
+            do Text.Font <- GameFont.Small
+
+        let drawButton (infPairs: KeyValuePair<InfusionDef, Infuser> seq) =
+            let buttonView =
+                Rect(parentRect.xMin + 30.0f, parentRect.yMin, 140.0f, parentRect.height)
+
+            do TooltipHandler.TipRegion(parentRect, TipSignal(translate "Infusion.ITab.ApplyInfuser.Description"))
+
+            if Widgets.ButtonText(buttonView, translate "Infusion.ITab.ApplyInfuser") then
+                do infPairs
+                   |> Seq.map (fun infPair ->
+                       FloatMenuOption
+                           (string (infPair.Key.LabelCap), (fun () -> do comp.MarkForInfuser infPair.Key |> ignore)))
+                   |> List<FloatMenuOption>
+                   |> FloatMenu
+                   |> Find.WindowStack.Add
+
+        let allInfusers =
+            if Set.count comp.InfusionsRaw < comp.SlotCount
+            then Ok Infuser.AllInfusersByDef
+            else Error(translate "Infusion.ITab.ApplyInfuser.SlotsFull")
+
+        do allInfusers
+           |> Result.map
+               (Seq.filter (fun kv ->
+                   not (Set.contains kv.Key comp.InfusionsRaw)
+                   && InfusionDef.checkAllComplexes comp.parent comp.Quality kv.Key))
+           |> Result.bind (Result.ofSeq (translate "Infusion.ITab.ApplyInfuser.NoSuitableInfuser"))
+           |> Result.iterBoth drawUnavailableReason drawButton
 
     override this.IsVisible =
         match this.CompInf with
@@ -221,29 +281,12 @@ type Infused() =
                  container.yMax
                  - subLabelView.yMin
                  - subLabelHeight
-                 - 40.0f)
+                 - 56.0f)
 
         do this.DrawInfusionList(descView)
 
         // infuser button
         let infuserView =
-            Rect(Vector2(container.center.x - 60.0f, container.yMax - 32.0f), Vector2(120.0f, 24.0f))
+            Rect(Vector2(container.center.x - 100.0f, container.yMax - 40.0f), Vector2(200.0f, 36.0f))
 
-        let comp = this.CompInf.Value
-
-        if Set.count comp.InfusionsRaw < comp.SlotCount then
-            Infuser.AllInfusersByDef
-            |> Seq.filter (fun kv ->
-                not (Set.contains kv.Key comp.InfusionsRaw)
-                && InfusionDef.checkAllComplexes comp.parent comp.Quality kv.Key)
-            |> Option.ofSeq
-            |> Option.filter (fun _ ->
-                do TooltipHandler.TipRegion(infuserView, TipSignal(translate "Infusion.ITab.ApplyInfuser.Description"))
-                Widgets.ButtonText(infuserView, translate "Infusion.ITab.ApplyInfuser"))
-            |> Option.iter (fun eligibles ->
-                eligibles
-                |> Seq.map (fun a ->
-                    FloatMenuOption(string (a.Key.LabelCap), (fun () -> do comp.MarkForInfuser a.Key |> ignore)))
-                |> System.Collections.Generic.List<FloatMenuOption>
-                |> FloatMenu
-                |> Find.WindowStack.Add)
+        this.DrawApplyButton infuserView
