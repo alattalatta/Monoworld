@@ -389,11 +389,11 @@
     <onHits>
       <li Class="Infusion.OnHitWorkers.ApplyDamage">
         <def>Blunt</def>
-        <amount>4.5</amount>
+        <amount>3.5</amount>
       </li>
     </onHits>
     <extraDescriptions>
-      <li>Deals 450% of the damage as blunt damage.</li>
+      <li>Deals 350% extra blunt damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
