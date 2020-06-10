@@ -51,6 +51,11 @@ Click again to cancel the removal.</Infusion.ITab.Unmark>
   <Infusion.Settings.AccuracyOvercapping>Enable accuracy overcapping</Infusion.Settings.AccuracyOvercapping>
   <Infusion.Settings.AccuracyOvercapping.Description>Allows ranged weapon accuracy to go over 100%, with diminishing returns.</Infusion.Settings.AccuracyOvercapping.Description>
 
+  <Infusion.Settings.BiocodeBonus>Enable bonus to biocoded equipments</Infusion.Settings.BiocodeBonus>
+  <Infusion.Settings.BiocodeBonus.Description>Treat biocoded equipments two quality higher when giving random infusions.
+    
+For example, normal quality biocoded items will get infusions of excellent quality.</Infusion.Settings.BiocodeBonus.Description>
+
   <Infusion.Settings.WeightFactor>Weight factor</Infusion.Settings.WeightFactor>
   <Infusion.Settings.WeightFactor.Description>Multiplies weight of infusions. Possible values are 0.0 ~ 2.0. Default is 1.0.
 

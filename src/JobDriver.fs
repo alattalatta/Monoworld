@@ -163,8 +163,13 @@ type JobDriverExtractInfusion() =
                           comp.FirstExtraction
                           |> Option.map (fun inf -> (comp, inf)))
                       |> Option.tap (fun (comp, inf) -> do CompInfusion.removeInfusion inf comp)
-                      |> Option.iter (fun (_, inf) ->
-                          if Rand.Chance inf.tier.extractionChance then
+                      |> Option.iter (fun (comp, inf) ->
+                          let successChance =
+                              comp.Biocoder
+                              |> Option.map (fun _ -> inf.tier.extractionChance * 0.5f)
+                              |> Option.defaultValue inf.tier.extractionChance
+
+                          if Rand.Chance successChance then
                               let infuser =
                                   ThingMaker.MakeThing(ThingDef.Named("Infusion_Infuser_" + inf.tier.defName)) :?> Infuser
 

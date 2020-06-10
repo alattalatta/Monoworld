@@ -46,7 +46,6 @@ type Infused() =
 
         labelHeight
 
-
     member private this.DrawSubLabel(parentRect: Rect) =
         let compInf = this.CompInf.Value
         let compQuality = compOfThing<CompQuality> this.SelThing
@@ -109,16 +108,15 @@ type Infused() =
         container
 
     member private this.DrawInfusion (parentRect: Rect) yOffset (infDef: InfusionDef) =
-        let compInf = this.CompInf.Value // assumes this.Comp to be always Some
+        let comp = this.CompInf.Value // assumes this.Comp to be always Some
 
         let container =
             this.DrawBaseInfusion parentRect yOffset infDef
 
         // extraction/removal highlight
-        let markedForExtraction =
-            Set.contains infDef compInf.ExtractionSet
+        let markedForExtraction = Set.contains infDef comp.ExtractionSet
 
-        let markedForRemoval = Set.contains infDef compInf.RemovalSet
+        let markedForRemoval = Set.contains infDef comp.RemovalSet
 
         if markedForExtraction then
             do GUI.color <- Color(1.0f, 1.0f, 0.0f, 0.85f)
@@ -129,24 +127,30 @@ type Infused() =
 
         do GUI.color <- Color.white
 
+        let successChance =
+            comp.Biocoder
+            |> Option.map (fun _ -> infDef.tier.extractionChance * 0.5f)
+            |> Option.defaultValue infDef.tier.extractionChance
+            |> GenText.ToStringPercent
+
         let tooltipStringKey =
             if markedForExtraction
-            then string (translate1 "Infusion.ITab.MarkForRemoval" (infDef.tier.extractionChance.ToStringPercent()))
+            then string (translate1 "Infusion.ITab.MarkForRemoval" successChance)
             elif markedForRemoval
             then translate "Infusion.ITab.Unmark"
-            else string (translate1 "Infusion.ITab.MarkForExtraction" (infDef.tier.extractionChance.ToStringPercent()))
+            else string (translate1 "Infusion.ITab.MarkForExtraction" successChance)
 
         do TooltipHandler.TipRegion(container, TipSignal(tooltipStringKey))
 
         if Widgets.ButtonInvisible(container) then
             if markedForExtraction then
-                do compInf.MarkForRemoval infDef
+                do comp.MarkForRemoval infDef
                 do SoundDefOf.Checkbox_TurnedOn.PlayOneShotOnCamera()
             elif markedForRemoval then
-                do compInf.UnmarkForRemoval infDef
+                do comp.UnmarkForRemoval infDef
                 do SoundDefOf.Checkbox_TurnedOff.PlayOneShotOnCamera()
             else
-                do compInf.MarkForExtractor infDef
+                do comp.MarkForExtractor infDef
                 do SoundDefOf.Checkbox_TurnedOn.PlayOneShotOnCamera()
 
         container

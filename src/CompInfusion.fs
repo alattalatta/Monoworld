@@ -32,6 +32,7 @@ type CompInfusion() =
     let mutable extractionSet = Set.empty<InfusionDef>
     let mutable removalSet = Set.empty<InfusionDef>
 
+    let mutable biocoder = None
     let mutable slotCount = -1
     let mutable quality = QualityCategory.Normal
 
@@ -70,11 +71,15 @@ type CompInfusion() =
     static member UnregisterRemovalCandidate comp =
         do CompInfusion.RemovalCandidates <- Set.remove comp CompInfusion.RemovalCandidates
 
+    member this.Biocoder
+        with get () = biocoder
+        and set (value: CompBiocodable option) = do biocoder <- value
+
     member this.Quality
         with get () = quality
         and set value =
             do quality <- value
-            do slotCount <- this.CalculateSlotCount()
+            do slotCount <- this.CalculateSlotCountFor value
 
     member this.Infusions
         with get () = infusions |> Seq.sortDescending
@@ -126,6 +131,10 @@ type CompInfusion() =
 
             this.FinalizeSetMutations()
 
+    member this.SlotCount
+        with get () = slotCount
+        and set value = do slotCount <- value
+
     member this.InfusionsByPosition =
         let (prefixes, suffixes) =
             this.Infusions
@@ -153,8 +162,6 @@ type CompInfusion() =
                 |> Some
 
         Option.defaultValue List.empty onHitsCache
-
-    member this.SlotCount = slotCount
 
     member this.Descriptions =
         this.Infusions
@@ -207,7 +214,7 @@ type CompInfusion() =
 
             do infusionsStatModCache.Add(stat, statMod)
 
-    member this.CalculateSlotCount() =
+    member this.CalculateSlotCountFor(qc: QualityCategory) =
         let apparelProps = Option.ofObj this.parent.def.apparel
 
         // limit by body part group count
@@ -216,7 +223,7 @@ type CompInfusion() =
                 apparelProps
                 |> Option.map (fun a -> a.bodyPartGroups.Count)
                 |> Option.defaultValue Int32.MaxValue
-            elif quality < QualityCategory.Normal then
+            elif qc < QualityCategory.Normal then
                 0
             else
                 Int32.MaxValue
@@ -226,7 +233,7 @@ type CompInfusion() =
             |> Option.map (fun a -> if Settings.SlotModifiers.layerHandle.Value then a.layers.Count - 1 else 0)
             |> Option.defaultValue 0
 
-        min limit (Settings.Slots.getBaseSlotsFor this.Quality)
+        min limit (Settings.Slots.getBaseSlotsFor qc)
         + layerBonus
 
     member this.GetModForStat(stat: StatDef) =
@@ -347,7 +354,7 @@ type CompInfusion() =
         if not respawningAfterLoad
            && slotCount = -1
            && quality >= QualityCategory.Normal then
-            do slotCount <- this.CalculateSlotCount()
+            do slotCount <- this.CalculateSlotCountFor quality
 
         if not (respawningAfterLoad || Seq.isEmpty removalSet)
         then do CompInfusion.RegisterRemovalCandidate this
@@ -371,7 +378,7 @@ type CompInfusion() =
         scribeValue "quality" this.Quality
         |> Option.iter (fun qc -> do this.Quality <- qc)
 
-        scribeValueWithDefault "slotCount" (this.CalculateSlotCount()) this.SlotCount
+        scribeValueWithDefault "slotCount" (this.CalculateSlotCountFor quality) this.SlotCount
         |> Option.iter (fun sc -> do slotCount <- sc)
 
         scribeDefCollection "infusion" infusions

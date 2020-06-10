@@ -17,11 +17,25 @@ module AccuracyOvercap =
 
     let draw (pack: ModSettingsPack) =
         do handle <-
-            (pack.GetHandle
+            pack.GetHandle
                 ("accuracyOvercapping",
-                 (translate "Infusion.Settings.AccuracyOvercapping"),
-                 (translate "Infusion.Settings.AccuracyOvercapping.Description"),
-                 true))
+                 translate "Infusion.Settings.AccuracyOvercapping",
+                 translate "Infusion.Settings.AccuracyOvercapping.Description",
+                 true)
+        pack
+
+
+module BiocodeBonus =
+    let mutable handle: SettingHandle<bool> = null
+
+    let draw (pack: ModSettingsPack) =
+        do handle <-
+            pack.GetHandle
+                ("biocodeBonus",
+                 translate "Infusion.Settings.BiocodeBonus",
+                 translate "Infusion.Settings.BiocodeBonus.Description",
+                 true)
+
         pack
 
 
@@ -31,19 +45,19 @@ module SelectionConsts =
 
     let draw (pack: ModSettingsPack) =
         do chanceHandle <-
-            (pack.GetHandle
+            pack.GetHandle
                 ("chanceFactor",
-                 (translate "Infusion.Settings.ChanceFactor"),
-                 (translate "Infusion.Settings.ChanceFactor.Description"),
+                 translate "Infusion.Settings.ChanceFactor",
+                 translate "Infusion.Settings.ChanceFactor.Description",
                  1.0f,
-                 Validators.FloatRangeValidator(0.0f, 100.0f)))
+                 Validators.FloatRangeValidator(0.0f, 100.0f))
         do weightHandle <-
-            (pack.GetHandle
+            pack.GetHandle
                 ("weightFactor",
-                 (translate "Infusion.Settings.WeightFactor"),
-                 (translate "Infusion.Settings.WeightFactor.Description"),
+                 translate "Infusion.Settings.WeightFactor",
+                 translate "Infusion.Settings.WeightFactor.Description",
                  1.0f,
-                 Validators.FloatRangeValidator(0.0f, 2.0f)))
+                 Validators.FloatRangeValidator(0.0f, 2.0f))
         pack
 
 
@@ -53,17 +67,17 @@ module SlotModifiers =
 
     let draw (pack: ModSettingsPack) =
         do bodyPartHandle <-
-            (pack.GetHandle
+            pack.GetHandle
                 ("bodyPartLimit",
-                 (translate "Infusion.Settings.BodyPartLimit"),
-                 (translate "Infusion.Settings.BodyPartLimit.Description"),
-                 true))
+                 translate "Infusion.Settings.BodyPartLimit",
+                 translate "Infusion.Settings.BodyPartLimit.Description",
+                 true)
         do layerHandle <-
-            (pack.GetHandle
+            pack.GetHandle
                 ("layerBonuses",
-                 (translate "Infusion.Settings.LayerBonuses"),
-                 (translate "Infusion.Settings.LayerBonuses.Description"),
-                 true))
+                 translate "Infusion.Settings.LayerBonuses",
+                 translate "Infusion.Settings.LayerBonuses.Description",
+                 true)
         pack
 
 
@@ -216,6 +230,7 @@ module Divider =
 let initialize () =
     HugsLibController.SettingsManager.GetModSettings("latta.infusion")
     |> AccuracyOvercap.draw
+    |> BiocodeBonus.draw
     |> SelectionConsts.draw
     |> SlotModifiers.draw
     |> Divider.draw "1"
