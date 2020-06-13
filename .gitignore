@@ -7,8 +7,8 @@ libs
 .fake
 .ionide
 
+bin
 obj
-src/bin
 dist
 
 PublishedFileId.txt
