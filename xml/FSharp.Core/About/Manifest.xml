@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Manifest>
   <identifier>FSharp.Core</identifier>
-  <version>4.8.0</version>
-  <manifestUri>https://raw.githubusercontent.com/alattalatta/RimWorld-Infusion2/master/src/Poet/xml/About/Manifest.xml</manifestUri>
+  <version>4.7.2</version>
+  <manifestUri>https://raw.githubusercontent.com/alattalatta/RimWorld-Infusion2/master/xml/FSharp.Core/About/Manifest.xml</manifestUri>
   <downloadUri>https://github.com/alattalatta/RimWorld-Infusion2/releases/latest</downloadUri>
 </Manifest>
