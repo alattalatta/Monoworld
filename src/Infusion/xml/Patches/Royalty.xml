@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Patch>
   <Operation Class="PatchOperationFindMod">
     <mods>
@@ -49,7 +49,7 @@
             <li Class="Infusion.OnHitWorkers.ApplyHediff">
               <def>PsychicBurden</def>
               <amount>0.75</amount>
-              <chance>0.8</chance>
+              <chance>0.08</chance>
               <severityScaleBy>PsychicSensitivity</severityScaleBy>
             </li>
             <li Class="Infusion.OnHitWorkers.ApplyHediff">
@@ -66,9 +66,10 @@
             </li>
           </onHits>
           <extraDescriptions>
-            <li>8% chance to slow down the target.</li>
-            <li>4% chance to blind the target.</li>
-            <li>2% chance to induce vertigo to the target.</li>
+            <li>Applies random psychic effects to the target:</li>
+            <li>· 8% chance for slowed movement.</li>
+            <li>· 4% chance for blindness.</li>
+            <li>· 2% chance for vertigo.</li>
           </extraDescriptions>
         </Infusion.InfusionDef>
 

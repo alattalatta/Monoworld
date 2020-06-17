@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Defs>
   <Infusion.InfusionDef Abstract="True" Name="RareDefaultBase">
     <stats>
@@ -628,7 +628,7 @@
       </li>
     </onHits>
     <extraDescriptions>
-      <li>10% chance to fire an explosive bullet, dealing 75% of the damage within a radius of 1.4 cells.</li>
+      <li>10% chance to fire an explosive projectile, dealing 75% of the damage within a radius of 1.4 cells.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -694,7 +694,7 @@
       </li>
     </onHits>
     <extraDescriptions>
-      <li>10% chance to fire an armor piercing bullet, dealing sharp damage equal to 25% of the damage with 70% armor penetration.</li>
+      <li>10% chance to fire an armor piercing projectile, dealing sharp damage equal to 25% of the damage with 70% armor penetration.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -713,7 +713,7 @@
       </li>
     </onHits>
     <extraDescriptions>
-      <li>10% chance to fire a bullet which explodes in flame, dealing 30% of the damage.</li>
+      <li>10% chance to fire a projectile which explodes in flame, dealing 30% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 </Defs>

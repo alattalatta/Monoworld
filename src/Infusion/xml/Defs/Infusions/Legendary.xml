@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Defs>
   <Infusion.InfusionDef Abstract="True" Name="LegendaryDefaultBase">
     <stats>
@@ -514,7 +514,7 @@
       </li>
     </onHits>
     <extraDescriptions>
-      <li>25% chance to fire a bullet which causes an EMP explosion, stunning machines within a radius of 1.4 cells for 100% of the damage</li>
+      <li>25% chance to fire a projectile which causes an EMP explosion, stunning machines within a radius of 1.4 cells for 100% of the damage</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -645,8 +645,8 @@
       </li>
     </onHits>
     <extraDescriptions>
-      <li>20% chance for an bullet to explode.</li>
-      <li>Another 10% chance for the bullet to explode in flame.</li>
+      <li>20% chance for an projectile to explode.</li>
+      <li>Another 10% chance for the projectile to explode in flame.</li>
       <li>· Each explosion deals 50% of the damage within a radius of 1.4 cells.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>

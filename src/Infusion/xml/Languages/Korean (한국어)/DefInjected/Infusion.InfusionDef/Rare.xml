@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
   <!-- apparels -->
@@ -95,7 +95,7 @@
 
   <Explosive.label>폭발형</Explosive.label>
   <Explosive.labelShort>폭발형</Explosive.labelShort>
-  <Explosive.extraDescriptions.0>10% 확률로 폭발하는 총알을 발사해 반경 1.4칸 내에 피해량의 75%만큼 피해를 입힙니다.</Explosive.extraDescriptions.0>
+  <Explosive.extraDescriptions.0>10% 확률로 폭발하는 투사체를 발사해 반경 1.4칸 내에 피해량의 75%만큼 피해를 입힙니다.</Explosive.extraDescriptions.0>
 
   <Optimized.label>최적화한</Optimized.label>
   <Optimized.labelShort>최적</Optimized.labelShort>
@@ -106,7 +106,7 @@
 
   <Thermal.label>고열</Thermal.label>
   <Thermal.labelShort>고열</Thermal.labelShort>
-  <Thermal.extraDescriptions.0>10% 확률로 폭발하는 총알을 발사해 피해량의 75%만큼 화염 피해를 입힙니다.</Thermal.extraDescriptions.0>
+  <Thermal.extraDescriptions.0>10% 확률로 폭발하는 투사체를 발사해 피해량의 75%만큼 화염 피해를 입힙니다.</Thermal.extraDescriptions.0>
 
 
 </LanguageData>

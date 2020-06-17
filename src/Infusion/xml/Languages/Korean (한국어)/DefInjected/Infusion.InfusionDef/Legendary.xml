@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
   <!-- apparels -->
@@ -42,9 +42,10 @@
 
   <Chaotic.label>혼돈의</Chaotic.label>
   <Chaotic.labelShort>혼돈</Chaotic.labelShort>
-  <Chaotic.extraDescriptions.0>8% 확률로 대상을 느리게 만듭니다.</Chaotic.extraDescriptions.0>
-  <Chaotic.extraDescriptions.1>4% 확률로 대상의 눈을 멀게 합니다.</Chaotic.extraDescriptions.1>
-  <Chaotic.extraDescriptions.2>2% 확률로 대상을 어지럽게 만듭니다.</Chaotic.extraDescriptions.2>
+  <Chaotic.extraDescriptions.0>대상에게 무작위 정신적 효과를 적용합니다.</Chaotic.extraDescriptions.0>
+  <Chaotic.extraDescriptions.1>· 8% 확률로 대상의 눈을 멀게 합니다.</Chaotic.extraDescriptions.1>
+  <Chaotic.extraDescriptions.2>· 4% 확률로 대상을 어지럽게 만듭니다.</Chaotic.extraDescriptions.2>
+  <Chaotic.extraDescriptions.3>· 2% 확률로 대상을 어지럽게 만듭니다.</Chaotic.extraDescriptions.3>
 
   <Critical.label>치명적인</Critical.label>
   <Critical.labelShort>치명</Critical.labelShort>
@@ -74,7 +75,7 @@
 
   <Disrupting.label>방해하는</Disrupting.label>
   <Disrupting.labelShort>방해</Disrupting.labelShort>
-  <Disrupting.extraDescriptions.0>25% 확률로 폭발하는 총알을 발사해 반경 1.4칸 내의 기계를 피해량의 100%만큼 기절시킵니다.</Disrupting.extraDescriptions.0>
+  <Disrupting.extraDescriptions.0>25% 확률로 폭발하는 투사체를 발사해 반경 1.4칸 내의 기계를 피해량의 100%만큼 기절시킵니다.</Disrupting.extraDescriptions.0>
 
   <Homing.label>유도형</Homing.label>
   <Homing.labelShort>유도</Homing.labelShort>
@@ -92,8 +93,8 @@
 
   <Volatile.label>휘발성</Volatile.label>
   <Volatile.labelShort>휘발성</Volatile.labelShort>
-  <Volatile.extraDescriptions.0>20% 확률로 총알이 폭발합니다.</Volatile.extraDescriptions.0>
-  <Volatile.extraDescriptions.1>10% 확률로 총알에서 화염 폭발이 발생합니다.</Volatile.extraDescriptions.1>
+  <Volatile.extraDescriptions.0>20% 확률로 투사체가 폭발합니다.</Volatile.extraDescriptions.0>
+  <Volatile.extraDescriptions.1>10% 확률로 투사체에서 화염 폭발이 발생합니다.</Volatile.extraDescriptions.1>
   <Volatile.extraDescriptions.2>· 두 폭발 모두 반경 1.4칸 내에 피해량의 50%만큼 피해를 입힙니다.</Volatile.extraDescriptions.2>
 
 
