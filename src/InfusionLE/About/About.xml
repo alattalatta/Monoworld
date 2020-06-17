@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
   <packageId>latta.infusion.le</packageId>
   <name>Infusion 2 Legacy Expansion</name>
@@ -15,5 +15,8 @@
       <downloadUrl>https://github.com/alattalatta/RimWorld-Infusion2/releases/latest</downloadUrl>
     </li>
   </modDependencies>
+  <loadAfter>
+    <li>latta.infusion</li>
+  </loadAfter>
   <description>Legacy infusions of Infusion 2 v1.8.3, with a few changes.</description>
 </ModMetaData>
