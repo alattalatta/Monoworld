@@ -50,7 +50,7 @@ module GenerateCacheForMethod =
         let rest =
             others'
             |> List.findIndex (fun inst -> inst.opcode = OpCodes.Stloc_0)
-            |> splitFlipped others
+            |> splitFlipped others'
             |> snd
 
         seq {
