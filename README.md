@@ -1,16 +1,28 @@
-![INFUSION II](preview.png)
+# alattalatta/Monoworld
 
-## Development
+- Dev In Your Language (DevL10N)
+- Infusion 2
+- Poet (FSharp.Core)
 
-The assembly source code is located inside `src` directory.
-XML documents such as `InfusionDefs` and `LanguageData` are in `xml` directory.
+---
 
-_Infusion 2_ requires `dotnet` CLI, and targets .NET 4.7.2. It's using [Paket](https://fsprojects.github.io/Paket/) for dependency management.
+All projects are located under the `src/`.
 
-### Dist building
+Each project consists of following items:
+- `assets/`: All non-code assets such as PSD for textures and preview images.
+- `xml/`: The mod data files, from Def files to `About.xml`.
+- Assembly sources.
+
+Building projects requires .NET CLI (`dotnet`), and we are using [Paket](https://fsprojects.github.io/Paket/) for dependency management.
+
+To build, simply type the following (after installing necessities):
+
 ```
-> cd src
 > dotnet build
 ```
 
-This will create `dist` directory containing both FSharp.Core and Infusion, populated with their assemblies, XML documents, and other assets.
+This will create `dist/` containing all the mods, ready to go.
+
+## Work items for better DX
+- Only build one project
+- Automatically zip the built mods
