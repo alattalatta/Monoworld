@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <DebugAction_Destroy>제거</DebugAction_Destroy>
+  <DebugAction_Kill>사살</DebugAction_Kill>
+  <DebugAction_Take10Damage>10 피해</DebugAction_Take10Damage>
+  <DebugAction_Take5000Damage>5000 피해</DebugAction_Take5000Damage>
+  <DebugAction_Take5000FlameDamage>5000 화염 피해</DebugAction_Take5000FlameDamage>
+  <DebugAction_ClearArea21x21>지역 제거 21x21</DebugAction_ClearArea21x21>
+  <DebugAction_Rock21x21>바위 21x21</DebugAction_Rock21x21>
+  <DebugAction_DestroyTrees21x21>나무 제거 21x21</DebugAction_DestroyTrees21x21>
+  <DebugAction_ExplosionBomb>폭발 (폭발)</DebugAction_ExplosionBomb>
+  <DebugAction_ExplosionFlame>폭발 (화염)</DebugAction_ExplosionFlame>
+  <DebugAction_ExplosionStun>폭발 (기절)</DebugAction_ExplosionStun>
+  <DebugAction_ExplosionEMP>폭발 (EMP)</DebugAction_ExplosionEMP>
+  <DebugAction_ExplosionExtinguisher>폭발 (소방거품)</DebugAction_ExplosionExtinguisher>
+  <DebugAction_ExplosionSmoke>폭발 (연막)</DebugAction_ExplosionSmoke>
+  <DebugAction_LightningStrike>벼락</DebugAction_LightningStrike>
+  <DebugAction_AddSnow>눈 추가</DebugAction_AddSnow>
+  <DebugAction_RemoveSnow>눈 제거</DebugAction_RemoveSnow>
+  <DebugAction_ClearAllSnow>모든 눈 제거</DebugAction_ClearAllSnow>
+  <DebugAction_PushHeat10>열기 추가 (10)</DebugAction_PushHeat10>
+  <DebugAction_PushHeat1000>열기 추가 (1000)</DebugAction_PushHeat1000>
+  <DebugAction_PushHeatNeg1000>열기 추가 (-1000)</DebugAction_PushHeatNeg1000>
+  <DebugAction_FinishPlantGrowth>식물 생장 끝내기</DebugAction_FinishPlantGrowth>
+  <DebugAction_Grow1Day>식물 1일 생장</DebugAction_Grow1Day>
+  <DebugAction_GrowToMaturity>식물 생장 성숙</DebugAction_GrowToMaturity>
+  <DebugAction_RegenSection>구획 재생성</DebugAction_RegenSection>
+  <DebugAction_RandomizeColor>무작위 색상 적용</DebugAction_RandomizeColor>
+  <DebugAction_Rot1Day>부패 1일</DebugAction_Rot1Day>
+  <DebugAction_ForceSleep>강제 수면</DebugAction_ForceSleep>
+  <DebugAction_FuelRemove20Percent>연료 -20%</DebugAction_FuelRemove20Percent>
+  <DebugAction_BreakDown>고장</DebugAction_BreakDown>
+  <DebugAction_UseScatterer>Scatterer 사용...</DebugAction_UseScatterer>
+  <DebugAction_BaseGen>BaseGen 사용...</DebugAction_BaseGen>
+  <DebugAction_SketchGen>SketchGen 사용...</DebugAction_SketchGen>
+  <DebugAction_MakeRoof>지붕 추가</DebugAction_MakeRoof>
+  <DebugAction_DeleteRoof>지붕 제거</DebugAction_DeleteRoof>
+  <DebugAction_TestFloodUnfog>플러드 필 안개제거 테스트</DebugAction_TestFloodUnfog>
+  <DebugAction_FlashClosewalkCell30>반경 30 Closewalk 칸 강조</DebugAction_FlashClosewalkCell30>
+  <DebugAction_FlashWalkPath>산책 경로 강조</DebugAction_FlashWalkPath>
+  <DebugAction_FlashSkygazeCell>별 구경 칸 강조</DebugAction_FlashSkygazeCell>
+  <DebugAction_FlashDirectFleeDest>직선 도망 목적지 강조</DebugAction_FlashDirectFleeDest>
+  <DebugAction_FlashSpectatorsCells>SpectatorCell 강조</DebugAction_FlashSpectatorsCells>
+  <DebugAction_CheckReachability>도달 가능 검사</DebugAction_CheckReachability>
+  <DebugAction_FlashTryFindRandomPawnExitCell>TryFindRandomPawnExitCell 강조</DebugAction_FlashTryFindRandomPawnExitCell>
+  <DebugAction_RandomSpotJustOutsideColony>RandomSpotJustOutsideColony 강조</DebugAction_RandomSpotJustOutsideColony>
+</LanguageData>
