@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <DebugAction_DestroyAllPlants>모든 식물 제거</DebugAction_DestroyAllPlants>
+  <DebugAction_DestroyAllThings>모든 Thing 제거</DebugAction_DestroyAllThings>
+  <DebugAction_FinishAllResearch>모든 연구 완료</DebugAction_FinishAllResearch>
+  <DebugAction_ReplaceAllTradeShips>모든 상선 재배치</DebugAction_ReplaceAllTradeShips>
+  <DebugAction_ChangeWeather>날씨 변경...</DebugAction_ChangeWeather>
+  <DebugAction_PlaySong>음악 재생...</DebugAction_PlaySong>
+  <DebugAction_PlaySound>소리 재생...</DebugAction_PlaySound>
+  <DebugAction_EndGameCondition>상황 종료...</DebugAction_EndGameCondition>
+  <DebugAction_AddPrisoner>죄수 추가</DebugAction_AddPrisoner>
+  <DebugAction_AddGuest>방문객 추가</DebugAction_AddGuest>
+  <DebugAction_ForceEnemyAssault>적 공격 강제</DebugAction_ForceEnemyAssault>
+  <DebugAction_ForceEnemyFlee>적 퇴각 강제</DebugAction_ForceEnemyFlee>
+  <DebugAction_AdaptionProgress10Days>StoryWatcher adaption 진행 10일</DebugAction_AdaptionProgress10Days>
+  <DebugAction_UnloadUnusedAssets>미사용 자산 해제</DebugAction_UnloadUnusedAssets>
+  <DebugAction_NameSettlement>정착지 이름 변경...</DebugAction_NameSettlement>
+  <DebugAction_NextLesson>다음 도우미 교육</DebugAction_NextLesson>
+  <DebugAction_RegenAllMapMeshSections>모든 지도 메시 구획 재생성</DebugAction_RegenAllMapMeshSections>
+  <DebugAction_ChangeCameraConfig>카메라 설정 변경...</DebugAction_ChangeCameraConfig>
+  <DebugAction_ForceShipCountdown>강제 우주선 발사 카운트다운</DebugAction_ForceShipCountdown>
+  <DebugAction_ForceStartShip>강제 우주선 시동</DebugAction_ForceStartShip>
+  <DebugAction_FlashTradeDropSpot>거래 낙하 위치 강조</DebugAction_FlashTradeDropSpot>
+  <DebugAction_KillFactionLeader>세력 지도자 사살</DebugAction_KillFactionLeader>
+  <DebugAction_KillKidnappedPawn>납치된 Pawn 사살</DebugAction_KillKidnappedPawn>
+  <DebugAction_SetFactionRelations>세력 관계 설정</DebugAction_SetFactionRelations>
+  <DebugAction_VisitorGift>방문객 선물</DebugAction_VisitorGift>
+  <DebugAction_RefogMap>지도 안개 재설정</DebugAction_RefogMap>
+  <DebugAction_UseGenStep>GenStep 사용...</DebugAction_UseGenStep>
+  <DebugAction_IncrementTime1Hour>시간 1시간 추가</DebugAction_IncrementTime1Hour>
+  <DebugAction_IncrementTime6Hours>시간 6시간 추가</DebugAction_IncrementTime6Hours>
+  <DebugAction_IncrementTime1Day>시간 1일 추가</DebugAction_IncrementTime1Day>
+  <DebugAction_IncrementTime1Season>시간 1분기 추가</DebugAction_IncrementTime1Season>
+  <DebugAction_StorywatcherTick1Day>StoryWatcher 틱 1일</DebugAction_StorywatcherTick1Day>
+  <DebugAction_AddTechprintsForProject>연구 기술청사진 채우기...</DebugAction_AddTechprintsForProject>
+  <DebugAction_ApplyTechprintsForProject>연구에 기술청사진 적용하기...</DebugAction_ApplyTechprintsForProject>
+  <DebugAction_KillRandomLentColonist>무작위 파견 정착민 사살</DebugAction_KillRandomLentColonist>
+  <DebugAction_DestroyAllHats>모든 모자 제거</DebugAction_DestroyAllHats>
+  <DebugAction_PawnKindApparelCheck>PawnKind 의류 검사...</DebugAction_PawnKindApparelCheck>
+  <DebugAction_PawnKindAbilityCheck>PawnKind 능력 검사...</DebugAction_PawnKindAbilityCheck>
+</LanguageData>

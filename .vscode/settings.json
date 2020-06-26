@@ -1,4 +1,3 @@
 {
     "editor.formatOnSave": true,
-    "FSharp.lineLens.enabled": "always"
 }

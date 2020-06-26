@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <TargetFramework>net472</TargetFramework>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Poet\Poet.fsproj">
+      <Name>Poet.fsproj</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Lib.fs" />
+    <Compile Include="Harmonize/Dialog_DebugActionsMenu.fs" />
+    <Compile Include="Harmonize/Dialog_DebugSettingsMenu.fs" />
+    <Compile Include="Mod.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="netstandard" />
+  </ItemGroup>
+  <ItemGroup>
+    <Artifact Include="bin\**\DevL10N.dll" />
+    <XmlDocs Include="xml\**\*.*" />
+  </ItemGroup>
+  <Target Name="Copy" AfterTargets="Build">
+    <RemoveDir Directories="$(SolutionDir)\dist\DevL10N" />
+    <Copy SourceFiles="@(Artifact)" DestinationFiles="$(SolutionDir)\dist\DevL10N\Assemblies\DevL10N.dll" />
+    <Copy SourceFiles="@(XmlDocs)" DestinationFolder="$(SolutionDir)\dist\DevL10N\%(RecursiveDir)" />
+  </Target>
+  <Import Project="..\..\.paket\Paket.Restore.targets" />
+</Project>

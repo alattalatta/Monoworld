@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <EnableDamage>Enable damage</EnableDamage>
+  <EnablePlayerDamage>Enable player damage</EnablePlayerDamage>
+  <EnableRandomMentalStates>Enable random mental states</EnableRandomMentalStates>
+  <EnableStoryteller>Enable storyteller</EnableStoryteller>
+  <EnableRandomDiseases>Enable random diseases</EnableRandomDiseases>
+  <GodMode>God mode</GodMode>
+  <NoAnimals>No animals</NoAnimals>
+  <UnlimitedPower>Unlimited power</UnlimitedPower>
+  <PathThroughWalls>Path through walls</PathThroughWalls>
+  <InstantRecruit>Instant recruit</InstantRecruit>
+  <AlwaysSocialFight>Always social fight</AlwaysSocialFight>
+  <AlwaysDoLovin>Always do lovin</AlwaysDoLovin>
+  <DetectRegionListersBugs>Detect RegionListers bugs</DetectRegionListersBugs>
+  <InstantVisitorsGift>Instant visitors gift</InstantVisitorsGift>
+  <LowFPS>Low FPS</LowFPS>
+  <FastResearch>Fast research</FastResearch>
+  <FastLearning>Fast learning</FastLearning>
+  <FastEcology>Fast ecology</FastEcology>
+  <FastEcologyRegrowRateOnly>Fast ecology, regrow rate only</FastEcologyRegrowRateOnly>
+  <FastCrafting>Fast crafting</FastCrafting>
+  <FastCaravans>Fast caravans</FastCaravans>
+  <DrawFog>Draw fog</DrawFog>
+  <DrawSnow>Draw snow</DrawSnow>
+  <DrawTerrain>Draw terrain</DrawTerrain>
+  <DrawTerrainWater>Draw water</DrawTerrainWater>
+  <DrawThingsDynamic>Draw dynamic Things</DrawThingsDynamic>
+  <DrawThingsPrinted>Draw printed Things</DrawThingsPrinted>
+  <DrawShadows>Draw shadows</DrawShadows>
+  <DrawLightingOverlay>Draw lighting overlay</DrawLightingOverlay>
+  <DrawWorldOverlays>Draw world overlays</DrawWorldOverlays>
+  <DrawPaths>Draw paths</DrawPaths>
+  <DrawCastPositionSearch>Draw cast position search</DrawCastPositionSearch>
+  <DrawDestSearch>Draw destination search</DrawDestSearch>
+  <DrawSectionEdges>Draw section edges</DrawSectionEdges>
+  <DrawRiverDebug>Draw river debug</DrawRiverDebug>
+  <DrawPawnDebug>Draw Pawn debug</DrawPawnDebug>
+  <DrawPawnRotatorTarget>Draw Pawn rotator target</DrawPawnRotatorTarget>
+  <DrawRegions>Draw regions</DrawRegions>
+  <DrawRegionLinks>Draw region links</DrawRegionLinks>
+  <DrawRegionDirties>Draw region dirties</DrawRegionDirties>
+  <DrawRegionTraversal>Draw region traversal</DrawRegionTraversal>
+  <DrawRegionThings>Draw region Things</DrawRegionThings>
+  <DrawRooms>Draw rooms</DrawRooms>
+  <DrawRoomGroups>Draw room groups</DrawRoomGroups>
+  <DrawPower>Draw power</DrawPower>
+  <DrawPowerNetGrid>Draw PowerNetGrid</DrawPowerNetGrid>
+  <DrawOpportunisticJobs>Draw opportunistic jobs</DrawOpportunisticJobs>
+  <DrawTooltipEdges>Draw tooltip edges</DrawTooltipEdges>
+  <DrawRecordedNoise>Draw recorded noise</DrawRecordedNoise>
+  <DrawFoodSearchFromMouse>Draw food search from mouse</DrawFoodSearchFromMouse>
+  <DrawPreyInfo>Draw prey info</DrawPreyInfo>
+  <DrawGlow>Draw glow</DrawGlow>
+  <DrawAvoidGrid>Draw avoid grid</DrawAvoidGrid>
+  <DrawLords>Draw lords</DrawLords>
+  <DrawDuties>Draw duties</DrawDuties>
+  <DrawShooting>Draw shooting</DrawShooting>
+  <DrawInfestationChance>Draw infestation chance</DrawInfestationChance>
+  <DrawStealDebug>Draw steal debug</DrawStealDebug>
+  <DrawDeepResources>Draw deep resources</DrawDeepResources>
+  <DrawAttackTargetScores>Draw attack target scores</DrawAttackTargetScores>
+  <DrawInteractionCells>Draw interaction cells</DrawInteractionCells>
+  <DrawDoorsDebug>Draw doors debug</DrawDoorsDebug>
+  <DrawDestReservations>Draw dest reservations</DrawDestReservations>
+  <DrawDamageRects>Draw damage rects</DrawDamageRects>
+  <WriteGame>Write Game</WriteGame>
+  <WriteSteamItems>Write Steam items</WriteSteamItems>
+  <WriteConcepts>Write Concepts</WriteConcepts>
+  <WriteReservations>Write reservations</WriteReservations>
+  <WritePathCosts>Write path costs</WritePathCosts>
+  <WriteFertility>Write fertility</WriteFertility>
+  <WriteLinkFlags>Write LinkFlags</WriteLinkFlags>
+  <WriteCover>Write cover</WriteCover>
+  <WriteCellContents>Write cell contents</WriteCellContents>
+  <WriteMusicManagerPlay>Write MusicManager play</WriteMusicManagerPlay>
+  <WriteStoryteller>Write storyteller</WriteStoryteller>
+  <WritePlayingSounds>Write playing sounds</WritePlayingSounds>
+  <WriteSoundEventsRecord>Write sound events record</WriteSoundEventsRecord>
+  <WriteMoteSaturation>Write mote saturation</WriteMoteSaturation>
+  <WriteSnowDepth>Write snow depth</WriteSnowDepth>
+  <WriteEcosystem>Write ecosystem</WriteEcosystem>
+  <WriteRecentStrikes>Write recent strikes</WriteRecentStrikes>
+  <WriteBeauty>Write beauty</WriteBeauty>
+  <WriteListRepairableBldgs>Write repairable buildings</WriteListRepairableBldgs>
+  <WriteListFilthInHomeArea>Write filth list in home area</WriteListFilthInHomeArea>
+  <WriteListHaulables>Write haulable list</WriteListHaulables>
+  <WriteListMergeables>Write mergeable list</WriteListMergeables>
+  <WriteTotalSnowDepth>Write total snow depth</WriteTotalSnowDepth>
+  <WriteCanReachColony>Write colony reachability</WriteCanReachColony>
+  <WriteMentalStateCalcs>Write mental state calcs</WriteMentalStateCalcs>
+  <WriteWind>Write wind</WriteWind>
+  <WriteTerrain>Write terrain</WriteTerrain>
+  <WriteApparelScore>Write apparel score</WriteApparelScore>
+  <WriteWorkSettings>Write work settings</WriteWorkSettings>
+  <WriteSkyManager>Write SkyManager</WriteSkyManager>
+  <WriteMemoryUsage>Write memory usage</WriteMemoryUsage>
+  <WriteMapGameConditions>Write map game conditions</WriteMapGameConditions>
+  <WriteAttackTargets>Write attack targets</WriteAttackTargets>
+  <LogIncapChance>Log incap chance</LogIncapChance>
+  <LogInput>Log input</LogInput>
+  <LogApparelGeneration>Log apparel generation</LogApparelGeneration>
+  <LogLordToilTransitions>Log lord toil transitions</LogLordToilTransitions>
+  <LogGrammarResolution>Log grammar resolution</LogGrammarResolution>
+  <LogCombatLogMouseover>Log combat log mouseover</LogCombatLogMouseover>
+  <LogMapLoad>Log map load</LogMapLoad>
+  <LogTutor>Log tutor</LogTutor>
+  <LogSignals>Log signals</LogSignals>
+  <LogWorldPawnGC>Log WorldPawnGC</LogWorldPawnGC>
+  <LogTaleRecording>Log tale recording</LogTaleRecording>
+  <LogHourlyScreenshot>Log hourly screenshot</LogHourlyScreenshot>
+  <LogFilthSummary>Log filth summary</LogFilthSummary>
+  <DebugApparelOptimize>Debug apparel optimize</DebugApparelOptimize>
+  <ShowAllRoomStats>Show all room stats</ShowAllRoomStats>
+  <ShowFloatMenuWorkGivers>Show float menu WorkGivers</ShowFloatMenuWorkGivers>
+</LanguageData>
