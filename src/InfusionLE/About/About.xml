@@ -3,7 +3,7 @@
   <packageId>latta.infusion.le</packageId>
   <name>Infusion 2 Legacy Expansion</name>
   <author>latta</author>
-  <url>https://github.com/alattalatta/RimWorld-Infusion2</url>
+  <url>https://github.com/alattalatta/Monoworld</url>
   <supportedVersions>
     <li>1.1</li>
   </supportedVersions>
@@ -12,7 +12,7 @@
       <packageId>latta.infusion</packageId>
       <displayName>Infusion 2</displayName>
       <steamWorkshopUrl>steam://url/CommunityFilePage/2063008864</steamWorkshopUrl>
-      <downloadUrl>https://github.com/alattalatta/RimWorld-Infusion2/releases/latest</downloadUrl>
+      <downloadUrl>https://github.com/alattalatta/Monoworld/releases</downloadUrl>
     </li>
   </modDependencies>
   <loadAfter>

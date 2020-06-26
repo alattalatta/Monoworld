@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
   <packageId>latta.fsharp.core</packageId>
   <name>FSharp.Core</name>
@@ -9,6 +9,7 @@
   </supportedVersions>
   <description>FSharp.Core is a base mod for F# assemblies.
 
-4.7.2
+FSharp.Core: 4.7.2
+Poet: 1.0.0
   </description>
 </ModMetaData>
