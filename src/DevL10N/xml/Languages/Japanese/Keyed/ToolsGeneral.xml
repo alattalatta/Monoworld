@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <DebugAction_Destroy>破壊</DebugAction_Destroy>
+  <DebugAction_Kill>殺害</DebugAction_Kill>
+  <DebugAction_Take10Damage>10ダメージ</DebugAction_Take10Damage>
+  <DebugAction_Take5000Damage>5000ダメージ</DebugAction_Take5000Damage>
+  <DebugAction_Take5000FlameDamage>5000炎ダメージ</DebugAction_Take5000FlameDamage>
+  <DebugAction_ClearArea21x21>エリア削除 21x21</DebugAction_ClearArea21x21>
+  <DebugAction_Rock21x21>岩 21x21</DebugAction_Rock21x21>
+  <DebugAction_DestroyTrees21x21>樹木破壊 21x21</DebugAction_DestroyTrees21x21>
+  <DebugAction_ExplosionBomb>爆発 (爆弾)</DebugAction_ExplosionBomb>
+  <DebugAction_ExplosionFlame>爆発 (火)</DebugAction_ExplosionFlame>
+  <DebugAction_ExplosionStun>爆発 (スタン)</DebugAction_ExplosionStun>
+  <DebugAction_ExplosionEMP>爆発 (EMP)</DebugAction_ExplosionEMP>
+  <DebugAction_ExplosionExtinguisher>爆発 (消火剤)</DebugAction_ExplosionExtinguisher>
+  <DebugAction_ExplosionSmoke>爆発 (スモーク)</DebugAction_ExplosionSmoke>
+  <DebugAction_LightningStrike>落雷</DebugAction_LightningStrike>
+  <DebugAction_AddSnow>雪を追加</DebugAction_AddSnow>
+  <DebugAction_RemoveSnow>雪を除去</DebugAction_RemoveSnow>
+  <DebugAction_ClearAllSnow>全ての雪を除去</DebugAction_ClearAllSnow>
+  <DebugAction_PushHeat10>気温上昇 (10度)</DebugAction_PushHeat10>
+  <DebugAction_PushHeat1000>気温上昇 (1000度)</DebugAction_PushHeat1000>
+  <DebugAction_PushHeatNeg1000>気温低下 (-1000度)</DebugAction_PushHeatNeg1000>
+  <DebugAction_FinishPlantGrowth>植物成長完了</DebugAction_FinishPlantGrowth>
+  <DebugAction_Grow1Day>1日分植物成長</DebugAction_Grow1Day>
+  <DebugAction_GrowToMaturity>100%まで植物成長</DebugAction_GrowToMaturity>
+  <DebugAction_RegenSection>部分再生</DebugAction_RegenSection>
+  <DebugAction_RandomizeColor>ランダムな色</DebugAction_RandomizeColor>
+  <DebugAction_Rot1Day>1日分腐敗させる</DebugAction_Rot1Day>
+  <DebugAction_ForceSleep>強制睡眠</DebugAction_ForceSleep>
+  <DebugAction_FuelRemove20Percent>燃料 -20%</DebugAction_FuelRemove20Percent>
+  <DebugAction_BreakDown>強制故障</DebugAction_BreakDown>
+  <DebugAction_UseScatterer>生成 クエスト建築物...</DebugAction_UseScatterer>
+  <DebugAction_BaseGen>生成 敵の前線基地...</DebugAction_BaseGen>
+  <DebugAction_SketchGen>生成 モニュメント...</DebugAction_SketchGen>
+  <DebugAction_MakeRoof>屋根を付ける</DebugAction_MakeRoof>
+  <DebugAction_DeleteRoof>屋根を外す</DebugAction_DeleteRoof>
+  <DebugAction_TestFloodUnfog>テスト 霧を除去</DebugAction_TestFloodUnfog>
+  <DebugAction_FlashClosewalkCell30>色表示 範囲30の移動不可能セル</DebugAction_FlashClosewalkCell30>
+  <DebugAction_FlashWalkPath>色表示 移動経路</DebugAction_FlashWalkPath>
+  <DebugAction_FlashSkygazeCell>色表示 空を見れるセル</DebugAction_FlashSkygazeCell>
+  <DebugAction_FlashDirectFleeDest>色表示 逃亡の直接目的地</DebugAction_FlashDirectFleeDest>
+  <DebugAction_FlashSpectatorsCells>色表示 セル観察</DebugAction_FlashSpectatorsCells>
+  <DebugAction_CheckReachability>確認 到達可能性</DebugAction_CheckReachability>
+  <DebugAction_FlashTryFindRandomPawnExitCell>表示TryFindRandomPawnExitCell</DebugAction_FlashTryFindRandomPawnExitCell>
+  <DebugAction_RandomSpotJustOutsideColony>表示RandomSpotJustOutsideColony</DebugAction_RandomSpotJustOutsideColony>
+
+</LanguageData>
