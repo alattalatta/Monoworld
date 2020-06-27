@@ -163,7 +163,6 @@ type JobDriverExtractInfusion() =
                       |> Option.bind (fun comp ->
                           comp.FirstExtraction
                           |> Option.map (fun inf -> (comp, inf)))
-                      |> Option.tap (fun (comp, inf) -> do CompInfusion.removeInfusion inf comp)
                       |> Option.iter (fun (comp, inf) ->
                           let successChance =
                               comp.Biocoder
@@ -174,17 +173,30 @@ type JobDriverExtractInfusion() =
                               let infuser =
                                   ThingMaker.MakeThing(ThingDef.Named("Infusion_Infuser_" + inf.tier.defName)) :?> Infuser
 
-                              do infuser.SetContent inf
+                              do CompInfusion.removeInfusion inf comp
+                                 infuser.SetContent inf
 
                               if GenPlace.TryPlaceThing(infuser, this.pawn.Position, this.pawn.Map, ThingPlaceMode.Near)
                               then do destroyCarriedThing this.pawn
                           else
+                              let chance = Rand.Value
+
+                              let failureMessage =
+                                  if chance >= 0.5f then
+                                      do CompInfusion.removeInfusion inf comp
+                                      "Infusion.Job.Message.ExtractionFailureInfusion"
+                                  elif chance >= 0.2f then
+                                      do destroyCarriedThing this.pawn
+                                      "Infusion.Job.Message.ExtractionFailureInfuser"
+                                  else
+                                      do CompInfusion.removeInfusion inf comp
+                                         destroyCarriedThing this.pawn
+                                      "Infusion.Job.Message.ExtractionFailure"
+
                               Messages.Message
-                                  (string
-                                      (translate2 "Infusion.Job.Message.ExtractionFailure" inf.label target.def.label),
+                                  (string (translate2 failureMessage inf.label target.def.label),
                                    LookTargets(extractor),
-                                   MessageTypeDefOf.NegativeEvent)
-                              do destroyCarriedThing this.pawn))
+                                   MessageTypeDefOf.NegativeEvent)))
         }
 
 

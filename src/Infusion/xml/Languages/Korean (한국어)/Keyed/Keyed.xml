@@ -33,7 +33,7 @@
 
   <Infusion.ITab.MarkForExtraction>클릭하면 마법부여의 추출을 지정합니다. (성공률 {0})</Infusion.ITab.MarkForExtraction>
   <Infusion.ITab.MarkForRemoval>추출을 지정한 마법부여입니다. (성공률 {0})
-추출에는 빈 연마기가 필요합니다. 실패하면 마법부여와 연마기 모두 사라집니다.
+추출에는 빈 연마기가 필요합니다. 실패하면 마법부여와 연마기가 파괴될 수 있습니다.
 
 제작 작업을 맡은 정착민이 추출할 것입니다.
 

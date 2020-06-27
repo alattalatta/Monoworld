@@ -33,7 +33,7 @@
 
   <Infusion.ITab.MarkForExtraction>Click to mark this infusion for an extraction. (Success rate {0})</Infusion.ITab.MarkForExtraction>
   <Infusion.ITab.MarkForRemoval>Marked for an extraction. (Success rate {0})
-Extraction costs an empty infuser. Failing it will result it loss of both the infusion and the empty infuser.
+Extraction costs an empty infuser. Failing it may result it loss of the infusion and the infuser.
 
 One of your colonist with crafting job will extract it.
 
