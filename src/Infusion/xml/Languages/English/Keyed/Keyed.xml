@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
   <!-- {0}: infusions, {1}: label. -->
   <Infusion.Label.Prefixed>{0} {1}</Infusion.Label.Prefixed>
@@ -16,7 +16,10 @@
 
   <Infusion.StatPart.Start>Infusions: </Infusion.StatPart.Start>
 
-  <Infusion.Job.Message.ExtractionFailure>Extraction of {0} from {1} has failed. The infuser was destroyed.</Infusion.Job.Message.ExtractionFailure>
+  <Infusion.Job.Message.ExtractionFailure>Extraction of {0} from {1} has failed. Both the infusion and infuser is lost.</Infusion.Job.Message.ExtractionFailure>
+  <Infusion.Job.Message.ExtractionFailureInfusion>Extraction of {0} from {1} has failed. The infusion has been destroyed.</Infusion.Job.Message.ExtractionFailureInfusion>
+  <Infusion.Job.Message.ExtractionFailureInfuser>Extraction of {0} from {1} has failed. The infuser has been destroyed.</Infusion.Job.Message.ExtractionFailureInfuser>
+
   <Infusion.Job.FailReason.NoExtractor>No reachable, un-reserved empty infuser.</Infusion.Job.FailReason.NoExtractor>
   <Infusion.Job.FailReason.NoMatchingInfuser>No reachable, un-reserved, suitable infuser.</Infusion.Job.FailReason.NoMatchingInfuser>
 
