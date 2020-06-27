@@ -48,7 +48,7 @@
   <DebugAction_ClearBoundUnfinishedThings>未完成品の作者除去</DebugAction_ClearBoundUnfinishedThings>
   <DebugAction_ForceBirthday>強制 誕生日</DebugAction_ForceBirthday>
   <DebugAction_Recruit>勧誘</DebugAction_Recruit>
-  <DebugAction_DamageApparel>Damage apparel</DebugAction_DamageApparel>
+  <DebugAction_DamageApparel>衣服にダメージ</DebugAction_DamageApparel>
   <DebugAction_TameAnimal>動物を飼いならす</DebugAction_TameAnimal>
   <DebugAction_TrainAnimal>動物を訓練する</DebugAction_TrainAnimal>
   <DebugAction_NameAnimalByNuzzling>すり寄った動物に名付</DebugAction_NameAnimalByNuzzling>
@@ -62,6 +62,7 @@
   <DebugAction_PassToWorld>惑星を脱出</DebugAction_PassToWorld>
   <DebugAction_Make1YearOlder>年齢を1歳上げる</DebugAction_Make1YearOlder>
   <DebugAction_TryJobGiver>JobGiverを試みる</DebugAction_TryJobGiver>
+  <DebugAction_TryJoyGiver>JoyGiverを試みる</DebugAction_TryJoyGiver>
   <DebugAction_EndCurrentJobInterruptForced>現在ジョブを中断 強制終了</DebugAction_EndCurrentJobInterruptForced>
   <DebugAction_CheckForJobOverride>ジョブの上書きを確認</DebugAction_CheckForJobOverride>
   <DebugAction_ToggleJobLogging>切替 ジョブの記録</DebugAction_ToggleJobLogging>
