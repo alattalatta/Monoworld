@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <DebugAction_GenerateQuest>クエスト生成...</DebugAction_GenerateQuest>
+  <DebugAction_GenerateQuests10>クエスト生成 x10...</DebugAction_GenerateQuests10>
+  <DebugAction_GenerateQuests30>クエスト生成 x30...</DebugAction_GenerateQuests30>
+  <DebugAction_TestQuestPart>テスト:クエストパート...</DebugAction_TestQuestPart>
+  <DebugAction_QuestExample>生成されたクエストを出力</DebugAction_QuestExample>
+
+</LanguageData>
