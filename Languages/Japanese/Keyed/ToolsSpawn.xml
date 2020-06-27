@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <DebugAction_SpawnPawn>生成 ポーン...</DebugAction_SpawnPawn>
+  <DebugAction_SpawnWeapon>生成 武器...</DebugAction_SpawnWeapon>
+  <DebugAction_SpawnApparel>生成 衣服...</DebugAction_SpawnApparel>
+  <DebugAction_TryPlaceNearThing>付近にThing配置...</DebugAction_TryPlaceNearThing>
+  <DebugAction_TryPlaceNearStacksOf25>付近にx25スタック配置...</DebugAction_TryPlaceNearStacksOf25>
+  <DebugAction_TryPlaceNearStacksOf75>付近にx75スタック配置...</DebugAction_TryPlaceNearStacksOf75>
+  <DebugAction_TryPlaceDirectThing>直接Thing配置...</DebugAction_TryPlaceDirectThing>
+  <DebugAction_TryPlaceDirectStackOf25>直接x75スタック配置...</DebugAction_TryPlaceDirectStackOf25>
+  <DebugAction_SpawnThingWithWipeMode>排他モードでThing配置...</DebugAction_SpawnThingWithWipeMode>
+  <DebugAction_SetTerrain>地形を配置...</DebugAction_SetTerrain>
+  <DebugAction_SpawnMechCluster>生成 メカクラスター</DebugAction_SpawnMechCluster>
+  <DebugAction_MakeFilthx100>生成 汚れ x100</DebugAction_MakeFilthx100>
+  <DebugAction_SpawnFactionLeader>生成 派閥リーダー</DebugAction_SpawnFactionLeader>
+  <DebugAction_SpawnWorldPawn>生成 worldポーン...</DebugAction_SpawnWorldPawn>
+  <DebugAction_SpawnThingSet>生成 ThingSet...</DebugAction_SpawnThingSet>
+  <DebugAction_TriggerEffecter>Effecterトリガー...</DebugAction_TriggerEffecter>
+  <DebugAction_SpawnShuttle>生成 シャトル...</DebugAction_SpawnShuttle>
+  <DebugAction_SpawnRandomCaravan>生成 ランダムなキャラバン</DebugAction_SpawnRandomCaravan>
+  <DebugAction_SpawnRandomFactionBase>生成 ランダムな派閥拠点</DebugAction_SpawnRandomFactionBase>
+  <DebugAction_SpawnSite>生成 クエスト地点...</DebugAction_SpawnSite>
+  <DebugAction_DestroySite>破壊 クエスト地点</DebugAction_DestroySite>
+  <DebugAction_SpawnSiteWithPoints>生成 脅威度指定クエスト地点...</DebugAction_SpawnSiteWithPoints>
+  <DebugAction_SpawnWorldObject>生成 WorldObject...</DebugAction_SpawnWorldObject>
+  <DebugAction_ChangeCameraConfigWorld>変更 カメラ設定...</DebugAction_ChangeCameraConfigWorld>
+
+</LanguageData>
