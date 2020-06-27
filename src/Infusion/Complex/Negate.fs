@@ -17,6 +17,7 @@ type Negate =
     override this.Match thing infDef =
         this.Value
         |> Option.map (fun value -> value.Match thing infDef)
+        |> Option.map not
         |> Option.defaultValue true
 
     override this.BuildRequirementString() =
