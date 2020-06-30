@@ -23,6 +23,10 @@
   <Infusion.Job.FailReason.NoExtractor>No reachable, un-reserved empty infuser.</Infusion.Job.FailReason.NoExtractor>
   <Infusion.Job.FailReason.NoMatchingInfuser>No reachable, un-reserved, suitable infuser.</Infusion.Job.FailReason.NoMatchingInfuser>
 
+  <!-- gizmo -->
+  <Infusion.EffectGizmo>Infusion</Infusion.EffectGizmo>
+  <Infusion.EffectGizmo.Description>Enables special effects such as flames or explosions.</Infusion.EffectGizmo.Description>
+
   <!-- inspection tab -->
   <Infusion.ITab>Infusions</Infusion.ITab>
 

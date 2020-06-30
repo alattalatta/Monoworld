@@ -17,17 +17,16 @@ module Impact =
     let Prefix (hitThing: Thing, __instance: Bullet, __state: outref<Map>) = do __state <- __instance.Map
 
     let Postfix (hitThing: Thing, __instance: Bullet, __state: Map) =
-        let primaryEquipment =
+        let comp =
             tryCast<Pawn> __instance.Launcher
             |> Option.bind Pawn.getEquipments
             |> Option.bind (Seq.tryFind (fun e -> e.def.equipmentType = EquipmentType.Primary))
-
-        let comp =
-            Option.bind Thing.getComp<CompInfusion> primaryEquipment
+            |> Option.bind Thing.getComp<CompInfusion>
 
         let baseDamage = float32 __instance.DamageAmount
 
         do comp
+           |> Option.filter (fun c -> c.EffectsEnabled)
            |> Option.iter (fun c ->
                c.OnHits
                |> List.filter (fun onHit -> Rand.Chance onHit.chance)

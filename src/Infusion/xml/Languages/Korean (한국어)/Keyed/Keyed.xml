@@ -23,6 +23,10 @@
   <Infusion.Job.FailReason.NoExtractor>접근 가능하고 선점 가능한 빈 연마기 없음</Infusion.Job.FailReason.NoExtractor>
   <Infusion.Job.FailReason.NoMatchingInfuser>접근 가능하고 선점 가능하며 적합한 연마기 없음</Infusion.Job.FailReason.NoMatchingInfuser>
 
+  <!-- gizmo -->
+  <Infusion.EffectGizmo>마법부여</Infusion.EffectGizmo>
+  <Infusion.EffectGizmo.Description>화염, 폭발 등 마법부여 특수효과를 활성화합니다.</Infusion.EffectGizmo.Description>
+
   <!-- inspection tab -->
   <Infusion.ITab>마법부여</Infusion.ITab>
 

@@ -11,7 +11,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Reflectors.fs" />
-    <Compile Include="L10N.fs" />
+    <Compile Include="ResourceBank.fs" />
     <Compile Include="StatMod.fs" />
     <Compile Include="DefFields.fs" />
     <Compile Include="VerseTools.fs" />
@@ -54,6 +54,7 @@
     <Compile Include="Harmonize/CompBiocodable.fs" />
     <Compile Include="Harmonize/CompQuality.fs" />
     <Compile Include="Harmonize/StatWorker.fs" />
+    <Compile Include="Harmonize/Pawn.fs" />
     <Compile Include="Harmonize/VerbMeleeAttackDamage.fs" />
     <Compile Include="Harmonize/VerbProperties.fs" />
     <Compile Include="Mod.fs" />

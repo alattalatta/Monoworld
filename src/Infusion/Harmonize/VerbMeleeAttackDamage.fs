@@ -14,14 +14,15 @@ module ApplyMeleeDamageToTarget =
     let Postfix (target: LocalTargetInfo, __instance: Verb_MeleeAttackDamage) =
         let comp =
             Option.ofObj __instance.EquipmentSource
-            // really this should only apply to melee weapons
-            |> Option.filter (fun e -> e.def.IsMeleeWeapon)
             |> Option.bind Comp.ofThing<CompInfusion>
 
         let baseDamage =
             __instance.verbProps.AdjustedMeleeDamageAmount(__instance, __instance.CasterPawn)
 
         do comp
+           // really, this should only apply to melee weapons
+           |> Option.filter (fun c -> c.parent.def.IsMeleeWeapon)
+           |> Option.filter (fun c -> c.EffectsEnabled)
            |> Option.map (fun c -> (c, c.OnHits))
            |> Option.iter (fun (c, onHits) ->
                onHits

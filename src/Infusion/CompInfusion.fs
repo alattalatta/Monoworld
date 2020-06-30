@@ -33,12 +33,12 @@ type CompInfusion() =
     let mutable removalSet = Set.empty<InfusionDef>
 
     let mutable biocoder = None
+    let mutable effectsEnabled = true
     let mutable slotCount = -1
     let mutable quality = QualityCategory.Normal
 
     let mutable bestInfusionCache = None
     let mutable onHitsCache = None
-
     let infusionsStatModCache = Dictionary<StatDef, option<StatMod>>()
 
     static member WantingCandidates
@@ -75,11 +75,13 @@ type CompInfusion() =
         with get () = biocoder
         and set (value: CompBiocodable option) = do biocoder <- value
 
+    member this.EffectsEnabled = effectsEnabled
+
     member this.Quality
         with get () = quality
         and set value =
             do quality <- value
-            do slotCount <- this.CalculateSlotCountFor value
+               slotCount <- this.CalculateSlotCountFor value
 
     member this.Infusions
         with get () = infusions |> Seq.sortDescending
@@ -88,19 +90,19 @@ type CompInfusion() =
                 float32 this.parent.HitPoints
                 / float32 this.parent.MaxHitPoints
 
-            do this.InvalidateCache()
             do infusions <- value |> Set.ofSeq
-            do wantingSet <- Set.difference wantingSet infusions
-            do extractionSet <- Set.intersect extractionSet infusions
-            do removalSet <- Set.intersect removalSet infusions
+               wantingSet <- Set.difference wantingSet infusions
+               extractionSet <- Set.intersect extractionSet infusions
+               removalSet <- Set.intersect removalSet infusions
 
-            do this.parent.HitPoints <-
-                (float32 this.parent.MaxHitPoints * hitPointsRatio)
-                |> round
-                |> int
-                |> min this.parent.MaxHitPoints
+               this.parent.HitPoints <-
+                   (float32 this.parent.MaxHitPoints * hitPointsRatio)
+                   |> round
+                   |> int
+                   |> min this.parent.MaxHitPoints
 
-            this.FinalizeSetMutations()
+               this.FinalizeSetMutations()
+               this.InvalidateCache()
 
     member this.InfusionsRaw = infusions
 
@@ -145,21 +147,12 @@ type CompInfusion() =
         (List.rev prefixes, List.rev suffixes)
 
     member this.BestInfusion =
-        match bestInfusionCache with
-        | None ->
-            do bestInfusionCache <- this.Infusions |> Seq.tryHead
-            bestInfusionCache
-        | _ -> bestInfusionCache
+        if Option.isNone bestInfusionCache then do this.InvalidateCache()
+
+        bestInfusionCache
 
     member this.OnHits =
-        if Option.isNone onHitsCache then
-            do onHitsCache <-
-                infusions
-                |> Seq.map (fun inf -> inf.OnHits)
-                |> Seq.choose id
-                |> Seq.concat
-                |> List.ofSeq
-                |> Some
+        if Option.isNone onHitsCache then do this.InvalidateCache()
 
         Option.defaultValue List.empty onHitsCache
 
@@ -199,6 +192,19 @@ type CompInfusion() =
             prefixedPart.CapitalizeFirst()
 
     member this.Size = Set.count infusions
+
+    // can't use CompGetGizmosExtra, Pawn_EquipmentTracker do not use them for Pawn Gizmos.
+    member this.EffectGizmo =
+        onHitsCache
+        // List.length != 0
+        |> Option.filter (List.length >> (=) 0 >> not)
+        |> Option.map (fun _ ->
+            Command_Toggle
+                (defaultLabel = ResourceBank.Strings.Gizmo.label,
+                 defaultDesc = ResourceBank.Strings.Gizmo.desc,
+                 icon = ResourceBank.Textures.Flame,
+                 isActive = (fun () -> effectsEnabled),
+                 toggleAction = (fun () -> do effectsEnabled <- not effectsEnabled)))
 
     member this.PopulateInfusionsStatModCache(stat: StatDef) =
         if not (infusionsStatModCache.ContainsKey stat) then
@@ -247,9 +253,17 @@ type CompInfusion() =
         |> Option.isSome
 
     member this.InvalidateCache() =
-        do bestInfusionCache <- None
-        do onHitsCache <- None
         do infusionsStatModCache.Clear()
+
+           bestInfusionCache <- this.Infusions |> Seq.tryHead
+           onHitsCache <-
+               infusions
+               |> Seq.map (fun inf -> inf.OnHits)
+               |> Seq.choose id
+               |> Seq.concat
+               |> List.ofSeq
+               |> Some
+
 
     member this.MarkForInfuser(infDef: InfusionDef) = do this.WantingSet <- Set.add infDef wantingSet
     member this.MarkForExtractor(infDef: InfusionDef) = do this.ExtractionSet <- Set.add infDef extractionSet
@@ -287,6 +301,7 @@ type CompInfusion() =
                 label
         | None -> ""
 
+    // overrides below
     override this.TransformLabel label =
         match this.BestInfusion with
         | Some bestInf ->
@@ -377,6 +392,9 @@ type CompInfusion() =
     override this.PostExposeData() =
         Scribe.value "quality" this.Quality
         |> Option.iter (fun qc -> do this.Quality <- qc)
+
+        Scribe.valueDefault "effectsEnabled" true effectsEnabled
+        |> Option.iter (fun e -> do effectsEnabled <- e)
 
         Scribe.valueDefault "slotCount" (this.CalculateSlotCountFor quality) this.SlotCount
         |> Option.iter (fun sc -> do slotCount <- sc)
