@@ -114,18 +114,17 @@
           </value>
         </li>
 
-        <!-- empire base always has at least one infuser -->
+        <!-- empire bases have up to three -->
         <li Class="PatchOperationAdd">
           <xpath>/Defs/TraderKindDef[defName="Base_Empire_Standard"]/stockGenerators</xpath>
           <value>
             <li Class="StockGenerator_SingleDef">
               <thingDef>Infusion_InfuserEmpty</thingDef>
-              <countRange>1~4</countRange>
+              <countRange>0~3</countRange>
             </li>
-            <!-- legendaries allowed! -->
             <li Class="Infusion.StockGeneratorInfuser">
               <countRange>0~2</countRange>
-              <tierPriorityLimit>300</tierPriorityLimit>
+              <tierPriorityLimit>299</tierPriorityLimit>
             </li>
           </value>
         </li>
@@ -136,12 +135,11 @@
           <value>
             <li Class="StockGenerator_SingleDef">
               <thingDef>Infusion_InfuserEmpty</thingDef>
-              <countRange>1~2</countRange>
+              <countRange>0~2</countRange>
             </li>
-            <!-- allow legendary! -->
             <li Class="Infusion.StockGeneratorInfuser">
               <countRange>0~1</countRange>
-              <tierPriorityLimit>300</tierPriorityLimit>
+              <tierPriorityLimit>299</tierPriorityLimit>
             </li>
           </value>
         </li>
