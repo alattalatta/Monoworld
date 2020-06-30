@@ -11,4 +11,4 @@ type ShieldBelt() =
     override this.Match thing _ =
         (thing.def.statBases.GetStatValueFromList(StatDefOf.EnergyShieldEnergyMax, 0.0f)) > 0.0f
 
-    override this.BuildRequirementString() = Some L10N.Complex.shieldBelt
+    override this.BuildRequirementString() = Some ResourceBank.Strings.Complex.shieldBelt

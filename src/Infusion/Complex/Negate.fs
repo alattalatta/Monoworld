@@ -23,4 +23,4 @@ type Negate =
     override this.BuildRequirementString() =
         this.Value
         |> Option.bind (fun value -> value.BuildRequirementString())
-        |> Option.map (L10N.Complex.negate >> string)
+        |> Option.map (ResourceBank.Strings.Complex.negate >> string)

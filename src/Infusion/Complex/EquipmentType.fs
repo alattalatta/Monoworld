@@ -24,13 +24,17 @@ type EquipmentType =
 
     override this.BuildRequirementString() =
         let apparel =
-            if this.apparel then Some L10N.Complex.apparel else None
+            if this.apparel
+            then Some ResourceBank.Strings.Complex.apparel
+            else None
 
         let melee =
-            if this.melee then Some L10N.Complex.melee else None
+            if this.melee then Some ResourceBank.Strings.Complex.melee else None
 
         let ranged =
-            if this.ranged then Some L10N.Complex.ranged else None
+            if this.ranged
+            then Some ResourceBank.Strings.Complex.ranged
+            else None
 
         [ apparel; melee; ranged ]
         |> List.choose id

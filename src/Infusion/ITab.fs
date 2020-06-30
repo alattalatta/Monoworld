@@ -4,7 +4,6 @@ open System.Text
 
 open Poet.Lib
 open Poet.Lyric
-open Poet.Lyric.Translation
 open RimWorld
 open UnityEngine
 open Verse
@@ -74,7 +73,7 @@ type Infused() =
         do Text.Font <- GameFont.Tiny
         do GUI.color <- Color.gray
 
-        let hint = translate "Infusion.ITab.Hint"
+        let hint = ResourceBank.Strings.ITab.hint
         let hintHeight = Text.CalcHeight(hint, parentRect.width)
 
         let hintView =
@@ -136,10 +135,10 @@ type Infused() =
 
         let tooltipStringKey =
             if markedForExtraction
-            then string (translate1 "Infusion.ITab.MarkForRemoval" successChance)
+            then ResourceBank.Strings.ITab.markRemoval successChance
             elif markedForRemoval
-            then translate "Infusion.ITab.Unmark"
-            else string (translate1 "Infusion.ITab.MarkForExtraction" successChance)
+            then ResourceBank.Strings.ITab.unmark
+            else ResourceBank.Strings.ITab.markExtraction successChance
 
         do TooltipHandler.TipRegion(container, TipSignal(tooltipStringKey))
 
@@ -166,9 +165,7 @@ type Infused() =
         do GUI.color <- Color(0.0f, 1.0f, 0.0f, 0.85f)
         do GUI.DrawTexture(container, TexUI.HighlightTex)
 
-        let tooltipStringKey = "Infusion.ITab.CancelInfuser"
-
-        do TooltipHandler.TipRegion(container, TipSignal(translate tooltipStringKey))
+        do TooltipHandler.TipRegion(container, TipSignal(ResourceBank.Strings.ITab.cancelInfuser))
 
         if Widgets.ButtonInvisible(container) then
             do compInf.UnmarkForInfuser infDef
@@ -232,9 +229,9 @@ type Infused() =
             let buttonView =
                 Rect(parentRect.xMin + 30.0f, parentRect.yMin, 140.0f, parentRect.height)
 
-            do TooltipHandler.TipRegion(parentRect, TipSignal(translate "Infusion.ITab.ApplyInfuser.Description"))
+            do TooltipHandler.TipRegion(parentRect, TipSignal(ResourceBank.Strings.ITab.applyInfuserDesc))
 
-            if Widgets.ButtonText(buttonView, translate "Infusion.ITab.ApplyInfuser") then
+            if Widgets.ButtonText(buttonView, ResourceBank.Strings.ITab.applyInfuser) then
                 do infPairs
                    |> Seq.map (fun infPair ->
                        FloatMenuOption
@@ -246,14 +243,14 @@ type Infused() =
         let allInfusers =
             if Set.count comp.InfusionsRaw < comp.SlotCount
             then Ok Infuser.AllInfusersByDef
-            else Error(translate "Infusion.ITab.ApplyInfuser.SlotsFull")
+            else Error(ResourceBank.Strings.ITab.cantApplySlotsFull)
 
         do allInfusers
            |> Result.map
                (Seq.filter (fun kv ->
                    not (Set.contains kv.Key comp.InfusionsRaw)
                    && InfusionDef.checkAllComplexes comp.parent comp.Quality kv.Key))
-           |> Result.bind (Result.ofSeq (translate "Infusion.ITab.ApplyInfuser.NoSuitableInfuser"))
+           |> Result.bind (Result.ofSeq ResourceBank.Strings.ITab.cantApplyNoSuitable)
            |> Result.iterBoth drawUnavailableReason drawButton
 
     override this.IsVisible =
