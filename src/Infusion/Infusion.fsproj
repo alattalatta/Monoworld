@@ -2,7 +2,7 @@
   <PropertyGroup>
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
     <TargetFramework>net472</TargetFramework>
-    <Version>3.2.1</Version>
+    <Version>3.2.2</Version>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Poet\Poet.fsproj">
