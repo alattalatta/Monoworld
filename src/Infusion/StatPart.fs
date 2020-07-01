@@ -59,7 +59,6 @@ type Infusion =
     member private this.TransformThingStat(value, thing: Thing) =
         this.GetAllModifiersFromThing thing
         |> applyTo value
-        |> GenMath.RoundedHundredth
 
     member private this.ExplainForThing(thing: Thing) =
         let sb = StringBuilder()
