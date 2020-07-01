@@ -95,14 +95,15 @@ type CompInfusion() =
                extractionSet <- Set.intersect extractionSet infusions
                removalSet <- Set.intersect removalSet infusions
 
+               this.InvalidateCache()
+               this.FinalizeSetMutations()
+
                this.parent.HitPoints <-
                    (float32 this.parent.MaxHitPoints * hitPointsRatio)
                    |> round
                    |> int
                    |> min this.parent.MaxHitPoints
 
-               this.FinalizeSetMutations()
-               this.InvalidateCache()
 
     member this.InfusionsRaw = infusions
 
