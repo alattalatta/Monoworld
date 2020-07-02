@@ -11,8 +11,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Lib.fs" />
+    <Compile Include="Harmonize/DebugWindowsOpener.fs" />
     <Compile Include="Harmonize/Dialog_DebugActionsMenu.fs" />
     <Compile Include="Harmonize/Dialog_DebugSettingsMenu.fs" />
+    <Compile Include="Harmonize/EditWindow_Log.fs" />
     <Compile Include="Mod.fs" />
   </ItemGroup>
   <ItemGroup>

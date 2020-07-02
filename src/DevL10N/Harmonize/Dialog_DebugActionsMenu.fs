@@ -15,7 +15,7 @@ module GenerateCacheForMethod =
         interface
         end
 
-    let makeLabel (mi: MethodInfo, attr: DebugActionAttribute) =
+    let private makeLabel (mi: MethodInfo, attr: DebugActionAttribute) =
         translatableFromMethodInfo "DebugAction_" attr.name mi
 
     // HOW LAZY AM I
