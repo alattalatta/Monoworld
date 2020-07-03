@@ -4,10 +4,10 @@
   <DebugAction_SpawnWeapon>生成 武器...</DebugAction_SpawnWeapon>
   <DebugAction_SpawnApparel>生成 衣服...</DebugAction_SpawnApparel>
   <DebugAction_TryPlaceNearThing>付近にThing配置...</DebugAction_TryPlaceNearThing>
-  <DebugAction_TryPlaceNearStacksOf25>付近にx25スタック配置...</DebugAction_TryPlaceNearStacksOf25>
-  <DebugAction_TryPlaceNearStacksOf75>付近にx75スタック配置...</DebugAction_TryPlaceNearStacksOf75>
+  <DebugAction_TryPlaceNearStacksOf25>付近にスタック配置x25...</DebugAction_TryPlaceNearStacksOf25>
+  <DebugAction_TryPlaceNearStacksOf75>付近にスタック配置x75...</DebugAction_TryPlaceNearStacksOf75>
   <DebugAction_TryPlaceDirectThing>直接Thing配置...</DebugAction_TryPlaceDirectThing>
-  <DebugAction_TryPlaceDirectStackOf25>直接x75スタック配置...</DebugAction_TryPlaceDirectStackOf25>
+  <DebugAction_TryPlaceDirectStackOf25>直接スタック配置x75...</DebugAction_TryPlaceDirectStackOf25>
   <DebugAction_SpawnThingWithWipeMode>排他モードでThing配置...</DebugAction_SpawnThingWithWipeMode>
   <DebugAction_SetTerrain>地形を配置...</DebugAction_SetTerrain>
   <DebugAction_SpawnMechCluster>生成 メカクラスター</DebugAction_SpawnMechCluster>
