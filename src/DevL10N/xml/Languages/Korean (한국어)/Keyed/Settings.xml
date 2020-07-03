@@ -42,7 +42,7 @@
   <DrawRegionTraversal>Region 순회 그리기</DrawRegionTraversal>
   <DrawRegionThings>Region Thing 그리기</DrawRegionThings>
   <DrawRooms>방 그리기</DrawRooms>
-  <DrawRoomGroups>방 그룹 그리기</DrawRoomGroups>
+  <DrawRoomGroups>RoomGroup 그리기</DrawRoomGroups>
   <DrawPower>전력 그리기</DrawPower>
   <DrawPowerNetGrid>PowerNetGrid 그리기</DrawPowerNetGrid>
   <DrawOpportunisticJobs>기회기반 작업 그리기</DrawOpportunisticJobs>
@@ -94,22 +94,22 @@
   <WriteWorkSettings>작업 설정 쓰기</WriteWorkSettings>
   <WriteSkyManager>SkyManager 쓰기</WriteSkyManager>
   <WriteMemoryUsage>메모리 사용량 쓰기</WriteMemoryUsage>
-  <WriteMapGameConditions>지도 상황 쓰기</WriteMapGameConditions>
+  <WriteMapGameConditions>지도의 GameCondition 쓰기</WriteMapGameConditions>
   <WriteAttackTargets>공격 대상 쓰기</WriteAttackTargets>
-  <LogIncapChance>Log incap chance</LogIncapChance>
-  <LogInput>Log input</LogInput>
-  <LogApparelGeneration>Log apparel generation</LogApparelGeneration>
-  <LogLordToilTransitions>Log lord toil transitions</LogLordToilTransitions>
-  <LogGrammarResolution>Log grammar resolution</LogGrammarResolution>
-  <LogCombatLogMouseover>Log combat log mouseover</LogCombatLogMouseover>
-  <LogMapLoad>Log map load</LogMapLoad>
-  <LogTutor>Log tutor</LogTutor>
-  <LogSignals>Log signals</LogSignals>
-  <LogWorldPawnGC>Log WorldPawnGC</LogWorldPawnGC>
-  <LogTaleRecording>Log tale recording</LogTaleRecording>
-  <LogHourlyScreenshot>Log hourly screenshot</LogHourlyScreenshot>
-  <LogFilthSummary>Log filth summary</LogFilthSummary>
-  <DebugApparelOptimize>Debug apparel optimize</DebugApparelOptimize>
-  <ShowAllRoomStats>Show all room stats</ShowAllRoomStats>
-  <ShowFloatMenuWorkGivers>Show float menu WorkGivers</ShowFloatMenuWorkGivers>
+  <LogIncapChance>Log incap chance (미사용)</LogIncapChance>
+  <LogInput>입력 기록</LogInput>
+  <LogApparelGeneration>의류 생성 기록</LogApparelGeneration>
+  <LogLordToilTransitions>Lord의 Toil 트랜지션 기록</LogLordToilTransitions>
+  <LogGrammarResolution>문법 이행 기록</LogGrammarResolution>
+  <LogCombatLogMouseover>전투 기록 마우스오버 기록</LogCombatLogMouseover>
+  <LogMapLoad>지도 불러오기 기록</LogMapLoad>
+  <LogTutor>도우미 기록</LogTutor>
+  <LogSignals>Signal 기록</LogSignals>
+  <LogWorldPawnGC>WorldPawnGC 기록</LogWorldPawnGC>
+  <LogTaleRecording>이야기 저장 기록</LogTaleRecording>
+  <LogHourlyScreenshot>매 시간 스크린샷 기록</LogHourlyScreenshot>
+  <LogFilthSummary>오물 요약 기록</LogFilthSummary>
+  <DebugApparelOptimize>의류 최적화 디버그</DebugApparelOptimize>
+  <ShowAllRoomStats>모든 방 능력치 보이기</ShowAllRoomStats>
+  <ShowFloatMenuWorkGivers>플로팅 메뉴에 WorkGiver 보이기</ShowFloatMenuWorkGivers>
 </LanguageData>

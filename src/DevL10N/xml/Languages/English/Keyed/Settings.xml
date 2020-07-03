@@ -42,7 +42,7 @@
   <DrawRegionTraversal>Draw region traversal</DrawRegionTraversal>
   <DrawRegionThings>Draw region Things</DrawRegionThings>
   <DrawRooms>Draw rooms</DrawRooms>
-  <DrawRoomGroups>Draw room groups</DrawRoomGroups>
+  <DrawRoomGroups>Draw RoomGroups</DrawRoomGroups>
   <DrawPower>Draw power</DrawPower>
   <DrawPowerNetGrid>Draw PowerNetGrid</DrawPowerNetGrid>
   <DrawOpportunisticJobs>Draw opportunistic jobs</DrawOpportunisticJobs>
@@ -52,7 +52,7 @@
   <DrawPreyInfo>Draw prey info</DrawPreyInfo>
   <DrawGlow>Draw glow</DrawGlow>
   <DrawAvoidGrid>Draw avoid grid</DrawAvoidGrid>
-  <DrawLords>Draw lords</DrawLords>
+  <DrawLords>Draw Lords</DrawLords>
   <DrawDuties>Draw duties</DrawDuties>
   <DrawShooting>Draw shooting</DrawShooting>
   <DrawInfestationChance>Draw infestation chance</DrawInfestationChance>
@@ -94,22 +94,22 @@
   <WriteWorkSettings>Write work settings</WriteWorkSettings>
   <WriteSkyManager>Write SkyManager</WriteSkyManager>
   <WriteMemoryUsage>Write memory usage</WriteMemoryUsage>
-  <WriteMapGameConditions>Write map game conditions</WriteMapGameConditions>
+  <WriteMapGameConditions>Write map's GameConditions</WriteMapGameConditions>
   <WriteAttackTargets>Write attack targets</WriteAttackTargets>
-  <LogIncapChance>Log incap chance</LogIncapChance>
+  <LogIncapChance>Log incap chance (not used)</LogIncapChance>
   <LogInput>Log input</LogInput>
   <LogApparelGeneration>Log apparel generation</LogApparelGeneration>
-  <LogLordToilTransitions>Log lord toil transitions</LogLordToilTransitions>
+  <LogLordToilTransitions>Log Lord's Toil transitions</LogLordToilTransitions>
   <LogGrammarResolution>Log grammar resolution</LogGrammarResolution>
   <LogCombatLogMouseover>Log combat log mouseover</LogCombatLogMouseover>
   <LogMapLoad>Log map load</LogMapLoad>
   <LogTutor>Log tutor</LogTutor>
-  <LogSignals>Log signals</LogSignals>
+  <LogSignals>Log Signals</LogSignals>
   <LogWorldPawnGC>Log WorldPawnGC</LogWorldPawnGC>
   <LogTaleRecording>Log tale recording</LogTaleRecording>
   <LogHourlyScreenshot>Log hourly screenshot</LogHourlyScreenshot>
   <LogFilthSummary>Log filth summary</LogFilthSummary>
-  <DebugApparelOptimize>Debug apparel optimize</DebugApparelOptimize>
+  <DebugApparelOptimize>Debug apparel optimization</DebugApparelOptimize>
   <ShowAllRoomStats>Show all room stats</ShowAllRoomStats>
   <ShowFloatMenuWorkGivers>Show float menu WorkGivers</ShowFloatMenuWorkGivers>
 </LanguageData>
