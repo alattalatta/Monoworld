@@ -3,6 +3,6 @@ source https://api.nuget.org/v3/index.json
 storage: none
 framework: net472
 nuget FSharp.Core
-nuget Krafs.Rimworld.Ref
+nuget Krafs.Rimworld.Ref 1.2.2712-beta beta
 nuget Lib.Harmony
 nuget UnlimitedHugs.Rimworld.HugsLib
