@@ -6,6 +6,7 @@
   <url>https://www.nuget.org/packages/FSharp.Core/</url>
   <supportedVersions>
     <li>1.1</li>
+    <li>1.2</li>
   </supportedVersions>
   <description>FSharp.Core is a base mod for F# assemblies.
 
