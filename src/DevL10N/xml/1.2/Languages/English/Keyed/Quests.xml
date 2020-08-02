@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <DebugAction_GenerateQuest>Generate quest...</DebugAction_GenerateQuest>
+  <DebugAction_GenerateQuests10>Generate quest x10...</DebugAction_GenerateQuests10>
+  <DebugAction_GenerateQuests30>Generate quest x30...</DebugAction_GenerateQuests30>
+  <DebugAction__GenerateQuestsSamples>Generate quests (1 for each points)...</DebugAction__GenerateQuestsSamples>
+  <DebugAction_TestQuestPart>Test QuestPart...</DebugAction_TestQuestPart>
+  <DebugAction_QuestExample>Log generated quest savedata</DebugAction_QuestExample>
+</LanguageData>

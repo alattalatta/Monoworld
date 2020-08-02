@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <DebugAction_Award4RoyalFavor>명예 4개 부여</DebugAction_Award4RoyalFavor>
+  <DebugAction_Award10RoyalFavor>명예 10개 부여</DebugAction_Award10RoyalFavor>
+  <DebugAction_Remove4RoyalFavor>명예 4개 제거</DebugAction_Remove4RoyalFavor>
+  <DebugAction_ReduceRoyalTitle>작위 낮추기</DebugAction_ReduceRoyalTitle>
+  <DebugAction_SetTitleForced>작위 설정...</DebugAction_SetTitleForced>
+</LanguageData>

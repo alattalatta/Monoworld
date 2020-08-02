@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <DebugAction_GenerateQuest>임무 생성...</DebugAction_GenerateQuest>
+  <DebugAction_GenerateQuests10>임무 생성 x10...</DebugAction_GenerateQuests10>
+  <DebugAction_GenerateQuests30>임무 생성 x30...</DebugAction_GenerateQuests30>
+  <DebugAction_GenerateQuestsSamples>임무 생성 (포인트마다 하나씩)...</DebugAction_GenerateQuestsSamples>
+  <DebugAction_TestQuestPart>QuestPart 테스트...</DebugAction_TestQuestPart>
+  <DebugAction_QuestExample>생성한 퀘스트 세이브 데이터 기록</DebugAction_QuestExample>
+</LanguageData>
