@@ -68,7 +68,7 @@
   </ItemGroup>
   <Target Name="Copy" AfterTargets="Build">
     <RemoveDir Directories="$(SolutionDir)\dist\Infusion" />
-    <Copy SourceFiles="@(Artifact)" DestinationFiles="$(SolutionDir)\dist\Infusion\Assemblies\Infusion.dll" />
+    <Copy SourceFiles="@(Artifact)" DestinationFiles="$(SolutionDir)\dist\Infusion\1.2\Assemblies\Infusion.dll" />
     <Copy SourceFiles="@(XmlDocs)" DestinationFolder="$(SolutionDir)\dist\Infusion\%(RecursiveDir)" />
   </Target>
   <Import Project="..\..\.paket\Paket.Restore.targets" />
