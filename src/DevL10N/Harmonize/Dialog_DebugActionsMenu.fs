@@ -24,7 +24,7 @@ module GenerateCacheForMethod =
         let name =
             if attribute.name.NullOrEmpty() then GenText.SplitCamelCase(method.Name) else attribute.name
 
-        Log.Message(taggify "DebugAction_" method.Name name)
+        Log.Message(taggify "DebugAction" method.Name name)
         true
 
     let Transpiler (instructions: CodeInstruction seq) =

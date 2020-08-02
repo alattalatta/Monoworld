@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <LogWindow_Clear>지우기</LogWindow_Clear>
+  <LogWindow_Clear.Description>모든 로그 메시지를 지웁니다.</LogWindow_Clear.Description>
+
+  <LogWindow_TraceBig>스택 추적 크게</LogWindow_TraceBig>
+  <LogWindow_TraceBig.Description>스택 추적 화면을 크게 노출합니다.</LogWindow_TraceBig.Description>
+
+  <LogWindow_TraceMedium>스택 추적 보통</LogWindow_TraceMedium>
+  <LogWindow_TraceMedium.Description>스택 추적 화면을 보통 크기로 노출합니다.</LogWindow_TraceMedium.Description>
+
+  <LogWindow_TraceSmall>스택 추적 작게</LogWindow_TraceSmall>
+  <LogWindow_TraceSmall.Description>스택 추적 화면을 작게 노출합니다.</LogWindow_TraceSmall.Description>
+
+  <LogWindow_AutoOpenEnabled>자동 열림 활성화됨</LogWindow_AutoOpenEnabled>
+  <LogWindow_AutoOpenEnabled.Description>오류가 발생하면 자동으로 디버그 로그가 열립니다.</LogWindow_AutoOpenEnabled.Description>
+
+  <LogWindow_AutoOpenDisabled>자동 열림 비활성화됨</LogWindow_AutoOpenDisabled>
+  <LogWindow_AutoOpenDisabled.Description>오류가 발생해도 디버그 로그가 열리지 않습니다.</LogWindow_AutoOpenDisabled.Description>
+
+  <LogWindow_CopyToClipboard>클립보드로 복사</LogWindow_CopyToClipboard>
+  <LogWindow_CopyToClipboard.Description>모든 메시지를 클립보드에 복사합니다.</LogWindow_CopyToClipboard.Description>
+</LanguageData>

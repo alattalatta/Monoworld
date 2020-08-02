@@ -9,7 +9,7 @@ open Verse
 open DevL10N.Lib
 
 
-[<HarmonyPatch(typeof<Dialog_DebugSettingsMenu>, "DoField")>]
+[<HarmonyPatch(typeof<Dialog_DebugSettingsMenu>, "DoField_NewTmp")>]
 module DoField =
     let __Prefix (fi: FieldInfo) =
         let name =
