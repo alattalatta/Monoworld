@@ -15,8 +15,8 @@
   <DebugAction_AddHediff>Hediffを追加...</DebugAction_AddHediff>
   <DebugAction_RemoveHediff>Hediffを削除...</DebugAction_RemoveHediff>
   <DebugAction_HealRandomInjury10>ランダムな傷を治す(10)</DebugAction_HealRandomInjury10>
-  <DebugAction_ActivateHediffGiver>HediffGiverを作動</DebugAction_ActivateHediffGiver>
-  <DebugAction_ActivateHediffGiverWorldPawn>Activate HediffGiver of a world Pawn</DebugAction_ActivateHediffGiverWorldPawn>
+  <DebugAction_ActivateHediffGiver>HediffGiver有効</DebugAction_ActivateHediffGiver>
+  <DebugAction_ActivateHediffGiverWorldPawn>world Pawn HediffGiver有効</DebugAction_ActivateHediffGiverWorldPawn>
   <DebugAction_DiscoverHediffs>Hediffsを発見</DebugAction_DiscoverHediffs>
   <DebugAction_GrantImmunities>免疫を付与</DebugAction_GrantImmunities>
   <DebugAction_GiveBirth>出産</DebugAction_GiveBirth>
@@ -35,11 +35,11 @@
   <DebugAction_OffsetJoyNegative20>娯楽-20%</DebugAction_OffsetJoyNegative20>
   <DebugAction_OffsetChemicalNegative20>薬物-20%</DebugAction_OffsetChemicalNegative20>
   <DebugAction_SetSkill>スキルLv設定...</DebugAction_SetSkill>
-  <DebugAction_MaxSkill>Max skill...</DebugAction_MaxSkill>
-  <DebugAction_MaxAllSkills>全スキルLvを最大化</DebugAction_MaxAllSkills>
+  <DebugAction_MaxSkill>スキルLv最大...</DebugAction_MaxSkill>
+  <DebugAction_MaxAllSkills>全スキルLv最大..</DebugAction_MaxAllSkills>
   <DebugAction_MentalBreak>精神崩壊追加...</DebugAction_MentalBreak>
   <DebugAction_MentalState>精神状態追加...</DebugAction_MentalState>
-  <DebugAction_StopMentalState>Stop mental state</DebugAction_StopMentalState>
+  <DebugAction_StopMentalState>精神状態停止...</DebugAction_StopMentalState>
   <DebugAction_Inspiration>やる気...</DebugAction_Inspiration>
   <DebugAction_GiveTrait>特性を追加...</DebugAction_GiveTrait>
   <DebugAction_SetBackstory>バックストーリーを変更...</DebugAction_SetBackstory>
@@ -52,8 +52,8 @@
   <DebugAction_ForceBirthday>強制 誕生日</DebugAction_ForceBirthday>
   <DebugAction_Recruit>勧誘</DebugAction_Recruit>
   <DebugAction_DamageApparel>衣服にダメージ</DebugAction_DamageApparel>
-  <DebugAction_WearApparel_ToSelected>Give apparel to selected...</DebugAction_WearApparel_ToSelected>
-  <DebugAction_EquipPrimary_ToSelected>Give primary to selected...</DebugAction_EquipPrimary_ToSelected>
+  <DebugAction_WearApparel_ToSelected>選択者に衣服を付与...</DebugAction_WearApparel_ToSelected>
+  <DebugAction_EquipPrimary_ToSelected>選択者に武器を付与...</DebugAction_EquipPrimary_ToSelected>
   <DebugAction_TameAnimal>動物を飼いならす</DebugAction_TameAnimal>
   <DebugAction_TrainAnimal>動物を訓練する</DebugAction_TrainAnimal>
   <DebugAction_TryDevelopBoundRelation>テスト 絆関係を構築する</DebugAction_TryDevelopBoundRelation>
@@ -72,5 +72,5 @@
   <DebugAction_ToggleJobLogging>切替 ジョブの記録</DebugAction_ToggleJobLogging>
   <DebugAction_ToggleStanceLogging>切替 stanceの記録</DebugAction_ToggleStanceLogging>
   <DebugAction_Kidnap>入植者誘拐</DebugAction_Kidnap>
-  <DebugAction_Selected_SetFacing>Make selected face cell</DebugAction_Selected_SetFacing>
+  <DebugAction_Selected_SetFacing>作成 選択 face cell</DebugAction_Selected_SetFacing>
 </LanguageData>

@@ -2,7 +2,7 @@
 <LanguageData>
   <DebugAction_DestroyAllPlants>植物全て破壊</DebugAction_DestroyAllPlants>
   <DebugAction_DestroyAllThings>物品全て破壊</DebugAction_DestroyAllThings>
-  <DebugAction_DestroyClutter>Destroy all clutter</DebugAction_DestroyClutter>
+  <DebugAction_DestroyClutter>汚れ全て破壊</DebugAction_DestroyClutter>
   <DebugAction_FinishAllResearch>研究全て完了</DebugAction_FinishAllResearch>
   <DebugAction_ReplaceAllTradeShips>トレード船入替</DebugAction_ReplaceAllTradeShips>
   <DebugAction_ChangeWeather>天気を変更...</DebugAction_ChangeWeather>
