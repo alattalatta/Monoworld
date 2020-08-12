@@ -16,6 +16,7 @@
   <DebugAction_RemoveHediff>Hediffを削除...</DebugAction_RemoveHediff>
   <DebugAction_HealRandomInjury10>ランダムな傷を治す(10)</DebugAction_HealRandomInjury10>
   <DebugAction_ActivateHediffGiver>HediffGiverを作動</DebugAction_ActivateHediffGiver>
+  <DebugAction_ActivateHediffGiverWorldPawn>Activate HediffGiver of a world Pawn</DebugAction_ActivateHediffGiverWorldPawn>
   <DebugAction_DiscoverHediffs>Hediffsを発見</DebugAction_DiscoverHediffs>
   <DebugAction_GrantImmunities>免疫を付与</DebugAction_GrantImmunities>
   <DebugAction_GiveBirth>出産</DebugAction_GiveBirth>
@@ -34,7 +35,8 @@
   <DebugAction_OffsetJoyNegative20>娯楽-20%</DebugAction_OffsetJoyNegative20>
   <DebugAction_OffsetChemicalNegative20>薬物-20%</DebugAction_OffsetChemicalNegative20>
   <DebugAction_SetSkill>スキルLv設定...</DebugAction_SetSkill>
-  <DebugAction_MaxSkill>全スキルLvを最大化</DebugAction_MaxSkill>
+  <DebugAction_MaxSkill>Max skill...</DebugAction_MaxSkill>
+  <DebugAction_MaxAllSkills>全スキルLvを最大化</DebugAction_MaxAllSkills>
   <DebugAction_MentalBreak>精神崩壊追加...</DebugAction_MentalBreak>
   <DebugAction_MentalState>精神状態追加...</DebugAction_MentalState>
   <DebugAction_StopMentalState>Stop mental state</DebugAction_StopMentalState>

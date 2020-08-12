@@ -16,6 +16,7 @@
   <DebugAction_RemoveHediff>Remove Hediff...</DebugAction_RemoveHediff>
   <DebugAction_HealRandomInjury10>Heal random injury (10)</DebugAction_HealRandomInjury10>
   <DebugAction_ActivateHediffGiver>Activate HediffGiver</DebugAction_ActivateHediffGiver>
+  <DebugAction_ActivateHediffGiverWorldPawn>Activate HediffGiver of a world Pawn</DebugAction_ActivateHediffGiverWorldPawn>
   <DebugAction_DiscoverHediffs>Discover Hediffs</DebugAction_DiscoverHediffs>
   <DebugAction_GrantImmunities>Grant immunities</DebugAction_GrantImmunities>
   <DebugAction_GiveBirth>Give birth</DebugAction_GiveBirth>
@@ -34,7 +35,8 @@
   <DebugAction_OffsetJoyNegative20>Joy -20%</DebugAction_OffsetJoyNegative20>
   <DebugAction_OffsetChemicalNegative20>Chemical -20%</DebugAction_OffsetChemicalNegative20>
   <DebugAction_SetSkill>Set skill...</DebugAction_SetSkill>
-  <DebugAction_MaxSkill>Max all skills</DebugAction_MaxSkill>
+  <DebugAction_MaxSkill>Max skill...</DebugAction_MaxSkill>
+  <DebugAction_MaxAllSkills>Max all skills</DebugAction_MaxAllSkills>
   <DebugAction_MentalBreak>Mental break...</DebugAction_MentalBreak>
   <DebugAction_MentalState>Mental state...</DebugAction_MentalState>
   <DebugAction_StopMentalState>Stop mental state</DebugAction_StopMentalState>

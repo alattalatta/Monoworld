@@ -8,6 +8,7 @@
   <DebugAction_TryPlaceNearStacksOf75>付近にスタック配置x75...</DebugAction_TryPlaceNearStacksOf75>
   <DebugAction_TryPlaceDirectThing>直接Thing配置...</DebugAction_TryPlaceDirectThing>
   <DebugAction_TryPlaceDirectStackOf25>直接スタック配置x75...</DebugAction_TryPlaceDirectStackOf25>
+  <DebugAction_TryAddToInventory>Try add to inventory...</DebugAction_TryAddToInventory>
   <DebugAction_SpawnThingWithWipeMode>排他モードでThing配置...</DebugAction_SpawnThingWithWipeMode>
   <DebugAction_SetTerrain>地形を配置...</DebugAction_SetTerrain>
   <DebugAction_SpawnMechCluster>生成 メカクラスター</DebugAction_SpawnMechCluster>

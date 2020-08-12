@@ -8,6 +8,7 @@
   <DebugAction_TryPlaceNearStacksOf75>인근에 75스택 생성 시도...</DebugAction_TryPlaceNearStacksOf75>
   <DebugAction_TryPlaceDirectThing>바로 Thing 생성 시도...</DebugAction_TryPlaceDirectThing>
   <DebugAction_TryPlaceDirectStackOf25>바로 25스택 생성 시도...</DebugAction_TryPlaceDirectStackOf25>
+  <DebugAction_TryAddToInventory>인벤토리에 생성 시도...</DebugAction_TryAddToInventory>
   <DebugAction_SpawnThingWithWipeMode>WipeMode 사용해 Thing 생성...</DebugAction_SpawnThingWithWipeMode>
   <DebugAction_SetTerrain>지형 설정...</DebugAction_SetTerrain>
   <DebugAction_SpawnMechCluster>메카노이드 군락 생성</DebugAction_SpawnMechCluster>

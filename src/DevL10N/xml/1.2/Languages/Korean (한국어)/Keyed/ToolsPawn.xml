@@ -16,6 +16,7 @@
   <DebugAction_RemoveHediff>Hediff 제거...</DebugAction_RemoveHediff>
   <DebugAction_HealRandomInjury10>무작위 부상 치료 (10)</DebugAction_HealRandomInjury10>
   <DebugAction_ActivateHediffGiver>HediffGiver 활성화</DebugAction_ActivateHediffGiver>
+  <DebugAction_ActivateHediffGiverWorldPawn>세계 Pawn의 HediffGiver 활성화</DebugAction_ActivateHediffGiverWorldPawn>
   <DebugAction_DiscoverHediffs>Hediff 발견</DebugAction_DiscoverHediffs>
   <DebugAction_GrantImmunities>항체 생성</DebugAction_GrantImmunities>
   <DebugAction_GiveBirth>출산</DebugAction_GiveBirth>
@@ -34,7 +35,8 @@
   <DebugAction_OffsetJoyNegative20>재미 -20%</DebugAction_OffsetJoyNegative20>
   <DebugAction_OffsetChemicalNegative20>약물 -20%</DebugAction_OffsetChemicalNegative20>
   <DebugAction_SetSkill>기술 등급 설정...</DebugAction_SetSkill>
-  <DebugAction_MaxSkill>모든 기술을 최대 등급으로</DebugAction_MaxSkill>
+  <DebugAction_MaxSkill>기술 등급 최대로...</DebugAction_MaxSkill>
+  <DebugAction_MaxAllSkills>모든 기술을 최대 등급으로</DebugAction_MaxAllSkills>
   <DebugAction_MentalBreak>정신불안...</DebugAction_MentalBreak>
   <DebugAction_MentalState>정신불안...</DebugAction_MentalState>
   <DebugAction_StopMentalState>정신불안 종료</DebugAction_StopMentalState>
