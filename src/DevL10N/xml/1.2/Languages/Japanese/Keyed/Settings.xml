@@ -102,7 +102,7 @@
   <LogLordToilTransitions>ログ 荷運び仕事の推移</LogLordToilTransitions>
   <LogGrammarResolution>ログ 文法解決</LogGrammarResolution>
   <LogCombatLogMouseover>ログ 戦闘ログ マウスオーバー</LogCombatLogMouseover>
-  <LogCauseOfDeath>Log cause of death</LogCauseOfDeath>
+  <LogCauseOfDeath>ログ 死因</LogCauseOfDeath>
   <LogMapLoad>ログ マップ読込み</LogMapLoad>
   <LogTutor>ログ チュートリアル</LogTutor>
   <LogSignals>ログ シグナル</LogSignals>
