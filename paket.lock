@@ -5,5 +5,5 @@ NUGET
     FSharp.Core (4.7.2)
     Krafs.Rimworld.Ref (1.2.2719)
     Lib.Harmony (2.0.2)
-    UnlimitedHugs.Rimworld.HugsLib (7.2.1)
+    UnlimitedHugs.Rimworld.HugsLib (8.0)
       Lib.Harmony (>= 2.0.0.8)
