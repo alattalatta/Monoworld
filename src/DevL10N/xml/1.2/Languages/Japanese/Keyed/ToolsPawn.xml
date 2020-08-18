@@ -1,76 +1,76 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-  <DebugAction_Resurrect>Resurrect</DebugAction_Resurrect>
-  <DebugAction_DamageUntilDown>Damage until down</DebugAction_DamageUntilDown>
-  <DebugAction_DamageLegs>Damage legs</DebugAction_DamageLegs>
-  <DebugAction_DamageToDeath>Damage to death</DebugAction_DamageToDeath>
-  <DebugAction_CarriedDamageToDeath>Damage carried Thing to death</DebugAction_CarriedDamageToDeath>
-  <DebugAction_Do10DamageUntilDead>10 damage until dead</DebugAction_Do10DamageUntilDead>
-  <DebugAction_DamageHeldPawnToDeath>Damage held Pawn to death</DebugAction_DamageHeldPawnToDeath>
-  <DebugAction_SurgeryFailMinor>Surgery fail minor</DebugAction_SurgeryFailMinor>
-  <DebugAction_SurgeryFailCatastrophic>Surgery fail catastrophic</DebugAction_SurgeryFailCatastrophic>
-  <DebugAction_SurgeryFailRidiculous>Surgery fail ridiculous</DebugAction_SurgeryFailRidiculous>
-  <DebugAction_RestoreBodyPart>Restore body part...</DebugAction_RestoreBodyPart>
-  <DebugAction_ApplyDamage>Apply damage...</DebugAction_ApplyDamage>
-  <DebugAction_AddHediff>Add Hediff...</DebugAction_AddHediff>
-  <DebugAction_RemoveHediff>Remove Hediff...</DebugAction_RemoveHediff>
-  <DebugAction_HealRandomInjury10>Heal random injury (10)</DebugAction_HealRandomInjury10>
-  <DebugAction_ActivateHediffGiver>Activate HediffGiver</DebugAction_ActivateHediffGiver>
-  <DebugAction_ActivateHediffGiverWorldPawn>Activate HediffGiver of a world Pawn</DebugAction_ActivateHediffGiverWorldPawn>
-  <DebugAction_DiscoverHediffs>Discover Hediffs</DebugAction_DiscoverHediffs>
-  <DebugAction_GrantImmunities>Grant immunities</DebugAction_GrantImmunities>
-  <DebugAction_GiveBirth>Give birth</DebugAction_GiveBirth>
-  <DebugAction_ResistanceMinus1>Resistance -1</DebugAction_ResistanceMinus1>
-  <DebugAction_ResistanceMinus10>Resistance -10</DebugAction_ResistanceMinus10>
-  <DebugAction_AddPsychicEntropy>+20 neural heat</DebugAction_AddPsychicEntropy>
-  <DebugAction_ReducePsychicEntropy>-20 neural heat</DebugAction_ReducePsychicEntropy>
-  <DebugAction_ListMeleeVerbs>List melee Verbs</DebugAction_ListMeleeVerbs>
-  <DebugAction_AddRemovePawnRelation>Add/remove Pawn relation...</DebugAction_AddRemovePawnRelation>
-  <DebugAction_AddOpinionTalksAbout>Add opinion talks about...</DebugAction_AddOpinionTalksAbout>
-  <DebugAction_ForceVomit>Force vomit</DebugAction_ForceVomit>
-  <DebugAction_OffsetPsyfocusPositive20>Psyfocus +20%</DebugAction_OffsetPsyfocusPositive20>
-  <DebugAction_OffsetPsyfocusNegative20>Psyfocus -20%</DebugAction_OffsetPsyfocusNegative20>
-  <DebugAction_OffsetFoodNegative20>Food -20%</DebugAction_OffsetFoodNegative20>
-  <DebugAction_OffsetRestNegative20>Rest -20%</DebugAction_OffsetRestNegative20>
-  <DebugAction_OffsetJoyNegative20>Joy -20%</DebugAction_OffsetJoyNegative20>
-  <DebugAction_OffsetChemicalNegative20>Chemical -20%</DebugAction_OffsetChemicalNegative20>
-  <DebugAction_SetSkill>Set skill...</DebugAction_SetSkill>
-  <DebugAction_MaxSkill>Max skill...</DebugAction_MaxSkill>
-  <DebugAction_MaxAllSkills>Max all skills</DebugAction_MaxAllSkills>
-  <DebugAction_MentalBreak>Mental break...</DebugAction_MentalBreak>
-  <DebugAction_MentalState>Mental state...</DebugAction_MentalState>
-  <DebugAction_StopMentalState>Stop mental state</DebugAction_StopMentalState>
-  <DebugAction_Inspiration>Inspiration...</DebugAction_Inspiration>
-  <DebugAction_GiveTrait>Give trait...</DebugAction_GiveTrait>
-  <DebugAction_SetBackstory>Set backstory...</DebugAction_SetBackstory>
-  <DebugAction_GiveAbility>Give ability...</DebugAction_GiveAbility>
-  <DebugAction_GivePsylink>Give Psylink...</DebugAction_GivePsylink>
-  <DebugAction_RemovePsychicEntropy>Remove neural heat</DebugAction_RemovePsychicEntropy>
-  <DebugAction_GiveGoodThought>Give good thought...</DebugAction_GiveGoodThought>
-  <DebugAction_GiveBadThought>Give bad thought...</DebugAction_GiveBadThought>
-  <DebugAction_ClearBoundUnfinishedThings>Clear bound unfinished Things</DebugAction_ClearBoundUnfinishedThings>
-  <DebugAction_ForceBirthday>Force birthday</DebugAction_ForceBirthday>
-  <DebugAction_Recruit>Recruit</DebugAction_Recruit>
-  <DebugAction_DamageApparel>Damage apparel</DebugAction_DamageApparel>
-  <DebugAction_WearApparel_ToSelected>Give apparel to selected...</DebugAction_WearApparel_ToSelected>
-  <DebugAction_EquipPrimary_ToSelected>Give primary to selected...</DebugAction_EquipPrimary_ToSelected>
-  <DebugAction_TameAnimal>Tame animal</DebugAction_TameAnimal>
-  <DebugAction_TrainAnimal>Train animal</DebugAction_TrainAnimal>
-  <DebugAction_TryDevelopBoundRelation>Try develop bound relation</DebugAction_TryDevelopBoundRelation>
-  <DebugAction_QueueTrainingDecay>Queue training decay</DebugAction_QueueTrainingDecay>
-  <DebugAction_StartMarriageCeremony>Start marriage ceremony...</DebugAction_StartMarriageCeremony>
-  <DebugAction_ForceInteraction>Force interaction</DebugAction_ForceInteraction>
-  <DebugAction_StartRandomGathering>Start random gathering</DebugAction_StartRandomGathering>
-  <DebugAction_StartGathering>Start gathering</DebugAction_StartGathering>
-  <DebugAction_StartPrisonBreak>Start prison break</DebugAction_StartPrisonBreak>
-  <DebugAction_PassToWorld>Pass to world</DebugAction_PassToWorld>
-  <DebugAction_Make1YearOlder>Make 1 year older</DebugAction_Make1YearOlder>
-  <DebugAction_TryJobGiver>Try JobGiver</DebugAction_TryJobGiver>
-  <DebugAction_TryJoyGiver>Try JoyGiver</DebugAction_TryJoyGiver>
-  <DebugAction_EndCurrentJobInterruptForced>EndCurrentJobInterruptForced</DebugAction_EndCurrentJobInterruptForced>
-  <DebugAction_CheckForJobOverride>CheckForJobOverride</DebugAction_CheckForJobOverride>
-  <DebugAction_ToggleJobLogging>Toggle job logging</DebugAction_ToggleJobLogging>
-  <DebugAction_ToggleStanceLogging>Toggle stance logging</DebugAction_ToggleStanceLogging>
-  <DebugAction_Kidnap>Kidnap colonist</DebugAction_Kidnap>
-  <DebugAction_Selected_SetFacing>Make selected face cell</DebugAction_Selected_SetFacing>
+  <DebugAction_Resurrect>復活</DebugAction_Resurrect>
+  <DebugAction_DamageUntilDown>転倒ダメージ</DebugAction_DamageUntilDown>
+  <DebugAction_DamageLegs>脚にダメージ</DebugAction_DamageLegs>
+  <DebugAction_DamageToDeath>死亡ダメージ</DebugAction_DamageToDeath>
+  <DebugAction_CarriedDamageToDeath>手当なしで死亡ダメージ</DebugAction_CarriedDamageToDeath>
+  <DebugAction_Do10DamageUntilDead>死亡するまで10ダメージ</DebugAction_Do10DamageUntilDead>
+  <DebugAction_DamageHeldPawnToDeath>ポーンを死亡させるダメージ</DebugAction_DamageHeldPawnToDeath>
+  <DebugAction_SurgeryFailMinor>手術ミス 小</DebugAction_SurgeryFailMinor>
+  <DebugAction_SurgeryFailCatastrophic>手術ミス 致命的</DebugAction_SurgeryFailCatastrophic>
+  <DebugAction_SurgeryFailRidiculous>手術ミス とんでもない</DebugAction_SurgeryFailRidiculous>
+  <DebugAction_RestoreBodyPart>体の一部を復元...</DebugAction_RestoreBodyPart>
+  <DebugAction_ApplyDamage>ダメージ追加...</DebugAction_ApplyDamage>
+  <DebugAction_AddHediff>Hediffを追加...</DebugAction_AddHediff>
+  <DebugAction_RemoveHediff>Hediffを削除...</DebugAction_RemoveHediff>
+  <DebugAction_HealRandomInjury10>ランダムな傷を治す(10)</DebugAction_HealRandomInjury10>
+  <DebugAction_ActivateHediffGiver>HediffGiverを作動</DebugAction_ActivateHediffGiver>
+  <DebugAction_ActivateHediffGiverWorldPawn>世界ポーンのHediffGiverを作動</DebugAction_ActivateHediffGiverWorldPawn>
+  <DebugAction_DiscoverHediffs>Hediffsを発見</DebugAction_DiscoverHediffs>
+  <DebugAction_GrantImmunities>免疫を付与</DebugAction_GrantImmunities>
+  <DebugAction_GiveBirth>出産</DebugAction_GiveBirth>
+  <DebugAction_ResistanceMinus1>抵抗 -1</DebugAction_ResistanceMinus1>
+  <DebugAction_ResistanceMinus10>抵抗 -10</DebugAction_ResistanceMinus10>
+  <DebugAction_AddPsychicEntropy>ニューラルヒート+20</DebugAction_AddPsychicEntropy>
+  <DebugAction_ReducePsychicEntropy>ニューラルヒート-20</DebugAction_ReducePsychicEntropy>
+  <DebugAction_ListMeleeVerbs>近接武器のVerbs一覧表示</DebugAction_ListMeleeVerbs>
+  <DebugAction_AddRemovePawnRelation>ポーンの関係を追加/削除...</DebugAction_AddRemovePawnRelation>
+  <DebugAction_AddOpinionTalksAbout>会話の意見を追加...</DebugAction_AddOpinionTalksAbout>
+  <DebugAction_ForceVomit>強制嘔吐</DebugAction_ForceVomit>
+  <DebugAction_OffsetPsyfocusPositive20>サイフォーカス+20%</DebugAction_OffsetPsyfocusPositive20>
+  <DebugAction_OffsetPsyfocusNegative20>サイフォーカス-20%</DebugAction_OffsetPsyfocusNegative20>
+  <DebugAction_OffsetFoodNegative20>飢餓-20%</DebugAction_OffsetFoodNegative20>
+  <DebugAction_OffsetRestNegative20>睡眠-20%</DebugAction_OffsetRestNegative20>
+  <DebugAction_OffsetJoyNegative20>娯楽-20%</DebugAction_OffsetJoyNegative20>
+  <DebugAction_OffsetChemicalNegative20>薬物-20%</DebugAction_OffsetChemicalNegative20>
+  <DebugAction_SetSkill>スキルLv設定...</DebugAction_SetSkill>
+  <DebugAction_MaxSkill>スキルLv最大...</DebugAction_MaxSkill>
+  <DebugAction_MaxAllSkills>全スキルLvを最大化</DebugAction_MaxAllSkills>
+  <DebugAction_MentalBreak>精神崩壊追加...</DebugAction_MentalBreak>
+  <DebugAction_MentalState>精神状態追加...</DebugAction_MentalState>
+  <DebugAction_StopMentalState>精神状態停止</DebugAction_StopMentalState>
+  <DebugAction_Inspiration>やる気...</DebugAction_Inspiration>
+  <DebugAction_GiveTrait>特性を追加...</DebugAction_GiveTrait>
+  <DebugAction_SetBackstory>バックストーリーを変更...</DebugAction_SetBackstory>
+  <DebugAction_GiveAbility>追加 アビリティ...</DebugAction_GiveAbility>
+  <DebugAction_GivePsylink>追加 サイリンク...</DebugAction_GivePsylink>
+  <DebugAction_RemovePsychicEntropy>削除 ニューラルヒート</DebugAction_RemovePsychicEntropy>
+  <DebugAction_GiveGoodThought>追加 良い思考...</DebugAction_GiveGoodThought>
+  <DebugAction_GiveBadThought>追加 悪い思考...</DebugAction_GiveBadThought>
+  <DebugAction_ClearBoundUnfinishedThings>未完成品の作者除去</DebugAction_ClearBoundUnfinishedThings>
+  <DebugAction_ForceBirthday>強制 誕生日</DebugAction_ForceBirthday>
+  <DebugAction_Recruit>勧誘</DebugAction_Recruit>
+  <DebugAction_DamageApparel>衣服にダメージ</DebugAction_DamageApparel>
+  <DebugAction_WearApparel_ToSelected>選択ポーンに衣服を追加...</DebugAction_WearApparel_ToSelected>
+  <DebugAction_EquipPrimary_ToSelected>選択ポーンに武器を追加...</DebugAction_EquipPrimary_ToSelected>
+  <DebugAction_TameAnimal>動物を飼いならす</DebugAction_TameAnimal>
+  <DebugAction_TrainAnimal>動物を訓練する</DebugAction_TrainAnimal>
+  <DebugAction_TryDevelopBoundRelation>テスト 絆関係を構築する</DebugAction_TryDevelopBoundRelation>
+  <DebugAction_QueueTrainingDecay>訓練低下の予約</DebugAction_QueueTrainingDecay>
+  <DebugAction_StartMarriageCeremony>結婚式を開始...</DebugAction_StartMarriageCeremony>
+  <DebugAction_ForceInteraction>強制 社会関係</DebugAction_ForceInteraction>
+  <DebugAction_StartRandomGathering>開始 ランダムな集会</DebugAction_StartRandomGathering>
+  <DebugAction_StartGathering>開始 集会</DebugAction_StartGathering>
+  <DebugAction_StartPrisonBreak>開始 脱獄</DebugAction_StartPrisonBreak>
+  <DebugAction_PassToWorld>惑星を脱出</DebugAction_PassToWorld>
+  <DebugAction_Make1YearOlder>年齢を1歳上げる</DebugAction_Make1YearOlder>
+  <DebugAction_TryJobGiver>JobGiverを試みる</DebugAction_TryJobGiver>
+  <DebugAction_TryJoyGiver>JoyGiverを試みる</DebugAction_TryJoyGiver>
+  <DebugAction_EndCurrentJobInterruptForced>現在ジョブを中断 強制終了</DebugAction_EndCurrentJobInterruptForced>
+  <DebugAction_CheckForJobOverride>ジョブの上書きを確認</DebugAction_CheckForJobOverride>
+  <DebugAction_ToggleJobLogging>切替 ジョブの記録</DebugAction_ToggleJobLogging>
+  <DebugAction_ToggleStanceLogging>切替 stanceの記録</DebugAction_ToggleStanceLogging>
+  <DebugAction_Kidnap>入植者誘拐</DebugAction_Kidnap>
+  <DebugAction_Selected_SetFacing>選択ポーンの向きを変更</DebugAction_Selected_SetFacing>
 </LanguageData>
