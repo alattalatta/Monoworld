@@ -127,10 +127,16 @@ type Infused() =
 
         do GUI.color <- Color.white
 
+        let baseExtractionChance =
+            min
+                1.0f
+                (infDef.tier.extractionChance
+                 * Settings.ExtractionChanceFactor.handle.Value)
+
         let successChance =
             comp.Biocoder
-            |> Option.map (fun _ -> infDef.tier.extractionChance * 0.5f)
-            |> Option.defaultValue infDef.tier.extractionChance
+            |> Option.map (fun _ -> baseExtractionChance * 0.5f)
+            |> Option.defaultValue baseExtractionChance
             |> GenText.ToStringPercent
 
         let tooltipStringKey =

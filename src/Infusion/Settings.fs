@@ -38,6 +38,20 @@ module BiocodeBonus =
         pack
 
 
+module ExtractionChanceFactor =
+    let mutable handle: SettingHandle<float32> = null
+
+    let draw (pack: ModSettingsPack) =
+        do handle <-
+            pack.GetHandle
+                ("extractionChanceFactor",
+                 translate "Infusion.Settings.ExtractionChanceFactor",
+                 translate "Infusion.Settings.ExtractionChanceFactor.Description",
+                 1.0f,
+                 Validators.FloatRangeValidator(0.0f, 100.0f))
+        pack
+
+
 module SelectionConsts =
     let mutable chanceHandle: SettingHandle<float32> = null
     let mutable weightHandle: SettingHandle<float32> = null
@@ -230,6 +244,7 @@ let initialize () =
     HugsLibController.SettingsManager.GetModSettings("latta.infusion")
     |> AccuracyOvercap.draw
     |> BiocodeBonus.draw
+    |> ExtractionChanceFactor.draw
     |> SelectionConsts.draw
     |> SlotModifiers.draw
     |> Divider.draw "1"

@@ -164,10 +164,14 @@ type JobDriverExtractInfusion() =
                           comp.FirstExtraction
                           |> Option.map (fun inf -> (comp, inf)))
                       |> Option.iter (fun (comp, inf) ->
+                          let baseExtractionChance =
+                              inf.tier.extractionChance
+                              * Settings.ExtractionChanceFactor.handle.Value
+
                           let successChance =
                               comp.Biocoder
-                              |> Option.map (fun _ -> inf.tier.extractionChance * 0.5f)
-                              |> Option.defaultValue inf.tier.extractionChance
+                              |> Option.map (fun _ -> baseExtractionChance * 0.5f)
+                              |> Option.defaultValue baseExtractionChance
 
                           if Rand.Chance successChance then
                               let infuser =
