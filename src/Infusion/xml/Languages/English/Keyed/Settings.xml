@@ -10,11 +10,9 @@
 For example, normal quality biocoded items will get infusions of excellent quality.</Infusion.Settings.BiocodeBonus.Description>
 
   <Infusion.Settings.ExtractionChanceFactor>Extraction success chance factor</Infusion.Settings.ExtractionChanceFactor>
-  <Infusion.Settings.ExtractionChanceFactor.Description>Multiplies success chance of infusion extraction. Possible values are 0.0 ~ 100.0. Default is 1.0.
-    
-0.0 will disable extraction chance.</Infusion.Settings.ExtractionChanceFactor.Description>
+  <Infusion.Settings.ExtractionChanceFactor.Description>Multiplies success chance of infusion extraction. Possible values are 0.0 ~ 100.0. Default is 1.0.</Infusion.Settings.ExtractionChanceFactor.Description>
 
-  <Infusion.Settings.WeightFactor>Weight factor</Infusion.Settings.WeightFactor>
+  <Infusion.Settings.WeightFactor>Infusion weight factor</Infusion.Settings.WeightFactor>
   <Infusion.Settings.WeightFactor.Description>Multiplies weight of infusions. Possible values are 0.0 ~ 2.0. Default is 1.0.
 
 2.0 strictly picks the highest weights for a quality first. 0.0 means everything is possible.
@@ -22,7 +20,7 @@ For example, normal quality biocoded items will get infusions of excellent quali
 Note: Chances still applies.
   </Infusion.Settings.WeightFactor.Description>
 
-  <Infusion.Settings.ChanceFactor>Probability factor</Infusion.Settings.ChanceFactor>
+  <Infusion.Settings.ChanceFactor>Infusion probability factor</Infusion.Settings.ChanceFactor>
   <Infusion.Settings.ChanceFactor.Description>Multiplies probability of infusions. Possible values are 0.0 ~ 100.0. Default is 1.0.
 
 With default infusions, 100 would ensure everything will pass. 0 will effectively disable new infusions.
