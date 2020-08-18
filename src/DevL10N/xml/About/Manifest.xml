@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Manifest>
   <identifier>DevInYourLanguage</identifier>
-  <version>1.3.1</version>
+  <version>1.3.2</version>
   <manifestUri>https://raw.githubusercontent.com/alattalatta/Monoworld/master/src/DevL10N/xml/About/Manifest.xml</manifestUri>
   <downloadUri>https://github.com/alattalatta/Monoworld/releases</downloadUri>
 </Manifest>
