@@ -86,11 +86,14 @@ type CompInfusion() =
     member this.Infusions
         with get () = infusions |> Seq.sortDescending
         and set (value: seq<InfusionDef>) =
+            let originalHitPoints = float32 this.parent.HitPoints
+
             let hitPointsRatio =
-                float32 this.parent.HitPoints
+                originalHitPoints
                 / float32 this.parent.MaxHitPoints
 
-            do infusions <- value |> Set.ofSeq
+            do
+                infusions <- value |> Set.ofSeq
                wantingSet <- Set.difference wantingSet infusions
                extractionSet <- Set.intersect extractionSet infusions
                removalSet <- Set.intersect removalSet infusions
@@ -103,7 +106,7 @@ type CompInfusion() =
                    |> round
                    |> int
                    |> min this.parent.MaxHitPoints
-
+                    |> max (originalHitPoints |> round |> int)
 
     member this.InfusionsRaw = infusions
 
