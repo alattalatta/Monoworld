@@ -80,8 +80,9 @@ type CompInfusion() =
     member this.Quality
         with get () = quality
         and set value =
-            do quality <- value
-               slotCount <- this.CalculateSlotCountFor value
+            do
+                quality <- value
+                slotCount <- this.CalculateSlotCountFor value
 
     member this.Infusions
         with get () = infusions |> Seq.sortDescending
@@ -94,18 +95,18 @@ type CompInfusion() =
 
             do
                 infusions <- value |> Set.ofSeq
-               wantingSet <- Set.difference wantingSet infusions
-               extractionSet <- Set.intersect extractionSet infusions
-               removalSet <- Set.intersect removalSet infusions
+                wantingSet <- Set.difference wantingSet infusions
+                extractionSet <- Set.intersect extractionSet infusions
+                removalSet <- Set.intersect removalSet infusions
 
-               this.InvalidateCache()
-               this.FinalizeSetMutations()
+                this.InvalidateCache()
+                this.FinalizeSetMutations()
 
-               this.parent.HitPoints <-
-                   (float32 this.parent.MaxHitPoints * hitPointsRatio)
-                   |> round
-                   |> int
-                   |> min this.parent.MaxHitPoints
+                this.parent.HitPoints <-
+                    (float32 this.parent.MaxHitPoints * hitPointsRatio)
+                    |> round
+                    |> int
+                    |> min this.parent.MaxHitPoints
                     |> max (originalHitPoints |> round |> int)
 
     member this.InfusionsRaw = infusions
@@ -144,19 +145,25 @@ type CompInfusion() =
     member this.InfusionsByPosition =
         let (prefixes, suffixes) =
             this.Infusions
-            |> Seq.fold (fun (pre, suf) cur ->
-                if cur.position = Position.Prefix then (cur :: pre, suf) else (pre, cur :: suf))
-                   (List.empty, List.empty)
+            |> Seq.fold
+                (fun (pre, suf) cur ->
+                    if cur.position = Position.Prefix then
+                        (cur :: pre, suf)
+                    else
+                        (pre, cur :: suf))
+                (List.empty, List.empty)
 
         (List.rev prefixes, List.rev suffixes)
 
     member this.BestInfusion =
-        if Option.isNone bestInfusionCache then do this.InvalidateCache()
+        if Option.isNone bestInfusionCache then
+            do this.InvalidateCache()
 
         bestInfusionCache
 
     member this.OnHits =
-        if Option.isNone onHitsCache then do this.InvalidateCache()
+        if Option.isNone onHitsCache then
+            do this.InvalidateCache()
 
         Option.defaultValue List.empty onHitsCache
 
@@ -168,7 +175,8 @@ type CompInfusion() =
     // [todo] move to under ITab
     member this.InspectionLabel =
         if Set.isEmpty infusions then
-            (translate1 "Infusion.Label.NotInfused" this.parent.def.label).CapitalizeFirst()
+            (translate1 "Infusion.Label.NotInfused" this.parent.def.label)
+                .CapitalizeFirst()
             |> string
         else
             let (prefixes, suffixes) = this.InfusionsByPosition
@@ -178,7 +186,8 @@ type CompInfusion() =
                     this.parent.def.label
                 else
                     let suffixString =
-                        (suffixes |> List.map (fun def -> def.label)).ToCommaList(true)
+                        (suffixes |> List.map (fun def -> def.label))
+                            .ToCommaList(true)
 
                     string (translate2 "Infusion.Label.Suffixed" suffixString this.parent.def.label)
 
@@ -202,13 +211,15 @@ type CompInfusion() =
         onHitsCache
         // List.length != 0
         |> Option.filter (List.length >> (=) 0 >> not)
-        |> Option.map (fun _ ->
-            Command_Toggle
-                (defaultLabel = ResourceBank.Strings.Gizmo.label,
-                 defaultDesc = ResourceBank.Strings.Gizmo.desc,
-                 icon = ResourceBank.Textures.Flame,
-                 isActive = (fun () -> effectsEnabled),
-                 toggleAction = (fun () -> do effectsEnabled <- not effectsEnabled)))
+        |> Option.map
+            (fun _ ->
+                Command_Toggle(
+                    defaultLabel = ResourceBank.Strings.Gizmo.label,
+                    defaultDesc = ResourceBank.Strings.Gizmo.desc,
+                    icon = ResourceBank.Textures.Flame,
+                    isActive = (fun () -> effectsEnabled),
+                    toggleAction = (fun () -> do effectsEnabled <- not effectsEnabled)
+                ))
 
     member this.PopulateInfusionsStatModCache(stat: StatDef) =
         if not (infusionsStatModCache.ContainsKey stat) then
@@ -218,9 +229,10 @@ type CompInfusion() =
                 |> Seq.map (fun inf -> inf.stats.TryGetValue stat)
 
             let statMod =
-                if Seq.isEmpty elligibles
-                then None
-                else elligibles |> Seq.fold (+) StatMod.empty |> Some
+                if Seq.isEmpty elligibles then
+                    None
+                else
+                    elligibles |> Seq.fold (+) StatMod.empty |> Some
 
             do infusionsStatModCache.Add(stat, statMod)
 
@@ -240,7 +252,12 @@ type CompInfusion() =
 
         let layerBonus =
             apparelProps
-            |> Option.map (fun a -> if Settings.SlotModifiers.layerHandle.Value then a.layers.Count - 1 else 0)
+            |> Option.map
+                (fun a ->
+                    if Settings.SlotModifiers.layerHandle.Value then
+                        a.layers.Count - 1
+                    else
+                        0)
             |> Option.defaultValue 0
 
         min limit (Settings.Slots.getBaseSlotsFor qc)
@@ -248,47 +265,64 @@ type CompInfusion() =
 
     member this.GetModForStat(stat: StatDef) =
         do this.PopulateInfusionsStatModCache(stat)
+
         infusionsStatModCache.TryGetValue(stat, None)
         |> Option.defaultValue StatMod.empty
 
     member this.HasInfusionForStat(stat: StatDef) =
         do this.PopulateInfusionsStatModCache(stat)
+
         infusionsStatModCache.TryGetValue(stat, None)
         |> Option.isSome
 
     member this.InvalidateCache() =
-        do infusionsStatModCache.Clear()
+        do
+            infusionsStatModCache.Clear()
 
-           bestInfusionCache <- this.Infusions |> Seq.tryHead
-           onHitsCache <-
-               infusions
-               |> Seq.map (fun inf -> inf.OnHits)
-               |> Seq.choose id
-               |> Seq.concat
-               |> List.ofSeq
-               |> Some
+            bestInfusionCache <- this.Infusions |> Seq.tryHead
+
+            onHitsCache <-
+                infusions
+                |> Seq.map (fun inf -> inf.OnHits)
+                |> Seq.choose id
+                |> Seq.concat
+                |> List.ofSeq
+                |> Some
 
 
-    member this.MarkForInfuser(infDef: InfusionDef) = do this.WantingSet <- Set.add infDef wantingSet
-    member this.MarkForExtractor(infDef: InfusionDef) = do this.ExtractionSet <- Set.add infDef extractionSet
-    member this.MarkForRemoval(infDef: InfusionDef) = do this.RemovalSet <- Set.add infDef removalSet
+    member this.MarkForInfuser(infDef: InfusionDef) =
+        do this.WantingSet <- Set.add infDef wantingSet
 
-    member this.UnmarkForInfuser(infDef: InfusionDef) = do this.WantingSet <- Set.remove infDef wantingSet
-    member this.UnmarkForExtractor(infDef: InfusionDef) = do this.ExtractionSet <- Set.remove infDef extractionSet
-    member this.UnmarkForRemoval(infDef: InfusionDef) = do this.RemovalSet <- Set.remove infDef removalSet
+    member this.MarkForExtractor(infDef: InfusionDef) =
+        do this.ExtractionSet <- Set.add infDef extractionSet
+
+    member this.MarkForRemoval(infDef: InfusionDef) =
+        do this.RemovalSet <- Set.add infDef removalSet
+
+    member this.UnmarkForInfuser(infDef: InfusionDef) =
+        do this.WantingSet <- Set.remove infDef wantingSet
+
+    member this.UnmarkForExtractor(infDef: InfusionDef) =
+        do this.ExtractionSet <- Set.remove infDef extractionSet
+
+    member this.UnmarkForRemoval(infDef: InfusionDef) =
+        do this.RemovalSet <- Set.remove infDef removalSet
 
     member this.FinalizeSetMutations() =
-        if Set.isEmpty wantingSet
-        then CompInfusion.UnregisterWantingCandidates this
-        else CompInfusion.RegisterWantingCandidate this
+        if Set.isEmpty wantingSet then
+            CompInfusion.UnregisterWantingCandidates this
+        else
+            CompInfusion.RegisterWantingCandidate this
 
-        if Set.isEmpty extractionSet
-        then CompInfusion.UnregisterExtractionCandidates this
-        else CompInfusion.RegisterExtractionCandidate this
+        if Set.isEmpty extractionSet then
+            CompInfusion.UnregisterExtractionCandidates this
+        else
+            CompInfusion.RegisterExtractionCandidate this
 
-        if Set.isEmpty removalSet
-        then CompInfusion.UnregisterRemovalCandidate this
-        else CompInfusion.RegisterRemovalCandidate this
+        if Set.isEmpty removalSet then
+            CompInfusion.UnregisterRemovalCandidate this
+        else
+            CompInfusion.RegisterRemovalCandidate this
 
     member this.MakeBestInfusionLabel length =
         match this.BestInfusion with
@@ -299,7 +333,10 @@ type CompInfusion() =
                 | Short -> bestInf.LabelShort
 
             if this.Size > 1 then
-                StringBuilder(label).Append("(+").Append(this.Size - 1).Append(")")
+                StringBuilder(label)
+                    .Append("(+")
+                    .Append(this.Size - 1)
+                    .Append(")")
                 |> string
             else
                 label
@@ -337,15 +374,21 @@ type CompInfusion() =
                 if parent.def.useHitPoints
                    && parent.HitPoints < parent.MaxHitPoints
                    && parent.def.stackLimit = 1 then
-                    Some
-                        ((float32 parent.HitPoints
-                          / float32 parent.MaxHitPoints).ToStringPercent())
+                    Some(
+                        (float32 parent.HitPoints
+                         / float32 parent.MaxHitPoints)
+                            .ToStringPercent()
+                    )
                 else
                     None
 
             let tainted =
                 match parent with
-                | :? Apparel as apparel -> if apparel.WornByCorpse then Some(translate "WornByCorpseChar") else None
+                | :? Apparel as apparel ->
+                    if apparel.WornByCorpse then
+                        Some(translate "WornByCorpseChar")
+                    else
+                        None
                 | _ -> None
 
             // infuser applicability
@@ -356,15 +399,16 @@ type CompInfusion() =
                 else
                     None
 
-            do [ applicability
-                 quality
-                 hitPoints
-                 tainted ]
-               |> List.choose id
-               |> String.concat " "
-               |> (fun str ->
-                   if not (str.NullOrEmpty())
-                   then sb.Append(" (").Append(str).Append(")") |> ignore)
+            do
+                [ applicability
+                  quality
+                  hitPoints
+                  tainted ]
+                |> List.choose id
+                |> String.concat " "
+                |> (fun str ->
+                    if not (str.NullOrEmpty()) then
+                        sb.Append(" (").Append(str).Append(")") |> ignore)
 
             string sb
         | None -> label
@@ -375,10 +419,11 @@ type CompInfusion() =
            && quality >= QualityCategory.Normal then
             do slotCount <- this.CalculateSlotCountFor quality
 
-        if not (respawningAfterLoad || Seq.isEmpty removalSet)
-        then do CompInfusion.RegisterRemovalCandidate this
+        if not (respawningAfterLoad || Seq.isEmpty removalSet) then
+            do CompInfusion.RegisterRemovalCandidate this
 
-    override this.PostDeSpawn(_) = do CompInfusion.UnregisterRemovalCandidate this
+    override this.PostDeSpawn(_) =
+        do CompInfusion.UnregisterRemovalCandidate this
 
     override this.GetDescriptionPart() = this.Descriptions
 
@@ -387,10 +432,12 @@ type CompInfusion() =
            <= CameraZoomRange.Close then
             match this.BestInfusion with
             | Some bestInf ->
-                do GenMapUI.DrawThingLabel
-                    (GenMapUI.LabelDrawPosFor(this.parent, -0.6499999762f),
-                     this.MakeBestInfusionLabel Short,
-                     bestInf.tier.color)
+                do
+                    GenMapUI.DrawThingLabel(
+                        GenMapUI.LabelDrawPosFor(this.parent, -0.6499999762f),
+                        this.MakeBestInfusionLabel Short,
+                        bestInf.tier.color
+                    )
             | None -> ()
 
     override this.PostExposeData() =
@@ -404,14 +451,17 @@ type CompInfusion() =
         |> Option.iter (fun sc -> do slotCount <- sc)
 
         Scribe.defCollection "infusion" infusions
-        |> Option.iter (fun infs ->
-            do this.Infusions <-
-                infs
-                |> Seq.filter (InfusionDef.gracefullyDies >> not)
-                |> Seq.map (fun inf ->
-                    inf.Migration
-                    |> Option.bind (fun m -> m.Replace)
-                    |> Option.defaultValue inf))
+        |> Option.iter
+            (fun infs ->
+                do
+                    this.Infusions <-
+                        infs
+                        |> Seq.filter (InfusionDef.gracefullyDies >> not)
+                        |> Seq.map
+                            (fun inf ->
+                                inf.Migration
+                                |> Option.bind (fun m -> m.Replace)
+                                |> Option.defaultValue inf))
 
         Scribe.defCollection "wanting" wantingSet
         |> Option.map Set.ofSeq
@@ -419,10 +469,12 @@ type CompInfusion() =
 
         Scribe.defCollection "removal" removalSet
         |> Option.map Set.ofSeq
-        |> Option.iter (fun infs ->
-            do removalSet <-
-                infs
-                |> Set.filter (InfusionDef.gracefullyDies >> not))
+        |> Option.iter
+            (fun infs ->
+                do
+                    removalSet <-
+                        infs
+                        |> Set.filter (InfusionDef.gracefullyDies >> not))
 
     override this.AllowStackWith(other) =
         Comp.ofThing<CompInfusion> other
@@ -430,8 +482,9 @@ type CompInfusion() =
         |> Option.defaultValue false
 
     override this.PostSplitOff(other) =
-        do Comp.ofThing<CompInfusion> other
-           |> Option.iter (fun comp -> do comp.Infusions <- this.Infusions)
+        do
+            Comp.ofThing<CompInfusion> other
+            |> Option.iter (fun comp -> do comp.Infusions <- this.Infusions)
 
     override this.GetHashCode() = this.parent.thingIDNumber
 
@@ -451,11 +504,12 @@ type CompInfusion() =
 
 module CompInfusion =
     let addInfusion infDef (comp: CompInfusion) =
-        do comp.Infusions <-
-            seq {
-                yield infDef
-                yield! comp.Infusions
-            }
+        do
+            comp.Infusions <-
+                seq {
+                    yield infDef
+                    yield! comp.Infusions
+                }
 
     let setInfusions infDefs (comp: CompInfusion) = do comp.Infusions <- infDefs
 
@@ -471,15 +525,17 @@ module CompInfusion =
 
         DefDatabase<InfusionDef>.AllDefs
         |> Seq.filter (fun infDef -> Settings.Tiers.isEnabled infDef.tier)
-        |> Seq.filter
-            (InfusionDef.activeForUse
-             <&> InfusionDef.checkAllComplexes comp.parent quality)
+        |> Seq.filter (
+            InfusionDef.activeForUse
+            <&> InfusionDef.checkAllComplexes comp.parent quality
+        )
         // -> (infusionDef * weight)
-        |> Seq.map (fun infDef ->
-            (infDef,
-             (infDef.WeightFor quality)
-             * Settings.SelectionConsts.weightHandle.Value
-             + Rand.Value)) // weighted, duh
+        |> Seq.map
+            (fun infDef ->
+                (infDef,
+                 (infDef.WeightFor quality)
+                 * Settings.SelectionConsts.weightHandle.Value
+                 + Rand.Value)) // weighted, duh
         |> Seq.sortByDescending snd
         |> Seq.truncate comp.SlotCount
         |> Seq.map fst
