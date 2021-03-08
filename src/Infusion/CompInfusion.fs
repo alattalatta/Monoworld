@@ -106,8 +106,8 @@ type CompInfusion() =
                     (float32 this.parent.MaxHitPoints * hitPointsRatio)
                     |> round
                     |> int
-                    |> min this.parent.MaxHitPoints
                     |> max (originalHitPoints |> round |> int)
+                    |> min this.parent.MaxHitPoints
 
     member this.InfusionsRaw = infusions
 
