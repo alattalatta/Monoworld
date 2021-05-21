@@ -29,11 +29,13 @@
     </stats>
   </Infusion.InfusionDef>
 
-  <Infusion.InfusionDef Abstract="True" Name="LegendaryApparelCleanBase" ParentName="LegendaryDefaultBase">
+  <!-- armors must cover a body part-->
+  <Infusion.InfusionDef Abstract="True" Name="LegendaryArmorBase" ParentName="LegendaryDefaultBase">
     <complexes>
       <li Class="Infusion.Complex.EquipmentType">
         <apparel>true</apparel>
       </li>
+      <li Class="Infusion.Complex.NotUtility" />
     </complexes>
   </Infusion.InfusionDef>
 
@@ -89,7 +91,7 @@
     </stats>
   </Infusion.InfusionDef>
 
-  <Infusion.InfusionDef ParentName="LegendaryApparelCleanBase">
+  <Infusion.InfusionDef ParentName="LegendaryArmorBase">
     <defName>Protective</defName>
     <label>protective</label>
     <labelShort>prot</labelShort>

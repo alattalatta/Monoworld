@@ -8,6 +8,7 @@
   <Infusion.Complex.Apparel>apparel</Infusion.Complex.Apparel>
   <Infusion.Complex.Melee>melee</Infusion.Complex.Melee>
   <Infusion.Complex.Ranged>ranged</Infusion.Complex.Ranged>
+  <Infusion.Complex.NotUtility>not an utility</Infusion.Complex.NotUtility>
   <Infusion.Complex.Negate>not [{$0}]</Infusion.Complex.Negate>
   <Infusion.Complex.ShieldBelt>shield belt</Infusion.Complex.ShieldBelt>
 

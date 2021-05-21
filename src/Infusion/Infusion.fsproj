@@ -22,6 +22,7 @@
     <Compile Include="InfusionDef.fs" />
     <Compile Include="Settings.fs" />
     <Compile Include="CompInfusion.fs" />
+    <Compile Include="Complex/NotUtility.fs" />
     <Compile Include="Complex/EquipmentType.fs" />
     <Compile Include="Complex/Negate.fs" />
     <Compile Include="Complex/ProjectileBullet.fs" />

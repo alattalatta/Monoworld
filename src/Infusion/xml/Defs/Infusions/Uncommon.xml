@@ -36,6 +36,13 @@
     </complexes>
   </Infusion.InfusionDef>
 
+  <!-- armors must cover a body part-->
+  <Infusion.InfusionDef Abstract="True" Name="UncommonArmorBase" ParentName="UncommonApparelBase">
+    <complexes>
+      <li Class="Infusion.Complex.NotUtility" />
+    </complexes>
+  </Infusion.InfusionDef>
+
   <Infusion.InfusionDef ParentName="UncommonApparelBase">
     <defName>Calming</defName>
     <label>calming</label>
@@ -98,7 +105,7 @@
     </stats>
   </Infusion.InfusionDef>
 
-  <Infusion.InfusionDef ParentName="UncommonApparelBase">
+  <Infusion.InfusionDef ParentName="UncommonArmorBase">
     <defName>Insulating</defName>
     <label>insulating</label>
     <labelShort>insul</labelShort>
@@ -126,13 +133,13 @@
     </stats>
   </Infusion.InfusionDef>
 
-  <Infusion.InfusionDef ParentName="UncommonApparelBase">
-    <defName>Plated</defName>
-    <label>plated</label>
-    <labelShort>plat</labelShort>
+  <Infusion.InfusionDef ParentName="UncommonArmorBase">
+    <defName>Padded</defName>
+    <label>padded</label>
+    <labelShort>pad</labelShort>
     <stats>
       <li>
-        <key>ArmorRating_Sharp</key>
+        <key>ArmorRating_Blunt</key>
         <value>
           <offset>0.15</offset>
         </value>
@@ -140,13 +147,13 @@
     </stats>
   </Infusion.InfusionDef>
 
-  <Infusion.InfusionDef ParentName="UncommonApparelBase">
-    <defName>Padded</defName>
-    <label>padded</label>
-    <labelShort>pad</labelShort>
+  <Infusion.InfusionDef ParentName="UncommonArmorBase">
+    <defName>Plated</defName>
+    <label>plated</label>
+    <labelShort>plat</labelShort>
     <stats>
       <li>
-        <key>ArmorRating_Blunt</key>
+        <key>ArmorRating_Sharp</key>
         <value>
           <offset>0.15</offset>
         </value>

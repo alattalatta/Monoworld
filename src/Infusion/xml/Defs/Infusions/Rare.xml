@@ -37,6 +37,13 @@
     </complexes>
   </Infusion.InfusionDef>
 
+  <!-- armors must cover a body part-->
+  <Infusion.InfusionDef Abstract="True" Name="RareArmorBase" ParentName="RareApparelCleanBase">
+    <complexes>
+      <li Class="Infusion.Complex.NotUtility" />
+    </complexes>
+  </Infusion.InfusionDef>
+
   <Infusion.InfusionDef ParentName="RareApparelBase">
     <defName>Accelerating</defName>
     <label>accelerating</label>
@@ -52,6 +59,27 @@
         <key>RestRateMultiplier</key>
         <value>
           <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareApparelBase">
+    <defName>Adaption</defName>
+    <label>adaption</label>
+    <labelShort>adapt</labelShort>
+    <position>Suffix</position>
+    <stats>
+      <li>
+        <key>WorkSpeedGlobal</key>
+        <value>
+          <offset>0.1</offset>
+        </value>
+      </li>
+      <li>
+        <key>GlobalLearningFactor</key>
+        <value>
+          <offset>0.1</offset>
         </value>
       </li>
     </stats>
@@ -149,7 +177,7 @@
     </stats>
   </Infusion.InfusionDef>
 
-  <Infusion.InfusionDef ParentName="RareApparelCleanBase">
+  <Infusion.InfusionDef ParentName="RareArmorBase">
     <defName>Deflecting</defName>
     <label>deflecting</label>
     <labelShort>deflct</labelShort>
@@ -169,7 +197,7 @@
     </stats>
   </Infusion.InfusionDef>
 
-  <Infusion.InfusionDef ParentName="RareApparelCleanBase">
+  <Infusion.InfusionDef ParentName="RareArmorBase">
     <defName>Dispersing</defName>
     <label>dispersing</label>
     <labelShort>disps</labelShort>
@@ -233,27 +261,6 @@
         <key>MaxHitPoints</key>
         <value>
           <multiplier>-0.2</multiplier>
-        </value>
-      </li>
-    </stats>
-  </Infusion.InfusionDef>
-
-  <Infusion.InfusionDef ParentName="RareApparelBase">
-    <defName>Adaption</defName>
-    <label>adaption</label>
-    <labelShort>adapt</labelShort>
-    <position>Suffix</position>
-    <stats>
-      <li>
-        <key>WorkSpeedGlobal</key>
-        <value>
-          <offset>0.1</offset>
-        </value>
-      </li>
-      <li>
-        <key>GlobalLearningFactor</key>
-        <value>
-          <offset>0.1</offset>
         </value>
       </li>
     </stats>

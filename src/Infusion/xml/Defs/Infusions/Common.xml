@@ -13,7 +13,14 @@
     </complexes>
   </Infusion.InfusionDef>
 
-  <Infusion.InfusionDef ParentName="CommonApparelBase">
+  <!-- armors must cover a body part-->
+  <Infusion.InfusionDef Abstract="True" Name="CommonArmorBase" ParentName="CommonApparelBase">
+    <complexes>
+      <li Class="Infusion.Complex.NotUtility" />
+    </complexes>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CommonArmorBase">
     <defName>Absorbing</defName>
     <label>absorbing</label>
     <labelShort>absrb</labelShort>
@@ -100,7 +107,7 @@
     </stats>
   </Infusion.InfusionDef>
 
-  <Infusion.InfusionDef ParentName="CommonApparelBase">
+  <Infusion.InfusionDef ParentName="CommonArmorBase">
     <defName>Hardened</defName>
     <label>hardened</label>
     <labelShort>hard</labelShort>

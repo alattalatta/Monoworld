@@ -8,7 +8,7 @@ open Verse
 [<StaticConstructorOnStartup>]
 type Textures() =
     static let flame =
-        ContentFinder<Texture2D>.Get("Things/Special/Fire/FireA")
+        ContentFinder<Texture2D>.Get ("Things/Special/Fire/FireA")
 
     static member Flame = flame
 
@@ -19,7 +19,10 @@ module Strings =
         let melee = translate "Infusion.Complex.Melee"
         let ranged = translate "Infusion.Complex.Ranged"
 
-        let negate str = translate1 "Infusion.Complex.Negate" str
+        let notUtility = translate "Infusion.Complex.NotUtility"
+
+        let negate str =
+            translate1 "Infusion.Complex.Negate" str
 
         let shieldBelt = translate "Infusion.Complex.ShieldBelt"
 
