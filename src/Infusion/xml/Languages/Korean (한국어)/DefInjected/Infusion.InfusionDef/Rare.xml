@@ -81,7 +81,7 @@
   <Transfusion.label>수혈</Transfusion.label>
   <Transfusion.labelShort>수혈</Transfusion.labelShort>
   <Transfusion.complexes.1.requirementString>날카로움</Transfusion.complexes.1.requirementString>
-  <Transfusion.extraDescription.0>살아있는 대상의 혈액을 피해량의 20%만큼 빼내서 착용자에게 주입합니다.</Transfusion.extraDescription.0>
+  <Transfusion.extraDescriptions.0>살아있는 대상의 혈액을 피해량의 20%만큼 빼내서 착용자에게 주입합니다.</Transfusion.extraDescriptions.0>
 
 
   <!-- ranged -->
