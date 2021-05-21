@@ -99,9 +99,9 @@
     </complexes>
     <stats>
       <li>
-        <key>ArmorRating_Sharp</key>
+        <key>EnergyShieldEnergyMax</key>
         <value>
-          <offset>0.075</offset>
+          <multiplier>0.03</multiplier>
         </value>
       </li>
     </stats>
