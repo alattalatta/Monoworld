@@ -12,6 +12,9 @@ For example, normal quality biocoded items will get infusions of excellent quali
   <Infusion.Settings.ExtractionChanceFactor>Extraction success chance factor</Infusion.Settings.ExtractionChanceFactor>
   <Infusion.Settings.ExtractionChanceFactor.Description>Multiplies success chance of infusion extraction. Possible values are 0.0 ~ 100.0. Default is 1.0.</Infusion.Settings.ExtractionChanceFactor.Description>
 
+  <Infusion.Settings.ReusableInfusers>Reusable infusers</Infusion.Settings.ReusableInfusers>
+  <Infusion.Settings.ReusableInfusers.Description>Infusing an equipment with a infuser creates a new empty infuser.</Infusion.Settings.ReusableInfusers.Description>
+
   <Infusion.Settings.WeightFactor>Infusion weight factor</Infusion.Settings.WeightFactor>
   <Infusion.Settings.WeightFactor.Description>Multiplies weight of infusions. Possible values are 0.0 ~ 2.0. Default is 1.0.
 

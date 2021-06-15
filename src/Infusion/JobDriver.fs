@@ -2,6 +2,7 @@ namespace Infusion
 
 open Poet.Lib
 open Poet.Lyric
+open Poet.Lyric.Thing
 open Poet.Lyric.Translation
 open RimWorld
 open Verse
@@ -10,7 +11,10 @@ open Verse.AI
 
 module JobDriver =
     let incompletableOnSetEmpty set =
-        if Set.count set = 0 then JobCondition.Incompletable else JobCondition.Ongoing
+        if Set.count set = 0 then
+            JobCondition.Incompletable
+        else
+            JobCondition.Ongoing
 
     let incompletableOnNone opt =
         match opt with
@@ -27,16 +31,20 @@ module JobDriver =
     let carryBToA (job: Job) =
         seq {
             yield Toils_General.DoAtomic(fun () -> do job.count <- 1)
-            yield Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.Touch)
-                  |> Toil.addFailOnSomeoneInteracting TargetIndex.B
+
+            yield
+                Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.Touch)
+                |> Toil.addFailOnSomeoneInteracting TargetIndex.B
+
             yield Toils_Haul.StartCarryThing(TargetIndex.B)
 
             yield Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch)
         }
 
     let destroyCarriedThing (pawn: Pawn) =
-        do Option.ofObj pawn.carryTracker.CarriedThing
-           |> Option.iter (fun t -> t.Destroy())
+        do
+            Option.ofObj pawn.carryTracker.CarriedThing
+            |> Option.iter (fun t -> t.Destroy())
 
 
     module ApplyInfuser =
@@ -98,32 +106,48 @@ type JobDriverApplyInfuser() =
         // must... be... an Infuser...
         let infuser = this.TargetThingB :?> Infuser
 
-        do this.FailOnDestroyedNullOrForbidden(TargetIndex.A).FailOnDestroyedNullOrForbidden(TargetIndex.B)
-           |> ApplyInfuser.failOnNoWantingSet TargetIndex.A
-           |> ignore
+        do
+            this
+                .FailOnDestroyedNullOrForbidden(TargetIndex.A)
+                .FailOnDestroyedNullOrForbidden(TargetIndex.B)
+            |> ApplyInfuser.failOnNoWantingSet TargetIndex.A
+            |> ignore
 
         seq {
             yield! carryBToA this.job
 
-            yield Toils_General.Wait(300)
-                  |> Toil.addFailOnCannotTouch TargetIndex.A PathEndMode.Touch
-                  |> Toil.addFailOnSomeoneInteracting TargetIndex.A
-                  |> Toil.setTickAction (fun () ->
-                      // fails when wanted set changes into empty,
-                      // or slots somehow become full (dev tool?)
-                      match targetComp with
-                      | Some comp ->
-                          if Set.count comp.WantingSet = 0
-                             || Set.count comp.InfusionsRaw >= comp.SlotCount then
-                              do this.EndJobWith(JobCondition.Incompletable)
-                      | None -> do this.EndJobWith(JobCondition.Errored))
-            yield Toils_General.Do(fun () ->
-                      targetComp
-                      |> Option.bind (fun comp ->
-                          infuser.Content
-                          |> Option.map (fun inf -> (comp, inf)))
-                      |> Option.tap (fun (comp, inf) -> do CompInfusion.addInfusion inf comp)
-                      |> Option.iter (fun _ -> do destroyCarriedThing this.pawn))
+            yield
+                Toils_General.Wait(300)
+                |> Toil.addFailOnCannotTouch TargetIndex.A PathEndMode.Touch
+                |> Toil.addFailOnSomeoneInteracting TargetIndex.A
+                |> Toil.setTickAction
+                    (fun () ->
+                        // fails when wanted set changes into empty,
+                        // or slots somehow become full (dev tool?)
+                        match targetComp with
+                        | Some comp ->
+                            if Set.count comp.WantingSet = 0
+                               || Set.count comp.InfusionsRaw >= comp.SlotCount then
+                                do this.EndJobWith(JobCondition.Incompletable)
+                        | None -> do this.EndJobWith(JobCondition.Errored))
+
+            yield
+                Toils_General.Do
+                    (fun () ->
+                        targetComp
+                        |> Option.bind
+                            (fun comp ->
+                                infuser.Content
+                                |> Option.map (fun inf -> (comp, inf)))
+                        |> Option.tap (fun (comp, inf) -> do CompInfusion.addInfusion inf comp)
+                        // with reusableInfusers turned on, place a new empty infuser
+                        |> Option.tap
+                            (fun _ ->
+                                if Settings.ReusableInfusers.handle.Value then
+                                    ThingMaker.MakeThing(ThingDef.Named("Infusion_InfuserEmpty"))
+                                    |> placeThingNear this.pawn.Position this.pawn.Map
+                                    |> ignore)
+                        |> Option.iter (fun _ -> do destroyCarriedThing this.pawn))
         }
 
 
@@ -140,67 +164,83 @@ type JobDriverExtractInfusion() =
 
         let extractor = this.TargetThingB
 
-        do this.FailOnDestroyedNullOrForbidden(TargetIndex.A).FailOnDestroyedNullOrForbidden(TargetIndex.B)
-           |> ExtractInfusion.failOnNoExtractionSet TargetIndex.A
-           |> ignore
+        do
+            this
+                .FailOnDestroyedNullOrForbidden(TargetIndex.A)
+                .FailOnDestroyedNullOrForbidden(TargetIndex.B)
+            |> ExtractInfusion.failOnNoExtractionSet TargetIndex.A
+            |> ignore
 
         seq {
             yield! carryBToA this.job
 
-            yield Toils_General.Wait(300)
-                  |> Toil.addFailOnCannotTouch TargetIndex.A PathEndMode.Touch
-                  |> Toil.addFailOnSomeoneInteracting TargetIndex.A
-                  |> Toil.setTickAction (fun () ->
-                      // fails when wanted set changes into empty,
-                      // or slots somehow become full (dev tool?)
-                      match targetComp with
-                      | Some comp ->
-                          if Set.count comp.ExtractionSet = 0
-                          then do this.EndJobWith(JobCondition.Incompletable)
-                      | None -> do this.EndJobWith(JobCondition.Errored))
-            yield Toils_General.Do(fun () ->
-                      targetComp
-                      |> Option.bind (fun comp ->
-                          comp.FirstExtraction
-                          |> Option.map (fun inf -> (comp, inf)))
-                      |> Option.iter (fun (comp, inf) ->
-                          let baseExtractionChance =
-                              inf.tier.extractionChance
-                              * Settings.ExtractionChanceFactor.handle.Value
+            yield
+                Toils_General.Wait(300)
+                |> Toil.addFailOnCannotTouch TargetIndex.A PathEndMode.Touch
+                |> Toil.addFailOnSomeoneInteracting TargetIndex.A
+                |> Toil.setTickAction
+                    (fun () ->
+                        // fails when wanted set changes into empty,
+                        // or slots somehow become full (dev tool?)
+                        match targetComp with
+                        | Some comp ->
+                            if Set.count comp.ExtractionSet = 0 then
+                                do this.EndJobWith(JobCondition.Incompletable)
+                        | None -> do this.EndJobWith(JobCondition.Errored))
 
-                          let successChance =
-                              comp.Biocoder
-                              |> Option.map (fun _ -> baseExtractionChance * 0.5f)
-                              |> Option.defaultValue baseExtractionChance
+            yield
+                Toils_General.Do
+                    (fun () ->
+                        targetComp
+                        |> Option.bind
+                            (fun comp ->
+                                comp.FirstExtraction
+                                |> Option.map (fun inf -> (comp, inf)))
+                        |> Option.iter
+                            (fun (comp, inf) ->
+                                let baseExtractionChance =
+                                    inf.tier.extractionChance
+                                    * Settings.ExtractionChanceFactor.handle.Value
 
-                          if Rand.Chance successChance then
-                              let infuser =
-                                  ThingMaker.MakeThing(ThingDef.Named("Infusion_Infuser_" + inf.tier.defName)) :?> Infuser
+                                let successChance =
+                                    comp.Biocoder
+                                    |> Option.map (fun _ -> baseExtractionChance * 0.5f)
+                                    |> Option.defaultValue baseExtractionChance
 
-                              do CompInfusion.removeInfusion inf comp
-                                 infuser.SetContent inf
+                                if Rand.Chance successChance then
+                                    let infuser =
+                                        ThingMaker.MakeThing(ThingDef.Named("Infusion_Infuser_" + inf.tier.defName))
+                                        :?> Infuser
 
-                              if GenPlace.TryPlaceThing(infuser, this.pawn.Position, this.pawn.Map, ThingPlaceMode.Near)
-                              then do destroyCarriedThing this.pawn
-                          else
-                              let chance = Rand.Value
+                                    do
+                                        CompInfusion.removeInfusion inf comp
+                                        infuser.SetContent inf
 
-                              let failureMessage =
-                                  if chance >= 0.5f then
-                                      do CompInfusion.removeInfusion inf comp
-                                      "Infusion.Job.Message.ExtractionFailureInfusion"
-                                  elif chance >= 0.2f then
-                                      do destroyCarriedThing this.pawn
-                                      "Infusion.Job.Message.ExtractionFailureInfuser"
-                                  else
-                                      do CompInfusion.removeInfusion inf comp
-                                         destroyCarriedThing this.pawn
-                                      "Infusion.Job.Message.ExtractionFailure"
+                                    infuser
+                                    |> placeThingNear this.pawn.Position this.pawn.Map
+                                    |> Option.iter (fun _ -> destroyCarriedThing this.pawn)
+                                else
+                                    let chance = Rand.Value
 
-                              Messages.Message
-                                  (string (translate2 failureMessage inf.label target.def.label),
-                                   LookTargets(extractor),
-                                   MessageTypeDefOf.NegativeEvent)))
+                                    let failureMessage =
+                                        if chance >= 0.5f then
+                                            do CompInfusion.removeInfusion inf comp
+                                            "Infusion.Job.Message.ExtractionFailureInfusion"
+                                        elif chance >= 0.2f then
+                                            do destroyCarriedThing this.pawn
+                                            "Infusion.Job.Message.ExtractionFailureInfuser"
+                                        else
+                                            do
+                                                CompInfusion.removeInfusion inf comp
+                                                destroyCarriedThing this.pawn
+
+                                            "Infusion.Job.Message.ExtractionFailure"
+
+                                    Messages.Message(
+                                        string (translate2 failureMessage inf.label target.def.label),
+                                        LookTargets(extractor),
+                                        MessageTypeDefOf.NegativeEvent
+                                    )))
         }
 
 
@@ -214,24 +254,31 @@ type JobDriverRemoveInfusions() =
         let target = this.TargetThingA
         let targetComp = target |> Comp.ofThing<CompInfusion>
 
-        do this.FailOnDestroyedNullOrForbidden(TargetIndex.A)
-           |> RemoveInfusions.failOnNoRemovalSet TargetIndex.A
-           |> ignore
+        do
+            this.FailOnDestroyedNullOrForbidden(TargetIndex.A)
+            |> RemoveInfusions.failOnNoRemovalSet TargetIndex.A
+            |> ignore
 
         seq {
             yield Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch)
 
-            yield Toils_General.Wait(1000)
-                  |> Toil.addFailOnCannotTouch TargetIndex.A PathEndMode.Touch
-                  |> Toil.addFailOnSomeoneInteracting TargetIndex.A
-                  |> Toil.addProgressBar TargetIndex.A
-                  |> Toil.setTickAction (fun () ->
-                      match targetComp with
-                      | Some comp ->
-                          if Set.count comp.RemovalSet = 0
-                          then do this.EndJobWith(JobCondition.Incompletable)
-                      | None -> do this.EndJobWith(JobCondition.Errored))
-            yield Toils_General.Do(fun () ->
-                      do targetComp
-                         |> Option.iter CompInfusion.removeMarkedInfusions)
+            yield
+                Toils_General.Wait(1000)
+                |> Toil.addFailOnCannotTouch TargetIndex.A PathEndMode.Touch
+                |> Toil.addFailOnSomeoneInteracting TargetIndex.A
+                |> Toil.addProgressBar TargetIndex.A
+                |> Toil.setTickAction
+                    (fun () ->
+                        match targetComp with
+                        | Some comp ->
+                            if Set.count comp.RemovalSet = 0 then
+                                do this.EndJobWith(JobCondition.Incompletable)
+                        | None -> do this.EndJobWith(JobCondition.Errored))
+
+            yield
+                Toils_General.Do
+                    (fun () ->
+                        do
+                            targetComp
+                            |> Option.iter CompInfusion.removeMarkedInfusions)
         }

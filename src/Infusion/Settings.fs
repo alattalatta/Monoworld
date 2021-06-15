@@ -10,87 +10,89 @@ open RimWorld
 open UnityEngine
 open Verse
 
+/// Returns translated label and description of the given setting key.
+let getTranslatedStrings (key: string) =
+    let labelKey =
+        sprintf "Infusion.Settings.%s" (key.CapitalizeFirst())
+
+    let descKey = sprintf "%s.Description" labelKey
+
+    (translate labelKey, translate descKey)
+
+let getHandle (defaultValue: 't) (key: string) (pack: ModSettingsPack) =
+    let (label, desc) = getTranslatedStrings key
+
+    pack.GetHandle(key, label, desc, defaultValue)
+
+/// Validatable variant of `getHandle`.
+let getValidatingHandle
+    (defaultValue: 't)
+    (key: string)
+    (validator: SettingHandle.ValueIsValid)
+    (pack: ModSettingsPack)
+    =
+    let (label, desc) = getTranslatedStrings key
+
+    pack.GetHandle(key, label, desc, defaultValue, validator)
+
 
 module AccuracyOvercap =
-    let mutable handle: SettingHandle<bool> = null
+    let mutable handle : SettingHandle<bool> = null
 
     let draw (pack: ModSettingsPack) =
-        do handle <-
-            pack.GetHandle
-                ("accuracyOvercapping",
-                 translate "Infusion.Settings.AccuracyOvercapping",
-                 translate "Infusion.Settings.AccuracyOvercapping.Description",
-                 true)
+        do handle <- getHandle true "accuracyOvercapping" pack
+
         pack
 
 
 module BiocodeBonus =
-    let mutable handle: SettingHandle<bool> = null
+    let mutable handle : SettingHandle<bool> = null
 
     let draw (pack: ModSettingsPack) =
-        do handle <-
-            pack.GetHandle
-                ("biocodeBonus",
-                 translate "Infusion.Settings.BiocodeBonus",
-                 translate "Infusion.Settings.BiocodeBonus.Description",
-                 true)
+        do handle <- getHandle true "biocodeBonus" pack
 
         pack
 
 
 module ExtractionChanceFactor =
-    let mutable handle: SettingHandle<float32> = null
+    let mutable handle : SettingHandle<float32> = null
 
     let draw (pack: ModSettingsPack) =
-        do handle <-
-            pack.GetHandle
-                ("extractionChanceFactor",
-                 translate "Infusion.Settings.ExtractionChanceFactor",
-                 translate "Infusion.Settings.ExtractionChanceFactor.Description",
-                 1.0f,
-                 Validators.FloatRangeValidator(0.0f, 100.0f))
+        do
+            handle <-
+                getValidatingHandle 1.0f "extractionChanceFactor" (Validators.FloatRangeValidator(0.0f, 100.0f)) pack
+
+        pack
+
+
+module ReusableInfusers =
+    let mutable handle : SettingHandle<bool> = null
+
+    let draw (pack: ModSettingsPack) =
+        do handle <- getHandle false "reusableInfusers" pack
+
         pack
 
 
 module SelectionConsts =
-    let mutable chanceHandle: SettingHandle<float32> = null
-    let mutable weightHandle: SettingHandle<float32> = null
+    let mutable chanceHandle : SettingHandle<float32> = null
+    let mutable weightHandle : SettingHandle<float32> = null
 
     let draw (pack: ModSettingsPack) =
-        do chanceHandle <-
-            pack.GetHandle
-                ("chanceFactor",
-                 translate "Infusion.Settings.ChanceFactor",
-                 translate "Infusion.Settings.ChanceFactor.Description",
-                 1.0f,
-                 Validators.FloatRangeValidator(0.0f, 100.0f))
-        do weightHandle <-
-            pack.GetHandle
-                ("weightFactor",
-                 translate "Infusion.Settings.WeightFactor",
-                 translate "Infusion.Settings.WeightFactor.Description",
-                 1.0f,
-                 Validators.FloatRangeValidator(0.0f, 2.0f))
+        do chanceHandle <- getValidatingHandle 1.0f "chanceFactor" (Validators.FloatRangeValidator(0.0f, 100.0f)) pack
+        do weightHandle <- getValidatingHandle 1.0f "weightFactor" (Validators.FloatRangeValidator(0.0f, 2.0f)) pack
+
         pack
 
 
 module SlotModifiers =
-    let mutable bodyPartHandle: SettingHandle<bool> = null
-    let mutable layerHandle: SettingHandle<bool> = null
+    let mutable bodyPartHandle : SettingHandle<bool> = null
+    let mutable layerHandle : SettingHandle<bool> = null
 
     let draw (pack: ModSettingsPack) =
-        do bodyPartHandle <-
-            pack.GetHandle
-                ("bodyPartLimit",
-                 translate "Infusion.Settings.BodyPartLimit",
-                 translate "Infusion.Settings.BodyPartLimit.Description",
-                 true)
-        do layerHandle <-
-            pack.GetHandle
-                ("layerBonuses",
-                 translate "Infusion.Settings.LayerBonuses",
-                 translate "Infusion.Settings.LayerBonuses.Description",
-                 true)
+        do bodyPartHandle <- getHandle true "bodyPartLimit" pack
+        do layerHandle <- getHandle true "layerBonuses" pack
+
         pack
 
 
@@ -106,7 +108,12 @@ module ListSettingMaker =
         let mutable settingsOpened = false
 
         let makeHandle (pack: ModSettingsPack) (a: 'a) =
-            let { key = key; label = label; desc = desc; defaultValue = defaultValue; validator = validator } = infoOf a
+            let { key = key
+                  label = label
+                  desc = desc
+                  defaultValue = defaultValue
+                  validator = validator } =
+                infoOf a
 
             let handle =
                 pack.GetHandle(key, label, desc, defaultValue)
@@ -125,19 +132,22 @@ module ListSettingMaker =
 
             do slotSettingOpener.Unsaved <- true
 
-            do slotSettingOpener.CustomDrawer <-
-                (fun rect ->
-                    let buttonLabel =
-                        if settingsOpened
-                        then sprintf "Infusion.Settings.%s.CloseSettings" uniq
-                        else sprintf "Infusion.Settings.%s.OpenSettings" uniq
+            do
+                slotSettingOpener.CustomDrawer <-
+                    (fun rect ->
+                        let buttonLabel =
+                            if settingsOpened then
+                                sprintf "Infusion.Settings.%s.CloseSettings" uniq
+                            else
+                                sprintf "Infusion.Settings.%s.OpenSettings" uniq
 
-                    let clicked =
-                        Widgets.ButtonText(rect, translate buttonLabel)
+                        let clicked =
+                            Widgets.ButtonText(rect, translate buttonLabel)
 
-                    if clicked then do settingsOpened <- not settingsOpened
-                    // nothing is really being changed, just return false
-                    false)
+                        if clicked then
+                            do settingsOpened <- not settingsOpened
+                        // nothing is really being changed, just return false
+                        false)
 
             pack
 
@@ -230,12 +240,13 @@ module Divider =
 
         do divider.Unsaved <- true
 
-        do divider.CustomDrawer <-
-            (fun rect ->
-                do GUI.color <- Color(1.0f, 1.0f, 1.0f, 0.7f)
-                do Widgets.DrawLineHorizontal(rect.xMin, rect.yMin + (rect.height / 2.0f), rect.width)
-                do GUI.color <- Color.white
-                false)
+        do
+            divider.CustomDrawer <-
+                (fun rect ->
+                    do GUI.color <- Color(1.0f, 1.0f, 1.0f, 0.7f)
+                    do Widgets.DrawLineHorizontal(rect.xMin, rect.yMin + (rect.height / 2.0f), rect.width)
+                    do GUI.color <- Color.white
+                    false)
 
         pack
 
@@ -245,6 +256,7 @@ let initialize () =
     |> AccuracyOvercap.draw
     |> BiocodeBonus.draw
     |> ExtractionChanceFactor.draw
+    |> ReusableInfusers.draw
     |> SelectionConsts.draw
     |> SlotModifiers.draw
     |> Divider.draw "1"
