@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+    <DebugMenu_Logs>디버그 로그 화면을 엽니다.</DebugMenu_Logs>
+    <DebugMenu_TweakValues>TweakValue 메뉴를 엽니다.\n\n다양한 내부 값을 수정할 수 있습니다.</DebugMenu_TweakValues>
+    <DebugMenu_ViewSettings>표시 설정을 엽니다.\n\n특별한 디버그 시각 효과를 활성화할 수 있습니다.</DebugMenu_ViewSettings>
+    <DebugMenu_DebugActions>디버그 액션 메뉴를 엽니다.\n\n아이템을 배치하고 다양한 이벤트를 강제할 수 있습니다.</DebugMenu_DebugActions>
+    <DebugMenu_DebugLogging>디버그 로그 메뉴를 엽니다.</DebugMenu_DebugLogging>
+    <DebugMenu_Inspector>검사기를 엽니다.\n\n게임에서 무슨 일이 벌어지고 있는지 변수 단위까지 검사할 수 있습니다.</DebugMenu_Inspector>
+    <DebugMenu_GodMode>갓 모드를 설정합니다.\n\n갓 모드를 활성화하면 자원 소모 없이 즉시 건설할 수 있으며, 소유하지 않은 것을 해체할 수 있습니다.</DebugMenu_GodMode>
+    <DebugMenu_PauseOnError>오류를 기록하면 게임을 일시정지합니다.</DebugMenu_PauseOnError>
+</LanguageData>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <DebugAction_MakeColonyFull>Make colony (full)</DebugAction_MakeColonyFull>
+  <DebugAction_MakeColonyAnimals>Make colony (animals)</DebugAction_MakeColonyAnimals>
+  <DebugAction_TestForceDownedx100>Test force downed x100</DebugAction_TestForceDownedx100>
+  <DebugAction_TestForceKillx100>Test force kill x100</DebugAction_TestForceKillx100>
+  <DebugAction_TestSurgeryFailCatastrophicx100>Test surgery fail catastrophic x100</DebugAction_TestSurgeryFailCatastrophicx100>
+  <DebugAction_TestSurgeryFailRidiculousx100>Test surgery fail ridiculous x100</DebugAction_TestSurgeryFailRidiculousx100>
+  <DebugAction_TestGeneratePawnx1000>Test generate pawn x1000</DebugAction_TestGeneratePawnx1000>
+  <DebugAction_GeneratePawnsOfAllShapes>Generate Pawns of all shapes</DebugAction_GeneratePawnsOfAllShapes>
+  <DebugAction_CheckRegionListers>Check RegionListers</DebugAction_CheckRegionListers>
+  <DebugAction_TestTimeToDown>Test time-to-down</DebugAction_TestTimeToDown>
+  <DebugAction_BattleRoyaleAllPawnKinds>Battle Royale all PawnKinds</DebugAction_BattleRoyaleAllPawnKinds>
+  <DebugAction_BattleRoyaleHumanlikes>Battle Royale humanlikes</DebugAction_BattleRoyaleHumanlikes>
+  <DebugAction_BattleRoyaleByDamagetype>Battle Royale by damage type</DebugAction_BattleRoyaleByDamagetype>
+</LanguageData>

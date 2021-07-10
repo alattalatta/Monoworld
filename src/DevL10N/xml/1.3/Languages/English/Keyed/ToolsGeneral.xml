@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <DebugAction_Destroy>Destroy</DebugAction_Destroy>
+  <DebugAction_Kill>Kill</DebugAction_Kill>
+  <DebugAction_Take10Damage>10 damage</DebugAction_Take10Damage>
+  <DebugAction_Take5000Damage>5000 damage</DebugAction_Take5000Damage>
+  <DebugAction_ClearArea21x21>Clear area 21x21</DebugAction_ClearArea21x21>
+  <DebugAction_Rock21x21>Make rock 11x11</DebugAction_Rock21x21>
+  <DebugAction_ExplosionBomb>Explosion (bomb)</DebugAction_ExplosionBomb>
+  <DebugAction_ExplosionFlame>Explosion (flame)</DebugAction_ExplosionFlame>
+  <DebugAction_ExplosionStun>Explosion (stun)</DebugAction_ExplosionStun>
+  <DebugAction_ExplosionEMP>Explosion (EMP)</DebugAction_ExplosionEMP>
+  <DebugAction_ExplosionExtinguisher>Explosion (extinguisher)</DebugAction_ExplosionExtinguisher>
+  <DebugAction_ExplosionSmoke>Explosion (smoke)</DebugAction_ExplosionSmoke>
+  <DebugAction_LightningStrike>Lightning strike</DebugAction_LightningStrike>
+  <DebugAction_AddSnow>Add snow</DebugAction_AddSnow>
+  <DebugAction_RemoveSnow>Remove snow</DebugAction_RemoveSnow>
+  <DebugAction_ClearAllSnow>Clear all snow</DebugAction_ClearAllSnow>
+  <DebugAction_PushHeat10>Push heat (10)</DebugAction_PushHeat10>
+  <DebugAction_PushHeat1000>Push heat (1000)</DebugAction_PushHeat1000>
+  <DebugAction_PushHeatNeg1000>Push heat (-1000)</DebugAction_PushHeatNeg1000>
+  <DebugAction_FinishPlantGrowth>Finish plant growth</DebugAction_FinishPlantGrowth>
+  <DebugAction_Grow1Day>Grow 1 day</DebugAction_Grow1Day>
+  <DebugAction_GrowToMaturity>Grow to maturity</DebugAction_GrowToMaturity>
+  <DebugAction_RegenSection>Regen section</DebugAction_RegenSection>
+  <DebugAction_RandomizeColor>Randomize color</DebugAction_RandomizeColor>
+  <DebugAction_Rot1Day>Rot 1 day</DebugAction_Rot1Day>
+  <DebugAction_ForceSleep>Force sleep</DebugAction_ForceSleep>
+  <DebugAction_FuelRemove20Percent>Fuel -20%</DebugAction_FuelRemove20Percent>
+  <DebugAction_BreakDown>Break down</DebugAction_BreakDown>
+  <DebugAction_UseScatterer>Use Scatterer...</DebugAction_UseScatterer>
+  <DebugAction_BaseGen>Use BaseGen...</DebugAction_BaseGen>
+  <DebugAction_SketchGen>Use SketchGen...</DebugAction_SketchGen>
+  <DebugAction_MakeRoof>Make roof</DebugAction_MakeRoof>
+  <DebugAction_DeleteRoof>Delete roof</DebugAction_DeleteRoof>
+  <DebugAction_TestFloodUnfog>Test flood unfog</DebugAction_TestFloodUnfog>
+  <DebugAction_FlashClosewalkCell30>Flash Closewalk cell 30 radius</DebugAction_FlashClosewalkCell30>
+  <DebugAction_FlashWalkPath>Flash walk path</DebugAction_FlashWalkPath>
+  <DebugAction_FlashSkygazeCell>Flash skygaze cell</DebugAction_FlashSkygazeCell>
+  <DebugAction_FlashDirectFleeDest>Flash direct flee destination</DebugAction_FlashDirectFleeDest>
+  <DebugAction_FlashSpectatorsCells>Flash SpectatorCells</DebugAction_FlashSpectatorsCells>
+  <DebugAction_CheckReachability>Check reachability</DebugAction_CheckReachability>
+  <DebugAction_FlashTryFindRandomPawnExitCell>Flash TryFindRandomPawnExitCell</DebugAction_FlashTryFindRandomPawnExitCell>
+  <DebugAction_RandomSpotJustOutsideColony>Flash RandomSpotJustOutsideColony</DebugAction_RandomSpotJustOutsideColony>
+  <DebugAction_RandomSpotNearThingAvoidingHostiles>Flash RandomSpotNearThingAvoidingHostilePawns</DebugAction_RandomSpotNearThingAvoidingHostiles>
+</LanguageData>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <DebugAction_SpawnPawn>Spawn Pawn...</DebugAction_SpawnPawn>
+  <DebugAction_SpawnWeapon>Spawn weapon...</DebugAction_SpawnWeapon>
+  <DebugAction_SpawnApparel>Spawn apparel...</DebugAction_SpawnApparel>
+  <DebugAction_TryPlaceNearThing>Try place near Thing...</DebugAction_TryPlaceNearThing>
+  <DebugAction_TryPlaceNearStacksOf25>Try place near stack of 25...</DebugAction_TryPlaceNearStacksOf25>
+  <DebugAction_TryPlaceNearStacksOf75>Try place near stack of 75...</DebugAction_TryPlaceNearStacksOf75>
+  <DebugAction_TryPlaceDirectThing>Try place direct Thing...</DebugAction_TryPlaceDirectThing>
+  <DebugAction_TryPlaceDirectStackOf25>Try place direct stack of 25...</DebugAction_TryPlaceDirectStackOf25>
+  <DebugAction_TryAddToInventory>Try add to inventory...</DebugAction_TryAddToInventory>
+  <DebugAction_SpawnThingWithWipeMode>Spawn Thing with WipeMode...</DebugAction_SpawnThingWithWipeMode>
+  <DebugAction_SetTerrain>Set terrain...</DebugAction_SetTerrain>
+  <DebugAction_SpawnMechCluster>Spawn mech cluster</DebugAction_SpawnMechCluster>
+  <DebugAction_MakeFilthx100>Make filth x100</DebugAction_MakeFilthx100>
+  <DebugAction_SpawnFactionLeader>Spawn faction leader</DebugAction_SpawnFactionLeader>
+  <DebugAction_SpawnWorldPawn>Spawn world Pawn...</DebugAction_SpawnWorldPawn>
+  <DebugAction_SpawnThingSet>Spawn ThingSet...</DebugAction_SpawnThingSet>
+  <DebugAction_TriggerEffecter>Trigger Effecter...</DebugAction_TriggerEffecter>
+  <DebugAction_SpawnShuttle>Spawn shuttle...</DebugAction_SpawnShuttle>
+  <DebugAction_SpawnRandomCaravan>Spawn random caravan</DebugAction_SpawnRandomCaravan>
+  <DebugAction_SpawnRandomFactionBase>Spawn random faction base</DebugAction_SpawnRandomFactionBase>
+  <DebugAction_SpawnSite>Spawn site...</DebugAction_SpawnSite>
+  <DebugAction_DestroySite>Destroy site</DebugAction_DestroySite>
+  <DebugAction_SpawnSiteWithPoints>Spawn site with points...</DebugAction_SpawnSiteWithPoints>
+  <DebugAction_SpawnWorldObject>Spawn WorldObject...</DebugAction_SpawnWorldObject>
+  <DebugAction_ChangeCameraConfigWorld>Change camera config...</DebugAction_ChangeCameraConfigWorld>
+</LanguageData>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <DebugAction_Resurrect>부활</DebugAction_Resurrect>
+  <DebugAction_DamageUntilDown>쓰러질 때까지 피해</DebugAction_DamageUntilDown>
+  <DebugAction_DamageLegs>다리 피해</DebugAction_DamageLegs>
+  <DebugAction_DamageToDeath>죽을 때까지 피해</DebugAction_DamageToDeath>
+  <DebugAction_CarriedDamageToDeath>피운반 Thing 죽을 때까지 피해</DebugAction_CarriedDamageToDeath>
+  <DebugAction_Do10DamageUntilDead>죽을 때까지 10 피해</DebugAction_Do10DamageUntilDead>
+  <DebugAction_DamageHeldPawnToDeath>피운반 Pawn 죽을 때까지 피해</DebugAction_DamageHeldPawnToDeath>
+  <DebugAction_SurgeryFailMinor>약간 실패한 수술</DebugAction_SurgeryFailMinor>
+  <DebugAction_SurgeryFailCatastrophic>처참하게 실패한 수술</DebugAction_SurgeryFailCatastrophic>
+  <DebugAction_SurgeryFailRidiculous>어처구니 없게 실패한 수술</DebugAction_SurgeryFailRidiculous>
+  <DebugAction_RestoreBodyPart>신체부위 복구...</DebugAction_RestoreBodyPart>
+  <DebugAction_ApplyDamage>피해 적용...</DebugAction_ApplyDamage>
+  <DebugAction_AddHediff>Hediff 추가...</DebugAction_AddHediff>
+  <DebugAction_RemoveHediff>Hediff 제거...</DebugAction_RemoveHediff>
+  <DebugAction_HealRandomInjury10>무작위 부상 치료 (10)</DebugAction_HealRandomInjury10>
+  <DebugAction_ActivateHediffGiver>HediffGiver 활성화</DebugAction_ActivateHediffGiver>
+  <DebugAction_ActivateHediffGiverWorldPawn>세계 Pawn의 HediffGiver 활성화</DebugAction_ActivateHediffGiverWorldPawn>
+  <DebugAction_DiscoverHediffs>Hediff 발견</DebugAction_DiscoverHediffs>
+  <DebugAction_GrantImmunities>항체 생성</DebugAction_GrantImmunities>
+  <DebugAction_GiveBirth>출산</DebugAction_GiveBirth>
+  <DebugAction_ResistanceMinus1>저항심 -1</DebugAction_ResistanceMinus1>
+  <DebugAction_ResistanceMinus10>저항심 -10</DebugAction_ResistanceMinus10>
+  <DebugAction_AddPsychicEntropy>+20 정신력 혼돈치</DebugAction_AddPsychicEntropy>
+  <DebugAction_ReducePsychicEntropy>-20 정신력 혼돈치</DebugAction_ReducePsychicEntropy>
+  <DebugAction_ListMeleeVerbs>근접 Verb 나열</DebugAction_ListMeleeVerbs>
+  <DebugAction_AddRemovePawnRelation>Pawn 관계 추가/제거...</DebugAction_AddRemovePawnRelation>
+  <DebugAction_AddOpinionTalksAbout>관계 개선/악화 대화 추가...</DebugAction_AddOpinionTalksAbout>
+  <DebugAction_ForceVomit>강제 구토</DebugAction_ForceVomit>
+  <DebugAction_OffsetPsyfocusPositive20>초집중 +20%</DebugAction_OffsetPsyfocusPositive20>
+  <DebugAction_OffsetPsyfocusNegative20>초집중 -20%</DebugAction_OffsetPsyfocusNegative20>
+  <DebugAction_OffsetFoodNegative20>허기 -20%</DebugAction_OffsetFoodNegative20>
+  <DebugAction_OffsetRestNegative20>수면 -20%</DebugAction_OffsetRestNegative20>
+  <DebugAction_OffsetJoyNegative20>재미 -20%</DebugAction_OffsetJoyNegative20>
+  <DebugAction_OffsetChemicalNegative20>약물 -20%</DebugAction_OffsetChemicalNegative20>
+  <DebugAction_SetSkill>기술 등급 설정...</DebugAction_SetSkill>
+  <DebugAction_MaxSkill>기술 등급 최대로...</DebugAction_MaxSkill>
+  <DebugAction_MaxAllSkills>모든 기술을 최대 등급으로</DebugAction_MaxAllSkills>
+  <DebugAction_MentalBreak>정신불안...</DebugAction_MentalBreak>
+  <DebugAction_MentalState>정신불안...</DebugAction_MentalState>
+  <DebugAction_StopMentalState>정신불안 종료</DebugAction_StopMentalState>
+  <DebugAction_Inspiration>영감...</DebugAction_Inspiration>
+  <DebugAction_GiveTrait>특징 부여...</DebugAction_GiveTrait>
+  <DebugAction_SetBackstory>성장 환경 설정...</DebugAction_SetBackstory>
+  <DebugAction_GiveAbility>능력 부여...</DebugAction_GiveAbility>
+  <DebugAction_GivePsylink>사이링크 부여...</DebugAction_GivePsylink>
+  <DebugAction_RemovePsychicEntropy>정신력 혼돈치 제거</DebugAction_RemovePsychicEntropy>
+  <DebugAction_GiveGoodThought>좋은 생각 부여...</DebugAction_GiveGoodThought>
+  <DebugAction_GiveBadThought>나쁜 생각 부여...</DebugAction_GiveBadThought>
+  <DebugAction_ClearBoundUnfinishedThings>묶여있는 미완성 Thing 제거</DebugAction_ClearBoundUnfinishedThings>
+  <DebugAction_ForceBirthday>강제 생일</DebugAction_ForceBirthday>
+  <DebugAction_Recruit>포섭</DebugAction_Recruit>
+  <DebugAction_DamageApparel>의류 피해</DebugAction_DamageApparel>
+  <DebugAction_WearApparel_ToSelected>의류 주기 (선택 필요)...</DebugAction_WearApparel_ToSelected>
+  <DebugAction_EquipPrimary_ToSelected>주 무기 주기 (선택 필요)...</DebugAction_EquipPrimary_ToSelected>
+  <DebugAction_TameAnimal>동물 조련</DebugAction_TameAnimal>
+  <DebugAction_TrainAnimal>동물 훈련</DebugAction_TrainAnimal>
+  <DebugAction_TryDevelopBoundRelation>각별한 관계 생성 시도</DebugAction_TryDevelopBoundRelation>
+  <DebugAction_QueueTrainingDecay>훈련 손실 예약</DebugAction_QueueTrainingDecay>
+  <DebugAction_StartMarriageCeremony>결혼식 시작...</DebugAction_StartMarriageCeremony>
+  <DebugAction_ForceInteraction>강제 대화...</DebugAction_ForceInteraction>
+  <DebugAction_StartRandomGathering>무작위 모임 시작</DebugAction_StartRandomGathering>
+  <DebugAction_StartGathering>모임 시작</DebugAction_StartGathering>
+  <DebugAction_StartPrisonBreak>탈옥 시작</DebugAction_StartPrisonBreak>
+  <DebugAction_PassToWorld>세계 Pawn으로 변경</DebugAction_PassToWorld>
+  <DebugAction_Make1YearOlder>1살 노화</DebugAction_Make1YearOlder>
+  <DebugAction_TryJobGiver>JobGiver 시도</DebugAction_TryJobGiver>
+  <DebugAction_TryJoyGiver>JoyGiver 시도</DebugAction_TryJoyGiver>
+  <DebugAction_EndCurrentJobInterruptForced>EndCurrentJobInterruptForced</DebugAction_EndCurrentJobInterruptForced>
+  <DebugAction_CheckForJobOverride>CheckForJobOverride</DebugAction_CheckForJobOverride>
+  <DebugAction_ToggleJobLogging>Job 기록 토글</DebugAction_ToggleJobLogging>
+  <DebugAction_ToggleStanceLogging>Stance 기록 토글</DebugAction_ToggleStanceLogging>
+  <DebugAction_Kidnap>정착민 납치</DebugAction_Kidnap>
+  <DebugAction_Selected_SetFacing>칸을 보게 만들기 (선택 필요)</DebugAction_Selected_SetFacing>
+</LanguageData>

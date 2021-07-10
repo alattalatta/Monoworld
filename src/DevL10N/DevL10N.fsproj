@@ -27,7 +27,7 @@
   </ItemGroup>
   <Target Name="Copy" AfterTargets="Build">
     <RemoveDir Directories="$(SolutionDir)\dist\DevL10N" />
-    <Copy SourceFiles="@(Artifact)" DestinationFiles="$(SolutionDir)\dist\DevL10N\1.2\Assemblies\DevL10N.dll" />
+    <Copy SourceFiles="@(Artifact)" DestinationFiles="$(SolutionDir)\dist\DevL10N\1.3\Assemblies\DevL10N.dll" />
     <Copy SourceFiles="@(XmlDocs)" DestinationFolder="$(SolutionDir)\dist\DevL10N\%(RecursiveDir)" />
   </Target>
   <Import Project="..\..\.paket\Paket.Restore.targets" />

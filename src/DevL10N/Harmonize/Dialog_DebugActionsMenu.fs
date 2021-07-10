@@ -11,7 +11,7 @@ open DevL10N.Lib
 
 [<HarmonyPatch(typeof<Dialog_DebugActionsMenu>, "GenerateCacheForMethod")>]
 module GenerateCacheForMethod =
-    type private Marker =
+    type private IMarker =
         interface
         end
 
@@ -20,9 +20,12 @@ module GenerateCacheForMethod =
 
     // HOW LAZY AM I
     // [todo] Use compiler directives
-    let __Prefix (method: MethodInfo, attribute: DebugActionAttribute) =
+    let Prefix (method: MethodInfo, attribute: DebugActionAttribute) =
         let name =
-            if attribute.name.NullOrEmpty() then GenText.SplitCamelCase(method.Name) else attribute.name
+            if attribute.name.NullOrEmpty() then
+                GenText.SplitCamelCase(method.Name)
+            else
+                attribute.name
 
         Log.Message(taggify "DebugAction" method.Name name)
         true
@@ -33,9 +36,10 @@ module GenerateCacheForMethod =
         // instructions before ldarg.2
         let first, others =
             insts
-            |> List.findIndex (fun inst ->
-                inst.opcode = OpCodes.Ldfld
-                && (inst.operand :?> FieldInfo) = AccessTools.Field(typeof<DebugActionAttribute>, "name"))
+            |> List.findIndex
+                (fun inst ->
+                    inst.opcode = OpCodes.Ldfld
+                    && (inst.operand :?> FieldInfo) = AccessTools.Field(typeof<DebugActionAttribute>, "name"))
             |> add -1
             |> splitFlipped insts
 
@@ -57,6 +61,6 @@ module GenerateCacheForMethod =
             yield! first
             yield loadArg1
             yield CodeInstruction(OpCodes.Ldarg_2)
-            yield CodeInstruction(OpCodes.Call, AccessTools.Method(typeof<Marker>.DeclaringType, "makeLabel"))
+            yield CodeInstruction(OpCodes.Call, AccessTools.Method(typeof<IMarker>.DeclaringType, "makeLabel"))
             yield! rest
         }

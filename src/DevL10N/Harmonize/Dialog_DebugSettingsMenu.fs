@@ -9,11 +9,14 @@ open Verse
 open DevL10N.Lib
 
 
-[<HarmonyPatch(typeof<Dialog_DebugSettingsMenu>, "DoField_NewTmp")>]
+[<HarmonyPatch(typeof<Dialog_DebugSettingsMenu>, "DoField")>]
 module DoField =
-    let __Prefix (fi: FieldInfo) =
+    let Prefix (fi: FieldInfo) =
         let name =
-            GenText.SplitCamelCase(fi.Name).ToLower().CapitalizeFirst()
+            GenText
+                .SplitCamelCase(fi.Name)
+                .ToLower()
+                .CapitalizeFirst()
 
         Log.Message(taggify "" (fi.Name.CapitalizeFirst()) name)
         true
@@ -23,9 +26,10 @@ module DoField =
 
         let first, others =
             insts
-            |> List.findIndex (fun inst ->
-                inst.opcode = OpCodes.Call
-                && (inst.operand :?> MethodInfo) = AccessTools.Method(typeof<GenText>, "SplitCamelCase"))
+            |> List.findIndex
+                (fun inst ->
+                    inst.opcode = OpCodes.Call
+                    && (inst.operand :?> MethodInfo) = AccessTools.Method(typeof<GenText>, "SplitCamelCase"))
             |> splitFlipped insts
 
         // just removing SplitCamelCase() call...
