@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <EnableDamage>有効 ダメージ</EnableDamage>
+  <EnablePlayerDamage>有効 プレイヤーダメージ</EnablePlayerDamage>
+  <EnableRandomMentalStates>有効 ランダムな精神状態</EnableRandomMentalStates>
+  <EnableStoryteller>有効 ストーリーテラー</EnableStoryteller>
+  <EnableRandomDiseases>有効 ランダムな病気</EnableRandomDiseases>
+  <NoAnimals>動物なし</NoAnimals>
+  <UnlimitedPower>電力無制限</UnlimitedPower>
+  <PathThroughWalls>壁を透過</PathThroughWalls>
+  <InstantRecruit>即時 勧誘</InstantRecruit>
+  <AlwaysSocialFight>常時 喧嘩</AlwaysSocialFight>
+  <AlwaysDoLovin>常時 ウフフアハハ</AlwaysDoLovin>
+  <DetectRegionListersBugs>RegionListersバグを検出</DetectRegionListersBugs>
+  <InstantVisitorsGift>即時 訪問者の貢ぎ物</InstantVisitorsGift>
+  <LowFPS>低FPS</LowFPS>
+  <FastResearch>高速研究</FastResearch>
+  <FastLearning>高速学習</FastLearning>
+  <FastEcology>高速生態系</FastEcology>
+  <FastEcologyRegrowRateOnly>高速生態系(再成長率のみ)</FastEcologyRegrowRateOnly>
+  <FastCrafting>高速生産</FastCrafting>
+  <FastCaravans>高速キャラバン</FastCaravans>
+  <ActivateAllBuildingDemands>有効 全建物請求</ActivateAllBuildingDemands>
+  <ActivateAllIdeoRoles>有効 全Ideo役割</ActivateAllIdeoRoles>
+  <ShowLocomotionUrgency>移動緊急性表示</ShowLocomotionUrgency>
+  <PlayRitualAmbience>儀式風音楽再生</PlayRitualAmbience>
+  <DrawFog>描画 戦場の霧</DrawFog>
+  <DrawSnow>描画 雪</DrawSnow>
+  <DrawTerrain>描画 地形</DrawTerrain>
+  <DrawTerrainWater>描画 水域</DrawTerrainWater>
+  <DrawThingsDynamic>描画 dynamic Things</DrawThingsDynamic>
+  <DrawThingsPrinted>描画 printed Things</DrawThingsPrinted>
+  <DrawShadows>描画 影</DrawShadows>
+  <DrawLightingOverlay>描画 照明効果</DrawLightingOverlay>
+  <DrawWorldOverlays>描画 worldオーバーレイヤ</DrawWorldOverlays>
+  <DrawPaths>描画 経路</DrawPaths>
+  <DrawCastPositionSearch>描画 Cast位置検索</DrawCastPositionSearch>
+  <DrawDestSearch>描画 目的地検索</DrawDestSearch>
+  <DrawStyleSearch>描画 スタイル検索</DrawStyleSearch>
+  <DrawSectionEdges>描画 区分境界</DrawSectionEdges>
+  <DrawRiverDebug>描画 川デバッグ</DrawRiverDebug>
+  <DrawPawnDebug>描画 ポーンデバッグ</DrawPawnDebug>
+  <DrawPawnRotatorTarget>描画 ポーン切替目標</DrawPawnRotatorTarget>
+  <DrawRegions>描画 地域</DrawRegions>
+  <DrawRegionLinks>描画 地域 リンク</DrawRegionLinks>
+  <DrawRegionDirties>描画 地域 汚れ</DrawRegionDirties>
+  <DrawRegionTraversal>描画 地域 横断</DrawRegionTraversal>
+  <DrawRegionThings>描画 領域 Things</DrawRegionThings>
+  <DrawDistricts>描画 地区</DrawDistricts>
+  <DrawRooms>描画 部屋</DrawRooms>
+  <DrawPower>描画 電気</DrawPower>
+  <DrawPowerNetGrid>描画 電力網</DrawPowerNetGrid>
+  <DrawOpportunisticJobs>描画 仕事をしない</DrawOpportunisticJobs>
+  <DrawTooltipEdges>描画 ツールチップの境界</DrawTooltipEdges>
+  <DrawRecordedNoise>描画 記録された騒音</DrawRecordedNoise>
+  <DrawFoodSearchFromMouse>描画 マウス座標から食事検索</DrawFoodSearchFromMouse>
+  <DrawPreyInfo>描画 獲物情報</DrawPreyInfo>
+  <DrawGlow>描画 照明</DrawGlow>
+  <DrawAvoidGrid>描画 グリッド回避</DrawAvoidGrid>
+  <DrawBreachingGrid>描画 突破グリッド</DrawBreachingGrid>
+  <DrawBreachingNoise>描画 突破ノイズ</DrawBreachingNoise>
+  <DrawLords>描画 積載</DrawLords>
+  <DrawDuties>描画 仕事</DrawDuties>
+  <DrawShooting>描画 射撃</DrawShooting>
+  <DrawInfestationChance>描画 虫の襲撃率</DrawInfestationChance>
+  <DrawStealDebug>描画 盗難 デバッグ</DrawStealDebug>
+  <DrawDeepResources>描画 深部資源</DrawDeepResources>
+  <DrawAttackTargetScores>描画 攻撃目標スコア</DrawAttackTargetScores>
+  <DrawInteractionCells>描画 相互作用セル</DrawInteractionCells>
+  <DrawDoorsDebug>描画 ドア デバッグ</DrawDoorsDebug>
+  <DrawDestReservations>描画 予約済目的地</DrawDestReservations>
+  <DrawDamageRects>描画 ダメージ範囲</DrawDamageRects>
+  <WriteGame>検査 ゲーム</WriteGame>
+  <WriteSteamItems>検査 Steamアイテム</WriteSteamItems>
+  <WriteConcepts>検査 コンセプト</WriteConcepts>
+  <WriteReservations>検査 予約</WriteReservations>
+  <WritePathCosts>検査 通過コスト</WritePathCosts>
+  <WriteFertility>検査 肥沃度</WriteFertility>
+  <WriteLinkFlags>検査 フラグリンク</WriteLinkFlags>
+  <WriteCover>検査 遮蔽(カバー)</WriteCover>
+  <WriteCellContents>検査 セルの内容</WriteCellContents>
+  <WriteMusicManagerPlay>検査 MusicManagerの再生曲</WriteMusicManagerPlay>
+  <WriteStoryteller>検査 storyteller</WriteStoryteller>
+  <WritePlayingSounds>検査 再生中の音</WritePlayingSounds>
+  <WriteSoundEventsRecord>検査 イベント記録音</WriteSoundEventsRecord>
+  <WriteMoteSaturation>検査 moteの飽和</WriteMoteSaturation>
+  <WriteSnowDepth>検査 雪の深さ</WriteSnowDepth>
+  <WriteEcosystem>検査 生態系</WriteEcosystem>
+  <WriteRecentStrikes>検査 最近のストライキ</WriteRecentStrikes>
+  <WriteBeauty>検査 美しさ</WriteBeauty>
+  <WriteListRepairableBldgs>検査 修理可能な建物</WriteListRepairableBldgs>
+  <WriteListFilthInHomeArea>検査 コロニーエリア汚れ一覧</WriteListFilthInHomeArea>
+  <WriteListHaulables>検査 運搬可能リスト</WriteListHaulables>
+  <WriteListMergeables>検査 まとめ可能リスト</WriteListMergeables>
+  <WriteTotalSnowDepth>検査 全体的な雪の深さ</WriteTotalSnowDepth>
+  <WriteCanReachColony>検査 コロニー到達確率</WriteCanReachColony>
+  <WriteMentalStateCalcs>検査 精神状態計算</WriteMentalStateCalcs>
+  <WriteWind>検査 風</WriteWind>
+  <WriteTerrain>検査 地形</WriteTerrain>
+  <WriteApparelScore>検査 衣服スコア</WriteApparelScore>
+  <WriteWorkSettings>検査 労働設定</WriteWorkSettings>
+  <WriteSkyManager>検査 天候管理 SkyManager</WriteSkyManager>
+  <WriteMemoryUsage>検査 メモリ使用率</WriteMemoryUsage>
+  <WriteMapGameConditions>検査 マップのゲーム条件</WriteMapGameConditions>
+  <WriteAttackTargets>検査 攻撃目標</WriteAttackTargets>
+  <WriteRopesAndPens>検査 引綱と囲い場</WriteRopesAndPens>
+  <WriteRoomRoles>検査 部屋役割</WriteRoomRoles>
+  <LogIncapChance>ログ 無能率</LogIncapChance>
+  <LogInput>ログ インプット</LogInput>
+  <LogApparelGeneration>ログ 衣服の時代</LogApparelGeneration>
+  <LogLordToilTransitions>ログ 荷運び仕事の推移</LogLordToilTransitions>
+  <LogGrammarResolution>ログ 文法解決</LogGrammarResolution>
+  <LogCombatLogMouseover>ログ 戦闘ログ マウスオーバー</LogCombatLogMouseover>
+  <LogCauseOfDeath>ログ 死因</LogCauseOfDeath>
+  <LogMapLoad>ログ マップ読込み</LogMapLoad>
+  <LogTutor>ログ チュートリアル</LogTutor>
+  <LogSignals>ログ シグナル</LogSignals>
+  <LogWorldPawnGC>ログ WorldPawnGC</LogWorldPawnGC>
+  <LogTaleRecording>ログ 物語の記録</LogTaleRecording>
+  <LogHourlyScreenshot>ログ 時間毎の画面撮影</LogHourlyScreenshot>
+  <LogFilthSummary>ログ 汚れ一覧</LogFilthSummary>
+  <LogCarriedBetweenJobs>ログ 仕事中の運搬品</LogCarriedBetweenJobs>
+  <LogComplexGenPoints>ログ 複合生成点</LogComplexGenPoints>
+  <DebugApparelOptimize>デバッグ アパレル最適化</DebugApparelOptimize>
+  <ShowAllRoomStats>表示 全部屋のステータス</ShowAllRoomStats>
+  <ShowFloatMenuWorkGivers>表示 WorkGiversメニュー</ShowFloatMenuWorkGivers>
+  <NeverForceNormalSpeed>無効 強制低速度</NeverForceNormalSpeed>
+</LanguageData>

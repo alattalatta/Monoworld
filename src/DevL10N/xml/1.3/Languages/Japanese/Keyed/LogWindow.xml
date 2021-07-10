@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+  <LogWindow_Clear>クリア</LogWindow_Clear>
+  <LogWindow_Clear.Description>全てのログメッセージをクリアします。</LogWindow_Clear.Description>
+
+  <LogWindow_TraceBig>トレース:大</LogWindow_TraceBig>
+  <LogWindow_TraceBig.Description>画面上でスタックトレースを大きく設定します。</LogWindow_TraceBig.Description>
+
+  <LogWindow_TraceMedium>トレース:中</LogWindow_TraceMedium>
+  <LogWindow_TraceMedium.Description>画面上でスタックトレースを中ぐらいの大きさで設定します。</LogWindow_TraceMedium.Description>
+
+  <LogWindow_TraceSmall>トレース:小</LogWindow_TraceSmall>
+  <LogWindow_TraceSmall.Description>画面上でスタックトレースを小さく設定します。</LogWindow_TraceSmall.Description>
+
+  <LogWindow_AutoOpenEnabled>自動表示:オン</LogWindow_AutoOpenEnabled>
+  <LogWindow_AutoOpenEnabled.Description>エラーがログに記録されると、自動的にデバッグログが開きます。</LogWindow_AutoOpenEnabled.Description>
+
+  <LogWindow_AutoOpenDisabled>自動表示:オフ</LogWindow_AutoOpenDisabled>
+  <LogWindow_AutoOpenDisabled.Description>エラーがログに記録されても、デバッグログは開きません。</LogWindow_AutoOpenDisabled.Description>
+
+  <LogWindow_CopyToClipboard>ログをコピー</LogWindow_CopyToClipboard>
+  <LogWindow_CopyToClipboard.Description>すべてのログメッセージをクリップボードにコピーします。</LogWindow_CopyToClipboard.Description>
+
+</LanguageData>
