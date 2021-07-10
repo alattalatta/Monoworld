@@ -20,6 +20,10 @@
   <FastEcologyRegrowRateOnly>高速生態系,再成長率だけ</FastEcologyRegrowRateOnly>
   <FastCrafting>高速生産</FastCrafting>
   <FastCaravans>高速キャラバン</FastCaravans>
+  <ActivateAllBuildingDemands>Activate all building demands</ActivateAllBuildingDemands>
+  <ActivateAllIdeoRoles>Activate all ideo roles</ActivateAllIdeoRoles>
+  <ShowLocomotionUrgency>Show LocomotionUrgency</ShowLocomotionUrgency>
+  <PlayRitualAmbience>Play ritual ambience sound</PlayRitualAmbience>
   <DrawFog>描画 戦場の霧</DrawFog>
   <DrawSnow>描画 雪</DrawSnow>
   <DrawTerrain>描画 地形</DrawTerrain>
@@ -32,6 +36,7 @@
   <DrawPaths>描画 経路</DrawPaths>
   <DrawCastPositionSearch>描画 Cast位置検索</DrawCastPositionSearch>
   <DrawDestSearch>描画 目的地検索</DrawDestSearch>
+  <DrawStyleSearch>Draw style search</DrawStyleSearch>
   <DrawSectionEdges>描画 区分境界</DrawSectionEdges>
   <DrawRiverDebug>描画 川デバッグ</DrawRiverDebug>
   <DrawPawnDebug>描画 ポーンデバッグ</DrawPawnDebug>
@@ -41,8 +46,8 @@
   <DrawRegionDirties>描画 地域 汚れ</DrawRegionDirties>
   <DrawRegionTraversal>描画 地域 横断</DrawRegionTraversal>
   <DrawRegionThings>描画 地域 Things</DrawRegionThings>
+  <DrawDistricts>Draw Districts</DrawDistricts>
   <DrawRooms>描画 部屋</DrawRooms>
-  <DrawRoomGroups>描画 部屋グループ</DrawRoomGroups>
   <DrawPower>描画 電気</DrawPower>
   <DrawPowerNetGrid>描画 電力網</DrawPowerNetGrid>
   <DrawOpportunisticJobs>描画 仕事をしない</DrawOpportunisticJobs>
@@ -52,6 +57,8 @@
   <DrawPreyInfo>描画 獲物情報</DrawPreyInfo>
   <DrawGlow>描画 照明</DrawGlow>
   <DrawAvoidGrid>描画 グリッド回避</DrawAvoidGrid>
+  <DrawBreachingGrid>Draw breaching grid</DrawBreachingGrid>
+  <DrawBreachingNoise>Draw breaching noise</DrawBreachingNoise>
   <DrawLords>描画 積載</DrawLords>
   <DrawDuties>描画 仕事</DrawDuties>
   <DrawShooting>描画 射撃</DrawShooting>
@@ -96,6 +103,8 @@
   <WriteMemoryUsage>書出 メモリ使用率</WriteMemoryUsage>
   <WriteMapGameConditions>書出 マップのゲーム条件</WriteMapGameConditions>
   <WriteAttackTargets>書出 攻撃目標</WriteAttackTargets>
+  <WriteRopesAndPens>Inspect ropes and pens</WriteRopesAndPens>
+  <WriteRoomRoles>Inspect Room roles</WriteRoomRoles>
   <LogIncapChance>ログ 無能率</LogIncapChance>
   <LogInput>ログ インプット</LogInput>
   <LogApparelGeneration>ログ 衣服の時代</LogApparelGeneration>
@@ -110,8 +119,10 @@
   <LogTaleRecording>ログ 物語の記録</LogTaleRecording>
   <LogHourlyScreenshot>ログ 時間毎の画面撮影</LogHourlyScreenshot>
   <LogFilthSummary>ログ 汚れ一覧</LogFilthSummary>
+  <LogCarriedBetweenJobs>Log carried between jobs</LogCarriedBetweenJobs>
+  <LogComplexGenPoints>Log complex gen points</LogComplexGenPoints>
   <DebugApparelOptimize>デバッグ アパレル最適化</DebugApparelOptimize>
   <ShowAllRoomStats>表示 全部屋のステータス</ShowAllRoomStats>
   <ShowFloatMenuWorkGivers>表示 WorkGiversメニュー</ShowFloatMenuWorkGivers>
-
+  <NeverForceNormalSpeed>Never force normal speed</NeverForceNormalSpeed>
 </LanguageData>
