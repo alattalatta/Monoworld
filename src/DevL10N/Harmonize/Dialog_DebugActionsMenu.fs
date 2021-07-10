@@ -20,7 +20,7 @@ module GenerateCacheForMethod =
 
     // HOW LAZY AM I
     // [todo] Use compiler directives
-    let Prefix (method: MethodInfo, attribute: DebugActionAttribute) =
+    let __Prefix (method: MethodInfo, attribute: DebugActionAttribute) =
         let name =
             if attribute.name.NullOrEmpty() then
                 GenText.SplitCamelCase(method.Name)

@@ -70,41 +70,41 @@
   <DrawDoorsDebug>문 디버그 그리기</DrawDoorsDebug>
   <DrawDestReservations>목적지 예약 그리기</DrawDestReservations>
   <DrawDamageRects>피해 Rect 그리기</DrawDamageRects>
-  <WriteGame>Game 조사</WriteGame>
-  <WriteSteamItems>Steam 항목 조사</WriteSteamItems>
-  <WriteConcepts>도우미 Concept 조사</WriteConcepts>
-  <WriteReservations>예약 조사</WriteReservations>
-  <WritePathCosts>경로 비용 조사</WritePathCosts>
-  <WriteFertility>비옥도 조사</WriteFertility>
-  <WriteLinkFlags>LinkFlags 조사</WriteLinkFlags>
-  <WriteCover>엄폐 조사</WriteCover>
-  <WriteCellContents>칸 내용물 조사</WriteCellContents>
-  <WriteMusicManagerPlay>MusicManager 재생 조사</WriteMusicManagerPlay>
-  <WriteStoryteller>이야기꾼 조사</WriteStoryteller>
-  <WritePlayingSounds>재생 중인 소리 조사</WritePlayingSounds>
-  <WriteSoundEventsRecord>소리 이벤트 기록 조사</WriteSoundEventsRecord>
-  <WriteMoteSaturation>Mote 포화도 조사</WriteMoteSaturation>
-  <WriteSnowDepth>눈 깊이 조사</WriteSnowDepth>
-  <WriteEcosystem>생태계 조사</WriteEcosystem>
-  <WriteRecentStrikes>최근 광맥 발견 조사</WriteRecentStrikes>
-  <WriteBeauty>미관 조사</WriteBeauty>
-  <WriteListRepairableBldgs>수리 가능한 건물 조사</WriteListRepairableBldgs>
-  <WriteListFilthInHomeArea>주거구역 내 오물 목록 조사</WriteListFilthInHomeArea>
-  <WriteListHaulables>운반 가능 목록 조사</WriteListHaulables>
-  <WriteListMergeables>병합 가능 목록 조사</WriteListMergeables>
-  <WriteTotalSnowDepth>총 눈 깊이 조사</WriteTotalSnowDepth>
-  <WriteCanReachColony>정착지 도달 가능 여부 조사</WriteCanReachColony>
-  <WriteMentalStateCalcs>정신불안 정보 조사</WriteMentalStateCalcs>
-  <WriteWind>바람 조사</WriteWind>
-  <WriteTerrain>지형 조사</WriteTerrain>
-  <WriteApparelScore>의류 점수 조사</WriteApparelScore>
-  <WriteWorkSettings>작업 설정 조사</WriteWorkSettings>
-  <WriteSkyManager>SkyManager 조사</WriteSkyManager>
-  <WriteMemoryUsage>메모리 사용량 조사</WriteMemoryUsage>
-  <WriteMapGameConditions>지도의 GameCondition 조사</WriteMapGameConditions>
-  <WriteAttackTargets>공격 대상 조사</WriteAttackTargets>
-  <WriteRopesAndPens>목줄과 우리 조사</WriteRopesAndPens>
-  <WriteRoomRoles>Room 역할 조사</WriteRoomRoles>
+  <WriteGame>Game 검사</WriteGame>
+  <WriteSteamItems>Steam 항목 검사</WriteSteamItems>
+  <WriteConcepts>도우미 Concept 검사</WriteConcepts>
+  <WriteReservations>예약 검사</WriteReservations>
+  <WritePathCosts>경로 비용 검사</WritePathCosts>
+  <WriteFertility>비옥도 검사</WriteFertility>
+  <WriteLinkFlags>LinkFlags 검사</WriteLinkFlags>
+  <WriteCover>엄폐 검사</WriteCover>
+  <WriteCellContents>칸 내용물 검사</WriteCellContents>
+  <WriteMusicManagerPlay>MusicManager 재생 검사</WriteMusicManagerPlay>
+  <WriteStoryteller>이야기꾼 검사</WriteStoryteller>
+  <WritePlayingSounds>재생 중인 소리 검사</WritePlayingSounds>
+  <WriteSoundEventsRecord>소리 이벤트 기록 검사</WriteSoundEventsRecord>
+  <WriteMoteSaturation>Mote 포화도 검사</WriteMoteSaturation>
+  <WriteSnowDepth>눈 깊이 검사</WriteSnowDepth>
+  <WriteEcosystem>생태계 검사</WriteEcosystem>
+  <WriteRecentStrikes>최근 광맥 발견 검사</WriteRecentStrikes>
+  <WriteBeauty>미관 검사</WriteBeauty>
+  <WriteListRepairableBldgs>수리 가능한 건물 검사</WriteListRepairableBldgs>
+  <WriteListFilthInHomeArea>주거구역 내 오물 목록 검사</WriteListFilthInHomeArea>
+  <WriteListHaulables>운반 가능 목록 검사</WriteListHaulables>
+  <WriteListMergeables>병합 가능 목록 검사</WriteListMergeables>
+  <WriteTotalSnowDepth>총 눈 깊이 검사</WriteTotalSnowDepth>
+  <WriteCanReachColony>정착지 도달 가능 여부 검사</WriteCanReachColony>
+  <WriteMentalStateCalcs>정신불안 정보 검사</WriteMentalStateCalcs>
+  <WriteWind>바람 검사</WriteWind>
+  <WriteTerrain>지형 검사</WriteTerrain>
+  <WriteApparelScore>의류 점수 검사</WriteApparelScore>
+  <WriteWorkSettings>작업 설정 검사</WriteWorkSettings>
+  <WriteSkyManager>SkyManager 검사</WriteSkyManager>
+  <WriteMemoryUsage>메모리 사용량 검사</WriteMemoryUsage>
+  <WriteMapGameConditions>지도의 GameCondition 검사</WriteMapGameConditions>
+  <WriteAttackTargets>공격 대상 검사</WriteAttackTargets>
+  <WriteRopesAndPens>목줄과 우리 검사</WriteRopesAndPens>
+  <WriteRoomRoles>Room 역할 검사</WriteRoomRoles>
   <LogIncapChance>Log incap chance (미사용)</LogIncapChance>
   <LogInput>입력 기록</LogInput>
   <LogApparelGeneration>의류 생성 기록</LogApparelGeneration>

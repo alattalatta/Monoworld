@@ -11,7 +11,7 @@ open DevL10N.Lib
 
 [<HarmonyPatch(typeof<Dialog_DebugSettingsMenu>, "DoField")>]
 module DoField =
-    let Prefix (fi: FieldInfo) =
+    let __Prefix (fi: FieldInfo) =
         let name =
             GenText
                 .SplitCamelCase(fi.Name)
