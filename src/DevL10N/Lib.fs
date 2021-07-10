@@ -16,15 +16,6 @@ let headTail l =
     | [] -> raise (ArgumentOutOfRangeException("l"))
     | h :: t -> h, t
 
-// If the method is from Assembly-CSharp, call TranslateSimple().
-// if not, use default behavior.
-let translatableFromMethodInfo prefix (attrName: string) (mi: MethodInfo) =
-    if mi.DeclaringType.Assembly.GetName().Name = "Assembly-CSharp"
-    then (prefix + mi.Name).TranslateSimple()
-    else if attrName.NullOrEmpty()
-    then GenText.SplitCamelCase mi.Name
-    else attrName
-
 let splitFlipped (list: 'a list) = Poet.Lib.flip List.splitAt list
 
 let taggify prefix key value =

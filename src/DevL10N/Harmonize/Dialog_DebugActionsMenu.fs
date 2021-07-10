@@ -9,14 +9,31 @@ open Verse
 open DevL10N.Lib
 
 
+/// If the method is from Assembly-CSharp, call TranslateSimple().
+/// if not, apply the default behavior.
+let translatableFromMethodInfo (attrName: string) (mi: MethodInfo) =
+    if mi.DeclaringType.Assembly.GetName().Name = "Assembly-CSharp" then
+        let originalLabel =
+            if attrName.NullOrEmpty() then
+                GenText.SplitCamelCase mi.Name
+            else
+                attrName
+
+        sprintf "%s[%s]" (("DebugAction_" + mi.Name).TranslateSimple()) originalLabel
+
+    else if attrName.NullOrEmpty() then
+        GenText.SplitCamelCase mi.Name
+
+    else
+        attrName
+
 [<HarmonyPatch(typeof<Dialog_DebugActionsMenu>, "GenerateCacheForMethod")>]
 module GenerateCacheForMethod =
     type private IMarker =
         interface
         end
 
-    let private makeLabel (mi: MethodInfo, attr: DebugActionAttribute) =
-        translatableFromMethodInfo "DebugAction_" attr.name mi
+    let private makeLabel (mi: MethodInfo, attr: DebugActionAttribute) = translatableFromMethodInfo attr.name mi
 
     // HOW LAZY AM I
     // [todo] Use compiler directives
