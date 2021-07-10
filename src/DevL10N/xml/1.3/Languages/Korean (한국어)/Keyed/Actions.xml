@@ -90,9 +90,9 @@
   <DebugAction_GenerateQuestsSamples>임무 생성 (포인트마다 하나씩)...</DebugAction_GenerateQuestsSamples>
   <DebugAction_TestQuestPart>QuestPart 테스트...</DebugAction_TestQuestPart>
   <DebugAction_QuestExample>생성한 퀘스트 세이브 데이터 기록</DebugAction_QuestExample>
-  <DebugAction_Award4RoyalFavor>명예 4개 부여</DebugAction_Award4RoyalFavor>
-  <DebugAction_Award10RoyalFavor>명예 10개 부여</DebugAction_Award10RoyalFavor>
-  <DebugAction_Remove4RoyalFavor>명예 4개 제거</DebugAction_Remove4RoyalFavor>
+  <DebugAction_Award4RoyalFavor>신임장 4개 부여</DebugAction_Award4RoyalFavor>
+  <DebugAction_Award10RoyalFavor>신임장 10개 부여</DebugAction_Award10RoyalFavor>
+  <DebugAction_Remove4RoyalFavor>신임장 4개 제거</DebugAction_Remove4RoyalFavor>
   <DebugAction_ReduceRoyalTitle>작위 낮추기</DebugAction_ReduceRoyalTitle>
   <DebugAction_SetTitleForced>작위 설정...</DebugAction_SetTitleForced>
   <DebugAction_WriteBackstoryTranslationFile>성장 환경 번역 파일 작성</DebugAction_WriteBackstoryTranslationFile>
