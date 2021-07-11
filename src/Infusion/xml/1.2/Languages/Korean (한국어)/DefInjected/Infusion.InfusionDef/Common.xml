@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- apparels -->
+
+  <Absorbing.label>흡수하는</Absorbing.label>
+  <Absorbing.labelShort>흡수</Absorbing.labelShort>
+
+  <Adjustable.label>조절 가능한</Adjustable.label>
+  <Adjustable.labelShort>조절</Adjustable.labelShort>
+
+  <Comfortable.label>편안한</Comfortable.label>
+  <Comfortable.labelShort>편안</Comfortable.labelShort>
+
+  <Decorated.label>꾸민</Decorated.label>
+  <Decorated.labelShort>꾸밈</Decorated.labelShort>
+
+  <Durable.label>튼튼한</Durable.label>
+  <Durable.labelShort>튼튼</Durable.labelShort>
+
+  <Efficient.label>효율적인</Efficient.label>
+  <Efficient.labelShort>효율</Efficient.labelShort>
+
+  <Hardened.label>단단한</Hardened.label>
+  <Hardened.labelShort>단단</Hardened.labelShort>
+
+  <Warm.label>따뜻한</Warm.label>
+  <Warm.labelShort>따뜻</Warm.labelShort>
+
+  <Shadowing.label>그늘지는</Shadowing.label>
+  <Shadowing.labelShort>그늘</Shadowing.labelShort>
+
+
+  <!-- melee -->
+
+  <FineMelee.label>적합한</FineMelee.label>
+  <FineMelee.labelShort>적합</FineMelee.labelShort>
+
+  <HeavierMelee.label>강화</HeavierMelee.label>
+  <HeavierMelee.labelShort>강화</HeavierMelee.labelShort>
+
+  <Keen.label>예리한</Keen.label>
+  <Keen.labelShort>예리</Keen.labelShort>
+
+
+  <!-- ranged -->
+
+  <Accurate.label>정확한</Accurate.label>
+  <Accurate.labelShort>정확</Accurate.labelShort>
+
+  <FineRanged.label>적합한</FineRanged.label>
+  <FineRanged.labelShort>적합</FineRanged.labelShort>
+
+  <HeavierRangede.label>강화</HeavierRangede.label>
+  <HeavierRangede.labelShort>강화</HeavierRangede.labelShort>
+
+
+</LanguageData>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- settings -->
+  <Infusion.Settings.AccuracyOvercapping>Enable accuracy overcapping</Infusion.Settings.AccuracyOvercapping>
+  <Infusion.Settings.AccuracyOvercapping.Description>Allows ranged weapon accuracy to go over 100%, with diminishing returns.</Infusion.Settings.AccuracyOvercapping.Description>
+
+  <Infusion.Settings.BiocodeBonus>Enable bonus to biocoded equipments</Infusion.Settings.BiocodeBonus>
+  <Infusion.Settings.BiocodeBonus.Description>Treat biocoded equipments two quality higher when giving random infusions.
+    
+For example, normal quality biocoded items will get infusions of excellent quality.</Infusion.Settings.BiocodeBonus.Description>
+
+  <Infusion.Settings.ExtractionChanceFactor>Extraction success chance factor</Infusion.Settings.ExtractionChanceFactor>
+  <Infusion.Settings.ExtractionChanceFactor.Description>Multiplies success chance of infusion extraction. Possible values are 0.0 ~ 100.0. Default is 1.0.</Infusion.Settings.ExtractionChanceFactor.Description>
+
+  <Infusion.Settings.ReusableInfusers>Reusable infusers</Infusion.Settings.ReusableInfusers>
+  <Infusion.Settings.ReusableInfusers.Description>Infusing an equipment with a infuser creates a new empty infuser.</Infusion.Settings.ReusableInfusers.Description>
+
+  <Infusion.Settings.WeightFactor>Infusion weight factor</Infusion.Settings.WeightFactor>
+  <Infusion.Settings.WeightFactor.Description>Multiplies weight of infusions. Possible values are 0.0 ~ 2.0. Default is 1.0.
+
+2.0 strictly picks the highest weights for a quality first. 0.0 means everything is possible.
+
+Note: Chances still applies.
+  </Infusion.Settings.WeightFactor.Description>
+
+  <Infusion.Settings.ChanceFactor>Infusion probability factor</Infusion.Settings.ChanceFactor>
+  <Infusion.Settings.ChanceFactor.Description>Multiplies probability of infusions. Possible values are 0.0 ~ 100.0. Default is 1.0.
+
+With default infusions, 100 would ensure everything will pass. 0 will effectively disable new infusions.
+  </Infusion.Settings.ChanceFactor.Description>
+
+  <Infusion.Settings.BodyPartLimit>Limit infusions by body parts covered</Infusion.Settings.BodyPartLimit>
+  <Infusion.Settings.BodyPartLimit.Description>Maximum infusion slot count will be limited to numbers of body part groups an apparel covers.</Infusion.Settings.BodyPartLimit.Description>
+
+  <Infusion.Settings.LayerBonuses>More infusions for more layers occupied</Infusion.Settings.LayerBonuses>
+  <Infusion.Settings.LayerBonuses.Description>Increases max infusions by 1, per a layer an apparel occupies.
+
+Applied after the body part limit, i.e. an apparel which only protects arms and torso will have its slots limited to 2, but if it occupies 3 layers, the limit will become 4 instead.
+  </Infusion.Settings.LayerBonuses.Description>
+
+  <Infusion.Settings.Slots.OpenSettings>Open infusion slot options</Infusion.Settings.Slots.OpenSettings>
+  <Infusion.Settings.Slots.CloseSettings>Close infusion slot options</Infusion.Settings.Slots.CloseSettings>
+
+  <Infusion.Settings.Slot.Description>0 ~ 20, default {0}</Infusion.Settings.Slot.Description>
+
+  <Infusion.Settings.Tiers.OpenSettings>Open tier availabilities</Infusion.Settings.Tiers.OpenSettings>
+  <Infusion.Settings.Tiers.CloseSettings>Close tier availabilities</Infusion.Settings.Tiers.CloseSettings>
+
+  <Infusion.Settings.Tier.Description>{0} infusions found</Infusion.Settings.Tier.Description>
+</LanguageData>

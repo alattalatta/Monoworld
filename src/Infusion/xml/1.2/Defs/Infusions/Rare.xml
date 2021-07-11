@@ -1,0 +1,726 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+  <Infusion.InfusionDef Abstract="True" Name="RareDefaultBase">
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>0.1</multiplier>
+        </value>
+      </li>
+    </stats>
+    <tier>Rare</tier>
+  </Infusion.InfusionDef>
+
+  <!-- apparels -->
+  <Infusion.InfusionDef Abstract="True" Name="RareApparelBase" ParentName="RareDefaultBase">
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
+        <apparel>true</apparel>
+      </li>
+    </complexes>
+    <stats>
+      <li>
+        <key>MaxHitPoints</key>
+        <value>
+          <multiplier>0.1</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef Abstract="True" Name="RareApparelCleanBase" ParentName="RareDefaultBase">
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
+        <apparel>true</apparel>
+      </li>
+    </complexes>
+  </Infusion.InfusionDef>
+
+  <!-- armors must cover a body part-->
+  <Infusion.InfusionDef Abstract="True" Name="RareArmorBase" ParentName="RareApparelCleanBase">
+    <complexes>
+      <li Class="Infusion.Complex.NotUtility" />
+    </complexes>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareApparelBase">
+    <defName>Accelerating</defName>
+    <label>accelerating</label>
+    <labelShort>accel</labelShort>
+    <stats>
+      <li>
+        <key>MoveSpeed</key>
+        <value>
+          <offset>0.15</offset>
+        </value>
+      </li>
+      <li>
+        <key>RestRateMultiplier</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareApparelBase">
+    <defName>Adaption</defName>
+    <label>adaption</label>
+    <labelShort>adapt</labelShort>
+    <position>Suffix</position>
+    <stats>
+      <li>
+        <key>WorkSpeedGlobal</key>
+        <value>
+          <offset>0.1</offset>
+        </value>
+      </li>
+      <li>
+        <key>GlobalLearningFactor</key>
+        <value>
+          <offset>0.1</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareApparelCleanBase">
+    <defName>Auxiliary</defName>
+    <label>auxiliary</label>
+    <labelShort>aux</labelShort>
+    <complexes>
+      <li Class="Infusion.Complex.ShieldBelt" />
+    </complexes>
+    <stats>
+      <li>
+        <key>MaxHitPoints</key>
+        <value>
+          <multiplier>0.2</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>EnergyShieldRechargeRate</key>
+        <value>
+          <multiplier>0.2</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>EnergyShieldEnergyMax</key>
+        <value>
+          <multiplier>-0.25</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareApparelBase">
+    <defName>Beautiful</defName>
+    <label>beautiful</label>
+    <labelShort>beaut</labelShort>
+    <stats>
+      <li>
+        <key>PawnBeauty</key>
+        <value>
+          <offset>0.5</offset>
+        </value>
+      </li>
+      <li>
+        <key>SocialImpact</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareApparelBase">
+    <defName>Charged</defName>
+    <label>charged</label>
+    <labelShort>chrg</labelShort>
+    <complexes>
+      <li Class="Infusion.Complex.ShieldBelt" />
+    </complexes>
+    <stats>
+      <li>
+        <key>MoveSpeed</key>
+        <value>
+          <offset>0.1</offset>
+        </value>
+      </li>
+      <li>
+        <key>EnergyShieldEnergyMax</key>
+        <value>
+          <multiplier>0.2</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareApparelBase">
+    <defName>Circulating</defName>
+    <label>circulating</label>
+    <labelShort>circ</labelShort>
+    <stats>
+      <li>
+        <key>Insulation_Heat</key>
+        <value>
+          <offset>12</offset>
+        </value>
+      </li>
+      <li>
+        <key>Insulation_Cold</key>
+        <value>
+          <offset>12</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareArmorBase">
+    <defName>Deflecting</defName>
+    <label>deflecting</label>
+    <labelShort>deflct</labelShort>
+    <stats>
+      <li>
+        <key>MaxHitPoints</key>
+        <value>
+          <multiplier>0.2</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>ArmorRating_Sharp</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareArmorBase">
+    <defName>Dispersing</defName>
+    <label>dispersing</label>
+    <labelShort>disps</labelShort>
+    <stats>
+      <li>
+        <key>MaxHitPoints</key>
+        <value>
+          <multiplier>0.2</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>ArmorRating_Blunt</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareApparelBase">
+    <defName>Ethereal</defName>
+    <label>ethereal</label>
+    <labelShort>ether</labelShort>
+    <stats>
+      <li>
+        <key>Mass</key>
+        <value>
+          <multiplier>-0.5</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>TradePriceImprovement</key>
+        <value>
+          <offset>0.25</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareApparelCleanBase">
+    <defName>Overloaded</defName>
+    <label>overloaded</label>
+    <labelShort>ovlod</labelShort>
+    <complexes>
+      <li Class="Infusion.Complex.ShieldBelt" />
+    </complexes>
+    <stats>
+      <li>
+        <key>EnergyShieldRechargeRate</key>
+        <value>
+          <multiplier>0.1</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>EnergyShieldEnergyMax</key>
+        <value>
+          <multiplier>0.4</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>MaxHitPoints</key>
+        <value>
+          <multiplier>-0.2</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareApparelBase">
+    <defName>Health</defName>
+    <label>health</label>
+    <position>Suffix</position>
+    <stats>
+      <li>
+        <key>ImmunityGainSpeed</key>
+        <value>
+          <offset>0.1</offset>
+        </value>
+      </li>
+      <li>
+        <key>ToxicSensitivity</key>
+        <value>
+          <offset>-0.3</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareApparelBase">
+    <defName>Volition</defName>
+    <label>volition</label>
+    <labelShort>voli</labelShort>
+    <position>Suffix</position>
+    <stats>
+      <li>
+        <key>MentalBreakThreshold</key>
+        <value>
+          <offset>-0.06</offset>
+        </value>
+      </li>
+      <li>
+        <key>PainShockThreshold</key>
+        <value>
+          <offset>0.1</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareApparelBase">
+    <defName>Wilderness</defName>
+    <label>wilderness</label>
+    <labelShort>wild</labelShort>
+    <position>Suffix</position>
+    <stats>
+      <li>
+        <key>HuntingStealth</key>
+        <value>
+          <offset>0.3</offset>
+        </value>
+      </li>
+      <li>
+        <key>ForagedNutritionPerDay</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- weapons -->
+  <Infusion.InfusionDef ParentName="RareDefaultBase">
+    <defName>Shielding</defName>
+    <label>shielding</label>
+    <labelShort>shield</labelShort>
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
+        <melee>true</melee>
+        <ranged>true</ranged>
+      </li>
+    </complexes>
+    <stats>
+      <li>
+        <key>IncomingDamageFactor</key>
+        <value>
+          <offset>-0.12</offset>
+        </value>
+      </li>
+      <li>
+        <key>ArmorRating_Sharp</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+      <li>
+        <key>ArmorRating_Blunt</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareDefaultBase">
+    <defName>Venomous</defName>
+    <label>venomous</label>
+    <labelShort>venom</labelShort>
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
+        <melee>true</melee>
+        <ranged>true</ranged>
+      </li>
+      <li Class="Infusion.Complex.ProjectileBullet" />
+    </complexes>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.ApplyHediff">
+        <def>ToxicBuildup</def>
+        <amount>0.1</amount>
+        <severityScaleBy>ToxicSensitivity</severityScaleBy>
+      </li>
+    </onHits>
+    <extraDescriptions>
+      <li>Increases toxic buildup of the target by 20% of the damage.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <!-- melee -->
+  <Infusion.InfusionDef Abstract="True" Name="RareMeleeBase" ParentName="RareDefaultBase">
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
+        <melee>true</melee>
+      </li>
+    </complexes>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareMeleeBase">
+    <defName>Burning</defName>
+    <label>burning</label>
+    <labelShort>burn</labelShort>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.ApplyDamage">
+        <def>Flame</def>
+        <amount>0.3</amount>
+        <chance>0.2</chance>
+      </li>
+    </onHits>
+    <extraDescriptions>
+      <li>20% chance to deal flame damage equal to 30% of the damage.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareMeleeBase">
+    <defName>Dancing</defName>
+    <label>dancing</label>
+    <labelShort>dance</labelShort>
+    <stats>
+      <li>
+        <key>MeleeWeapon_CooldownMultiplier</key>
+        <value>
+          <offset>-0.1</offset>
+        </value>
+      </li>
+      <li>
+        <key>MeleeDodgeChance</key>
+        <value>
+          <offset>1.5</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareMeleeBase">
+    <defName>Electromagnetic</defName>
+    <label>electromagnetic</label>
+    <labelShort>emp</labelShort>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.CreateExplosion">
+        <def>EMP</def>
+        <amount>1</amount>
+        <chance>0.25</chance>
+      </li>
+    </onHits>
+    <extraDescriptions>
+      <li>25% chance to cause a small EMP explosion, stunning the machine target for 100% of the damage.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareMeleeBase">
+    <defName>PiercingMelee</defName>
+    <label>piercing</label>
+    <labelShort>pierce</labelShort>
+    <stats>
+      <li>
+        <key>MeleeWeapon_DamageMultiplier</key>
+        <value>
+          <offset>0.15</offset>
+        </value>
+      </li>
+    </stats>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.ApplyDamage">
+        <def>Stab</def>
+        <amount>0.25</amount>
+        <armorPenetration>0.7</armorPenetration>
+        <chance>0.20</chance>
+      </li>
+    </onHits>
+    <extraDescriptions>
+      <li>20% chance to deal sharp damage equal to 25% of the damage, with 70% armor penetration.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareMeleeBase">
+    <defName>Reactive</defName>
+    <label>reactive</label>
+    <labelShort>react</labelShort>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.CreateExplosion">
+        <def>Bomb</def>
+        <amount>0.75</amount>
+        <chance>0.2</chance>
+      </li>
+    </onHits>
+    <extraDescriptions>
+      <li>20% chance to explode the target, dealing 75% of the damage.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareMeleeBase">
+    <defName>Stunning</defName>
+    <label>stunning</label>
+    <labelShort>stun</labelShort>
+    <stats>
+      <li>
+        <key>MeleeWeapon_DamageMultiplier</key>
+        <value>
+          <offset>0.15</offset>
+        </value>
+      </li>
+      <li>
+        <key>MeleeWeapon_CooldownMultiplier</key>
+        <value>
+          <offset>-0.2</offset>
+        </value>
+      </li>
+    </stats>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.ApplyDamage">
+        <def>Stun</def>
+        <amount>0.4</amount>
+        <chance>0.2</chance>
+      </li>
+    </onHits>
+    <extraDescriptions>
+      <li>20% chance to stun the target for 40% of the damage.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareMeleeBase">
+    <defName>Transfusion</defName>
+    <label>transfusion</label>
+    <labelShort>trans</labelShort>
+    <position>Suffix</position>
+    <complexes>
+      <li Class="Infusion.Complex.Negate">
+        <value Class="Infusion.Complex.ToolCapacity">
+          <defs>
+            <li>Blunt</li>
+            <li>Poke</li>
+          </defs>
+        </value>
+        <requirementString>sharp</requirementString>
+      </li>
+    </complexes>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.IfBioTargetHit">
+        <value Class="Infusion.OnHitWorkers.Sequence">
+          <value>
+            <li Class="Infusion.OnHitWorkers.ApplyHediff">
+              <def>BloodLoss</def>
+              <amount>0.1</amount>
+            </li>
+            <li Class="Infusion.OnHitWorkers.ReduceSeverity">
+              <def>BloodLoss</def>
+              <amount>0.1</amount>
+              <selfCast>true</selfCast>
+            </li>
+            <li Class="Infusion.OnHitWorkers.ThrowFleck">
+              <def>HealingCross</def>
+              <selfCast>true</selfCast>
+            </li>
+          </value>
+        </value>
+      </li>
+    </onHits>
+    <extraDescriptions>
+      <li>Drains living flesh target's blood and restores wielder's for 20% of the damage.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <!-- ranged -->
+  <Infusion.InfusionDef Abstract="True" Name="RareRangedBase" ParentName="RareDefaultBase">
+    <complexes>
+      <li Class="Infusion.Complex.EquipmentType">
+        <ranged>true</ranged>
+      </li>
+    </complexes>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareRangedBase">
+    <defName>Assisted</defName>
+    <label>assisted</label>
+    <stats>
+      <li>
+        <key>AimingDelayFactor</key>
+        <value>
+          <offset>-0.1</offset>
+        </value>
+      </li>
+      <li>
+        <key>RangedWeapon_Cooldown</key>
+        <value>
+          <multiplier>-0.1</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareRangedBase">
+    <defName>Concussive</defName>
+    <label>concussive</label>
+    <labelShort>conc</labelShort>
+    <complexes>
+      <li Class="Infusion.Complex.ProjectileBullet" />
+    </complexes>
+    <stats>
+      <li>
+        <key>RangedWeapon_DamageMultiplier</key>
+        <value>
+          <offset>0.15</offset>
+        </value>
+      </li>
+      <li>
+        <key>RangedWeapon_Cooldown</key>
+        <value>
+          <multiplier>0.2</multiplier>
+        </value>
+      </li>
+    </stats>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.ApplyDamage">
+        <def>Stun</def>
+        <amount>0.4</amount>
+        <chance>0.1</chance>
+      </li>
+    </onHits>
+    <extraDescriptions>
+      <li>10% chance to stun the target for 40% of the damage.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareRangedBase">
+    <defName>Explosive</defName>
+    <label>explosive</label>
+    <labelShort>expl</labelShort>
+    <complexes>
+      <li Class="Infusion.Complex.ProjectileBullet" />
+    </complexes>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.CreateExplosion">
+        <def>Bomb</def>
+        <amount>0.75</amount>
+        <chance>0.1</chance>
+        <radius>1.4</radius>
+      </li>
+    </onHits>
+    <extraDescriptions>
+      <li>10% chance to fire an explosive projectile, dealing 75% of the damage within a radius of 1.4 cells.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareRangedBase">
+    <defName>Optimized</defName>
+    <label>optimized</label>
+    <labelShort>opti</labelShort>
+    <stats>
+      <li>
+        <key>RangedWeapon_DamageMultiplier</key>
+        <value>
+          <offset>0.15</offset>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyTouch</key>
+        <value>
+          <offset>0.08</offset>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyShort</key>
+        <value>
+          <offset>0.08</offset>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyMedium</key>
+        <value>
+          <offset>0.08</offset>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyLong</key>
+        <value>
+          <offset>0.08</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareRangedBase">
+    <defName>PiercingRanged</defName>
+    <label>piercing</label>
+    <labelShort>pierce</labelShort>
+    <complexes>
+      <li Class="Infusion.Complex.ProjectileBullet" />
+    </complexes>
+    <stats>
+      <li>
+        <key>RangedWeapon_DamageMultiplier</key>
+        <value>
+          <offset>0.15</offset>
+        </value>
+      </li>
+    </stats>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.ApplyDamage">
+        <def>Stab</def>
+        <amount>0.25</amount>
+        <armorPenetration>0.7</armorPenetration>
+        <chance>0.1</chance>
+      </li>
+    </onHits>
+    <extraDescriptions>
+      <li>10% chance to fire an armor piercing projectile, dealing sharp damage equal to 25% of the damage with 70% armor penetration.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareRangedBase">
+    <defName>Thermal</defName>
+    <label>thermal</label>
+    <labelShort>therm</labelShort>
+    <complexes>
+      <li Class="Infusion.Complex.ProjectileBullet" />
+    </complexes>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.CreateExplosion">
+        <def>Flame</def>
+        <amount>0.3</amount>
+        <chance>0.1</chance>
+      </li>
+    </onHits>
+    <extraDescriptions>
+      <li>10% chance to fire a projectile which explodes in flame, dealing 30% of the damage.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+</Defs>
