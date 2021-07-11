@@ -1,10 +1,10 @@
-namespace Infusion.Complex
+namespace Infusion.Matchers
 
 open Infusion
 
 
 type NotUtility() =
-    inherit Complex<InfusionDef>()
+    inherit Matcher<InfusionDef>()
 
     override this.Match thing _ =
         if not thing.def.IsApparel then
@@ -19,4 +19,4 @@ type NotUtility() =
             )
 
     override this.BuildRequirementString() =
-        Some ResourceBank.Strings.Complex.notUtility
+        Some ResourceBank.Strings.Matchers.notUtility

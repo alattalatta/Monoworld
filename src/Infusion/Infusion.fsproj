@@ -17,17 +17,17 @@
     <Compile Include="VerseTools.fs" />
     <Compile Include="HashEqualDef.fs" />
     <Compile Include="TierDef.fs" />
-    <Compile Include="Complex/Complex.fs" />
+    <Compile Include="Matchers/Matcher.fs" />
     <Compile Include="OnHitWorkers/OnHitWorker.fs" />
     <Compile Include="InfusionDef.fs" />
     <Compile Include="Settings.fs" />
     <Compile Include="CompInfusion.fs" />
-    <Compile Include="Complex/NotUtility.fs" />
-    <Compile Include="Complex/EquipmentType.fs" />
-    <Compile Include="Complex/Negate.fs" />
-    <Compile Include="Complex/ProjectileBullet.fs" />
-    <Compile Include="Complex/ShieldBelt.fs" />
-    <Compile Include="Complex/ToolCapacity.fs" />
+    <Compile Include="Matchers/NotUtility.fs" />
+    <Compile Include="Matchers/EquipmentType.fs" />
+    <Compile Include="Matchers/Negate.fs" />
+    <Compile Include="Matchers/ProjectileBullet.fs" />
+    <Compile Include="Matchers/ShieldBelt.fs" />
+    <Compile Include="Matchers/ToolCapacity.fs" />
     <Compile Include="OnHitWorkers/DamageBase.fs" />
     <Compile Include="OnHitWorkers/ApplyDamage.fs" />
     <Compile Include="OnHitWorkers/ApplyHediff.fs" />
@@ -39,7 +39,7 @@
     <Compile Include="OnHitWorkers/Sequence.fs" />
     <Compile Include="OnHitWorkers/SpawnBlood.fs" />
     <Compile Include="OnHitWorkers/SpawnFilth.fs" />
-    <Compile Include="OnHitWorkers/ThrowMoteIcon.fs" />
+    <Compile Include="OnHitWorkers/ThrowFleck.fs" />
     <Compile Include="Infuser.fs" />
     <Compile Include="Extractor.fs" />
     <Compile Include="DefGenerator.fs" />
@@ -70,7 +70,7 @@
   </ItemGroup>
   <Target Name="Copy" AfterTargets="Build">
     <RemoveDir Directories="$(SolutionDir)\dist\Infusion" />
-    <Copy SourceFiles="@(Artifact)" DestinationFiles="$(SolutionDir)\dist\Infusion\1.2\Assemblies\Infusion.dll" />
+    <Copy SourceFiles="@(Artifact)" DestinationFiles="$(SolutionDir)\dist\Infusion\1.3\Assemblies\Infusion.dll" />
     <Copy SourceFiles="@(XmlDocs)" DestinationFolder="$(SolutionDir)\dist\Infusion\%(RecursiveDir)" />
   </Target>
   <Import Project="..\..\.paket\Paket.Restore.targets" />

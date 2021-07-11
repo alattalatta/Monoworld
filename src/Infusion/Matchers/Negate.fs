@@ -1,15 +1,15 @@
-namespace Infusion.Complex
+namespace Infusion.Matchers
 
 open Infusion
 
 
 type Negate =
-    inherit Complex<InfusionDef>
+    inherit Matcher<InfusionDef>
 
-    val mutable value: Complex<InfusionDef>
+    val mutable value: Matcher<InfusionDef>
 
     new() =
-        { inherit Complex<InfusionDef>()
+        { inherit Matcher<InfusionDef>()
           value = null }
 
     member this.Value = Option.ofObj this.value
@@ -23,4 +23,4 @@ type Negate =
     override this.BuildRequirementString() =
         this.Value
         |> Option.bind (fun value -> value.BuildRequirementString())
-        |> Option.map (ResourceBank.Strings.Complex.negate >> string)
+        |> Option.map (ResourceBank.Strings.Matchers.negate >> string)

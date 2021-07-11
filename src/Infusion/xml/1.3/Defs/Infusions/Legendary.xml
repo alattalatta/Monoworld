@@ -14,11 +14,11 @@
 
   <!-- apparels -->
   <Infusion.InfusionDef Abstract="True" Name="LegendaryApparelBase" ParentName="LegendaryDefaultBase">
-    <complexes>
-      <li Class="Infusion.Complex.EquipmentType">
+    <matches>
+      <li Class="Infusion.Matchers.EquipmentType">
         <apparel>true</apparel>
       </li>
-    </complexes>
+    </matches>
     <stats>
       <li>
         <key>MaxHitPoints</key>
@@ -31,12 +31,12 @@
 
   <!-- armors must cover a body part-->
   <Infusion.InfusionDef Abstract="True" Name="LegendaryArmorBase" ParentName="LegendaryDefaultBase">
-    <complexes>
-      <li Class="Infusion.Complex.EquipmentType">
+    <matches>
+      <li Class="Infusion.Matchers.EquipmentType">
         <apparel>true</apparel>
       </li>
-      <li Class="Infusion.Complex.NotUtility" />
-    </complexes>
+      <li Class="Infusion.Matchers.NotUtility" />
+    </matches>
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="LegendaryApparelBase">
@@ -202,12 +202,12 @@
     <label>guardian</label>
     <labelShort>guard</labelShort>
     <position>Suffix</position>
-    <complexes>
-      <li Class="Infusion.Complex.EquipmentType">
+    <matches>
+      <li Class="Infusion.Matchers.EquipmentType">
         <melee>true</melee>
         <ranged>true</ranged>
       </li>
-    </complexes>
+    </matches>
     <stats>
       <li>
         <key>IncomingDamageFactor</key>
@@ -232,11 +232,11 @@
 
   <!-- melee -->
   <Infusion.InfusionDef Abstract="True" Name="LegendaryMeleeBase" ParentName="LegendaryDefaultBase">
-    <complexes>
-      <li Class="Infusion.Complex.EquipmentType">
+    <matches>
+      <li Class="Infusion.Matchers.EquipmentType">
         <melee>true</melee>
       </li>
-    </complexes>
+    </matches>
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="LegendaryMeleeBase">
@@ -396,9 +396,9 @@
     <defName>Vampiric</defName>
     <label>vampiric</label>
     <labelShort>vamp</labelShort>
-    <complexes>
-      <li Class="Infusion.Complex.Negate">
-        <value Class="Infusion.Complex.ToolCapacity">
+    <matches>
+      <li Class="Infusion.Matchers.Negate">
+        <value Class="Infusion.Matchers.ToolCapacity">
           <defs>
             <li>Blunt</li>
             <li>Poke</li>
@@ -406,7 +406,7 @@
         </value>
         <requirementString>sharp</requirementString>
       </li>
-    </complexes>
+    </matches>
     <onHits>
       <li Class="Infusion.OnHitWorkers.IfBioTargetHit">
         <value Class="Infusion.OnHitWorkers.Sequence">
@@ -423,8 +423,8 @@
             <li Class="Infusion.OnHitWorkers.HealCaster">
               <amount>0.075</amount>
             </li>
-            <li Class="Infusion.OnHitWorkers.ThrowMoteIcon">
-              <def>Mote_HealingCross</def>
+            <li Class="Infusion.OnHitWorkers.ThrowFleck">
+              <def>HealingCross</def>
               <selfCast>true</selfCast>
             </li>
           </value>
@@ -441,11 +441,11 @@
 
   <!-- ranged -->
   <Infusion.InfusionDef Abstract="True" Name="LegendaryRangedBase" ParentName="LegendaryDefaultBase">
-    <complexes>
-      <li Class="Infusion.Complex.EquipmentType">
+    <matches>
+      <li Class="Infusion.Matchers.EquipmentType">
         <ranged>true</ranged>
       </li>
-    </complexes>
+    </matches>
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="LegendaryRangedBase">
@@ -490,9 +490,9 @@
     <defName>Disrupting</defName>
     <label>disrupting</label>
     <labelShort>dsrpt</labelShort>
-    <complexes>
-      <li Class="Infusion.Complex.ProjectileBullet" />
-    </complexes>
+    <matches>
+      <li Class="Infusion.Matchers.ProjectileBullet" />
+    </matches>
     <stats>
       <li>
         <key>PsychicSensitivity</key>
@@ -582,9 +582,9 @@
     <defName>Suppressive</defName>
     <label>suppressive</label>
     <labelShort>sprs</labelShort>
-    <complexes>
-      <li Class="Infusion.Complex.ProjectileBullet" />
-    </complexes>
+    <matches>
+      <li Class="Infusion.Matchers.ProjectileBullet" />
+    </matches>
     <stats>
       <li>
         <key>AimingDelayFactor</key>
@@ -621,9 +621,9 @@
     <defName>Volatile</defName>
     <label>volatile</label>
     <labelShort>vola</labelShort>
-    <complexes>
-      <li Class="Infusion.Complex.ProjectileBullet" />
-    </complexes>
+    <matches>
+      <li Class="Infusion.Matchers.ProjectileBullet" />
+    </matches>
     <stats>
       <li>
         <key>RangedWeapon_DamageMultiplier</key>

@@ -6,18 +6,18 @@
 
   <!-- apparels -->
   <Infusion.InfusionDef Abstract="True" Name="CommonApparelBase" ParentName="CommonDefaultBase">
-    <complexes>
-      <li Class="Infusion.Complex.EquipmentType">
+    <matches>
+      <li Class="Infusion.Matchers.EquipmentType">
         <apparel>true</apparel>
       </li>
-    </complexes>
+    </matches>
   </Infusion.InfusionDef>
 
   <!-- armors must cover a body part-->
   <Infusion.InfusionDef Abstract="True" Name="CommonArmorBase" ParentName="CommonApparelBase">
-    <complexes>
-      <li Class="Infusion.Complex.NotUtility" />
-    </complexes>
+    <matches>
+      <li Class="Infusion.Matchers.NotUtility" />
+    </matches>
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="CommonArmorBase">
@@ -94,9 +94,9 @@
     <defName>Efficient</defName>
     <label>efficient</label>
     <labelShort>effc</labelShort>
-    <complexes>
-      <li Class="Infusion.Complex.ShieldBelt" />
-    </complexes>
+    <matches>
+      <li Class="Infusion.Matchers.ShieldBelt" />
+    </matches>
     <stats>
       <li>
         <key>EnergyShieldEnergyMax</key>
@@ -150,11 +150,11 @@
 
   <!-- melee -->
   <Infusion.InfusionDef Abstract="True" Name="CommonMeleeBase" ParentName="CommonDefaultBase">
-    <complexes>
-      <li Class="Infusion.Complex.EquipmentType">
+    <matches>
+      <li Class="Infusion.Matchers.EquipmentType">
         <melee>true</melee>
       </li>
-    </complexes>
+    </matches>
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="CommonMeleeBase">
@@ -205,11 +205,11 @@
 
   <!-- ranged -->
   <Infusion.InfusionDef Abstract="True" Name="CommonRangedBase" ParentName="CommonDefaultBase">
-    <complexes>
-      <li Class="Infusion.Complex.EquipmentType">
+    <matches>
+      <li Class="Infusion.Matchers.EquipmentType">
         <ranged>true</ranged>
       </li>
-    </complexes>
+    </matches>
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="CommonRangedBase">

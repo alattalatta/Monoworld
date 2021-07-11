@@ -1,4 +1,4 @@
-namespace Infusion.Complex
+namespace Infusion.Matchers
 
 open RimWorld
 
@@ -6,7 +6,7 @@ open Infusion
 
 
 type ProjectileBullet() =
-    inherit Complex<InfusionDef>()
+    inherit Matcher<InfusionDef>()
 
     override this.Match thing _ =
         if not thing.def.IsRangedWeapon then

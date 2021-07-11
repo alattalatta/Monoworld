@@ -5,12 +5,12 @@
   <Infusion.Label.Suffixed>{0}의 {1}</Infusion.Label.Suffixed>
   <Infusion.Label.NotInfused>{0} (마법부여 없음)</Infusion.Label.NotInfused>
 
-  <Infusion.Complex.Apparel>의류</Infusion.Complex.Apparel>
-  <Infusion.Complex.Melee>근접</Infusion.Complex.Melee>
-  <Infusion.Complex.Ranged>원거리</Infusion.Complex.Ranged>
-  <Infusion.Complex.NotUtility>방어구</Infusion.Complex.NotUtility>
-  <Infusion.Complex.Negate>[$0] 제외</Infusion.Complex.Negate>
-  <Infusion.Complex.ShieldBelt>보호막 벨트</Infusion.Complex.ShieldBelt>
+  <Infusion.Matchers.Apparel>의류</Infusion.Matchers.Apparel>
+  <Infusion.Matchers.Melee>근접</Infusion.Matchers.Melee>
+  <Infusion.Matchers.Ranged>원거리</Infusion.Matchers.Ranged>
+  <Infusion.Matchers.NotUtility>방어구</Infusion.Matchers.NotUtility>
+  <Infusion.Matchers.Negate>[$0] 제외</Infusion.Matchers.Negate>
+  <Infusion.Matchers.ShieldBelt>보호막 벨트</Infusion.Matchers.ShieldBelt>
 
   <Infusion.Infuser.Label>{0} 연마기</Infusion.Infuser.Label>
   <Infusion.Infuser.Description>장비를 강화할 수 있는 메카나이트를 담은 일회용 연마기입니다.</Infusion.Infuser.Description>

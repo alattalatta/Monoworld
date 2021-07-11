@@ -14,17 +14,17 @@ type Textures() =
 
 
 module Strings =
-    module Complex =
-        let apparel = translate "Infusion.Complex.Apparel"
-        let melee = translate "Infusion.Complex.Melee"
-        let ranged = translate "Infusion.Complex.Ranged"
+    module Matchers =
+        let apparel = translate "Infusion.Matchers.Apparel"
+        let melee = translate "Infusion.Matchers.Melee"
+        let ranged = translate "Infusion.Matchers.Ranged"
 
-        let notUtility = translate "Infusion.Complex.NotUtility"
+        let notUtility = translate "Infusion.Matchers.NotUtility"
 
         let negate str =
-            translate1 "Infusion.Complex.Negate" str
+            translate1 "Infusion.Matchers.Negate" str
 
-        let shieldBelt = translate "Infusion.Complex.ShieldBelt"
+        let shieldBelt = translate "Infusion.Matchers.ShieldBelt"
 
     module Gizmo =
         let label = translate "Infusion.EffectGizmo"

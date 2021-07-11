@@ -29,18 +29,18 @@
 
   <!-- apparels -->
   <Infusion.InfusionDef Abstract="True" Name="UncommonApparelBase" ParentName="UncommonDefaultBase">
-    <complexes>
-      <li Class="Infusion.Complex.EquipmentType">
+    <matches>
+      <li Class="Infusion.Matchers.EquipmentType">
         <apparel>true</apparel>
       </li>
-    </complexes>
+    </matches>
   </Infusion.InfusionDef>
 
   <!-- armors must cover a body part-->
   <Infusion.InfusionDef Abstract="True" Name="UncommonArmorBase" ParentName="UncommonApparelBase">
-    <complexes>
-      <li Class="Infusion.Complex.NotUtility" />
-    </complexes>
+    <matches>
+      <li Class="Infusion.Matchers.NotUtility" />
+    </matches>
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="UncommonApparelBase">
@@ -61,9 +61,9 @@
     <defName>Cyclic</defName>
     <label>cyclic</label>
     <labelShort>cycl</labelShort>
-    <complexes>
-      <li Class="Infusion.Complex.ShieldBelt" />
-    </complexes>
+    <matches>
+      <li Class="Infusion.Matchers.ShieldBelt" />
+    </matches>
     <stats>
       <li>
         <key>EnergyShieldRechargeRate</key>
@@ -78,9 +78,9 @@
     <defName>Expanded</defName>
     <label>expanded</label>
     <labelShort>expn</labelShort>
-    <complexes>
-      <li Class="Infusion.Complex.ShieldBelt" />
-    </complexes>
+    <matches>
+      <li Class="Infusion.Matchers.ShieldBelt" />
+    </matches>
     <stats>
       <li>
         <key>EnergyShieldEnergyMax</key>
@@ -207,12 +207,12 @@
     <defName>Blocking</defName>
     <label>blocking</label>
     <labelShort>blok</labelShort>
-    <complexes>
-      <li Class="Infusion.Complex.EquipmentType">
+    <matches>
+      <li Class="Infusion.Matchers.EquipmentType">
         <melee>true</melee>
         <ranged>true</ranged>
       </li>
-    </complexes>
+    </matches>
     <stats>
       <li>
         <key>IncomingDamageFactor</key>
@@ -227,12 +227,12 @@
     <defName>Poisonous</defName>
     <label>poisonous</label>
     <labelShort>poison</labelShort>
-    <complexes>
-      <li Class="Infusion.Complex.EquipmentType">
+    <matches>
+      <li Class="Infusion.Matchers.EquipmentType">
         <melee>true</melee>
         <ranged>true</ranged>
       </li>
-    </complexes>
+    </matches>
     <onHits>
       <li Class="Infusion.OnHitWorkers.ApplyHediff">
         <def>ToxicBuildup</def>
@@ -247,11 +247,11 @@
 
   <!-- melee -->
   <Infusion.InfusionDef Abstract="True" Name="UncommonMeleeBase" ParentName="UncommonDefaultBase">
-    <complexes>
-      <li Class="Infusion.Complex.EquipmentType">
+    <matches>
+      <li Class="Infusion.Matchers.EquipmentType">
         <melee>true</melee>
       </li>
-    </complexes>
+    </matches>
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="UncommonMeleeBase">
@@ -302,9 +302,9 @@
     <defName>Sharpened</defName>
     <label>sharpened</label>
     <labelShort>sharp</labelShort>
-    <complexes>
-      <li Class="Infusion.Complex.Negate">
-        <value Class="Infusion.Complex.ToolCapacity">
+    <matches>
+      <li Class="Infusion.Matchers.Negate">
+        <value Class="Infusion.Matchers.ToolCapacity">
           <defs>
             <li>Blunt</li>
             <li>Poke</li>
@@ -312,7 +312,7 @@
         </value>
         <requirementString>sharp</requirementString>
       </li>
-    </complexes>
+    </matches>
     <stats>
       <li>
         <key>MeleeWeapon_DamageMultiplier</key>
@@ -327,15 +327,15 @@
     <defName>Spiked</defName>
     <label>spiked</label>
     <labelShort>spk</labelShort>
-    <complexes>
-      <li Class="Infusion.Complex.ToolCapacity">
+    <matches>
+      <li Class="Infusion.Matchers.ToolCapacity">
         <defs>
           <li>Blunt</li>
           <li>Poke</li>
         </defs>
         <requirementString>blunt</requirementString>
       </li>
-    </complexes>
+    </matches>
     <onHits>
       <li Class="Infusion.OnHitWorkers.ApplyDamage">
         <def>Stab</def>
@@ -374,11 +374,11 @@
 
   <!-- ranged -->
   <Infusion.InfusionDef Abstract="True" Name="UncommonRangedBase" ParentName="UncommonDefaultBase">
-    <complexes>
-      <li Class="Infusion.Complex.EquipmentType">
+    <matches>
+      <li Class="Infusion.Matchers.EquipmentType">
         <ranged>true</ranged>
       </li>
-    </complexes>
+    </matches>
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="UncommonRangedBase">

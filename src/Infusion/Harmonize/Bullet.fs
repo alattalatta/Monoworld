@@ -12,8 +12,6 @@ open Infusion.OnHitWorkers
 
 [<HarmonyPatch(typeof<Bullet>, "Impact")>]
 module Impact =
-    let mutable hasReportedError = false
-
     let Prefix (hitThing: Thing, __instance: Bullet, __state: outref<Map>) = do __state <- __instance.Map
 
     let Postfix (hitThing: Thing, __instance: Bullet, __state: Map) =
@@ -25,15 +23,19 @@ module Impact =
 
         let baseDamage = float32 __instance.DamageAmount
 
-        do comp
-           |> Option.filter (fun c -> c.EffectsEnabled)
-           |> Option.iter (fun c ->
-               c.OnHits
-               |> List.filter (fun onHit -> Rand.Chance onHit.chance)
-               |> List.iter (fun onHit ->
-                   do onHit.BulletHit
-                       { baseDamage = baseDamage
-                         map = __state
-                         projectile = __instance
-                         target = Option.ofObj hitThing
-                         sourceDef = __instance.EquipmentDef }))
+        do
+            comp
+            |> Option.filter (fun c -> c.EffectsEnabled)
+            |> Option.iter
+                (fun c ->
+                    c.OnHits
+                    |> List.filter (fun onHit -> Rand.Chance onHit.chance)
+                    |> List.iter
+                        (fun onHit ->
+                            do
+                                onHit.BulletHit
+                                    { baseDamage = baseDamage
+                                      map = __state
+                                      projectile = __instance
+                                      target = Option.ofObj hitThing
+                                      sourceDef = __instance.EquipmentDef }))

@@ -527,7 +527,7 @@ module CompInfusion =
         |> Seq.filter (fun infDef -> Settings.Tiers.isEnabled infDef.tier)
         |> Seq.filter (
             InfusionDef.activeForUse
-            <&> InfusionDef.checkAllComplexes comp.parent quality
+            <&> InfusionDef.matchesAll comp.parent quality
         )
         // -> (infusionDef * weight)
         |> Seq.map

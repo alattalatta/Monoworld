@@ -14,11 +14,11 @@
 
   <!-- apparels -->
   <Infusion.InfusionDef Abstract="True" Name="RareApparelBase" ParentName="RareDefaultBase">
-    <complexes>
-      <li Class="Infusion.Complex.EquipmentType">
+    <matches>
+      <li Class="Infusion.Matchers.EquipmentType">
         <apparel>true</apparel>
       </li>
-    </complexes>
+    </matches>
     <stats>
       <li>
         <key>MaxHitPoints</key>
@@ -30,18 +30,18 @@
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef Abstract="True" Name="RareApparelCleanBase" ParentName="RareDefaultBase">
-    <complexes>
-      <li Class="Infusion.Complex.EquipmentType">
+    <matches>
+      <li Class="Infusion.Matchers.EquipmentType">
         <apparel>true</apparel>
       </li>
-    </complexes>
+    </matches>
   </Infusion.InfusionDef>
 
   <!-- armors must cover a body part-->
   <Infusion.InfusionDef Abstract="True" Name="RareArmorBase" ParentName="RareApparelCleanBase">
-    <complexes>
-      <li Class="Infusion.Complex.NotUtility" />
-    </complexes>
+    <matches>
+      <li Class="Infusion.Matchers.NotUtility" />
+    </matches>
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="RareApparelBase">
@@ -89,9 +89,9 @@
     <defName>Auxiliary</defName>
     <label>auxiliary</label>
     <labelShort>aux</labelShort>
-    <complexes>
-      <li Class="Infusion.Complex.ShieldBelt" />
-    </complexes>
+    <matches>
+      <li Class="Infusion.Matchers.ShieldBelt" />
+    </matches>
     <stats>
       <li>
         <key>MaxHitPoints</key>
@@ -138,9 +138,9 @@
     <defName>Charged</defName>
     <label>charged</label>
     <labelShort>chrg</labelShort>
-    <complexes>
-      <li Class="Infusion.Complex.ShieldBelt" />
-    </complexes>
+    <matches>
+      <li Class="Infusion.Matchers.ShieldBelt" />
+    </matches>
     <stats>
       <li>
         <key>MoveSpeed</key>
@@ -241,9 +241,9 @@
     <defName>Overloaded</defName>
     <label>overloaded</label>
     <labelShort>ovlod</labelShort>
-    <complexes>
-      <li Class="Infusion.Complex.ShieldBelt" />
-    </complexes>
+    <matches>
+      <li Class="Infusion.Matchers.ShieldBelt" />
+    </matches>
     <stats>
       <li>
         <key>EnergyShieldRechargeRate</key>
@@ -333,12 +333,12 @@
     <defName>Shielding</defName>
     <label>shielding</label>
     <labelShort>shield</labelShort>
-    <complexes>
-      <li Class="Infusion.Complex.EquipmentType">
+    <matches>
+      <li Class="Infusion.Matchers.EquipmentType">
         <melee>true</melee>
         <ranged>true</ranged>
       </li>
-    </complexes>
+    </matches>
     <stats>
       <li>
         <key>IncomingDamageFactor</key>
@@ -365,13 +365,13 @@
     <defName>Venomous</defName>
     <label>venomous</label>
     <labelShort>venom</labelShort>
-    <complexes>
-      <li Class="Infusion.Complex.EquipmentType">
+    <matches>
+      <li Class="Infusion.Matchers.EquipmentType">
         <melee>true</melee>
         <ranged>true</ranged>
       </li>
-      <li Class="Infusion.Complex.ProjectileBullet" />
-    </complexes>
+      <li Class="Infusion.Matchers.ProjectileBullet" />
+    </matches>
     <onHits>
       <li Class="Infusion.OnHitWorkers.ApplyHediff">
         <def>ToxicBuildup</def>
@@ -386,11 +386,11 @@
 
   <!-- melee -->
   <Infusion.InfusionDef Abstract="True" Name="RareMeleeBase" ParentName="RareDefaultBase">
-    <complexes>
-      <li Class="Infusion.Complex.EquipmentType">
+    <matches>
+      <li Class="Infusion.Matchers.EquipmentType">
         <melee>true</melee>
       </li>
-    </complexes>
+    </matches>
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="RareMeleeBase">
@@ -521,9 +521,9 @@
     <label>transfusion</label>
     <labelShort>trans</labelShort>
     <position>Suffix</position>
-    <complexes>
-      <li Class="Infusion.Complex.Negate">
-        <value Class="Infusion.Complex.ToolCapacity">
+    <matches>
+      <li Class="Infusion.Matchers.Negate">
+        <value Class="Infusion.Matchers.ToolCapacity">
           <defs>
             <li>Blunt</li>
             <li>Poke</li>
@@ -531,7 +531,7 @@
         </value>
         <requirementString>sharp</requirementString>
       </li>
-    </complexes>
+    </matches>
     <onHits>
       <li Class="Infusion.OnHitWorkers.IfBioTargetHit">
         <value Class="Infusion.OnHitWorkers.Sequence">
@@ -545,8 +545,8 @@
               <amount>0.1</amount>
               <selfCast>true</selfCast>
             </li>
-            <li Class="Infusion.OnHitWorkers.ThrowMoteIcon">
-              <def>Mote_HealingCross</def>
+            <li Class="Infusion.OnHitWorkers.ThrowFleck">
+              <def>HealingCross</def>
               <selfCast>true</selfCast>
             </li>
           </value>
@@ -560,11 +560,11 @@
 
   <!-- ranged -->
   <Infusion.InfusionDef Abstract="True" Name="RareRangedBase" ParentName="RareDefaultBase">
-    <complexes>
-      <li Class="Infusion.Complex.EquipmentType">
+    <matches>
+      <li Class="Infusion.Matchers.EquipmentType">
         <ranged>true</ranged>
       </li>
-    </complexes>
+    </matches>
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="RareRangedBase">
@@ -590,9 +590,9 @@
     <defName>Concussive</defName>
     <label>concussive</label>
     <labelShort>conc</labelShort>
-    <complexes>
-      <li Class="Infusion.Complex.ProjectileBullet" />
-    </complexes>
+    <matches>
+      <li Class="Infusion.Matchers.ProjectileBullet" />
+    </matches>
     <stats>
       <li>
         <key>RangedWeapon_DamageMultiplier</key>
@@ -623,9 +623,9 @@
     <defName>Explosive</defName>
     <label>explosive</label>
     <labelShort>expl</labelShort>
-    <complexes>
-      <li Class="Infusion.Complex.ProjectileBullet" />
-    </complexes>
+    <matches>
+      <li Class="Infusion.Matchers.ProjectileBullet" />
+    </matches>
     <onHits>
       <li Class="Infusion.OnHitWorkers.CreateExplosion">
         <def>Bomb</def>
@@ -681,9 +681,9 @@
     <defName>PiercingRanged</defName>
     <label>piercing</label>
     <labelShort>pierce</labelShort>
-    <complexes>
-      <li Class="Infusion.Complex.ProjectileBullet" />
-    </complexes>
+    <matches>
+      <li Class="Infusion.Matchers.ProjectileBullet" />
+    </matches>
     <stats>
       <li>
         <key>RangedWeapon_DamageMultiplier</key>
@@ -709,9 +709,9 @@
     <defName>Thermal</defName>
     <label>thermal</label>
     <labelShort>therm</labelShort>
-    <complexes>
-      <li Class="Infusion.Complex.ProjectileBullet" />
-    </complexes>
+    <matches>
+      <li Class="Infusion.Matchers.ProjectileBullet" />
+    </matches>
     <onHits>
       <li Class="Infusion.OnHitWorkers.CreateExplosion">
         <def>Flame</def>

@@ -11,7 +11,7 @@ open UnityEngine
 
 open DefFields
 open StatMod
-open Infusion.Complex
+open Infusion.Matchers
 open Infusion.OnHitWorkers
 
 
@@ -25,8 +25,8 @@ type InfusionDef =
     /// Descriptions for special effects.
     val mutable extraDescriptions: ResizeArray<string>
 
-    /// The Complex filters.
-    val mutable complexes: ResizeArray<Complex<InfusionDef>>
+    /// Matcher filters.
+    val mutable matches: ResizeArray<Matchers<InfusionDef>>
 
     /// On-hit effect workers.
     val mutable onHits: ResizeArray<OnHitWorker>
@@ -50,7 +50,7 @@ type InfusionDef =
           labelShort = ""
           extraDescriptions = ResizeArray()
 
-          complexes = ResizeArray()
+          matches = ResizeArray()
           onHits = null
 
           disabled = false
@@ -59,7 +59,11 @@ type InfusionDef =
           stats = Dictionary()
           tier = TierDef.empty }
 
-    member this.LabelShort = if this.labelShort.NullOrEmpty() then this.label else this.labelShort
+    member this.LabelShort =
+        if this.labelShort.NullOrEmpty() then
+            this.label
+        else
+            this.labelShort
 
     member this.OnHits = Option.ofObj this.onHits
 
@@ -69,7 +73,8 @@ type InfusionDef =
 
     member this.WeightFor(quality: QualityCategory) = valueFor quality this.tier.weights
 
-    override this.ToString() = sprintf "%s (%s)" (base.ToString()) this.label
+    override this.ToString() =
+        sprintf "%s (%s)" (base.ToString()) this.label
 
     override this.Equals(ob) = base.Equals(ob)
 
@@ -82,7 +87,10 @@ type InfusionDef =
                 let byTierPriority =
                     this.tier.priority.CompareTo infDef.tier.priority
 
-                if byTierPriority <> 0 then byTierPriority else this.defName.CompareTo infDef.defName
+                if byTierPriority <> 0 then
+                    byTierPriority
+                else
+                    this.defName.CompareTo infDef.defName
             | _ -> 0
 
 
@@ -95,13 +103,13 @@ module InfusionDef =
         |> Option.map (fun m -> m.remove)
         |> Option.defaultValue false
 
-    let checkAllComplexes target quality (infDef: InfusionDef) =
+    let matchesAll target quality (infDef: InfusionDef) =
         (infDef.ChanceFor quality) > 0.0f
-        && infDef.complexes.TrueForAll(fun complex -> complex.Match target infDef)
+        && infDef.matches.TrueForAll(fun matcher -> matcher.Match target infDef)
 
     let makeRequirementString (infDef: InfusionDef) =
-        infDef.complexes
-        |> Seq.map (fun complex -> complex.RequirementString)
+        infDef.matches
+        |> Seq.map (fun matcher -> matcher.RequirementString)
         |> Seq.choose id
         |> String.concat ", "
 
@@ -109,19 +117,25 @@ module InfusionDef =
         let labelSB = string infDef.LabelCap |> StringBuilder
         let reqString = makeRequirementString infDef
 
-        do labelSB.Append(" (").Append(infDef.tier.label)
-           |> ignore
+        do
+            labelSB.Append(" (").Append(infDef.tier.label)
+            |> ignore
 
-        if String.length reqString > 0
-        then do labelSB.Append(" ― ").Append(reqString) |> ignore
+        if String.length reqString > 0 then
+            do labelSB.Append(" ― ").Append(reqString) |> ignore
 
         let label = labelSB.Append(")") |> string
 
         let statsDescriptions =
             dictseq infDef.stats
-            |> Seq.fold (fun (acc: StringBuilder) cur ->
-                acc.Append("\n  ").Append(cur.Key.LabelCap).Append(" ... ").Append((stringForStat cur.Key cur.Value)))
-                   (StringBuilder())
+            |> Seq.fold
+                (fun (acc: StringBuilder) cur ->
+                    acc
+                        .Append("\n  ")
+                        .Append(cur.Key.LabelCap)
+                        .Append(" ... ")
+                        .Append((stringForStat cur.Key cur.Value)))
+                (StringBuilder())
 
         let extraDescriptions =
             if (infDef.extraDescriptions.NullOrEmpty()) then
@@ -131,6 +145,7 @@ module InfusionDef =
                 |> Seq.fold (fun (acc: StringBuilder) cur -> acc.Append("\n  ").Append(cur)) (StringBuilder())
                 |> string
 
-        StringBuilder(label.Colorize(infDef.tier.color)).Append(statsDescriptions)
+        StringBuilder(label.Colorize(infDef.tier.color))
+            .Append(statsDescriptions)
             .Append(extraDescriptions.Colorize(Color(0.11f, 1.0f, 0.0f)))
         |> string
