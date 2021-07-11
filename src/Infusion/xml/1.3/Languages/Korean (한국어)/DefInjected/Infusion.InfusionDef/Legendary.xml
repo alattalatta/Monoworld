@@ -61,7 +61,6 @@
 
   <Vampiric.label>흡혈</Vampiric.label>
   <Vampiric.labelShort>흡혈</Vampiric.labelShort>
-  <Vampiric.complexes.1.requirementString>날카로움</Vampiric.complexes.1.requirementString>
   <Vampiric.extraDescriptions.0>살아있는 대상의 혈액을 피해량의 20%만큼 빼냅니다.</Vampiric.extraDescriptions.0>
   <Vampiric.extraDescriptions.1>· 빼낸 혈액은 착용자에게 주입합니다.</Vampiric.extraDescriptions.1>
   <Vampiric.extraDescriptions.2>· 착용자의 무작위 부상을 피해량의 7.5%만큼 치유합니다.</Vampiric.extraDescriptions.2>

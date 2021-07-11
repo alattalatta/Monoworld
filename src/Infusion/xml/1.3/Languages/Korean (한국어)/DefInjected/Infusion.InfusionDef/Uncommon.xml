@@ -63,11 +63,9 @@
 
   <Sharpened.label>날선</Sharpened.label>
   <Sharpened.labelShort>날섬</Sharpened.labelShort>
-  <Sharpened.complexes.1.requirementString>날카로움</Sharpened.complexes.1.requirementString>
 
   <Spiked.label>가시박힌</Spiked.label>
   <Spiked.labelShort>가시</Spiked.labelShort>
-  <Spiked.complexes.1.requirementString>둔탁함</Spiked.complexes.1.requirementString>
   <Spiked.extraDescriptions.0>50% 확률로 대상에게 피해량의 15%만큼 찌르기 피해를 입힙니다.</Spiked.extraDescriptions.0>
 
   <Taunting.label>위협적인</Taunting.label>

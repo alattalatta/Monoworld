@@ -8,18 +8,18 @@ open Infusion
 type WeaponClasses =
     inherit Matcher<InfusionDef>
 
-    val mutable classes: ResizeArray<WeaponClassDef>
+    val mutable defs: ResizeArray<WeaponClassDef>
 
     new() =
         { inherit Matcher<InfusionDef>()
-          classes = ResizeArray() }
+          defs = ResizeArray() }
 
     override this.Match thing _ =
-        this.classes
+        this.defs
         |> Seq.exists (thing.def.weaponClasses.Contains)
 
     override this.BuildRequirementString() =
-        this.classes
+        this.defs
         |> seq
         |> Seq.map (fun it -> it.label)
         |> String.concat ", "

@@ -40,13 +40,13 @@
               <defName>Chaotic</defName>
               <label>chaotic</label>
               <labelShort>chaos</labelShort>
-              <complexes>
-                <li Class="Infusion.Complex.EquipmentType">
+              <matches>
+                <li Class="Infusion.Matchers.EquipmentType">
                   <melee>true</melee>
                   <ranged>true</ranged>
                 </li>
-                <li Class="Infusion.Complex.ProjectileBullet" />
-              </complexes>
+                <li Class="Infusion.Matchers.ProjectileBullet" />
+              </matches>
               <onHits>
                 <li Class="Infusion.OnHitWorkers.ApplyHediff">
                   <def>PsychicBurden</def>
@@ -79,9 +79,9 @@
               <defName>Stimulating</defName>
               <label>stimulating</label>
               <labelShort>stim</labelShort>
-              <complexes>
-                <li Class="Infusion.Complex.ProjectileBullet" />
-              </complexes>
+              <matches>
+                <li Class="Infusion.Matchers.ProjectileBullet" />
+              </matches>
               <stats>
                 <li>
                   <key>RangedWeapon_Cooldown</key>
