@@ -17,13 +17,13 @@
   <FastResearch>高速研究</FastResearch>
   <FastLearning>高速学習</FastLearning>
   <FastEcology>高速生態系</FastEcology>
-  <FastEcologyRegrowRateOnly>高速生態系,再成長率だけ</FastEcologyRegrowRateOnly>
+  <FastEcologyRegrowRateOnly>高速生態系(再成長率のみ)</FastEcologyRegrowRateOnly>
   <FastCrafting>高速生産</FastCrafting>
   <FastCaravans>高速キャラバン</FastCaravans>
-  <ActivateAllBuildingDemands>Activate all building demands</ActivateAllBuildingDemands>
-  <ActivateAllIdeoRoles>Activate all ideo roles</ActivateAllIdeoRoles>
-  <ShowLocomotionUrgency>Show LocomotionUrgency</ShowLocomotionUrgency>
-  <PlayRitualAmbience>Play ritual ambience sound</PlayRitualAmbience>
+  <ActivateAllBuildingDemands>有効 全建物請求</ActivateAllBuildingDemands>
+  <ActivateAllIdeoRoles>有効 全Ideo役割</ActivateAllIdeoRoles>
+  <ShowLocomotionUrgency>移動緊急性表示</ShowLocomotionUrgency>
+  <PlayRitualAmbience>儀式風音楽再生</PlayRitualAmbience>
   <DrawFog>描画 戦場の霧</DrawFog>
   <DrawSnow>描画 雪</DrawSnow>
   <DrawTerrain>描画 地形</DrawTerrain>
@@ -36,7 +36,7 @@
   <DrawPaths>描画 経路</DrawPaths>
   <DrawCastPositionSearch>描画 Cast位置検索</DrawCastPositionSearch>
   <DrawDestSearch>描画 目的地検索</DrawDestSearch>
-  <DrawStyleSearch>Draw style search</DrawStyleSearch>
+  <DrawStyleSearch>描画 スタイル検索</DrawStyleSearch>
   <DrawSectionEdges>描画 区分境界</DrawSectionEdges>
   <DrawRiverDebug>描画 川デバッグ</DrawRiverDebug>
   <DrawPawnDebug>描画 ポーンデバッグ</DrawPawnDebug>
@@ -45,8 +45,8 @@
   <DrawRegionLinks>描画 地域 リンク</DrawRegionLinks>
   <DrawRegionDirties>描画 地域 汚れ</DrawRegionDirties>
   <DrawRegionTraversal>描画 地域 横断</DrawRegionTraversal>
-  <DrawRegionThings>描画 地域 Things</DrawRegionThings>
-  <DrawDistricts>Draw Districts</DrawDistricts>
+  <DrawRegionThings>描画 領域 Things</DrawRegionThings>
+  <DrawDistricts>描画 地区</DrawDistricts>
   <DrawRooms>描画 部屋</DrawRooms>
   <DrawPower>描画 電気</DrawPower>
   <DrawPowerNetGrid>描画 電力網</DrawPowerNetGrid>
@@ -57,8 +57,8 @@
   <DrawPreyInfo>描画 獲物情報</DrawPreyInfo>
   <DrawGlow>描画 照明</DrawGlow>
   <DrawAvoidGrid>描画 グリッド回避</DrawAvoidGrid>
-  <DrawBreachingGrid>Draw breaching grid</DrawBreachingGrid>
-  <DrawBreachingNoise>Draw breaching noise</DrawBreachingNoise>
+  <DrawBreachingGrid>描画 突破グリッド</DrawBreachingGrid>
+  <DrawBreachingNoise>描画 突破ノイズ</DrawBreachingNoise>
   <DrawLords>描画 積載</DrawLords>
   <DrawDuties>描画 仕事</DrawDuties>
   <DrawShooting>描画 射撃</DrawShooting>
@@ -70,41 +70,41 @@
   <DrawDoorsDebug>描画 ドア デバッグ</DrawDoorsDebug>
   <DrawDestReservations>描画 予約済目的地</DrawDestReservations>
   <DrawDamageRects>描画 ダメージ範囲</DrawDamageRects>
-  <WriteGame>書出 ゲーム</WriteGame>
-  <WriteSteamItems>書出 Steamアイテム</WriteSteamItems>
-  <WriteConcepts>書出 コンセプト</WriteConcepts>
-  <WriteReservations>書出 予約</WriteReservations>
-  <WritePathCosts>書出 通過コスト</WritePathCosts>
-  <WriteFertility>書出 肥沃度</WriteFertility>
-  <WriteLinkFlags>書出 フラグリンク</WriteLinkFlags>
-  <WriteCover>書出 遮蔽(カバー)</WriteCover>
-  <WriteCellContents>書出 セルの内容</WriteCellContents>
-  <WriteMusicManagerPlay>書出 MusicManagerの再生曲</WriteMusicManagerPlay>
-  <WriteStoryteller>書出 storyteller</WriteStoryteller>
-  <WritePlayingSounds>書出 再生中の音</WritePlayingSounds>
-  <WriteSoundEventsRecord>書出 イベント記録音</WriteSoundEventsRecord>
-  <WriteMoteSaturation>書出 moteの飽和</WriteMoteSaturation>
-  <WriteSnowDepth>書出 雪の深さ</WriteSnowDepth>
-  <WriteEcosystem>書出 生態系</WriteEcosystem>
-  <WriteRecentStrikes>書出 最近のストライキ</WriteRecentStrikes>
-  <WriteBeauty>書出 美しさ</WriteBeauty>
-  <WriteListRepairableBldgs>書出 修理可能な建物</WriteListRepairableBldgs>
-  <WriteListFilthInHomeArea>書出 コロニーエリア汚れ一覧</WriteListFilthInHomeArea>
-  <WriteListHaulables>書出 運搬可能リスト</WriteListHaulables>
-  <WriteListMergeables>書出 まとめ可能リスト</WriteListMergeables>
-  <WriteTotalSnowDepth>書出 全体的な雪の深さ</WriteTotalSnowDepth>
-  <WriteCanReachColony>書出 コロニー到達確率</WriteCanReachColony>
-  <WriteMentalStateCalcs>書出 精神状態計算</WriteMentalStateCalcs>
-  <WriteWind>書出 風</WriteWind>
-  <WriteTerrain>書出 地形</WriteTerrain>
-  <WriteApparelScore>書出 衣服スコア</WriteApparelScore>
-  <WriteWorkSettings>書出 労働設定</WriteWorkSettings>
-  <WriteSkyManager>書出 天候管理 SkyManager</WriteSkyManager>
-  <WriteMemoryUsage>書出 メモリ使用率</WriteMemoryUsage>
-  <WriteMapGameConditions>書出 マップのゲーム条件</WriteMapGameConditions>
-  <WriteAttackTargets>書出 攻撃目標</WriteAttackTargets>
-  <WriteRopesAndPens>Inspect ropes and pens</WriteRopesAndPens>
-  <WriteRoomRoles>Inspect Room roles</WriteRoomRoles>
+  <WriteGame>検査 ゲーム</WriteGame>
+  <WriteSteamItems>検査 Steamアイテム</WriteSteamItems>
+  <WriteConcepts>検査 コンセプト</WriteConcepts>
+  <WriteReservations>検査 予約</WriteReservations>
+  <WritePathCosts>検査 通過コスト</WritePathCosts>
+  <WriteFertility>検査 肥沃度</WriteFertility>
+  <WriteLinkFlags>検査 フラグリンク</WriteLinkFlags>
+  <WriteCover>検査 遮蔽(カバー)</WriteCover>
+  <WriteCellContents>検査 セルの内容</WriteCellContents>
+  <WriteMusicManagerPlay>検査 MusicManagerの再生曲</WriteMusicManagerPlay>
+  <WriteStoryteller>検査 storyteller</WriteStoryteller>
+  <WritePlayingSounds>検査 再生中の音</WritePlayingSounds>
+  <WriteSoundEventsRecord>検査 イベント記録音</WriteSoundEventsRecord>
+  <WriteMoteSaturation>検査 moteの飽和</WriteMoteSaturation>
+  <WriteSnowDepth>検査 雪の深さ</WriteSnowDepth>
+  <WriteEcosystem>検査 生態系</WriteEcosystem>
+  <WriteRecentStrikes>検査 最近のストライキ</WriteRecentStrikes>
+  <WriteBeauty>検査 美しさ</WriteBeauty>
+  <WriteListRepairableBldgs>検査 修理可能な建物</WriteListRepairableBldgs>
+  <WriteListFilthInHomeArea>検査 コロニーエリア汚れ一覧</WriteListFilthInHomeArea>
+  <WriteListHaulables>検査 運搬可能リスト</WriteListHaulables>
+  <WriteListMergeables>検査 まとめ可能リスト</WriteListMergeables>
+  <WriteTotalSnowDepth>検査 全体的な雪の深さ</WriteTotalSnowDepth>
+  <WriteCanReachColony>検査 コロニー到達確率</WriteCanReachColony>
+  <WriteMentalStateCalcs>検査 精神状態計算</WriteMentalStateCalcs>
+  <WriteWind>検査 風</WriteWind>
+  <WriteTerrain>検査 地形</WriteTerrain>
+  <WriteApparelScore>検査 衣服スコア</WriteApparelScore>
+  <WriteWorkSettings>検査 労働設定</WriteWorkSettings>
+  <WriteSkyManager>検査 天候管理 SkyManager</WriteSkyManager>
+  <WriteMemoryUsage>検査 メモリ使用率</WriteMemoryUsage>
+  <WriteMapGameConditions>検査 マップのゲーム条件</WriteMapGameConditions>
+  <WriteAttackTargets>検査 攻撃目標</WriteAttackTargets>
+  <WriteRopesAndPens>検査 引綱と囲い場</WriteRopesAndPens>
+  <WriteRoomRoles>検査 部屋役割</WriteRoomRoles>
   <LogIncapChance>ログ 無能率</LogIncapChance>
   <LogInput>ログ インプット</LogInput>
   <LogApparelGeneration>ログ 衣服の時代</LogApparelGeneration>
@@ -119,10 +119,10 @@
   <LogTaleRecording>ログ 物語の記録</LogTaleRecording>
   <LogHourlyScreenshot>ログ 時間毎の画面撮影</LogHourlyScreenshot>
   <LogFilthSummary>ログ 汚れ一覧</LogFilthSummary>
-  <LogCarriedBetweenJobs>Log carried between jobs</LogCarriedBetweenJobs>
-  <LogComplexGenPoints>Log complex gen points</LogComplexGenPoints>
+  <LogCarriedBetweenJobs>ログ 仕事中の運搬品</LogCarriedBetweenJobs>
+  <LogComplexGenPoints>ログ 複合生成点</LogComplexGenPoints>
   <DebugApparelOptimize>デバッグ アパレル最適化</DebugApparelOptimize>
   <ShowAllRoomStats>表示 全部屋のステータス</ShowAllRoomStats>
   <ShowFloatMenuWorkGivers>表示 WorkGiversメニュー</ShowFloatMenuWorkGivers>
-  <NeverForceNormalSpeed>Never force normal speed</NeverForceNormalSpeed>
+  <NeverForceNormalSpeed>無効 強制低速度</NeverForceNormalSpeed>
 </LanguageData>
