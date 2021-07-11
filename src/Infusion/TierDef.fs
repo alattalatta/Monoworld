@@ -57,3 +57,5 @@ module TierDef =
     let empty = TierDef()
 
     let isEmpty (tier: TierDef) = tier.defName = "UnnamedDef"
+
+    let priority (tier: TierDef) = tier.priority

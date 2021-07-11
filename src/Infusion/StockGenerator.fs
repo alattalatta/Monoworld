@@ -1,5 +1,6 @@
 namespace Infusion
 
+open Poet.Lib
 open RimWorld
 open Verse
 
@@ -17,10 +18,13 @@ type StockGeneratorInfuser =
 
     override this.GenerateThings(_, _) =
         DefDatabase<TierDef>.AllDefs
-        |> Seq.filter (Settings.Tiers.isEnabled)
-        |> Seq.filter (fun tier -> tier.priority <= this.tierPriorityLimit)
-        |> Seq.map (fun tier -> tier.infuser)
-        |> Seq.collect (fun infuser -> StockGeneratorUtility.TryMakeForStock(infuser, this.RandomCountFor(infuser)))
+        |> Seq.filter (
+            (Settings.Tiers.isEnabled
+             <&> (TierDef.priority >> ((>) this.tierPriorityLimit)))
+        )
+        |> Seq.map
+            (fun tier ->
+                StockGeneratorUtility.TryMakeForStockSingle(tier.infuser, this.RandomCountFor(tier.infuser), null))
 
     override this.HandlesThingDef(thingDef) =
         Option.ofObj thingDef.tradeTags
