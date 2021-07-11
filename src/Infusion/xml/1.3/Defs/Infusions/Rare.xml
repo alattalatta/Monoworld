@@ -522,14 +522,10 @@
     <labelShort>trans</labelShort>
     <position>Suffix</position>
     <matches>
-      <li Class="Infusion.Matchers.Negate">
-        <value Class="Infusion.Matchers.ToolCapacity">
-          <defs>
-            <li>Blunt</li>
-            <li>Poke</li>
-          </defs>
-        </value>
-        <requirementString>sharp</requirementString>
+      <li Class="Infusion.Matchers.WeaponClasses">
+        <defs>
+          <li>MeleePiercer</li>
+        </defs>
       </li>
     </matches>
     <onHits>

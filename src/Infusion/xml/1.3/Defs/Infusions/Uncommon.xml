@@ -303,14 +303,10 @@
     <label>sharpened</label>
     <labelShort>sharp</labelShort>
     <matches>
-      <li Class="Infusion.Matchers.Negate">
-        <value Class="Infusion.Matchers.ToolCapacity">
-          <defs>
-            <li>Blunt</li>
-            <li>Poke</li>
-          </defs>
-        </value>
-        <requirementString>sharp</requirementString>
+      <li Class="Infusion.Matchers.WeaponClasses">
+        <defs>
+          <li>MeleePiercer</li>
+        </defs>
       </li>
     </matches>
     <stats>
@@ -328,12 +324,10 @@
     <label>spiked</label>
     <labelShort>spk</labelShort>
     <matches>
-      <li Class="Infusion.Matchers.ToolCapacity">
+      <li Class="Infusion.Matchers.WeaponClasses">
         <defs>
-          <li>Blunt</li>
-          <li>Poke</li>
+          <li>MeleeBlunt</li>
         </defs>
-        <requirementString>blunt</requirementString>
       </li>
     </matches>
     <onHits>

@@ -26,7 +26,7 @@ type InfusionDef =
     val mutable extraDescriptions: ResizeArray<string>
 
     /// Matcher filters.
-    val mutable matches: ResizeArray<Matchers<InfusionDef>>
+    val mutable matches: ResizeArray<Matcher<InfusionDef>>
 
     /// On-hit effect workers.
     val mutable onHits: ResizeArray<OnHitWorker>

@@ -27,7 +27,7 @@
     <Compile Include="Matchers/Negate.fs" />
     <Compile Include="Matchers/ProjectileBullet.fs" />
     <Compile Include="Matchers/ShieldBelt.fs" />
-    <Compile Include="Matchers/ToolCapacity.fs" />
+    <Compile Include="Matchers/WeaponClasses.fs" />
     <Compile Include="OnHitWorkers/DamageBase.fs" />
     <Compile Include="OnHitWorkers/ApplyDamage.fs" />
     <Compile Include="OnHitWorkers/ApplyHediff.fs" />
