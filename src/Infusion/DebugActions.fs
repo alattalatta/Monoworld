@@ -31,48 +31,57 @@ let allQualities =
 let forceSetQuality () =
     pointedThings ()
     |> firstCompAtPointer<CompQuality>
-    |> Option.map (fun comp ->
-        allQualities
-        |> Seq.map (fun qc ->
-            DebugMenuOption
-                (Enum.GetName(typeof<QualityCategory>, qc),
-                 DebugMenuOptionMode.Action,
-                 (fun () -> do comp.SetQuality(qc, ArtGenerationContext.Colony)))))
+    |> Option.map
+        (fun comp ->
+            allQualities
+            |> Seq.map
+                (fun qc ->
+                    DebugMenuOption(
+                        Enum.GetName(typeof<QualityCategory>, qc),
+                        DebugMenuOptionMode.Action,
+                        (fun () -> do comp.SetQuality(qc, ArtGenerationContext.Colony))
+                    )))
     |> Option.map Dialog_DebugOptionListLister
     |> Option.iter Find.WindowStack.Add
 
 
-[<DebugAction("Infusion", "Add an infusion to...", actionType = DebugActionType.Action)>]
+[<DebugAction("Infusion", "Infuse...", actionType = DebugActionType.Action)>]
 let addInfusion () =
     DefDatabase<InfusionDef>.AllDefs
     |> Seq.filter InfusionDef.activeForUse
     |> Seq.sort
-    |> Seq.map (fun infDef -> DebugMenuOption(infDef.defName, DebugMenuOptionMode.Tool, (fun () -> addActionFor infDef)))
+    |> Seq.map
+        (fun infDef -> DebugMenuOption(infDef.defName, DebugMenuOptionMode.Tool, (fun () -> addActionFor infDef)))
     |> Dialog_DebugOptionListLister
     |> Find.WindowStack.Add
 
 
-[<DebugAction("Infusion", "Remove an infusion from...", actionType = DebugActionType.ToolMap)>]
+[<DebugAction("Infusion", "Remove an infusion...", actionType = DebugActionType.ToolMap)>]
 let removeInfusion () =
     pointedThings ()
     |> firstCompAtPointer<CompInfusion>
-    |> Option.map (fun comp ->
-        comp.Infusions
-        |> Seq.map (fun infDef ->
-            DebugMenuOption
-                (infDef.defName, DebugMenuOptionMode.Action, (fun () -> do comp |> CompInfusion.removeInfusion infDef))))
+    |> Option.map
+        (fun comp ->
+            comp.Infusions
+            |> Seq.map
+                (fun infDef ->
+                    DebugMenuOption(
+                        infDef.defName,
+                        DebugMenuOptionMode.Action,
+                        (fun () -> do comp |> CompInfusion.removeInfusion infDef)
+                    )))
     |> Option.map Dialog_DebugOptionListLister
     |> Option.iter Find.WindowStack.Add
 
 
-[<DebugAction("Infusion", "Remove all infusions from...", actionType = DebugActionType.ToolMap)>]
+[<DebugAction("Infusion", "Remove all infusions", actionType = DebugActionType.ToolMap)>]
 let removeAllInfusions () =
     pointedThings ()
     |> firstCompAtPointer
     |> Option.iter CompInfusion.removeAllInfusions
 
 
-[<DebugAction("Infusion", "Reroll infusions of...", actionType = DebugActionType.ToolMap)>]
+[<DebugAction("Infusion", "Reroll infusions", actionType = DebugActionType.ToolMap)>]
 let rerollInfusions () =
     pointedThings ()
     |> firstCompAtPointer
