@@ -16,15 +16,13 @@ type StockGeneratorInfuser =
 
     member this.RandomCountFor(infuser: ThingDef) = this.RandomCountOf(infuser)
 
-    override this.GenerateThings(_, _) =
+    override this.GenerateThings(_, faction) =
         DefDatabase<TierDef>.AllDefs
-        |> Seq.filter (
-            (Settings.Tiers.isEnabled
-             <&> (TierDef.priority >> ((>) this.tierPriorityLimit)))
-        )
-        |> Seq.map
+        |> Seq.filter (Settings.Tiers.isEnabled)
+        |> Seq.filter (fun tier -> tier.priority <= this.tierPriorityLimit)
+        |> Seq.collect
             (fun tier ->
-                StockGeneratorUtility.TryMakeForStockSingle(tier.infuser, this.RandomCountFor(tier.infuser), null))
+                StockGeneratorUtility.TryMakeForStock(tier.infuser, this.RandomCountFor(tier.infuser), faction))
 
     override this.HandlesThingDef(thingDef) =
         Option.ofObj thingDef.tradeTags

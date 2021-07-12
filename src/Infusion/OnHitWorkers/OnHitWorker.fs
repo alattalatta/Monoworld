@@ -32,9 +32,9 @@ type OnHitWorker =
           chance = 1.0f
           selfCast = false }
 
-    abstract MeleeHit: MeleeHitRecord -> unit
+    abstract MeleeHit : MeleeHitRecord -> unit
 
-    abstract BulletHit: RangedHitRecord -> unit
+    abstract BulletHit : RangedHitRecord -> unit
 
     default this.MeleeHit _ = ()
 
@@ -45,16 +45,28 @@ module OnHitWorker =
     let checkChance (worker: OnHitWorker) = Rand.Chance worker.chance
 
     let mapMelee selfCast record =
-        if selfCast then record.source.MapHeld else record.target.MapHeld
+        if selfCast then
+            record.source.MapHeld
+        else
+            record.target.MapHeld
 
     let mapRanged selfCast record =
-        if selfCast then record.projectile.Launcher.MapHeld else record.map
+        if selfCast then
+            record.projectile.Launcher.MapHeld
+        else
+            record.map
 
     let posMelee selfCast record =
-        if selfCast then record.source.PositionHeld else record.target.PositionHeld
+        if selfCast then
+            record.source.PositionHeld
+        else
+            record.target.PositionHeld
 
     let posRanged selfCast record =
-        if selfCast then record.projectile.Launcher.PositionHeld else record.projectile.Position
+        if selfCast then
+            record.projectile.Launcher.PositionHeld
+        else
+            record.projectile.Position
 
     let mapPosMelee selfCast record =
         (mapMelee selfCast record, posMelee selfCast record)
