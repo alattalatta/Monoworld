@@ -342,7 +342,8 @@ type CompInfusion() =
                 label
         | None -> ""
 
-    // overrides below
+    // overrides parent label completely - expect conflicts
+    // [todo] transpiler for GenLabel.ThingLabel
     override this.TransformLabel label =
         match this.BestInfusion with
         | Some bestInf ->
@@ -354,7 +355,12 @@ type CompInfusion() =
                 |> Option.defaultValue false
 
             let baseLabel =
-                GenLabel.ThingLabel(parent.def, parent.Stuff)
+                let style = parent.StyleDef
+
+                if isNull style || style.overrideLabel.NullOrEmpty() then
+                    GenLabel.ThingLabel(parent.def, parent.Stuff)
+                else
+                    style.overrideLabel
 
             let sb =
                 match bestInf.position with
@@ -450,7 +456,7 @@ type CompInfusion() =
         Scribe.valueDefault "slotCount" (this.CalculateSlotCountFor quality) this.SlotCount
         |> Option.iter (fun sc -> do slotCount <- sc)
 
-        Scribe.defCollection "infusion" infusions
+        Scribe.defCollection "infusions" infusions
         |> Option.iter
             (fun infs ->
                 do
@@ -476,10 +482,7 @@ type CompInfusion() =
                         infs
                         |> Set.filter (InfusionDef.gracefullyDies >> not))
 
-    override this.AllowStackWith(other) =
-        Comp.ofThing<CompInfusion> other
-        |> Option.map (fun comp -> infusions = comp.InfusionsRaw)
-        |> Option.defaultValue false
+    override this.AllowStackWith(_) = false
 
     override this.PostSplitOff(other) =
         do
