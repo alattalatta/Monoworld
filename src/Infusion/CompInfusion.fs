@@ -532,19 +532,15 @@ module CompInfusion =
             InfusionDef.activeForUse
             <&> InfusionDef.matchesAll comp.parent quality
         )
+        |> List.ofSeq
         // -> (infusionDef * weight)
-        |> Seq.map
+        |> List.map
             (fun infDef ->
-                (infDef,
-                 (infDef.WeightFor quality)
-                 * Settings.SelectionConsts.weightHandle.Value
-                 + Rand.Value)) // weighted, duh
-        |> Seq.sortByDescending snd
-        |> Seq.truncate comp.SlotCount
-        |> Seq.map fst
-        |> Seq.filter checkChance
-        |> List.ofSeq // need to "finalize" the random sort
-        |> List.sort
+                (infDef, Rand.Gaussian((infDef.WeightFor quality), Settings.SelectionConsts.sigmaHandle.Value))) // weighted, duh
+        |> List.sortByDescending snd
+        |> List.truncate comp.SlotCount
+        |> List.filter (fst >> checkChance)
+        |> List.map fst
 
     let rerollInfusions (comp: CompInfusion) =
         (pickInfusions comp.Quality comp |> setInfusions) comp

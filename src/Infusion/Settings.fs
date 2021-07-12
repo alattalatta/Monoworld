@@ -76,11 +76,11 @@ module ReusableInfusers =
 
 module SelectionConsts =
     let mutable chanceHandle : SettingHandle<float32> = null
-    let mutable weightHandle : SettingHandle<float32> = null
+    let mutable sigmaHandle : SettingHandle<float32> = null
 
     let draw (pack: ModSettingsPack) =
         do chanceHandle <- getValidatingHandle 1.0f "chanceFactor" (Validators.FloatRangeValidator(0.0f, 100.0f)) pack
-        do weightHandle <- getValidatingHandle 1.0f "weightFactor" (Validators.FloatRangeValidator(0.0f, 2.0f)) pack
+        do sigmaHandle <- getValidatingHandle 1.5f "sigma" (Validators.FloatRangeValidator(0.5f, 10.0f)) pack
 
         pack
 

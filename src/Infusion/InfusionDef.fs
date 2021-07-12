@@ -74,7 +74,7 @@ type InfusionDef =
     member this.WeightFor(quality: QualityCategory) = valueFor quality this.tier.weights
 
     override this.ToString() =
-        sprintf "%s (%s)" (base.ToString()) this.label
+        sprintf "%s (%s, %s)" (base.ToString()) this.label this.tier.label
 
     override this.Equals(ob) = base.Equals(ob)
 

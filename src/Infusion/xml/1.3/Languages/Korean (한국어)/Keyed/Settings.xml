@@ -14,15 +14,15 @@
   <Infusion.Settings.ReusableInfusers>다회용 연마기</Infusion.Settings.ReusableInfusers>
   <Infusion.Settings.ReusableInfusers.Description>비어있지 않은 연마기를 사용했을 때 빈 연마기를 생성합니다.</Infusion.Settings.ReusableInfusers.Description>
 
-  <Infusion.Settings.WeightFactor>획득 가중치 계수</Infusion.Settings.WeightFactor>
-  <Infusion.Settings.WeightFactor.Description>마법부여 선택 시 사용하는 가중치에 곱하는 값입니다. 가능한 값은 0.0 ~ 2.0이며 기본값은 1.0입니다.
+  <Infusion.Settings.Sigma>마법부여 분포 시그마</Infusion.Settings.Sigma>
+  <Infusion.Settings.Sigma.Description>적용할 마법부여를 선택하는 과정에 사용하는 정규분포의 시그마 값을 지정합니다. 가능한 값은 0.5 ~ 10.0이며 기본값은 1.5입니다.
 
-2.0으로 설정하면 품질 내에서 가장 높은 가중치를 가진 마법부여를 무조건 먼저 선택합니다. 0.0에서는 뭐든지 가능합니다.
+큰 값일수록 장비의 품질에 관계 없이 더 다양한 마법부여를 선택합니다.
 
-참고: 확률의 영향은 여전히 받습니다.
-  </Infusion.Settings.WeightFactor.Description>
+참고: 마법부여는 확률 테스트도 통과해야 실제로 장비에 적용됩니다. 마법부여 확률 계수를 조정해서, 장비에 실제로 적용될 마법부여의 전체적인 수를 조절하세요.
+  </Infusion.Settings.Sigma.Description>
 
-  <Infusion.Settings.ChanceFactor>획득 확률 계수</Infusion.Settings.ChanceFactor>
+  <Infusion.Settings.ChanceFactor>마법부여 확률 계수</Infusion.Settings.ChanceFactor>
   <Infusion.Settings.ChanceFactor.Description>마법부여의 확률에 곱하는 값입니다. 가능한 값은 0.0 ~ 100.0이며 기본값은 1.0입니다.
 
 기본 마법부여 세트에서는 100을 지정하면 모든 마법부여가 확률을 통과합니다. 0을 설정하면 신규 마법부여를 비활성화합니다.
