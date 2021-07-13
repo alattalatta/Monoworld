@@ -76,10 +76,12 @@ module ReusableInfusers =
 
 module SelectionConsts =
     let mutable chanceHandle : SettingHandle<float32> = null
+    let mutable muHandle : SettingHandle<float32> = null
     let mutable sigmaHandle : SettingHandle<float32> = null
 
     let draw (pack: ModSettingsPack) =
         do chanceHandle <- getValidatingHandle 1.0f "chanceFactor" (Validators.FloatRangeValidator(0.0f, 100.0f)) pack
+        do muHandle <- getValidatingHandle 1.0f "mu" (Validators.FloatRangeValidator(0.5f, 10.0f)) pack
         do sigmaHandle <- getValidatingHandle 1.5f "sigma" (Validators.FloatRangeValidator(0.5f, 10.0f)) pack
 
         pack
@@ -97,14 +99,14 @@ module SlotModifiers =
 
 
 module ListSettingMaker =
-    type handleInfoSet<'b> =
+    type HandleInfoSet<'b> =
         { key: string
           label: string
           desc: string
           defaultValue: 'b
           validator: Settings.SettingHandle.ValueIsValid }
 
-    let make<'a, 'b when 'a: comparison> (infoOf: 'a -> handleInfoSet<'b>) uniq keys =
+    let make<'a, 'b when 'a: comparison> (infoOf: 'a -> HandleInfoSet<'b>) uniq keys =
         let mutable settingsOpened = false
 
         let makeHandle (pack: ModSettingsPack) (a: 'a) =
@@ -166,7 +168,7 @@ module Slots =
           QualityCategory.Masterwork
           QualityCategory.Legendary ]
 
-    let defaults = [| 1; 1; 2; 3; 4 |]
+    let defaults = [| 1; 1; 2; 2; 3 |]
 
     let makeInfoSet (defaultValue: int) (quality: QualityCategory) =
         let qualityName =

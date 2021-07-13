@@ -536,7 +536,11 @@ module CompInfusion =
         // -> (infusionDef * weight)
         |> List.map
             (fun infDef ->
-                (infDef, Rand.Gaussian((infDef.WeightFor quality), Settings.SelectionConsts.sigmaHandle.Value))) // weighted, duh
+                (infDef,
+                 Rand.Gaussian(
+                     Settings.SelectionConsts.muHandle.Value * (infDef.WeightFor quality),
+                     Settings.SelectionConsts.sigmaHandle.Value
+                 ))) // weighted, duh
         |> List.sortByDescending snd
         |> List.truncate comp.SlotCount
         |> List.filter (fst >> checkChance)

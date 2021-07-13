@@ -15,6 +15,14 @@ For example, normal quality biocoded items will get infusions of excellent quali
   <Infusion.Settings.ReusableInfusers>Reusable infusers</Infusion.Settings.ReusableInfusers>
   <Infusion.Settings.ReusableInfusers.Description>Infusing an equipment with a infuser creates a new empty infuser.</Infusion.Settings.ReusableInfusers.Description>
 
+  <Infusion.Settings.Mu>Infusion distribution mu</Infusion.Settings.Mu>
+  <Infusion.Settings.Mu.Description>Specifies multiplier mu value of normal distribution when selecting infusions from pool. Possible values are 0.5 ~ 10.0. Default is 1.0.
+
+Larger value results in more strictly limited infusions for the equipment's quality.
+
+Note: Infusions must also pass probability test before infusing. Change probability factor to adjust overall number of infusions an equipment may get.
+  </Infusion.Settings.Mu.Description>
+
   <Infusion.Settings.Sigma>Infusion distribution sigma</Infusion.Settings.Sigma>
   <Infusion.Settings.Sigma.Description>Specifies sigma value of normal distribution when selecting infusions from pool. Possible values are 0.5 ~ 10.0. Default is 1.5.
 

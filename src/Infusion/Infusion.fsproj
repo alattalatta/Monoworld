@@ -46,7 +46,6 @@
     <Compile Include="StockGenerator.fs" />
     <Compile Include="ThingSetMaker.fs" />
     <Compile Include="ITab.fs" />
-    <Compile Include="DebugActions.fs" />
     <Compile Include="StatPart.fs" />
     <Compile Include="JobDriver.fs" />
     <Compile Include="WorkGiver.fs" />
@@ -58,6 +57,8 @@
     <Compile Include="Harmonize/Pawn.fs" />
     <Compile Include="Harmonize/VerbMeleeAttackDamage.fs" />
     <Compile Include="Harmonize/VerbProperties.fs" />
+    <Compile Include="DefsForReading.fs" />
+    <Compile Include="DebugActions.fs" />
     <Compile Include="Mod.fs" />
   </ItemGroup>
   <ItemGroup>
