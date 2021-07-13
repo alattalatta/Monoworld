@@ -29,10 +29,3 @@ module Reflectors =
 module StatWorker =
     let getStat statWorker =
         Reflectors.fieldGetter<StatWorker, StatDef> typeof<StatWorker> typeof<StatDef> "stat" statWorker
-
-
-// Why would you be private to me
-module Projectile =
-    let getIntendedTarget projectile =
-        Reflectors.fieldGetter<Projectile, LocalTargetInfo> typeof<Projectile> typeof<LocalTargetInfo> "intendedTarget"
-            projectile
