@@ -423,8 +423,8 @@
             <li Class="Infusion.OnHitWorkers.HealCaster">
               <amount>0.075</amount>
             </li>
-            <li Class="Infusion.OnHitWorkers.ThrowFleck">
-              <def>HealingCross</def>
+            <li Class="Infusion.OnHitWorkers.ThrowMoteIcon">
+              <def>Mote_HealingCross</def>
               <selfCast>true</selfCast>
             </li>
           </value>

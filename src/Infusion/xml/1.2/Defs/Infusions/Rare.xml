@@ -545,8 +545,8 @@
               <amount>0.1</amount>
               <selfCast>true</selfCast>
             </li>
-            <li Class="Infusion.OnHitWorkers.ThrowFleck">
-              <def>HealingCross</def>
+            <li Class="Infusion.OnHitWorkers.ThrowMoteIcon">
+              <def>Mote_HealingCross</def>
               <selfCast>true</selfCast>
             </li>
           </value>
