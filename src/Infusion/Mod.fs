@@ -7,7 +7,6 @@ open RimWorld
 open Verse
 
 open DefGenerator
-open VerseTools
 
 
 [<StaticConstructorOnStartup>]

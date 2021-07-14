@@ -33,6 +33,7 @@ let makeInfuserDef (tier: TierDef) =
             alwaysHaulable = true,
             rotatable = false,
             pathCost = 15,
+            tradeability = Tradeability.Buyable,
             tradeTags = new System.Collections.Generic.List<string>([ "Infusion_Infuser" ])
         )
 
