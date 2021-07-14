@@ -170,7 +170,7 @@ module Slots =
 
     let defaults = [| 1; 1; 2; 2; 3 |]
 
-    let makeInfoSet (defaultValue: int) (quality: QualityCategory) =
+    let makeInfoSet (quality: QualityCategory) =
         let qualityName =
             Enum.GetName(typeof<QualityCategory>, quality)
 
@@ -178,15 +178,18 @@ module Slots =
             translate (sprintf "QualityCategory_%s" qualityName)
             |> GenText.CapitalizeFirst
 
+        let defaultValue =
+            defaults.[int (quality - QualityCategory.Normal)]
+
         { key = "slots" + qualityName
           label = label
           desc = string (translate1 "Infusion.Settings.Slot.Description" defaultValue)
-          defaultValue = defaults.[int (quality - QualityCategory.Normal)]
+          defaultValue = defaultValue
           validator = Validators.IntRangeValidator(0, 20) }
 
     let draw pack =
         let (populate, draw) =
-            make<QualityCategory, int> (makeInfoSet 3) "Slots" keys
+            make<QualityCategory, int> makeInfoSet "Slots" keys
 
         do handles <- populate pack
         draw pack
