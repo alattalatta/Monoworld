@@ -18,18 +18,17 @@
   <Durable.label>튼튼한</Durable.label>
   <Durable.labelShort>튼튼</Durable.labelShort>
 
-  <Efficient.label>효율적인</Efficient.label>
-  <Efficient.labelShort>효율</Efficient.labelShort>
-
   <Hardened.label>단단한</Hardened.label>
   <Hardened.labelShort>단단</Hardened.labelShort>
-
-  <Warm.label>따뜻한</Warm.label>
-  <Warm.labelShort>따뜻</Warm.labelShort>
 
   <Shadowing.label>그늘지는</Shadowing.label>
   <Shadowing.labelShort>그늘</Shadowing.labelShort>
 
+  <Warm.label>따뜻한</Warm.label>
+  <Warm.labelShort>따뜻</Warm.labelShort>
+
+  <Efficient.label>효율적인</Efficient.label>
+  <Efficient.labelShort>효율</Efficient.labelShort>
 
   <!-- melee -->
 
@@ -42,7 +41,6 @@
   <Keen.label>예리한</Keen.label>
   <Keen.labelShort>예리</Keen.labelShort>
 
-
   <!-- ranged -->
 
   <Accurate.label>정확한</Accurate.label>
@@ -51,8 +49,10 @@
   <FineRanged.label>적합한</FineRanged.label>
   <FineRanged.labelShort>적합</FineRanged.labelShort>
 
-  <HeavierRangede.label>강화</HeavierRangede.label>
-  <HeavierRangede.labelShort>강화</HeavierRangede.labelShort>
+  <HeavierRanged.label>강화</HeavierRanged.label>
+  <HeavierRanged.labelShort>강화</HeavierRanged.labelShort>
 
+  <Silent.label>조용한</Silent.label>
+  <Silent.labelShort>조용</Silent.labelShort>
 
 </LanguageData>

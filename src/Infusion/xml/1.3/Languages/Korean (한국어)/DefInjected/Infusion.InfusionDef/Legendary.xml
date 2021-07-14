@@ -6,30 +6,20 @@
   <Airtight.label>밀폐형</Airtight.label>
   <Airtight.labelShort>밀폐형</Airtight.labelShort>
 
-  <Amplifying.label>증폭하는</Amplifying.label>
-  <Amplifying.labelShort>증폭</Amplifying.labelShort>
-
-  <Restless.label>부지런한</Restless.label>
-  <Restless.labelShort>부지런</Restless.labelShort>
+  <Augmenting.label>증강형</Augmenting.label>
+  <Augmenting.labelShort>증강</Augmenting.labelShort>
 
   <Protective.label>보호하는</Protective.label>
   <Protective.labelShort>보호</Protective.labelShort>
 
+  <Purifying.label>정화하는</Purifying.label>
+  <Purifying.labelShort>정화</Purifying.labelShort>
+
+  <Restless.label>부지런한</Restless.label>
+  <Restless.labelShort>부지런</Restless.labelShort>
+
   <Temptating.label>매혹하는</Temptating.label>
   <Temptating.labelShort>매혹</Temptating.labelShort>
-
-  <Synchronizing.label>동기적</Synchronizing.label>
-  <Synchronizing.labelShort>동기</Synchronizing.labelShort>
-
-  <Endurance.label>인내</Endurance.label>
-  <Endurance.labelShort>인내</Endurance.labelShort>
-
-
-  <!-- weapons -->
-
-  <Guardian.label>수호자</Guardian.label>
-  <Guardian.labelShort>수호자</Guardian.labelShort>
-
 
   <!-- melee -->
 
@@ -39,13 +29,6 @@
   <Blazing.label>화염의</Blazing.label>
   <Blazing.labelShort>화염의</Blazing.labelShort>
   <Blazing.extraDescriptions.0>25% 확률로 작은 화염 폭발이 발생해 피해량의 30%만큼 피해를 입힙니다.</Blazing.extraDescriptions.0>
-
-  <Chaotic.label>혼돈의</Chaotic.label>
-  <Chaotic.labelShort>혼돈</Chaotic.labelShort>
-  <Chaotic.extraDescriptions.0>대상에게 무작위 정신적 효과를 적용합니다.</Chaotic.extraDescriptions.0>
-  <Chaotic.extraDescriptions.1>· 8% 확률로 대상의 눈을 멀게 합니다.</Chaotic.extraDescriptions.1>
-  <Chaotic.extraDescriptions.2>· 4% 확률로 대상을 어지럽게 만듭니다.</Chaotic.extraDescriptions.2>
-  <Chaotic.extraDescriptions.3>· 2% 확률로 대상을 어지럽게 만듭니다.</Chaotic.extraDescriptions.3>
 
   <Critical.label>치명적인</Critical.label>
   <Critical.labelShort>치명</Critical.labelShort>
@@ -65,7 +48,6 @@
   <Vampiric.extraDescriptions.1>· 빼낸 혈액은 착용자에게 주입합니다.</Vampiric.extraDescriptions.1>
   <Vampiric.extraDescriptions.2>· 착용자의 무작위 부상을 피해량의 7.5%만큼 치유합니다.</Vampiric.extraDescriptions.2>
   <Vampiric.extraDescriptions.3>· 이 효과로 흉터는 치유할 수 없습니다.</Vampiric.extraDescriptions.3>
-
 
   <!-- ranged -->
 
@@ -96,5 +78,9 @@
   <Volatile.extraDescriptions.1>10% 확률로 투사체에서 화염 폭발이 발생합니다.</Volatile.extraDescriptions.1>
   <Volatile.extraDescriptions.2>· 두 폭발 모두 반경 1.4칸 내에 피해량의 50%만큼 피해를 입힙니다.</Volatile.extraDescriptions.2>
 
+  <!-- weapons -->
+
+  <Guardian.label>수호자</Guardian.label>
+  <Guardian.labelShort>수호자</Guardian.labelShort>
 
 </LanguageData>

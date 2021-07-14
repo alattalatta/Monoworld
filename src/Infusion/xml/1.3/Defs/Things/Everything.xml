@@ -3,7 +3,7 @@
   <ThingDef>
     <defName>Infusion_InfuserEmpty</defName>
     <label>empty infuser</label>
-    <description>An empty canister that can scarape off and hold equipment enhancing mechanites.</description>
+    <description>An empty canister that can scrape off and hold equipment enhancing mechanites.</description>
     <category>Item</category>
     <thingCategories>
       <li>Infusion_Infusers</li>

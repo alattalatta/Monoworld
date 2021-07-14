@@ -11,6 +11,14 @@
         <apparel>true</apparel>
       </li>
     </matches>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <offset>50</offset>
+        </value>
+      </li>
+    </stats>
   </Infusion.InfusionDef>
 
   <!-- armors must cover a body part-->
@@ -28,7 +36,7 @@
       <li>
         <key>ArmorRating_Blunt</key>
         <value>
-          <offset>0.075</offset>
+          <offset>0.05</offset>
         </value>
       </li>
     </stats>
@@ -42,7 +50,7 @@
       <li>
         <key>EquipDelay</key>
         <value>
-          <multiplier>-0.25</multiplier>
+          <multiplier>-0.3</multiplier>
         </value>
       </li>
     </stats>
@@ -56,7 +64,7 @@
       <li>
         <key>MentalBreakThreshold</key>
         <value>
-          <offset>-0.01</offset>
+          <offset>-0.015</offset>
         </value>
       </li>
     </stats>
@@ -90,23 +98,6 @@
     </stats>
   </Infusion.InfusionDef>
 
-  <Infusion.InfusionDef ParentName="CommonApparelBase">
-    <defName>Efficient</defName>
-    <label>efficient</label>
-    <labelShort>effc</labelShort>
-    <matches>
-      <li Class="Infusion.Matchers.ShieldBelt" />
-    </matches>
-    <stats>
-      <li>
-        <key>EnergyShieldEnergyMax</key>
-        <value>
-          <multiplier>0.03</multiplier>
-        </value>
-      </li>
-    </stats>
-  </Infusion.InfusionDef>
-
   <Infusion.InfusionDef ParentName="CommonArmorBase">
     <defName>Hardened</defName>
     <label>hardened</label>
@@ -115,20 +106,7 @@
       <li>
         <key>ArmorRating_Sharp</key>
         <value>
-          <offset>0.075</offset>
-        </value>
-      </li>
-    </stats>
-  </Infusion.InfusionDef>
-
-  <Infusion.InfusionDef ParentName="CommonApparelBase">
-    <defName>Warm</defName>
-    <label>warm</label>
-    <stats>
-      <li>
-        <key>Insulation_Cold</key>
-        <value>
-          <offset>5</offset>
+          <offset>0.05</offset>
         </value>
       </li>
     </stats>
@@ -148,8 +126,50 @@
     </stats>
   </Infusion.InfusionDef>
 
+  <Infusion.InfusionDef ParentName="CommonApparelBase">
+    <defName>Warm</defName>
+    <label>warm</label>
+    <stats>
+      <li>
+        <key>Insulation_Cold</key>
+        <value>
+          <offset>5</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CommonApparelBase">
+    <defName>Efficient</defName>
+    <label>efficient</label>
+    <labelShort>effc</labelShort>
+    <matches>
+      <li Class="Infusion.Matchers.ShieldBelt" />
+    </matches>
+    <stats>
+      <li>
+        <key>EnergyShieldEnergyMax</key>
+        <value>
+          <multiplier>0.1</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- weapons -->
+  <Infusion.InfusionDef Abstract="True" Name="CommonAnyWeaponsBase" ParentName="CommonDefaultBase">
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>0.03</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
   <!-- melee -->
-  <Infusion.InfusionDef Abstract="True" Name="CommonMeleeBase" ParentName="CommonDefaultBase">
+  <Infusion.InfusionDef Abstract="True" Name="CommonMeleeBase" ParentName="CommonAnyWeaponsBase">
     <matches>
       <li Class="Infusion.Matchers.EquipmentType">
         <melee>true</melee>
@@ -178,7 +198,7 @@
       <li>
         <key>MeleeWeapon_DamageMultiplier</key>
         <value>
-          <offset>0.05</offset>
+          <offset>0.06</offset>
         </value>
       </li>
       <li>
@@ -197,14 +217,14 @@
       <li>
         <key>MeleeDodgeChance</key>
         <value>
-          <offset>0.5</offset>
+          <offset>1</offset>
         </value>
       </li>
     </stats>
   </Infusion.InfusionDef>
 
   <!-- ranged -->
-  <Infusion.InfusionDef Abstract="True" Name="CommonRangedBase" ParentName="CommonDefaultBase">
+  <Infusion.InfusionDef Abstract="True" Name="CommonRangedBase" ParentName="CommonAnyWeaponsBase">
     <matches>
       <li Class="Infusion.Matchers.EquipmentType">
         <ranged>true</ranged>
@@ -220,25 +240,25 @@
       <li>
         <key>AccuracyTouch</key>
         <value>
-          <offset>0.03</offset>
+          <offset>0.05</offset>
         </value>
       </li>
       <li>
         <key>AccuracyShort</key>
         <value>
-          <offset>0.03</offset>
+          <offset>0.05</offset>
         </value>
       </li>
       <li>
         <key>AccuracyMedium</key>
         <value>
-          <offset>0.03</offset>
+          <offset>0.05</offset>
         </value>
       </li>
       <li>
         <key>AccuracyLong</key>
         <value>
-          <offset>0.03</offset>
+          <offset>0.05</offset>
         </value>
       </li>
     </stats>
@@ -251,27 +271,41 @@
       <li>
         <key>RangedWeapon_Cooldown</key>
         <value>
-          <multiplier>-0.05</multiplier>
+          <multiplier>-0.08</multiplier>
         </value>
       </li>
     </stats>
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="CommonRangedBase">
-    <defName>HeavierRangede</defName>
+    <defName>HeavierRanged</defName>
     <label>heavier</label>
     <labelShort>hevy</labelShort>
     <stats>
       <li>
         <key>RangedWeapon_DamageMultiplier</key>
         <value>
-          <offset>0.05</offset>
+          <offset>0.06</offset>
         </value>
       </li>
       <li>
         <key>Mass</key>
         <value>
           <multiplier>0.1</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="CommonRangedBase">
+    <defName>Silent</defName>
+    <label>silent</label>
+    <labelShort>silnt</labelShort>
+    <stats>
+      <li>
+        <key>HuntingStealth</key>
+        <value>
+          <offset>2</offset>
         </value>
       </li>
     </stats>

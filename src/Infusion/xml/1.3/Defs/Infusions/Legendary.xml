@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
   <Infusion.InfusionDef Abstract="True" Name="LegendaryDefaultBase">
-    <stats>
-      <li>
-        <key>MarketValue</key>
-        <value>
-          <multiplier>0.15</multiplier>
-        </value>
-      </li>
-    </stats>
     <tier>Legendary</tier>
   </Infusion.InfusionDef>
 
@@ -20,6 +12,12 @@
       </li>
     </matches>
     <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <offset>1200</offset>
+        </value>
+      </li>
       <li>
         <key>MaxHitPoints</key>
         <value>
@@ -45,47 +43,47 @@
     <labelShort>tight</labelShort>
     <stats>
       <li>
+        <key>ArmorRating_Heat</key>
+        <value>
+          <offset>0.4</offset>
+        </value>
+      </li>
+      <li>
         <key>Insulation_Heat</key>
         <value>
-          <offset>18</offset>
+          <offset>24</offset>
         </value>
       </li>
       <li>
         <key>Insulation_Cold</key>
         <value>
-          <offset>18</offset>
-        </value>
-      </li>
-      <li>
-        <key>ToxicSensitivity</key>
-        <value>
-          <offset>-0.4</offset>
+          <offset>24</offset>
         </value>
       </li>
     </stats>
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="LegendaryApparelBase">
-    <defName>Restless</defName>
-    <label>restless</label>
-    <labelShort>rest</labelShort>
+    <defName>Augmenting</defName>
+    <label>augmenting</label>
+    <labelShort>augm</labelShort>
     <stats>
       <li>
-        <key>MoveSpeed</key>
+        <key>GlobalLearningFactor</key>
         <value>
           <offset>0.2</offset>
         </value>
       </li>
       <li>
-        <key>RestRateMultiplier</key>
+        <key>WorkSpeedGlobal</key>
         <value>
-          <offset>0.3</offset>
+          <offset>0.2</offset>
         </value>
       </li>
       <li>
-        <key>EatingSpeed</key>
+        <key>MoveSpeed</key>
         <value>
-          <offset>0.4</offset>
+          <offset>0.2</offset>
         </value>
       </li>
     </stats>
@@ -111,7 +109,59 @@
       <li>
         <key>MaxHitPoints</key>
         <value>
-          <multiplier>0.4</multiplier>
+          <multiplier>0.5</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryApparelBase">
+    <defName>Purifying</defName>
+    <label>purifying</label>
+    <labelShort>pure</labelShort>
+    <stats>
+      <li>
+        <key>ImmunityGainSpeed</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+      <li>
+        <key>MentalBreakThreshold</key>
+        <value>
+          <offset>-0.05</offset>
+        </value>
+      </li>
+      <li>
+        <key>ToxicSensitivity</key>
+        <value>
+          <offset>-0.6</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryApparelBase">
+    <defName>Restless</defName>
+    <label>restless</label>
+    <labelShort>rest</labelShort>
+    <stats>
+      <li>
+        <key>EatingSpeed</key>
+        <value>
+          <offset>0.5</offset>
+        </value>
+      </li>
+      <li>
+        <key>MoveSpeed</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+      <li>
+        <key>RestRateMultiplier</key>
+        <value>
+          <offset>0.3</offset>
         </value>
       </li>
     </stats>
@@ -129,109 +179,35 @@
         </value>
       </li>
       <li>
+        <key>MentalBreakThreshold</key>
+        <value>
+          <offset>-0.05</offset>
+        </value>
+      </li>
+      <li>
         <key>SocialImpact</key>
         <value>
           <offset>0.3</offset>
-        </value>
-      </li>
-      <li>
-        <key>TradePriceImprovement</key>
-        <value>
-          <offset>0.4</offset>
-        </value>
-      </li>
-    </stats>
-  </Infusion.InfusionDef>
-
-  <Infusion.InfusionDef ParentName="LegendaryApparelBase">
-    <defName>Synchronizing</defName>
-    <label>synchronizing</label>
-    <labelShort>sync</labelShort>
-    <stats>
-      <li>
-        <key>GlobalLearningFactor</key>
-        <value>
-          <offset>0.2</offset>
-        </value>
-      </li>
-      <li>
-        <key>WorkSpeedGlobal</key>
-        <value>
-          <offset>0.2</offset>
-        </value>
-      </li>
-      <li>
-        <key>MoveSpeed</key>
-        <value>
-          <offset>0.2</offset>
-        </value>
-      </li>
-    </stats>
-  </Infusion.InfusionDef>
-
-  <Infusion.InfusionDef ParentName="LegendaryApparelBase">
-    <defName>Endurance</defName>
-    <label>endurance</label>
-    <labelShort>end</labelShort>
-    <position>Suffix</position>
-    <stats>
-      <li>
-        <key>MentalBreakThreshold</key>
-        <value>
-          <offset>-0.1</offset>
-        </value>
-      </li>
-      <li>
-        <key>PainShockThreshold</key>
-        <value>
-          <offset>0.2</offset>
-        </value>
-      </li>
-      <li>
-        <key>ImmunityGainSpeed</key>
-        <value>
-          <offset>0.2</offset>
         </value>
       </li>
     </stats>
   </Infusion.InfusionDef>
 
   <!-- weapons -->
-  <Infusion.InfusionDef ParentName="LegendaryDefaultBase">
-    <defName>Guardian</defName>
-    <label>guardian</label>
-    <labelShort>guard</labelShort>
-    <position>Suffix</position>
-    <matches>
-      <li Class="Infusion.Matchers.EquipmentType">
-        <melee>true</melee>
-        <ranged>true</ranged>
-      </li>
-    </matches>
+  <Infusion.InfusionDef Abstract="True" Name="LegendaryAnyWeaponsBase" ParentName="LegendaryDefaultBase">
     <stats>
       <li>
-        <key>IncomingDamageFactor</key>
+        <key>MarketValue</key>
         <value>
-          <offset>-0.2</offset>
-        </value>
-      </li>
-      <li>
-        <key>ArmorRating_Sharp</key>
-        <value>
-          <offset>0.4</offset>
-        </value>
-      </li>
-      <li>
-        <key>ArmorRating_Blunt</key>
-        <value>
-          <offset>0.4</offset>
+          <multiplier>0.2</multiplier>
+          <offset>300</offset>
         </value>
       </li>
     </stats>
   </Infusion.InfusionDef>
 
   <!-- melee -->
-  <Infusion.InfusionDef Abstract="True" Name="LegendaryMeleeBase" ParentName="LegendaryDefaultBase">
+  <Infusion.InfusionDef Abstract="True" Name="LegendaryMeleeBase" ParentName="LegendaryAnyWeaponsBase">
     <matches>
       <li Class="Infusion.Matchers.EquipmentType">
         <melee>true</melee>
@@ -247,19 +223,19 @@
       <li>
         <key>MeleeWeapon_CooldownMultiplier</key>
         <value>
-          <offset>-0.15</offset>
+          <offset>-0.2</offset>
         </value>
       </li>
       <li>
         <key>MeleeWeapon_DamageMultiplier</key>
         <value>
-          <offset>0.2</offset>
+          <offset>0.1</offset>
         </value>
       </li>
       <li>
         <key>MeleeDodgeChance</key>
         <value>
-          <offset>2</offset>
+          <offset>5</offset>
         </value>
       </li>
     </stats>
@@ -273,19 +249,19 @@
       <li>
         <key>ArmorRating_Heat</key>
         <value>
-          <offset>0.5</offset>
+          <offset>0.3</offset>
         </value>
       </li>
     </stats>
     <onHits>
       <li Class="Infusion.OnHitWorkers.CreateExplosion">
         <def>Flame</def>
-        <amount>0.3</amount>
+        <amount>0.4</amount>
         <chance>0.25</chance>
       </li>
     </onHits>
     <extraDescriptions>
-      <li>25% chance to cause a small flame explosion, dealing 30% of the damage.</li>
+      <li>25% chance to cause a small flame explosion, dealing 40% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -298,18 +274,6 @@
         <key>MeleeWeapon_DamageMultiplier</key>
         <value>
           <offset>0.2</offset>
-        </value>
-      </li>
-      <li>
-        <key>ArmorRating_Heat</key>
-        <value>
-          <offset>0.3</offset>
-        </value>
-      </li>
-      <li>
-        <key>MeleeWeapon_CooldownMultiplier</key>
-        <value>
-          <offset>-0.15</offset>
         </value>
       </li>
     </stats>
@@ -331,33 +295,21 @@
     <labelShort>over</labelShort>
     <stats>
       <li>
-        <key>MeleeWeapon_CooldownMultiplier</key>
-        <value>
-          <offset>0.2</offset>
-        </value>
-      </li>
-      <li>
         <key>MeleeWeapon_DamageMultiplier</key>
         <value>
           <offset>0.2</offset>
-        </value>
-      </li>
-      <li>
-        <key>MeleeDodgeChance</key>
-        <value>
-          <offset>2</offset>
         </value>
       </li>
     </stats>
     <onHits>
       <li Class="Infusion.OnHitWorkers.ApplyDamage">
         <def>Stun</def>
-        <amount>0.6</amount>
-        <chance>0.5</chance>
+        <amount>0.5</amount>
+        <chance>0.3</chance>
       </li>
     </onHits>
     <extraDescriptions>
-      <li>50% chance to stun the target for 60% of the damage.</li>
+      <li>30% chance to stun the target for 50% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -369,13 +321,7 @@
       <li>
         <key>MeleeWeapon_CooldownMultiplier</key>
         <value>
-          <offset>0.5</offset>
-        </value>
-      </li>
-      <li>
-        <key>MeleeWeapon_DamageMultiplier</key>
-        <value>
-          <offset>-0.3</offset>
+          <offset>-0.2</offset>
         </value>
       </li>
     </stats>
@@ -403,6 +349,14 @@
         </defs>
       </li>
     </matches>
+    <stats>
+      <li>
+        <key>MeleeWeapon_DamageMultiplier</key>
+        <value>
+          <offset>0.1</offset>
+        </value>
+      </li>
+    </stats>
     <onHits>
       <li Class="Infusion.OnHitWorkers.IfBioTargetHit">
         <value Class="Infusion.OnHitWorkers.Sequence">
@@ -436,7 +390,7 @@
   </Infusion.InfusionDef>
 
   <!-- ranged -->
-  <Infusion.InfusionDef Abstract="True" Name="LegendaryRangedBase" ParentName="LegendaryDefaultBase">
+  <Infusion.InfusionDef Abstract="True" Name="LegendaryRangedBase" ParentName="LegendaryAnyWeaponsBase">
     <matches>
       <li Class="Infusion.Matchers.EquipmentType">
         <ranged>true</ranged>
@@ -456,27 +410,9 @@
         </value>
       </li>
       <li>
-        <key>AccuracyTouch</key>
+        <key>RangedWeapon_Cooldown</key>
         <value>
-          <offset>-0.2</offset>
-        </value>
-      </li>
-      <li>
-        <key>AccuracyShort</key>
-        <value>
-          <offset>-0.2</offset>
-        </value>
-      </li>
-      <li>
-        <key>AccuracyMedium</key>
-        <value>
-          <offset>-0.2</offset>
-        </value>
-      </li>
-      <li>
-        <key>AccuracyLong</key>
-        <value>
-          <offset>-0.2</offset>
+          <multiplier>0.2</multiplier>
         </value>
       </li>
     </stats>
@@ -490,12 +426,6 @@
       <li Class="Infusion.Matchers.ProjectileBullet" />
     </matches>
     <stats>
-      <li>
-        <key>PsychicSensitivity</key>
-        <value>
-          <offset>-0.4</offset>
-        </value>
-      </li>
       <li>
         <key>AimingDelayFactor</key>
         <value>
@@ -562,13 +492,13 @@
       <li>
         <key>AimingDelayFactor</key>
         <value>
-          <offset>-0.2</offset>
+          <offset>-0.3</offset>
         </value>
       </li>
       <li>
         <key>RangedWeapon_Cooldown</key>
         <value>
-          <multiplier>-0.2</multiplier>
+          <multiplier>-0.3</multiplier>
         </value>
       </li>
     </stats>
@@ -585,26 +515,20 @@
       <li>
         <key>AimingDelayFactor</key>
         <value>
-          <offset>-0.075</offset>
-        </value>
-      </li>
-      <li>
-        <key>RangedWeapon_Cooldown</key>
-        <value>
-          <multiplier>-0.1</multiplier>
+          <offset>-0.2</offset>
         </value>
       </li>
       <li>
         <key>RangedWeapon_DamageMultiplier</key>
         <value>
-          <offset>-0.2</offset>
+          <offset>-0.3</offset>
         </value>
       </li>
     </stats>
     <onHits>
       <li Class="Infusion.OnHitWorkers.ApplyDamage">
         <def>Stun</def>
-        <amount>0.8</amount>
+        <amount>1</amount>
         <chance>0.1</chance>
       </li>
     </onHits>
@@ -624,7 +548,7 @@
       <li>
         <key>RangedWeapon_DamageMultiplier</key>
         <value>
-          <offset>0.2</offset>
+          <offset>0.15</offset>
         </value>
       </li>
     </stats>
@@ -647,5 +571,42 @@
       <li>Another 10% chance for the projectile to explode in flame.</li>
       <li>· Each explosion deals 50% of the damage within a radius of 1.4 cells.</li>
     </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <!-- weapons -->
+  <Infusion.InfusionDef Abstract="True" Name="LegendaryWeaponsBase" ParentName="LegendaryAnyWeaponsBase">
+    <matches>
+      <li Class="Infusion.Matchers.EquipmentType">
+        <melee>true</melee>
+        <ranged>true</ranged>
+      </li>
+    </matches>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryWeaponsBase">
+    <defName>Guardian</defName>
+    <label>guardian</label>
+    <labelShort>guard</labelShort>
+    <position>Suffix</position>
+    <stats>
+      <li>
+        <key>IncomingDamageFactor</key>
+        <value>
+          <offset>-0.2</offset>
+        </value>
+      </li>
+      <li>
+        <key>ArmorRating_Sharp</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+      <li>
+        <key>ArmorRating_Blunt</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
   </Infusion.InfusionDef>
 </Defs>
