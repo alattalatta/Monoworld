@@ -145,13 +145,5 @@
         </li>
       </operations>
     </match>
-    <nomatch Class="PatchOperationAdd">
-      <xpath>/Defs</xpath>
-      <value>
-        <Infusion.InfusionDef ParentName="CompatDieBase">
-          <defName>Amplifying</defName>
-        </Infusion.InfusionDef>
-      </value>
-    </nomatch>
   </Operation>
 </Patch>
