@@ -15,8 +15,9 @@ type WeaponClasses =
           defs = ResizeArray() }
 
     override this.Match thing _ =
-        this.defs
-        |> Seq.exists (thing.def.weaponClasses.Contains)
+        Option.ofObj thing.def.weaponClasses
+        |> Option.map (fun weaponClasses -> this.defs |> Seq.exists (weaponClasses.Contains))
+        |> Option.defaultValue false
 
     override this.BuildRequirementString() =
         this.defs
