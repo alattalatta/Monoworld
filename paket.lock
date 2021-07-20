@@ -4,5 +4,5 @@ NUGET
   remote: https://api.nuget.org/v3/index.json
     FSharp.Core (4.7.2)
     Lib.Harmony (2.1)
-    UnlimitedHugs.Rimworld.HugsLib (8.0)
-      Lib.Harmony (>= 2.0.0.8)
+    UnlimitedHugs.Rimworld.HugsLib (9.0)
+      Lib.Harmony (>= 2.1)
