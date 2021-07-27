@@ -349,11 +349,6 @@ type CompInfusion() =
         | Some bestInf ->
             let parent = this.parent
 
-            let isInfuser =
-                Option.ofObj parent.def.tradeTags
-                |> Option.map (Seq.contains "Infusion_Infuser")
-                |> Option.defaultValue false
-
             let baseLabel =
                 let style = parent.StyleDef
 
@@ -362,11 +357,20 @@ type CompInfusion() =
                 else
                     style.overrideLabel
 
+            let translateKey =
+                if bestInf.position = Position.Prefix then
+                    "Infusion.Label.Prefixed"
+                else
+                    "Infusion.Label.Suffixed"
+
+            let infusionLabel = this.MakeBestInfusionLabel Long
+            
+            // without this extra call
+            // baseLabel will be missing
+            // [fixme] can't figure out why
+            translate2 translateKey infusionLabel baseLabel |> ignore
             let sb =
-                match bestInf.position with
-                | Position.Prefix -> translate2 "Infusion.Label.Prefixed" (this.MakeBestInfusionLabel Long) baseLabel
-                | Position.Suffix -> translate2 "Infusion.Label.Suffixed" (this.MakeBestInfusionLabel Long) baseLabel
-                | _ -> raise (ArgumentException("Position must be either Prefix or Suffix"))
+                translate2 translateKey infusionLabel baseLabel
                 |> string
                 |> StringBuilder
 
@@ -398,6 +402,11 @@ type CompInfusion() =
                 | _ -> None
 
             // infuser applicability
+            let isInfuser =
+                Option.ofObj parent.def.tradeTags
+                |> Option.map (Seq.contains "Infusion_Infuser")
+                |> Option.defaultValue false
+
             let applicability =
                 if isInfuser then
                     this.BestInfusion
@@ -538,7 +547,8 @@ module CompInfusion =
             (fun infDef ->
                 (infDef,
                  Rand.Gaussian(
-                     Settings.SelectionConsts.muHandle.Value * (infDef.WeightFor quality),
+                     Settings.SelectionConsts.muHandle.Value
+                     * (infDef.WeightFor quality),
                      Settings.SelectionConsts.sigmaHandle.Value
                  ))) // weighted, duh
         |> List.sortByDescending snd
