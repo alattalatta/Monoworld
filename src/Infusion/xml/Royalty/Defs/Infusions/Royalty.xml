@@ -87,6 +87,7 @@
     <defName>Invisibility</defName>
     <label>invisibility</label>
     <labelShort>invis</labelShort>
+    <position>Suffix</position>
     <matches>
       <li Class="Infusion.Matchers.ProjectileBullet" />
     </matches>
