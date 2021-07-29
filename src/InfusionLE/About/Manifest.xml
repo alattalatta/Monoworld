@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Manifest>
-  <identifier>Infusion_LE</identifier>
-  <version>2.0.1</version>
-  <manifestUri>https://raw.githubusercontent.com/alattalatta/Monoworld/master/src/InfusionLE/About/Manifest.xml</manifestUri>
-  <downloadUri>https://github.com/alattalatta/Monoworld/releases</downloadUri>
-</Manifest>
