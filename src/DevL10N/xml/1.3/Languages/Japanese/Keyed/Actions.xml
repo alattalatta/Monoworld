@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <DebugAction_AtlasRebuild>アトラス 再構築</DebugAction_AtlasRebuild>
-  <DebugAction_SpawnRelic>生成 遺物</DebugAction_SpawnRelic>
   <DebugAction_SetSourcePrecept>設定 戒律ソース</DebugAction_SetSourcePrecept>
   <DebugAction_SetIdeo>設定 Ideo</DebugAction_SetIdeo>
   <DebugAction_AddSlave>追加 奴隷</DebugAction_AddSlave>
@@ -159,8 +158,8 @@
   <DebugAction_RandomSpotNearThingAvoidingHostiles>表示 ランダム地点敵対ポーン回避Thing周囲</DebugAction_RandomSpotNearThingAvoidingHostiles>
   <DebugAction_ClearAllFog>削除 全戦場の霧</DebugAction_ClearAllFog>
   <DebugAction_ChangeThingStyle>変更 Thingスタイル</DebugAction_ChangeThingStyle>
-  <DebugAction_ForceSleepThenAssaultColony>強制的に眠らせてコロニー襲撃</DebugAction_ForceSleepThenAssaultColony>
   <DebugAction_AttachFire>着火</DebugAction_AttachFire>
+  <DebugAction_FlashShuttleDropCellsNear>シャトル降下マス付近を明示</DebugAction_FlashShuttleDropCellsNear>
   <DebugAction_Resurrect>復活</DebugAction_Resurrect>
   <DebugAction_DamageUntilDown>転倒ダメージ</DebugAction_DamageUntilDown>
   <DebugAction_DamageLegs>脚にダメージ</DebugAction_DamageLegs>
@@ -252,6 +251,8 @@
   <DebugAction_Generate200RitualNames>儀式の名前を200生成</DebugAction_Generate200RitualNames>
   <DebugAction_SetIdeoRole>設定 Ideo役割...</DebugAction_SetIdeoRole>
   <DebugAction_MakeGuilty>有罪付与</DebugAction_MakeGuilty>
+  <DebugAction_ForceAgeReversalDemandNow>年齢逆転欲求を強制</DebugAction_ForceAgeReversalDemandNow>
+  <DebugAction_ResetAgeReversalDemandNow>年齢逆転欲求リセット</DebugAction_ResetAgeReversalDemandNow>
   <DebugAction_SpawnPawn>生成 ポーン...</DebugAction_SpawnPawn>
   <DebugAction_SpawnWeapon>生成 武器...</DebugAction_SpawnWeapon>
   <DebugAction_SpawnApparel>生成 衣服...</DebugAction_SpawnApparel>
@@ -280,6 +281,7 @@
   <DebugAction_SpawnSiteWithPoints>生成 脅威度指定クエスト地点...</DebugAction_SpawnSiteWithPoints>
   <DebugAction_SpawnWorldObject>生成 WorldObject...</DebugAction_SpawnWorldObject>
   <DebugAction_ChangeCameraConfigWorld>変更 カメラ設定...</DebugAction_ChangeCameraConfigWorld>
+  <DebugAction_SpawnRelic>生成 遺物...</DebugAction_SpawnRelic>
   <DebugAction_DebugDrawBreachPath>表示 突破経路...</DebugAction_DebugDrawBreachPath>
   <DebugAction_WoundDebug>有効 負傷デバッグ描画</DebugAction_WoundDebug>
   <DebugAction_WoundDebugExport>負傷デバッグ出力(人間以外)</DebugAction_WoundDebugExport>
