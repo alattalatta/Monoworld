@@ -159,8 +159,8 @@
   <DebugAction_RandomSpotNearThingAvoidingHostiles>Flash RandomSpotNearThingAvoidingHostilePawns</DebugAction_RandomSpotNearThingAvoidingHostiles>
   <DebugAction_ClearAllFog>Clear All Fog</DebugAction_ClearAllFog>
   <DebugAction_ChangeThingStyle>Change Thing Style</DebugAction_ChangeThingStyle>
-  <DebugAction_ForceSleepThenAssaultColony>Force sleep then assault colony</DebugAction_ForceSleepThenAssaultColony>
   <DebugAction_AttachFire>Attach fire</DebugAction_AttachFire>
+  <DebugAction_FlashShuttleDropCellsNear>Flash nearby shuttle drop cell</DebugAction_FlashShuttleDropCellsNear>
   <DebugAction_Resurrect>Resurrect</DebugAction_Resurrect>
   <DebugAction_DamageUntilDown>Damage until down</DebugAction_DamageUntilDown>
   <DebugAction_DamageLegs>Damage legs</DebugAction_DamageLegs>
@@ -252,6 +252,8 @@
   <DebugAction_Generate200RitualNames>Generate 200 ritual names</DebugAction_Generate200RitualNames>
   <DebugAction_SetIdeoRole>Set ideo role...</DebugAction_SetIdeoRole>
   <DebugAction_MakeGuilty>Make guilty</DebugAction_MakeGuilty>
+  <DebugAction_ForceAgeReversalDemandNow>Force age reversal demand</DebugAction_ForceAgeReversalDemandNow>
+  <DebugAction_ResetAgeReversalDemandNow>Reset age reversal demand</DebugAction_ResetAgeReversalDemandNow>
   <DebugAction_SpawnPawn>Spawn Pawn...</DebugAction_SpawnPawn>
   <DebugAction_SpawnWeapon>Spawn weapon...</DebugAction_SpawnWeapon>
   <DebugAction_SpawnApparel>Spawn apparel...</DebugAction_SpawnApparel>
@@ -280,7 +282,7 @@
   <DebugAction_SpawnSiteWithPoints>Spawn site with points...</DebugAction_SpawnSiteWithPoints>
   <DebugAction_SpawnWorldObject>Spawn WorldObject...</DebugAction_SpawnWorldObject>
   <DebugAction_ChangeCameraConfigWorld>Change camera config...</DebugAction_ChangeCameraConfigWorld>
-  <DebugAction_SpawnRelic>Spawn relic</DebugAction_SpawnRelic>
+  <DebugAction_SpawnRelic>Spawn relic...</DebugAction_SpawnRelic>
   <DebugAction_DebugDrawBreachPath>Draw breach path...</DebugAction_DebugDrawBreachPath>
   <DebugAction_WoundDebug>Enable wound debug draw</DebugAction_WoundDebug>
   <DebugAction_WoundDebugExport>Wound debug export (non-humanlike)</DebugAction_WoundDebugExport>

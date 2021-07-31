@@ -18,7 +18,7 @@ module DoField =
                 .ToLower()
                 .CapitalizeFirst()
 
-        Log.Message(taggify "" (fi.Name.CapitalizeFirst()) name)
+        Log.Message(taggify "" (fi.Name.CapitalizeFirst()) (name.TranslateSimple()))
         true
 
     let Transpiler (instructions: CodeInstruction seq) =

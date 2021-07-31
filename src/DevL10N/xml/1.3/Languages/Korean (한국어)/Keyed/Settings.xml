@@ -20,8 +20,8 @@
   <FastEcologyRegrowRateOnly>빠른 생태계(식물 생성 주기만)</FastEcologyRegrowRateOnly>
   <FastCrafting>빠른 제작</FastCrafting>
   <FastCaravans>빠른 상단</FastCaravans>
-  <ActivateAllBuildingDemands>Activate all building demands</ActivateAllBuildingDemands>
-  <ActivateAllIdeoRoles>Activate all ideo roles</ActivateAllIdeoRoles>
+  <ActivateAllBuildingDemands>모든 건물 요구 활성화</ActivateAllBuildingDemands>
+  <ActivateAllIdeoRoles>모든 사상 보직 활성화</ActivateAllIdeoRoles>
   <ShowLocomotionUrgency>LocomotionUrgency 표시</ShowLocomotionUrgency>
   <PlayRitualAmbience>의식 배경음 재생</PlayRitualAmbience>
   <DrawFog>안개 그리기</DrawFog>
@@ -57,8 +57,8 @@
   <DrawPreyInfo>사냥감 정보 그리기</DrawPreyInfo>
   <DrawGlow>빛 정보 그리기</DrawGlow>
   <DrawAvoidGrid>회피 그리드 그리기</DrawAvoidGrid>
-  <DrawBreachingGrid>Draw breaching grid</DrawBreachingGrid>
-  <DrawBreachingNoise>Draw breaching noise</DrawBreachingNoise>
+  <DrawBreachingGrid>돌파 습격 그리드 그리기</DrawBreachingGrid>
+  <DrawBreachingNoise>돌파 습격 노이즈 그리기</DrawBreachingNoise>
   <DrawLords>Lord 그리기</DrawLords>
   <DrawDuties>Duty 그리기</DrawDuties>
   <DrawShooting>사격 그리기</DrawShooting>

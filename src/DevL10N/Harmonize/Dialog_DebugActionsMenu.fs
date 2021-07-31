@@ -44,7 +44,7 @@ module GenerateCacheForMethod =
             else
                 attribute.name
 
-        Log.Message(taggify "DebugAction" method.Name name)
+        Log.Message(taggify "DebugAction" method.Name (makeLabel(method, attribute)))
         true
 
     let Transpiler (instructions: CodeInstruction seq) =

@@ -16,7 +16,7 @@
   <DebugAction_RequestStyleChange>스타일 변경 요청</DebugAction_RequestStyleChange>
   <DebugAction_CompleteHack>해킹 100%</DebugAction_CompleteHack>
   <DebugAction_Hack10>해킹 +10%</DebugAction_Hack10>
-  <DebugAction_DarklightAtPosition>Darklight at position</DebugAction_DarklightAtPosition>
+  <DebugAction_DarklightAtPosition>지점의 암광량 표시</DebugAction_DarklightAtPosition>
   <DebugAction_DoTradeCaravanSpecific>거래 상단 도착...</DebugAction_DoTradeCaravanSpecific>
   <DebugAction_ExecuteRaidWithPoints>습격 실행: 포인트...</DebugAction_ExecuteRaidWithPoints>
   <DebugAction_ExecuteRaidWithFaction>습격 실행: 세력...</DebugAction_ExecuteRaidWithFaction>
@@ -159,8 +159,8 @@
   <DebugAction_RandomSpotNearThingAvoidingHostiles>RandomSpotNearThingAvoidingHostilePawns 강조</DebugAction_RandomSpotNearThingAvoidingHostiles>
   <DebugAction_ClearAllFog>모든 안개 제거</DebugAction_ClearAllFog>
   <DebugAction_ChangeThingStyle>Thing 스타일 변경</DebugAction_ChangeThingStyle>
-  <DebugAction_ForceSleepThenAssaultColony>강제 취침 후 정착지 공격</DebugAction_ForceSleepThenAssaultColony>
   <DebugAction_AttachFire>불붙이기</DebugAction_AttachFire>
+  <DebugAction_FlashShuttleDropCellsNear>근처의 왕복선 착륙 장소 강조</DebugAction_FlashShuttleDropCellsNear>
   <DebugAction_Resurrect>부활</DebugAction_Resurrect>
   <DebugAction_DamageUntilDown>쓰러질 때까지 피해</DebugAction_DamageUntilDown>
   <DebugAction_DamageLegs>다리 피해</DebugAction_DamageLegs>
@@ -235,7 +235,7 @@
   <DebugAction_PassToWorld>세계 Pawn으로 변경</DebugAction_PassToWorld>
   <DebugAction_RemoveWorldPawn>세계 Pawn 제거...</DebugAction_RemoveWorldPawn>
   <DebugAction_Make1YearOlder>1년 노화</DebugAction_Make1YearOlder>
-  <DebugAction_Make1YearOlder>1일 노화</DebugAction_Make1YearOlder>
+  <DebugAction_Make1DayOlder>1일 노화</DebugAction_Make1DayOlder>
   <DebugAction_TryJobGiver>JobGiver 시도</DebugAction_TryJobGiver>
   <DebugAction_TryJoyGiver>JoyGiver 시도</DebugAction_TryJoyGiver>
   <DebugAction_EndCurrentJobInterruptForced>EndCurrentJobInterruptForced</DebugAction_EndCurrentJobInterruptForced>
@@ -244,14 +244,16 @@
   <DebugAction_ToggleStanceLogging>Stance 기록 토글</DebugAction_ToggleStanceLogging>
   <DebugAction_Kidnap>정착민 납치</DebugAction_Kidnap>
   <DebugAction_Selected_SetFacing>칸을 보게 만들기 (선택 필요)</DebugAction_Selected_SetFacing>
-  <DebugAction_AddPrecept>Add precept</DebugAction_AddPrecept>
-  <DebugAction_RemovePrecept>Remove precept</DebugAction_RemovePrecept>
+  <DebugAction_AddPrecept>규율 추가</DebugAction_AddPrecept>
+  <DebugAction_RemovePrecept>규율 제거</DebugAction_RemovePrecept>
   <DebugAction_TriggerDateRitual>특정 날짜의 의식 발동</DebugAction_TriggerDateRitual>
-  <DebugAction_Add5DaysToObligationTimer>Add 5 days to obligation timer</DebugAction_Add5DaysToObligationTimer>
-  <DebugAction_RemoveRitualObligation>Remove ritual obligation</DebugAction_RemoveRitualObligation>
+  <DebugAction_Add5DaysToObligationTimer>의식 요구에 5일 추가</DebugAction_Add5DaysToObligationTimer>
+  <DebugAction_RemoveRitualObligation>의식 요구 제거</DebugAction_RemoveRitualObligation>
   <DebugAction_Generate200RitualNames>의식 이름 200개 생성</DebugAction_Generate200RitualNames>
   <DebugAction_SetIdeoRole>Set ideo role...</DebugAction_SetIdeoRole>
   <DebugAction_MakeGuilty>유죄 설정</DebugAction_MakeGuilty>
+  <DebugAction_ForceAgeReversalDemandNow>노화 역행 요구 강제</DebugAction_ForceAgeReversalDemandNow>
+  <DebugAction_ResetAgeReversalDemandNow>노화 역행 요구 초기화</DebugAction_ResetAgeReversalDemandNow>
   <DebugAction_SpawnPawn>Pawn 생성...</DebugAction_SpawnPawn>
   <DebugAction_SpawnWeapon>무기 생성...</DebugAction_SpawnWeapon>
   <DebugAction_SpawnApparel>의류 생성...</DebugAction_SpawnApparel>
@@ -280,8 +282,8 @@
   <DebugAction_SpawnSiteWithPoints>지역 생성: 포인트...</DebugAction_SpawnSiteWithPoints>
   <DebugAction_SpawnWorldObject>WorldObject 생성...</DebugAction_SpawnWorldObject>
   <DebugAction_ChangeCameraConfigWorld>카메라 설정 변경...</DebugAction_ChangeCameraConfigWorld>
-  <DebugAction_SpawnRelic>유물 생성</DebugAction_SpawnRelic>
-  <DebugAction_DebugDrawBreachPath>Draw breach path...</DebugAction_DebugDrawBreachPath>
+  <DebugAction_SpawnRelic>유물 생성...</DebugAction_SpawnRelic>
+  <DebugAction_DebugDrawBreachPath>돌파 습격 경로 그리기...</DebugAction_DebugDrawBreachPath>
   <DebugAction_WoundDebug>상처 디버그 그리기 활성화</DebugAction_WoundDebug>
   <DebugAction_WoundDebugExport>상처 디버그 내보내기 (비인간형)</DebugAction_WoundDebugExport>
 </LanguageData>
