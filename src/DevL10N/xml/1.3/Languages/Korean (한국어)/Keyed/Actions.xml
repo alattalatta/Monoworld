@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
   <DebugAction_AtlasRebuild>아틀라스 재생성</DebugAction_AtlasRebuild>
-  <DebugAction_SpawnRelic>유물 생성...</DebugAction_SpawnRelic>
   <DebugAction_SetSourcePrecept>Set source precept</DebugAction_SetSourcePrecept>
   <DebugAction_SetIdeo>Set ideo</DebugAction_SetIdeo>
   <DebugAction_AddSlave>노예 추가</DebugAction_AddSlave>

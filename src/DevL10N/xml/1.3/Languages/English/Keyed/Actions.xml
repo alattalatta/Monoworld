@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
   <DebugAction_AtlasRebuild>Atlas Rebuild</DebugAction_AtlasRebuild>
-  <DebugAction_SpawnRelic>Spawn Relic</DebugAction_SpawnRelic>
   <DebugAction_SetSourcePrecept>Set Source Precept</DebugAction_SetSourcePrecept>
   <DebugAction_SetIdeo>Set Ideo</DebugAction_SetIdeo>
   <DebugAction_AddSlave>Add Slave</DebugAction_AddSlave>
