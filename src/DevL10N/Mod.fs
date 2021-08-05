@@ -1,7 +1,12 @@
 namespace DevL10N
 
+open HarmonyLib
+open Verse
 
-type ModBase() =
-    inherit HugsLib.ModBase()
 
-    override this.ModIdentifier = "latta.devl10n"
+
+[<StaticConstructorOnStartup>]
+type StartupConstructor() =
+    static do
+        let harmony = Harmony("latta.devl10n")
+        do harmony.PatchAll()

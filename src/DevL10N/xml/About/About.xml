@@ -17,12 +17,6 @@
       <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
     </li>
     <li>
-      <packageId>UnlimitedHugs.HugsLib</packageId>
-      <displayName>HugsLib</displayName>
-      <steamWorkshopUrl>steam://url/CommunityFilePage/818773962</steamWorkshopUrl>
-      <downloadUrl>https://github.com/UnlimitedHugs/RimworldHugsLib/releases</downloadUrl>
-    </li>
-    <li>
       <packageId>latta.fsharp.core</packageId>
       <displayName>FSharp.Core</displayName>
       <steamWorkshopUrl>steam://url/CommunityFilePage/2059725183</steamWorkshopUrl>
@@ -30,7 +24,6 @@
     </li>
   </modDependencies>
   <loadAfter>
-    <li>UnlimitedHugs.HugsLib</li>
     <li>latta.fsharp.core</li>
   </loadAfter>
   <description>Localizable developer actions and view settings.</description>
