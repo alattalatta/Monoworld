@@ -46,7 +46,7 @@ module GenerateCacheForMethod =
             else
                 attribute.name
 
-        Log.Message(taggify "DebugAction" method.Name (makeLabel(method, attribute)))
+        Log.Message(taggify "DebugAction" method.Name (makeLabel (method, attribute)))
         true
 
     let Transpiler (instructions: CodeInstruction seq) =
@@ -59,7 +59,7 @@ module GenerateCacheForMethod =
                 (fun inst ->
                     inst.opcode = OpCodes.Ldfld
                     && (inst.operand :?> FieldInfo) = AccessTools.Field(typeof<DebugActionAttribute>, "name"))
-            |> add -1
+            |> (+) -1
             |> splitFlipped insts
 
         let originalJumpDest, others' = headTail others

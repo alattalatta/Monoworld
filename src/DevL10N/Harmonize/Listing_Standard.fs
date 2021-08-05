@@ -26,7 +26,7 @@ module ButtonDebug =
         let first, others =
             insts
             |> List.findIndex (fun inst -> inst.opcode = OpCodes.Ldarg_1)
-            |> add 1
+            |> (+) 1
             |> splitFlipped insts
 
         seq {

@@ -1,15 +1,9 @@
 module DevL10N.Lib
 
 open System
-open System.Reflection
-
-open Verse
 
 
 type SysList<'a> = Collections.Generic.List<'a>
-
-// move to Poet?
-let add a b = a + b
 
 let headTail l =
     match l with
