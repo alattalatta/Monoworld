@@ -9,10 +9,12 @@ open Verse
 open DevL10N.Lib
 
 
+let supportedAssemblies = [ "Assembly-CSharp"; "DevL10N" ]
+
 /// If the method is from Assembly-CSharp, call TranslateSimple().
 /// if not, apply the default behavior.
 let translatableFromMethodInfo (attrName: string) (mi: MethodInfo) =
-    if mi.DeclaringType.Assembly.GetName().Name = "Assembly-CSharp" then
+    if List.contains (mi.DeclaringType.Assembly.GetName().Name) supportedAssemblies then
         let originalLabel =
             if attrName.NullOrEmpty() then
                 GenText.SplitCamelCase mi.Name
