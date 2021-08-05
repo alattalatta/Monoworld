@@ -11,6 +11,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Lib.fs" />
+    <Compile Include="TranslationOutput/Utils/List.fs" />
+    <Compile Include="TranslationOutput/Utils/Option.fs" />
+    <Compile Include="TranslationOutput/Utils/Seq.fs" />
+    <Compile Include="TranslationOutput/Utils/Xml.fs" />
+    <Compile Include="TranslationOutput/Utils/Utils.fs" />
+    <Compile Include="TranslationOutput/BackstoriesOutput.fs" />
+    <Compile Include="TranslationOutput/DefInjectionsOutput.fs" />
+    <Compile Include="TranslationOutput/KeysOutput.fs" />
+    <Compile Include="TranslationOutput/DebugAction.fs" />
     <Compile Include="Harmonize/DebugWindowsOpener.fs" />
     <Compile Include="Harmonize/Dialog_DebugActionsMenu.fs" />
     <Compile Include="Harmonize/Dialog_DebugSettingsMenu.fs" />
