@@ -30,8 +30,6 @@ module CodeFor =
                         do comp.Biocoder <- Some __instance
                         do comp.SlotCount <- comp.CalculateSlotCountFor quality
                         do comp.Infusions <- (CompInfusion.pickInfusions quality comp))
-        else
-            Log.Message("Skipping bladelink")
 
     /// Resets a `Thing`'s `HitPoints` to its own `MaxHitPoints` to reflect HP changes caused by infusions.
     let Postfix (__instance: CompQuality) =
