@@ -18,7 +18,7 @@ type DefInjectionDict = IDictionary<string, DefInjectionPackage.DefInjection>
 
 type DefInjectionTarget =
   { CurValue: string
-    CurValueCollection: string seq
+    CurValueCollection: string list
     Def: Def
     FieldInfo: FieldInfo
     IsCollection: bool
@@ -27,9 +27,48 @@ type DefInjectionTarget =
     SuggestedPath: string }
 
 
+module private Utils =
+  let collectAllInjectionTargets (defType: Type, modData: ModMetaData) =
+    let possibleDefInjections = ResizeArray<DefInjectionTarget>()
+
+    let traverserBody
+      suggestedPath
+      normalizedPath
+      isCollection
+      curValue
+      curValueCollection
+      translationAllowed
+      fullListTranslationAllowed
+      fieldInfo
+      def
+      =
+      if translationAllowed then
+        possibleDefInjections.Add(
+          { CurValue = curValue
+            CurValueCollection =
+              if isNull curValueCollection then
+                List.empty
+              else
+                List.ofSeq curValueCollection
+            Def = def
+            FieldInfo = fieldInfo
+            IsCollection = isCollection
+            ListInjectionAllowed = fullListTranslationAllowed
+            NormalizedPath = normalizedPath
+            SuggestedPath = suggestedPath }
+        )
+
+    let traverser =
+      DefInjectionUtility.PossibleDefInjectionTraverser(traverserBody)
+
+    do DefInjectionUtility.ForEachPossibleDefInjection(defType, traverser, modData)
+
+    possibleDefInjections
+
+
 let private createListItems (strs: string list) : XNode list =
   strs
-  |> List.map (fun str -> XElement(XName.op_Implicit ("li"), XText(str.Replace("\n", "\\n"))) :> XNode)
+  |> List.map (fun str -> (XElement.createSingleton "li" (XText(str.Replace("\n", "\\n")))) :> XNode)
 
 
 let private createListInjectionElements
@@ -45,9 +84,11 @@ let private createListInjectionElements
     let length =
       min (List.length injectionValue) (List.length english)
 
+    // If the injection is shorter than the english, we need to truncate it.
     let (used, unused) =
       english |> List.ofSeq |> List.splitAt length
 
+    // If the injection is longer than the english, we need to add extras from it.
     let extraItemsFromInjection =
       if length < List.length injectionValue then
         injectionValue |> List.splitAt length |> snd
@@ -103,7 +144,7 @@ let private createInjectionCollectionElements
     |> Option.map List.ofSeq
     |> Option.defaultValue (
       target.CurValueCollection
-      |> Seq.mapi
+      |> List.mapi
            (fun i value ->
              let key =
                target.NormalizedPath + "." + i.ToString()
@@ -117,7 +158,6 @@ let private createInjectionCollectionElements
              |> Option.filter (fun injection -> injection.injected)
              |> Option.map (fun injection -> injection.replacedString)
              |> Option.defaultValue value)
-      |> List.ofSeq
     )
 
   if target.ListInjectionAllowed then
@@ -162,12 +202,13 @@ let private createInjectionElement (languageInjections: DefInjectionDict, target
 
 
 let private writeFile
-  (languageInjections: DefInjectionDict,
-   allInjectionTargets: DefInjectionTarget list,
-   defType: Type,
-   defInjectionDirPath: string)
-  (fileName: string)
-  =
+  (
+    languageInjections: DefInjectionDict,
+    allInjectionTargets: DefInjectionTarget list,
+    defType: Type,
+    defInjectionDirPath: string,
+    fileName: string
+  ) =
   async {
     let injectionTargetsInFile =
       allInjectionTargets
@@ -231,42 +272,8 @@ let private writeFile
           injectionsToWrite
           |> XElement.create "LanguageData"
           |> XDocument.createSingleton
-          |> Translation.saveXMLDocument (Path.Combine(defTypeDirPath, fileName))
+          |> XDocument.save (Path.Combine(defTypeDirPath, fileName))
   }
-
-
-let private collectAllInjectionTargets (defType: Type, modData: ModMetaData) =
-  let possibleDefInjections = ResizeArray<DefInjectionTarget>()
-
-  let traverserBody
-    suggestedPath
-    normalizedPath
-    isCollection
-    curValue
-    curValueCollection
-    translationAllowed
-    fullListTranslationAllowed
-    fieldInfo
-    def
-    =
-    if translationAllowed then
-      possibleDefInjections.Add(
-        { CurValue = curValue
-          CurValueCollection = curValueCollection
-          Def = def
-          FieldInfo = fieldInfo
-          IsCollection = isCollection
-          ListInjectionAllowed = fullListTranslationAllowed
-          NormalizedPath = normalizedPath
-          SuggestedPath = suggestedPath }
-      )
-
-  let traverser =
-    DefInjectionUtility.PossibleDefInjectionTraverser(traverserBody)
-
-  do DefInjectionUtility.ForEachPossibleDefInjection(defType, traverser, modData)
-
-  possibleDefInjections
 
 
 let private writeForDefType (defInjectionDirPath: string, modData: ModMetaData) (defType: Type) =
@@ -284,7 +291,7 @@ let private writeForDefType (defInjectionDirPath: string, modData: ModMetaData) 
     |> dict
 
   let allInjectionTargets =
-    collectAllInjectionTargets (defType, modData)
+    Utils.collectAllInjectionTargets (defType, modData)
     |> List.ofSeq
 
   // write each injection to its file
@@ -295,7 +302,7 @@ let private writeForDefType (defInjectionDirPath: string, modData: ModMetaData) 
        (fun fileName ->
          async {
            try
-             do! writeFile (languageInjections, allInjectionTargets, defType, defInjectionDirPath) fileName
+             do! writeFile (languageInjections, allInjectionTargets, defType, defInjectionDirPath, fileName)
            with
            | ex ->
              Log.Error(
