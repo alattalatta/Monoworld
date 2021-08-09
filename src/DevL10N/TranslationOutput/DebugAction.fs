@@ -44,10 +44,7 @@ let private writeForMod (modData: ModMetaData) =
   // Desktop/TranslationOutput/Core
   let dest =
     let modIdentifier =
-      if modData.OnSteamWorkshop then
-        sprintf "[%s] %s" modData.RootDir.Name modData.PackageId
-      else
-        modData.RootDir.Name
+      modData.PackageId
 
     Path.Combine(destRoot, modIdentifier)
 
