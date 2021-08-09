@@ -93,37 +93,38 @@ let private createInjectionCollectionElements
     target: DefInjectionTarget
   ) : XNode list =
   let injectionMaybe =
-    languageInjections.TryGetValue(target.NormalizedPath, null)
+    languageInjections.TryGetValue(target.SuggestedPath, null)
     |> Option.ofObj
 
-  let shouldInject = shouldInjectFor target injectionMaybe
-
-  let englishListMaybe =
+  let englishList =
     injectionMaybe
     |> Option.filter (fun injection -> injection.injected)
     |> Option.map (fun injection -> injection.replacedList)
-    |> Option.orElse (
-      maybe {
-        let! englishCollection = Option.ofObj target.CurValueCollection
-
-        return
-          englishCollection
-          |> Seq.mapi
-               (fun i english ->
-                 languageInjections.TryGetValue(target.NormalizedPath + "." + i.ToString(), null)
-                 |> Option.ofObj
-                 |> Option.filter (fun x -> x.injected)
-                 |> Option.map (fun x -> x.replacedString)
-                 |> Option.defaultValue english)
-      }
-    )
     |> Option.map List.ofSeq
+    |> Option.defaultValue (
+      target.CurValueCollection
+      |> Seq.mapi
+           (fun i value ->
+             let key =
+               target.NormalizedPath + "." + i.ToString()
+
+             let path =
+               Translation.suggestTKeyPath key
+               |> Option.defaultValue (key)
+
+             languageInjections.TryGetValue(path, null)
+             |> Option.ofObj
+             |> Option.filter (fun injection -> injection.injected)
+             |> Option.map (fun injection -> injection.replacedString)
+             |> Option.defaultValue value)
+      |> List.ofSeq
+    )
 
   if target.ListInjectionAllowed then
     maybe {
-      let! englishList = englishListMaybe
-
-      let mayProceed = englishList |> List.exists shouldInject
+      let mayProceed =
+        englishList
+        |> List.exists (shouldInjectFor target injectionMaybe)
 
       if mayProceed then
         return createListInjectionElements (injectionMaybe, englishList)
@@ -132,24 +133,19 @@ let private createInjectionCollectionElements
     |> Option.map (id<XNode> >> List.singleton)
     |> Option.defaultValue List.empty
   else
-    englishListMaybe
-    |> Option.map (
-      Seq.collecti
-        (fun (i, english) ->
-          let normalizedPath =
-            target.NormalizedPath + "." + i.ToString()
+    englishList
+    |> Seq.collecti
+         (fun (i, english) ->
+           let normalizedPath =
+             target.NormalizedPath + "." + i.ToString()
 
-          let suggestedPath =
-            Translation.suggestTKeyPath normalizedPath
-            |> Option.defaultValue (target.SuggestedPath + "." + i.ToString())
+           let suggestedPath =
+             Translation.suggestTKeyPath normalizedPath
+             |> Option.defaultValue (target.SuggestedPath + "." + i.ToString())
 
-          if shouldInject english then
-            seq { yield createSingleInjectionElement (suggestedPath, english) }
-          else
-            Seq.empty)
-    )
-    |> Option.map List.ofSeq
-    |> Option.defaultValue List.empty
+           createSingleInjectionElement (suggestedPath, english)
+           |> Seq.singleton)
+    |> List.ofSeq
 
 
 let private createInjectionElement (languageInjections: DefInjectionDict, target: DefInjectionTarget) =
