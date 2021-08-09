@@ -53,38 +53,16 @@ let private writeForMod (modData: ModMetaData) =
 
   Directory.CreateDirectory(dest) |> ignore
 
-  let writeDefInjectionsAsync =
-    async {
-      try
-        do! DefInjectionsOutput.write dest modData
-      with
-      | ex ->
-        Log.Error(
-          "Could not cleanup defInjected translations: "
-          + ex.Message
-        )
-    }
-
-  let writeKeysAsync =
-    async {
-      try
-        do KeysOutput.write dest modData
-      with
-      | ex ->
-        Log.Error(
-          "Could not cleanup keyed translations: "
-          + ex.Message
-        )
-    }
-
   async {
-    do!
-      [ writeDefInjectionsAsync
-        writeKeysAsync ]
-      |> Async.Parallel
-      |> Async.Ignore
-
-    do Utils.pushMessage (translate1 "DevL10N.TranslationOutput.SavedTo" dest)
+    try
+      do! DefInjectionsOutput.write dest modData
+      do Utils.pushMessage (translate1 "DevL10N.TranslationOutput.SavedTo" dest)
+    with
+    | ex ->
+      Log.Error(
+        "Could not cleanup defInjected translations: "
+        + ex.Message
+      )
   }
 
 
