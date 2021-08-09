@@ -212,15 +212,18 @@ let private writeFile
 
       if not (List.isEmpty injectionsToWrite) then
         let defTypeName =
-          let rawName = defType.FullName
-          Log.Message(rawName)
+          let defNamespace = defType.Namespace
 
-          if rawName.StartsWith("RimWorld.") then
-            rawName.Substring(9)
-          elif rawName.StartsWith("Verse.") then
-            rawName.Substring(6)
+          // RimWorld.ThingDef -> ThingDef
+          // RimWorld.AI.DutyDef -> DutyDef
+          // Infusion.InfusionDef -> Infusion.InfusionDef
+          if
+            defNamespace.StartsWith("RimWorld")
+            || defNamespace.StartsWith("Verse")
+          then
+            defType.Name
           else
-            rawName
+            defType.FullName
 
         let defTypeDirPath =
           Path.Combine(defInjectionDirPath, defTypeName)
