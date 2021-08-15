@@ -43,8 +43,7 @@ let private writeForMod (modData: ModMetaData) =
 
   // Desktop/TranslationOutput/Core
   let dest =
-    let modIdentifier =
-      modData.PackageId
+    let modIdentifier = modData.PackageId
 
     Path.Combine(destRoot, modIdentifier)
 
