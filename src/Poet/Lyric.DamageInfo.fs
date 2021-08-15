@@ -4,13 +4,13 @@ open Verse
 
 
 let setAngle angle (di: DamageInfo) =
-    di.SetAngle angle
-    di
+  di.SetAngle angle
+  di
 
 let setBodyRegion height depth (di: DamageInfo) =
-    di.SetBodyRegion(height, depth)
-    di
+  di.SetBodyRegion(height, depth)
+  di
 
 let setWeaponBodyPartGroup bodyPartGroup (di: DamageInfo) =
-    di.SetWeaponBodyPartGroup(bodyPartGroup)
-    di
+  di.SetWeaponBodyPartGroup(bodyPartGroup)
+  di
