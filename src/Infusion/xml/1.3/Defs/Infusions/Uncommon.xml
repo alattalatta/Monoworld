@@ -217,11 +217,6 @@
 
   <!-- weapons -->
   <Infusion.InfusionDef Abstract="True" Name="UncommonAnyWeaponsBase" ParentName="UncommonDefaultBase">
-    <matches>
-      <li Class="Infusion.Matchers.EquipmentType">
-        <melee>true</melee>
-      </li>
-    </matches>
     <stats>
       <li>
         <key>MarketValue</key>
