@@ -121,11 +121,10 @@ let private createSingleInjectionElement (path: string, english: string) : XNode
 let private shouldInjectFor
   (injectionTarget: DefInjectionTarget)
   (injectionMaybe: DefInjectionPackage.DefInjection option)
-  (english: string)
+  (curValue: string)
   =
   Option.isSome injectionMaybe
-  || (not (english.NullOrEmpty())
-      && DefInjectionUtility.ShouldCheckMissingInjection(english, injectionTarget.FieldInfo, injectionTarget.Def))
+  || DefInjectionUtility.ShouldCheckMissingInjection(curValue, injectionTarget.FieldInfo, injectionTarget.Def)
 
 
 let private createInjectionCollectionElements
@@ -174,18 +173,21 @@ let private createInjectionCollectionElements
     |> Option.defaultValue List.empty
   else
     englishList
-    |> Seq.collecti
-         (fun (i, english) ->
-           let normalizedPath =
-             target.NormalizedPath + "." + i.ToString()
-
-           let suggestedPath =
-             Translation.suggestTKeyPath normalizedPath
-             |> Option.defaultValue (target.SuggestedPath + "." + i.ToString())
-
-           createSingleInjectionElement (suggestedPath, english)
-           |> Seq.singleton)
     |> List.ofSeq
+    |> List.collecti
+         (fun (i, english) ->
+           if shouldInjectFor target injectionMaybe english then
+             let normalizedPath =
+               target.NormalizedPath + "." + i.ToString()
+
+             let suggestedPath =
+               Translation.suggestTKeyPath normalizedPath
+               |> Option.defaultValue (target.SuggestedPath + "." + i.ToString())
+
+             createSingleInjectionElement (suggestedPath, english)
+             |> List.singleton
+           else
+             List.empty)
 
 
 let private createInjectionElement (languageInjections: DefInjectionDict, target: DefInjectionTarget) =
