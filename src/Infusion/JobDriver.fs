@@ -52,43 +52,51 @@ module JobDriver =
 
   module ApplyInfuser =
     let failOnNoWantingSet target (job: IJobEndable) =
-      let wantingSet =
-        compInfusionOfTarget job target
-        |> Option.map (fun c -> c.WantingSet)
-        |> Option.defaultValue Set.empty
+      do
+        job.AddEndCondition
+          (fun () ->
+            compInfusionOfTarget job target
+            |> Option.map (fun c -> c.WantingSet)
+            |> Option.defaultValue Set.empty
+            |> incompletableOnSetEmpty)
 
-      do job.AddEndCondition(fun () -> incompletableOnSetEmpty wantingSet)
       job
 
     let failOnNoMatchingInfuser target (job: IJobEndable) =
-      let matchingInfuser =
-        compInfusionOfTarget job target
-        |> Option.bind (fun c -> c.FirstWanting)
-        |> Option.bind ((flip Map.tryFind) Infuser.AllInfusersByDef)
+      do
+        job.AddEndCondition
+          (fun () ->
+            compInfusionOfTarget job target
+            |> Option.bind (fun c -> c.FirstWanting)
+            |> Option.bind ((flip Map.tryFind) Infuser.AllInfusersByDef)
+            |> errorOnNone)
 
-      do job.AddEndCondition(fun () -> errorOnNone matchingInfuser)
       job
 
 
   module ExtractInfusion =
     let failOnNoExtractionSet target (job: IJobEndable) =
-      let extractionSet =
-        compInfusionOfTarget job target
-        |> Option.map (fun c -> c.ExtractionSet)
-        |> Option.defaultValue Set.empty
+      do
+        job.AddEndCondition
+          (fun () ->
+            compInfusionOfTarget job target
+            |> Option.map (fun c -> c.ExtractionSet)
+            |> Option.defaultValue Set.empty
+            |> incompletableOnSetEmpty)
 
-      do job.AddEndCondition(fun () -> incompletableOnSetEmpty extractionSet)
       job
 
 
   module RemoveInfusions =
     let failOnNoRemovalSet target (job: IJobEndable) =
-      let removalSet =
-        compInfusionOfTarget job target
-        |> Option.map (fun c -> c.RemovalSet)
-        |> Option.defaultValue Set.empty
+      do
+        job.AddEndCondition
+          (fun () ->
+            compInfusionOfTarget job target
+            |> Option.map (fun c -> c.RemovalSet)
+            |> Option.defaultValue Set.empty
+            |> incompletableOnSetEmpty)
 
-      do job.AddEndCondition(fun () -> incompletableOnSetEmpty removalSet)
       job
 
 open JobDriver
@@ -120,15 +128,12 @@ type JobDriverApplyInfuser() =
 
       yield
         waitFor 300 TargetIndex.A
-        |> Toil.setTickAction
+        |> Toil.addFailOnDestroyedNullOrForbidden TargetIndex.A
+        |> Toil.addEndOn
              (fun () ->
-               let jobEndCondition =
-                 targetComp
-                 |> Option.map (fun comp -> incompletableOnSetEmpty comp.WantingSet)
-                 |> errorOnNone
-
-               if jobEndCondition <> JobCondition.Ongoing then
-                 do this.EndJobWith(jobEndCondition))
+               targetComp
+               |> Option.map (fun comp -> incompletableOnSetEmpty comp.WantingSet)
+               |> errorOnNone)
 
       yield
         Toils_General.Do
@@ -175,15 +180,12 @@ type JobDriverExtractInfusion() =
 
       yield
         waitFor 300 TargetIndex.A
-        |> Toil.setTickAction
+        |> Toil.addFailOnDestroyedNullOrForbidden TargetIndex.A
+        |> Toil.addEndOn
              (fun () ->
-               let jobEndCondition =
-                 targetComp
-                 |> Option.map (fun comp -> incompletableOnSetEmpty comp.ExtractionSet)
-                 |> errorOnNone
-
-               if jobEndCondition <> JobCondition.Ongoing then
-                 do this.EndJobWith(jobEndCondition))
+               targetComp
+               |> Option.map (fun comp -> incompletableOnSetEmpty comp.ExtractionSet)
+               |> errorOnNone)
 
       yield
         Toils_General.Do
@@ -259,16 +261,13 @@ type JobDriverRemoveInfusions() =
       yield Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch)
 
       yield
-        waitFor 300 TargetIndex.A
-        |> Toil.setTickAction
+        waitFor 1000 TargetIndex.A
+        |> Toil.addFailOnDestroyedNullOrForbidden TargetIndex.A
+        |> Toil.addEndOn
              (fun () ->
-               let jobEndCondition =
-                 targetComp
-                 |> Option.map (fun comp -> incompletableOnSetEmpty comp.RemovalSet)
-                 |> errorOnNone
-
-               if jobEndCondition <> JobCondition.Ongoing then
-                 do this.EndJobWith(jobEndCondition))
+               targetComp
+               |> Option.map (fun comp -> incompletableOnSetEmpty comp.RemovalSet)
+               |> errorOnNone)
 
       yield
         Toils_General.Do
