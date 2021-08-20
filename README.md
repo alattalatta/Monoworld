@@ -11,7 +11,7 @@ All projects are located under the `src/`.
 Each project consists of following items:
 
 - `assets/`: All non-code assets such as PSD for textures and preview images.
-- `xml/`: The mod data files, from Def files to `About.xml`.
+- `xml/`: The XML mod data files.
 - Assembly sources.
 
 Building projects requires .NET CLI (`dotnet`), and we are using [Paket](https://fsprojects.github.io/Paket/) for dependency management. Just use `dotnet tools restore` to install Paket.
