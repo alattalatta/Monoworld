@@ -48,11 +48,11 @@ module Option =
     | Ok a -> Some a
     | Error _ -> None
 
-  let ofSeq as_ =
-    if Seq.length as_ = 0 then
+  let ofSeq s =
+    if Seq.isEmpty s then
       None
     else
-      Some as_
+      Some s
 
   let tap f a =
     match a with
@@ -71,7 +71,7 @@ module Option =
 
 module Result =
   let ofSeq e s =
-    if Seq.length s = 0 then
+    if Seq.isEmpty s then
       Error e
     else
       Ok s
