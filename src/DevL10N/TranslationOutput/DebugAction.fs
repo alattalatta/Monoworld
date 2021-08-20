@@ -65,7 +65,6 @@ let private writeForMod (modData: ModMetaData) =
   }
 
 
-
 [<DebugAction("Translation", null, allowedGameStates = AllowedGameStates.Entry)>]
 let outputTranslationSource () =
   let activeMods = ModsConfig.ActiveModsInLoadOrder

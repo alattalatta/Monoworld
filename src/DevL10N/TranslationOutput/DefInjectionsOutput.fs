@@ -257,7 +257,8 @@ let private writeFile
           // RimWorld.AI.DutyDef -> DutyDef
           // Infusion.InfusionDef -> Infusion.InfusionDef
           if
-            defNamespace.StartsWith("RimWorld")
+            defNamespace.NullOrEmpty()
+            || defNamespace.StartsWith("RimWorld")
             || defNamespace.StartsWith("Verse")
           then
             defType.Name
