@@ -305,7 +305,7 @@
       <li>
         <key>HuntingStealth</key>
         <value>
-          <offset>2</offset>
+          <offset>0.2</offset>
         </value>
       </li>
     </stats>
