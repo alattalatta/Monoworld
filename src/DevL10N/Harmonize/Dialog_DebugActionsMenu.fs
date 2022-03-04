@@ -40,7 +40,14 @@ module GenerateCacheForMethod =
   // HOW LAZY AM I
   // [todo] Use compiler directives
   let __Prefix (method: MethodInfo, attribute: DebugActionAttribute) =
-    Log.Message(taggify "DebugAction" method.Name (makeLabel (method, attribute)))
+    Log.Message(
+      taggify
+        "DebugAction"
+        method.Name
+        ((makeLabel (method, attribute)).Split('[')
+         |> Seq.head)
+    )
+
     true
 
   let Transpiler (instructions: CodeInstruction seq) =
@@ -49,10 +56,9 @@ module GenerateCacheForMethod =
     // instructions before ldarg.2
     let first, others =
       insts
-      |> List.findIndex
-           (fun inst ->
-             inst.opcode = OpCodes.Ldfld
-             && (inst.operand :?> FieldInfo) = AccessTools.Field(typeof<DebugActionAttribute>, "name"))
+      |> List.findIndex (fun inst ->
+        inst.opcode = OpCodes.Ldfld
+        && (inst.operand :?> FieldInfo) = AccessTools.Field(typeof<DebugActionAttribute>, "name"))
       |> (+) -1
       |> splitFlipped insts
 

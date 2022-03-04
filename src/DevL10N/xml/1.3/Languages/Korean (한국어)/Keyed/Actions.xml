@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
   <DebugAction_AtlasRebuild>아틀라스 재생성</DebugAction_AtlasRebuild>
-  <DebugAction_SetSourcePrecept>Set source precept</DebugAction_SetSourcePrecept>
-  <DebugAction_SetIdeo>Set ideo</DebugAction_SetIdeo>
+  <DebugAction_SetSourcePrecept>StyleSourcePrecept 설정...</DebugAction_SetSourcePrecept>
+  <DebugAction_SetIdeo>사상 설정...</DebugAction_SetIdeo>
+  <DebugAction_ConvertToIdeo>사상으로 교화...</DebugAction_ConvertToIdeo>
   <DebugAction_AddSlave>노예 추가</DebugAction_AddSlave>
   <DebugAction_SuppressionPlus10>제압 +10%</DebugAction_SuppressionPlus10>
   <DebugAction_SuppressionMinus10>제압 -10%</DebugAction_SuppressionMinus10>
@@ -16,12 +17,16 @@
   <DebugAction_CompleteHack>해킹 100%</DebugAction_CompleteHack>
   <DebugAction_Hack10>해킹 +10%</DebugAction_Hack10>
   <DebugAction_DarklightAtPosition>지점의 암광량 표시</DebugAction_DarklightAtPosition>
+  <DebugAction_MaxDevelopmentPoints>개혁 점수 최대로</DebugAction_MaxDevelopmentPoints>
+  <DebugAction_AddDevelopmentPoint>개혁 점수 추가</DebugAction_AddDevelopmentPoint>
+  <DebugAction_ClearDevelopmentPoints>개혁 점수 제거</DebugAction_ClearDevelopmentPoints>
+  <DebugAction_SpawnComplex>Complex 배치...</DebugAction_SpawnComplex>
   <DebugAction_DoTradeCaravanSpecific>거래 상단 도착...</DebugAction_DoTradeCaravanSpecific>
   <DebugAction_ExecuteRaidWithPoints>습격 실행: 포인트...</DebugAction_ExecuteRaidWithPoints>
   <DebugAction_ExecuteRaidWithFaction>습격 실행: 세력...</DebugAction_ExecuteRaidWithFaction>
   <DebugAction_ExecuteRaidWithSpecifics>습격 실행: 세부...</DebugAction_ExecuteRaidWithSpecifics>
   <DebugAction_GenerateMap>지도 생성</DebugAction_GenerateMap>
-  <DebugAction_DestroyMap>지도 제거</DebugAction_DestroyMap>
+  <DebugAction_DestroyMap>지도 제거...</DebugAction_DestroyMap>
   <DebugAction_LeakMap>지도 유출...</DebugAction_LeakMap>
   <DebugAction_PrintLeakedMap>유출한 지도 출력...</DebugAction_PrintLeakedMap>
   <DebugAction_AddGameCondition>상황 추가...</DebugAction_AddGameCondition>
@@ -98,6 +103,7 @@
   <DebugAction_SaveTranslationReport>번역 보고서 저장</DebugAction_SaveTranslationReport>
   <DebugAction_MakeColonyFull>정착지 생성 (모두)</DebugAction_MakeColonyFull>
   <DebugAction_MakeColonyAnimals>정착지 생성 (동물)</DebugAction_MakeColonyAnimals>
+  <DebugAction_MakeColonyAncientJunk>정착지 생성 (고대 폐품)</DebugAction_MakeColonyAncientJunk>
   <DebugAction_TestForceDownedx100>강제 쓰러짐 테스트 x100</DebugAction_TestForceDownedx100>
   <DebugAction_TestForceKillx100>강제 사살 테스트 x100</DebugAction_TestForceKillx100>
   <DebugAction_TestSurgeryFailCatastrophicx100>처참한 수술 실패 테스트 x100</DebugAction_TestSurgeryFailCatastrophicx100>
@@ -257,12 +263,14 @@
   <DebugAction_SpawnWeapon>무기 생성...</DebugAction_SpawnWeapon>
   <DebugAction_SpawnApparel>의류 생성...</DebugAction_SpawnApparel>
   <DebugAction_TryPlaceNearThing>인근에 Thing 생성 시도...</DebugAction_TryPlaceNearThing>
+  <DebugAction_TryPlaceMinifiedThing>포장된 Thing 생성 시도...</DebugAction_TryPlaceMinifiedThing>
   <DebugAction_TryPlaceNearThingWithStyle>인근에 스타일 지정 Thing 생성 시도...</DebugAction_TryPlaceNearThingWithStyle>
   <DebugAction_TryPlaceNearStacksOf25>인근에 25스택 생성 시도...</DebugAction_TryPlaceNearStacksOf25>
   <DebugAction_TryPlaceNearStacksOf75>인근에 75스택 생성 시도...</DebugAction_TryPlaceNearStacksOf75>
   <DebugAction_TryPlaceDirectThing>정확한 지점에 Thing 생성 시도...</DebugAction_TryPlaceDirectThing>
   <DebugAction_TryPlaceDirectStackOf25>정확한 지점에 25스택 생성 시도...</DebugAction_TryPlaceDirectStackOf25>
   <DebugAction_TryPlaceNearMarketValue>시장 가치만큼의 Thing 생성 시도...</DebugAction_TryPlaceNearMarketValue>
+  <DebugAction_CreateMealWithSpecifics>재료를 지정한 식사 생성...</DebugAction_CreateMealWithSpecifics>
   <DebugAction_TryAddToInventory>인벤토리에 생성 시도...</DebugAction_TryAddToInventory>
   <DebugAction_SpawnThingWithWipeMode>WipeMode 사용해 Thing 생성...</DebugAction_SpawnThingWithWipeMode>
   <DebugAction_SetTerrain>지형 설정...</DebugAction_SetTerrain>

@@ -20,7 +20,7 @@ module DoField =
         .ToLower()
         .CapitalizeFirst()
 
-    Log.Message(taggify "" (fi.Name.CapitalizeFirst()) (name.TranslateSimple()))
+    Log.Message(taggify "" (fi.Name.CapitalizeFirst()) (name.TranslateSimple().Split('[') |> Seq.head))
     true
 
   let Transpiler (instructions: CodeInstruction seq) =
@@ -28,10 +28,9 @@ module DoField =
 
     let first, others =
       insts
-      |> List.findIndex
-           (fun inst ->
-             inst.opcode = OpCodes.Call
-             && (inst.operand :?> MethodInfo) = AccessTools.Method(typeof<GenText>, "SplitCamelCase"))
+      |> List.findIndex (fun inst ->
+        inst.opcode = OpCodes.Call
+        && (inst.operand :?> MethodInfo) = AccessTools.Method(typeof<GenText>, "SplitCamelCase"))
       |> splitFlipped insts
 
     // just removing SplitCamelCase() call...

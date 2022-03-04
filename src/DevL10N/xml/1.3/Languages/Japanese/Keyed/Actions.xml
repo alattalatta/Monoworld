@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <DebugAction_AtlasRebuild>アトラス 再構築</DebugAction_AtlasRebuild>
-  <DebugAction_SetSourcePrecept>設定 戒律ソース</DebugAction_SetSourcePrecept>
-  <DebugAction_SetIdeo>設定 Ideo</DebugAction_SetIdeo>
+  <DebugAction_SetSourcePrecept>設定 戒律ソース...</DebugAction_SetSourcePrecept>
+  <DebugAction_SetIdeo>設定 Ideo...</DebugAction_SetIdeo>
+  <DebugAction_ConvertToIdeo>Convert to Ideo...</DebugAction_ConvertToIdeo>
   <DebugAction_AddSlave>追加 奴隷</DebugAction_AddSlave>
   <DebugAction_SuppressionPlus10>抑制 +10%</DebugAction_SuppressionPlus10>
   <DebugAction_SuppressionMinus10>抑制 -10%</DebugAction_SuppressionMinus10>
@@ -16,12 +17,16 @@
   <DebugAction_CompleteHack>ハック 100%</DebugAction_CompleteHack>
   <DebugAction_Hack10>ハック +10%</DebugAction_Hack10>
   <DebugAction_DarklightAtPosition>暗闇の位置</DebugAction_DarklightAtPosition>
+  <DebugAction_MaxDevelopmentPoints>Max development point</DebugAction_MaxDevelopmentPoints>
+  <DebugAction_AddDevelopmentPoint>Add development point</DebugAction_AddDevelopmentPoint>
+  <DebugAction_ClearDevelopmentPoints>Clear development points</DebugAction_ClearDevelopmentPoints>
+  <DebugAction_SpawnComplex>Spawn Complex...</DebugAction_SpawnComplex>
   <DebugAction_DoTradeCaravanSpecific>トレーダーを到着実行...</DebugAction_DoTradeCaravanSpecific>
   <DebugAction_ExecuteRaidWithPoints>ポイントで襲撃を実行...</DebugAction_ExecuteRaidWithPoints>
   <DebugAction_ExecuteRaidWithFaction>派閥で襲撃を実行...</DebugAction_ExecuteRaidWithFaction>
   <DebugAction_ExecuteRaidWithSpecifics>詳細指定して襲撃を実行...</DebugAction_ExecuteRaidWithSpecifics>
   <DebugAction_GenerateMap>マップを生成</DebugAction_GenerateMap>
-  <DebugAction_DestroyMap>マップを破壊</DebugAction_DestroyMap>
+  <DebugAction_DestroyMap>マップを破壊...</DebugAction_DestroyMap>
   <DebugAction_LeakMap>マップをリーク...</DebugAction_LeakMap>
   <DebugAction_PrintLeakedMap>リークマップを出力...</DebugAction_PrintLeakedMap>
   <DebugAction_AddGameCondition>ゲーム条件を追加...</DebugAction_AddGameCondition>
@@ -98,6 +103,7 @@
   <DebugAction_SaveTranslationReport>翻訳レポートを保存</DebugAction_SaveTranslationReport>
   <DebugAction_MakeColonyFull>コロニーを生成(完全)</DebugAction_MakeColonyFull>
   <DebugAction_MakeColonyAnimals>コロニーを生成(動物)</DebugAction_MakeColonyAnimals>
+  <DebugAction_MakeColonyAncientJunk>Make colony (ancient junk)</DebugAction_MakeColonyAncientJunk>
   <DebugAction_TestForceDownedx100>テスト:強制転倒 x100</DebugAction_TestForceDownedx100>
   <DebugAction_TestForceKillx100>テスト:強制殺害 x100</DebugAction_TestForceKillx100>
   <DebugAction_TestSurgeryFailCatastrophicx100>テスト:手術失敗 致命的 x100</DebugAction_TestSurgeryFailCatastrophicx100>
@@ -257,12 +263,15 @@
   <DebugAction_SpawnWeapon>生成 武器...</DebugAction_SpawnWeapon>
   <DebugAction_SpawnApparel>生成 衣服...</DebugAction_SpawnApparel>
   <DebugAction_TryPlaceNearThing>生成 付近にThing...</DebugAction_TryPlaceNearThing>
+  <DebugAction_TryPlaceMinifiedThing>Try place minified Thing...</DebugAction_TryPlaceMinifiedThing>
   <DebugAction_TryPlaceNearThingWithStyle>生成 付近にThing(スタイル付)...</DebugAction_TryPlaceNearThingWithStyle>
+  <DebugAction_TryPlaceMinifiedThing>Try place minified thing...</DebugAction_TryPlaceMinifiedThing>
   <DebugAction_TryPlaceNearStacksOf25>生成 付近にスタック x25...</DebugAction_TryPlaceNearStacksOf25>
   <DebugAction_TryPlaceNearStacksOf75>生成 付近にスタック x75...</DebugAction_TryPlaceNearStacksOf75>
   <DebugAction_TryPlaceDirectThing>生成 直接Thing...</DebugAction_TryPlaceDirectThing>
   <DebugAction_TryPlaceDirectStackOf25>生成 直接Thing x25...</DebugAction_TryPlaceDirectStackOf25>
   <DebugAction_TryPlaceNearMarketValue>生成 付近にスタック(市場価格)...</DebugAction_TryPlaceNearMarketValue>
+  <DebugAction_CreateMealWithSpecifics>Create meal with specifics...</DebugAction_CreateMealWithSpecifics>
   <DebugAction_TryAddToInventory>生成 インベントリに追加...</DebugAction_TryAddToInventory>
   <DebugAction_SpawnThingWithWipeMode>生成 Thing(排他モード)...</DebugAction_SpawnThingWithWipeMode>
   <DebugAction_SetTerrain>生成 地形...</DebugAction_SetTerrain>
