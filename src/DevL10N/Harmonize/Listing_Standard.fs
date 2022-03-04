@@ -15,7 +15,7 @@ module ButtonDebug =
     end
 
   // __translated__Destroy[Destroy] => __translated_Destroy
-  let private makeLabel (label: string) = (label.Split('[')) |> Seq.head
+  let private makeLabel (label: string) = (label.Split('{')) |> Seq.head
 
   // hides the original label
   let Transpiler (instructions: CodeInstruction seq) =

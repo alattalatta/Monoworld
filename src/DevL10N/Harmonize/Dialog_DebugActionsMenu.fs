@@ -21,7 +21,7 @@ let translatableFromMethodInfo (attrName: string) (mi: MethodInfo) =
       else
         attrName
 
-    sprintf "%s[%s]" (("DebugAction_" + mi.Name).TranslateSimple()) originalLabel
+    sprintf "%s{%s}" (("DebugAction_" + mi.Name).TranslateSimple()) originalLabel
 
   else if attrName.NullOrEmpty() then
     GenText.SplitCamelCase mi.Name
@@ -44,7 +44,7 @@ module GenerateCacheForMethod =
       taggify
         "DebugAction"
         method.Name
-        ((makeLabel (method, attribute)).Split('[')
+        ((makeLabel (method, attribute)).Split('{')
          |> Seq.head)
     )
 
