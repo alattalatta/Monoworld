@@ -11,6 +11,8 @@ open DevL10N.Lib
 
 [<HarmonyPatch(typeof<Dialog_DebugSettingsMenu>, "DoField")>]
 module DoField =
+  // HOW LAZY AM I
+  // [todo] Use compiler directives
   let __Prefix (fi: FieldInfo) =
     let name =
       GenText

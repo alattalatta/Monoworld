@@ -40,12 +40,6 @@ module GenerateCacheForMethod =
   // HOW LAZY AM I
   // [todo] Use compiler directives
   let __Prefix (method: MethodInfo, attribute: DebugActionAttribute) =
-    let name =
-      if attribute.name.NullOrEmpty() then
-        GenText.SplitCamelCase(method.Name)
-      else
-        attribute.name
-
     Log.Message(taggify "DebugAction" method.Name (makeLabel (method, attribute)))
     true
 
