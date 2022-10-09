@@ -1,10 +1,7 @@
 .fake
-.ionide
-paket-files
-
+.vs
 libs
-.fake
-.ionide
+paket-files
 
 bin
 obj
