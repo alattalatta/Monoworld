@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
-    <DebugMenu_Logs>Open the debug log.</DebugMenu_Logs>
-    <DebugMenu_TweakValues>Open TweakValues menu.\n\nThis lets you change internal values.</DebugMenu_TweakValues>
-    <DebugMenu_ViewSettings>Open the view settings.\n\nThis lets you see special debug visuals.</DebugMenu_ViewSettings>
-    <DebugMenu_DebugActions>Open debug actions menu.\n\nThis lets you spawn items and force various events.</DebugMenu_DebugActions>
-    <DebugMenu_DebugLogging>Open debug logging menu.</DebugMenu_DebugLogging>
-    <DebugMenu_Inspector>Open the inspector.\n\nThis lets you inspect what's happening in the game, down to individual variables.</DebugMenu_Inspector>
-    <DebugMenu_GodMode>Toggle god mode.\n\nWhen god mode is on, you can build stuff instantly, for free, and deconstruct things that aren't yours.</DebugMenu_GodMode>
-    <DebugMenu_PauseOnError>Pause the game when an error is logged.</DebugMenu_PauseOnError>
+  <DebugMenu_Logs>Open the debug log.</DebugMenu_Logs>
+  <DebugMenu_TweakValues>Open TweakValues menu.\n\nThis lets you change internal values.</DebugMenu_TweakValues>
+  <DebugMenu_ViewSettings>Open the view settings.\n\nThis lets you see special debug visuals.</DebugMenu_ViewSettings>
+  <DebugMenu_DebugActions>Open debug actions menu.\n\nThis lets you spawn items and force various events.</DebugMenu_DebugActions>
+  <DebugMenu_DebugLogging>Open debug logging menu.</DebugMenu_DebugLogging>
+  <DebugMenu_Inspector>Open the inspector.\n\nThis lets you inspect what's happening in the game, down to individual variables.</DebugMenu_Inspector>
+  <DebugMenu_GodMode>Toggle god mode.\n\nWhen god mode is on, you can build stuff instantly, for free, and deconstruct things that aren't yours.</DebugMenu_GodMode>
+  <DebugMenu_DevPalette>Toggle the dev palette.\n\nAllows you to setup a palette of debug actions for ease of use.</DebugMenu_DevPalette>
+  <DebugMenu_PauseOnError>Pause the game when an error is logged.</DebugMenu_PauseOnError>
 </LanguageData>

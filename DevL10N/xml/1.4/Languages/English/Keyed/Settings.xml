@@ -5,6 +5,7 @@
   <EnableRandomMentalStates>Enable random mental states</EnableRandomMentalStates>
   <EnableStoryteller>Enable storyteller</EnableStoryteller>
   <EnableRandomDiseases>Enable random diseases</EnableRandomDiseases>
+  <DevPalette>Developer palette</DevPalette>
   <NoAnimals>No animals</NoAnimals>
   <UnlimitedPower>Unlimited power</UnlimitedPower>
   <PathThroughWalls>Path through walls</PathThroughWalls>
@@ -14,16 +15,23 @@
   <DetectRegionListersBugs>Detect RegionListers bugs</DetectRegionListersBugs>
   <InstantVisitorsGift>Instant visitors gift</InstantVisitorsGift>
   <LowFPS>Low FPS</LowFPS>
+  <!-- TODO -->
+  <AllowUndraftedMechOrders>Allow undrafted Mechanoid orders</AllowUndraftedMechOrders>
+  <EditableGlowerColors>Editable glower colors without research</EditableGlowerColors>
   <FastResearch>Fast research</FastResearch>
   <FastLearning>Fast learning</FastLearning>
   <FastEcology>Fast ecology</FastEcology>
   <FastEcologyRegrowRateOnly>Fast ecology (regrow rate only)</FastEcologyRegrowRateOnly>
   <FastCrafting>Fast crafting</FastCrafting>
   <FastCaravans>Fast caravans</FastCaravans>
+  <FastMapUnpollution>Fast map unpollution</FastMapUnpollution>
   <ActivateAllBuildingDemands>Activate all building demands</ActivateAllBuildingDemands>
   <ActivateAllIdeoRoles>Activate all ideo roles</ActivateAllIdeoRoles>
   <ShowLocomotionUrgency>Show LocomotionUrgency</ShowLocomotionUrgency>
   <PlayRitualAmbience>Play ritual ambience sound</PlayRitualAmbience>
+  <SimulateUsingSteamDeck>Simulate Steam Deck</SimulateUsingSteamDeck>
+  <LogRaidInfo>Log raid info</LogRaidInfo>
+  <LogTranslationLookupErrors>Log translation lookup errors</LogTranslationLookupErrors>
   <DrawFog>Draw fog</DrawFog>
   <DrawSnow>Draw snow</DrawSnow>
   <DrawTerrain>Draw terrain</DrawTerrain>
@@ -33,6 +41,7 @@
   <DrawShadows>Draw shadows</DrawShadows>
   <DrawLightingOverlay>Draw lighting overlay</DrawLightingOverlay>
   <DrawWorldOverlays>Draw world overlays</DrawWorldOverlays>
+  <DrawGas>Draw gas</DrawGas>
   <DrawPaths>Draw paths</DrawPaths>
   <DrawCastPositionSearch>Draw cast position search</DrawCastPositionSearch>
   <DrawDestSearch>Draw destination search</DrawDestSearch>
@@ -70,6 +79,10 @@
   <DrawDoorsDebug>Draw doors debug</DrawDoorsDebug>
   <DrawDestReservations>Draw dest reservations</DrawDestReservations>
   <DrawDamageRects>Draw damage rects</DrawDamageRects>
+  <!-- TODO -->
+  <DrawDissolutionCells>Draw dissolution cells</DrawDissolutionCells>
+  <!-- TODO -->
+  <DrawUnpollutionCells>Draw unpollution cells</DrawUnpollutionCells>
   <WriteGame>Inspect Game</WriteGame>
   <WriteSteamItems>Inspect Steam items</WriteSteamItems>
   <WriteConcepts>Inspect Concepts</WriteConcepts>
@@ -125,4 +138,5 @@
   <ShowAllRoomStats>Show all room stats</ShowAllRoomStats>
   <ShowFloatMenuWorkGivers>Show float menu WorkGivers</ShowFloatMenuWorkGivers>
   <NeverForceNormalSpeed>Never force normal speed</NeverForceNormalSpeed>
+  <ShowArchitectMenuOrder>Show architect menu button order</ShowArchitectMenuOrder>
 </LanguageData>
