@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <DebugAction_outputTranslationSource>번역 원본 작성</DebugAction_outputTranslationSource>
+  <DevL10N.TranslationOutput.Writing>번역 원본 작성 중</DevL10N.TranslationOutput.Writing>
+  <DevL10N.TranslationOutput.SavedTo>추출 결과를 {0}에 저장했습니다.</DevL10N.TranslationOutput.SavedTo>
+  <DevL10N.TranslationOutput.ExtraItemsFromLanguage>(추가한 항목 {0}개)</DevL10N.TranslationOutput.ExtraItemsFromLanguage>
+  <DevL10N.TranslationOutput.RemovedItemsFromLanguage>(항목 {0}개 미사용)</DevL10N.TranslationOutput.RemovedItemsFromLanguage>
+</LanguageData>
