@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <DebugAction_DestroyAllPlants>植物全て破壊</DebugAction_DestroyAllPlants>
+  <DebugAction_DestroyAllThings>物品全て破壊</DebugAction_DestroyAllThings>
+  <DebugAction_DestroyClutter>汚れ全て破壊</DebugAction_DestroyClutter>
+  <DebugAction_FinishAllResearch>研究全て完了</DebugAction_FinishAllResearch>
+  <DebugAction_ReplaceAllTradeShips>トレード船入替</DebugAction_ReplaceAllTradeShips>
+  <DebugAction_ChangeWeather>天気を変更...</DebugAction_ChangeWeather>
+  <DebugAction_PlaySong>曲を再生...</DebugAction_PlaySong>
+  <DebugAction_PlaySound>音を再生...</DebugAction_PlaySound>
+  <DebugAction_EndGameCondition>ゲーム終了条件...</DebugAction_EndGameCondition>
+  <DebugAction_AddPrisoner>囚人を追加</DebugAction_AddPrisoner>
+  <DebugAction_AddGuest>客を追加</DebugAction_AddGuest>
+  <DebugAction_ForceEnemyAssault>敵の襲撃強制</DebugAction_ForceEnemyAssault>
+  <DebugAction_ForceEnemyFlee>敵の逃亡強制</DebugAction_ForceEnemyFlee>
+  <DebugAction_AdaptionProgress10Days>StoryWatcher適用を10日間経過</DebugAction_AdaptionProgress10Days>
+  <DebugAction_UnloadUnusedAssets>未使用アセットを外す</DebugAction_UnloadUnusedAssets>
+  <DebugAction_NameSettlement>コロニー命名...</DebugAction_NameSettlement>
+  <DebugAction_NextLesson>次のレッスン</DebugAction_NextLesson>
+  <DebugAction_RegenAllMapMeshSections>全地図メッシュ部分再生成</DebugAction_RegenAllMapMeshSections>
+  <DebugAction_ChangeCameraConfig>カメラ設定変更...</DebugAction_ChangeCameraConfig>
+  <DebugAction_ForceShipCountdown>船による脱出を強制</DebugAction_ForceShipCountdown>
+  <DebugAction_ForceStartShip>宇宙船発射を強制</DebugAction_ForceStartShip>
+  <DebugAction_FlashTradeDropSpot>トレード投下地点を表示</DebugAction_FlashTradeDropSpot>
+  <DebugAction_KillFactionLeader>派閥リーダー死亡</DebugAction_KillFactionLeader>
+  <DebugAction_KillKidnappedPawn>誘拐されたポーン死亡</DebugAction_KillKidnappedPawn>
+  <DebugAction_SetFactionRelations>派閥関係を設定</DebugAction_SetFactionRelations>
+  <DebugAction_VisitorGift>訪問者の貢ぎ物</DebugAction_VisitorGift>
+  <DebugAction_RefogMap>マップを再未発見化</DebugAction_RefogMap>
+  <DebugAction_UseGenStep>状況を生成...</DebugAction_UseGenStep>
+  <DebugAction_IncrementTime1Hour>時間を1時間経過</DebugAction_IncrementTime1Hour>
+  <DebugAction_IncrementTime6Hours>時間を6時間経過</DebugAction_IncrementTime6Hours>
+  <DebugAction_IncrementTime1Day>時間を1日経過</DebugAction_IncrementTime1Day>
+  <DebugAction_IncrementTime1Season>時間を1季節経過</DebugAction_IncrementTime1Season>
+  <DebugAction_StorywatcherTick1Day>StoryWatcherのtickを1日経過</DebugAction_StorywatcherTick1Day>
+  <DebugAction_AddTechprintsForProject>研究にテックプリント追加...</DebugAction_AddTechprintsForProject>
+  <DebugAction_ApplyTechprintsForProject>研究にテックプリント適用...</DebugAction_ApplyTechprintsForProject>
+  <DebugAction_KillRandomLentColonist>ランダムな貸出入植者死亡</DebugAction_KillRandomLentColonist>
+  <DebugAction_DestroyAllHats>帽子を全て破壊</DebugAction_DestroyAllHats>
+  <DebugAction_PawnKindApparelCheck>PawnKindの衣服確認...</DebugAction_PawnKindApparelCheck>
+  <DebugAction_PawnKindAbilityCheck>PawnKindの能力確認...</DebugAction_PawnKindAbilityCheck>
+
+</LanguageData>

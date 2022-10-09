@@ -4,6 +4,7 @@
     <TargetFramework>net472</TargetFramework>
     <Name>Poet</Name>
     <Version>4.9.1</Version>
+    <ProjectGuid>{ffd3d706-a9ba-455c-a640-1f4bde05ea5f}</ProjectGuid>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="netstandard" />
@@ -18,7 +19,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Lib.fs" />
-    <Compile Include="Lyric.Comp.fs" />
     <Compile Include="Lyric.Console.fs" />
     <Compile Include="Lyric.DamageInfo.fs" />
     <Compile Include="Lyric.Pawn.fs" />

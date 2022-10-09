@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<LanguageData>
-  <DebugAction_outputTranslationSource>翻訳作業用ファイルを出力</DebugAction_outputTranslationSource>
-  <DevL10N.TranslationOutput.Writing>翻訳作業用ファイルを出力中</DevL10N.TranslationOutput.Writing>
-  <DevL10N.TranslationOutput.SavedTo>翻訳作業用ファイルを{0}に保存しました.</DevL10N.TranslationOutput.SavedTo>
-  <DevL10N.TranslationOutput.ExtraItemsFromLanguage>(追加項目{0}個)</DevL10N.TranslationOutput.ExtraItemsFromLanguage>
-  <DevL10N.TranslationOutput.RemovedItemsFromLanguage>(未使用項目を{0}個除去)</DevL10N.TranslationOutput.RemovedItemsFromLanguage>
-
-</LanguageData>

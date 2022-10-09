@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <DebugAction_AtlasRebuild>Atlas Rebuild</DebugAction_AtlasRebuild>
+  <DebugAction_SetSourcePrecept>Set StyleSourcePrecept...</DebugAction_SetSourcePrecept>
+  <DebugAction_SetIdeo>Set Ideo...</DebugAction_SetIdeo>
+  <DebugAction_ConvertToIdeo>Convert to Ideo...</DebugAction_ConvertToIdeo>
+  <DebugAction_AddSlave>Add Slave</DebugAction_AddSlave>
+  <DebugAction_SuppressionPlus10>Suppression +10%</DebugAction_SuppressionPlus10>
+  <DebugAction_SuppressionMinus10>Suppression -10%</DebugAction_SuppressionMinus10>
+  <DebugAction_ResetSuppresionSchedule>Clear suppression schedule</DebugAction_ResetSuppresionSchedule>
+  <DebugAction_WillPlus1>Will +1</DebugAction_WillPlus1>
+  <DebugAction_WillMinus1>Will -1</DebugAction_WillMinus1>
+  <DebugAction_StartSlaveRebellion>Start slave rebellion (random)</DebugAction_StartSlaveRebellion>
+  <DebugAction_StartSlaveRebellionAggressive>Start slave rebellion (aggressive)</DebugAction_StartSlaveRebellionAggressive>
+  <DebugAction_ChangeStyle>Change style</DebugAction_ChangeStyle>
+  <DebugAction_RequestStyleChange>Request style change</DebugAction_RequestStyleChange>
+  <DebugAction_CompleteHack>Hack 100%</DebugAction_CompleteHack>
+  <DebugAction_Hack10>Hack +10%</DebugAction_Hack10>
+  <DebugAction_DarklightAtPosition>Darklight at position</DebugAction_DarklightAtPosition>
+  <DebugAction_MaxDevelopmentPoints>Max development point</DebugAction_MaxDevelopmentPoints>
+  <DebugAction_AddDevelopmentPoint>Add development point</DebugAction_AddDevelopmentPoint>
+  <DebugAction_ClearDevelopmentPoints>Clear development points</DebugAction_ClearDevelopmentPoints>
+  <DebugAction_SpawnComplex>Spawn Complex...</DebugAction_SpawnComplex>
+  <DebugAction_DoTradeCaravanSpecific>Do trade caravan arrival...</DebugAction_DoTradeCaravanSpecific>
+  <DebugAction_ExecuteRaidWithPoints>Execute raid with points...</DebugAction_ExecuteRaidWithPoints>
+  <DebugAction_ExecuteRaidWithFaction>Execute raid with faction...</DebugAction_ExecuteRaidWithFaction>
+  <DebugAction_ExecuteRaidWithSpecifics>Execute raid with specifics...</DebugAction_ExecuteRaidWithSpecifics>
+  <DebugAction_GenerateMap>Generate map</DebugAction_GenerateMap>
+  <DebugAction_DestroyMap>Destroy map...</DebugAction_DestroyMap>
+  <DebugAction_LeakMap>Leak map...</DebugAction_LeakMap>
+  <DebugAction_PrintLeakedMap>Print leaked map...</DebugAction_PrintLeakedMap>
+  <DebugAction_AddGameCondition>Add game condition...</DebugAction_AddGameCondition>
+  <DebugAction_RemoveGameCondition>Remove game condition...</DebugAction_RemoveGameCondition>
+  <DebugAction_Transfer>Transfer to another map...</DebugAction_Transfer>
+  <DebugAction_ChangeMap>Change map...</DebugAction_ChangeMap>
+  <DebugAction_RegenerateCurrentMap>Regenerate current map</DebugAction_RegenerateCurrentMap>
+  <DebugAction_GenerateMapWithCaves>Generate map with caves</DebugAction_GenerateMapWithCaves>
+  <DebugAction_RunMapGenerator>Run MapGenerator...</DebugAction_RunMapGenerator>
+  <DebugAction_ForceReformInCurrentMap>Force reform in current map</DebugAction_ForceReformInCurrentMap>
+  <DebugAction_DestroyAllPlants>Destroy all plants</DebugAction_DestroyAllPlants>
+  <DebugAction_DestroyAllThings>Destroy all Things</DebugAction_DestroyAllThings>
+  <DebugAction_DestroyClutter>Destroy all clutter</DebugAction_DestroyClutter>
+  <DebugAction_FinishAllResearch>Finish all research</DebugAction_FinishAllResearch>
+  <DebugAction_ReplaceAllTradeShips>Replace all trade ships</DebugAction_ReplaceAllTradeShips>
+  <DebugAction_AddTradeShipOfKind>Add a trade ship of a kind...</DebugAction_AddTradeShipOfKind>
+  <DebugAction_ChangeWeather>Change weather...</DebugAction_ChangeWeather>
+  <DebugAction_PlaySong>Play song...</DebugAction_PlaySong>
+  <DebugAction_PlaySound>Play sound...</DebugAction_PlaySound>
+  <DebugAction_EndGameCondition>End game condition...</DebugAction_EndGameCondition>
+  <DebugAction_AddPrisoner>Add prisoner</DebugAction_AddPrisoner>
+  <DebugAction_AddGuest>Add guest</DebugAction_AddGuest>
+  <DebugAction_ForceEnemyAssault>Force enemy assault</DebugAction_ForceEnemyAssault>
+  <DebugAction_ForceEnemyFlee>Force enemy flee</DebugAction_ForceEnemyFlee>
+  <DebugAction_AdaptionProgress10Days>StoryWatcher adaption progress 10 days</DebugAction_AdaptionProgress10Days>
+  <DebugAction_UnloadUnusedAssets>Unload unused assets</DebugAction_UnloadUnusedAssets>
+  <DebugAction_NameSettlement>Name settlement...</DebugAction_NameSettlement>
+  <DebugAction_NextLesson>Next lesson</DebugAction_NextLesson>
+  <DebugAction_RegenAllMapMeshSections>Regen all map mesh sections</DebugAction_RegenAllMapMeshSections>
+  <DebugAction_ChangeCameraConfig>Change camera config...</DebugAction_ChangeCameraConfig>
+  <DebugAction_ForceShipCountdown>Force ship countdown</DebugAction_ForceShipCountdown>
+  <DebugAction_ForceStartShip>Force start ship</DebugAction_ForceStartShip>
+  <DebugAction_FlashTradeDropSpot>Flash trade drop spot</DebugAction_FlashTradeDropSpot>
+  <DebugAction_MakeFactionLeader>Make faction leader</DebugAction_MakeFactionLeader>
+  <DebugAction_KillFactionLeader>Kill faction leader</DebugAction_KillFactionLeader>
+  <DebugAction_KillKidnappedPawn>Kill kidnapped Pawn</DebugAction_KillKidnappedPawn>
+  <DebugAction_KillWorldPawn>Kill world Pawn</DebugAction_KillWorldPawn>
+  <DebugAction_SetFactionRelations>Set faction relations</DebugAction_SetFactionRelations>
+  <DebugAction_VisitorGift>Visitor gift</DebugAction_VisitorGift>
+  <DebugAction_RefogMap>Refog map</DebugAction_RefogMap>
+  <DebugAction_UseGenStep>Use GenStep...</DebugAction_UseGenStep>
+  <DebugAction_IncrementTime1Hour>Increment time 1 hour</DebugAction_IncrementTime1Hour>
+  <DebugAction_IncrementTime6Hours>Increment time 6 hours</DebugAction_IncrementTime6Hours>
+  <DebugAction_IncrementTime12Hours>Increment time 12 hours</DebugAction_IncrementTime12Hours>
+  <DebugAction_IncrementTime1Day>Increment time 1 day</DebugAction_IncrementTime1Day>
+  <DebugAction_IncrementTime1Season>Increment time 1 season</DebugAction_IncrementTime1Season>
+  <DebugAction_StorywatcherTick1Day>StoryWatcher tick 1 day</DebugAction_StorywatcherTick1Day>
+  <DebugAction_AddTechprintsForProject>Add techprints to project...</DebugAction_AddTechprintsForProject>
+  <DebugAction_ApplyTechprintsForProject>Apply techprints on project...</DebugAction_ApplyTechprintsForProject>
+  <DebugAction_KillRandomLentColonist>Kill random lent colonist</DebugAction_KillRandomLentColonist>
+  <DebugAction_DestroyAllHats>Destroy all hats</DebugAction_DestroyAllHats>
+  <DebugAction_PawnKindApparelCheck>PawnKind apparel check...</DebugAction_PawnKindApparelCheck>
+  <DebugAction_DumpPawnAtlases>Dump Pawn atlases</DebugAction_DumpPawnAtlases>
+  <DebugAction_DumpStaticAtlases>Dump static atlases</DebugAction_DumpStaticAtlases>
+  <DebugAction_PawnKindAbilityCheck>PawnKind ability check...</DebugAction_PawnKindAbilityCheck>
+  <DebugAction_ClearPrisonerInteractionSchedule>Clear prisoner interaction schedule</DebugAction_ClearPrisonerInteractionSchedule>
+  <DebugAction_GlowAtPosition>Display glow at position</DebugAction_GlowAtPosition>
+  <DebugAction_HSVAtPosition>Display HSV at position</DebugAction_HSVAtPosition>
+  <DebugAction_FillMapWithTrees>Fill map with trees</DebugAction_FillMapWithTrees>
+  <DebugAction_FlashBlockedLandingCells>Flash blocked landing cells</DebugAction_FlashBlockedLandingCells>
+  <DebugAction_LoadedFilesForMod>List loaded files for mod...</DebugAction_LoadedFilesForMod>
+  <DebugAction_GenerateQuest>Generate quest...</DebugAction_GenerateQuest>
+  <DebugAction_GenerateQuests10>Generate quest x10...</DebugAction_GenerateQuests10>
+  <DebugAction_GenerateQuests30>Generate quest x30...</DebugAction_GenerateQuests30>
+  <DebugAction_GenerateQuestsSamples>Generate quests (1 for each points)...</DebugAction_GenerateQuestsSamples>
+  <DebugAction_TestQuestPart>Test QuestPart...</DebugAction_TestQuestPart>
+  <DebugAction_QuestExample>Log generated quest savedata</DebugAction_QuestExample>
+  <DebugAction_Award4RoyalFavor>Award 4 honor</DebugAction_Award4RoyalFavor>
+  <DebugAction_Award10RoyalFavor>Award 10 honor</DebugAction_Award10RoyalFavor>
+  <DebugAction_Remove4RoyalFavor>Remove 4 honor</DebugAction_Remove4RoyalFavor>
+  <DebugAction_ReduceRoyalTitle>Reduce royal title</DebugAction_ReduceRoyalTitle>
+  <DebugAction_SetTitleForced>Set royal title...</DebugAction_SetTitleForced>
+  <DebugAction_WriteBackstoryTranslationFile>Write backstory translation file</DebugAction_WriteBackstoryTranslationFile>
+  <DebugAction_SaveTranslationReport>Save translation report</DebugAction_SaveTranslationReport>
+  <DebugAction_MakeColonyFull>Make colony (full)</DebugAction_MakeColonyFull>
+  <DebugAction_MakeColonyAnimals>Make colony (animals)</DebugAction_MakeColonyAnimals>
+  <DebugAction_MakeColonyAncientJunk>Make colony (ancient junk)</DebugAction_MakeColonyAncientJunk>
+  <DebugAction_TestForceDownedx100>Test force downed x100</DebugAction_TestForceDownedx100>
+  <DebugAction_TestForceKillx100>Test force kill x100</DebugAction_TestForceKillx100>
+  <DebugAction_TestSurgeryFailCatastrophicx100>Test surgery fail catastrophic x100</DebugAction_TestSurgeryFailCatastrophicx100>
+  <DebugAction_TestSurgeryFailRidiculousx100>Test surgery fail ridiculous x100</DebugAction_TestSurgeryFailRidiculousx100>
+  <DebugAction_TestGeneratePawnx1000>Test generate pawn x1000</DebugAction_TestGeneratePawnx1000>
+  <DebugAction_GeneratePawnsOfAllShapes>Generate Pawns of all shapes</DebugAction_GeneratePawnsOfAllShapes>
+  <DebugAction_CheckRegionListers>Check RegionListers</DebugAction_CheckRegionListers>
+  <DebugAction_TestTimeToDown>Test time-to-down</DebugAction_TestTimeToDown>
+  <DebugAction_BattleRoyaleAllPawnKinds>Battle Royale all PawnKinds</DebugAction_BattleRoyaleAllPawnKinds>
+  <DebugAction_BattleRoyaleHumanlikes>Battle Royale humanlikes</DebugAction_BattleRoyaleHumanlikes>
+  <DebugAction_BattleRoyaleByDamagetype>Battle Royale by damage type</DebugAction_BattleRoyaleByDamagetype>
+  <DebugAction_Destroy>Destroy</DebugAction_Destroy>
+  <DebugAction_Discard>Discard</DebugAction_Discard>
+  <DebugAction_Kill>Kill</DebugAction_Kill>
+  <DebugAction_Take10Damage>10 damage</DebugAction_Take10Damage>
+  <DebugAction_Take5000Damage>5000 damage</DebugAction_Take5000Damage>
+  <DebugAction_RotateClockwise>Rotate clockwise</DebugAction_RotateClockwise>
+  <DebugAction_RotateCounterClockwise>Rotate counterclockwise</DebugAction_RotateCounterClockwise>
+  <DebugAction_ClearArea21x21>Clear area 21x21</DebugAction_ClearArea21x21>
+  <DebugAction_Rock21x21>Make rock 11x11</DebugAction_Rock21x21>
+  <DebugAction_ExplosionBomb>Explosion (bomb)</DebugAction_ExplosionBomb>
+  <DebugAction_ExplosionFlame>Explosion (flame)</DebugAction_ExplosionFlame>
+  <DebugAction_ExplosionStun>Explosion (stun)</DebugAction_ExplosionStun>
+  <DebugAction_ExplosionEMP>Explosion (EMP)</DebugAction_ExplosionEMP>
+  <DebugAction_ExplosionExtinguisher>Explosion (extinguisher)</DebugAction_ExplosionExtinguisher>
+  <DebugAction_ExplosionSmoke>Explosion (smoke)</DebugAction_ExplosionSmoke>
+  <DebugAction_LightningStrike>Lightning strike</DebugAction_LightningStrike>
+  <DebugAction_AddSnow>Add snow</DebugAction_AddSnow>
+  <DebugAction_RemoveSnow>Remove snow</DebugAction_RemoveSnow>
+  <DebugAction_ClearAllSnow>Clear all snow</DebugAction_ClearAllSnow>
+  <DebugAction_PushHeat10>Push heat (10)</DebugAction_PushHeat10>
+  <DebugAction_PushHeat1000>Push heat (1000)</DebugAction_PushHeat1000>
+  <DebugAction_PushHeatNeg1000>Push heat (-1000)</DebugAction_PushHeatNeg1000>
+  <DebugAction_FinishPlantGrowth>Finish plant growth</DebugAction_FinishPlantGrowth>
+  <DebugAction_Grow1Day>Grow 1 day</DebugAction_Grow1Day>
+  <DebugAction_GrowToMaturity>Grow to maturity</DebugAction_GrowToMaturity>
+  <DebugAction_RegenSection>Regen section</DebugAction_RegenSection>
+  <DebugAction_SetColor>Set color</DebugAction_SetColor>
+  <DebugAction_RandomizeColor>Randomize color</DebugAction_RandomizeColor>
+  <DebugAction_Rot1Day>Rot 1 day</DebugAction_Rot1Day>
+  <DebugAction_ForceSleep>Force sleep</DebugAction_ForceSleep>
+  <DebugAction_FuelRemove20Percent>Fuel -20%</DebugAction_FuelRemove20Percent>
+  <DebugAction_BreakDown>Break down</DebugAction_BreakDown>
+  <DebugAction_UseScatterer>Use Scatterer...</DebugAction_UseScatterer>
+  <DebugAction_BaseGen>Use BaseGen...</DebugAction_BaseGen>
+  <DebugAction_SketchGen>Use SketchGen...</DebugAction_SketchGen>
+  <DebugAction_MakeRoof>Make roof</DebugAction_MakeRoof>
+  <DebugAction_DeleteRoof>Delete roof</DebugAction_DeleteRoof>
+  <DebugAction_TestFloodUnfog>Test flood unfog</DebugAction_TestFloodUnfog>
+  <DebugAction_FlashClosewalkCell30>Flash Closewalk cell 30 radius</DebugAction_FlashClosewalkCell30>
+  <DebugAction_FlashWalkPath>Flash walk path</DebugAction_FlashWalkPath>
+  <DebugAction_FlashSkygazeCell>Flash skygaze cell</DebugAction_FlashSkygazeCell>
+  <DebugAction_FlashDirectFleeDest>Flash direct flee destination</DebugAction_FlashDirectFleeDest>
+  <DebugAction_FlashSpectatorsCells>Flash SpectatorCells</DebugAction_FlashSpectatorsCells>
+  <DebugAction_CheckReachability>Check reachability</DebugAction_CheckReachability>
+  <DebugAction_FlashTryFindRandomPawnExitCell>Flash TryFindRandomPawnExitCell</DebugAction_FlashTryFindRandomPawnExitCell>
+  <DebugAction_RandomSpotJustOutsideColony>Flash RandomSpotJustOutsideColony</DebugAction_RandomSpotJustOutsideColony>
+  <DebugAction_RandomSpotNearThingAvoidingHostiles>Flash RandomSpotNearThingAvoidingHostilePawns</DebugAction_RandomSpotNearThingAvoidingHostiles>
+  <DebugAction_ClearAllFog>Clear All Fog</DebugAction_ClearAllFog>
+  <DebugAction_ChangeThingStyle>Change Thing Style</DebugAction_ChangeThingStyle>
+  <DebugAction_AttachFire>Attach fire</DebugAction_AttachFire>
+  <DebugAction_FlashShuttleDropCellsNear>Flash nearby shuttle drop cell</DebugAction_FlashShuttleDropCellsNear>
+  <DebugAction_Resurrect>Resurrect</DebugAction_Resurrect>
+  <DebugAction_DamageUntilDown>Damage until down</DebugAction_DamageUntilDown>
+  <DebugAction_DamageLegs>Damage legs</DebugAction_DamageLegs>
+  <DebugAction_DamageToDeath>Damage to death</DebugAction_DamageToDeath>
+  <DebugAction_CarriedDamageToDeath>Damage carried Thing to death</DebugAction_CarriedDamageToDeath>
+  <DebugAction_Do10DamageUntilDead>10 damage until dead</DebugAction_Do10DamageUntilDead>
+  <DebugAction_DamageHeldPawnToDeath>Damage held Pawn to death</DebugAction_DamageHeldPawnToDeath>
+  <DebugAction_SurgeryFailMinor>Surgery fail minor</DebugAction_SurgeryFailMinor>
+  <DebugAction_SurgeryFailCatastrophic>Surgery fail catastrophic</DebugAction_SurgeryFailCatastrophic>
+  <DebugAction_SurgeryFailRidiculous>Surgery fail ridiculous</DebugAction_SurgeryFailRidiculous>
+  <DebugAction_RestoreBodyPart>Restore body part...</DebugAction_RestoreBodyPart>
+  <DebugAction_ApplyDamage>Apply damage...</DebugAction_ApplyDamage>
+  <DebugAction_AddHediff>Add Hediff...</DebugAction_AddHediff>
+  <DebugAction_RemoveHediff>Remove Hediff...</DebugAction_RemoveHediff>
+  <DebugAction_HealRandomInjury10>Heal random injury (10)</DebugAction_HealRandomInjury10>
+  <DebugAction_ActivateHediffGiver>Activate HediffGiver</DebugAction_ActivateHediffGiver>
+  <DebugAction_ActivateHediffGiverWorldPawn>Activate HediffGiver of a world Pawn</DebugAction_ActivateHediffGiverWorldPawn>
+  <DebugAction_DiscoverHediffs>Discover Hediffs</DebugAction_DiscoverHediffs>
+  <DebugAction_GrantImmunities>Grant immunities</DebugAction_GrantImmunities>
+  <DebugAction_GiveBirth>Give birth</DebugAction_GiveBirth>
+  <DebugAction_ResistanceMinus1>Resistance -1</DebugAction_ResistanceMinus1>
+  <DebugAction_ResistanceMinus10>Resistance -10</DebugAction_ResistanceMinus10>
+  <DebugAction_AddPsychicEntropy>+20 neural heat</DebugAction_AddPsychicEntropy>
+  <DebugAction_ReducePsychicEntropy>-20 neural heat</DebugAction_ReducePsychicEntropy>
+  <DebugAction_ListMeleeVerbs>List melee Verbs</DebugAction_ListMeleeVerbs>
+  <DebugAction_AddRemovePawnRelation>Add/remove Pawn relation...</DebugAction_AddRemovePawnRelation>
+  <DebugAction_AddOpinionTalksAbout>Add opinion talks about...</DebugAction_AddOpinionTalksAbout>
+  <DebugAction_ForceVomit>Force vomit</DebugAction_ForceVomit>
+  <DebugAction_OffsetPsyfocusPositive20>Psyfocus +20%</DebugAction_OffsetPsyfocusPositive20>
+  <DebugAction_OffsetPsyfocusNegative20>Psyfocus -20%</DebugAction_OffsetPsyfocusNegative20>
+  <DebugAction_OffsetFoodNegative20>Food -20%</DebugAction_OffsetFoodNegative20>
+  <DebugAction_OffsetRestNegative20>Rest -20%</DebugAction_OffsetRestNegative20>
+  <DebugAction_OffsetJoyNegative20>Joy -20%</DebugAction_OffsetJoyNegative20>
+  <DebugAction_OffsetChemicalNegative20>Chemical -20%</DebugAction_OffsetChemicalNegative20>
+  <DebugAction_OffsetIndoorsNegative20>Indoors -20%</DebugAction_OffsetIndoorsNegative20>
+  <DebugAction_OffsetNeedsMiscNegative20>Needs misc -20%</DebugAction_OffsetNeedsMiscNegative20>
+  <DebugAction_OffsetCertaintyNegative20>Certainty - 20%</DebugAction_OffsetCertaintyNegative20>
+  <DebugAction_SetSkill>Set skill...</DebugAction_SetSkill>
+  <DebugAction_MaxSkill>Max skill...</DebugAction_MaxSkill>
+  <DebugAction_MaxAllSkills>Max all skills</DebugAction_MaxAllSkills>
+  <DebugAction_MentalBreak>Mental break...</DebugAction_MentalBreak>
+  <DebugAction_DoVoiceCall>Play Pawn sound</DebugAction_DoVoiceCall>
+  <DebugAction_MentalState>Mental state...</DebugAction_MentalState>
+  <DebugAction_StopMentalState>Stop mental state</DebugAction_StopMentalState>
+  <DebugAction_Inspiration>Inspiration...</DebugAction_Inspiration>
+  <DebugAction_GiveTrait>Give trait...</DebugAction_GiveTrait>
+  <DebugAction_RemoveAllTraits>Remove all traits</DebugAction_RemoveAllTraits>
+  <DebugAction_SetBackstory>Set backstory...</DebugAction_SetBackstory>
+  <DebugAction_GiveAbility>Give ability...</DebugAction_GiveAbility>
+  <DebugAction_GivePsylink>Give Psylink...</DebugAction_GivePsylink>
+  <DebugAction_RemovePsychicEntropy>Remove neural heat</DebugAction_RemovePsychicEntropy>
+  <DebugAction_GiveGoodThought>Give good thought...</DebugAction_GiveGoodThought>
+  <DebugAction_GiveBadThought>Give bad thought...</DebugAction_GiveBadThought>
+  <DebugAction_ClearBoundUnfinishedThings>Clear bound unfinished Things</DebugAction_ClearBoundUnfinishedThings>
+  <DebugAction_ForceBirthday>Force birthday</DebugAction_ForceBirthday>
+  <DebugAction_Recruit>Recruit</DebugAction_Recruit>
+  <DebugAction_Enslave>Enslave</DebugAction_Enslave>
+  <DebugAction_DamageApparel>Damage apparel</DebugAction_DamageApparel>
+  <DebugAction_WearApparel_ToSelected>Give apparel to selected...</DebugAction_WearApparel_ToSelected>
+  <DebugAction_EquipPrimary_ToSelected>Give primary to selected...</DebugAction_EquipPrimary_ToSelected>
+  <DebugAction_TameAnimal>Tame animal</DebugAction_TameAnimal>
+  <DebugAction_TrainAnimal>Train animal</DebugAction_TrainAnimal>
+  <DebugAction_TryDevelopBoundRelation>Try develop bound relation</DebugAction_TryDevelopBoundRelation>
+  <DebugAction_QueueTrainingDecay>Queue training decay</DebugAction_QueueTrainingDecay>
+  <DebugAction_DisplayRelationsInfo>Display relations info</DebugAction_DisplayRelationsInfo>
+  <DebugAction_DisplayInteractionsInfo>Display interactions info</DebugAction_DisplayInteractionsInfo>
+  <DebugAction_StartMarriageCeremony>Start marriage ceremony...</DebugAction_StartMarriageCeremony>
+  <DebugAction_ForceInteraction>Force interaction</DebugAction_ForceInteraction>
+  <DebugAction_StartRandomGathering>Start random gathering</DebugAction_StartRandomGathering>
+  <DebugAction_StartGathering>Start gathering</DebugAction_StartGathering>
+  <DebugAction_StartPrisonBreak>Start prison break</DebugAction_StartPrisonBreak>
+  <DebugAction_PassToWorld>Pass to world</DebugAction_PassToWorld>
+  <DebugAction_RemoveWorldPawn>Remove world pawn...</DebugAction_RemoveWorldPawn>
+  <DebugAction_Make1YearOlder>Make 1 year older</DebugAction_Make1YearOlder>
+  <DebugAction_Make1DayOlder>Make 1 day older</DebugAction_Make1DayOlder>
+  <DebugAction_TryJobGiver>Try JobGiver</DebugAction_TryJobGiver>
+  <DebugAction_TryJoyGiver>Try JoyGiver</DebugAction_TryJoyGiver>
+  <DebugAction_EndCurrentJobInterruptForced>EndCurrentJobInterruptForced</DebugAction_EndCurrentJobInterruptForced>
+  <DebugAction_CheckForJobOverride>CheckForJobOverride</DebugAction_CheckForJobOverride>
+  <DebugAction_ToggleJobLogging>Toggle job logging</DebugAction_ToggleJobLogging>
+  <DebugAction_ToggleStanceLogging>Toggle stance logging</DebugAction_ToggleStanceLogging>
+  <DebugAction_Kidnap>Kidnap colonist</DebugAction_Kidnap>
+  <DebugAction_Selected_SetFacing>Make selected Pawn face a cell</DebugAction_Selected_SetFacing>
+  <DebugAction_AddPrecept>Add precept</DebugAction_AddPrecept>
+  <DebugAction_RemovePrecept>Remove precept</DebugAction_RemovePrecept>
+  <DebugAction_TriggerDateRitual>Trigger date specific ritual</DebugAction_TriggerDateRitual>
+  <DebugAction_Add5DaysToObligationTimer>Add 5 days to obligation timer</DebugAction_Add5DaysToObligationTimer>
+  <DebugAction_RemoveRitualObligation>Remove ritual obligation</DebugAction_RemoveRitualObligation>
+  <DebugAction_Generate200RitualNames>Generate 200 ritual names</DebugAction_Generate200RitualNames>
+  <DebugAction_SetIdeoRole>Set ideo role...</DebugAction_SetIdeoRole>
+  <DebugAction_MakeGuilty>Make guilty</DebugAction_MakeGuilty>
+  <DebugAction_ForceAgeReversalDemandNow>Force age reversal demand</DebugAction_ForceAgeReversalDemandNow>
+  <DebugAction_ResetAgeReversalDemandNow>Reset age reversal demand</DebugAction_ResetAgeReversalDemandNow>
+  <DebugAction_SpawnPawn>Spawn Pawn...</DebugAction_SpawnPawn>
+  <DebugAction_SpawnWeapon>Spawn weapon...</DebugAction_SpawnWeapon>
+  <DebugAction_SpawnApparel>Spawn apparel...</DebugAction_SpawnApparel>
+  <DebugAction_TryPlaceNearThing>Try place near Thing...</DebugAction_TryPlaceNearThing>
+  <DebugAction_TryPlaceMinifiedThing>Try place minified Thing...</DebugAction_TryPlaceMinifiedThing>
+  <DebugAction_TryPlaceNearThingWithStyle>Try place near thing with style...</DebugAction_TryPlaceNearThingWithStyle>
+  <DebugAction_TryPlaceNearStacksOf25>Try place near stack of 25...</DebugAction_TryPlaceNearStacksOf25>
+  <DebugAction_TryPlaceNearStacksOf75>Try place near stack of 75...</DebugAction_TryPlaceNearStacksOf75>
+  <DebugAction_TryPlaceDirectThing>Try place direct Thing...</DebugAction_TryPlaceDirectThing>
+  <DebugAction_TryPlaceDirectStackOf25>Try place direct stack of 25...</DebugAction_TryPlaceDirectStackOf25>
+  <DebugAction_TryPlaceNearMarketValue>Try place stack of market value...</DebugAction_TryPlaceNearMarketValue>
+  <DebugAction_CreateMealWithSpecifics>Create meal with specifics...</DebugAction_CreateMealWithSpecifics>
+  <DebugAction_TryAddToInventory>Try add to inventory...</DebugAction_TryAddToInventory>
+  <DebugAction_SpawnThingWithWipeMode>Spawn Thing with WipeMode...</DebugAction_SpawnThingWithWipeMode>
+  <DebugAction_SetTerrain>Set terrain...</DebugAction_SetTerrain>
+  <DebugAction_SetTerrainRect>Set terrain in a rectangle...</DebugAction_SetTerrainRect>
+  <DebugAction_SpawnMechCluster>Spawn mech cluster</DebugAction_SpawnMechCluster>
+  <DebugAction_MakeFilthx100>Make filth x100</DebugAction_MakeFilthx100>
+  <DebugAction_SpawnFactionLeader>Spawn faction leader</DebugAction_SpawnFactionLeader>
+  <DebugAction_SpawnWorldPawn>Spawn world Pawn...</DebugAction_SpawnWorldPawn>
+  <DebugAction_SpawnThingSet>Spawn ThingSet...</DebugAction_SpawnThingSet>
+  <DebugAction_TriggerEffecter>Trigger Effecter...</DebugAction_TriggerEffecter>
+  <DebugAction_SpawnShuttle>Spawn shuttle...</DebugAction_SpawnShuttle>
+  <DebugAction_SpawnRandomCaravan>Spawn random caravan</DebugAction_SpawnRandomCaravan>
+  <DebugAction_SpawnRandomFactionBase>Spawn random faction base</DebugAction_SpawnRandomFactionBase>
+  <DebugAction_SpawnSite>Spawn site...</DebugAction_SpawnSite>
+  <DebugAction_DestroySite>Destroy site</DebugAction_DestroySite>
+  <DebugAction_SpawnSiteWithPoints>Spawn site with points...</DebugAction_SpawnSiteWithPoints>
+  <DebugAction_SpawnWorldObject>Spawn WorldObject...</DebugAction_SpawnWorldObject>
+  <DebugAction_ChangeCameraConfigWorld>Change camera config...</DebugAction_ChangeCameraConfigWorld>
+  <DebugAction_SpawnRelic>Spawn relic...</DebugAction_SpawnRelic>
+  <DebugAction_DebugDrawBreachPath>Draw breach path...</DebugAction_DebugDrawBreachPath>
+  <DebugAction_WoundDebug>Enable wound debug draw</DebugAction_WoundDebug>
+  <DebugAction_WoundDebugExport>Wound debug export (non-humanlike)</DebugAction_WoundDebugExport>
+</LanguageData>

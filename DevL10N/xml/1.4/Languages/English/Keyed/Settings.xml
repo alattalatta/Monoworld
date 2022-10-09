@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <EnableDamage>Enable damage</EnableDamage>
+  <EnablePlayerDamage>Enable player damage</EnablePlayerDamage>
+  <EnableRandomMentalStates>Enable random mental states</EnableRandomMentalStates>
+  <EnableStoryteller>Enable storyteller</EnableStoryteller>
+  <EnableRandomDiseases>Enable random diseases</EnableRandomDiseases>
+  <NoAnimals>No animals</NoAnimals>
+  <UnlimitedPower>Unlimited power</UnlimitedPower>
+  <PathThroughWalls>Path through walls</PathThroughWalls>
+  <InstantRecruit>Instant recruit</InstantRecruit>
+  <AlwaysSocialFight>Always social fight</AlwaysSocialFight>
+  <AlwaysDoLovin>Always do lovin</AlwaysDoLovin>
+  <DetectRegionListersBugs>Detect RegionListers bugs</DetectRegionListersBugs>
+  <InstantVisitorsGift>Instant visitors gift</InstantVisitorsGift>
+  <LowFPS>Low FPS</LowFPS>
+  <FastResearch>Fast research</FastResearch>
+  <FastLearning>Fast learning</FastLearning>
+  <FastEcology>Fast ecology</FastEcology>
+  <FastEcologyRegrowRateOnly>Fast ecology (regrow rate only)</FastEcologyRegrowRateOnly>
+  <FastCrafting>Fast crafting</FastCrafting>
+  <FastCaravans>Fast caravans</FastCaravans>
+  <ActivateAllBuildingDemands>Activate all building demands</ActivateAllBuildingDemands>
+  <ActivateAllIdeoRoles>Activate all ideo roles</ActivateAllIdeoRoles>
+  <ShowLocomotionUrgency>Show LocomotionUrgency</ShowLocomotionUrgency>
+  <PlayRitualAmbience>Play ritual ambience sound</PlayRitualAmbience>
+  <DrawFog>Draw fog</DrawFog>
+  <DrawSnow>Draw snow</DrawSnow>
+  <DrawTerrain>Draw terrain</DrawTerrain>
+  <DrawTerrainWater>Draw water</DrawTerrainWater>
+  <DrawThingsDynamic>Draw dynamic Things</DrawThingsDynamic>
+  <DrawThingsPrinted>Draw printed Things</DrawThingsPrinted>
+  <DrawShadows>Draw shadows</DrawShadows>
+  <DrawLightingOverlay>Draw lighting overlay</DrawLightingOverlay>
+  <DrawWorldOverlays>Draw world overlays</DrawWorldOverlays>
+  <DrawPaths>Draw paths</DrawPaths>
+  <DrawCastPositionSearch>Draw cast position search</DrawCastPositionSearch>
+  <DrawDestSearch>Draw destination search</DrawDestSearch>
+  <DrawStyleSearch>Draw style search</DrawStyleSearch>
+  <DrawSectionEdges>Draw section edges</DrawSectionEdges>
+  <DrawRiverDebug>Draw river debug</DrawRiverDebug>
+  <DrawPawnDebug>Draw Pawn debug</DrawPawnDebug>
+  <DrawPawnRotatorTarget>Draw Pawn rotator target</DrawPawnRotatorTarget>
+  <DrawRegions>Draw regions</DrawRegions>
+  <DrawRegionLinks>Draw region links</DrawRegionLinks>
+  <DrawRegionDirties>Highlight region update</DrawRegionDirties>
+  <DrawRegionTraversal>Highlight Region traversal</DrawRegionTraversal>
+  <DrawRegionThings>Highlight Things in Region</DrawRegionThings>
+  <DrawDistricts>Draw Districts</DrawDistricts>
+  <DrawRooms>Draw Rooms</DrawRooms>
+  <DrawPower>Draw power</DrawPower>
+  <DrawPowerNetGrid>Draw PowerNetGrid</DrawPowerNetGrid>
+  <DrawOpportunisticJobs>Draw opportunistic jobs</DrawOpportunisticJobs>
+  <DrawTooltipEdges>Draw tooltip edges</DrawTooltipEdges>
+  <DrawRecordedNoise>Draw recorded noise</DrawRecordedNoise>
+  <DrawFoodSearchFromMouse>Draw food search from mouse</DrawFoodSearchFromMouse>
+  <DrawPreyInfo>Draw prey info</DrawPreyInfo>
+  <DrawGlow>Draw glow</DrawGlow>
+  <DrawAvoidGrid>Draw avoid grid</DrawAvoidGrid>
+  <DrawBreachingGrid>Draw breaching grid</DrawBreachingGrid>
+  <DrawBreachingNoise>Draw breaching noise</DrawBreachingNoise>
+  <DrawLords>Draw Lords</DrawLords>
+  <DrawDuties>Draw duties</DrawDuties>
+  <DrawShooting>Draw shooting</DrawShooting>
+  <DrawInfestationChance>Draw infestation chance</DrawInfestationChance>
+  <DrawStealDebug>Draw steal debug</DrawStealDebug>
+  <DrawDeepResources>Draw deep resources</DrawDeepResources>
+  <DrawAttackTargetScores>Draw attack target scores</DrawAttackTargetScores>
+  <DrawInteractionCells>Draw interaction cells</DrawInteractionCells>
+  <DrawDoorsDebug>Draw doors debug</DrawDoorsDebug>
+  <DrawDestReservations>Draw dest reservations</DrawDestReservations>
+  <DrawDamageRects>Draw damage rects</DrawDamageRects>
+  <WriteGame>Inspect Game</WriteGame>
+  <WriteSteamItems>Inspect Steam items</WriteSteamItems>
+  <WriteConcepts>Inspect Concepts</WriteConcepts>
+  <WriteReservations>Inspect reservations</WriteReservations>
+  <WritePathCosts>Inspect path costs</WritePathCosts>
+  <WriteFertility>Inspect fertility</WriteFertility>
+  <WriteLinkFlags>Inspect LinkFlags</WriteLinkFlags>
+  <WriteCover>Inspect cover</WriteCover>
+  <WriteCellContents>Inspect cell contents</WriteCellContents>
+  <WriteMusicManagerPlay>Inspect MusicManager play</WriteMusicManagerPlay>
+  <WriteStoryteller>Inspect storyteller</WriteStoryteller>
+  <WritePlayingSounds>Inspect playing sounds</WritePlayingSounds>
+  <WriteSoundEventsRecord>Inspect sound events record</WriteSoundEventsRecord>
+  <WriteMoteSaturation>Inspect mote saturation</WriteMoteSaturation>
+  <WriteSnowDepth>Inspect snow depth</WriteSnowDepth>
+  <WriteEcosystem>Inspect ecosystem</WriteEcosystem>
+  <WriteRecentStrikes>Inspect recent strikes</WriteRecentStrikes>
+  <WriteBeauty>Inspect beauty</WriteBeauty>
+  <WriteListRepairableBldgs>Inspect repairable buildings</WriteListRepairableBldgs>
+  <WriteListFilthInHomeArea>Inspect filth list in home area</WriteListFilthInHomeArea>
+  <WriteListHaulables>Inspect haulable list</WriteListHaulables>
+  <WriteListMergeables>Inspect mergeable list</WriteListMergeables>
+  <WriteTotalSnowDepth>Inspect total snow depth</WriteTotalSnowDepth>
+  <WriteCanReachColony>Inspect colony reachability</WriteCanReachColony>
+  <WriteMentalStateCalcs>Inspect mental state calcs</WriteMentalStateCalcs>
+  <WriteWind>Inspect wind</WriteWind>
+  <WriteTerrain>Inspect terrain</WriteTerrain>
+  <WriteApparelScore>Inspect apparel score</WriteApparelScore>
+  <WriteWorkSettings>Inspect work settings</WriteWorkSettings>
+  <WriteSkyManager>Inspect SkyManager</WriteSkyManager>
+  <WriteMemoryUsage>Inspect memory usage</WriteMemoryUsage>
+  <WriteMapGameConditions>Inspect map's GameConditions</WriteMapGameConditions>
+  <WriteAttackTargets>Inspect attack targets</WriteAttackTargets>
+  <WriteRopesAndPens>Inspect ropes and pens</WriteRopesAndPens>
+  <WriteRoomRoles>Inspect Room roles</WriteRoomRoles>
+  <LogIncapChance>Log incap chance (not used)</LogIncapChance>
+  <LogInput>Log input</LogInput>
+  <LogApparelGeneration>Log apparel generation</LogApparelGeneration>
+  <LogLordToilTransitions>Log Lord's Toil transitions</LogLordToilTransitions>
+  <LogGrammarResolution>Log grammar resolution</LogGrammarResolution>
+  <LogCombatLogMouseover>Log combat log mouseover</LogCombatLogMouseover>
+  <LogCauseOfDeath>Log cause of death</LogCauseOfDeath>
+  <LogMapLoad>Log map load</LogMapLoad>
+  <LogTutor>Log tutor</LogTutor>
+  <LogSignals>Log Signals</LogSignals>
+  <LogWorldPawnGC>Log WorldPawnGC</LogWorldPawnGC>
+  <LogTaleRecording>Log tale recording</LogTaleRecording>
+  <LogHourlyScreenshot>Log hourly screenshot</LogHourlyScreenshot>
+  <LogFilthSummary>Log filth summary</LogFilthSummary>
+  <LogCarriedBetweenJobs>Log carried between Jobs</LogCarriedBetweenJobs>
+  <LogComplexGenPoints>Log Complex gen points</LogComplexGenPoints>
+  <DebugApparelOptimize>Debug apparel optimization</DebugApparelOptimize>
+  <ShowAllRoomStats>Show all room stats</ShowAllRoomStats>
+  <ShowFloatMenuWorkGivers>Show float menu WorkGivers</ShowFloatMenuWorkGivers>
+  <NeverForceNormalSpeed>Never force normal speed</NeverForceNormalSpeed>
+</LanguageData>

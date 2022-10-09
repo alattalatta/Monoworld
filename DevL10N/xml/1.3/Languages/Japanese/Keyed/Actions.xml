@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <DebugAction_AtlasRebuild>アトラス 再構築</DebugAction_AtlasRebuild>
+  <DebugAction_SetSourcePrecept>設定 戒律ソース...</DebugAction_SetSourcePrecept>
+  <DebugAction_SetIdeo>設定 Ideo...</DebugAction_SetIdeo>
+  <DebugAction_ConvertToIdeo>変換 Ideo...</DebugAction_ConvertToIdeo>
+  <DebugAction_AddSlave>追加 奴隷</DebugAction_AddSlave>
+  <DebugAction_SuppressionPlus10>抑制 +10%</DebugAction_SuppressionPlus10>
+  <DebugAction_SuppressionMinus10>抑制 -10%</DebugAction_SuppressionMinus10>
+  <DebugAction_ResetSuppresionSchedule>削除 抑制予定</DebugAction_ResetSuppresionSchedule>
+  <DebugAction_WillPlus1>意思 +1</DebugAction_WillPlus1>
+  <DebugAction_WillMinus1>意思 -1</DebugAction_WillMinus1>
+  <DebugAction_StartSlaveRebellion>開始 奴隷反乱(乱数)</DebugAction_StartSlaveRebellion>
+  <DebugAction_StartSlaveRebellionAggressive>開始 奴隷反乱(攻撃的)</DebugAction_StartSlaveRebellionAggressive>
+  <DebugAction_ChangeStyle>変更 スタイル</DebugAction_ChangeStyle>
+  <DebugAction_RequestStyleChange>Request style change</DebugAction_RequestStyleChange>
+  <DebugAction_CompleteHack>ハック 100%</DebugAction_CompleteHack>
+  <DebugAction_Hack10>ハック +10%</DebugAction_Hack10>
+  <DebugAction_DarklightAtPosition>暗闇の位置</DebugAction_DarklightAtPosition>
+  <DebugAction_MaxDevelopmentPoints>最大開発ポイント</DebugAction_MaxDevelopmentPoints>
+  <DebugAction_AddDevelopmentPoint>開発ポイントを追加</DebugAction_AddDevelopmentPoint>
+  <DebugAction_ClearDevelopmentPoints>開発ポイントを削除</DebugAction_ClearDevelopmentPoints>
+  <DebugAction_SpawnComplex>複数生成...</DebugAction_SpawnComplex>
+  <DebugAction_DoTradeCaravanSpecific>トレーダーを到着実行...</DebugAction_DoTradeCaravanSpecific>
+  <DebugAction_ExecuteRaidWithPoints>ポイントで襲撃を実行...</DebugAction_ExecuteRaidWithPoints>
+  <DebugAction_ExecuteRaidWithFaction>派閥で襲撃を実行...</DebugAction_ExecuteRaidWithFaction>
+  <DebugAction_ExecuteRaidWithSpecifics>詳細指定して襲撃を実行...</DebugAction_ExecuteRaidWithSpecifics>
+  <DebugAction_GenerateMap>マップを生成</DebugAction_GenerateMap>
+  <DebugAction_DestroyMap>マップを破壊...</DebugAction_DestroyMap>
+  <DebugAction_LeakMap>マップをリーク...</DebugAction_LeakMap>
+  <DebugAction_PrintLeakedMap>リークマップを出力...</DebugAction_PrintLeakedMap>
+  <DebugAction_AddGameCondition>ゲーム条件を追加...</DebugAction_AddGameCondition>
+  <DebugAction_RemoveGameCondition>ゲーム条件を削除...</DebugAction_RemoveGameCondition>
+  <DebugAction_Transfer>別マップに転送...</DebugAction_Transfer>
+  <DebugAction_ChangeMap>マップを変更...</DebugAction_ChangeMap>
+  <DebugAction_RegenerateCurrentMap>現在のマップを再生成</DebugAction_RegenerateCurrentMap>
+  <DebugAction_GenerateMapWithCaves>洞窟有りでマップ再生成</DebugAction_GenerateMapWithCaves>
+  <DebugAction_RunMapGenerator>マップ生成を実行...</DebugAction_RunMapGenerator>
+  <DebugAction_ForceReformInCurrentMap>現在のマップで強制再編</DebugAction_ForceReformInCurrentMap>
+  <DebugAction_DestroyAllPlants>破壊 全植物</DebugAction_DestroyAllPlants>
+  <DebugAction_DestroyAllThings>破壊 全Things</DebugAction_DestroyAllThings>
+  <DebugAction_DestroyClutter>破壊 全雑品</DebugAction_DestroyClutter>
+  <DebugAction_FinishAllResearch>研究全て完了</DebugAction_FinishAllResearch>
+  <DebugAction_ReplaceAllTradeShips>トレード船入替</DebugAction_ReplaceAllTradeShips>
+  <DebugAction_AddTradeShipOfKind>追加 トレーダー船...</DebugAction_AddTradeShipOfKind>
+  <DebugAction_ChangeWeather>天気を変更...</DebugAction_ChangeWeather>
+  <DebugAction_PlaySong>曲を再生...</DebugAction_PlaySong>
+  <DebugAction_PlaySound>音を再生...</DebugAction_PlaySound>
+  <DebugAction_EndGameCondition>ゲーム終了条件...</DebugAction_EndGameCondition>
+  <DebugAction_AddPrisoner>追加 囚人</DebugAction_AddPrisoner>
+  <DebugAction_AddGuest>追加 客</DebugAction_AddGuest>
+  <DebugAction_ForceEnemyAssault>敵の襲撃強制</DebugAction_ForceEnemyAssault>
+  <DebugAction_ForceEnemyFlee>敵の逃亡強制</DebugAction_ForceEnemyFlee>
+  <DebugAction_AdaptionProgress10Days>適応進展10日間経過</DebugAction_AdaptionProgress10Days>
+  <DebugAction_UnloadUnusedAssets>未使用アセットを外す</DebugAction_UnloadUnusedAssets>
+  <DebugAction_NameSettlement>コロニー命名...</DebugAction_NameSettlement>
+  <DebugAction_NextLesson>次のレッスン</DebugAction_NextLesson>
+  <DebugAction_RegenAllMapMeshSections>全地図メッシュ部分再生成</DebugAction_RegenAllMapMeshSections>
+  <DebugAction_ChangeCameraConfig>カメラ設定変更...</DebugAction_ChangeCameraConfig>
+  <DebugAction_ForceShipCountdown>船による脱出を強制</DebugAction_ForceShipCountdown>
+  <DebugAction_ForceStartShip>宇宙船発射を強制</DebugAction_ForceStartShip>
+  <DebugAction_FlashTradeDropSpot>色表示 トレード投下地点</DebugAction_FlashTradeDropSpot>
+  <DebugAction_MakeFactionLeader>派閥リーター生成</DebugAction_MakeFactionLeader>
+  <DebugAction_KillFactionLeader>派閥リーダー死亡</DebugAction_KillFactionLeader>
+  <DebugAction_KillKidnappedPawn>誘拐されたポーン死亡</DebugAction_KillKidnappedPawn>
+  <DebugAction_KillWorldPawn>ワールドポーン死亡</DebugAction_KillWorldPawn>
+  <DebugAction_SetFactionRelations>派閥関係を設定</DebugAction_SetFactionRelations>
+  <DebugAction_VisitorGift>訪問者の貢ぎ物</DebugAction_VisitorGift>
+  <DebugAction_RefogMap>マップを再未発見化</DebugAction_RefogMap>
+  <DebugAction_UseGenStep>状況を生成...</DebugAction_UseGenStep>
+  <DebugAction_IncrementTime1Hour>時間を1時間経過</DebugAction_IncrementTime1Hour>
+  <DebugAction_IncrementTime6Hours>時間を6時間経過</DebugAction_IncrementTime6Hours>
+  <DebugAction_IncrementTime12Hours>時間を12時間経過</DebugAction_IncrementTime12Hours>
+  <DebugAction_IncrementTime1Day>時間を1日経過</DebugAction_IncrementTime1Day>
+  <DebugAction_IncrementTime1Season>時間を1季節経過</DebugAction_IncrementTime1Season>
+  <DebugAction_StorywatcherTick1Day>イベントtickを1日経過</DebugAction_StorywatcherTick1Day>
+  <DebugAction_AddTechprintsForProject>研究にテックプリント追加...</DebugAction_AddTechprintsForProject>
+  <DebugAction_ApplyTechprintsForProject>研究にテックプリント適用...</DebugAction_ApplyTechprintsForProject>
+  <DebugAction_KillRandomLentColonist>ランダムな貸出入植者死亡</DebugAction_KillRandomLentColonist>
+  <DebugAction_DestroyAllHats>帽子を全て破壊</DebugAction_DestroyAllHats>
+  <DebugAction_PawnKindApparelCheck>PawnKindの衣服確認...</DebugAction_PawnKindApparelCheck>
+  <DebugAction_DumpPawnAtlases>出力 ポーンアトラス</DebugAction_DumpPawnAtlases>
+  <DebugAction_DumpStaticAtlases>出力 静的アトラス</DebugAction_DumpStaticAtlases>
+  <DebugAction_PawnKindAbilityCheck>PawnKindの能力確認...</DebugAction_PawnKindAbilityCheck>
+  <DebugAction_ClearPrisonerInteractionSchedule>削除 囚人相互交流予定</DebugAction_ClearPrisonerInteractionSchedule>
+  <DebugAction_GlowAtPosition>表示 照明の座標</DebugAction_GlowAtPosition>
+  <DebugAction_HSVAtPosition>表示 HSVの座標</DebugAction_HSVAtPosition>
+  <DebugAction_FillMapWithTrees>マップを木で埋める</DebugAction_FillMapWithTrees>
+  <DebugAction_FlashBlockedLandingCells>色表示 着陸妨害セル</DebugAction_FlashBlockedLandingCells>
+  <DebugAction_LoadedFilesForMod>Mod用読込ファイルをリスト...</DebugAction_LoadedFilesForMod>
+  <DebugAction_GenerateQuest>クエスト生成...</DebugAction_GenerateQuest>
+  <DebugAction_GenerateQuests10>クエスト生成 x10...</DebugAction_GenerateQuests10>
+  <DebugAction_GenerateQuests30>クエスト生成 x30...</DebugAction_GenerateQuests30>
+  <DebugAction_GenerateQuestsSamples>クエスト生成 (点数別全部)...</DebugAction_GenerateQuestsSamples>
+  <DebugAction_TestQuestPart>テスト:クエストパート...</DebugAction_TestQuestPart>
+  <DebugAction_QuestExample>生成されたクエストを出力</DebugAction_QuestExample>
+  <DebugAction_Award4RoyalFavor>名誉値を4追加</DebugAction_Award4RoyalFavor>
+  <DebugAction_Award10RoyalFavor>名誉値を10追加</DebugAction_Award10RoyalFavor>
+  <DebugAction_Remove4RoyalFavor>名誉値を4減少</DebugAction_Remove4RoyalFavor>
+  <DebugAction_ReduceRoyalTitle>爵位を低下</DebugAction_ReduceRoyalTitle>
+  <DebugAction_SetTitleForced>爵位を設定...</DebugAction_SetTitleForced>
+  <DebugAction_WriteBackstoryTranslationFile>バックストーリー翻訳を出力</DebugAction_WriteBackstoryTranslationFile>
+  <DebugAction_SaveTranslationReport>翻訳レポートを保存</DebugAction_SaveTranslationReport>
+  <DebugAction_MakeColonyFull>コロニーを生成(完全)</DebugAction_MakeColonyFull>
+  <DebugAction_MakeColonyAnimals>コロニーを生成(動物)</DebugAction_MakeColonyAnimals>
+  <DebugAction_MakeColonyAncientJunk>コロニーを生成(太古の廃物)</DebugAction_MakeColonyAncientJunk>
+  <DebugAction_TestForceDownedx100>テスト:強制転倒 x100</DebugAction_TestForceDownedx100>
+  <DebugAction_TestForceKillx100>テスト:強制殺害 x100</DebugAction_TestForceKillx100>
+  <DebugAction_TestSurgeryFailCatastrophicx100>テスト:手術失敗 致命的 x100</DebugAction_TestSurgeryFailCatastrophicx100>
+  <DebugAction_TestSurgeryFailRidiculousx100>テスト:手術失敗 とんでもない x100</DebugAction_TestSurgeryFailRidiculousx100>
+  <DebugAction_TestGeneratePawnx1000>テスト:ポーン生成 x1000</DebugAction_TestGeneratePawnx1000>
+  <DebugAction_GeneratePawnsOfAllShapes>色々な体形ポーン生成</DebugAction_GeneratePawnsOfAllShapes>
+  <DebugAction_CheckRegionListers>RegionListersを確認</DebugAction_CheckRegionListers>
+  <DebugAction_TestTimeToDown>テスト:ダウンまでの時間</DebugAction_TestTimeToDown>
+  <DebugAction_BattleRoyaleAllPawnKinds>全PawnKinds同士が殺し合う</DebugAction_BattleRoyaleAllPawnKinds>
+  <DebugAction_BattleRoyaleHumanlikes>全人型ポーンが殺し合う</DebugAction_BattleRoyaleHumanlikes>
+  <DebugAction_BattleRoyaleByDamagetype>ダメージタイプ別で殺し合う</DebugAction_BattleRoyaleByDamagetype>
+  <DebugAction_Destroy>破壊</DebugAction_Destroy>
+  <DebugAction_Discard>破棄</DebugAction_Discard>
+  <DebugAction_Kill>殺害</DebugAction_Kill>
+  <DebugAction_Take10Damage>10ダメージ</DebugAction_Take10Damage>
+  <DebugAction_Take5000Damage>5000ダメージ</DebugAction_Take5000Damage>
+  <DebugAction_RotateClockwise>回転 時計回り</DebugAction_RotateClockwise>
+  <DebugAction_RotateCounterClockwise>回転 反時計回り</DebugAction_RotateCounterClockwise>
+  <DebugAction_ClearArea21x21>エリア削除 21x21</DebugAction_ClearArea21x21>
+  <DebugAction_Rock21x21>岩 11x11</DebugAction_Rock21x21>
+  <DebugAction_ExplosionBomb>爆発 (爆弾)</DebugAction_ExplosionBomb>
+  <DebugAction_ExplosionFlame>爆発 (火)</DebugAction_ExplosionFlame>
+  <DebugAction_ExplosionStun>爆発 (スタン)</DebugAction_ExplosionStun>
+  <DebugAction_ExplosionEMP>爆発 (EMP)</DebugAction_ExplosionEMP>
+  <DebugAction_ExplosionExtinguisher>爆発 (消火剤)</DebugAction_ExplosionExtinguisher>
+  <DebugAction_ExplosionSmoke>爆発 (スモーク)</DebugAction_ExplosionSmoke>
+  <DebugAction_LightningStrike>落雷</DebugAction_LightningStrike>
+  <DebugAction_AddSnow>雪を追加</DebugAction_AddSnow>
+  <DebugAction_RemoveSnow>雪を除去</DebugAction_RemoveSnow>
+  <DebugAction_ClearAllSnow>全ての雪を除去</DebugAction_ClearAllSnow>
+  <DebugAction_PushHeat10>気温上昇 (10度)</DebugAction_PushHeat10>
+  <DebugAction_PushHeat1000>気温上昇 (1000度)</DebugAction_PushHeat1000>
+  <DebugAction_PushHeatNeg1000>気温低下 (-1000度)</DebugAction_PushHeatNeg1000>
+  <DebugAction_FinishPlantGrowth>植物成長完了</DebugAction_FinishPlantGrowth>
+  <DebugAction_Grow1Day>1日分植物成長</DebugAction_Grow1Day>
+  <DebugAction_GrowToMaturity>100%まで植物成長</DebugAction_GrowToMaturity>
+  <DebugAction_RegenSection>部分再生</DebugAction_RegenSection>
+  <DebugAction_SetColor>設定 色</DebugAction_SetColor>
+  <DebugAction_RandomizeColor>ランダムな色</DebugAction_RandomizeColor>
+  <DebugAction_Rot1Day>1日分腐敗させる</DebugAction_Rot1Day>
+  <DebugAction_ForceSleep>強制睡眠</DebugAction_ForceSleep>
+  <DebugAction_FuelRemove20Percent>燃料 -20%</DebugAction_FuelRemove20Percent>
+  <DebugAction_BreakDown>強制故障</DebugAction_BreakDown>
+  <DebugAction_UseScatterer>生成 クエスト建築物...</DebugAction_UseScatterer>
+  <DebugAction_BaseGen>生成 敵の前線基地...</DebugAction_BaseGen>
+  <DebugAction_SketchGen>生成 モニュメント...</DebugAction_SketchGen>
+  <DebugAction_MakeRoof>屋根を付ける</DebugAction_MakeRoof>
+  <DebugAction_DeleteRoof>屋根を外す</DebugAction_DeleteRoof>
+  <DebugAction_TestFloodUnfog>テスト 霧を除去</DebugAction_TestFloodUnfog>
+  <DebugAction_FlashClosewalkCell30>色表示 範囲30の移動不可能セル</DebugAction_FlashClosewalkCell30>
+  <DebugAction_FlashWalkPath>色表示 移動経路</DebugAction_FlashWalkPath>
+  <DebugAction_FlashSkygazeCell>色表示 空を見れるセル</DebugAction_FlashSkygazeCell>
+  <DebugAction_FlashDirectFleeDest>色表示 逃亡の直接目的地</DebugAction_FlashDirectFleeDest>
+  <DebugAction_FlashSpectatorsCells>色表示 セル観察</DebugAction_FlashSpectatorsCells>
+  <DebugAction_CheckReachability>確認 到達可能性</DebugAction_CheckReachability>
+  <DebugAction_FlashTryFindRandomPawnExitCell>色表示 ランダムポーン脱出先検索セル</DebugAction_FlashTryFindRandomPawnExitCell>
+  <DebugAction_RandomSpotJustOutsideColony>色表示 ランダム地点コロニー外のみ</DebugAction_RandomSpotJustOutsideColony>
+  <DebugAction_RandomSpotNearThingAvoidingHostiles>表示 ランダム地点敵対ポーン回避Thing周囲</DebugAction_RandomSpotNearThingAvoidingHostiles>
+  <DebugAction_ClearAllFog>削除 全戦場の霧</DebugAction_ClearAllFog>
+  <DebugAction_ChangeThingStyle>変更 Thingスタイル</DebugAction_ChangeThingStyle>
+  <DebugAction_AttachFire>着火</DebugAction_AttachFire>
+  <DebugAction_FlashShuttleDropCellsNear>シャトル降下マス付近を明示</DebugAction_FlashShuttleDropCellsNear>
+  <DebugAction_Resurrect>復活</DebugAction_Resurrect>
+  <DebugAction_DamageUntilDown>転倒ダメージ</DebugAction_DamageUntilDown>
+  <DebugAction_DamageLegs>脚にダメージ</DebugAction_DamageLegs>
+  <DebugAction_DamageToDeath>死亡ダメージ</DebugAction_DamageToDeath>
+  <DebugAction_CarriedDamageToDeath>手当なしで死亡ダメージ</DebugAction_CarriedDamageToDeath>
+  <DebugAction_Do10DamageUntilDead>死亡するまで10ダメージ</DebugAction_Do10DamageUntilDead>
+  <DebugAction_DamageHeldPawnToDeath>ポーンを死亡させるダメージ</DebugAction_DamageHeldPawnToDeath>
+  <DebugAction_SurgeryFailMinor>手術ミス 小</DebugAction_SurgeryFailMinor>
+  <DebugAction_SurgeryFailCatastrophic>手術ミス 致命的</DebugAction_SurgeryFailCatastrophic>
+  <DebugAction_SurgeryFailRidiculous>手術ミス とんでもない</DebugAction_SurgeryFailRidiculous>
+  <DebugAction_RestoreBodyPart>体の一部を復元...</DebugAction_RestoreBodyPart>
+  <DebugAction_ApplyDamage>ダメージ追加...</DebugAction_ApplyDamage>
+  <DebugAction_AddHediff>追加 Hediff...</DebugAction_AddHediff>
+  <DebugAction_RemoveHediff>削除 Hediff...</DebugAction_RemoveHediff>
+  <DebugAction_HealRandomInjury10>ランダムな傷を治す(10)</DebugAction_HealRandomInjury10>
+  <DebugAction_ActivateHediffGiver>HediffGiverを作動</DebugAction_ActivateHediffGiver>
+  <DebugAction_ActivateHediffGiverWorldPawn>世界ポーンのHediffGiverを作動</DebugAction_ActivateHediffGiverWorldPawn>
+  <DebugAction_DiscoverHediffs>Hediffsを発見</DebugAction_DiscoverHediffs>
+  <DebugAction_GrantImmunities>免疫を付与</DebugAction_GrantImmunities>
+  <DebugAction_GiveBirth>出産</DebugAction_GiveBirth>
+  <DebugAction_ResistanceMinus1>抵抗 -1</DebugAction_ResistanceMinus1>
+  <DebugAction_ResistanceMinus10>抵抗 -10</DebugAction_ResistanceMinus10>
+  <DebugAction_AddPsychicEntropy>ニューラルヒート+20</DebugAction_AddPsychicEntropy>
+  <DebugAction_ReducePsychicEntropy>ニューラルヒート-20</DebugAction_ReducePsychicEntropy>
+  <DebugAction_ListMeleeVerbs>近接武器のVerbs一覧表示</DebugAction_ListMeleeVerbs>
+  <DebugAction_AddRemovePawnRelation>ポーンの関係を追加/削除...</DebugAction_AddRemovePawnRelation>
+  <DebugAction_AddOpinionTalksAbout>会話の意見を追加...</DebugAction_AddOpinionTalksAbout>
+  <DebugAction_ForceVomit>強制嘔吐</DebugAction_ForceVomit>
+  <DebugAction_OffsetPsyfocusPositive20>サイフォーカス+20%</DebugAction_OffsetPsyfocusPositive20>
+  <DebugAction_OffsetPsyfocusNegative20>サイフォーカス-20%</DebugAction_OffsetPsyfocusNegative20>
+  <DebugAction_OffsetFoodNegative20>飢餓-20%</DebugAction_OffsetFoodNegative20>
+  <DebugAction_OffsetRestNegative20>睡眠-20%</DebugAction_OffsetRestNegative20>
+  <DebugAction_OffsetJoyNegative20>娯楽-20%</DebugAction_OffsetJoyNegative20>
+  <DebugAction_OffsetChemicalNegative20>薬物-20%</DebugAction_OffsetChemicalNegative20>
+  <DebugAction_OffsetIndoorsNegative20>インドア -20%</DebugAction_OffsetIndoorsNegative20>
+  <DebugAction_OffsetNeedsMiscNegative20>その他 -20%</DebugAction_OffsetNeedsMiscNegative20>
+  <DebugAction_OffsetCertaintyNegative20>確信 - 20%</DebugAction_OffsetCertaintyNegative20>
+  <DebugAction_SetSkill>スキルLv設定...</DebugAction_SetSkill>
+  <DebugAction_MaxSkill>スキルLv最大...</DebugAction_MaxSkill>
+  <DebugAction_MaxAllSkills>全スキルLvを最大化</DebugAction_MaxAllSkills>
+  <DebugAction_MentalBreak>精神崩壊追加...</DebugAction_MentalBreak>
+  <DebugAction_DoVoiceCall>ポーン音再生</DebugAction_DoVoiceCall>
+  <DebugAction_MentalState>精神状態追加...</DebugAction_MentalState>
+  <DebugAction_StopMentalState>精神状態停止</DebugAction_StopMentalState>
+  <DebugAction_Inspiration>やる気...</DebugAction_Inspiration>
+  <DebugAction_GiveTrait>特性を追加...</DebugAction_GiveTrait>
+  <DebugAction_RemoveAllTraits>全特性を削除</DebugAction_RemoveAllTraits>
+  <DebugAction_SetBackstory>バックストーリーを変更...</DebugAction_SetBackstory>
+  <DebugAction_GiveAbility>追加 アビリティ...</DebugAction_GiveAbility>
+  <DebugAction_GivePsylink>追加 サイリンク...</DebugAction_GivePsylink>
+  <DebugAction_RemovePsychicEntropy>削除 ニューラルヒート</DebugAction_RemovePsychicEntropy>
+  <DebugAction_GiveGoodThought>追加 良い思考...</DebugAction_GiveGoodThought>
+  <DebugAction_GiveBadThought>追加 悪い思考...</DebugAction_GiveBadThought>
+  <DebugAction_ClearBoundUnfinishedThings>未完成品の作者除去</DebugAction_ClearBoundUnfinishedThings>
+  <DebugAction_ForceBirthday>強制 誕生日</DebugAction_ForceBirthday>
+  <DebugAction_Recruit>勧誘</DebugAction_Recruit>
+  <DebugAction_Enslave>奴隷化</DebugAction_Enslave>
+  <DebugAction_DamageApparel>衣服にダメージ</DebugAction_DamageApparel>
+  <DebugAction_WearApparel_ToSelected>選択ポーンに衣服を追加...</DebugAction_WearApparel_ToSelected>
+  <DebugAction_EquipPrimary_ToSelected>選択ポーンに武器を追加...</DebugAction_EquipPrimary_ToSelected>
+  <DebugAction_TameAnimal>動物を飼いならす</DebugAction_TameAnimal>
+  <DebugAction_TrainAnimal>動物を訓練する</DebugAction_TrainAnimal>
+  <DebugAction_TryDevelopBoundRelation>テスト 絆関係を構築する</DebugAction_TryDevelopBoundRelation>
+  <DebugAction_QueueTrainingDecay>訓練低下の予約</DebugAction_QueueTrainingDecay>
+  <DebugAction_DisplayRelationsInfo>関係情報を表示</DebugAction_DisplayRelationsInfo>
+  <DebugAction_DisplayInteractionsInfo>相互作用情報を表示</DebugAction_DisplayInteractionsInfo>
+  <DebugAction_StartMarriageCeremony>結婚式を開始...</DebugAction_StartMarriageCeremony>
+  <DebugAction_ForceInteraction>強制 社会関係</DebugAction_ForceInteraction>
+  <DebugAction_StartRandomGathering>開始 ランダムな集会</DebugAction_StartRandomGathering>
+  <DebugAction_StartGathering>開始 集会</DebugAction_StartGathering>
+  <DebugAction_StartPrisonBreak>開始 脱獄</DebugAction_StartPrisonBreak>
+  <DebugAction_PassToWorld>惑星を脱出</DebugAction_PassToWorld>
+  <DebugAction_RemoveWorldPawn>ワールドポーン削除...</DebugAction_RemoveWorldPawn>
+  <DebugAction_Make1YearOlder>年齢を1歳増加</DebugAction_Make1YearOlder>
+  <DebugAction_Make1DayOlder>年齢を1日増加</DebugAction_Make1DayOlder>
+  <DebugAction_TryJobGiver>JobGiverを試す</DebugAction_TryJobGiver>
+  <DebugAction_TryJoyGiver>JoyGiverを試す</DebugAction_TryJoyGiver>
+  <DebugAction_EndCurrentJobInterruptForced>現在ジョブを中断 強制終了</DebugAction_EndCurrentJobInterruptForced>
+  <DebugAction_CheckForJobOverride>ジョブの上書きを確認</DebugAction_CheckForJobOverride>
+  <DebugAction_ToggleJobLogging>切替 ジョブを記録</DebugAction_ToggleJobLogging>
+  <DebugAction_ToggleStanceLogging>切替 stanceを記録</DebugAction_ToggleStanceLogging>
+  <DebugAction_Kidnap>入植者の誘拐</DebugAction_Kidnap>
+  <DebugAction_Selected_SetFacing>選択ポーンの向きを変更</DebugAction_Selected_SetFacing>
+  <DebugAction_AddPrecept>戒律を追加</DebugAction_AddPrecept>
+  <DebugAction_RemovePrecept>戒律を削除</DebugAction_RemovePrecept>
+  <DebugAction_TriggerDateRitual>儀式の特定日時切替</DebugAction_TriggerDateRitual>
+  <DebugAction_Add5DaysToObligationTimer>責務タイマーに5日間追加</DebugAction_Add5DaysToObligationTimer>
+  <DebugAction_RemoveRitualObligation>儀式の責務削除</DebugAction_RemoveRitualObligation>
+  <DebugAction_Generate200RitualNames>儀式の名前を200生成</DebugAction_Generate200RitualNames>
+  <DebugAction_SetIdeoRole>設定 Ideo役割...</DebugAction_SetIdeoRole>
+  <DebugAction_MakeGuilty>有罪付与</DebugAction_MakeGuilty>
+  <DebugAction_ForceAgeReversalDemandNow>年齢逆転欲求を強制</DebugAction_ForceAgeReversalDemandNow>
+  <DebugAction_ResetAgeReversalDemandNow>年齢逆転欲求リセット</DebugAction_ResetAgeReversalDemandNow>
+  <DebugAction_SpawnPawn>生成 ポーン...</DebugAction_SpawnPawn>
+  <DebugAction_SpawnWeapon>生成 武器...</DebugAction_SpawnWeapon>
+  <DebugAction_SpawnApparel>生成 衣服...</DebugAction_SpawnApparel>
+  <DebugAction_TryPlaceNearThing>生成 付近にThing...</DebugAction_TryPlaceNearThing>
+  <DebugAction_TryPlaceMinifiedThing>生成 梱包Thing設置...</DebugAction_TryPlaceMinifiedThing>
+  <DebugAction_TryPlaceNearThingWithStyle>生成 付近にThing(スタイル付)...</DebugAction_TryPlaceNearThingWithStyle>
+  <DebugAction_TryPlaceNearStacksOf25>生成 付近にスタック x25...</DebugAction_TryPlaceNearStacksOf25>
+  <DebugAction_TryPlaceNearStacksOf75>生成 付近にスタック x75...</DebugAction_TryPlaceNearStacksOf75>
+  <DebugAction_TryPlaceDirectThing>生成 直接Thing...</DebugAction_TryPlaceDirectThing>
+  <DebugAction_TryPlaceDirectStackOf25>生成 直接Thing x25...</DebugAction_TryPlaceDirectStackOf25>
+  <DebugAction_TryPlaceNearMarketValue>生成 付近にスタック(市場価格)...</DebugAction_TryPlaceNearMarketValue>
+  <DebugAction_CreateMealWithSpecifics>生成 詳細な食事...</DebugAction_CreateMealWithSpecifics>
+  <DebugAction_TryAddToInventory>生成 インベントリに追加...</DebugAction_TryAddToInventory>
+  <DebugAction_SpawnThingWithWipeMode>生成 Thing(排他モード)...</DebugAction_SpawnThingWithWipeMode>
+  <DebugAction_SetTerrain>生成 地形...</DebugAction_SetTerrain>
+  <DebugAction_SetTerrainRect>生成 長方形地形...</DebugAction_SetTerrainRect>
+  <DebugAction_SpawnMechCluster>生成 メカクラスター</DebugAction_SpawnMechCluster>
+  <DebugAction_MakeFilthx100>生成 汚れ x100</DebugAction_MakeFilthx100>
+  <DebugAction_SpawnFactionLeader>生成 派閥リーダー</DebugAction_SpawnFactionLeader>
+  <DebugAction_SpawnWorldPawn>生成 ワールドポーン...</DebugAction_SpawnWorldPawn>
+  <DebugAction_SpawnThingSet>生成 ThingSet...</DebugAction_SpawnThingSet>
+  <DebugAction_TriggerEffecter>切替 Effecter...</DebugAction_TriggerEffecter>
+  <DebugAction_SpawnShuttle>生成 シャトル...</DebugAction_SpawnShuttle>
+  <DebugAction_SpawnRandomCaravan>生成 ランダムなキャラバン</DebugAction_SpawnRandomCaravan>
+  <DebugAction_SpawnRandomFactionBase>生成 ランダムな派閥拠点</DebugAction_SpawnRandomFactionBase>
+  <DebugAction_SpawnSite>生成 クエスト地点...</DebugAction_SpawnSite>
+  <DebugAction_DestroySite>破壊 クエスト地点</DebugAction_DestroySite>
+  <DebugAction_SpawnSiteWithPoints>生成 脅威度指定クエスト地点...</DebugAction_SpawnSiteWithPoints>
+  <DebugAction_SpawnWorldObject>生成 WorldObject...</DebugAction_SpawnWorldObject>
+  <DebugAction_ChangeCameraConfigWorld>変更 カメラ設定...</DebugAction_ChangeCameraConfigWorld>
+  <DebugAction_SpawnRelic>生成 遺物...</DebugAction_SpawnRelic>
+  <DebugAction_DebugDrawBreachPath>表示 突破経路...</DebugAction_DebugDrawBreachPath>
+  <DebugAction_WoundDebug>有効 負傷デバッグ描画</DebugAction_WoundDebug>
+  <DebugAction_WoundDebugExport>負傷デバッグ出力(人間以外)</DebugAction_WoundDebugExport>
+
+</LanguageData>
