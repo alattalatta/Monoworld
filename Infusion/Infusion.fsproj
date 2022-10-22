@@ -1,0 +1,80 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Name>Infusion</Name>
+    <Version>4.1.1</Version>
+    <ProjectGuid>{f7155e1b-2628-4b11-88eb-c06570257cc2}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="netstandard" />
+    <Reference Include="..\libs\Assembly-CSharp-firstpass.dll" />
+    <Reference Include="..\libs\Assembly-CSharp.dll" />
+    <Reference Include="..\libs\UnityEngine.CoreModule.dll" />
+    <Reference Include="..\libs\UnityEngine.dll" />
+    <Reference Include="..\libs\UnityEngine.IMGUIModule.dll" />
+    <Reference Include="..\libs\UnityEngine.TextCoreModule.dll" />
+    <Reference Include="..\libs\UnityEngine.TextRenderingModule.dll" />
+    <Reference Include="..\libs\UnityEngine.UIModule.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Reflectors.fs" />
+    <Compile Include="ResourceBank.fs" />
+    <Compile Include="StatMod.fs" />
+    <Compile Include="DefFields.fs" />
+    <Compile Include="VerseTools.fs" />
+    <Compile Include="HashEqualDef.fs" />
+    <Compile Include="TierDef.fs" />
+    <Compile Include="Matchers\Matcher.fs" />
+    <Compile Include="Matchers\EquipmentType.fs" />
+    <Compile Include="Matchers\Negate.fs" />
+    <Compile Include="Matchers\NotUtility.fs" />
+    <Compile Include="Matchers\ProjectileBullet.fs" />
+    <Compile Include="Matchers\ShieldBelt.fs" />
+    <Compile Include="Matchers\WeaponClasses.fs" />
+    <Compile Include="OnHitWorkers\OnHitWorker.fs" />
+    <Compile Include="OnHitWorkers\ApplyHediff.fs" />
+    <Compile Include="OnHitWorkers\CreateExplosion.fs" />
+    <Compile Include="OnHitWorkers\DamageBase.fs" />
+    <Compile Include="OnHitWorkers\HealCaster.fs" />
+    <Compile Include="OnHitWorkers\IfBioTargetHit.fs" />
+    <Compile Include="OnHitWorkers\PlaySound.fs" />
+    <Compile Include="OnHitWorkers\ReduceSeverity.fs" />
+    <Compile Include="OnHitWorkers\Sequence.fs" />
+    <Compile Include="OnHitWorkers\SpawnBlood.fs" />
+    <Compile Include="OnHitWorkers\SpawnFilth.fs" />
+    <Compile Include="OnHitWorkers\ThrowFleck.fs" />
+    <Compile Include="OnHitWorkers\ApplyDamage.fs" />
+    <Compile Include="InfusionDef.fs" />
+    <Compile Include="Settings.fs" />
+    <Compile Include="CompInfusion.fs" />
+    <Compile Include="Infuser.fs" />
+    <Compile Include="Extractor.fs" />
+    <Compile Include="DefGenerator.fs" />
+    <Compile Include="StockGenerator.fs" />
+    <Compile Include="ThingSetMaker.fs" />
+    <Compile Include="ITab.fs" />
+    <Compile Include="StatPart.fs" />
+    <Compile Include="JobDriver.fs" />
+    <Compile Include="WorkGiver.fs" />
+    <Compile Include="SpecialThingFilterWorkers\Everything.fs" />
+    <Compile Include="Harmonize\Bullet.fs" />
+    <Compile Include="Harmonize\CompBiocodable.fs" />
+    <Compile Include="Harmonize\CompQuality.fs" />
+    <Compile Include="Harmonize\StatWorker.fs" />
+    <Compile Include="Harmonize\Pawn.fs" />
+    <Compile Include="Harmonize\VerbMeleeAttackDamage.fs" />
+    <Compile Include="Harmonize\VerbProperties.fs" />
+    <Compile Include="DefsForReading.fs" />
+    <Compile Include="DebugActions.fs" />
+    <Compile Include="Mod.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Poet\Poet.fsproj">
+      <Name>Poet</Name>
+      <Project>{ffd3d706-a9ba-455c-a640-1f4bde05ea5f}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="..\.paket\Paket.Restore.targets" />
+</Project>

@@ -7,6 +7,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Poet", "Poet\Poet.fsproj", 
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "DevL10N", "DevL10N\DevL10N.fsproj", "{C91C4841-F16C-4C16-808D-DC1779E08F0E}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Infusion", "Infusion\Infusion.fsproj", "{F7155E1B-2628-4B11-88EB-C06570257CC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C91C4841-F16C-4C16-808D-DC1779E08F0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C91C4841-F16C-4C16-808D-DC1779E08F0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C91C4841-F16C-4C16-808D-DC1779E08F0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7155E1B-2628-4B11-88EB-C06570257CC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7155E1B-2628-4B11-88EB-C06570257CC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7155E1B-2628-4B11-88EB-C06570257CC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7155E1B-2628-4B11-88EB-C06570257CC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
