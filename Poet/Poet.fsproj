@@ -19,6 +19,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Lib.fs" />
+    <Compile Include="Lyric.Comp.fs" />
     <Compile Include="Lyric.Console.fs" />
     <Compile Include="Lyric.DamageInfo.fs" />
     <Compile Include="Lyric.Pawn.fs" />
