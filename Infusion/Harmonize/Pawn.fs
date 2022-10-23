@@ -15,7 +15,7 @@ module GetGizmos =
     if pawn.IsColonist && isNull pawn.MentalStateDef then
       Seq.tryHead __instance.AllEquipmentListForReading
       |> Option.bind Thing.getComp<CompInfusion>
-      // only add the effect gizmo to prevent unnecessary compat complications
+      // only adds the effect gizmo to prevent unnecessary compat complications
       |> Option.bind (fun comp -> comp.EffectGizmo)
       |> Option.map (fun gizmo ->
         seq {

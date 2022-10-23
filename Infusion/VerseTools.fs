@@ -15,8 +15,17 @@ let accuracyStats =
                StatDefOf.AccuracyShort.defName
                StatDefOf.AccuracyMedium.defName
                StatDefOf.AccuracyLong.defName ]
+               
 
-// Same as StatDef, lack of IComparable.
+// Same as above.
+/// A set of defNames of all direct armor stats.
+let armorStats =
+  Set.ofList [ StatDefOf.ArmorRating_Blunt.defName
+               StatDefOf.ArmorRating_Heat.defName
+               StatDefOf.ArmorRating_Sharp.defName ]
+
+
+// Same as above.
 /// A set of defNames of all Pawn stat categories.
 let pawnStatCategories =
   Set.ofList [ StatCategoryDefOf.BasicsPawn.defName

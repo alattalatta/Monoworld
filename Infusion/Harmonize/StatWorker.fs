@@ -1,6 +1,7 @@
 module Infusion.Harmonize.StatWorker
 
 open System.Collections.Generic
+open System.Reflection
 open System.Reflection.Emit
 
 open HarmonyLib
@@ -11,13 +12,6 @@ open Verse
 open Infusion
 open StatMod
 open VerseTools
-open System.Reflection
-
-
-let armorStats =
-  Set.ofList [ StatDefOf.ArmorRating_Blunt.defName
-               StatDefOf.ArmorRating_Heat.defName
-               StatDefOf.ArmorRating_Sharp.defName ]
 
 
 module StatWorker =

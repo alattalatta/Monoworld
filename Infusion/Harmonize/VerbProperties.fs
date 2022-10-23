@@ -13,6 +13,8 @@ module GetHitChanceFactor =
   let Transpiler (instructions: seq<CodeInstruction>) =
     let insts = Array.ofSeq instructions
 
+    // Mathf.Clamp(value, 0.01f, 1f)
+    //                           ~~
     let targetOpCodePos =
       insts
       |> Array.tryFindIndex (fun code ->

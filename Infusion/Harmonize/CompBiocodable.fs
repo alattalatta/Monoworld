@@ -10,6 +10,7 @@ open VerseTools
 
 
 [<HarmonyPatch(typeof<CompBiocodable>, "CodeFor")>]
+// separate flow for infusing biocodeds
 module CodeFor =
   let Prefix (__instance: CompBiocodable, p: Pawn) =
     if (not (__instance :? CompBladelinkWeapon)) then
@@ -30,7 +31,6 @@ module CodeFor =
           do comp.SlotCount <- comp.CalculateSlotCountFor quality
           do comp.Infusions <- (CompInfusion.pickInfusions quality comp))
 
-  /// Resets a `Thing`'s `HitPoints` to its own `MaxHitPoints` to reflect HP changes caused by infusions.
   let Postfix (__instance: CompQuality) =
     // See Harmonize.CompQuality.SetQuality:Postfix
     do Comp.getParent __instance |> resetHP
