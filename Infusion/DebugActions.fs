@@ -69,31 +69,17 @@ let spawnApparelWithQuality () =
 let private pointedThings () =
     Find.CurrentMap.thingGrid.ThingsAt(UI.MouseCell())
 
+
 let private firstCompAtPointer<'T when 'T :> ThingComp and 'T: null> (things: seq<Thing>) =
     Seq.tryFind (fun thing -> Comp.ofThing<'T> thing |> Option.isSome) things
     |> Option.bind Comp.ofThing<'T>
-
-[<DebugAction("Infusion", "Force set quality...", actionType = DebugActionType.ToolMap)>]
-let forceSetQuality () =
-    pointedThings ()
-    |> firstCompAtPointer<CompQuality>
-    |> Option.map
-        (fun comp ->
-            listAllQualities ()
-            |> List.map
-                (fun qc ->
-                    DebugMenuOption(
-                        Enum.GetName(typeof<QualityCategory>, qc),
-                        DebugMenuOptionMode.Action,
-                        (fun () -> do comp.SetQuality(qc, ArtGenerationContext.Colony))
-                    )))
-    |> Option.iter openDebugOptionsLister
 
 
 let private infusePointed (infDef: InfusionDef) =
     pointedThings ()
     |> firstCompAtPointer
     |> Option.iter (CompInfusion.addInfusion infDef)
+
 
 [<DebugAction("Infusion", "Infuse...", actionType = DebugActionType.Action)>]
 let addInfusion () =
