@@ -16,6 +16,7 @@
     <Reference Include="..\libs\UnityEngine.TextCoreModule.dll" />
     <Reference Include="..\libs\UnityEngine.TextRenderingModule.dll" />
     <Reference Include="..\libs\UnityEngine.UIModule.dll" />
+    <Reference Include="..\libs\HugsLib.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Reflectors.fs" />
