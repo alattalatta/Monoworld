@@ -232,6 +232,7 @@
   <DebugAction_ForceBirthday>Force birthday</DebugAction_ForceBirthday>
   <DebugAction_Recruit>Recruit</DebugAction_Recruit>
   <DebugAction_Enslave>Enslave</DebugAction_Enslave>
+  <DebugAction_ToggleRecruitable>Toggle recruitability</DebugAction_ToggleRecruitable>
   <DebugAction_GrowPawnToMaturity>Grow Pawn to maturity</DebugAction_GrowPawnToMaturity>
   <DebugAction_WearApparel_ToSelected>Give apparel to selected...</DebugAction_WearApparel_ToSelected>
   <DebugAction_EquipPrimary_ToSelected>Give primary to selected...</DebugAction_EquipPrimary_ToSelected>

@@ -231,6 +231,7 @@
   <DebugAction_ForceBirthday>강제 생일</DebugAction_ForceBirthday>
   <DebugAction_Recruit>포섭</DebugAction_Recruit>
   <DebugAction_Enslave>노예화</DebugAction_Enslave>
+  <DebugAction_ToggleRecruitable>포섭 가능 여부 토글</DebugAction_ToggleRecruitable>
   <DebugAction_GrowPawnToMaturity>Pawn 성숙</DebugAction_GrowPawnToMaturity>
   <DebugAction_WearApparel_ToSelected>의류 주기 (선택 필요)...</DebugAction_WearApparel_ToSelected>
   <DebugAction_EquipPrimary_ToSelected>주 무기 주기 (선택 필요)...</DebugAction_EquipPrimary_ToSelected>

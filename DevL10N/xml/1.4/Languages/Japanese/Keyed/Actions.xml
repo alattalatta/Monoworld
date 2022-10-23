@@ -232,6 +232,7 @@
   <DebugAction_ForceBirthday>強制 誕生日</DebugAction_ForceBirthday>
   <DebugAction_Recruit>勧誘</DebugAction_Recruit>
   <DebugAction_Enslave>奴隷化</DebugAction_Enslave>
+  <DebugAction_ToggleRecruitable>Toggle recruitability</DebugAction_ToggleRecruitable>
   <DebugAction_GrowPawnToMaturity>ポーンを成人にする</DebugAction_GrowPawnToMaturity>
   <DebugAction_WearApparel_ToSelected>追加 選択ポーンに衣服...</DebugAction_WearApparel_ToSelected>
   <DebugAction_EquipPrimary_ToSelected>追加 選択ポーンに武器...</DebugAction_EquipPrimary_ToSelected>
