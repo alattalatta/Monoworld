@@ -12,8 +12,7 @@ open Verse
 
 /// Returns translated label and description of the given setting key.
 let getTranslatedStrings (key: string) =
-  let labelKey =
-    sprintf "Infusion.Settings.%s" (key.CapitalizeFirst())
+  let labelKey = sprintf "Infusion.Settings.%s" (key.CapitalizeFirst())
 
   let descKey = sprintf "%s.Description" labelKey
 
@@ -115,8 +114,7 @@ module ListSettingMaker =
             validator = validator } =
         infoOf a
 
-      let handle =
-        pack.GetHandle(key, label, desc, defaultValue)
+      let handle = pack.GetHandle(key, label, desc, defaultValue)
 
       do handle.VisibilityPredicate <- fun () -> settingsOpened
       do handle.Validator <- validator
@@ -127,8 +125,7 @@ module ListSettingMaker =
       keys |> List.map (makeHandle pack) |> Map.ofList
 
     let draw (pack: ModSettingsPack) =
-      let slotSettingOpener =
-        pack.GetHandle("slotsOpened_" + uniq, "", "", false)
+      let slotSettingOpener = pack.GetHandle("slotsOpened_" + uniq, "", "", false)
 
       do slotSettingOpener.Unsaved <- true
 
@@ -141,8 +138,7 @@ module ListSettingMaker =
               else
                 sprintf "Infusion.Settings.%s.OpenSettings" uniq
 
-            let clicked =
-              Widgets.ButtonText(rect, translate buttonLabel)
+            let clicked = Widgets.ButtonText(rect, translate buttonLabel)
 
             if clicked then
               do settingsOpened <- not settingsOpened
@@ -171,15 +167,13 @@ module Slots =
   let defaults = [| 0; 0; 1; 1; 2; 2; 3 |]
 
   let makeInfoSet (quality: QualityCategory) =
-    let qualityName =
-      Enum.GetName(typeof<QualityCategory>, quality)
+    let qualityName = Enum.GetName(typeof<QualityCategory>, quality)
 
     let label =
       translate (sprintf "QualityCategory_%s" qualityName)
       |> GenText.CapitalizeFirst
 
-    let defaultValue =
-      defaults.[int (quality - QualityCategory.Awful)]
+    let defaultValue = defaults.[int (quality - QualityCategory.Awful)]
 
     { key = "slots" + qualityName
       label = label
@@ -188,8 +182,7 @@ module Slots =
       validator = Validators.IntRangeValidator(0, 20) }
 
   let draw pack =
-    let (populate, draw) =
-      make<QualityCategory, int> makeInfoSet "Slots" keys
+    let (populate, draw) = make<QualityCategory, int> makeInfoSet "Slots" keys
 
     do handles <- populate pack
     draw pack
@@ -215,8 +208,7 @@ module Tiers =
       |> Seq.filter (fun inf -> inf.tier = tier)
       |> Seq.length
 
-    let label =
-      sprintf "%s (%s)" tier.defName tier.label
+    let label = sprintf "%s (%s)" tier.defName tier.label
 
     { key = "tier_" + tier.defName
       label = label
@@ -225,8 +217,7 @@ module Tiers =
       validator = null }
 
   let draw pack =
-    let (populate, draw) =
-      make<TierDef, bool> makeInfoSet "Tiers" keys
+    let (populate, draw) = make<TierDef, bool> makeInfoSet "Tiers" keys
 
     do handles <- populate pack
 
@@ -240,8 +231,7 @@ module Tiers =
 
 module Divider =
   let draw key (pack: ModSettingsPack) =
-    let divider =
-      pack.GetHandle("__divider__" + key, "", "", false)
+    let divider = pack.GetHandle("__divider__" + key, "", "", false)
 
     do divider.Unsaved <- true
 

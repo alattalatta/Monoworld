@@ -4,25 +4,27 @@ open Verse
 
 
 type Sequence =
-    inherit OnHitWorker
+  inherit OnHitWorker
 
-    val mutable value: ResizeArray<OnHitWorker>
+  val mutable value: ResizeArray<OnHitWorker>
 
-    new() =
-        { inherit OnHitWorker()
+  new() =
+    { inherit OnHitWorker()
 
-          value = null }
+      value = null }
 
-    member this.Value = Option.ofObj this.value
+  override this.MeleeHit record =
+    for worker in this.value do
+      if Rand.Chance worker.chance then
+        do worker.MeleeHit record
 
-    override this.MeleeHit record =
-        this.Value
-        |> Option.iter (fun sequence ->
-            for worker in sequence do
-                if Rand.Chance worker.chance then do worker.MeleeHit record)
+  override this.BulletHit record =
+    for worker in this.value do
+      if Rand.Chance worker.chance then
+        do worker.BulletHit record
 
-    override this.BulletHit record =
-        this.Value
-        |> Option.iter (fun sequence ->
-            for worker in sequence do
-                if Rand.Chance worker.chance then do worker.BulletHit record)
+  override this.ConfigErrors() =
+    if isNull this.value then
+      seq { "no value" }
+    else
+      Seq.empty

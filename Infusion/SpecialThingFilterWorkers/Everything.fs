@@ -1,4 +1,4 @@
-// Def can't find the types when used with
+// Def can't find types within modules, e.g.
 // module Infusion.SpecialThingFilterWorkers
 // so this must not be a module declaration
 namespace Infusion.SpecialThingFilterWorkers

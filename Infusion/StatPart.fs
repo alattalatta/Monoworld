@@ -14,65 +14,68 @@ open VerseTools
 
 // Handles stat transformation.
 type Infusion =
-    inherit StatPart
+  inherit StatPart
 
-    val IsPawnStat: bool
+  val IsPawnStat: bool
 
-    new(stat: StatDef) =
-        { inherit StatPart(parentStat = stat)
-          IsPawnStat =
-              Option.ofObj stat.category
-              |> Option.map (fun catDef -> Set.contains catDef.defName pawnStatCategories)
-              |> Option.defaultValue false }
+  new(stat: StatDef) =
+    { inherit StatPart(parentStat = stat)
+      IsPawnStat =
+        Option.ofObj stat.category
+        |> Option.map (fun catDef -> Set.contains catDef.defName pawnStatCategories)
+        |> Option.defaultValue false }
 
-    override this.TransformValue(req, value: byref<float32>) =
-        if not this.IsPawnStat then
-            do value <-
-                match req.Thing with
-                | null -> value
-                | thing -> this.TransformThingStat(value, thing)
+  override this.TransformValue(req, value: byref<float32>) =
+    if not this.IsPawnStat then
+      do
+        value <-
+          match req.Thing with
+          | null -> value
+          | thing -> this.TransformThingStat(value, thing)
 
-            if Set.contains this.parentStat.defName accuracyStats
-               && (value >= 1.0f) then
-                if Settings.AccuracyOvercap.handle.Value then
-                    let overcaps =
-                        if value <= 1.1f then
-                            value - 1.0f
-                        else
-                            Mathf.Log((value - 1.0f) * 10.0f + 1.0f, 2.0f)
-                            / 10.0f
+      if Set.contains this.parentStat.defName accuracyStats
+         && (value >= 1.0f) then
+        if Settings.AccuracyOvercap.handle.Value then
+          let overcaps =
+            if value <= 1.1f then
+              value - 1.0f
+            else
+              Mathf.Log((value - 1.0f) * 10.0f + 1.0f, 2.0f)
+              / 10.0f
 
-                    do value <- 1.0f + overcaps
-                else
-                    do value <- 1.0f
-
-    override this.ExplanationPart req =
-        if not this.IsPawnStat then
-            match req.Thing with
-            | null -> null
-            | thing -> this.ExplainForThing thing
+          do value <- 1.0f + overcaps
         else
-            null
+          do value <- 1.0f
 
-    // just for things
-    // Harmonize.StatWorker handles pawn stats
-    member private this.TransformThingStat(value, thing: Thing) =
-        this.GetAllModifiersFromThing thing
-        |> applyTo value
+  override this.ExplanationPart req =
+    if not this.IsPawnStat then
+      match req.Thing with
+      | null -> null
+      | thing -> this.ExplainForThing thing
+    else
+      null
 
-    member private this.ExplainForThing(thing: Thing) =
-        let sb = StringBuilder()
+  // just for things
+  // Harmonize.StatWorker handles pawn stats
+  member private this.TransformThingStat(value, thing: Thing) =
+    this.GetAllModifiersFromThing thing
+    |> applyTo value
 
-        let statModSum = this.GetAllModifiersFromThing thing
+  member private this.ExplainForThing(thing: Thing) =
+    let sb = StringBuilder()
 
-        if statModSum <> StatMod.empty then
-            do sb.Append(translate "Infusion.StatPart.Start")
-                 .Append(stringForStat this.parentStat (this.GetAllModifiersFromThing thing))
-               |> ignore
+    let statModSum = this.GetAllModifiersFromThing thing
 
-        string sb
+    if statModSum <> StatMod.empty then
+      do
+        sb
+          .Append(translate "Infusion.StatPart.Start")
+          .Append(stringForStat this.parentStat (this.GetAllModifiersFromThing thing))
+        |> ignore
 
-    member private this.GetAllModifiersFromThing<'T when 'T :> Thing>(thing: 'T): StatMod =
-        Comp.ofThing<CompInfusion> thing
-        |> Option.map (fun comp -> comp.GetModForStat this.parentStat)
-        |> Option.defaultValue StatMod.empty
+    string sb
+
+  member private this.GetAllModifiersFromThing<'T when 'T :> Thing>(thing: 'T) : StatMod =
+    Comp.ofThing<CompInfusion> thing
+    |> Option.map (fun comp -> comp.GetModForStat this.parentStat)
+    |> Option.defaultValue StatMod.empty

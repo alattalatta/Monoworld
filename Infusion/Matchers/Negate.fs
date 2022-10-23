@@ -4,23 +4,23 @@ open Infusion
 
 
 type Negate =
-    inherit Matcher<InfusionDef>
+  inherit Matcher<InfusionDef>
 
-    val mutable value: Matcher<InfusionDef>
+  // assumes that this isn't null
+  val mutable value: Matcher<InfusionDef>
 
-    new() =
-        { inherit Matcher<InfusionDef>()
-          value = null }
+  new() =
+    { inherit Matcher<InfusionDef>()
+      value = null }
 
-    member this.Value = Option.ofObj this.value
+  override this.Match thing infDef = not (this.value.Match thing infDef)
 
-    override this.Match thing infDef =
-        this.Value
-        |> Option.map (fun value -> value.Match thing infDef)
-        |> Option.map not
-        |> Option.defaultValue true
+  override this.BuildRequirementString() =
+    this.value.BuildRequirementString()
+    |> Option.map (ResourceBank.Strings.Matchers.negate >> string)
 
-    override this.BuildRequirementString() =
-        this.Value
-        |> Option.bind (fun value -> value.BuildRequirementString())
-        |> Option.map (ResourceBank.Strings.Matchers.negate >> string)
+  override this.ConfigErrors() =
+    if isNull this.value then
+      seq { "no value" }
+    else
+      Seq.empty

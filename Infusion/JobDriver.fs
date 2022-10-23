@@ -53,23 +53,21 @@ module JobDriver =
   module ApplyInfuser =
     let failOnNoWantingSet target (job: IJobEndable) =
       do
-        job.AddEndCondition
-          (fun () ->
-            compInfusionOfTarget job target
-            |> Option.map (fun c -> c.WantingSet)
-            |> Option.defaultValue Set.empty
-            |> incompletableOnSetEmpty)
+        job.AddEndCondition (fun () ->
+          compInfusionOfTarget job target
+          |> Option.map (fun c -> c.WantingSet)
+          |> Option.defaultValue Set.empty
+          |> incompletableOnSetEmpty)
 
       job
 
     let failOnNoMatchingInfuser target (job: IJobEndable) =
       do
-        job.AddEndCondition
-          (fun () ->
-            compInfusionOfTarget job target
-            |> Option.bind (fun c -> c.FirstWanting)
-            |> Option.bind ((flip Map.tryFind) Infuser.AllInfusersByDef)
-            |> errorOnNone)
+        job.AddEndCondition (fun () ->
+          compInfusionOfTarget job target
+          |> Option.bind (fun c -> c.FirstWanting)
+          |> Option.bind ((flip Map.tryFind) Infuser.AllInfusersByDef)
+          |> errorOnNone)
 
       job
 
@@ -77,12 +75,11 @@ module JobDriver =
   module ExtractInfusion =
     let failOnNoExtractionSet target (job: IJobEndable) =
       do
-        job.AddEndCondition
-          (fun () ->
-            compInfusionOfTarget job target
-            |> Option.map (fun c -> c.ExtractionSet)
-            |> Option.defaultValue Set.empty
-            |> incompletableOnSetEmpty)
+        job.AddEndCondition (fun () ->
+          compInfusionOfTarget job target
+          |> Option.map (fun c -> c.ExtractionSet)
+          |> Option.defaultValue Set.empty
+          |> incompletableOnSetEmpty)
 
       job
 
@@ -90,12 +87,11 @@ module JobDriver =
   module RemoveInfusions =
     let failOnNoRemovalSet target (job: IJobEndable) =
       do
-        job.AddEndCondition
-          (fun () ->
-            compInfusionOfTarget job target
-            |> Option.map (fun c -> c.RemovalSet)
-            |> Option.defaultValue Set.empty
-            |> incompletableOnSetEmpty)
+        job.AddEndCondition (fun () ->
+          compInfusionOfTarget job target
+          |> Option.map (fun c -> c.RemovalSet)
+          |> Option.defaultValue Set.empty
+          |> incompletableOnSetEmpty)
 
       job
 
@@ -129,29 +125,25 @@ type JobDriverApplyInfuser() =
       yield
         waitFor 300 TargetIndex.A
         |> Toil.addFailOnDestroyedNullOrForbidden TargetIndex.A
-        |> Toil.addEndOn
-             (fun () ->
-               targetComp
-               |> Option.map (fun comp -> incompletableOnSetEmpty comp.WantingSet)
-               |> errorOnNone)
+        |> Toil.addEndOn (fun () ->
+          targetComp
+          |> Option.map (fun comp -> incompletableOnSetEmpty comp.WantingSet)
+          |> errorOnNone)
 
       yield
-        Toils_General.Do
-          (fun () ->
-            targetComp
-            |> Option.bind
-                 (fun comp ->
-                   infuser.Content
-                   |> Option.map (fun inf -> (comp, inf)))
-            |> Option.tap (fun (comp, inf) -> do CompInfusion.addInfusion inf comp)
-            // with reusableInfusers turned on, place a new empty infuser
-            |> Option.tap
-                 (fun _ ->
-                   if Settings.ReusableInfusers.handle.Value then
-                     ThingMaker.MakeThing(ThingDef.Named("Infusion_InfuserEmpty"))
-                     |> placeThingNear this.pawn.Position this.pawn.Map
-                     |> ignore)
-            |> Option.iter (fun _ -> do destroyCarriedThing this.pawn))
+        Toils_General.Do (fun () ->
+          targetComp
+          |> Option.bind (fun comp ->
+            infuser.Content
+            |> Option.map (fun inf -> (comp, inf)))
+          |> Option.tap (fun (comp, inf) -> do CompInfusion.addInfusion inf comp)
+          // with reusableInfusers turned on, place a new empty infuser
+          |> Option.tap (fun _ ->
+            if Settings.ReusableInfusers.handle.Value then
+              ThingMaker.MakeThing(ThingDef.Named("Infusion_InfuserEmpty"))
+              |> placeThingNear this.pawn.Position this.pawn.Map
+              |> ignore)
+          |> Option.iter (fun _ -> do destroyCarriedThing this.pawn))
     }
 
 
@@ -181,64 +173,60 @@ type JobDriverExtractInfusion() =
       yield
         waitFor 300 TargetIndex.A
         |> Toil.addFailOnDestroyedNullOrForbidden TargetIndex.A
-        |> Toil.addEndOn
-             (fun () ->
-               targetComp
-               |> Option.map (fun comp -> incompletableOnSetEmpty comp.ExtractionSet)
-               |> errorOnNone)
+        |> Toil.addEndOn (fun () ->
+          targetComp
+          |> Option.map (fun comp -> incompletableOnSetEmpty comp.ExtractionSet)
+          |> errorOnNone)
 
       yield
-        Toils_General.Do
-          (fun () ->
-            targetComp
-            |> Option.bind
-                 (fun comp ->
-                   comp.FirstExtraction
-                   |> Option.map (fun inf -> (comp, inf)))
-            |> Option.iter
-                 (fun (comp, inf) ->
-                   let baseExtractionChance =
-                     inf.tier.extractionChance
-                     * Settings.ExtractionChanceFactor.handle.Value
+        Toils_General.Do (fun () ->
+          targetComp
+          |> Option.bind (fun comp ->
+            comp.FirstExtraction
+            |> Option.map (fun inf -> (comp, inf)))
+          |> Option.iter (fun (comp, inf) ->
+            let baseExtractionChance =
+              inf.tier.extractionChance
+              * Settings.ExtractionChanceFactor.handle.Value
 
-                   let successChance =
-                     comp.Biocoder
-                     |> Option.map (fun _ -> baseExtractionChance * 0.5f)
-                     |> Option.defaultValue baseExtractionChance
+            let successChance =
+              comp.Biocoder
+              |> Option.map (fun _ -> baseExtractionChance * 0.5f)
+              |> Option.defaultValue baseExtractionChance
 
-                   if Rand.Chance successChance then
-                     let infuser =
-                       ThingMaker.MakeThing(ThingDef.Named("Infusion_Infuser_" + inf.tier.defName)) :?> Infuser
+            if Rand.Chance successChance then
+              let infuser =
+                ThingMaker.MakeThing(ThingDef.Named("Infusion_Infuser_" + inf.tier.defName)) :?> Infuser
 
-                     do
-                       CompInfusion.removeInfusion inf comp
-                       infuser.SetContent inf
+              do
+                CompInfusion.removeInfusion inf comp
+                infuser.SetContent inf
 
-                     infuser
-                     |> placeThingNear this.pawn.Position this.pawn.Map
-                     |> Option.iter (fun _ -> destroyCarriedThing this.pawn)
-                   else
-                     let chance = Rand.Value
+              infuser
+              |> placeThingNear this.pawn.Position this.pawn.Map
+              |> Option.iter (fun _ -> destroyCarriedThing this.pawn)
+            else
+              let chance = Rand.Value
 
-                     let failureMessage =
-                       if chance >= 0.5f then
-                         do CompInfusion.removeInfusion inf comp
-                         "Infusion.Job.Message.ExtractionFailureInfusion"
-                       elif chance >= 0.2f then
-                         do destroyCarriedThing this.pawn
-                         "Infusion.Job.Message.ExtractionFailureInfuser"
-                       else
-                         do
-                           CompInfusion.removeInfusion inf comp
-                           destroyCarriedThing this.pawn
+              let failureMessage =
+                if chance >= 0.5f then
+                  do CompInfusion.removeInfusion inf comp
+                  "Infusion.Job.Message.ExtractionFailureInfusion"
+                elif chance >= 0.2f then
+                  do destroyCarriedThing this.pawn
+                  "Infusion.Job.Message.ExtractionFailureInfuser"
+                else
+                  do
+                    CompInfusion.removeInfusion inf comp
+                    destroyCarriedThing this.pawn
 
-                         "Infusion.Job.Message.ExtractionFailure"
+                  "Infusion.Job.Message.ExtractionFailure"
 
-                     Messages.Message(
-                       string (translate2 failureMessage inf.label target.def.label),
-                       LookTargets(extractor),
-                       MessageTypeDefOf.NegativeEvent
-                     )))
+              Messages.Message(
+                string (translate2 failureMessage inf.label target.def.label),
+                LookTargets(extractor),
+                MessageTypeDefOf.NegativeEvent
+              )))
     }
 
 
@@ -263,16 +251,14 @@ type JobDriverRemoveInfusions() =
       yield
         waitFor 1000 TargetIndex.A
         |> Toil.addFailOnDestroyedNullOrForbidden TargetIndex.A
-        |> Toil.addEndOn
-             (fun () ->
-               targetComp
-               |> Option.map (fun comp -> incompletableOnSetEmpty comp.RemovalSet)
-               |> errorOnNone)
+        |> Toil.addEndOn (fun () ->
+          targetComp
+          |> Option.map (fun comp -> incompletableOnSetEmpty comp.RemovalSet)
+          |> errorOnNone)
 
       yield
-        Toils_General.Do
-          (fun () ->
-            do
-              targetComp
-              |> Option.iter CompInfusion.removeMarkedInfusions)
+        Toils_General.Do (fun () ->
+          do
+            targetComp
+            |> Option.iter CompInfusion.removeMarkedInfusions)
     }

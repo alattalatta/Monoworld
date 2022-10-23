@@ -6,22 +6,22 @@ open Infusion
 
 
 type WeaponClasses =
-    inherit Matcher<InfusionDef>
+  inherit Matcher<InfusionDef>
 
-    val mutable defs: ResizeArray<WeaponClassDef>
+  val mutable defs: ResizeArray<WeaponClassDef>
 
-    new() =
-        { inherit Matcher<InfusionDef>()
-          defs = ResizeArray() }
+  new() =
+    { inherit Matcher<InfusionDef>()
+      defs = ResizeArray() }
 
-    override this.Match thing _ =
-        Option.ofObj thing.def.weaponClasses
-        |> Option.map (fun weaponClasses -> this.defs |> Seq.exists (weaponClasses.Contains))
-        |> Option.defaultValue false
+  override this.Match thing _ =
+    Option.ofObj thing.def.weaponClasses
+    |> Option.map (fun weaponClasses -> this.defs |> Seq.exists (weaponClasses.Contains))
+    |> Option.defaultValue false
 
-    override this.BuildRequirementString() =
-        this.defs
-        |> seq
-        |> Seq.map (fun it -> it.label)
-        |> String.concat ", "
-        |> Some
+  override this.BuildRequirementString() =
+    this.defs
+    |> seq
+    |> Seq.map (fun it -> it.label)
+    |> String.concat ", "
+    |> Some

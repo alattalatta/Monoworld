@@ -7,53 +7,48 @@ open Verse
 
 [<StaticConstructorOnStartup>]
 type Textures() =
-    static let flame =
-        ContentFinder<Texture2D>.Get ("Things/Special/Fire/FireA")
+  static let flame = ContentFinder<Texture2D>.Get ("Things/Special/Fire/FireA")
 
-    static member Flame = flame
+  static member Flame = flame
 
 
 module Strings =
-    module Matchers =
-        let apparel = translate "Infusion.Matchers.Apparel"
-        let melee = translate "Infusion.Matchers.Melee"
-        let ranged = translate "Infusion.Matchers.Ranged"
+  module Matchers =
+    let apparel = translate "Infusion.Matchers.Apparel"
+    let melee = translate "Infusion.Matchers.Melee"
+    let ranged = translate "Infusion.Matchers.Ranged"
 
-        let notUtility = translate "Infusion.Matchers.NotUtility"
+    let notUtility = translate "Infusion.Matchers.NotUtility"
 
-        let negate str =
-            translate1 "Infusion.Matchers.Negate" str
+    let negate str =
+      translate1 "Infusion.Matchers.Negate" str
 
-        let shieldBelt = translate "Infusion.Matchers.ShieldBelt"
+    let shieldBelt = translate "Infusion.Matchers.ShieldBelt"
 
-    module Gizmo =
-        let label = translate "Infusion.EffectGizmo"
+  module Gizmo =
+    let label = translate "Infusion.EffectGizmo"
 
-        let desc =
-            translate "Infusion.EffectGizmo.Description"
+    let desc = translate "Infusion.EffectGizmo.Description"
 
-    module ITab =
-        let hint = translate "Infusion.ITab.Hint"
+  module ITab =
+    let hint = translate "Infusion.ITab.Hint"
 
-        // marks
-        let markExtraction extractionChance =
-            translate1 "Infusion.ITab.MarkForExtraction" extractionChance
+    // marks
+    let markExtraction extractionChance =
+      translate1 "Infusion.ITab.MarkForExtraction" extractionChance
 
-        let markRemoval extractionChance =
-            translate1 "Infusion.ITab.MarkForRemoval" extractionChance
+    let markRemoval extractionChance =
+      translate1 "Infusion.ITab.MarkForRemoval" extractionChance
 
-        let unmark = translate "Infusion.ITab.Unmark"
+    let unmark = translate "Infusion.ITab.Unmark"
 
-        // applying infusers
-        let applyInfuser = translate "Infusion.ITab.ApplyInfuser"
+    // applying infusers
+    let applyInfuser = translate "Infusion.ITab.ApplyInfuser"
 
-        let cancelInfuser = translate "Infusion.ITab.CancelInfuser"
+    let cancelInfuser = translate "Infusion.ITab.CancelInfuser"
 
-        let applyInfuserDesc =
-            translate "Infusion.ITab.ApplyInfuser.Description"
+    let applyInfuserDesc = translate "Infusion.ITab.ApplyInfuser.Description"
 
-        let cantApplySlotsFull =
-            translate "Infusion.ITab.ApplyInfuser.SlotsFull"
+    let cantApplySlotsFull = translate "Infusion.ITab.ApplyInfuser.SlotsFull"
 
-        let cantApplyNoSuitable =
-            translate "Infusion.ITab.ApplyInfuser.NoSuitableInfuser"
+    let cantApplyNoSuitable = translate "Infusion.ITab.ApplyInfuser.NoSuitableInfuser"

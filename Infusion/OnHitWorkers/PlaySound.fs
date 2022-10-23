@@ -7,24 +7,22 @@ open Verse.Sound
 
 
 type PlaySound =
-    inherit OnHitWorker
+  inherit OnHitWorker
 
-    val mutable def: SoundDef
+  val mutable def: SoundDef
 
-    new() = { def = null }
+  new() = { def = null }
 
-    override this.MeleeHit record =
-        let (map, pos) =
-            OnHitWorker.mapPosMelee this.selfCast record
+  override this.MeleeHit record =
+    let (map, pos) = OnHitWorker.mapPosMelee this.selfCast record
 
-        let ti = TargetInfo(pos, map)
+    let ti = TargetInfo(pos, map)
 
-        this.def.PlayOneShot(SoundInfo.InMap(ti))
+    this.def.PlayOneShot(SoundInfo.InMap(ti))
 
-    override this.BulletHit record =
-        let (map, pos) =
-            OnHitWorker.mapPosRanged this.selfCast record
+  override this.BulletHit record =
+    let (map, pos) = OnHitWorker.mapPosRanged this.selfCast record
 
-        let ti = TargetInfo(pos, map)
+    let ti = TargetInfo(pos, map)
 
-        this.def.PlayOneShot(SoundInfo.InMap(ti))
+    this.def.PlayOneShot(SoundInfo.InMap(ti))
