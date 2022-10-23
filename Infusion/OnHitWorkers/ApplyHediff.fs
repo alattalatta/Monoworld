@@ -14,11 +14,13 @@ type ApplyHediff =
 
   val mutable bodySizeMatters: bool
   val mutable def: HediffDef
+  val mutable inverseStatScaling: bool
   val mutable severityScaleBy: StatDef
 
   new() =
     { bodySizeMatters = true
       def = null
+      inverseStatScaling = false
       severityScaleBy = null }
 
   override this.MeleeHit record =
@@ -55,6 +57,11 @@ type ApplyHediff =
     let statScale =
       Option.ofObj this.severityScaleBy
       |> Option.map pawn.GetStatValue
+      |> Option.map (fun stat ->
+        if this.inverseStatScaling then
+          (max 0.0f (1.0f - stat))
+        else
+          stat)
       |> Option.defaultValue 1.0f
 
     let bodySizeScale =

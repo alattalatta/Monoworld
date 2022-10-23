@@ -133,7 +133,7 @@
         </value>
       </li>
       <li>
-        <key>ToxicSensitivity</key>
+        <key>ToxicResistance</key>
         <value>
           <offset>-0.6</offset>
         </value>

@@ -6,7 +6,7 @@
     <li>/</li>
   </v1.3>
   <v1.4>
-    <li>1.4</li>
+    <li>1.4/Base</li>
     <li IfModActive="Ludeon.RimWorld.Royalty">1.4/Royalty</li>
     <li>/</li>
   </v1.4>
