@@ -4,7 +4,6 @@ open HarmonyLib
 open Verse
 
 
-
 [<StaticConstructorOnStartup>]
 type StartupConstructor() =
   static do

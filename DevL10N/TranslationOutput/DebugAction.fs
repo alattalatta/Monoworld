@@ -101,7 +101,7 @@ let outputTranslationSource () =
 
              LongEventHandler.QueueLongEvent(
                (fun () -> writeForMod modData |> Async.RunSynchronously),
-               (translate "DevL10N.TranslationOutput.Writing"),
+               "DevL10N.TranslationOutput.Writing",
                true,
                null
              )
