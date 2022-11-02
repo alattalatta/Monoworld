@@ -31,7 +31,7 @@ let private writeForMod (modData: ModMetaData) =
        desktop)
     |> (fun path -> Path.Combine(path, "TranslationOutput"))
 
-  // Desktop/TranslationOutput/Core
+  // Desktop/TranslationOutput/ludeon.rimworld
   let dest =
     let modIdentifier = modData.PackageId
 

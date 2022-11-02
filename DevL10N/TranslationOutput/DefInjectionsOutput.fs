@@ -3,67 +3,18 @@ module DevL10N.TranslationOutput.DefInjectionsOutput
 open System
 open System.Collections.Generic
 open System.IO
-open System.Reflection
 open System.Xml.Linq
 
 open Poet.Lyric.Translation
 open Verse
 
+open DevL10N.TranslationOutput.Injectable
 open DevL10N.TranslationOutput.Utils
 open DevL10N.TranslationOutput.Utils.Option
 open DevL10N.TranslationOutput.Utils.Xml
 
 
 type DefInjectionDict = IDictionary<string, DefInjectionPackage.DefInjection>
-
-type DefInjectionTarget =
-  { CurValue: string
-    CurValueCollection: string list
-    Def: Def
-    FieldInfo: FieldInfo
-    IsCollection: bool
-    ListInjectionAllowed: bool
-    NormalizedPath: string
-    SuggestedPath: string }
-
-
-module private Utils =
-  let collectAllInjectionTargets (defType: Type, modData: ModMetaData) =
-    let possibleDefInjections = ResizeArray<DefInjectionTarget>()
-
-    let traverserBody
-      suggestedPath
-      normalizedPath
-      isCollection
-      curValue
-      curValueCollection
-      translationAllowed
-      fullListTranslationAllowed
-      fieldInfo
-      def
-      =
-      if translationAllowed then
-        possibleDefInjections.Add(
-          { CurValue = curValue
-            CurValueCollection =
-              if isNull curValueCollection then
-                List.empty
-              else
-                List.ofSeq curValueCollection
-            Def = def
-            FieldInfo = fieldInfo
-            IsCollection = isCollection
-            ListInjectionAllowed = fullListTranslationAllowed
-            NormalizedPath = normalizedPath
-            SuggestedPath = suggestedPath }
-        )
-
-    let traverser =
-      DefInjectionUtility.PossibleDefInjectionTraverser(traverserBody)
-
-    do DefInjectionUtility.ForEachPossibleDefInjection(defType, traverser, modData)
-
-    possibleDefInjections
 
 
 let private createListItems (strs: string list) : XNode list =
@@ -78,15 +29,12 @@ let private createListInjectionElements
   ) : XNode list =
   match injectionMaybe with
   | Some injection ->
-    let injectionValue =
-      injection.fullListInjection |> List.ofSeq
+    let injectionValue = injection.fullListInjection |> List.ofSeq
 
-    let length =
-      min (List.length injectionValue) (List.length english)
+    let length = min (List.length injectionValue) (List.length english)
 
     // If the injection is shorter than the english, we need to truncate it.
-    let (used, unused) =
-      english |> List.ofSeq |> List.splitAt length
+    let (used, unused) = english |> List.ofSeq |> List.splitAt length
 
     // If the injection is longer than the english, we need to add extras from it.
     let extraItemsFromInjection =
@@ -119,7 +67,7 @@ let private createSingleInjectionElement (path: string, english: string) : XNode
 
 
 let private shouldInjectFor
-  (injectionTarget: DefInjectionTarget)
+  (injectionTarget: Injectable)
   (injectionMaybe: DefInjectionPackage.DefInjection option)
   (curValue: string)
   =
@@ -130,7 +78,7 @@ let private shouldInjectFor
 let private createInjectionCollectionElements
   (
     languageInjections: DefInjectionDict,
-    target: DefInjectionTarget
+    target: Injectable
   ) : XNode list =
   let injectionMaybe =
     languageInjections.TryGetValue(target.SuggestedPath, null)
@@ -143,20 +91,18 @@ let private createInjectionCollectionElements
     |> Option.map List.ofSeq
     |> Option.defaultValue (
       target.CurValueCollection
-      |> List.mapi
-           (fun i value ->
-             let key =
-               target.NormalizedPath + "." + i.ToString()
+      |> List.mapi (fun i value ->
+        let key = target.NormalizedPath + "." + i.ToString()
 
-             let path =
-               Translation.suggestTKeyPath key
-               |> Option.defaultValue (key)
+        let path =
+          Translation.suggestTKeyPath key
+          |> Option.defaultValue (key)
 
-             languageInjections.TryGetValue(path, null)
-             |> Option.ofObj
-             |> Option.filter (fun injection -> injection.injected)
-             |> Option.map (fun injection -> injection.replacedString)
-             |> Option.defaultValue value)
+        languageInjections.TryGetValue(path, null)
+        |> Option.ofObj
+        |> Option.filter (fun injection -> injection.injected)
+        |> Option.map (fun injection -> injection.replacedString)
+        |> Option.defaultValue value)
     )
 
   if target.ListInjectionAllowed then
@@ -174,23 +120,21 @@ let private createInjectionCollectionElements
   else
     englishList
     |> List.ofSeq
-    |> List.collecti
-         (fun (i, english) ->
-           if shouldInjectFor target injectionMaybe english then
-             let normalizedPath =
-               target.NormalizedPath + "." + i.ToString()
+    |> List.collecti (fun (i, english) ->
+      if shouldInjectFor target injectionMaybe english then
+        let normalizedPath = target.NormalizedPath + "." + i.ToString()
 
-             let suggestedPath =
-               Translation.suggestTKeyPath normalizedPath
-               |> Option.defaultValue (target.SuggestedPath + "." + i.ToString())
+        let suggestedPath =
+          Translation.suggestTKeyPath normalizedPath
+          |> Option.defaultValue (target.SuggestedPath + "." + i.ToString())
 
-             createSingleInjectionElement (suggestedPath, english)
-             |> List.singleton
-           else
-             List.empty)
+        createSingleInjectionElement (suggestedPath, english)
+        |> List.singleton
+      else
+        List.empty)
 
 
-let private createInjectionElement (languageInjections: DefInjectionDict, target: DefInjectionTarget) =
+let private createInjectionElement (languageInjections: DefInjectionDict, target: Injectable) =
   let injectionMaybe =
     languageInjections.TryGetValue(target.SuggestedPath, null)
     |> Option.ofObj
@@ -206,7 +150,7 @@ let private createInjectionElement (languageInjections: DefInjectionDict, target
 let private writeFile
   (
     languageInjections: DefInjectionDict,
-    allInjectionTargets: DefInjectionTarget list,
+    allInjectionTargets: Injectable list,
     defType: Type,
     defInjectionDirPath: string,
     fileName: string
@@ -224,27 +168,26 @@ let private writeFile
         |> List.map (fun injection -> injection.Def.defName)
         |> List.distinct
         |> List.sort
-        |> List.map
-             (fun defName ->
-               injectionTargetsInFile
-               |> List.filter (fun injectionTarget -> injectionTarget.Def.defName = defName)
-               |> List.collect
-                    (fun injectionTarget ->
-                      try
-                        if injectionTarget.IsCollection then
-                          createInjectionCollectionElements (languageInjections, injectionTarget)
-                        else
-                          createInjectionElement (languageInjections, injectionTarget)
-                          |> Option.map List.singleton
-                          |> Option.defaultValue List.empty
-                      with
-                      | ex ->
-                        do
-                          Log.Error(
-                            sprintf "Could not write injection for %s: %s" injectionTarget.SuggestedPath ex.Message
-                          )
+        |> List.map (fun defName ->
+          injectionTargetsInFile
+          |> List.filter (fun injectionTarget -> injectionTarget.Def.defName = defName)
+          |> List.collect (fun injectionTarget ->
+            if injectionTarget.Def.defName = "Pirate" then
+              Log.Message(sprintf "Pirate! %s %s" injectionTarget.SuggestedPath injectionTarget.CurValue)
 
-                        List.empty))
+
+            try
+              if injectionTarget.IsCollection then
+                createInjectionCollectionElements (languageInjections, injectionTarget)
+              else
+                createInjectionElement (languageInjections, injectionTarget)
+                |> Option.map List.singleton
+                |> Option.defaultValue List.empty
+            with
+            | ex ->
+              do Log.Error(sprintf "Could not write injection for %s: %s" injectionTarget.SuggestedPath ex.Message)
+
+              List.empty))
         |> List.filter (List.isEmpty >> not)
         |> List.intersperse ([ XComment.newLine () :> XNode ])
         |> List.concat
@@ -265,8 +208,7 @@ let private writeFile
           else
             defType.FullName
 
-        let defTypeDirPath =
-          Path.Combine(defInjectionDirPath, defTypeName)
+        let defTypeDirPath = Path.Combine(defInjectionDirPath, defTypeName)
 
         Directory.CreateDirectory(defTypeDirPath)
         |> ignore
@@ -283,38 +225,33 @@ let private writeForDefType (defInjectionDirPath: string, modData: ModMetaData) 
   let languageInjections =
     LanguageDatabase.activeLanguage.defInjections
     |> Seq.filter (fun injectionPack -> injectionPack.defType = defType)
-    |> Seq.collect
-         (fun injectionPack ->
-           injectionPack.injections
-           |> Seq.filter
-                (fun p ->
-                  not p.Value.isPlaceholder
-                  && p.Value.ModifiesDefFromModOrNullCore(modData, defType)))
+    |> Seq.collect (fun injectionPack ->
+      injectionPack.injections
+      |> Seq.filter (fun p ->
+        not p.Value.isPlaceholder
+        && p.Value.ModifiesDefFromModOrNullCore(modData, defType)))
     |> Seq.map (fun p -> (p.Key, p.Value))
     |> dict
 
-  let allInjectionTargets =
-    Utils.collectAllInjectionTargets (defType, modData)
-    |> List.ofSeq
+  let allInjectionTargets = Injectable.collectAllFor defType modData
 
   // write each injection to its file
   allInjectionTargets
   |> Seq.map (fun injection -> Translation.getSourceFile injection.Def)
   |> Seq.distinct
-  |> Seq.map
-       (fun fileName ->
-         async {
-           try
-             do! writeFile (languageInjections, allInjectionTargets, defType, defInjectionDirPath, fileName)
-           with
-           | ex ->
-             Log.Error(
-               "Could not write defInjection for "
-               + defType.Name
-               + ": "
-               + ex.Message
-             )
-         })
+  |> Seq.map (fun fileName ->
+    async {
+      try
+        do! writeFile (languageInjections, allInjectionTargets, defType, defInjectionDirPath, fileName)
+      with
+      | ex ->
+        Log.Error(
+          "Could not write defInjection for "
+          + defType.Name
+          + ": "
+          + ex.Message
+        )
+    })
   |> Async.Parallel
 
 
