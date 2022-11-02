@@ -3,21 +3,11 @@ module DevL10N.TranslationOutput.DebugAction
 open System
 open System.IO
 
-open HarmonyLib
 open Poet.Lyric.Translation
 open RimWorld
 open Verse
 
 open DevL10N.TranslationOutput
-
-
-module private Reflectors =
-  let private _cleanupBackstories =
-    AccessTools.Method(typeof<TranslationFilesCleaner>, "CleanupBackstories")
-
-  let cleanupBackstories () =
-    _cleanupBackstories.Invoke(null, Array.empty)
-    |> ignore
 
 
 module private Utils =
