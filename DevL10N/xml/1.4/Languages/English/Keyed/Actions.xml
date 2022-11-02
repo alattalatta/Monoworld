@@ -32,14 +32,10 @@
   <DebugAction_BaseGen>Use BaseGen...</DebugAction_BaseGen>
   <DebugAction_SketchGen>Use SketchGen...</DebugAction_SketchGen>
   <DebugAction_SetTerrainRect>Set terrain (area)...</DebugAction_SetTerrainRect>
-  <!-- TODO -->
   <DebugAction_PolluteRect>Pollute (area)</DebugAction_PolluteRect>
-  <!-- TODO -->
   <DebugAction_UnpolluteRect>Unpollute (area)</DebugAction_UnpolluteRect>
   <DebugAction_MakeRock>Make rocks (area)</DebugAction_MakeRock>
-  <!-- TODO -->
   <DebugAction_PolluteCellTen>Grow pollution (x10 cell)</DebugAction_PolluteCellTen>
-  <!-- TODO -->
   <DebugAction_PolluteCellHundred>Grow pollution (x100 cell)</DebugAction_PolluteCellHundred>
   <DebugAction_PolluteCellThousand>Grow pollution (x1000 cell)</DebugAction_PolluteCellThousand>
   <DebugAction_AddGameCondition>Add game condition...</DebugAction_AddGameCondition>
@@ -172,17 +168,11 @@
   <DebugAction_AttachFire>Attach fire</DebugAction_AttachFire>
   <DebugAction_SetQuality>Set quality...</DebugAction_SetQuality>
   <DebugAction_MeasureDrawSize>Measure draw size</DebugAction_MeasureDrawSize>
-  <!-- TODO -->
   <DebugAction_IncreasePollutionSmall>Increase pollution (small)</DebugAction_IncreasePollutionSmall>
-  <!-- TODO -->
   <DebugAction_IncreasePollutionLarge>Increase pollution (large)</DebugAction_IncreasePollutionLarge>
-  <!-- TODO -->
   <DebugAction_DecreasePollutionLarge>Decrease pollution (large)</DebugAction_DecreasePollutionLarge>
-  <!-- TODO -->
-  <DebugAction_ResetBossgroupCooldown>Reset boss group cooldown</DebugAction_ResetBossgroupCooldown>
-  <!-- TODO -->
-  <DebugAction_ResetBossgroupKilledPawns>Reset boss group killed Pawns</DebugAction_ResetBossgroupKilledPawns>
-  <!-- TODO -->
+  <DebugAction_ResetBossgroupCooldown>Reset Bossgroup cooldown</DebugAction_ResetBossgroupCooldown>
+  <DebugAction_ResetBossgroupKilledPawns>Reset defeated Bossgroup list</DebugAction_ResetBossgroupKilledPawns>
   <DebugAction_SpawnCocoonInfestationWithPoints>Spawn cocoon infestation...</DebugAction_SpawnCocoonInfestationWithPoints>
   <DebugAction_BenchmarkPerformance>Benchmark performance</DebugAction_BenchmarkPerformance>
   <DebugAction_AddSlave>Add Slave</DebugAction_AddSlave>
@@ -264,25 +254,18 @@
   <DebugAction_ForceAgeReversalDemandNow>Force age reversal demand</DebugAction_ForceAgeReversalDemandNow>
   <DebugAction_ResetAgeReversalDemandNow>Reset age reversal demand</DebugAction_ResetAgeReversalDemandNow>
   <DebugAction_Resurrect>Resurrect</DebugAction_Resurrect>
-  <!-- TODO -->
   <DebugAction_AddGene>Add gene</DebugAction_AddGene>
-  <!-- TODO -->
   <DebugAction_RemoveGene>Remove gene</DebugAction_RemoveGene>
-  <!-- TODO -->
   <DebugAction_SetXenotype>Set Xenotype</DebugAction_SetXenotype>
-  <!-- TODO -->
   <DebugAction_AddLearningDesire>Add learning desire</DebugAction_AddLearningDesire>
-  <!-- TODO -->
   <DebugAction_TryLearningGiver>Try LearningGiver</DebugAction_TryLearningGiver>
   <DebugAction_ListMeleeVerbs>List melee Verbs</DebugAction_ListMeleeVerbs>
   <DebugAction_DoVoiceCall>Play Pawn sound</DebugAction_DoVoiceCall>
   <DebugAction_ForceVomit>Force vomit</DebugAction_ForceVomit>
   <DebugAction_ResetRenderCache>Reset Pawn render cache</DebugAction_ResetRenderCache>
   <DebugAction_SpawnPawn>Spawn Pawn...</DebugAction_SpawnPawn>
-  <!-- TODO -->
   <DebugAction_SpawnNewborn>Spawn newborn</DebugAction_SpawnNewborn>
-  <!-- TODO -->
-  <DebugAction_SpawnChild>Spawn child</DebugAction_SpawnChild>
+  <DebugAction_SpawnChild>Spawn child (Human only)</DebugAction_SpawnChild>
   <DebugAction_TryPlaceNearThing>Try place near Thing...</DebugAction_TryPlaceNearThing>
   <DebugAction_TryPlaceNearThingWithStyle>Try place near thing with style...</DebugAction_TryPlaceNearThingWithStyle>
   <DebugAction_TryPlaceMinifiedThing>Try place minified Thing...</DebugAction_TryPlaceMinifiedThing>

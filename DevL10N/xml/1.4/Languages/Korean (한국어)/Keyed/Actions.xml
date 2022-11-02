@@ -32,14 +32,10 @@
   <DebugAction_BaseGen>BaseGen 사용...</DebugAction_BaseGen>
   <DebugAction_SketchGen>SketchGen 사용...</DebugAction_SketchGen>
   <DebugAction_SetTerrainRect>지형 설정 (범위)...</DebugAction_SetTerrainRect>
-  <!-- TODO -->
   <DebugAction_PolluteRect>오염 (영역)</DebugAction_PolluteRect>
-  <!-- TODO -->
   <DebugAction_UnpolluteRect>오염 정화 (영역)</DebugAction_UnpolluteRect>
   <DebugAction_MakeRock>바위 생성 (영역)</DebugAction_MakeRock>
-  <!-- TODO -->
   <DebugAction_PolluteCellTen>오염 확산 (10칸)</DebugAction_PolluteCellTen>
-  <!-- TODO -->
   <DebugAction_PolluteCellHundred>오염 확산 (100칸)</DebugAction_PolluteCellHundred>
   <DebugAction_PolluteCellThousand>오염 확산 (1000칸)</DebugAction_PolluteCellThousand>
   <DebugAction_AddGameCondition>상황 추가...</DebugAction_AddGameCondition>
@@ -172,17 +168,11 @@
   <DebugAction_AttachFire>불붙이기</DebugAction_AttachFire>
   <DebugAction_SetQuality>품질 지정...</DebugAction_SetQuality>
   <DebugAction_MeasureDrawSize>렌더링 크기 측정</DebugAction_MeasureDrawSize>
-  <!-- TODO -->
   <DebugAction_IncreasePollutionSmall>오염 증가 (약간)</DebugAction_IncreasePollutionSmall>
-  <!-- TODO -->
   <DebugAction_IncreasePollutionLarge>오염 증가 (많이)</DebugAction_IncreasePollutionLarge>
-  <!-- TODO -->
   <DebugAction_DecreasePollutionLarge>오염 감소 (많이)</DebugAction_DecreasePollutionLarge>
-  <!-- TODO -->
-  <DebugAction_ResetBossgroupCooldown>보스 그룹 대기시간 초기화</DebugAction_ResetBossgroupCooldown>
-  <!-- TODO -->
-  <DebugAction_ResetBossgroupKilledPawns>보스 그룹 죽은 Pawn 초기화</DebugAction_ResetBossgroupKilledPawns>
-  <!-- TODO -->
+  <DebugAction_ResetBossgroupCooldown>Bossgroup 대기시간 초기화</DebugAction_ResetBossgroupCooldown>
+  <DebugAction_ResetBossgroupKilledPawns>물리친 Bossgroup 목록 초기화</DebugAction_ResetBossgroupKilledPawns>
   <DebugAction_SpawnCocoonInfestationWithPoints>곤충 고치 감염 생성...</DebugAction_SpawnCocoonInfestationWithPoints>
   <DebugAction_BenchmarkPerformance>성능 벤치마크</DebugAction_BenchmarkPerformance>
   <DebugAction_AddSlave>노예 추가</DebugAction_AddSlave>
@@ -263,25 +253,19 @@
   <DebugAction_ForceAgeReversalDemandNow>노화 역행 요구 강제</DebugAction_ForceAgeReversalDemandNow>
   <DebugAction_ResetAgeReversalDemandNow>노화 역행 요구 초기화</DebugAction_ResetAgeReversalDemandNow>
   <DebugAction_Resurrect>부활</DebugAction_Resurrect>
-  <!-- TODO -->
   <DebugAction_AddGene>유전자 추가</DebugAction_AddGene>
-  <!-- TODO -->
   <DebugAction_RemoveGene>유전자 제거</DebugAction_RemoveGene>
   <!-- TODO -->
   <DebugAction_SetXenotype>Set Xenotype</DebugAction_SetXenotype>
-  <!-- TODO -->
-  <DebugAction_AddLearningDesire>Add learning desire</DebugAction_AddLearningDesire>
-  <!-- TODO -->
+  <DebugAction_AddLearningDesire>학습 욕구 부여</DebugAction_AddLearningDesire>
   <DebugAction_TryLearningGiver>LearningGiver 시도</DebugAction_TryLearningGiver>
   <DebugAction_ListMeleeVerbs>근접 Verb 나열</DebugAction_ListMeleeVerbs>
   <DebugAction_DoVoiceCall>Pawn 울음소리 재생</DebugAction_DoVoiceCall>
   <DebugAction_ForceVomit>강제 구토</DebugAction_ForceVomit>
   <DebugAction_ResetRenderCache>Pawn 렌더 캐시 초기화화</DebugAction_ResetRenderCache>
   <DebugAction_SpawnPawn>Pawn 생성...</DebugAction_SpawnPawn>
-  <!-- TODO -->
   <DebugAction_SpawnNewborn>신생아 생성</DebugAction_SpawnNewborn>
-  <!-- TODO -->
-  <DebugAction_SpawnChild>아이 생성</DebugAction_SpawnChild>
+  <DebugAction_SpawnChild>아이 생성 (인간만)</DebugAction_SpawnChild>
   <DebugAction_SpawnWeapon>무기 생성...</DebugAction_SpawnWeapon>
   <DebugAction_SpawnApparel>의류 생성...</DebugAction_SpawnApparel>
   <DebugAction_TryPlaceNearThing>인근에 Thing 생성 시도...</DebugAction_TryPlaceNearThing>
