@@ -35,7 +35,7 @@ let makePath prevNormPath prevSuggestedPath (field: FieldInfo) =
   let newSuggestedPath =
     let mutable tKeyPath: string = null
 
-    if TKeySystem.TrySuggestTKeyPath(newNormPath, ref tKeyPath) then
+    if TKeySystem.TrySuggestTKeyPath(newNormPath, &tKeyPath) then
       tKeyPath
     else
       prevSuggestedPath + "." + field.Name
