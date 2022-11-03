@@ -75,7 +75,10 @@ let private shouldInjectFor
   =
   Option.isSome injectionMaybe
   || DefInjectionUtility.ShouldCheckMissingInjection(curValue, injectable.FieldInfo, injectable.Def)
-  || DefInjectionUtility.ShouldCheckMissingInjection(curValue, injectionTarget.FieldInfo, injectionTarget.Def)
+  // workaround for lack of [<MustTranslate>]
+  || (injectable.Def.GetType() = typeof<FactionDef>
+      && (injectable.FieldInfo.Name = "leaderTitle"
+          || injectable.FieldInfo.Name = "leaderTitleFemale"))
 
 
 let private createInjectionCollectionElements
