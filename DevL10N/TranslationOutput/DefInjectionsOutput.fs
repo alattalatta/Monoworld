@@ -75,10 +75,6 @@ let private shouldInjectFor
   =
   Option.isSome injectionMaybe
   || DefInjectionUtility.ShouldCheckMissingInjection(curValue, injectable.FieldInfo, injectable.Def)
-  // workaround for lack of [<MustTranslate>]
-  || (injectable.Def.GetType() = typeof<FactionDef>
-      && (injectable.FieldInfo.Name = "leaderTitle"
-          || injectable.FieldInfo.Name = "leaderTitleFemale"))
 
 
 let private createInjectionCollectionElements
@@ -163,23 +159,16 @@ let private writeFile
     fileName: string
   ) =
   async {
-    let injectablesInFile =
-      injectables
-      |> List.filter (fun (injection) -> (Translation.getSourceFile injection.Def) = fileName)
-
-    if not (List.isEmpty injectablesInFile) then
+    if not (List.isEmpty injectables) then
       let injectionsToWrite =
-        injectablesInFile
-        |> List.map (fun injectable -> injectable.Def.defName)
-        |> List.distinct
-        |> List.sort
-        |> List.map (fun defName ->
-          injectablesInFile
-          |> List.filter (fun injectable -> injectable.Def.defName = defName)
+        injectables
+        |> List.groupBy (fun injectable -> injectable.Def.defName)
+        |> List.distinctBy fst // group by defName
+        |> List.sortBy fst // sort by defName'
+        // not collect, we want injections to be grouped by defName, defNames separated by a new line
+        |> List.map (fun (_, injectablesForDef) ->
+          injectablesForDef
           |> List.collect (fun injectable ->
-            if defType = typeof<FactionDef> then
-              do log "Doing %s\n%A" injectable.SuggestedPath injectable
-
             try
               match injectable.Value with
               | Injectable.Collection c -> createInjectionCollectionElements (injections, injectable, c)
@@ -200,6 +189,7 @@ let private writeFile
 
               List.empty))
         |> List.filter (List.isEmpty >> not)
+        // the separation
         |> List.intersperse ([ XComment.newLine () :> XNode ])
         |> List.concat
 
@@ -221,8 +211,9 @@ let private writeFile
 
         let defTypeDirPath = Path.Combine(defInjectionDirPath, defTypeName)
 
-        do Directory.CreateDirectory(defTypeDirPath)
-           |> ignore
+        do
+          Directory.CreateDirectory(defTypeDirPath)
+          |> ignore
 
         do!
           injectionsToWrite
@@ -235,22 +226,18 @@ let private writeFile
 let private writeForDefType (defInjectionDirPath: string, modData: ModMetaData) (defType: Type) =
   let injections =
     LanguageDatabase.activeLanguage.defInjections
-    |> Seq.filter (fun injectionPack -> injectionPack.defType = defType)
-    |> Seq.collect (fun injectionPack ->
-      injectionPack.injections
+    |> Seq.filter (fun injectionPacks -> injectionPacks.defType = defType)
+    |> Seq.collect (fun injectionPacks ->
+      injectionPacks.injections
       |> Seq.filter (fun p ->
         not p.Value.isPlaceholder
         && p.Value.ModifiesDefFromModOrNullCore(modData, defType)))
     |> Seq.map (fun p -> (p.Key, p.Value))
     |> dict
 
-  let injectables = Injectable.collectAllFor defType modData
-
-  // write each injection to its file
-  injectables
-  |> Seq.map (fun injectable -> Translation.getSourceFile injectable.Def)
-  |> Seq.distinct
-  |> Seq.map (fun fileName ->
+  Injectable.collectAllFor defType modData
+  |> List.groupBy (fun injectable -> (Translation.getSourceFile injectable.Def))
+  |> Seq.map (fun (fileName, injectables) ->
     async {
       try
         do! writeFile (injections, injectables, defType, defInjectionDirPath, fileName)
