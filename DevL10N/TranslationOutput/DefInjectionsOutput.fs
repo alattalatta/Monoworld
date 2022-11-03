@@ -5,6 +5,7 @@ open System.Collections.Generic
 open System.IO
 open System.Xml.Linq
 
+open Poet.Lyric.Console
 open Poet.Lyric.Translation
 open Verse
 
@@ -12,6 +13,7 @@ open DevL10N.TranslationOutput.Injectable
 open DevL10N.TranslationOutput.Utils
 open DevL10N.TranslationOutput.Utils.Option
 open DevL10N.TranslationOutput.Utils.Xml
+open RimWorld
 
 
 type DefInjectionDict = IDictionary<string, DefInjectionPackage.DefInjection>
@@ -67,21 +69,23 @@ let private createSingleInjectionElement (path: string, english: string) : XNode
 
 
 let private shouldInjectFor
-  (injectionTarget: Injectable)
+  (injectable: Injectable)
   (injectionMaybe: DefInjectionPackage.DefInjection option)
   (curValue: string)
   =
   Option.isSome injectionMaybe
+  || DefInjectionUtility.ShouldCheckMissingInjection(curValue, injectable.FieldInfo, injectable.Def)
   || DefInjectionUtility.ShouldCheckMissingInjection(curValue, injectionTarget.FieldInfo, injectionTarget.Def)
 
 
 let private createInjectionCollectionElements
   (
-    languageInjections: DefInjectionDict,
-    target: Injectable
+    injections: DefInjectionDict,
+    injectable: Injectable,
+    (value, canTranslateList): (string list * bool)
   ) : XNode list =
   let injectionMaybe =
-    languageInjections.TryGetValue(target.SuggestedPath, null)
+    injections.TryGetValue(injectable.SuggestedPath, null)
     |> Option.ofObj
 
   let englishList =
@@ -90,43 +94,43 @@ let private createInjectionCollectionElements
     |> Option.map (fun injection -> injection.replacedList)
     |> Option.map List.ofSeq
     |> Option.defaultValue (
-      target.CurValueCollection
+      value
       |> List.mapi (fun i value ->
-        let key = target.NormalizedPath + "." + i.ToString()
+        let key = injectable.NormalizedPath + "." + i.ToString()
 
         let path =
           Translation.suggestTKeyPath key
           |> Option.defaultValue (key)
 
-        languageInjections.TryGetValue(path, null)
+        injections.TryGetValue(path, null)
         |> Option.ofObj
         |> Option.filter (fun injection -> injection.injected)
         |> Option.map (fun injection -> injection.replacedString)
         |> Option.defaultValue value)
     )
 
-  if target.ListInjectionAllowed then
+  if canTranslateList then
     maybe {
       let mayProceed =
         englishList
-        |> List.exists (shouldInjectFor target injectionMaybe)
+        |> List.exists (shouldInjectFor injectable injectionMaybe)
 
       if mayProceed then
         return createListInjectionElements (injectionMaybe, englishList)
     }
-    |> Option.map (XElement.create target.SuggestedPath)
+    |> Option.map (XElement.create injectable.SuggestedPath)
     |> Option.map (id<XNode> >> List.singleton)
     |> Option.defaultValue List.empty
   else
     englishList
     |> List.ofSeq
     |> List.collecti (fun (i, english) ->
-      if shouldInjectFor target injectionMaybe english then
-        let normalizedPath = target.NormalizedPath + "." + i.ToString()
+      if shouldInjectFor injectable injectionMaybe english then
+        let normalizedPath = injectable.NormalizedPath + "." + i.ToString()
 
         let suggestedPath =
           Translation.suggestTKeyPath normalizedPath
-          |> Option.defaultValue (target.SuggestedPath + "." + i.ToString())
+          |> Option.defaultValue (injectable.SuggestedPath + "." + i.ToString())
 
         createSingleInjectionElement (suggestedPath, english)
         |> List.singleton
@@ -134,58 +138,62 @@ let private createInjectionCollectionElements
         List.empty)
 
 
-let private createInjectionElement (languageInjections: DefInjectionDict, target: Injectable) =
+let private createInjectionElement (injections: DefInjectionDict, target: Injectable, value: string) =
   let injectionMaybe =
-    languageInjections.TryGetValue(target.SuggestedPath, null)
+    injections.TryGetValue(target.SuggestedPath, null)
     |> Option.ofObj
 
   injectionMaybe
   |> Option.filter (fun x -> x.injected)
   |> Option.bind (fun x -> Option.ofObj x.replacedString)
-  |> Option.orElse (Option.ofObj target.CurValue)
+  |> Option.orElse (Option.ofObj value)
   |> Option.filter (shouldInjectFor target injectionMaybe)
   |> Option.map (fun english -> createSingleInjectionElement (target.SuggestedPath, english))
 
 
 let private writeFile
   (
-    languageInjections: DefInjectionDict,
-    allInjectionTargets: Injectable list,
+    injections: DefInjectionDict,
+    injectables: Injectable list,
     defType: Type,
     defInjectionDirPath: string,
     fileName: string
   ) =
   async {
-    let injectionTargetsInFile =
-      allInjectionTargets
+    let injectablesInFile =
+      injectables
       |> List.filter (fun (injection) -> (Translation.getSourceFile injection.Def) = fileName)
 
-    let injectionTargetsCount = List.length injectionTargetsInFile
-
-    if injectionTargetsCount > 0 then
+    if not (List.isEmpty injectablesInFile) then
       let injectionsToWrite =
-        injectionTargetsInFile
-        |> List.map (fun injection -> injection.Def.defName)
+        injectablesInFile
+        |> List.map (fun injectable -> injectable.Def.defName)
         |> List.distinct
         |> List.sort
         |> List.map (fun defName ->
-          injectionTargetsInFile
-          |> List.filter (fun injectionTarget -> injectionTarget.Def.defName = defName)
-          |> List.collect (fun injectionTarget ->
-            if injectionTarget.Def.defName = "Pirate" then
-              Log.Message(sprintf "Pirate! %s %s" injectionTarget.SuggestedPath injectionTarget.CurValue)
-
+          injectablesInFile
+          |> List.filter (fun injectable -> injectable.Def.defName = defName)
+          |> List.collect (fun injectable ->
+            if defType = typeof<FactionDef> then
+              do log "Doing %s\n%A" injectable.SuggestedPath injectable
 
             try
-              if injectionTarget.IsCollection then
-                createInjectionCollectionElements (languageInjections, injectionTarget)
-              else
-                createInjectionElement (languageInjections, injectionTarget)
+              match injectable.Value with
+              | Injectable.Collection c -> createInjectionCollectionElements (injections, injectable, c)
+              | Injectable.Singular s ->
+                createInjectionElement (injections, injectable, s)
                 |> Option.map List.singleton
                 |> Option.defaultValue List.empty
             with
             | ex ->
-              do Log.Error(sprintf "Could not write injection for %s: %s" injectionTarget.SuggestedPath ex.Message)
+              do
+                err
+                  "Could not write injection for %s in %s, path '%s': %s\nInjectable: %A"
+                  defType.Name
+                  fileName
+                  injectable.SuggestedPath
+                  ex.Message
+                  injectable
 
               List.empty))
         |> List.filter (List.isEmpty >> not)
@@ -210,8 +218,8 @@ let private writeFile
 
         let defTypeDirPath = Path.Combine(defInjectionDirPath, defTypeName)
 
-        Directory.CreateDirectory(defTypeDirPath)
-        |> ignore
+        do Directory.CreateDirectory(defTypeDirPath)
+           |> ignore
 
         do!
           injectionsToWrite
@@ -222,7 +230,7 @@ let private writeFile
 
 
 let private writeForDefType (defInjectionDirPath: string, modData: ModMetaData) (defType: Type) =
-  let languageInjections =
+  let injections =
     LanguageDatabase.activeLanguage.defInjections
     |> Seq.filter (fun injectionPack -> injectionPack.defType = defType)
     |> Seq.collect (fun injectionPack ->
@@ -233,24 +241,18 @@ let private writeForDefType (defInjectionDirPath: string, modData: ModMetaData) 
     |> Seq.map (fun p -> (p.Key, p.Value))
     |> dict
 
-  let allInjectionTargets = Injectable.collectAllFor defType modData
+  let injectables = Injectable.collectAllFor defType modData
 
   // write each injection to its file
-  allInjectionTargets
-  |> Seq.map (fun injection -> Translation.getSourceFile injection.Def)
+  injectables
+  |> Seq.map (fun injectable -> Translation.getSourceFile injectable.Def)
   |> Seq.distinct
   |> Seq.map (fun fileName ->
     async {
       try
-        do! writeFile (languageInjections, allInjectionTargets, defType, defInjectionDirPath, fileName)
+        do! writeFile (injections, injectables, defType, defInjectionDirPath, fileName)
       with
-      | ex ->
-        Log.Error(
-          "Could not write defInjection for "
-          + defType.Name
-          + ": "
-          + ex.Message
-        )
+      | ex -> do err "Could not write defInjection for %s in %s: %s" defType.Name fileName ex.Message
     })
   |> Async.Parallel
 
