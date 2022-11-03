@@ -156,7 +156,7 @@
       <li>
         <key>ToxicResistance</key>
         <value>
-          <offset>-0.4</offset>
+          <offset>0.6</offset>
         </value>
       </li>
     </stats>
@@ -713,6 +713,7 @@
         <def>ToxicBuildup</def>
         <amount>0.15</amount>
         <severityScaleBy>ToxicResistance</severityScaleBy>
+        <inverseStatScaling>true</inverseStatScaling>
       </li>
     </onHits>
     <extraDescriptions>

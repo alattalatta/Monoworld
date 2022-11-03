@@ -456,6 +456,7 @@
         <def>ToxicBuildup</def>
         <amount>0.1</amount>
         <severityScaleBy>ToxicResistance</severityScaleBy>
+        <inverseStatScaling>true</inverseStatScaling>
       </li>
     </onHits>
     <extraDescriptions>
