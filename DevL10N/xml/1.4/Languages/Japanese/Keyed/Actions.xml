@@ -32,14 +32,10 @@
   <DebugAction_BaseGen>生成 敵の前線基地...</DebugAction_BaseGen>
   <DebugAction_SketchGen>生成 モニュメント...</DebugAction_SketchGen>
   <DebugAction_SetTerrainRect>生成 長方形地形...</DebugAction_SetTerrainRect>
-  <!-- TODO -->
   <DebugAction_PolluteRect>汚染 (エリア)</DebugAction_PolluteRect>
-  <!-- TODO -->
   <DebugAction_UnpolluteRect>汚染清浄 (エリア)</DebugAction_UnpolluteRect>
   <DebugAction_MakeRock>生成 岩(エリア)</DebugAction_MakeRock>
-  <!-- TODO -->
   <DebugAction_PolluteCellTen>増加 汚染(x10セル)</DebugAction_PolluteCellTen>
-  <!-- TODO -->
   <DebugAction_PolluteCellHundred>増加 汚染(x100セル)</DebugAction_PolluteCellHundred>
   <DebugAction_PolluteCellThousand>増加 汚染(x1000セル)</DebugAction_PolluteCellThousand>
   <DebugAction_AddGameCondition>追加 ゲーム条件...</DebugAction_AddGameCondition>
@@ -169,20 +165,14 @@
   <DebugAction_RandomSpotNearThingAvoidingHostiles>表示 RandomSpot敵ポーンThing回避</DebugAction_RandomSpotNearThingAvoidingHostiles>
   <DebugAction_ClearAllFog>削除 全戦場の霧</DebugAction_ClearAllFog>
   <DebugAction_ChangeThingStyle>変更 Thingスタイル</DebugAction_ChangeThingStyle>
-  <DebugAction_SetQuality>設定 品質...</DebugAction_SetQuality>
   <DebugAction_AttachFire>着火</DebugAction_AttachFire>
+  <DebugAction_SetQuality>設定 品質...</DebugAction_SetQuality>
   <DebugAction_MeasureDrawSize>測定 描画サイズ</DebugAction_MeasureDrawSize>
-  <!-- TODO -->
   <DebugAction_IncreasePollutionSmall>増加 汚染(小)</DebugAction_IncreasePollutionSmall>
-  <!-- TODO -->
   <DebugAction_IncreasePollutionLarge>増加 汚染(大)</DebugAction_IncreasePollutionLarge>
-  <!-- TODO -->
   <DebugAction_DecreasePollutionLarge>削減 汚染(大)</DebugAction_DecreasePollutionLarge>
-  <!-- TODO -->
   <DebugAction_ResetBossgroupCooldown>リセット ボスグループcooldown</DebugAction_ResetBossgroupCooldown>
-  <!-- TODO -->
   <DebugAction_ResetBossgroupKilledPawns>リセット ボスグループPawns殺害</DebugAction_ResetBossgroupKilledPawns>
-  <!-- TODO -->
   <DebugAction_SpawnCocoonInfestationWithPoints>生成 コクーン侵入...</DebugAction_SpawnCocoonInfestationWithPoints>
   <DebugAction_BenchmarkPerformance>パフォーマンスを計測</DebugAction_BenchmarkPerformance>
   <DebugAction_AddSlave>追加 奴隷</DebugAction_AddSlave>
@@ -232,7 +222,7 @@
   <DebugAction_ForceBirthday>強制 誕生日</DebugAction_ForceBirthday>
   <DebugAction_Recruit>勧誘</DebugAction_Recruit>
   <DebugAction_Enslave>奴隷化</DebugAction_Enslave>
-  <DebugAction_ToggleRecruitable>Toggle recruitability</DebugAction_ToggleRecruitable>
+  <DebugAction_ToggleRecruitable>切替 採用の可能性</DebugAction_ToggleRecruitable>
   <DebugAction_GrowPawnToMaturity>ポーンを成人にする</DebugAction_GrowPawnToMaturity>
   <DebugAction_WearApparel_ToSelected>追加 選択ポーンに衣服...</DebugAction_WearApparel_ToSelected>
   <DebugAction_EquipPrimary_ToSelected>追加 選択ポーンに武器...</DebugAction_EquipPrimary_ToSelected>
@@ -264,25 +254,18 @@
   <DebugAction_ForceAgeReversalDemandNow>年齢逆転欲求を強制</DebugAction_ForceAgeReversalDemandNow>
   <DebugAction_ResetAgeReversalDemandNow>年齢逆転欲求リセット</DebugAction_ResetAgeReversalDemandNow>
   <DebugAction_Resurrect>復活</DebugAction_Resurrect>
-  <!-- TODO -->
   <DebugAction_AddGene>追加 遺伝子</DebugAction_AddGene>
-  <!-- TODO -->
   <DebugAction_RemoveGene>削除 遺伝子</DebugAction_RemoveGene>
-  <!-- TODO -->
   <DebugAction_SetXenotype>設定 Xenotype</DebugAction_SetXenotype>
-  <!-- TODO -->
   <DebugAction_AddLearningDesire>追加 学習欲求</DebugAction_AddLearningDesire>
-  <!-- TODO -->
   <DebugAction_TryLearningGiver>試験 LearningGiver</DebugAction_TryLearningGiver>
   <DebugAction_ListMeleeVerbs>近接武器のVerbs一覧表示</DebugAction_ListMeleeVerbs>
   <DebugAction_DoVoiceCall>ポーン音再生</DebugAction_DoVoiceCall>
   <DebugAction_ForceVomit>強制嘔吐</DebugAction_ForceVomit>
   <DebugAction_ResetRenderCache>リセット Pawn描画cache</DebugAction_ResetRenderCache>
   <DebugAction_SpawnPawn>生成 ポーン...</DebugAction_SpawnPawn>
-  <!-- TODO -->
   <DebugAction_SpawnNewborn>生成 赤ん坊</DebugAction_SpawnNewborn>
-  <!-- TODO -->
-  <DebugAction_SpawnChild>生成 子供</DebugAction_SpawnChild>
+  <DebugAction_SpawnChild>生成 子供(人間)</DebugAction_SpawnChild>
   <DebugAction_TryPlaceNearThing>生成 付近にThing...</DebugAction_TryPlaceNearThing>
   <DebugAction_TryPlaceNearThingWithStyle>生成 付近にThing(スタイル付)...</DebugAction_TryPlaceNearThingWithStyle>
   <DebugAction_TryPlaceMinifiedThing>生成 梱包Thing設置...</DebugAction_TryPlaceMinifiedThing>
