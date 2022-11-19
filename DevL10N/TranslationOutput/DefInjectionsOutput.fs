@@ -13,7 +13,6 @@ open DevL10N.TranslationOutput.Injectable
 open DevL10N.TranslationOutput.Utils
 open DevL10N.TranslationOutput.Utils.Option
 open DevL10N.TranslationOutput.Utils.Xml
-open RimWorld
 
 
 type DefInjectionDict = IDictionary<string, DefInjectionPackage.DefInjection>

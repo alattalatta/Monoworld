@@ -17,7 +17,6 @@ let private fieldsInDeterministicOrder (t: Type) =
   _fieldsInDeterministicOrder.Invoke(null, [| t |]) :?> FieldInfo seq
 
 
-
 type InjectableValue =
   | Collection of (string list * bool) // values, [TranslationCanCahngeCount]
   | Singular of string
@@ -29,16 +28,11 @@ type Injectable =
     SuggestedPath: string
     Value: InjectableValue }
 
-let makePath prevNormPath prevSuggestedPath (field: FieldInfo) =
+
+let private makePath prevNormPath prevSuggestedPath (field: FieldInfo) =
   let newNormPath = prevNormPath + "." + field.Name
-
-  let newSuggestedPath =
-    let mutable tKeyPath: string = null
-
-    if TKeySystem.TrySuggestTKeyPath(newNormPath, &tKeyPath) then
-      tKeyPath
-    else
-      prevSuggestedPath + "." + field.Name
+  let newSuggestedPath = Translation.suggestTKeyPath newNormPath
+                         |> Option.defaultValue (prevSuggestedPath + "." + field.Name)
 
   (newNormPath, newSuggestedPath)
 
