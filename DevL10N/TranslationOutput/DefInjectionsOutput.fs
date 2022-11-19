@@ -67,15 +67,6 @@ let private createSingleInjectionElement (path: string, english: string) : XNode
     |> id<XNode>
 
 
-let private shouldInjectFor
-  (injectable: Injectable)
-  (injectionMaybe: DefInjectionPackage.DefInjection option)
-  (curValue: string)
-  =
-  Option.isSome injectionMaybe
-  || DefInjectionUtility.ShouldCheckMissingInjection(curValue, injectable.FieldInfo, injectable.Def)
-
-
 let private createInjectionCollectionElements
   (
     injections: DefInjectionDict,
@@ -111,7 +102,7 @@ let private createInjectionCollectionElements
     maybe {
       let mayProceed =
         englishList
-        |> List.exists (shouldInjectFor injectable injectionMaybe)
+        |> List.exists (Translation.shouldInjectFor (injectable.Def, injectable.FieldInfo) injectionMaybe)
 
       if mayProceed then
         return createListInjectionElements (injectionMaybe, englishList)
@@ -123,7 +114,7 @@ let private createInjectionCollectionElements
     englishList
     |> List.ofSeq
     |> List.collecti (fun (i, english) ->
-      if shouldInjectFor injectable injectionMaybe english then
+      if Translation.shouldInjectFor (injectable.Def, injectable.FieldInfo) injectionMaybe english then
         let normalizedPath = injectable.NormalizedPath + "." + i.ToString()
 
         let suggestedPath =
@@ -145,7 +136,7 @@ let private createInjectionElement (injections: DefInjectionDict, target: Inject
   |> Option.filter (fun x -> x.injected)
   |> Option.bind (fun x -> Option.ofObj x.replacedString)
   |> Option.orElse (Option.ofObj value)
-  |> Option.filter (shouldInjectFor target injectionMaybe)
+  |> Option.filter (Translation.shouldInjectFor (target.Def, target.FieldInfo) injectionMaybe)
   |> Option.map (fun english -> createSingleInjectionElement (target.SuggestedPath, english))
 
 
