@@ -80,15 +80,19 @@ module StatOffsetFromGear =
   /// Adds infusions to Core stat calculation.
   /// Note that we can only use `StatMod#offset` because it is "stat _offset_ from gear."
   let Postfix (returned: float32, gear: Thing, stat: StatDef) =
-    let isPawnStat = Set.contains stat.category.defName pawnStatCategories
+    let isPawnStat =
+      // StatDef.category can be null in mods
+      Option.ofObj stat.category
+      |> Option.map (fun category -> Set.contains category.defName pawnStatCategories)
+      |> Option.defaultValue false
 
     let isArmorStat = Set.contains stat.defName armorStats
 
     if isPawnStat || isArmorStat then
       match Comp.ofThing<CompInfusion> gear with
       | Some compInf ->
-        // for general stats, consider both weapons and apparels into account
-        // for armor stats, only check weapons
+        // for general stats, considers both weapons and apparels into account
+        // for armor stats, only checks weapons
         if isPawnStat || (isArmorStat && gear.def.IsWeapon) then
           (compInf.GetModForStat stat).offset + returned
         else
