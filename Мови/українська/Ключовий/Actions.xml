@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+<DebugAction_SetIdeo>Встановити ідеологію...</DebugAction_SetIdeo>
+<DebugAction_ConvertToIdeo>Перетворити на ідеологію...</DebugAction_ConvertToIdeo>
+<DebugAction_SpawnRelic>Створити реліквію...</DebugAction_SpawnRelic>
+<DebugAction_SetSourcePrecept>Встановити джерело стилю-принципу...</DebugAction_SetSourcePrecept>
+<DebugAction_RemoveRitualObligation>Видалити обов'язок ритуалу</DebugAction_RemoveRitualObligation>
+<DebugAction_AddPrecept>Додати принцип</DebugAction_AddPrecept>
+<DebugAction_RemovePrecept>Видалити принцип</DebugAction_RemovePrecept>
+<DebugAction_TriggerDateRitual>Запустити ритуал за датою</DebugAction_TriggerDateRitual>
+<DebugAction_Add5DaysToObligationTimer>Додати 5 днів до таймеру обов'язку</DebugAction_Add5DaysToObligationTimer>
+<DebugAction_SuppressionPlus10>Підгнічення +10%</DebugAction_SuppressionPlus10>
+<DebugAction_SuppressionMinus10>Підгнічення -10%</DebugAction_SuppressionMinus10>
+<DebugAction_ResetSuppresionSchedule>Очистити графік підгнічення</DebugAction_ResetSuppresionSchedule>
+<DebugAction_WillPlus1>Воля +1</DebugAction_WillPlus1>
+<DebugAction_WillMinus1>Воля -1</DebugAction_WillMinus1>
+<DebugAction_StartSlaveRebellion>Почати повстання рабів (випадково)</DebugAction_StartSlaveRebellion>
+<DebugAction_StartSlaveRebellionAggressive>Почати повстання рабів (агресивно)</DebugAction_StartSlaveRebellionAggressive>
+<DebugAction_ChangeStyle>Змінити стиль</DebugAction_ChangeStyle>
+<DebugAction_RequestStyleChange>Запросити зміну стилю</DebugAction_RequestStyleChange>
+<DebugAction_DarklightAtPosition>Темність/Світло на позиції</DebugAction_DarklightAtPosition>
+<DebugAction_MaxDevelopmentPoints>Максимальна кількість балів розвитку</DebugAction_MaxDevelopmentPoints>
+<DebugAction_AddDevelopmentPoint>Додати бал розвитку</DebugAction_AddDevelopmentPoint>
+<DebugAction_ClearDevelopmentPoints>Очистити бали розвитку</DebugAction_ClearDevelopmentPoints>
+<DebugAction_SpawnComplex>Створити комплекс...</DebugAction_SpawnComplex>
+<DebugAction_Generate200RitualNames>Згенерувати 200 назв ритуалів</DebugAction_Generate200RitualNames>
+<DebugAction_DoTradeCaravanSpecific>Виконати прибуття торгової каравани...</DebugAction_DoTradeCaravanSpecific>
+<DebugAction_ExecuteRaidWithPoints>Виконати рейд з балами...</DebugAction_ExecuteRaidWithPoints>
+<DebugAction_ExecuteRaidWithFaction>Виконати рейд з фракцією...</DebugAction_ExecuteRaidWithFaction>
+<DebugAction_ExecuteRaidWithSpecifics>Виконати рейд з певними параметрами...</DebugAction_ExecuteRaidWithSpecifics>
+<DebugAction_UseScatterer>Використати Scatterer...</DebugAction_UseScatterer>
+<DebugAction_BaseGen>Використати BaseGen...</DebugAction_BaseGen>
+<DebugAction_SketchGen>Використати SketchGen...</DebugAction_SketchGen>
+<DebugAction_SetTerrainRect>Встановити терен (область)...</DebugAction_SetTerrainRect>
+<DebugAction_PolluteRect>Забруднити (область)</DebugAction_PolluteRect>
+<DebugAction_UnpolluteRect>Очистити забруднення (область)</DebugAction_UnpolluteRect>
+<DebugAction_MakeRock>Створити камені (область)</DebugAction_MakeRock>
+<DebugAction_PolluteCellTen>Збільшити забруднення (x10 клітин)</DebugAction_PolluteCellTen>
+<DebugAction_PolluteCellHundred>Збільшити забруднення (x100 клітин)</DebugAction_PolluteCellHundred>
+<DebugAction_PolluteCellThousand>Збільшити забруднення (x1000 клітин)</DebugAction_PolluteCellThousand>
+<DebugAction_AddGameCondition>Додати умову гри...</DebugAction_AddGameCondition>
+<DebugAction_RemoveGameCondition>Видалити умову гри...</DebugAction_RemoveGameCondition>
+<DebugAction_RefogMap>Заново затуманити карту</DebugAction_RefogMap>
+<DebugAction_UseGenStep>Використати GenStep...</DebugAction_UseGenStep>
+<DebugAction_RegenSection>Регенерувати секцію</DebugAction_RegenSection>
+<DebugAction_RegenAllMapMeshSections>Регенерувати всі секції мешу карти</DebugAction_RegenAllMapMeshSections>
+<DebugAction_AddSnow>Додати сніг</DebugAction_AddSnow>
+<DebugAction_RemoveSnow>Видалити сніг</DebugAction_RemoveSnow>
+<DebugAction_ClearAllSnow>Очистити весь сніг</DebugAction_ClearAllSnow>
+<DebugAction_GenerateMap>Створити карту</DebugAction_GenerateMap>
+<DebugAction_DestroyMap>Знищити карту...</DebugAction_DestroyMap>
+<DebugAction_LeakMap>Протікання карти...</DebugAction_LeakMap>
+<DebugAction_PrintLeakedMap>Друк протікання карти...</DebugAction_PrintLeakedMap>
+<DebugAction_Transfer>Перенести на іншу карту...</DebugAction_Transfer>
+<DebugAction_ChangeMap>Змінити карту...</DebugAction_ChangeMap>
+<DebugAction_RegenerateCurrentMap>Регенерувати поточну карту</DebugAction_RegenerateCurrentMap>
+<DebugAction_GenerateMapWithCaves>Створити карту з печерами</DebugAction_GenerateMapWithCaves>
+<DebugAction_RunMapGenerator>Запустити генератор карт...</DebugAction_RunMapGenerator>
+<DebugAction_ForceReformInCurrentMap>Примусова реформа на поточній карті</DebugAction_ForceReformInCurrentMap>
+<DebugAction_FillMapWithTrees>Заповнити поточну карту деревами</DebugAction_FillMapWithTrees>
+<DebugAction_LogMapPollution>Запис забруднення поточної карти</DebugAction_LogMapPollution>
+<DebugAction_DestroyAllPlants>Знищити всі рослини</DebugAction_DestroyAllPlants>
+<DebugAction_DestroyAllThings>Знищити всі речі</DebugAction_DestroyAllThings>
+<DebugAction_DestroyClutter>Знищити все сміття</DebugAction_DestroyClutter>
+<DebugAction_DestroyAllHats>Знищити всі шапки</DebugAction_DestroyAllHats>
+<DebugAction_DestroyAllCorpses>Знищити всі трупи</DebugAction_DestroyAllCorpses>
+<DebugAction_FinishAllResearch>Завершити всі дослідження</DebugAction_FinishAllResearch>
+<DebugAction_AddTechprintsForProject>Додати технічні описи до проекту...</DebugAction_AddTechprintsForProject>
+<DebugAction_ApplyTechprintsForProject>Застосувати технічні описи на проекті...</DebugAction_ApplyTechprintsForProject>
+<DebugAction_AddTradeShipOfKind>Додати торгове судно відповідного виду...</DebugAction_AddTradeShipOfKind>
+<DebugAction_ReplaceAllTradeShips>Замінити всі торгові судна</DebugAction_ReplaceAllTradeShips>
+<DebugAction_ChangeWeather>Змінити погоду...</DebugAction_ChangeWeather>
+<DebugAction_PlaySong>Програти пісню...</DebugAction_PlaySong>
+<DebugAction_PlaySound>Програти звук...</DebugAction_PlaySound>
+<DebugAction_EndGameCondition>Закінчити умову гри...</DebugAction_EndGameCondition>
+  <!-- TODO -->
+<DebugAction_SimulateSanguophageMeeting>Симулювати зустріч з Сангуофагом</DebugAction_SimulateSanguophageMeeting>
+<DebugAction_ForceEnemyAssault>Змусити ворога напасти</DebugAction_ForceEnemyAssault>
+<DebugAction_ForceEnemyFlee>Змусити ворога втекти</DebugAction_ForceEnemyFlee>
+<DebugAction_AdaptionProgress10Days>Прогрес адаптації за 10 днів</DebugAction_AdaptionProgress10Days>
+<DebugAction_UnloadUnusedAssets>Вивантажити невикористані ресурси</DebugAction_UnloadUnusedAssets>
+<DebugAction_NameSettlement>Назвати поселення...</DebugAction_NameSettlement>
+<DebugAction_NextLesson>Наступний урок</DebugAction_NextLesson>
+<DebugAction_ChangeCameraConfig>Змінити конфігурацію камери...</DebugAction_ChangeCameraConfig>
+<DebugAction_ForceShipCountdown>Змусити відлік часу до вильоту з кораблем</DebugAction_ForceShipCountdown>
+<DebugAction_ForceStartShip>Змусити початок вильоту з кораблем</DebugAction_ForceStartShip>
+<DebugAction_FlashTradeDropSpot>Миготіти місцем скидання товарів для торгівлі</DebugAction_FlashTradeDropSpot>
+<DebugAction_MakeFactionLeader>Зробити лідера фракції</DebugAction_MakeFactionLeader>
+<DebugAction_KillFactionLeader>Вбити лідера фракції</DebugAction_KillFactionLeader>
+<DebugAction_KillKidnappedPawn>Вбити зарученого пішака</DebugAction_KillKidnappedPawn>
+<DebugAction_KillWorldPawn>Вбити світового пішака</DebugAction_KillWorldPawn>
+<DebugAction_SetFactionRelations>Встановити взаємини між фракціями</DebugAction_SetFactionRelations>
+<DebugAction_VisitorGift>Подарунок від відвідувача</DebugAction_VisitorGift>
+<DebugAction_IncrementTime>Збільшити час...</DebugAction_IncrementTime>
+<DebugAction_StorywatcherTick1Day>StoryWatcher пройшов 1 день</DebugAction_StorywatcherTick1Day>
+<DebugAction_KillRandomLentColonist>Вбити випадкового запозиченого поселенця</DebugAction_KillRandomLentColonist>
+<DebugAction_ClearPrisonerInteractionSchedule>Очистити графік взаємодії з ув'язненими</DebugAction_ClearPrisonerInteractionSchedule>
+<DebugAction_GlowAtPosition>Відображення світіння в позиції</DebugAction_GlowAtPosition>
+<DebugAction_HSVAtPosition>Показати HSV на позиції</DebugAction_HSVAtPosition>
+<DebugAction_FlashBlockedLandingCells>Підсвітити блоковані клітини посадки</DebugAction_FlashBlockedLandingCells>
+<DebugAction_PawnKindApparelCheck>Перевірити одяг для типу пішака...</DebugAction_PawnKindApparelCheck>
+<DebugAction_PawnKindAbilityCheck>Перевірити вміння для типу пішака...</DebugAction_PawnKindAbilityCheck>
+<DebugAction_AtlasRebuild>Перебудувати атласи</DebugAction_AtlasRebuild>
+<DebugAction_DumpPawnAtlases>Зберегти атласи пішаків</DebugAction_DumpPawnAtlases>
+<DebugAction_DumpStaticAtlases>Зберегти статичні атласи</DebugAction_DumpStaticAtlases>
+<DebugAction_LoadedFilesForMod>Список завантажених файлів для моду...</DebugAction_LoadedFilesForMod>
+<DebugAction_GenerateQuest>Створити квест...</DebugAction_GenerateQuest>
+<DebugAction_GenerateQuests>Створити кілька квестів...</DebugAction_GenerateQuests>
+<DebugAction_GenerateQuestsSamples>Створити квести (1 для кожних очок)...</DebugAction_GenerateQuestsSamples>
+<DebugAction_TestQuestPart>Тестувати частину квесту...</DebugAction_TestQuestPart>
+<DebugAction_QuestExample>Зберегти створені дані квесту</DebugAction_QuestExample>
+<DebugAction_Award4RoyalFavor>Нагородити 4 почесті</DebugAction_Award4RoyalFavor>
+<DebugAction_Award10RoyalFavor>Нагородити 10 почесті</DebugAction_Award10RoyalFavor>
+<DebugAction_Remove4RoyalFavor>Забрати 4 почесті</DebugAction_Remove4RoyalFavor>
+<DebugAction_ReduceRoyalTitle>Знизити королівський титул</DebugAction_ReduceRoyalTitle>
+<DebugAction_SetTitleForced>Встановити королівський титул...</DebugAction_SetTitleForced>
+<DebugAction_WriteBackstoryTranslationFile>Зберегти файл перекладу біографій</DebugAction_WriteBackstoryTranslationFile>
+<DebugAction_SaveTranslationReport>Зберегти звіт перекладу</DebugAction_SaveTranslationReport>
+<DebugAction_MakeColonyFull>Створити колонію (повна)</DebugAction_MakeColonyFull>
+<DebugAction_MakeColonyAnimals>Створити колонію (тварини)</DebugAction_MakeColonyAnimals>
+<DebugAction_MakeColonyAncientJunk>Створити колонію (стародавні речі)</DebugAction_MakeColonyAncientJunk>
+<DebugAction_TestForceDownedx100>Тест: примусово впасти x100</DebugAction_TestForceDownedx100>
+<DebugAction_TestForceKillx100>Тест: примусово вбити x100</DebugAction_TestForceKillx100>
+<DebugAction_TestGeneratePawnx1000>Тест: створити x1000 персонажів</DebugAction_TestGeneratePawnx1000>
+<DebugAction_GeneratePawnsOfAllShapes>Створити персонажів різних форм</DebugAction_GeneratePawnsOfAllShapes>
+<DebugAction_CheckRegionListers>Перевірити список регіонів</DebugAction_CheckRegionListers>
+<DebugAction_TestTimeToDown>Тест: час до знеболення</DebugAction_TestTimeToDown>
+<DebugAction_BattleRoyaleAllPawnKinds>Битва королів усіх видів персонажів</DebugAction_BattleRoyaleAllPawnKinds>
+<DebugAction_BattleRoyaleHumanlikes>Битва королів людоподібних персонажів</DebugAction_BattleRoyaleHumanlikes>
+<DebugAction_BattleRoyaleByDamagetype>Битва королів за типом ушкодження</DebugAction_BattleRoyaleByDamagetype>
+<DebugAction_Destroy>Знищити</DebugAction_Destroy>
+<DebugAction_Kill>Вбити</DebugAction_Kill>
+<DebugAction_SetFaction>Встановити фракцію</DebugAction_SetFaction>
+<DebugAction_Discard>Викинути</DebugAction_Discard>
+<DebugAction_Take10Damage>Отримати 10 ушкоджень</DebugAction_Take10Damage>
+<DebugAction_Take300Damage>Отримати 3000 ушкоджень</DebugAction_Take300Damage>
+<DebugAction_Take5000Damage>Отримати 5000 ушкоджень</DebugAction_Take5000Damage>
+<DebugAction_ClearArea>Очистити (область)</DebugAction_ClearArea>
+<DebugAction_MakeEmptyRoom>Побудувати порожню кімнату (область)</DebugAction_MakeEmptyRoom>
+<DebugAction_MakeRoof>Редагувати дах (область)...</DebugAction_MakeRoof>
+<DebugAction_Explosion>Вибух...</DebugAction_Explosion>
+<DebugAction_LightningStrike>Удар блискавки</DebugAction_LightningStrike>
+<DebugAction_LightningStrikeDelayed>Удар блискавки (з запізненням)...</DebugAction_LightningStrikeDelayed>
+<DebugAction_PushGas>Додати газ...</DebugAction_PushGas>
+<DebugAction_ClearAllGas>Очистити весь газ</DebugAction_ClearAllGas>
+<DebugAction_FillAllGas>Заповнити карту газом</DebugAction_FillAllGas>
+<DebugAction_PushHeat>Додати тепло...</DebugAction_PushHeat>
+<DebugAction_Grow1Day>Вирощувати 1 день</DebugAction_Grow1Day>
+<DebugAction_GrowPlantToMaturity>Вирощувати рослину до зрілості</DebugAction_GrowPlantToMaturity>
+<DebugAction_Rotate>Обертати...</DebugAction_Rotate>
+<DebugAction_SetColor>Встановити колір</DebugAction_SetColor>
+<DebugAction_Rot1Day>Розкладати 1 день</DebugAction_Rot1Day>
+<DebugAction_ForceSleep>Примусовий сон</DebugAction_ForceSleep>
+<DebugAction_BreakDown>Зламати</DebugAction_BreakDown>
+<DebugAction_TestFloodUnfog>Тест затоплення розгойдання</DebugAction_TestFloodUnfog>
+<DebugAction_FlashClosewalkCell30>Світловий промінь у радіусі 30 клітинок від ближньої ходьби</DebugAction_FlashClosewalkCell30>
+<DebugAction_FlashWalkPath>Світловий промінь шляху</DebugAction_FlashWalkPath>
+<DebugAction_FlashSkygazeCell>Світловий промінь на місце зоряного погляду</DebugAction_FlashSkygazeCell>
+<DebugAction_FlashDirectFleeDest>Світловий промінь напрямку безпосереднього втечі</DebugAction_FlashDirectFleeDest>
+<DebugAction_FlashShuttleDropCellsNear>Світловий промінь поблизу точок висадки шатлу</DebugAction_FlashShuttleDropCellsNear>
+<DebugAction_FlashSpectatorsCells>Світловий промінь клітинок глядачів</DebugAction_FlashSpectatorsCells>
+<DebugAction_CheckReachability>Перевірити доступність</DebugAction_CheckReachability>
+<DebugAction_FlashTryFindRandomPawnExitCell>Світловий промінь на вихідну клітинку випадкового пішака</DebugAction_FlashTryFindRandomPawnExitCell>
+<DebugAction_RandomSpotJustOutsideColony>Світловий промінь на випадкову точку поза колонією</DebugAction_RandomSpotJustOutsideColony>
+<DebugAction_RandomSpotNearThingAvoidingHostiles>Випадкова точка біля речі, уникнення ворожих пішаків</DebugAction_RandomSpotNearThingAvoidingHostiles>
+<DebugAction_ClearAllFog>Очистити весь туман</DebugAction_ClearAllFog>
+<DebugAction_ChangeThingStyle>Змінити стиль речі</DebugAction_ChangeThingStyle>
+<DebugAction_AttachFire>Прикріпити вогонь</DebugAction_AttachFire>
+<DebugAction_SetQuality>Встановити якість...</DebugAction_SetQuality>
+<DebugAction_MeasureDrawSize>Виміряти розмір малюнка</DebugAction_MeasureDrawSize>
+<DebugAction_IncreasePollutionSmall>Збільшити забруднення (мале)</DebugAction_IncreasePollutionSmall>
+<DebugAction_IncreasePollutionLarge>Збільшити забруднення (велике)</DebugAction_IncreasePollutionLarge>
+<DebugAction_DecreasePollutionLarge>Зменшити забруднення (велике)</DebugAction_DecreasePollutionLarge>
+<DebugAction_ResetBossgroupCooldown>Скинути таймер Bossgroup</DebugAction_ResetBossgroupCooldown>
+<DebugAction_ResetBossgroupKilledPawns>Скинути список переможених Bossgroup</DebugAction_ResetBossgroupKilledPawns>
+<DebugAction_SpawnCocoonInfestationWithPoints>Створити кокон-інфекцію...</DebugAction_SpawnCocoonInfestationWithPoints>
+<DebugAction_BenchmarkPerformance>Тестування продуктивності</DebugAction_BenchmarkPerformance>
+<DebugAction_AddSlave>Додати раба</DebugAction_AddSlave>
+<DebugAction_AddPrisoner>Додати ув'язненого</DebugAction_AddPrisoner>
+<DebugAction_AddGuest>Додати гостя</DebugAction_AddGuest>
+<DebugAction_DamageUntilDown>Нанести шкоду до падіння</DebugAction_DamageUntilDown>
+<DebugAction_DamageLegs>Нанести шкоду ногам</DebugAction_DamageLegs>
+<DebugAction_DamageUntilIncapableOfManipulation>Нанести шкоду до неможливості маніпулювання</DebugAction_DamageUntilIncapableOfManipulation>
+<DebugAction_DamageToDeath>Нанести шкоду до смерті</DebugAction_DamageToDeath>
+<DebugAction_CarriedDamageToDeath>Нанести шкоду до смерті переносної речі</DebugAction_CarriedDamageToDeath>
+<DebugAction_Do10DamageUntilDead>10 пошкоджень до смерті</DebugAction_Do10DamageUntilDead>
+<DebugAction_DamageHeldPawnToDeath>Пошкодити триманого пішака до смерті</DebugAction_DamageHeldPawnToDeath>
+<DebugAction_RestoreBodyPart>Відновити частину тіла...</DebugAction_RestoreBodyPart>
+<DebugAction_SetHeadType>Встановити тип голови</DebugAction_SetHeadType>
+<DebugAction_ApplyDamage>Застосувати пошкодження...</DebugAction_ApplyDamage>
+<DebugAction_HealRandomInjury10>Вилікувати випадкове пошкодження (10)</DebugAction_HealRandomInjury10>
+<DebugAction_MakeInjuryPermanent>Зробити пошкодження постійними</DebugAction_MakeInjuryPermanent>
+<DebugAction_ToggleImmunity>Перемкнути імунітет</DebugAction_ToggleImmunity>
+<DebugAction_ActivateHediffGiver>Активувати HediffGiver</DebugAction_ActivateHediffGiver>
+<DebugAction_ActivateHediffGiverWorldPawn>Активувати HediffGiver світового пішака</DebugAction_ActivateHediffGiverWorldPawn>
+<DebugAction_DiscoverHediffs>Відкрити Hediffs</DebugAction_DiscoverHediffs>
+<DebugAction_GrantImmunities>Надати імунітети</DebugAction_GrantImmunities>
+<DebugAction_GiveBirth>Народження дитини</DebugAction_GiveBirth>
+<DebugAction_ResistanceMinus1>Опірність -1</DebugAction_ResistanceMinus1>
+<DebugAction_ResistanceMinus10>Опірність -10</DebugAction_ResistanceMinus10>
+<DebugAction_AddRemovePawnRelation>Додати / видалити відносини пешків...</DebugAction_AddRemovePawnRelation>
+<DebugAction_AddOpinionTalksAbout>Додати думку про розмови про...</DebugAction_AddOpinionTalksAbout>
+<DebugAction_OffsetCertaintyNegative20>Вірогідність -20%</DebugAction_OffsetCertaintyNegative20>
+<DebugAction_SetSkill>Встановити вміння...</DebugAction_SetSkill>
+<DebugAction_MaxSkill>Максимізувати вміння...</DebugAction_MaxSkill>
+<DebugAction_MaxAllSkills>Максимізувати всі вміння</DebugAction_MaxAllSkills>
+<DebugAction_SetPassion>Встановити захоплення...</DebugAction_SetPassion>
+<DebugAction_MaxPassion>Встановити максимальне захоплення...</DebugAction_MaxPassion>
+<DebugAction_MaxAllPassions>Встановити всі захоплення на максимум</DebugAction_MaxAllPassions>
+<DebugAction_MentalBreak>Ментальний злом...</DebugAction_MentalBreak>
+<DebugAction_MentalState>Ментальний стан...</DebugAction_MentalState>
+<DebugAction_StopMentalState>Зупинити ментальний стан</DebugAction_StopMentalState>
+<DebugAction_Inspiration>Натхнення...</DebugAction_Inspiration>
+<DebugAction_GiveTrait>Надати рису...</DebugAction_GiveTrait>
+<DebugAction_RemoveAllTraits>Видалити всі риси</DebugAction_RemoveAllTraits>
+<DebugAction_SetBackstory>Встановити історію життя...</DebugAction_SetBackstory>
+<DebugAction_GiveAbility>Надати здібність...</DebugAction_GiveAbility>
+<DebugAction_GivePsylink>Надати Psylink...</DebugAction_GivePsylink>
+<DebugAction_GiveGoodThought>Надати позитивну думку...</DebugAction_GiveGoodThought>
+<DebugAction_GiveBadThought>Надати негативну думку...</DebugAction_GiveBadThought>
+<DebugAction_ClearBoundUnfinishedThings>Очистити зв'язані незавершені речі</DebugAction_ClearBoundUnfinishedThings>
+<DebugAction_ForceBirthday>Примусовий день народження</DebugAction_ForceBirthday>
+<DebugAction_Recruit>Рекрутувати</DebugAction_Recruit>
+<DebugAction_Enslave>Наробити рабів</DebugAction_Enslave>
+<DebugAction_ToggleRecruitable>Перемкнути можливість наймання</DebugAction_ToggleRecruitable>
+<DebugAction_GrowPawnToMaturity>Вирости підданий до дорослості</DebugAction_GrowPawnToMaturity>
+<DebugAction_WearApparel_ToSelected>Дати одяг вибраним...</DebugAction_WearApparel_ToSelected>
+<DebugAction_EquipPrimary_ToSelected>Дати первинну зброю вибраним...</DebugAction_EquipPrimary_ToSelected>
+<DebugAction_TameAnimal>Приборкати тварину</DebugAction_TameAnimal>
+<DebugAction_TrainAnimal>Тренувати тварину</DebugAction_TrainAnimal>
+<DebugAction_TryDevelopBoundRelation>Спробувати розвинути зв'язок</DebugAction_TryDevelopBoundRelation>
+<DebugAction_QueueTrainingDecay>Додати до черги розклад на зменшення рівня навчання</DebugAction_QueueTrainingDecay>
+<DebugAction_DisplayRelationsInfo>Показати інформацію про взаємини</DebugAction_DisplayRelationsInfo>
+<DebugAction_DisplayInteractionsInfo>Показати інформацію про взаємодії</DebugAction_DisplayInteractionsInfo>
+<DebugAction_StartMarriageCeremony>Почати весілля...</DebugAction_StartMarriageCeremony>
+<DebugAction_ForceInteraction>Примусити взаємодію</DebugAction_ForceInteraction>
+<DebugAction_StartGathering>Почати збір</DebugAction_StartGathering>
+<DebugAction_StartPrisonBreak>Почати втечу з в'язниці</DebugAction_StartPrisonBreak>
+<DebugAction_PassToWorld>Передати у світ</DebugAction_PassToWorld>
+<DebugAction_RemoveWorldPawn>Видалити світового підданого...</DebugAction_RemoveWorldPawn>
+<DebugAction_Make1YearOlder>Зробити на 1 рік старшим</DebugAction_Make1YearOlder>
+<DebugAction_Make1DayOlder>Зробити на 1 день старшим</DebugAction_Make1DayOlder>
+<DebugAction_TryJobGiver>Спробувати JobGiver</DebugAction_TryJobGiver>
+<DebugAction_TryJoyGiver>Спробувати JoyGiver</DebugAction_TryJoyGiver>
+<DebugAction_EndCurrentJobInterruptForced>Закінчити поточну роботу (примусове переривання)</DebugAction_EndCurrentJobInterruptForced>
+<DebugAction_CheckForJobOverride>Перевірити перезапис роботи</DebugAction_CheckForJobOverride>
+<DebugAction_ToggleJobLogging>Перемкнути журналювання роботи</DebugAction_ToggleJobLogging>
+<DebugAction_ToggleStanceLogging>Перемкнути журналювання позицій</DebugAction_ToggleStanceLogging>
+<DebugAction_Kidnap>Викрасти колоніста</DebugAction_Kidnap>
+<DebugAction_Selected_SetFacing>Розвернути вибраного пішохода до клітинки</DebugAction_Selected_SetFacing>
+<DebugAction_SetIdeoRole>Встановити ідеологічну роль...</DebugAction_SetIdeoRole>
+<DebugAction_ProgressLifeStage>Перейти до наступної стадії життєвого циклу</DebugAction_ProgressLifeStage>
+<DebugAction_MakeGuilty>Зробити винним</DebugAction_MakeGuilty>
+<DebugAction_ForceAgeReversalDemandNow>Примусово вимагати зворотнього старіння</DebugAction_ForceAgeReversalDemandNow>
+<DebugAction_ResetAgeReversalDemandNow>Скасувати вимогу зворотнього старіння</DebugAction_ResetAgeReversalDemandNow>
+<DebugAction_Resurrect>Відродити</DebugAction_Resurrect>
+<DebugAction_AddGene>Додати ген</DebugAction_AddGene>
+<DebugAction_RemoveGene>Вилучити ген</DebugAction_RemoveGene>
+<DebugAction_SetXenotype>Встановити Ксенотип</DebugAction_SetXenotype>
+<DebugAction_AddLearningDesire>Додати бажання вивчати</DebugAction_AddLearningDesire>
+<DebugAction_TryLearningGiver>Спробувати LearningGiver</DebugAction_TryLearningGiver>
+<DebugAction_ListMeleeVerbs>Список ближніх дієслів</DebugAction_ListMeleeVerbs>
+<DebugAction_DoVoiceCall>Відтворити звук пішохода</DebugAction_DoVoiceCall>
+<DebugAction_ForceVomit>Примусово викликати блювання</DebugAction_ForceVomit>
+<DebugAction_ResetRenderCache>Скинути кеш рендерингу Павна</DebugAction_ResetRenderCache>
+<DebugAction_SpawnPawn>Створити Павна...</DebugAction_SpawnPawn>
+<DebugAction_SpawnNewborn>Створити новонародженого</DebugAction_SpawnNewborn>
+<DebugAction_SpawnChild>Створити дитину (лише для людей)</DebugAction_SpawnChild>
+<DebugAction_TryPlaceNearThing>Спробувати розмістити біля Речі...</DebugAction_TryPlaceNearThing>
+<DebugAction_TryPlaceNearThingWithStyle>Спробувати розмістити біля Речі зі стилем...</DebugAction_TryPlaceNearThingWithStyle>
+<DebugAction_TryPlaceMinifiedThing>Спробувати розмістити мініатюрну Річ...</DebugAction_TryPlaceMinifiedThing>
+<DebugAction_TryPlaceNearFullStack>Спробувати розмістити поруч із повним стеком...</DebugAction_TryPlaceNearFullStack>
+<DebugAction_TryPlaceNearStacksOf25>Спробувати розмістити біля стеку з 25-ма Річми...</DebugAction_TryPlaceNearStacksOf25>
+<DebugAction_TryPlaceNearStacksOf75>Спробувати розмістити біля стеку з 75-ма Річми...</DebugAction_TryPlaceNearStacksOf75>
+<DebugAction_TryPlaceDirectThing>Спробувати розмістити прямо Річ...</DebugAction_TryPlaceDirectThing>
+<DebugAction_TryPlaceDirectFullStack>Спробувати розмістити прямо повний стек...</DebugAction_TryPlaceDirectFullStack>
+<DebugAction_TryPlaceDirectStackOf25>Спробувати розмістити прямо стек з 25-ма Річми...</DebugAction_TryPlaceDirectStackOf25>
+<DebugAction_SpawnWeapon>Створити зброю...</DebugAction_SpawnWeapon>
+<DebugAction_SpawnApparel>Створити одяг...</DebugAction_SpawnApparel>
+<DebugAction_TryPlaceNearMarketValue>Спробувати розмістити біля стеку за ринковою вартістю...</DebugAction_TryPlaceNearMarketValue>
+<DebugAction_CreateMealWithSpecifics>Створити їжу зі специфікаціями...</DebugAction_CreateMealWithSpecifics>
+ <DebugAction_SpawnThingWithWipeMode>Створити річ з режимом очищення...</DebugAction_SpawnThingWithWipeMode>
+<DebugAction_SpawnMechCluster>Створити кластер мехів</DebugAction_SpawnMechCluster>
+<DebugAction_MakeFilthx100>Створити забруднення x100</DebugAction_MakeFilthx100>
+<DebugAction_SpawnFactionLeader>Створити лідера фракції</DebugAction_SpawnFactionLeader>
+<DebugAction_SpawnWorldPawn>Створити світового павука...</DebugAction_SpawnWorldPawn>
+<DebugAction_SpawnThingSet>Створити набір речей...</DebugAction_SpawnThingSet>
+<DebugAction_TriggerEffecter>Активувати ефектер...</DebugAction_TriggerEffecter>
+<DebugAction_SpawnShuttle>Створити шатл...</DebugAction_SpawnShuttle>
+<DebugAction_SpawnRandomCaravan>Створити випадкову каравану</DebugAction_SpawnRandomCaravan>
+<DebugAction_SpawnRandomFactionBase>Створити випадкову базу фракції</DebugAction_SpawnRandomFactionBase>
+<DebugAction_SpawnSite>Створити сайт...</DebugAction_SpawnSite>
+<DebugAction_DestroySite>Знищити сайт</DebugAction_DestroySite>
+<DebugAction_SpawnSiteWithPoints>Створити сайт з очками...</DebugAction_SpawnSiteWithPoints>
+<DebugAction_SpawnWorldObject>Створити об'єкт світу...</DebugAction_SpawnWorldObject>
+<DebugAction_ChangeCameraConfigWorld>Змінити конфігурацію камери...</DebugAction_ChangeCameraConfigWorld>
+<DebugAction_SpawnBossgroup>Створити босгрупу</DebugAction_SpawnBossgroup>
+<DebugAction_AbandonThing>Відмовитися від речі</DebugAction_AbandonThing>
+<DebugAction_DebugDrawBreachPath>Намалювати шлях проникнення...</DebugAction_DebugDrawBreachPath>
+<DebugAction_WoundDebug>Увімкнути налагодження ран</DebugAction_WoundDebug>
+<DebugAction_WoundDebugExport>Експорт налагодження ран (не-людоподібний)</DebugAction_WoundDebugExport>
+</LanguageData>
