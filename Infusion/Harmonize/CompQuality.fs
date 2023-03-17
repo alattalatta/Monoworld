@@ -1,6 +1,7 @@
 module Infusion.Harmonize.CompQuality
 
 open HarmonyLib
+open Poet.Lib
 open Poet.Lyric
 open RimWorld
 
@@ -20,6 +21,8 @@ module SetQuality =
         do compInfusion.Infusions <- CompInfusion.pickInfusions q compInfusion)
 
   let Postfix (__instance: CompQuality) =
+    // do StatDefOf.MaxHitPoints.Worker.TryClearCache()
+
     // All hit points of a pawn's apparels are determined *after* SetQuality() call,
     // see: PawnGenerator.PostProcessGeneratedGear()
     // We can blindly reset any Thing's HitPoints to its MaxHitPoints.

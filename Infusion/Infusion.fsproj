@@ -19,7 +19,6 @@
     <Reference Include="..\libs\HugsLib.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Reflectors.fs" />
     <Compile Include="ResourceBank.fs" />
     <Compile Include="StatMod.fs" />
     <Compile Include="DefFields.fs" />

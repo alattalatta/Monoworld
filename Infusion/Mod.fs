@@ -55,9 +55,14 @@ type ModBase() =
       do def.inspectorTabsResolved.Add(iTab))
 
   member private this.InjectToStats() =
+    //   Many stats are now cached at StatWorker level, and some of them with certain conditions met
+    // (e.g. No specific StatWorker, no StatParts) are considered immutable with their cache never expiring.
+    //   In other words, adding a StatPart causes immutability check to break which may cause minor
+    // performance degradation. So we only add our StatPart to stats which have related infusions.
     do
-      DefDatabase<StatDef>.AllDefs
-      |> Seq.filter (fun def -> not def.forInformationOnly)
+      DefDatabase<InfusionDef>.AllDefs
+      |> Seq.collect (fun def -> def.stats.Keys)
+      |> Seq.distinct
       |> Seq.iter (fun def ->
         let statPart = StatPart.Infusion(def)
 
@@ -65,3 +70,6 @@ type ModBase() =
           do def.parts <- ResizeArray<StatPart>(1)
 
         do def.parts.Add statPart)
+
+    // And we have to manually update the immutability check results
+    do StatDef.SetImmutability()
