@@ -5,7 +5,9 @@
   <EnableRandomMentalStates>무작위 정신 상태 활성화</EnableRandomMentalStates>
   <EnableStoryteller>이야기꾼 활성화</EnableStoryteller>
   <EnableRandomDiseases>무작위 질병 활성화</EnableRandomDiseases>
+  <EnableTranslationWindowInEnglish>영어에서 번역 안내창 활성화</EnableTranslationWindowInEnglish>
   <DevPalette>개발자 팔레트</DevPalette>
+  <PauseOnError>오류 시 일시정지</PauseOnError>
   <NoAnimals>동물 비활성화</NoAnimals>
   <UnlimitedPower>전력 무제한</UnlimitedPower>
   <PathThroughWalls>벽 무시 경로탐색</PathThroughWalls>
@@ -15,9 +17,11 @@
   <DetectRegionListersBugs>RegionLister 버그 탐지</DetectRegionListersBugs>
   <InstantVisitorsGift>즉시 방문객 선물</InstantVisitorsGift>
   <LowFPS>낮은 FPS</LowFPS>
-  <!-- TODO -->
   <AllowUndraftedMechOrders>징집되지 않은 메카노이드 명령 허용</AllowUndraftedMechOrders>
   <EditableGlowerColors>연구 없는 조명 색 변경</EditableGlowerColors>
+  <ShowHiddenPawns>숨겨진 Pawn 보이기</ShowHiddenPawns>
+  <ShowHiddenInfo>숨겨진 정보 보이기</ShowHiddenInfo>
+  <AnomalyDarkeningFX>어노멀리 DarkeningFX</AnomalyDarkeningFX>
   <FastResearch>빠른 연구</FastResearch>
   <FastLearning>빠른 학습</FastLearning>
   <FastEcology>빠른 생태계</FastEcology>
@@ -32,6 +36,9 @@
   <SimulateUsingSteamDeck>Steam Deck 시뮬레이션</SimulateUsingSteamDeck>
   <LogRaidInfo>습격 정보 기록</LogRaidInfo>
   <LogTranslationLookupErrors>번역 룩업 오류 기록</LogTranslationLookupErrors>
+  <LogPsychicRitualTransitions>초정신 의식 전환 기록</LogPsychicRitualTransitions>
+  <FastMonolithRespawn>빠른 모노리스 리스폰</FastMonolithRespawn>
+  <SearchIgnoresRestrictions>검색 시 제한 무시</SearchIgnoresRestrictions>
   <DrawFog>안개 그리기</DrawFog>
   <DrawSnow>눈 그리기</DrawSnow>
   <DrawTerrain>지형 그리기</DrawTerrain>
@@ -42,7 +49,9 @@
   <DrawLightingOverlay>조명 오버레이 그리기</DrawLightingOverlay>
   <DrawWorldOverlays>세계 오버레이 그리기</DrawWorldOverlays>
   <DrawGas>가스 그리기</DrawGas>
+  <SingleThreadedDrawing>싱글 스레드 렌더링</SingleThreadedDrawing>
   <DrawPaths>경로 그리기</DrawPaths>
+  <DrawPatherState>경로 탐색자 상태 그리기</DrawPatherState>
   <DrawCastPositionSearch>시전 위치 탐색 그리기</DrawCastPositionSearch>
   <DrawDestSearch>목적지 탐색 그리기</DrawDestSearch>
   <DrawStyleSearch>스타일 탐색 그리기</DrawStyleSearch>
@@ -72,17 +81,28 @@
   <DrawDuties>Duty 그리기</DrawDuties>
   <DrawShooting>사격 그리기</DrawShooting>
   <DrawInfestationChance>곤충 군락 확률 그리기</DrawInfestationChance>
+  <DrawFleshmassHeartChance>살덩이 심장 확률 그리기</DrawFleshmassHeartChance>
   <DrawStealDebug>절도 디버그 그리기</DrawStealDebug>
   <DrawDeepResources>심층 자원 그리기</DrawDeepResources>
   <DrawAttackTargetScores>공격 대상 점수 그리기</DrawAttackTargetScores>
+  <DrawFOVSymmetry>시야 그리기</DrawFOVSymmetry>
+  <DrawNonCombatantTimer>비전투 타이머 그리기</DrawNonCombatantTimer>
   <DrawInteractionCells>상호작용 칸 그리기</DrawInteractionCells>
   <DrawDoorsDebug>문 디버그 그리기</DrawDoorsDebug>
   <DrawDestReservations>목적지 예약 그리기</DrawDestReservations>
   <DrawDamageRects>피해 Rect 그리기</DrawDamageRects>
-  <!-- TODO -->
+  <!-- Unused -->
   <DrawDissolutionCells>Draw dissolution cells</DrawDissolutionCells>
-  <!-- TODO -->
+  <!-- Unused -->
   <DrawUnpollutionCells>Draw unpollution cells</DrawUnpollutionCells>
+  <DrawHateChanterPositions>증오 찬송 위치 그리기</DrawHateChanterPositions>
+  <DrawDarknessOverlay>어둠 오버레이 그리기</DrawDarknessOverlay>
+  <DrawWoundAnchorsOnHover>호버 시 부상 기준점 그리기</DrawWoundAnchorsOnHover>
+  <DrawMapGraphs>지도 그래프 그리기</DrawMapGraphs>
+  <DrawMapRooms>지도 방 그리기</DrawMapRooms>
+  <DrawIndoorMask>내부 마스크 그리기</DrawIndoorMask>
+  <DrawOutRoofedMask>지붕 덮인 외부 마스크 그리기</DrawOutRoofedMask>
+  <DrawShamblerAlertMote>휘청이는 자 경고 Mote 그리기</DrawShamblerAlertMote>
   <WriteGame>Game 검사</WriteGame>
   <WriteSteamItems>Steam 항목 검사</WriteSteamItems>
   <WriteConcepts>도우미 Concept 검사</WriteConcepts>

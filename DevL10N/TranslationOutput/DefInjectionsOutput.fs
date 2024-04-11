@@ -73,12 +73,10 @@ let private createInjectionCollectionElements
     injectable: Injectable,
     (value, canTranslateList): (string list * bool)
   ) : XNode list =
-  let injectionMaybe =
-    injections.TryGetValue(injectable.SuggestedPath, null)
-    |> Option.ofObj
+  let injection = IDict.get injectable.SuggestedPath injections
 
   let englishList =
-    injectionMaybe
+    injection
     |> Option.filter (fun injection -> injection.injected)
     |> Option.map (fun injection -> injection.replacedList)
     |> Option.map List.ofSeq
@@ -91,8 +89,7 @@ let private createInjectionCollectionElements
           Translation.suggestTKeyPath key
           |> Option.defaultValue (key)
 
-        injections.TryGetValue(path, null)
-        |> Option.ofObj
+        IDict.get path injections
         |> Option.filter (fun injection -> injection.injected)
         |> Option.map (fun injection -> injection.replacedString)
         |> Option.defaultValue value)
@@ -102,10 +99,10 @@ let private createInjectionCollectionElements
     maybe {
       let mayProceed =
         englishList
-        |> List.exists (Translation.shouldInjectFor (injectable.Def, injectable.FieldInfo) injectionMaybe)
+        |> List.exists (Translation.shouldInjectFor (injectable.Def, injectable.FieldInfo) injection)
 
       if mayProceed then
-        return createListInjectionElements (injectionMaybe, englishList)
+        return createListInjectionElements (injection, englishList)
     }
     |> Option.map (XElement.create injectable.SuggestedPath)
     |> Option.map (id<XNode> >> List.singleton)
@@ -114,7 +111,7 @@ let private createInjectionCollectionElements
     englishList
     |> List.ofSeq
     |> List.collecti (fun (i, english) ->
-      if Translation.shouldInjectFor (injectable.Def, injectable.FieldInfo) injectionMaybe english then
+      if Translation.shouldInjectFor (injectable.Def, injectable.FieldInfo) injection english then
         let normalizedPath = injectable.NormalizedPath + "." + i.ToString()
 
         let suggestedPath =
@@ -128,15 +125,13 @@ let private createInjectionCollectionElements
 
 
 let private createInjectionElement (injections: DefInjectionDict, target: Injectable, value: string) =
-  let injectionMaybe =
-    injections.TryGetValue(target.SuggestedPath, null)
-    |> Option.ofObj
+  let injection = IDict.get target.SuggestedPath injections
 
-  injectionMaybe
+  injection
   |> Option.filter (fun x -> x.injected)
   |> Option.bind (fun x -> Option.ofObj x.replacedString)
   |> Option.orElse (Option.ofObj value)
-  |> Option.filter (Translation.shouldInjectFor (target.Def, target.FieldInfo) injectionMaybe)
+  |> Option.filter (Translation.shouldInjectFor (target.Def, target.FieldInfo) injection)
   |> Option.map (fun english -> createSingleInjectionElement (target.SuggestedPath, english))
 
 

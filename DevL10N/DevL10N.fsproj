@@ -20,6 +20,7 @@
   <ItemGroup>
     <Compile Include="Mod.fs" />
     <Compile Include="Lib.fs" />
+    <Compile Include="TranslationOutput\Utils\IDict.fs" />
     <Compile Include="TranslationOutput\Utils\List.fs" />
     <Compile Include="TranslationOutput\Utils\Option.fs" />
     <Compile Include="TranslationOutput\Utils\Seq.fs" />
@@ -28,11 +29,10 @@
     <Compile Include="TranslationOutput\Injectable.fs" />
     <Compile Include="TranslationOutput\DefInjectionsOutput.fs" />
     <Compile Include="TranslationOutput\DebugAction.fs" />
-    <Compile Include="Harmonize\DebugWindowsOpener.fs" />
     <Compile Include="Harmonize\DebugTabMenu_Actions.fs" />
     <Compile Include="Harmonize\DebugTabMenu_Settings.fs" />
-    <Compile Include="Harmonize\EditWindow_Log.fs" />
-    <Compile Include="Harmonize\Listing_Standard.fs" />
+    <Compile Include="Harmonize\DebugWindowsOpener.fs" />
+    <Compile Include="Harmonize\Dialog_Debug.fs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Poet\Poet.fsproj">

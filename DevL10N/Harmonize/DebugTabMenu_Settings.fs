@@ -3,9 +3,12 @@ module DevL10N.Harmonize.Dialog_DebugSettingsMenu
 open System.Reflection
 
 open HarmonyLib
+open LudeonTK
 open Verse
 
+#if DEBUG
 open DevL10N.Lib
+#endif
 
 
 [<HarmonyPatch(typeof<DebugTabMenu_Settings>, "LegibleFieldName")>]

@@ -4,6 +4,7 @@ open System
 open System.IO
 
 open Poet.Lyric.Translation
+open LudeonTK
 open RimWorld
 open Verse
 

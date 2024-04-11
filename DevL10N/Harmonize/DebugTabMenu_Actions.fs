@@ -4,6 +4,7 @@ open System.Reflection
 open System.Reflection.Emit
 
 open HarmonyLib
+open LudeonTK
 open Verse
 
 open DevL10N.Lib
@@ -50,12 +51,13 @@ module GenerateCacheForMethod =
     true
 #endif
 
+  // change
+  //   string text = (string.IsNullOrEmpty(attribute.name) ? GenText.SplitCamelCase(method.Name) : attribute.name);
+  // into
+  //   string text = makeLabel(method, attribute);
   let Transpiler (instructions: CodeInstruction seq) =
     let insts = List.ofSeq instructions
-
-    // string text = (string.IsNullOrEmpty(attribute.name) ? GenText.SplitCamelCase(method.Name) : attribute.name);
-    // => string text = makeLabel(method, attribute)
-
+    
     // skip all instructions to the first ldarg_1, which is
     // if (attribute.actionType == DebugActionType.ToolMap || attribute.actionType == DebugActionType.ToolMapForPawns ...
     let _, rest =

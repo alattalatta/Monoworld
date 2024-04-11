@@ -5,7 +5,9 @@
   <EnableRandomMentalStates>Enable random mental states</EnableRandomMentalStates>
   <EnableStoryteller>Enable storyteller</EnableStoryteller>
   <EnableRandomDiseases>Enable random diseases</EnableRandomDiseases>
+  <EnableTranslationWindowInEnglish>Enable translation window in English</EnableTranslationWindowInEnglish>
   <DevPalette>Developer palette</DevPalette>
+  <PauseOnError>Pause on error</PauseOnError>
   <NoAnimals>No animals</NoAnimals>
   <UnlimitedPower>Unlimited power</UnlimitedPower>
   <PathThroughWalls>Path through walls</PathThroughWalls>
@@ -15,9 +17,11 @@
   <DetectRegionListersBugs>Detect RegionListers bugs</DetectRegionListersBugs>
   <InstantVisitorsGift>Instant visitors gift</InstantVisitorsGift>
   <LowFPS>Low FPS</LowFPS>
-  <!-- TODO -->
   <AllowUndraftedMechOrders>Allow undrafted Mechanoid orders</AllowUndraftedMechOrders>
   <EditableGlowerColors>Editable glower colors without research</EditableGlowerColors>
+  <ShowHiddenPawns>Show hidden Pawns</ShowHiddenPawns>
+  <ShowHiddenInfo>Show hidden info</ShowHiddenInfo>
+  <AnomalyDarkeningFX>Anomaly DarkeningFX</AnomalyDarkeningFX>
   <FastResearch>Fast research</FastResearch>
   <FastLearning>Fast learning</FastLearning>
   <FastEcology>Fast ecology</FastEcology>
@@ -32,6 +36,9 @@
   <SimulateUsingSteamDeck>Simulate Steam Deck</SimulateUsingSteamDeck>
   <LogRaidInfo>Log raid info</LogRaidInfo>
   <LogTranslationLookupErrors>Log translation lookup errors</LogTranslationLookupErrors>
+  <LogPsychicRitualTransitions>Log psychic ritual transitions</LogPsychicRitualTransitions>
+  <FastMonolithRespawn>Fast monoliths respawn</FastMonolithRespawn>
+  <SearchIgnoresRestrictions>Search ignores restrictions</SearchIgnoresRestrictions>
   <DrawFog>Draw fog</DrawFog>
   <DrawSnow>Draw snow</DrawSnow>
   <DrawTerrain>Draw terrain</DrawTerrain>
@@ -42,7 +49,9 @@
   <DrawLightingOverlay>Draw lighting overlay</DrawLightingOverlay>
   <DrawWorldOverlays>Draw world overlays</DrawWorldOverlays>
   <DrawGas>Draw gas</DrawGas>
+  <SingleThreadedDrawing>Single threaded drawing</SingleThreadedDrawing>
   <DrawPaths>Draw paths</DrawPaths>
+  <DrawPatherState>Draw pather state</DrawPatherState>
   <DrawCastPositionSearch>Draw cast position search</DrawCastPositionSearch>
   <DrawDestSearch>Draw destination search</DrawDestSearch>
   <DrawStyleSearch>Draw style search</DrawStyleSearch>
@@ -72,17 +81,28 @@
   <DrawDuties>Draw duties</DrawDuties>
   <DrawShooting>Draw shooting</DrawShooting>
   <DrawInfestationChance>Draw infestation chance</DrawInfestationChance>
+  <DrawFleshmassHeartChance>Draw fleshmass heart chance</DrawFleshmassHeartChance>
   <DrawStealDebug>Draw steal debug</DrawStealDebug>
   <DrawDeepResources>Draw deep resources</DrawDeepResources>
   <DrawAttackTargetScores>Draw attack target scores</DrawAttackTargetScores>
+  <DrawFOVSymmetry>Draw FOV</DrawFOVSymmetry>
+  <DrawNonCombatantTimer>Draw non-combatant timer</DrawNonCombatantTimer>
   <DrawInteractionCells>Draw interaction cells</DrawInteractionCells>
   <DrawDoorsDebug>Draw doors debug</DrawDoorsDebug>
   <DrawDestReservations>Draw dest reservations</DrawDestReservations>
   <DrawDamageRects>Draw damage rects</DrawDamageRects>
-  <!-- TODO -->
+  <!-- Unused -->
   <DrawDissolutionCells>Draw dissolution cells</DrawDissolutionCells>
-  <!-- TODO -->
+  <!-- Unused -->
   <DrawUnpollutionCells>Draw unpollution cells</DrawUnpollutionCells>
+  <DrawHateChanterPositions>Draw hate chanter positions</DrawHateChanterPositions>
+  <DrawDarknessOverlay>Draw darkness overlay</DrawDarknessOverlay>
+  <DrawWoundAnchorsOnHover>Draw wound anchors on hover</DrawWoundAnchorsOnHover>
+  <DrawMapGraphs>Draw map graphs</DrawMapGraphs>
+  <DrawMapRooms>Drap map rooms</DrawMapRooms>
+  <DrawIndoorMask>Draw indoor mask</DrawIndoorMask>
+  <DrawOutRoofedMask>Draw roofed outdoor mask</DrawOutRoofedMask>
+  <DrawShamblerAlertMote>Draw shambler alert mote</DrawShamblerAlertMote>
   <WriteGame>Inspect Game</WriteGame>
   <WriteSteamItems>Inspect Steam items</WriteSteamItems>
   <WriteConcepts>Inspect Concepts</WriteConcepts>

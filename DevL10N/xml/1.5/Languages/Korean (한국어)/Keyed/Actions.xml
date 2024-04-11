@@ -2,6 +2,8 @@
 <LanguageData>
   <DebugAction_SetIdeo>사상 설정...</DebugAction_SetIdeo>
   <DebugAction_ConvertToIdeo>사상으로 교화...</DebugAction_ConvertToIdeo>
+  <DebugAction_SetIdeoRole>사상 지위 설정...</DebugAction_SetIdeoRole>
+  <DebugAction_OffsetCertaintyNegative20>확신 - 20%</DebugAction_OffsetCertaintyNegative20>
   <DebugAction_SpawnRelic>유물 생성...</DebugAction_SpawnRelic>
   <DebugAction_SetSourcePrecept>StyleSourcePrecept 설정...</DebugAction_SetSourcePrecept>
   <DebugAction_RemoveRitualObligation>의식 요구 제거</DebugAction_RemoveRitualObligation>
@@ -17,6 +19,7 @@
   <DebugAction_StartSlaveRebellion>노예 폭동 시작 (무작위)</DebugAction_StartSlaveRebellion>
   <DebugAction_StartSlaveRebellionAggressive>노예 폭동 시작 (공격적)</DebugAction_StartSlaveRebellionAggressive>
   <DebugAction_ChangeStyle>스타일 변경</DebugAction_ChangeStyle>
+  <DebugAction_ViewRenderTree>렌더 트리 보기</DebugAction_ViewRenderTree>
   <DebugAction_RequestStyleChange>스타일 변경 요청</DebugAction_RequestStyleChange>
   <DebugAction_DarklightAtPosition>지점의 암광량 표시</DebugAction_DarklightAtPosition>
   <DebugAction_MaxDevelopmentPoints>개혁 점수 최대로</DebugAction_MaxDevelopmentPoints>
@@ -27,7 +30,9 @@
   <DebugAction_DoTradeCaravanSpecific>거래 상단 도착...</DebugAction_DoTradeCaravanSpecific>
   <DebugAction_ExecuteRaidWithPoints>습격 실행: 포인트...</DebugAction_ExecuteRaidWithPoints>
   <DebugAction_ExecuteRaidWithFaction>습격 실행: 세력...</DebugAction_ExecuteRaidWithFaction>
+  <DebugAction_RitualSiegeWithSpecifics>습격 실행: 초정신 의식...</DebugAction_RitualSiegeWithSpecifics>
   <DebugAction_ExecuteRaidWithSpecifics>습격 실행: 세부...</DebugAction_ExecuteRaidWithSpecifics>
+  <DebugAction_RecalculateThreatPoints>위협 점수 재계산</DebugAction_RecalculateThreatPoints>
   <DebugAction_UseScatterer>Scatterer 사용...</DebugAction_UseScatterer>
   <DebugAction_BaseGen>BaseGen 사용...</DebugAction_BaseGen>
   <DebugAction_SketchGen>SketchGen 사용...</DebugAction_SketchGen>
@@ -56,6 +61,7 @@
   <DebugAction_RegenerateCurrentMap>현재 지도 재생성</DebugAction_RegenerateCurrentMap>
   <DebugAction_GenerateMapWithCaves>동굴을 포함한 지도 생성</DebugAction_GenerateMapWithCaves>
   <DebugAction_RunMapGenerator>MapGenerator 실행...</DebugAction_RunMapGenerator>
+  <DebugAction_GeneratePocketMap>미니 지도 생성...</DebugAction_GeneratePocketMap>
   <DebugAction_ForceReformInCurrentMap>현재 지도에서 강제 상단 재구성</DebugAction_ForceReformInCurrentMap>
   <DebugAction_FillMapWithTrees>지도 나무로 채우기</DebugAction_FillMapWithTrees>
   <DebugAction_LogMapPollution>현재 지도 오염 기록</DebugAction_LogMapPollution>
@@ -70,11 +76,13 @@
   <DebugAction_AddTradeShipOfKind>선택한 종류의 상선 배치...</DebugAction_AddTradeShipOfKind>
   <DebugAction_ReplaceAllTradeShips>모든 상선 재배치</DebugAction_ReplaceAllTradeShips>
   <DebugAction_ChangeWeather>날씨 변경...</DebugAction_ChangeWeather>
+  <DebugAction_OpenCelestialDebugger>천체 디버거</DebugAction_OpenCelestialDebugger>
+  <DebugAction_OpenMusicDebugger>음악 디버거</DebugAction_OpenMusicDebugger>
+  <DebugAction_TestFadeoutAndSilence>음악 페이드아웃 후 침묵 테스트</DebugAction_TestFadeoutAndSilence>
   <DebugAction_PlaySong>음악 재생...</DebugAction_PlaySong>
   <DebugAction_PlaySound>소리 재생...</DebugAction_PlaySound>
   <DebugAction_EndGameCondition>상황 종료...</DebugAction_EndGameCondition>
-  <!-- TODO -->
-  <DebugAction_SimulateSanguophageMeeting>Simulate Sanguophage meeting</DebugAction_SimulateSanguophageMeeting>
+  <DebugAction_SimulateSanguophageMeeting>생귀오파지 집회...</DebugAction_SimulateSanguophageMeeting>
   <DebugAction_ForceEnemyAssault>적 공격 강제</DebugAction_ForceEnemyAssault>
   <DebugAction_ForceEnemyFlee>적 퇴각 강제</DebugAction_ForceEnemyFlee>
   <DebugAction_AdaptionProgress10Days>StoryWatcher adaption 진행 10일</DebugAction_AdaptionProgress10Days>
@@ -99,10 +107,20 @@
   <DebugAction_HSVAtPosition>지점의 HSV 색상 표시</DebugAction_HSVAtPosition>
   <DebugAction_FlashBlockedLandingCells>막힌 착륙 지점 강조</DebugAction_FlashBlockedLandingCells>
   <DebugAction_PawnKindApparelCheck>PawnKind 의류 검사...</DebugAction_PawnKindApparelCheck>
+  <DebugAction_EditEffecter>Effecter 편집...</DebugAction_EditEffecter>
+  <DebugAction_EditAnimation>애니메이션 편집...</DebugAction_EditAnimation>
   <DebugAction_PawnKindAbilityCheck>PawnKind 능력 검사...</DebugAction_PawnKindAbilityCheck>
   <DebugAction_AtlasRebuild>아틀라스 재생성</DebugAction_AtlasRebuild>
   <DebugAction_DumpPawnAtlases>Pawn 아틀라스 덤프</DebugAction_DumpPawnAtlases>
-  <DebugAction_DumpStaticAtlases>정적 아틀라스 덤프프</DebugAction_DumpStaticAtlases>
+  <DebugAction_DumpStaticAtlases>정적 아틀라스 덤프</DebugAction_DumpStaticAtlases>
+  <DebugAction_SetMonolithLevel>어노멀리 단계 설정...</DebugAction_SetMonolithLevel>
+  <DebugAction_HotReloadDefs>Def 핫 리로드</DebugAction_HotReloadDefs>
+  <DebugAction_SetGraphicsDirty>그래픽을 업데이트 필요로 표시</DebugAction_SetGraphicsDirty>
+  <DebugAction_ToggleMovement>이동 토글</DebugAction_ToggleMovement>
+  <DebugAction_ToggleMaxMoveSpeed>최대 MoveSpeed 토글</DebugAction_ToggleMaxMoveSpeed>
+  <DebugAction_LockRotation>회전 잠금</DebugAction_LockRotation>
+  <DebugAction_UnlockRotation>회전 잠금 해제</DebugAction_UnlockRotation>
+  <DebugAction_RevealHiddenDefs>숨겨진 Def 보이기</DebugAction_RevealHiddenDefs>
   <DebugAction_LoadedFilesForMod>모드에서 불러온 파일 나열...</DebugAction_LoadedFilesForMod>
   <DebugAction_GenerateQuest>임무 생성...</DebugAction_GenerateQuest>
   <DebugAction_GenerateQuests>임무 다수 생성...</DebugAction_GenerateQuests>
@@ -135,9 +153,12 @@
   <DebugAction_Take10Damage>10 피해</DebugAction_Take10Damage>
   <DebugAction_Take300Damage>3000 피해</DebugAction_Take300Damage>
   <DebugAction_Take5000Damage>5000 피해</DebugAction_Take5000Damage>
-  <DebugAction_ClearArea>지우기 (영역)</DebugAction_ClearArea>
-  <DebugAction_MakeEmptyRoom>빈 방 배치 (영역)</DebugAction_MakeEmptyRoom>
-  <DebugAction_MakeRoof>지붕 편집 (영역)...</DebugAction_MakeRoof>
+  <DebugAction_ClearArea>영역 지우기</DebugAction_ClearArea>
+  <DebugAction_SpawnFillArea>영역 가득 생성...</DebugAction_SpawnFillArea>
+  <DebugAction_MakeEmptyRoom>빈 방 배치</DebugAction_MakeEmptyRoom>
+  <DebugAction_MakeRoof>지붕 편집...</DebugAction_MakeRoof>
+  <DebugAction_FogRect>영역 안개 추가</DebugAction_FogRect>
+  <DebugAction_UnfogRect>영역 안개 제거</DebugAction_UnfogRect>
   <DebugAction_Explosion>폭발...</DebugAction_Explosion>
   <DebugAction_LightningStrike>벼락</DebugAction_LightningStrike>
   <DebugAction_LightningStrikeDelayed>벼락 (지연됨)...</DebugAction_LightningStrikeDelayed>
@@ -165,16 +186,27 @@
   <DebugAction_RandomSpotNearThingAvoidingHostiles>RandomSpotNearThingAvoidingHostilePawns 강조</DebugAction_RandomSpotNearThingAvoidingHostiles>
   <DebugAction_ClearAllFog>모든 안개 제거</DebugAction_ClearAllFog>
   <DebugAction_ChangeThingStyle>Thing 스타일 변경</DebugAction_ChangeThingStyle>
+  <DebugAction_DestroyAllFire>모든 불 파괴</DebugAction_DestroyAllFire>
   <DebugAction_AttachFire>불붙이기</DebugAction_AttachFire>
   <DebugAction_SetQuality>품질 지정...</DebugAction_SetQuality>
   <DebugAction_MeasureDrawSize>렌더링 크기 측정</DebugAction_MeasureDrawSize>
+  <DebugAction_MeasureWorldDistance>세계 거리 측정</DebugAction_MeasureWorldDistance>
+  <DebugAction_DrawAttachPoints>부착 지점 그리기</DebugAction_DrawAttachPoints>
   <DebugAction_IncreasePollutionSmall>오염 증가 (약간)</DebugAction_IncreasePollutionSmall>
   <DebugAction_IncreasePollutionLarge>오염 증가 (많이)</DebugAction_IncreasePollutionLarge>
   <DebugAction_DecreasePollutionLarge>오염 감소 (많이)</DebugAction_DecreasePollutionLarge>
   <DebugAction_ResetBossgroupCooldown>Bossgroup 대기시간 초기화</DebugAction_ResetBossgroupCooldown>
   <DebugAction_ResetBossgroupKilledPawns>물리친 Bossgroup 목록 초기화</DebugAction_ResetBossgroupKilledPawns>
   <DebugAction_SpawnCocoonInfestationWithPoints>곤충 고치 감염 생성...</DebugAction_SpawnCocoonInfestationWithPoints>
+  <DebugAction_SpawnPitGate>구덩이 문 생성</DebugAction_SpawnPitGate>
+  <DebugAction_SpawnPitBurrow>구덩이 굴 생성</DebugAction_SpawnPitBurrow>
+  <DebugAction_SpawnFleshmassHeart>살덩이 심장 생성</DebugAction_SpawnFleshmassHeart>
+  <DebugAction_DiscoverAllEntities>모든 실체 발견</DebugAction_DiscoverAllEntities>
   <DebugAction_BenchmarkPerformance>성능 벤치마크</DebugAction_BenchmarkPerformance>
+  <DebugAction_CompareLineOfSight>Line of sight 비교</DebugAction_CompareLineOfSight>
+  <DebugAction_WoundDebug>상처 디버그 그리기 활성화</DebugAction_WoundDebug>
+  <DebugAction_WoundDebugExport>상처 디버그 내보내기 (비인간형)</DebugAction_WoundDebugExport>
+  <DebugAction_EmergeMetalhorrors>메탈호러 등장</DebugAction_EmergeMetalhorrors>
   <DebugAction_AddSlave>노예 추가</DebugAction_AddSlave>
   <DebugAction_AddPrisoner>수감자 추가</DebugAction_AddPrisoner>
   <DebugAction_AddGuest>방문객 추가</DebugAction_AddGuest>
@@ -186,6 +218,8 @@
   <DebugAction_Do10DamageUntilDead>죽을 때까지 10 피해</DebugAction_Do10DamageUntilDead>
   <DebugAction_DamageHeldPawnToDeath>피운반 Pawn 죽을 때까지 피해</DebugAction_DamageHeldPawnToDeath>
   <DebugAction_RestoreBodyPart>신체부위 복구...</DebugAction_RestoreBodyPart>
+  <DebugAction_SetHeadType>HeadType 설정</DebugAction_SetHeadType>
+  <DebugAction_SetBodyType>BodyType 설정</DebugAction_SetBodyType>
   <DebugAction_ApplyDamage>피해 적용...</DebugAction_ApplyDamage>
   <DebugAction_HealRandomInjury10>무작위 부상 치료 (10)</DebugAction_HealRandomInjury10>
   <DebugAction_MakeInjuryPermanent>모든 부상을 영구적으로</DebugAction_MakeInjuryPermanent>
@@ -199,7 +233,6 @@
   <DebugAction_ResistanceMinus10>저항심 -10</DebugAction_ResistanceMinus10>
   <DebugAction_AddRemovePawnRelation>Pawn 관계 추가/제거...</DebugAction_AddRemovePawnRelation>
   <DebugAction_AddOpinionTalksAbout>관계 개선/악화 대화 추가...</DebugAction_AddOpinionTalksAbout>
-  <DebugAction_OffsetCertaintyNegative20>확신 - 20%</DebugAction_OffsetCertaintyNegative20>
   <DebugAction_SetSkill>기술 등급 설정...</DebugAction_SetSkill>
   <DebugAction_MaxSkill>기술 등급 최대로...</DebugAction_MaxSkill>
   <DebugAction_MaxAllSkills>모든 기술을 최대 등급으로</DebugAction_MaxAllSkills>
@@ -215,6 +248,7 @@
   <DebugAction_SetBackstory>성장 환경 설정...</DebugAction_SetBackstory>
   <DebugAction_GiveAbility>능력 부여...</DebugAction_GiveAbility>
   <DebugAction_GivePsylink>정신력 증폭기 부여...</DebugAction_GivePsylink>
+  <DebugAction_PlayAnimation>애니메이션 재생...</DebugAction_PlayAnimation>
   <DebugAction_GiveGoodThought>좋은 생각 부여...</DebugAction_GiveGoodThought>
   <DebugAction_GiveBadThought>나쁜 생각 부여...</DebugAction_GiveBadThought>
   <DebugAction_ClearBoundUnfinishedThings>묶여있는 미완성 Thing 제거</DebugAction_ClearBoundUnfinishedThings>
@@ -244,10 +278,11 @@
   <DebugAction_EndCurrentJobInterruptForced>EndCurrentJobInterruptForced</DebugAction_EndCurrentJobInterruptForced>
   <DebugAction_CheckForJobOverride>CheckForJobOverride</DebugAction_CheckForJobOverride>
   <DebugAction_ToggleJobLogging>Job 기록 토글</DebugAction_ToggleJobLogging>
+  <DebugAction_LogJobDetails>Job 세부사항 기록</DebugAction_LogJobDetails>
   <DebugAction_ToggleStanceLogging>Stance 기록 토글</DebugAction_ToggleStanceLogging>
   <DebugAction_Kidnap>정착민 납치</DebugAction_Kidnap>
   <DebugAction_Selected_SetFacing>칸을 보게 만들기 (선택 필요)</DebugAction_Selected_SetFacing>
-  <DebugAction_SetIdeoRole>사상 지위 설정...</DebugAction_SetIdeoRole>
+  <DebugAction_Selected_SetTarget>공격 대상 변경 (선택 필요)</DebugAction_Selected_SetTarget>
   <DebugAction_ProgressLifeStage>생애주기 진행</DebugAction_ProgressLifeStage>
   <DebugAction_MakeGuilty>유죄 설정</DebugAction_MakeGuilty>
   <DebugAction_ForceAgeReversalDemandNow>노화 역행 요구 강제</DebugAction_ForceAgeReversalDemandNow>
@@ -255,17 +290,28 @@
   <DebugAction_Resurrect>부활</DebugAction_Resurrect>
   <DebugAction_AddGene>유전자 추가</DebugAction_AddGene>
   <DebugAction_RemoveGene>유전자 제거</DebugAction_RemoveGene>
-  <!-- TODO -->
-  <DebugAction_SetXenotype>Set Xenotype</DebugAction_SetXenotype>
+  <DebugAction_SetXenotype>이종형 설정...</DebugAction_SetXenotype>
   <DebugAction_AddLearningDesire>학습 욕구 부여</DebugAction_AddLearningDesire>
   <DebugAction_TryLearningGiver>LearningGiver 시도</DebugAction_TryLearningGiver>
   <DebugAction_ListMeleeVerbs>근접 Verb 나열</DebugAction_ListMeleeVerbs>
   <DebugAction_DoVoiceCall>Pawn 울음소리 재생</DebugAction_DoVoiceCall>
   <DebugAction_ForceVomit>강제 구토</DebugAction_ForceVomit>
-  <DebugAction_ResetRenderCache>Pawn 렌더 캐시 초기화화</DebugAction_ResetRenderCache>
+  <DebugAction_ResetRenderCache>Pawn 렌더 캐시 초기화</DebugAction_ResetRenderCache>
+  <DebugAction_SetAsShambler>휘청이는 자로 설정</DebugAction_SetAsShambler>
+  <DebugAction_SetAsGhoul>구울로 설정</DebugAction_SetAsGhoul>
+  <DebugAction_MaxGhoulUpgrades>구울 업그레이드 최대로</DebugAction_MaxGhoulUpgrades>
+  <DebugAction_RaiseAsShambler>휘청이는 자로 일으키기</DebugAction_RaiseAsShambler>
+  <DebugAction_RevertMutant>Revert mutant</DebugAction_RevertMutant>
+  <DebugAction_CreateBabyFromParents>부모에서 아이 생성 (인간만)</DebugAction_CreateBabyFromParents>
+  <DebugAction_OpenInfectionPathwayDebugger>감염 전파 경로 디버거</DebugAction_OpenInfectionPathwayDebugger>
+  <DebugAction_AddInfectionPathway>감염 전파 경로 생성...</DebugAction_AddInfectionPathway>
+  <DebugAction_DestroyPlayerAnimals>플레이어 동물 파괴</DebugAction_DestroyPlayerAnimals>
+  <DebugAction_GarbageCollectWorldPawn>세계 Pawn GC</DebugAction_GarbageCollectWorldPawn>
   <DebugAction_SpawnPawn>Pawn 생성...</DebugAction_SpawnPawn>
-  <DebugAction_SpawnNewborn>신생아 생성</DebugAction_SpawnNewborn>
-  <DebugAction_SpawnChild>아이 생성 (인간만)</DebugAction_SpawnChild>
+  <DebugAction_SpawnPawnWithLifestage>Pawn 생성 (LifeStage 선택)...</DebugAction_SpawnPawnWithLifestage>
+  <DebugAction_GenerateCreeperJoiner>CreepJoiner 생성...</DebugAction_GenerateCreeperJoiner>
+  <DebugAction_SpawnNewborn>신생아 생성...</DebugAction_SpawnNewborn>
+  <DebugAction_SpawnChild>아이 생성...</DebugAction_SpawnChild>
   <DebugAction_SpawnWeapon>무기 생성...</DebugAction_SpawnWeapon>
   <DebugAction_SpawnApparel>의류 생성...</DebugAction_SpawnApparel>
   <DebugAction_TryPlaceNearThing>인근에 Thing 생성 시도...</DebugAction_TryPlaceNearThing>
@@ -286,6 +332,9 @@
   <DebugAction_SpawnWorldPawn>세계 Pawn 생성...</DebugAction_SpawnWorldPawn>
   <DebugAction_SpawnThingSet>ThingSet 생성...</DebugAction_SpawnThingSet>
   <DebugAction_TriggerEffecter>Effecter 발동...</DebugAction_TriggerEffecter>
+  <DebugAction_TriggerMaintainedEffecter>지속 Effecter 발동...</DebugAction_TriggerMaintainedEffecter>
+  <DebugAction_TriggerMaintainedEffecter5S>지속 Effecter 발동 (5s)...</DebugAction_TriggerMaintainedEffecter5S>
+  <DebugAction_TriggerMaintainedEffecter12S>지속 Effecter 발동 (12s)...</DebugAction_TriggerMaintainedEffecter12S>
   <DebugAction_SpawnShuttle>왕복선 생성...</DebugAction_SpawnShuttle>
   <DebugAction_SpawnRandomCaravan>무작위 상단 생성</DebugAction_SpawnRandomCaravan>
   <DebugAction_SpawnRandomFactionBase>무작위 세력 기지 생성</DebugAction_SpawnRandomFactionBase>
@@ -294,9 +343,14 @@
   <DebugAction_SpawnSiteWithPoints>지역 생성: 포인트...</DebugAction_SpawnSiteWithPoints>
   <DebugAction_SpawnWorldObject>WorldObject 생성...</DebugAction_SpawnWorldObject>
   <DebugAction_ChangeCameraConfigWorld>카메라 설정 변경...</DebugAction_ChangeCameraConfigWorld>
-  <DebugAction_SpawnBossgroup>보스그룹 생성</DebugAction_SpawnBossgroup>
+  <DebugAction_SpawnBossgroup>Bossgroup 생성...</DebugAction_SpawnBossgroup>
   <DebugAction_AbandonThing>Thing 소유권 제거</DebugAction_AbandonThing>
+  <DebugAction_TestDeferredSpawner>지연된 생성기 시험...</DebugAction_TestDeferredSpawner>
+  <DebugAction_CreateColonistDuplicate>정착민 복사본 생성</DebugAction_CreateColonistDuplicate>
+  <DebugAction_Duplicate>복사본 생성</DebugAction_Duplicate>
+  <DebugAction_WaterEmergePawn>물에서 Pawn 등장...</DebugAction_WaterEmergePawn>
+  <DebugAction_SpawnFlare>신호탄 생성...</DebugAction_SpawnFlare>
+  <DebugAction_AddHediff>Hediff 추가...</DebugAction_AddHediff>
+  <DebugAction_TendBleedingHediffs>출혈 Hediff 치료</DebugAction_TendBleedingHediffs>
   <DebugAction_DebugDrawBreachPath>돌파 습격 경로 그리기...</DebugAction_DebugDrawBreachPath>
-  <DebugAction_WoundDebug>상처 디버그 그리기 활성화</DebugAction_WoundDebug>
-  <DebugAction_WoundDebugExport>상처 디버그 내보내기 (비인간형)</DebugAction_WoundDebugExport>
 </LanguageData>
