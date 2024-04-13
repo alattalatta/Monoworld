@@ -5,7 +5,9 @@
   <EnableRandomMentalStates>有効 ランダムな精神状態</EnableRandomMentalStates>
   <EnableStoryteller>有効 ストーリーテラー</EnableStoryteller>
   <EnableRandomDiseases>有効 ランダムな病気</EnableRandomDiseases>
+  <EnableTranslationWindowInEnglish>英語の翻訳窓を有効化</EnableTranslationWindowInEnglish>
   <DevPalette>開発パレット</DevPalette>
+  <PauseOnError>エラー時に一時停止</PauseOnError>
   <NoAnimals>動物なし</NoAnimals>
   <UnlimitedPower>電力無制限</UnlimitedPower>
   <PathThroughWalls>壁を透過</PathThroughWalls>
@@ -15,9 +17,11 @@
   <DetectRegionListersBugs>RegionListersバグを検出</DetectRegionListersBugs>
   <InstantVisitorsGift>即時 訪問者の貢ぎ物</InstantVisitorsGift>
   <LowFPS>低FPS</LowFPS>
-  <!-- TODO -->
   <AllowUndraftedMechOrders>未徴兵メカノイドに命令を許可</AllowUndraftedMechOrders>
   <EditableGlowerColors>研究なしで光の色を編集可能</EditableGlowerColors>
+  <ShowHiddenPawns>非表示ポーンを表示</ShowHiddenPawns>
+  <ShowHiddenInfo>非表示情報を表示</ShowHiddenInfo>
+  <AnomalyDarkeningFX>AnomalyのDarkeningFX</AnomalyDarkeningFX>
   <FastResearch>高速研究</FastResearch>
   <FastLearning>高速学習</FastLearning>
   <FastEcology>高速生態系</FastEcology>
@@ -32,6 +36,9 @@
   <SimulateUsingSteamDeck>仮想 Steam Deck</SimulateUsingSteamDeck>
   <LogRaidInfo>記録 襲撃情報</LogRaidInfo>
   <LogTranslationLookupErrors>記録 発見した翻訳エラー</LogTranslationLookupErrors>
+  <LogPsychicRitualTransitions>サイコ儀式の変遷をログに記録</LogPsychicRitualTransitions>
+  <FastMonolithRespawn>高速化 モノリスの再生成</FastMonolithRespawn>
+  <SearchIgnoresRestrictions>索敵は制限を無視</SearchIgnoresRestrictions>
   <DrawFog>描画 戦場の霧</DrawFog>
   <DrawSnow>描画 雪</DrawSnow>
   <DrawTerrain>描画 地形</DrawTerrain>
@@ -42,7 +49,9 @@
   <DrawLightingOverlay>描画 照明効果</DrawLightingOverlay>
   <DrawWorldOverlays>描画 worldオーバーレイヤ</DrawWorldOverlays>
   <DrawGas>描画 ガス</DrawGas>
+  <SingleThreadedDrawing>シングルスレッド描画</SingleThreadedDrawing>
   <DrawPaths>描画 経路</DrawPaths>
+  <DrawPatherState>描画 経路状態</DrawPatherState>
   <DrawCastPositionSearch>描画 Cast位置検索</DrawCastPositionSearch>
   <DrawDestSearch>描画 目的地検索</DrawDestSearch>
   <DrawStyleSearch>描画 スタイル検索</DrawStyleSearch>
@@ -72,17 +81,28 @@
   <DrawDuties>描画 仕事</DrawDuties>
   <DrawShooting>描画 射撃</DrawShooting>
   <DrawInfestationChance>描画 虫の襲撃率</DrawInfestationChance>
+  <DrawFleshmassHeartChance>描画 肉塊心臓率</DrawFleshmassHeartChance>
   <DrawStealDebug>描画 盗難 デバッグ</DrawStealDebug>
   <DrawDeepResources>描画 深部資源</DrawDeepResources>
   <DrawAttackTargetScores>描画 攻撃目標スコア</DrawAttackTargetScores>
+  <DrawFOVSymmetry>描画 FOV</DrawFOVSymmetry>
+  <DrawNonCombatantTimer>描画 非戦闘員タイマー</DrawNonCombatantTimer>
   <DrawInteractionCells>描画 相互作用セル</DrawInteractionCells>
   <DrawDoorsDebug>描画 ドア デバッグ</DrawDoorsDebug>
   <DrawDestReservations>描画 予約済目的地</DrawDestReservations>
   <DrawDamageRects>描画 ダメージ範囲</DrawDamageRects>
-  <!-- TODO -->
+  <!-- Unused -->
   <DrawDissolutionCells>描画 分解マス</DrawDissolutionCells>
-  <!-- TODO -->
+  <!-- Unused -->
   <DrawUnpollutionCells>描画 非汚染マス</DrawUnpollutionCells>
+  <DrawHateChanterPositions>描画 詠唱者嫌いの位置</DrawHateChanterPositions>
+  <DrawDarknessOverlay>描画 闇オーバーレイ</DrawDarknessOverlay>
+  <DrawWoundAnchorsOnHover>描画 浮遊時の負傷アンカー</DrawWoundAnchorsOnHover>
+  <DrawMapGraphs>描画 マップグラフ</DrawMapGraphs>
+  <DrawMapRooms>描画 マップ部屋</DrawMapRooms>
+  <DrawIndoorMask>描画 室内用マスク</DrawIndoorMask>
+  <DrawOutRoofedMask>描画 屋根付き屋外マスク</DrawOutRoofedMask>
+  <DrawShamblerAlertMote>描画 ゾンビ警戒モード</DrawShamblerAlertMote>
   <WriteGame>検査 ゲーム</WriteGame>
   <WriteSteamItems>検査 Steamアイテム</WriteSteamItems>
   <WriteConcepts>検査 コンセプト</WriteConcepts>

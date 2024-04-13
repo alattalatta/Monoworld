@@ -2,11 +2,10 @@
 <LanguageData>
   <DebugMenu_Logs>デバッグログを開く</DebugMenu_Logs>
   <DebugMenu_TweakValues>TweakValuesメニューを開く\n\nこれを使うと内部の数値設定を変更可能です。</DebugMenu_TweakValues>
-  <DebugMenu_ViewSettings>ビュー設定を開く\n\nこれを使うと特別なデバッグ画面表示を見ることが可能です。</DebugMenu_ViewSettings>
   <DebugMenu_DebugActions>デバッグ実行メニューを開く\n\nこれを使うとアイテムを生成したり、色々なイベントを強制可能です。</DebugMenu_DebugActions>
+  <DebugMenu_ViewSettings>ビュー設定を開く\n\nこれを使うと特別なデバッグ画面表示を見ることが可能です。</DebugMenu_ViewSettings>
   <DebugMenu_DebugLogging>デバッグログメニューを開く</DebugMenu_DebugLogging>
   <DebugMenu_Inspector>検査ツールを開く\n\nこれを使うと個別の変数まで、ゲーム内で何が起きているか調査可能です。</DebugMenu_Inspector>
-  <DebugMenu_GodMode>神モードの切替\n\n神モードがオンの場合、無料で瞬時になにかを建設したり、領有していないものを分解可能です。</DebugMenu_GodMode>
   <DebugMenu_DevPalette>開発パレットを切替.\n\n使いやすいように,デバッグアクションのパレットを設定できます.</DebugMenu_DevPalette>
-  <DebugMenu_PauseOnError>ログにエラーが記録された際にゲームを一時停止します。</DebugMenu_PauseOnError>
+  <DebugMenu_GodMode>神モードの切替\n\n神モードがオンの場合、無料で瞬時になにかを建設したり、領有していないものを分解可能です。</DebugMenu_GodMode>
 </LanguageData>
