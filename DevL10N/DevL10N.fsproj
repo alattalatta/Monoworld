@@ -33,6 +33,7 @@
     <Compile Include="Harmonize\DebugTabMenu_Settings.fs" />
     <Compile Include="Harmonize\DebugWindowsOpener.fs" />
     <Compile Include="Harmonize\Dialog_Debug.fs" />
+    <Compile Include="Harmonize\TranslationFilesCleaner.fs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Poet\Poet.fsproj">

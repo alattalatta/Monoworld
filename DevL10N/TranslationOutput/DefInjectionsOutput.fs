@@ -134,7 +134,6 @@ let private createInjectionElement (injections: DefInjectionDict, target: Inject
   |> Option.filter (Translation.shouldInjectFor (target.Def, target.FieldInfo) injection)
   |> Option.map (fun english -> createSingleInjectionElement (target.SuggestedPath, english))
 
-
 let private writeFile
   (
     injections: DefInjectionDict,
@@ -241,17 +240,9 @@ let write basePath (modData: ModMetaData) =
     do defInjectionDirInfo.Create()
 
   async {
-    let modContentPack =
-      LoadedModManager.RunningMods
-      |> Seq.find (fun m -> m.PackageId = modData.PackageId)
-
     do!
-      modContentPack.AllDefs
-      |> Seq.groupBy (fun def -> def.GetType())
-      |> Seq.map (
-        fst
-        >> writeForDefType (defInjectionDirInfo.FullName, modData)
-      )
+      GenDefDatabase.AllDefTypesWithDatabases()
+      |> Seq.map (writeForDefType (defInjectionDirInfo.FullName, modData))
       |> Async.Parallel
       |> Async.Ignore
   }
