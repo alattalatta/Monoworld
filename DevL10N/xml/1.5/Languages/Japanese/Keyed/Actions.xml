@@ -32,7 +32,7 @@
   <DebugAction_ExecuteRaidWithFaction>派閥で襲撃を実行...</DebugAction_ExecuteRaidWithFaction>
   <DebugAction_RitualSiegeWithSpecifics>儀式襲撃を詳細実行...</DebugAction_RitualSiegeWithSpecifics>
   <DebugAction_ExecuteRaidWithSpecifics>詳細指定して襲撃を実行...</DebugAction_ExecuteRaidWithSpecifics>
-  <DebugAction_RecalculateThreatPoints>Recalculate threat points</DebugAction_RecalculateThreatPoints>
+  <DebugAction_RecalculateThreatPoints>脅威ポイントを再計算</DebugAction_RecalculateThreatPoints>
   <DebugAction_UseScatterer>生成 クエスト建築物...</DebugAction_UseScatterer>
   <DebugAction_BaseGen>生成 敵の前線基地...</DebugAction_BaseGen>
   <DebugAction_SketchGen>生成 モニュメント...</DebugAction_SketchGen>
