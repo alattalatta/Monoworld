@@ -57,7 +57,7 @@ module GenerateCacheForMethod =
   //   string text = makeLabel(method, attribute);
   let Transpiler (instructions: CodeInstruction seq) =
     let insts = List.ofSeq instructions
-    
+
     // skip all instructions to the first ldarg_1, which is
     // if (attribute.actionType == DebugActionType.ToolMap || attribute.actionType == DebugActionType.ToolMapForPawns ...
     let _, rest =
