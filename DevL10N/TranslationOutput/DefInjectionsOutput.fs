@@ -15,15 +15,15 @@ open DevL10N.TranslationOutput.Utils.Option
 open DevL10N.TranslationOutput.Utils.Xml
 
 
-type DefInjectionDict = IDictionary<string, DefInjectionPackage.DefInjection>
+type DefInjectionDictByNormPath = IDictionary<string, DefInjectionPackage.DefInjection>
 
 
-let private createListItems (strs: string list) : XNode list =
+let private createListXMLItems (strs: string list) : XNode list =
   strs
   |> List.map (fun str -> (XElement.createSingleton "li" (XText(str.Replace("\n", "\\n")))) :> XNode)
 
 
-let private createListInjectionElements
+let private createListXMLElement
   (
     injectionMaybe: DefInjectionPackage.DefInjection option,
     english: string list
@@ -44,18 +44,18 @@ let private createListInjectionElements
       else
         List.empty
 
-    [ yield! createListItems used
+    [ yield! createListXMLItems used
       if not (List.isEmpty extraItemsFromInjection) then
         yield
           XComment(translate1 "DevL10N.TranslationOutput.ExtraItemsFromLanguage" (List.length extraItemsFromInjection))
 
-        yield! createListItems extraItemsFromInjection
+        yield! createListXMLItems extraItemsFromInjection
       if not (List.isEmpty unused) then
         yield XComment(translate1 "DevL10N.TranslationOutput.RemovedItemsFromLanguage" (List.length unused)) ]
-  | None -> createListItems english
+  | None -> createListXMLItems english
 
 
-let private createSingleInjectionElement (path: string, english: string) : XNode =
+let private createSingularXMLElement (path: string, english: string) : XNode =
   if
     path.EndsWith(".slateRef")
     && ConvertHelper.IsXml(english)
@@ -67,9 +67,9 @@ let private createSingleInjectionElement (path: string, english: string) : XNode
     |> id<XNode>
 
 
-let private createInjectionCollectionElements
+let private createInjectionsForCollection
   (
-    injections: DefInjectionDict,
+    injections: DefInjectionDictByNormPath,
     injectable: Injectable,
     (value, canTranslateList): (string list * bool)
   ) : XNode list =
@@ -85,11 +85,7 @@ let private createInjectionCollectionElements
       |> List.mapi (fun i value ->
         let key = injectable.NormalizedPath + "." + i.ToString()
 
-        let path =
-          Translation.suggestTKeyPath key
-          |> Option.defaultValue (key)
-
-        IDict.get path injections
+        IDict.get key injections
         |> Option.filter (fun injection -> injection.injected)
         |> Option.map (fun injection -> injection.replacedString)
         |> Option.defaultValue value)
@@ -102,41 +98,42 @@ let private createInjectionCollectionElements
         |> List.exists (Translation.shouldInjectFor (injectable.Def, injectable.FieldInfo) injection)
 
       if mayProceed then
-        return createListInjectionElements (injection, englishList)
+        return
+          createListXMLElement (injection, englishList)
+          |> XElement.create injectable.SuggestedPath
+          |> (id<XNode> >> List.singleton)
     }
-    |> Option.map (XElement.create injectable.SuggestedPath)
-    |> Option.map (id<XNode> >> List.singleton)
     |> Option.defaultValue List.empty
   else
     englishList
     |> List.ofSeq
     |> List.collecti (fun (i, english) ->
       if Translation.shouldInjectFor (injectable.Def, injectable.FieldInfo) injection english then
-        let normalizedPath = injectable.NormalizedPath + "." + i.ToString()
+        let normPath = injectable.NormalizedPath + "." + i.ToString()
 
-        let suggestedPath =
-          Translation.suggestTKeyPath normalizedPath
+        let suggPath =
+          Translation.suggestTKeyPath normPath
           |> Option.defaultValue (injectable.SuggestedPath + "." + i.ToString())
 
-        createSingleInjectionElement (suggestedPath, english)
+        createSingularXMLElement (suggPath, english)
         |> List.singleton
       else
         List.empty)
 
 
-let private createInjectionElement (injections: DefInjectionDict, target: Injectable, value: string) =
-  let injection = IDict.get target.SuggestedPath injections
+let private createInjection (injections: DefInjectionDictByNormPath, target: Injectable, value: string) =
+  let injection = IDict.get target.NormalizedPath injections
 
   injection
   |> Option.filter (fun x -> x.injected)
   |> Option.bind (fun x -> Option.ofObj x.replacedString)
   |> Option.orElse (Option.ofObj value)
   |> Option.filter (Translation.shouldInjectFor (target.Def, target.FieldInfo) injection)
-  |> Option.map (fun english -> createSingleInjectionElement (target.SuggestedPath, english))
+  |> Option.map (fun english -> createSingularXMLElement (target.SuggestedPath, english))
 
 let private writeFile
   (
-    injections: DefInjectionDict,
+    injections: DefInjectionDictByNormPath,
     injectables: Injectable list,
     defType: Type,
     defInjectionDirPath: string,
@@ -155,9 +152,9 @@ let private writeFile
           |> List.collect (fun injectable ->
             try
               match injectable.Value with
-              | Injectable.Collection c -> createInjectionCollectionElements (injections, injectable, c)
+              | Injectable.Collection c -> createInjectionsForCollection (injections, injectable, c)
               | Injectable.Singular s ->
-                createInjectionElement (injections, injectable, s)
+                createInjection (injections, injectable, s)
                 |> Option.map List.singleton
                 |> Option.defaultValue List.empty
             with
@@ -216,7 +213,7 @@ let private writeForDefType (defInjectionDirPath: string, modData: ModMetaData) 
       |> Seq.filter (fun p ->
         not p.Value.isPlaceholder
         && p.Value.ModifiesDefFromModOrNullCore(modData, defType)))
-    |> Seq.map (fun p -> (p.Key, p.Value))
+    |> Seq.map (fun p -> (p.Value.normalizedPath, p.Value))
     |> dict
 
   Injectable.collectAllFor defType modData
