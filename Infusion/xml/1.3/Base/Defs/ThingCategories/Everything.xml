@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<Defs>
-  <ThingCategoryDef>
-    <defName>Infusion_Infusers</defName>
-    <label>infusers</label>
-    <parent>Items</parent>
-  </ThingCategoryDef>
-</Defs>
