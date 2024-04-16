@@ -33,6 +33,8 @@
 
   <Infusion.ITab.Hint>Click an infusion to designate for an extraction/removal</Infusion.ITab.Hint>
 
+  <Infusion.ITab.NoSlot>The equipment quality is too low for any infusion.</Infusion.ITab.NoSlot>
+
   <Infusion.ITab.ApplyInfuser>Apply infuser...</Infusion.ITab.ApplyInfuser>
   <Infusion.ITab.ApplyInfuser.Description>Only infusers usable on this equipment will be shown.</Infusion.ITab.ApplyInfuser.Description>
 

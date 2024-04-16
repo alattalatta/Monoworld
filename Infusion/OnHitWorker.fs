@@ -46,38 +46,44 @@ type OnHitWorker =
 module OnHitWorker =
   let checkChance (worker: OnHitWorker) = Rand.Chance worker.chance
 
+
   /// Gets the melee effect target's current Map.
   let mapMelee selfCast record =
     if selfCast then
       record.source.MapHeld
     else
       record.target.MapHeld
-      
+
+
   /// Gets the ranged effect target's current Map.
   let mapRanged selfCast record =
     if selfCast then
       record.projectile.Launcher.MapHeld
     else
       record.map
-      
+
+
   /// Gets the melee effect target's current position.
   let posMelee selfCast record =
     if selfCast then
       record.source.PositionHeld
     else
       record.target.PositionHeld
-      
+
+
   /// Gets the ranged effect target's current position.
   let posRanged selfCast record =
     if selfCast then
       record.projectile.Launcher.PositionHeld
     else
       record.projectile.Position
-      
+
+
   /// Gets the melee effect target's current (Map, position).
   let mapPosMelee selfCast record =
     (mapMelee selfCast record, posMelee selfCast record)
-    
+
+
   /// Gets the ranged effect target's current (Map, position).
   let mapPosRanged selfCast record =
     (mapRanged selfCast record, posRanged selfCast record)

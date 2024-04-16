@@ -13,15 +13,15 @@ type PlaySound =
 
   new() = { def = null }
 
-  override this.MeleeHit record =
-    let (map, pos) = OnHitWorker.mapPosMelee this.selfCast record
+  override this.BulletHit record =
+    let (map, pos) = OnHitWorker.mapPosRanged this.selfCast record
 
     let ti = TargetInfo(pos, map)
 
     this.def.PlayOneShot(SoundInfo.InMap(ti))
 
-  override this.BulletHit record =
-    let (map, pos) = OnHitWorker.mapPosRanged this.selfCast record
+  override this.MeleeHit record =
+    let (map, pos) = OnHitWorker.mapPosMelee this.selfCast record
 
     let ti = TargetInfo(pos, map)
 

@@ -29,6 +29,51 @@ type Infused() =
     | Some thing -> Comp.ofThing<CompInfusion> thing
     | None -> None
 
+  override this.IsVisible = Option.isSome this.CompInf
+
+  override this.FillTab() =
+    let container =
+      Rect(0.0f, 0.0f, this.size.x, this.size.y)
+        .ContractedBy(16.0f)
+
+    // label
+    let labelView =
+      Rect(container.xMin, container.yMin, container.xMax * 0.85f, container.yMax)
+
+    let labelHeight = this.DrawLabel(labelView) + 4.0f
+
+    // subLabel
+    let subLabelView =
+      Rect(container.xMin, labelView.yMin + labelHeight, container.width, container.yMax - labelHeight)
+
+    let subLabelHeight = this.DrawSubLabel(subLabelView) + 12.0f
+
+    // body
+    let bodyView =
+      Rect(
+        container.xMin,
+        subLabelView.yMin + subLabelHeight,
+        container.xMax - 6.0f,
+        container.yMax
+        - subLabelView.yMin
+        - subLabelHeight
+        - 56.0f
+      )
+
+    if this.CompInf.Value.SlotCount > 0 then
+      do this.DrawInfusionList(bodyView)
+    else
+      do GUI.color <- gray
+      do Text.Font <- GameFont.Small
+      Widgets.Label(bodyView, ResourceBank.Strings.ITab.noSlot)
+      do GUI.color <- Color.white
+
+    // infuser button
+    let infuserView =
+      Rect(Vector2(container.center.x - 100.0f, container.yMax - 40.0f), Vector2(200.0f, 36.0f))
+
+    this.DrawApplyButton infuserView
+
   member private this.DrawLabel(parentRect: Rect) =
     let compInf = this.CompInf.Value
 
@@ -51,6 +96,8 @@ type Infused() =
 
   member private this.DrawSubLabel(parentRect: Rect) =
     let compInf = this.CompInf.Value
+    let hasAnySlot = compInf.SlotCount > 0
+
     let compQuality = Comp.ofThing<CompQuality> this.SelThing
 
     let subLabelSB = StringBuilder()
@@ -69,15 +116,16 @@ type Infused() =
           .Append(" ")
         |> ignore
 
-    do
-      subLabelSB
-        .Append(compInf.parent.def.label)
-        .Append(" (")
-        .Append(compInf.Size)
-        .Append("/")
-        .Append(compInf.SlotCount)
-        .Append(")")
-      |> ignore
+    if hasAnySlot then
+      do
+        subLabelSB
+          .Append(compInf.parent.def.label)
+          .Append(" (")
+          .Append(compInf.Size)
+          .Append("/")
+          .Append(compInf.SlotCount)
+          .Append(")")
+        |> ignore
 
     let subLabel = (string subLabelSB).CapitalizeFirst()
     do Widgets.Label(parentRect, subLabel)
@@ -87,16 +135,21 @@ type Infused() =
     do Text.Font <- GameFont.Tiny
     do GUI.color <- Color.gray
 
-    let hint = ResourceBank.Strings.ITab.hint
-    let hintHeight = Text.CalcHeight(hint, parentRect.width)
+    let hintMarginTop = 4.0f
 
-    let hintView =
-      Rect(parentRect.xMin, parentRect.yMin + subLabelHeight + 4.0f, parentRect.width, hintHeight)
+    if hasAnySlot then
+      let hint = ResourceBank.Strings.ITab.hint
+      let hintHeight = Text.CalcHeight(hint, parentRect.width)
 
-    do Widgets.Label(hintView, hint)
-    do resetStyles ()
+      let hintView =
+        Rect(parentRect.xMin, parentRect.yMin + subLabelHeight + hintMarginTop, parentRect.width, hintHeight)
 
-    subLabelHeight + hintHeight + 4.0f
+      do Widgets.Label(hintView, hint)
+      do resetStyles ()
+
+      subLabelHeight + hintHeight + hintMarginTop
+    else
+      subLabelHeight + hintMarginTop
 
   member private this.DrawBaseInfusion (parentRect: Rect) yOffset (infDef: InfusionDef) =
     let description = InfusionDef.makeDescriptionString infDef
@@ -267,10 +320,10 @@ type Infused() =
           |> Find.WindowStack.Add
 
     let allInfusers =
-      if Set.count comp.InfusionsRaw < comp.SlotCount then
-        Ok Infuser.AllInfusersByDef
-      else
+      if comp.SlotCount <= Set.count comp.InfusionsRaw then
         Error(ResourceBank.Strings.ITab.cantApplySlotsFull)
+      else
+        Ok Infuser.AllInfusersByDef
 
     do
       allInfusers
@@ -281,45 +334,3 @@ type Infused() =
       )
       |> Result.bind (Result.ofSeq ResourceBank.Strings.ITab.cantApplyNoSuitable)
       |> Result.iterBoth drawUnavailableReason drawButton
-
-  override this.IsVisible =
-    match this.CompInf with
-    | Some compInf -> compInf.SlotCount > 0 || compInf.Size > 0
-    | None -> false
-
-  override this.FillTab() =
-    let container =
-      Rect(0.0f, 0.0f, this.size.x, this.size.y)
-        .ContractedBy(16.0f)
-
-    // label
-    let labelView =
-      Rect(container.xMin, container.yMin, container.xMax * 0.85f, container.yMax)
-
-    let labelHeight = this.DrawLabel(labelView) + 4.0f
-
-    // subLabel
-    let subLabelView =
-      Rect(container.xMin, labelView.yMin + labelHeight, container.width, container.yMax - labelHeight)
-
-    let subLabelHeight = this.DrawSubLabel(subLabelView) + 12.0f
-
-    // infusions
-    let descView =
-      Rect(
-        container.xMin,
-        subLabelView.yMin + subLabelHeight,
-        container.xMax - 6.0f,
-        container.yMax
-        - subLabelView.yMin
-        - subLabelHeight
-        - 56.0f
-      )
-
-    do this.DrawInfusionList(descView)
-
-    // infuser button
-    let infuserView =
-      Rect(Vector2(container.center.x - 100.0f, container.yMax - 40.0f), Vector2(200.0f, 36.0f))
-
-    this.DrawApplyButton infuserView

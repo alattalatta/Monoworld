@@ -14,22 +14,6 @@ type ThrowFleck =
 
       def = null }
 
-  override this.MeleeHit record =
-    let map =
-      (if this.selfCast then
-         record.source.MapHeld
-       else
-         record.target.Map)
-      |> Option.ofObj
-
-    let position =
-      if this.selfCast then
-        record.verb.Caster.Position
-      else
-        record.target.Position
-
-    this.ThrowFleck map position
-
   override this.BulletHit record =
     let map =
       (if this.selfCast then
@@ -43,6 +27,22 @@ type ThrowFleck =
         record.projectile.Launcher.Position
       else
         record.projectile.Position
+
+    this.ThrowFleck map position
+
+  override this.MeleeHit record =
+    let map =
+      (if this.selfCast then
+         record.source.MapHeld
+       else
+         record.target.Map)
+      |> Option.ofObj
+
+    let position =
+      if this.selfCast then
+        record.verb.Caster.Position
+      else
+        record.target.Position
 
     this.ThrowFleck map position
 

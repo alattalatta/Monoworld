@@ -13,11 +13,6 @@ type Sequence =
 
       value = null }
 
-  override this.MeleeHit record =
-    for worker in this.value do
-      if Rand.Chance worker.chance then
-        do worker.MeleeHit record
-
   override this.BulletHit record =
     for worker in this.value do
       if Rand.Chance worker.chance then
@@ -28,3 +23,8 @@ type Sequence =
       seq { "no value" }
     else
       Seq.empty
+
+  override this.MeleeHit record =
+    for worker in this.value do
+      if Rand.Chance worker.chance then
+        do worker.MeleeHit record

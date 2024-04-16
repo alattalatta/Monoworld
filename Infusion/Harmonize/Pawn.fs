@@ -12,7 +12,9 @@ module GetGizmos =
   let Postfix (returned: Gizmo seq, __instance: Pawn_EquipmentTracker) =
     let pawn = __instance.pawn
 
-    if pawn.IsColonist && isNull pawn.MentalStateDef then
+    if pawn.IsColonistPlayerControlled
+       || pawn.IsColonyMech
+       || pawn.IsColonyMutantPlayerControlled then
       Seq.tryHead __instance.AllEquipmentListForReading
       |> Option.bind Thing.getComp<CompInfusion>
       // only adds the effect gizmo to prevent unnecessary compat complications

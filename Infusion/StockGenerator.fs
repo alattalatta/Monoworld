@@ -1,6 +1,5 @@
 namespace Infusion
 
-open Poet.Lib
 open RimWorld
 open Verse
 

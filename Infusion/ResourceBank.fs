@@ -25,13 +25,17 @@ module Strings =
 
     let shieldBelt = translate "Infusion.Matchers.ShieldBelt"
 
+
   module Gizmo =
     let label = translate "Infusion.EffectGizmo"
 
     let desc = translate "Infusion.EffectGizmo.Description"
 
+
   module ITab =
     let hint = translate "Infusion.ITab.Hint"
+
+    let noSlot = translate "Infusion.ITab.NoSlot"
 
     // marks
     let markExtraction extractionChance =

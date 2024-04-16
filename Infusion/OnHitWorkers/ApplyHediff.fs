@@ -23,14 +23,6 @@ type ApplyHediff =
       inverseStatScaling = false
       severityScaleBy = null }
 
-  override this.MeleeHit record =
-    if this.selfCast then
-      this.AddHediff record.baseDamage record.verb.CasterPawn
-    else
-      do
-        tryCast<Pawn> record.target
-        |> Option.iter (this.AddHediff record.baseDamage)
-
   override this.BulletHit record =
     if this.selfCast then
       do
@@ -40,6 +32,14 @@ type ApplyHediff =
       do
         record.target
         |> Option.bind tryCast<Pawn>
+        |> Option.iter (this.AddHediff record.baseDamage)
+
+  override this.MeleeHit record =
+    if this.selfCast then
+      this.AddHediff record.baseDamage record.verb.CasterPawn
+    else
+      do
+        tryCast<Pawn> record.target
         |> Option.iter (this.AddHediff record.baseDamage)
 
   member private this.AddHediff baseDamage (pawn: Pawn) =

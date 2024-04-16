@@ -3,6 +3,7 @@ namespace Infusion.Matchers
 open Verse
 
 
+/// Filter for infusion applicability.
 [<AllowNullLiteral>]
 // For now, 'a = InfusionDef
 type Matcher<'a when 'a :> Def> =

@@ -33,6 +33,8 @@
 
   <Infusion.ITab.Hint>마법부여를 클릭해 추출/제거 지정</Infusion.ITab.Hint>
 
+  <Infusion.ITab.NoSlot>장비의 품질이 너무 낮아 마법부여를 받을 수 없습니다.</Infusion.ITab.NoSlot>
+
   <Infusion.ITab.ApplyInfuser>연마기 사용...</Infusion.ITab.ApplyInfuser>
   <Infusion.ITab.ApplyInfuser.Description>이 장비에 적합한 연마기만 보여집니다.</Infusion.ITab.ApplyInfuser.Description>
 

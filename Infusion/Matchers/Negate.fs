@@ -13,8 +13,6 @@ type Negate =
     { inherit Matcher<InfusionDef>()
       value = null }
 
-  override this.Match thing infDef = not (this.value.Match thing infDef)
-
   override this.BuildRequirementString() =
     this.value.BuildRequirementString()
     |> Option.map (ResourceBank.Strings.Matchers.negate >> string)
@@ -24,3 +22,5 @@ type Negate =
       seq { "no value" }
     else
       Seq.empty
+
+  override this.Match thing infDef = not (this.value.Match thing infDef)

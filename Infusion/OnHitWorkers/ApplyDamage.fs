@@ -11,13 +11,6 @@ open VerseTools
 type ApplyDamage() =
   inherit DamageBase()
 
-  override this.MeleeHit record =
-    if Pawn.isAliveAndWell record.target then
-      do
-        this.CreateMeleeDamageInfo record
-        |> record.target.TakeDamage
-        |> ignore
-
   override this.BulletHit record =
     do
       record.target
@@ -27,6 +20,13 @@ type ApplyDamage() =
           this.CreateRangedDamageInfo record
           |> t.TakeDamage
           |> ignore)
+
+  override this.MeleeHit record =
+    if Pawn.isAliveAndWell record.target then
+      do
+        this.CreateMeleeDamageInfo record
+        |> record.target.TakeDamage
+        |> ignore
 
   member private this.CreateMeleeDamageInfo(record: MeleeHitRecord) =
     let amount = record.baseDamage * this.amount

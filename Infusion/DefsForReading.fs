@@ -14,16 +14,17 @@ let private hasQualityNoInfusion (def: ThingDef) =
   def.HasComp(typedefof<CompQuality>)
   && not (def.HasComp(typedefof<CompInfusion>))
 
-let private isSingleUse (def: ThingDef) =
+let private isMultiUse (def: ThingDef) =
   Option.ofObj def.thingSetMakerTags
-  |> Option.map (Seq.contains "SingleUseWeapon")
-  |> Option.defaultValue false
+  |> Option.map (not << Seq.contains "SingleUseWeapon")
+  |> Option.defaultValue true
 
 let allThingsInfusable =
   DefDatabase<ThingDef>.AllDefs
   |> Seq.filter (
     apparelOrWeapon
     <&> hasQualityNoInfusion
-    <&> (isSingleUse >> not)
+    <&> isMultiUse
   )
+  |> Seq.map (tap (fun x -> Poet.Lyric.Console.log "%A" x.defName))
   |> List.ofSeq
