@@ -18,8 +18,8 @@ let private fieldsInDeterministicOrder (t: Type) =
 
 
 type InjectableValue =
-  | Collection of (string list * bool) // values, [TranslationCanCahngeCount]
-  | Singular of string
+  | Collection of bool // TranslationCanCahngeCount
+  | Singular
 
 type Injectable =
   { Def: Def
@@ -31,8 +31,10 @@ type Injectable =
 
 let private makePath prevNormPath prevSuggestedPath (field: FieldInfo) =
   let newNormPath = prevNormPath + "." + field.Name
-  let newSuggestedPath = Translation.suggestTKeyPath newNormPath
-                         |> Option.defaultValue (prevSuggestedPath + "." + field.Name)
+
+  let newSuggestedPath =
+    Translation.suggestTKeyPath newNormPath
+    |> Option.defaultValue (prevSuggestedPath + "." + field.Name)
 
   (newNormPath, newSuggestedPath)
 
@@ -77,7 +79,7 @@ let rec private collectInDefRecursive
                  FieldInfo = field
                  NormalizedPath = newNormPath
                  SuggestedPath = newSuggestedPath
-                 Value = InjectableValue.Singular(value :?> string) }
+                 Value = InjectableValue.Singular }
              )
 
            // string collection
@@ -87,11 +89,7 @@ let rec private collectInDefRecursive
                  FieldInfo = field
                  NormalizedPath = newNormPath
                  SuggestedPath = newSuggestedPath
-                 Value =
-                   InjectableValue.Collection(
-                     value :?> string seq |> List.ofSeq,
-                     field.HasAttribute<TranslationCanChangeCountAttribute>()
-                   ) }
+                 Value = InjectableValue.Collection(field.HasAttribute<TranslationCanChangeCountAttribute>()) }
              )
 
            // built-in type collections
