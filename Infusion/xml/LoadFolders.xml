@@ -10,4 +10,9 @@
     <li IfModActive="Ludeon.RimWorld.Royalty">1.4/Royalty</li>
     <li>/</li>
   </v1.4>
+  <v1.5>
+    <li>1.5/Base</li>
+    <li IfModActive="Ludeon.RimWorld.Royalty">1.5/Royalty</li>
+    <li>/</li>
+  </v1.5>
 </loadFolders>

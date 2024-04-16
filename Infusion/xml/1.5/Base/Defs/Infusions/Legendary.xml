@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+  <Infusion.InfusionDef Abstract="True" Name="LegendaryDefaultBase">
+    <tier>Legendary</tier>
+  </Infusion.InfusionDef>
+
+  <!-- apparels -->
+  <Infusion.InfusionDef Abstract="True" Name="LegendaryApparelBase" ParentName="LegendaryDefaultBase">
+    <matches>
+      <li Class="Infusion.Matchers.EquipmentType">
+        <apparel>true</apparel>
+      </li>
+    </matches>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <offset>1200</offset>
+        </value>
+      </li>
+      <li>
+        <key>MaxHitPoints</key>
+        <value>
+          <multiplier>0.2</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- armors must cover a body part-->
+  <Infusion.InfusionDef Abstract="True" Name="LegendaryArmorBase" ParentName="LegendaryDefaultBase">
+    <matches>
+      <li Class="Infusion.Matchers.EquipmentType">
+        <apparel>true</apparel>
+      </li>
+      <li Class="Infusion.Matchers.NotUtility" />
+    </matches>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryApparelBase">
+    <defName>Airtight</defName>
+    <label>airtight</label>
+    <labelShort>tight</labelShort>
+    <stats>
+      <li>
+        <key>ArmorRating_Heat</key>
+        <value>
+          <offset>0.4</offset>
+        </value>
+      </li>
+      <li>
+        <key>Insulation_Heat</key>
+        <value>
+          <offset>24</offset>
+        </value>
+      </li>
+      <li>
+        <key>Insulation_Cold</key>
+        <value>
+          <offset>24</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryApparelBase">
+    <defName>Augmenting</defName>
+    <label>augmenting</label>
+    <labelShort>augm</labelShort>
+    <stats>
+      <li>
+        <key>GlobalLearningFactor</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+      <li>
+        <key>WorkSpeedGlobal</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+      <li>
+        <key>MoveSpeed</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryArmorBase">
+    <defName>Protective</defName>
+    <label>protective</label>
+    <labelShort>prot</labelShort>
+    <stats>
+      <li>
+        <key>ArmorRating_Blunt</key>
+        <value>
+          <offset>0.3</offset>
+        </value>
+      </li>
+      <li>
+        <key>ArmorRating_Sharp</key>
+        <value>
+          <offset>0.3</offset>
+        </value>
+      </li>
+      <li>
+        <key>MaxHitPoints</key>
+        <value>
+          <multiplier>0.5</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryApparelBase">
+    <defName>Purifying</defName>
+    <label>purifying</label>
+    <labelShort>pure</labelShort>
+    <stats>
+      <li>
+        <key>ImmunityGainSpeed</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+      <li>
+        <key>MentalBreakThreshold</key>
+        <value>
+          <offset>-0.05</offset>
+        </value>
+      </li>
+      <li>
+        <key>ToxicResistance</key>
+        <value>
+          <offset>1.0</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryApparelBase">
+    <defName>Restless</defName>
+    <label>restless</label>
+    <labelShort>rest</labelShort>
+    <stats>
+      <li>
+        <key>EatingSpeed</key>
+        <value>
+          <offset>0.5</offset>
+        </value>
+      </li>
+      <li>
+        <key>MoveSpeed</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+      <li>
+        <key>RestRateMultiplier</key>
+        <value>
+          <offset>0.3</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryApparelBase">
+    <defName>Temptating</defName>
+    <label>temptating</label>
+    <labelShort>tempt</labelShort>
+    <stats>
+      <li>
+        <key>PawnBeauty</key>
+        <value>
+          <offset>1</offset>
+        </value>
+      </li>
+      <li>
+        <key>MentalBreakThreshold</key>
+        <value>
+          <offset>-0.05</offset>
+        </value>
+      </li>
+      <li>
+        <key>SocialImpact</key>
+        <value>
+          <offset>0.3</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- weapons -->
+  <Infusion.InfusionDef Abstract="True" Name="LegendaryAnyWeaponsBase" ParentName="LegendaryDefaultBase">
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>0.2</multiplier>
+          <offset>300</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <!-- melee -->
+  <Infusion.InfusionDef Abstract="True" Name="LegendaryMeleeBase" ParentName="LegendaryAnyWeaponsBase">
+    <matches>
+      <li Class="Infusion.Matchers.EquipmentType">
+        <melee>true</melee>
+      </li>
+    </matches>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryMeleeBase">
+    <defName>Accelerated</defName>
+    <label>accelerated</label>
+    <labelShort>accel</labelShort>
+    <stats>
+      <li>
+        <key>MeleeWeapon_CooldownMultiplier</key>
+        <value>
+          <offset>-0.2</offset>
+        </value>
+      </li>
+      <li>
+        <key>MeleeWeapon_DamageMultiplier</key>
+        <value>
+          <offset>0.1</offset>
+        </value>
+      </li>
+      <li>
+        <key>MeleeDodgeChance</key>
+        <value>
+          <offset>5</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryMeleeBase">
+    <defName>Blazing</defName>
+    <label>blazing</label>
+    <labelShort>blaz</labelShort>
+    <stats>
+      <li>
+        <key>ArmorRating_Heat</key>
+        <value>
+          <offset>0.3</offset>
+        </value>
+      </li>
+    </stats>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.CreateExplosion">
+        <def>Flame</def>
+        <amount>0.4</amount>
+        <chance>0.25</chance>
+      </li>
+    </onHits>
+    <extraDescriptions>
+      <li>25% chance to cause a small flame explosion, dealing 40% of the damage.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryMeleeBase">
+    <defName>Critical</defName>
+    <label>critical</label>
+    <labelShort>crit</labelShort>
+    <stats>
+      <li>
+        <key>MeleeWeapon_DamageMultiplier</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.CreateExplosion">
+        <def>Bomb</def>
+        <amount>2</amount>
+        <chance>0.08</chance>
+      </li>
+    </onHits>
+    <extraDescriptions>
+      <li>8% chance to explode the target, dealing 200% of the damage.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryMeleeBase">
+    <defName>Overwhelming</defName>
+    <label>overwhelming</label>
+    <labelShort>over</labelShort>
+    <stats>
+      <li>
+        <key>MeleeWeapon_DamageMultiplier</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.ApplyDamage">
+        <def>Stun</def>
+        <amount>0.5</amount>
+        <chance>0.3</chance>
+      </li>
+    </onHits>
+    <extraDescriptions>
+      <li>30% chance to stun the target for 50% of the damage.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryMeleeBase">
+    <defName>Surging</defName>
+    <label>surging</label>
+    <labelShort>surg</labelShort>
+    <stats>
+      <li>
+        <key>MeleeWeapon_CooldownMultiplier</key>
+        <value>
+          <offset>-0.2</offset>
+        </value>
+      </li>
+    </stats>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.CreateExplosion">
+        <def>EMP</def>
+        <amount>3</amount>
+        <chance>0.8</chance>
+        <radius>4</radius>
+      </li>
+    </onHits>
+    <extraDescriptions>
+      <li>80% chance to cause a large EMP explosion, stunning machines within a radius of 4 cells for 300% of the damage.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryMeleeBase">
+    <defName>Vampiric</defName>
+    <label>vampiric</label>
+    <labelShort>vamp</labelShort>
+    <matches>
+      <li Class="Infusion.Matchers.WeaponClasses">
+        <defs>
+          <li>MeleePiercer</li>
+        </defs>
+      </li>
+    </matches>
+    <stats>
+      <li>
+        <key>MeleeWeapon_DamageMultiplier</key>
+        <value>
+          <offset>0.1</offset>
+        </value>
+      </li>
+    </stats>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.IfBioTargetHit">
+        <value Class="Infusion.OnHitWorkers.Sequence">
+          <value>
+            <li Class="Infusion.OnHitWorkers.ApplyHediff">
+              <def>BloodLoss</def>
+              <amount>0.1</amount>
+            </li>
+            <li Class="Infusion.OnHitWorkers.ReduceSeverity">
+              <def>BloodLoss</def>
+              <amount>0.1</amount>
+              <selfCast>true</selfCast>
+            </li>
+            <li Class="Infusion.OnHitWorkers.HealCaster">
+              <amount>0.075</amount>
+            </li>
+            <li Class="Infusion.OnHitWorkers.ThrowFleck">
+              <def>HealingCross</def>
+              <selfCast>true</selfCast>
+            </li>
+          </value>
+        </value>
+      </li>
+    </onHits>
+    <extraDescriptions>
+      <li>Drains living flesh target's blood for 20% of the damage.</li>
+      <li>· Restores wielder's blood by the amount of the drained blood.</li>
+      <li>· Heals wielder's random injury for 7.5% of the damage</li>
+      <li>· This effect cannot heal scars.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <!-- ranged -->
+  <Infusion.InfusionDef Abstract="True" Name="LegendaryRangedBase" ParentName="LegendaryAnyWeaponsBase">
+    <matches>
+      <li Class="Infusion.Matchers.EquipmentType">
+        <ranged>true</ranged>
+      </li>
+    </matches>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryRangedBase">
+    <defName>Boosted</defName>
+    <label>boosted</label>
+    <labelShort>boost</labelShort>
+    <stats>
+      <li>
+        <key>RangedWeapon_DamageMultiplier</key>
+        <value>
+          <offset>0.5</offset>
+        </value>
+      </li>
+      <li>
+        <key>RangedWeapon_Cooldown</key>
+        <value>
+          <multiplier>0.2</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryRangedBase">
+    <defName>Disrupting</defName>
+    <label>disrupting</label>
+    <labelShort>dsrpt</labelShort>
+    <matches>
+      <li Class="Infusion.Matchers.ProjectileBullet" />
+    </matches>
+    <stats>
+      <li>
+        <key>AimingDelayFactor</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.CreateExplosion">
+        <def>EMP</def>
+        <amount>1</amount>
+        <chance>0.25</chance>
+        <radius>1.4</radius>
+      </li>
+    </onHits>
+    <extraDescriptions>
+      <li>25% chance to fire a projectile which causes an EMP explosion, stunning machines within a radius of 1.4 cells for 100% of the damage</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryRangedBase">
+    <defName>Homing</defName>
+    <label>homing</label>
+    <labelShort>hom</labelShort>
+    <stats>
+      <li>
+        <key>RangedWeapon_DamageMultiplier</key>
+        <value>
+          <offset>0.1</offset>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyTouch</key>
+        <value>
+          <offset>0.16</offset>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyShort</key>
+        <value>
+          <offset>0.16</offset>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyMedium</key>
+        <value>
+          <offset>0.16</offset>
+        </value>
+      </li>
+      <li>
+        <key>AccuracyLong</key>
+        <value>
+          <offset>0.16</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryRangedBase">
+    <defName>Responsive</defName>
+    <label>responsive</label>
+    <labelShort>resp</labelShort>
+    <stats>
+      <li>
+        <key>AimingDelayFactor</key>
+        <value>
+          <offset>-0.3</offset>
+        </value>
+      </li>
+      <li>
+        <key>RangedWeapon_Cooldown</key>
+        <value>
+          <multiplier>-0.3</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryRangedBase">
+    <defName>Suppressive</defName>
+    <label>suppressive</label>
+    <labelShort>sprs</labelShort>
+    <matches>
+      <li Class="Infusion.Matchers.ProjectileBullet" />
+    </matches>
+    <stats>
+      <li>
+        <key>AimingDelayFactor</key>
+        <value>
+          <offset>-0.2</offset>
+        </value>
+      </li>
+      <li>
+        <key>RangedWeapon_DamageMultiplier</key>
+        <value>
+          <offset>-0.3</offset>
+        </value>
+      </li>
+    </stats>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.ApplyDamage">
+        <def>Stun</def>
+        <amount>1</amount>
+        <chance>0.1</chance>
+      </li>
+    </onHits>
+    <extraDescriptions>
+      <li>10% chance to stun the target for 80% of the damage.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryRangedBase">
+    <defName>Volatile</defName>
+    <label>volatile</label>
+    <labelShort>vola</labelShort>
+    <matches>
+      <li Class="Infusion.Matchers.ProjectileBullet" />
+    </matches>
+    <stats>
+      <li>
+        <key>RangedWeapon_DamageMultiplier</key>
+        <value>
+          <offset>0.15</offset>
+        </value>
+      </li>
+    </stats>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.CreateExplosion">
+        <def>Bomb</def>
+        <amount>0.5</amount>
+        <chance>0.2</chance>
+        <radius>1.4</radius>
+      </li>
+      <li Class="Infusion.OnHitWorkers.CreateExplosion">
+        <def>Flame</def>
+        <amount>0.5</amount>
+        <chance>0.1</chance>
+        <radius>1.4</radius>
+      </li>
+    </onHits>
+    <extraDescriptions>
+      <li>20% chance for an projectile to explode.</li>
+      <li>Another 10% chance for the projectile to explode in flame.</li>
+      <li>· Each explosion deals 50% of the damage within a radius of 1.4 cells.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <!-- weapons -->
+  <Infusion.InfusionDef Abstract="True" Name="LegendaryWeaponsBase" ParentName="LegendaryAnyWeaponsBase">
+    <matches>
+      <li Class="Infusion.Matchers.EquipmentType">
+        <melee>true</melee>
+        <ranged>true</ranged>
+      </li>
+    </matches>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryWeaponsBase">
+    <defName>Guardian</defName>
+    <label>guardian</label>
+    <labelShort>guard</labelShort>
+    <position>Suffix</position>
+    <stats>
+      <li>
+        <key>IncomingDamageFactor</key>
+        <value>
+          <offset>-0.2</offset>
+        </value>
+      </li>
+      <li>
+        <key>ArmorRating_Sharp</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+      <li>
+        <key>ArmorRating_Blunt</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+</Defs>

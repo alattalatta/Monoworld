@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Crippling.label>불구의</Crippling.label>
+  <Crippling.labelShort>불구</Crippling.labelShort>
+  <Crippling.extraDescriptions.0>대상에게 무작위 정신적 효과를 적용합니다.</Crippling.extraDescriptions.0>
+  <Crippling.extraDescriptions.1>· 10% 확률로 대상을 느리게 만듭니다.</Crippling.extraDescriptions.1>
+  <Crippling.extraDescriptions.2>· 5% 확률로 대상의 눈을 멀게 만듭니다.</Crippling.extraDescriptions.2>
+
+  <Encouraging.label>의욕적인</Encouraging.label>
+  <Encouraging.labelShort>의욕</Encouraging.labelShort>
+  <Encouraging.extraDescriptions.0>8% 확률로 착용자에게 짧은 집중 효과를 부여합니다.</Encouraging.extraDescriptions.0>
+
+  <Amplifying.label>증폭하는</Amplifying.label>
+  <Amplifying.labelShort>증폭</Amplifying.labelShort>
+
+  <Invisibility.label>투명</Invisibility.label>
+  <Invisibility.labelShort>투명</Invisibility.labelShort>
+  <Invisibility.extraDescriptions.0>10% 확률로 착용자에게 투명화 효과를 부여합니다.</Invisibility.extraDescriptions.0>
+
+  <Chaotic.label>혼돈의</Chaotic.label>
+  <Chaotic.labelShort>혼돈</Chaotic.labelShort>
+  <Chaotic.extraDescriptions.0>대상에게 무작위 정신적 효과를 적용합니다.</Chaotic.extraDescriptions.0>
+  <Chaotic.extraDescriptions.1>· 10% 확률로 대상을 느리게 만듭니다.</Chaotic.extraDescriptions.1>
+  <Chaotic.extraDescriptions.2>· 5% 확률로 대상의 눈을 멀게 만듭니다.</Chaotic.extraDescriptions.2>
+  <Chaotic.extraDescriptions.3>· 5% 확률로 대상을 어지럽게 만듭니다.</Chaotic.extraDescriptions.3>
+
+  <Stimulating.label>자극성</Stimulating.label>
+  <Stimulating.labelShort>자극</Stimulating.labelShort>
+  <Stimulating.extraDescriptions.0>12% 확률로 착용자에게 짧은 집중 효과를 부여합니다.</Stimulating.extraDescriptions.0>
+
+</LanguageData>
