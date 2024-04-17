@@ -5,8 +5,6 @@ open System
 open RimWorld
 open Verse
 
-open Poet.Lyric.Console
-
 open DefGenerator
 
 

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+  <HediffDef>
+    <defName>Infusion_Preservation</defName>
+    <label>infused preservation</label>
+    <description>This creature has been given one last chance!</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <isBad>false</isBad>
+    <stages>
+      <li>
+        <painFactor>0</painFactor>
+        <statFactors>
+          <MoveSpeed>1.5</MoveSpeed>
+          <StaggerDurationFactor>0</StaggerDurationFactor>
+        </statFactors>
+        <totalBleedFactor>0.25</totalBleedFactor>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_Effecter">
+        <stateEffecter>Berserk</stateEffecter>
+      </li>
+      <li Class="HediffCompProperties_Disappears">
+        <showRemainingTime>true</showRemainingTime>
+        <disappearsAfterTicks>900</disappearsAfterTicks>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <RulePackDef>
+    <defName>Infusion_Preservation</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>r_logentry->[INITIATOR_definite]'s [ITEM_label] shattered and granted [INITIATOR_objective] one last chance!</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <SoundDef>
+    <defName>Infusion_Preservation</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Infusion/Preservation</clipFolderPath>
+          </li>
+        </grains>
+        <volumeRange>30~35</volumeRange>
+        <pitchRange>0.9152174~1.169566</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryApparelBase">
+    <defName>Preservation</defName>
+    <label>preservation</label>
+    <labelShort>presv</labelShort>
+    <position>Suffix</position>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.Sequence">
+        <value>
+          <li Class="Infusion.OnHitWorkers.PlaySound">
+            <def>Infusion_Preservation</def>
+          </li>
+          <li Class="Infusion.OnHitWorkers.Preservation" />
+        </value>
+      </li>
+    </onHits>
+    <extraDescriptions>
+      <li>When the wearer falls, trigger infused preservation.</li>
+      <li>· Infused preservation suppresses pain, slows blood loss, and increases movement speed for 15 seconds.</li>
+      <li>· This item will be destroyed in the process. Only one item will be used at a time.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+</Defs>

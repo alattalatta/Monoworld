@@ -1,9 +1,9 @@
 namespace Infusion.OnHitWorkers
 
-open RimWorld
-open UnityEngine
 open Verse
 open Verse.Sound
+
+open Infusion
 
 
 type PlaySound =
@@ -26,3 +26,10 @@ type PlaySound =
     let ti = TargetInfo(pos, map)
 
     this.def.PlayOneShot(SoundInfo.InMap(ti))
+    
+  override this.WearerDowned pawn _ =
+    let ti = TargetInfo(pawn.Position, pawn.Map)
+
+    this.def.PlayOneShot(SoundInfo.InMap(ti))
+
+    true

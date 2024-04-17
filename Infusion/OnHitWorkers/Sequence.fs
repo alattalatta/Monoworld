@@ -2,6 +2,8 @@ namespace Infusion.OnHitWorkers
 
 open Verse
 
+open Infusion
+
 
 type Sequence =
   inherit OnHitWorker
@@ -15,7 +17,7 @@ type Sequence =
 
   override this.BulletHit record =
     for worker in this.value do
-      if Rand.Chance worker.chance then
+      if worker.chance >= 1.0f || Rand.Chance worker.chance then
         do worker.BulletHit record
 
   override this.ConfigErrors() =
@@ -26,5 +28,8 @@ type Sequence =
 
   override this.MeleeHit record =
     for worker in this.value do
-      if Rand.Chance worker.chance then
+      if worker.chance >= 1.0f || Rand.Chance worker.chance then
         do worker.MeleeHit record
+
+  override this.WearerDowned pawn apparel =
+    Lib.runUntilFalseFrom 0 ((fun (worker: OnHitWorker) -> worker.WearerDowned pawn apparel), this.value)

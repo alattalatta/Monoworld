@@ -18,6 +18,7 @@
     <Reference Include="..\libs\UnityEngine.UIModule.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Lib.fs" />
     <Compile Include="ResourceBank.fs" />
     <Compile Include="StatMod.fs" />
     <Compile Include="DefFields.fs" />
@@ -45,6 +46,7 @@
     <Compile Include="OnHitWorkers\SpawnFilth.fs" />
     <Compile Include="OnHitWorkers\ThrowFleck.fs" />
     <Compile Include="OnHitWorkers\ApplyDamage.fs" />
+    <Compile Include="OnHitWorkers\Preservation.fs" />
     <Compile Include="Settings.fs" />
     <Compile Include="CompInfusion.fs" />
     <Compile Include="Infuser.fs" />
@@ -62,6 +64,7 @@
     <Compile Include="Harmonize\CompQuality.fs" />
     <Compile Include="Harmonize\StatWorker.fs" />
     <Compile Include="Harmonize\Pawn.fs" />
+    <Compile Include="Harmonize\Pawn_EquipmentTracker.fs" />
     <Compile Include="Harmonize\VerbMeleeAttackDamage.fs" />
     <Compile Include="Harmonize\VerbProperties.fs" />
     <Compile Include="DefsForReading.fs" />

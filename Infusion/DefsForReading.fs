@@ -26,5 +26,4 @@ let allThingsInfusable =
     <&> hasQualityNoInfusion
     <&> isMultiUse
   )
-  |> Seq.map (tap (fun x -> Poet.Lyric.Console.log "%A" x.defName))
   |> List.ofSeq

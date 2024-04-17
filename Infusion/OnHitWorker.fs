@@ -1,4 +1,4 @@
-namespace Infusion.OnHitWorkers
+namespace Infusion
 
 open RimWorld
 open Verse
@@ -34,13 +34,17 @@ type OnHitWorker =
       chance = 1.0f
       selfCast = false }
 
+  abstract BulletHit: RangedHitRecord -> unit
+
   abstract MeleeHit: MeleeHitRecord -> unit
 
-  abstract BulletHit: RangedHitRecord -> unit
+  abstract WearerDowned: Pawn -> Apparel -> bool
+
+  default this.BulletHit _ = ()
 
   default this.MeleeHit _ = ()
 
-  default this.BulletHit _ = ()
+  default this.WearerDowned _ _ = true
 
 
 module OnHitWorker =

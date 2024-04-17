@@ -15,7 +15,6 @@ open UnityEngine
 open DefFields
 open StatMod
 open Infusion.Matchers
-open Infusion.OnHitWorkers
 
 
 [<AllowNullLiteral>]

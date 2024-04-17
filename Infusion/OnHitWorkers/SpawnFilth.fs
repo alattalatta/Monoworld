@@ -3,6 +3,8 @@ namespace Infusion.OnHitWorkers
 open RimWorld
 open Verse
 
+open Infusion
+
 
 type SpawnFilth =
   inherit OnHitWorker

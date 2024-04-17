@@ -2,6 +2,8 @@ namespace Infusion.OnHitWorkers
 
 open Verse
 
+open Infusion
+
 
 type DamageBase =
   inherit OnHitWorker

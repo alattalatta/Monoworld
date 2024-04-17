@@ -26,6 +26,10 @@ module Strings =
     let shieldBelt = translate "Infusion.Matchers.ShieldBelt"
 
 
+  module OnHitWorkers =
+    let sacrificed str = translate1 "Sacrificed" str
+
+
   module Gizmo =
     let label = translate "Infusion.EffectGizmo"
 
