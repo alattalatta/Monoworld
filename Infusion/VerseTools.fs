@@ -15,7 +15,7 @@ let accuracyStats =
                StatDefOf.AccuracyShort.defName
                StatDefOf.AccuracyMedium.defName
                StatDefOf.AccuracyLong.defName ]
-               
+
 
 // Same as above.
 /// A set of defNames of all direct armor stats.
@@ -34,6 +34,7 @@ let pawnStatCategories =
                StatCategoryDefOf.PawnMisc.defName
                StatCategoryDefOf.PawnSocial.defName
                StatCategoryDefOf.PawnWork.defName ]
+
 
 /// Resets a Thing's HitPoints to its MaxHitPoints.
 let resetHP<'T when 'T :> Thing> (thing: 'T) =

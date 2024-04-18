@@ -58,7 +58,7 @@ module RelevantGear =
           if isPawnStat then
             StatWorker.apparelsAndEquipments pawn
           else
-            // armor stats = only weapons
+            // armor stats = only weapons, no need to calculate
             match Pawn.getEquipments pawn with
             | Some equipments -> equipments |> List.map upcastToThing
             | None -> List.empty

@@ -2,7 +2,6 @@ module Infusion.Mod
 
 open System
 
-open Poet.Lib
 open RimWorld
 open Verse
 
@@ -39,7 +38,6 @@ type ModBase() =
 
   member private this.InjectToThings() =
     let iTabType = typedefof<ITab.Infused>
-
     let iTab = InspectTabManager.GetSharedInstance(iTabType)
 
     DefsForReading.allThingsInfusable
@@ -71,5 +69,5 @@ type ModBase() =
 
         do def.parts.Add statPart)
 
-    // And we have to manually update the immutability check results
+    // And we have to manually update the caches
     do StatDef.SetImmutability()

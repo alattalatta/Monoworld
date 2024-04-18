@@ -4,7 +4,6 @@ open System
 
 open HugsLib
 open HugsLib.Settings
-open Poet.Lib
 open Poet.Lyric.Translation
 open RimWorld
 open UnityEngine

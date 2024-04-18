@@ -1,3 +1,6 @@
+// Def can't find types within modules, e.g.
+// module Infusion.TierDef
+// so this must not be a module declaration
 namespace Infusion
 
 open System
@@ -12,52 +15,49 @@ open UnityEngine
 open DefFields
 open StatMod
 open Infusion.Matchers
-open Infusion.OnHitWorkers
 
 
 [<AllowNullLiteral>]
 type InfusionDef =
   inherit HashEqualDef
 
-  /// Label for map overlay.
-  [<MustTranslate>]
-  val mutable labelShort: string
+  /// Will not infuse new Things.
+  val mutable disabled: bool
 
   /// Descriptions for special effects.
   [<MustTranslate>]
   [<TranslationCanChangeCount>]
   val mutable extraDescriptions: ResizeArray<string>
 
+  /// Label for map overlay.
+  [<MustTranslate>]
+  val mutable labelShort: string
+
   /// Matcher filters.
   val mutable matches: ResizeArray<Matcher<InfusionDef>>
-
-  /// On-hit effect workers.
-  val mutable onHits: ResizeArray<OnHitWorker>
-
-  /// Will not used for new infusions.
-  val mutable disabled: bool
 
   /// Will migrate itself, by removing or replacing itself.
   val mutable migration: Migration<InfusionDef>
 
+  /// On-hit effect workers.
+  val mutable onHits: ResizeArray<OnHitWorker>
+
   /// Postfix or Suffix.
   val mutable position: Position
+
+  val mutable stats: Dictionary<StatDef, StatMod>
 
   /// The tier of this infusion.
   val mutable tier: TierDef
 
-  val mutable stats: Dictionary<StatDef, StatMod>
-
   new() =
     { inherit HashEqualDef()
-      labelShort = ""
-      extraDescriptions = ResizeArray()
-
-      matches = ResizeArray()
-      onHits = null
-
       disabled = false
+      extraDescriptions = ResizeArray()
+      labelShort = ""
+      matches = ResizeArray()
       migration = null
+      onHits = null
       position = Position.Prefix
       stats = Dictionary()
       tier = TierDef.empty }
@@ -68,27 +68,26 @@ type InfusionDef =
     else
       this.labelShort
 
-  member this.OnHits = Option.ofObj this.onHits
+  member this.ChanceFor(quality: QualityCategory) = valueFor quality this.tier.chances
 
   member this.Migration = Option.ofObj this.migration
 
-  member this.ChanceFor(quality: QualityCategory) = valueFor quality this.tier.chances
+  member this.OnHits = Option.ofObj this.onHits
 
   member this.WeightFor(quality: QualityCategory) = valueFor quality this.tier.weights
 
-  override this.ToString() =
-    sprintf "%s (%s, %s)" (base.ToString()) this.label this.tier.label
-
-  override this.Equals(ob) = base.Equals(ob)
+  override this.Equals(ob) = ``base``.Equals(ob)
 
   override this.GetHashCode() = base.GetHashCode()
+
+  override this.ToString() =
+    sprintf "%s (%s, %s)" (base.ToString()) this.label this.tier.label
 
   interface IComparable with
     member this.CompareTo(ob) =
       match ob with
       | :? InfusionDef as infDef ->
-        let byTierPriority =
-          this.tier.priority.CompareTo infDef.tier.priority
+        let byTierPriority = this.tier.priority.CompareTo infDef.tier.priority
 
         if byTierPriority <> 0 then
           byTierPriority
@@ -101,20 +100,13 @@ module InfusionDef =
   let activeForUse (infDef: InfusionDef) =
     not infDef.disabled && isNull infDef.migration
 
-  let gracefullyDies (infDef: InfusionDef) =
-    infDef.Migration
-    |> Option.map (fun m -> m.remove)
-    |> Option.defaultValue false
-
-  let matchesAll target quality (infDef: InfusionDef) =
-    (infDef.ChanceFor quality) > 0.0f
-    && infDef.matches.TrueForAll(fun matcher -> matcher.Match target infDef)
 
   let makeRequirementString (infDef: InfusionDef) =
     infDef.matches
     |> Seq.map (fun matcher -> matcher.RequirementString)
     |> Seq.choose id
     |> String.concat ", "
+
 
   let makeDescriptionString (infDef: InfusionDef) =
     let labelSB = string infDef.LabelCap |> StringBuilder
@@ -152,3 +144,14 @@ module InfusionDef =
       .Append(statsDescriptions)
       .Append(extraDescriptions.Colorize(Color(0.11f, 1.0f, 0.0f)))
     |> string
+
+
+  let matchesAll target quality (infDef: InfusionDef) =
+    (infDef.ChanceFor quality) > 0.0f
+    && infDef.matches.TrueForAll(fun matcher -> matcher.Match target infDef)
+
+
+  let shouldRemoveItself (infDef: InfusionDef) =
+    infDef.Migration
+    |> Option.map (fun m -> m.remove)
+    |> Option.defaultValue false

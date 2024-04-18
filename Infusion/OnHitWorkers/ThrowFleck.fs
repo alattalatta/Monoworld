@@ -3,6 +3,8 @@ namespace Infusion.OnHitWorkers
 open RimWorld
 open Verse
 
+open Infusion
+
 
 type ThrowFleck =
   inherit OnHitWorker
@@ -13,22 +15,6 @@ type ThrowFleck =
     { inherit OnHitWorker()
 
       def = null }
-
-  override this.MeleeHit record =
-    let map =
-      (if this.selfCast then
-         record.source.MapHeld
-       else
-         record.target.Map)
-      |> Option.ofObj
-
-    let position =
-      if this.selfCast then
-        record.verb.Caster.Position
-      else
-        record.target.Position
-
-    this.ThrowFleck map position
 
   override this.BulletHit record =
     let map =
@@ -43,6 +29,22 @@ type ThrowFleck =
         record.projectile.Launcher.Position
       else
         record.projectile.Position
+
+    this.ThrowFleck map position
+
+  override this.MeleeHit record =
+    let map =
+      (if this.selfCast then
+         record.source.MapHeld
+       else
+         record.target.Map)
+      |> Option.ofObj
+
+    let position =
+      if this.selfCast then
+        record.verb.Caster.Position
+      else
+        record.target.Position
 
     this.ThrowFleck map position
 

@@ -1,4 +1,4 @@
-namespace Infusion.OnHitWorkers
+namespace Infusion
 
 open RimWorld
 open Verse
@@ -34,17 +34,22 @@ type OnHitWorker =
       chance = 1.0f
       selfCast = false }
 
+  abstract BulletHit: RangedHitRecord -> unit
+
   abstract MeleeHit: MeleeHitRecord -> unit
 
-  abstract BulletHit: RangedHitRecord -> unit
+  abstract WearerDowned: Pawn -> Apparel -> bool
+
+  default this.BulletHit _ = ()
 
   default this.MeleeHit _ = ()
 
-  default this.BulletHit _ = ()
+  default this.WearerDowned _ _ = true
 
 
 module OnHitWorker =
   let checkChance (worker: OnHitWorker) = Rand.Chance worker.chance
+
 
   /// Gets the melee effect target's current Map.
   let mapMelee selfCast record =
@@ -52,32 +57,37 @@ module OnHitWorker =
       record.source.MapHeld
     else
       record.target.MapHeld
-      
+
+
   /// Gets the ranged effect target's current Map.
   let mapRanged selfCast record =
     if selfCast then
       record.projectile.Launcher.MapHeld
     else
       record.map
-      
+
+
   /// Gets the melee effect target's current position.
   let posMelee selfCast record =
     if selfCast then
       record.source.PositionHeld
     else
       record.target.PositionHeld
-      
+
+
   /// Gets the ranged effect target's current position.
   let posRanged selfCast record =
     if selfCast then
       record.projectile.Launcher.PositionHeld
     else
       record.projectile.Position
-      
+
+
   /// Gets the melee effect target's current (Map, position).
   let mapPosMelee selfCast record =
     (mapMelee selfCast record, posMelee selfCast record)
-    
+
+
   /// Gets the ranged effect target's current (Map, position).
   let mapPosRanged selfCast record =
     (mapRanged selfCast record, posRanged selfCast record)

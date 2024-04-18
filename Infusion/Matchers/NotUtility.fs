@@ -6,6 +6,9 @@ open Infusion
 type NotUtility() =
   inherit Matcher<InfusionDef>()
 
+  override this.BuildRequirementString() =
+    Some ResourceBank.Strings.Matchers.notUtility
+
   override this.Match thing _ =
     if not thing.def.IsApparel then
       false
@@ -17,6 +20,3 @@ type NotUtility() =
         thing.def.apparel.bodyPartGroups.Count = 1
         && (thing.def.apparel.bodyPartGroups.Item 0).defName = "Waist"
       )
-
-  override this.BuildRequirementString() =
-    Some ResourceBank.Strings.Matchers.notUtility

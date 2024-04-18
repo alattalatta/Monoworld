@@ -470,7 +470,7 @@ type CompInfusion() =
       do
         this.Infusions <-
           infs
-          |> Seq.filter (InfusionDef.gracefullyDies >> not)
+          |> Seq.filter (InfusionDef.shouldRemoveItself >> not)
           |> Seq.map (fun inf ->
             inf.Migration
             |> Option.bind (fun m -> m.Replace)
@@ -486,7 +486,7 @@ type CompInfusion() =
       do
         removalSet <-
           infs
-          |> Set.filter (InfusionDef.gracefullyDies >> not))
+          |> Set.filter (InfusionDef.shouldRemoveItself >> not))
 
   override this.AllowStackWith(_) = false
 

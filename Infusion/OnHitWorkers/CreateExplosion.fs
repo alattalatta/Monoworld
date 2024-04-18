@@ -2,6 +2,8 @@ namespace Infusion.OnHitWorkers
 
 open Verse
 
+open Infusion
+
 
 // [todo] Associate with battle logs
 type CreateExplosion =

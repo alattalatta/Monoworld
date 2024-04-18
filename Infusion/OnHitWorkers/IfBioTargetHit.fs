@@ -14,12 +14,6 @@ type IfBioTargetHit =
 
   new() = { value = null }
 
-  override this.MeleeHit record =
-    do
-      tryCast<Pawn> record.target
-      |> Option.filter Pawn.isAliveAndWell
-      |> Option.iter (fun _ -> do this.value.MeleeHit record)
-
   override this.BulletHit record =
     do
       record.target
@@ -32,3 +26,9 @@ type IfBioTargetHit =
       seq { "no value" }
     else
       Seq.empty
+
+  override this.MeleeHit record =
+    do
+      tryCast<Pawn> record.target
+      |> Option.filter Pawn.isAliveAndWell
+      |> Option.iter (fun _ -> do this.value.MeleeHit record)

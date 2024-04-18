@@ -3,6 +3,7 @@ namespace Infusion.Matchers
 open Verse
 
 
+/// Filter for infusion applicability.
 [<AllowNullLiteral>]
 // For now, 'a = InfusionDef
 type Matcher<'a when 'a :> Def> =
@@ -18,10 +19,10 @@ type Matcher<'a when 'a :> Def> =
     else
       Some this.requirementString
 
-  abstract Match: ThingWithComps -> 'a -> bool
-
   abstract BuildRequirementString: unit -> string option
 
-  default this.Match _ _ = true
+  abstract Match: ThingWithComps -> 'a -> bool
 
   default this.BuildRequirementString() = None
+
+  default this.Match _ _ = true

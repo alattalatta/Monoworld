@@ -2,26 +2,28 @@ module Infusion.Harmonize.Pawn
 
 open HarmonyLib
 open Poet.Lyric
+open RimWorld
 open Verse
 
 open Infusion
 
 
-[<HarmonyPatch(typeof<Pawn_EquipmentTracker>, "GetGizmos")>]
-module GetGizmos =
-  let Postfix (returned: Gizmo seq, __instance: Pawn_EquipmentTracker) =
-    let pawn = __instance.pawn
+[<HarmonyPatch(typeof<Pawn>, "Notify_Downed")>]
+module Notify_Downed =
+  let Postfix (__instance: Pawn) =
+    Pawn.getApparels __instance
+    |> Option.iter (fun apparels ->
+      let apparelWorkerSets =
+        apparels
+        |> List.choose (fun apparel ->
+          Comp.ofThing<CompInfusion> apparel
+          |> Option.map (fun comp -> (apparel, comp.OnHits))
+          |> Option.filter (fun (_, onHits) -> onHits.Length > 0))
 
-    if pawn.IsColonist && isNull pawn.MentalStateDef then
-      Seq.tryHead __instance.AllEquipmentListForReading
-      |> Option.bind Thing.getComp<CompInfusion>
-      // only adds the effect gizmo to prevent unnecessary compat complications
-      |> Option.bind (fun comp -> comp.EffectGizmo)
-      |> Option.map (fun gizmo ->
-        seq {
-          yield! returned
-          yield gizmo :> Gizmo
-        })
-      |> Option.defaultValue returned
-    else
-      returned
+      do
+        Lib.runUntilFalseFrom
+          0
+          ((fun ((apparel, onHits): (Apparel * OnHitWorker list)) ->
+            Lib.runUntilFalseFrom 0 ((fun (onHit: OnHitWorker) -> onHit.WearerDowned __instance apparel), onHits)),
+           apparelWorkerSets)
+        |> ignore)

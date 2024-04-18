@@ -2,7 +2,7 @@
 <Patch>
   <!-- exotic orbitals may get two empty infuser -->
   <Operation Class="PatchOperationAdd">
-    <xpath>/Defs/TraderKindDef[defName="Orbital_Exotic" or defName="Base_Outlander_Standard"]/stockGenerators</xpath>
+    <xpath>/Defs/TraderKindDef[defName="Orbital_Exotic"]/stockGenerators</xpath>
     <value>
       <li Class="StockGenerator_SingleDef">
         <thingDef>Infusion_InfuserEmpty</thingDef>
@@ -13,7 +13,7 @@
 
   <!-- outlander bases may get an empty infuser -->
   <Operation Class="PatchOperationAdd">
-    <xpath>/Defs/TraderKindDef[defName="Orbital_Exotic" or defName="Base_Outlander_Standard"]/stockGenerators</xpath>
+    <xpath>/Defs/TraderKindDef[defName="Base_Outlander_Standard"]/stockGenerators</xpath>
     <value>
       <li Class="StockGenerator_SingleDef">
         <thingDef>Infusion_InfuserEmpty</thingDef>

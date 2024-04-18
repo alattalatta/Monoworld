@@ -455,7 +455,8 @@
       <li Class="Infusion.OnHitWorkers.ApplyHediff">
         <def>ToxicBuildup</def>
         <amount>0.1</amount>
-        <severityScaleBy>ToxicSensitivity</severityScaleBy>
+        <severityScaleBy>ToxicResistance</severityScaleBy>
+        <inverseStatScaling>true</inverseStatScaling>
       </li>
     </onHits>
     <extraDescriptions>
