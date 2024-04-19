@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <Preservation.label>보존</Preservation.label>
+  <Preservation.labelShort>보존</Preservation.labelShort>
+  <Preservation.extraDescriptions>
+    <li>착용자가 쓰러지면 일시 보존을 발동합니다.</li>
+    <li>· 일시 보존은 고통을 억제하고 출혈을 늦추며 이동 속도를 15초 동안 증가시킵니다.</li>
+    <li>· 일시 보존이 발동하면 장비는 파괴됩니다. 한 번에 하나의 장비만 일시 보존을 발동합니다.</li>
+  </Preservation.extraDescriptions>
+
+</LanguageData>

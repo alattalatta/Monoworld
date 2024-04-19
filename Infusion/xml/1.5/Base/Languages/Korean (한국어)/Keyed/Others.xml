@@ -12,6 +12,8 @@
   <Infusion.Matchers.Negate>[$0] 제외</Infusion.Matchers.Negate>
   <Infusion.Matchers.ShieldBelt>보호막 벨트</Infusion.Matchers.ShieldBelt>
 
+  <Infusion.Sacrificed>{0} 희생!</Infusion.Sacrificed>
+
   <Infusion.Infuser.Label>{0} 연마기</Infusion.Infuser.Label>
   <Infusion.Infuser.Description>장비를 강화할 수 있는 메카나이트를 담은 일회용 연마기입니다.</Infusion.Infuser.Description>
 
