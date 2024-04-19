@@ -58,8 +58,15 @@ type Infusion =
   // just for things
   // Harmonize.StatWorker handles pawn stats
   member private this.TransformThingStat(value, thing: Thing) =
-    this.GetAllModifiersFromThing thing
-    |> applyTo value
+    // do not apply MaxHitPoints bonus to infusers
+    if this.parentStat <> StatDefOf.MaxHitPoints
+       || Option.ofObj thing.def.thingCategories
+          |> Option.filter (fun c -> not (c.Contains(ThingCategoryDef.Named("Infusion_Infusers"))))
+          |> Option.isSome then
+      this.GetAllModifiersFromThing thing
+      |> applyTo value
+    else
+      value
 
   member private this.ExplainForThing(thing: Thing) =
     let sb = StringBuilder()
