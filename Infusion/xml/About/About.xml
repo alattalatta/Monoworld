@@ -28,9 +28,6 @@
       <downloadUrl>https://github.com/alattalatta/Monoworld/releases</downloadUrl>
     </li>
   </modDependencies>
-  <incompatibleWith>
-    <li>Mlie.QualityAndDurability</li>
-  </incompatibleWith>
   <loadAfter>
     <li>UnlimitedHugs.HugsLib</li>
     <li>latta.fsharp.core</li>
