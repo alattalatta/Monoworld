@@ -27,7 +27,7 @@ module Strings =
 
 
   module OnHitWorkers =
-    let sacrificed str = translate1 "Sacrificed" str
+    let sacrificed str = translate1 "Infusion.Sacrificed" str
 
 
   module Gizmo =

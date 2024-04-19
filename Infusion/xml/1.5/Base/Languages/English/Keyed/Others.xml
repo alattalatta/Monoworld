@@ -12,6 +12,8 @@
   <Infusion.Matchers.Negate>not [{$0}]</Infusion.Matchers.Negate>
   <Infusion.Matchers.ShieldBelt>shield belt</Infusion.Matchers.ShieldBelt>
 
+  <Infusion.Sacrificed>Sacrificed {0}!</Infusion.Sacrificed>
+
   <Infusion.Infuser.Label>{0} infuser</Infusion.Infuser.Label>
   <Infusion.Infuser.Description>A single-use canister containing mechanites programmed to enhance an equipment.</Infusion.Infuser.Description>
 
