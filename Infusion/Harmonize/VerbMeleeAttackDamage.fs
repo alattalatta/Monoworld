@@ -6,7 +6,6 @@ open RimWorld
 open Verse
 
 open Infusion
-open Infusion.OnHitWorkers
 
 
 [<HarmonyPatch(typeof<Verb_MeleeAttackDamage>, "ApplyMeleeDamageToTarget")>]

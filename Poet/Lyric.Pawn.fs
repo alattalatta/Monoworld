@@ -13,3 +13,6 @@ let getApparels (pawn: Pawn) : option<list<Apparel>> =
 let getEquipments (pawn: Pawn) : option<list<ThingWithComps>> =
   Option.ofObj pawn.equipment
   |> Option.map (fun tracker -> List.ofSeq tracker.AllEquipmentListForReading)
+
+let getPrimaryEquipment (pawn: Pawn): ThingWithComps option =
+   Option.ofObj pawn.equipment.Primary

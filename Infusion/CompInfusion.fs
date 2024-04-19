@@ -39,7 +39,7 @@ type CompInfusion() =
 
   let mutable bestInfusionCache = None
   let mutable onHitsCache = None
-  let infusionsStatModCache = Dictionary<StatDef, option<StatMod>>()
+  let infusionsStatModCache = Dictionary<StatDef, StatMod option>()
 
   static member WantingCandidates
     with get () = wantingCandidates
@@ -52,6 +52,11 @@ type CompInfusion() =
   static member RemovalCandidates
     with get () = removalCandidates
     and set value = do removalCandidates <- value
+
+  static member ClearCaches() =
+    wantingCandidates <- Set.empty
+    extractionCandidates <- Set.empty
+    removalCandidates <- Set.empty
 
   static member RegisterWantingCandidate comp =
     do CompInfusion.WantingCandidates <- Set.add comp CompInfusion.WantingCandidates
@@ -84,30 +89,7 @@ type CompInfusion() =
         quality <- value
         slotCount <- this.CalculateSlotCountFor value
 
-  member this.Infusions
-    with get () = infusions |> Seq.sortDescending
-    and set (value: seq<InfusionDef>) =
-      let originalHitPoints = float32 this.parent.HitPoints
-
-      let hitPointsRatio =
-        originalHitPoints
-        / float32 this.parent.MaxHitPoints
-
-      do
-        infusions <- value |> Set.ofSeq
-        wantingSet <- Set.difference wantingSet infusions
-        extractionSet <- Set.intersect extractionSet infusions
-        removalSet <- Set.intersect removalSet infusions
-
-        this.InvalidateCache()
-        this.FinalizeSetMutations()
-
-        this.parent.HitPoints <-
-          (float32 this.parent.MaxHitPoints * hitPointsRatio)
-          |> round
-          |> int
-          |> max (originalHitPoints |> round |> int)
-          |> min this.parent.MaxHitPoints
+  member this.Infusions = infusions |> Seq.sortDescending
 
   member this.InfusionsRaw = infusions
 
@@ -224,8 +206,7 @@ type CompInfusion() =
     if not (infusionsStatModCache.ContainsKey stat) then
       let elligibles =
         infusions
-        |> Seq.filter (fun inf -> inf.stats.ContainsKey stat)
-        |> Seq.map (fun inf -> inf.stats.TryGetValue stat)
+        |> Seq.choose (fun inf -> Dict.get stat inf.stats)
 
       let statMod =
         if Seq.isEmpty elligibles then
@@ -339,6 +320,33 @@ type CompInfusion() =
       else
         label
     | None -> ""
+
+  member this.SetInfusions(value: InfusionDef seq, respawningAfterLoad: bool) =
+    do
+      infusions <- value |> Set.ofSeq
+      wantingSet <- Set.difference wantingSet infusions
+      extractionSet <- Set.intersect extractionSet infusions
+      removalSet <- Set.intersect removalSet infusions
+
+      this.InvalidateCache()
+      this.FinalizeSetMutations()
+
+    // only increase HP along with max HP when already in game
+    // the save contains both HP and max HP already
+    if not respawningAfterLoad then
+      let originalHitPoints = float32 this.parent.HitPoints
+
+      let hitPointsRatio =
+        originalHitPoints
+        / float32 this.parent.MaxHitPoints
+
+      do
+        this.parent.HitPoints <-
+          (float32 this.parent.MaxHitPoints * hitPointsRatio)
+          |> round
+          |> int
+          |> max (originalHitPoints |> round |> int)
+          |> min this.parent.MaxHitPoints
 
   // overrides parent label completely - expect conflicts
   // [todo] transpiler for GenLabel.ThingLabel
@@ -467,14 +475,15 @@ type CompInfusion() =
 
     Scribe.defCollection "infusions" infusions
     |> Option.iter (fun infs ->
-      do
-        this.Infusions <-
-          infs
-          |> Seq.filter (InfusionDef.shouldRemoveItself >> not)
-          |> Seq.map (fun inf ->
-            inf.Migration
-            |> Option.bind (fun m -> m.Replace)
-            |> Option.defaultValue inf))
+      let loadedInfusions =
+        infs
+        |> Seq.filter (InfusionDef.shouldRemoveItself >> not)
+        |> Seq.map (fun inf ->
+          inf.Migration
+          |> Option.bind (fun m -> m.Replace)
+          |> Option.defaultValue inf)
+
+      this.SetInfusions(loadedInfusions, true))
 
     Scribe.defCollection "wanting" wantingSet
     |> Option.map Set.ofSeq
@@ -493,7 +502,7 @@ type CompInfusion() =
   override this.PostSplitOff(other) =
     do
       Comp.ofThing<CompInfusion> other
-      |> Option.iter (fun comp -> do comp.Infusions <- this.Infusions)
+      |> Option.iter (fun comp -> do comp.SetInfusions(this.Infusions, false))
 
   override this.GetHashCode() = this.parent.thingIDNumber
 
@@ -514,13 +523,15 @@ type CompInfusion() =
 module CompInfusion =
   let addInfusion infDef (comp: CompInfusion) =
     do
-      comp.Infusions <-
+      comp.SetInfusions(
         seq {
           yield infDef
           yield! comp.Infusions
-        }
+        },
+        false
+      )
 
-  let setInfusions infDefs (comp: CompInfusion) = do comp.Infusions <- infDefs
+  let setInfusions infDefs (comp: CompInfusion) = do comp.SetInfusions(infDefs, false)
 
   /// Picks elligible `InfusionDef` for the `Thing`.
   let pickInfusions quality (comp: CompInfusion) =
@@ -556,10 +567,8 @@ module CompInfusion =
     (pickInfusions comp.Quality comp |> setInfusions) comp
 
   let removeMarkedInfusions (comp: CompInfusion) =
-    do comp.Infusions <- Set.difference comp.InfusionsRaw comp.RemovalSet
+    do comp.SetInfusions(Set.difference comp.InfusionsRaw comp.RemovalSet, false)
     do comp.RemovalSet <- Set.empty // maybe not needed
 
-  let removeAllInfusions (comp: CompInfusion) = do comp.Infusions <- Set.empty
-
   let removeInfusion def (comp: CompInfusion) =
-    do comp.Infusions <- Set.remove def comp.InfusionsRaw
+    do comp.SetInfusions(Set.remove def comp.InfusionsRaw, false)

@@ -29,11 +29,6 @@ module StatWorker =
     List.concat [ fromApparels
                   fromEquipments ]
 
-  let tryCastToPawn (thing: Thing) =
-    match thing with
-    | :? Pawn as p -> Some p
-    | _ -> None
-
 
 [<HarmonyPatch(typeof<StatWorker>, "RelevantGear")>]
 module RelevantGear =

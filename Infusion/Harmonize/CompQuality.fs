@@ -16,7 +16,7 @@ module SetQuality =
       Comp.ofThing<CompInfusion> __instance.parent
       |> Option.iter (fun compInfusion ->
         do compInfusion.Quality <- __instance.Quality
-        do compInfusion.Infusions <- CompInfusion.pickInfusions __instance.Quality compInfusion
+        do compInfusion.SetInfusions(CompInfusion.pickInfusions __instance.Quality compInfusion, false)
         // All hit points of a pawn's apparels are determined *after* SetQuality() call,
         // see: PawnGenerator.PostProcessGeneratedGear()
         // We can blindly reset any Thing's HitPoints to its MaxHitPoints.

@@ -28,6 +28,9 @@ type ModBase() =
 
   override this.ModIdentifier = "latta.infusion"
 
+  override this.SceneLoaded _ =
+    CompInfusion.ClearCaches()
+
   override this.DefsLoaded() =
     do Settings.initialize ()
     do this.Inject()

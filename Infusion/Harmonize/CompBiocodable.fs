@@ -15,7 +15,7 @@ module CodeFor =
   let Prefix (__instance: CompBiocodable, p: Pawn) =
     if (not (__instance :? CompBladelinkWeapon)) then
       do
-        Thing.getComp<CompInfusion> __instance.parent
+        Comp.ofThing<CompInfusion> __instance.parent
         |> Option.filter (fun _ -> Settings.BiocodeBonus.handle.Value)
         |> Option.iter (fun comp ->
           let qualityInt = byte (comp.Quality) + 2uy
@@ -29,7 +29,7 @@ module CodeFor =
 
           do comp.Biocoder <- Some __instance
           do comp.SlotCount <- comp.CalculateSlotCountFor quality
-          do comp.Infusions <- (CompInfusion.pickInfusions quality comp))
+          do comp.SetInfusions(CompInfusion.pickInfusions quality comp, false))
 
   let Postfix (__instance: CompQuality) =
     // See Harmonize.CompQuality.SetQuality:Postfix

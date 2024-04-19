@@ -7,7 +7,6 @@ open RimWorld
 open Verse
 
 open Infusion
-open Infusion.OnHitWorkers
 
 
 [<HarmonyPatch(typeof<Bullet>, "Impact")>]
@@ -18,16 +17,14 @@ module Impact =
   let Postfix (hitThing: Thing, __instance: Bullet, __state: Map) =
     let baseDamage = float32 __instance.DamageAmount
 
-    // find the initiator's primary weapon
     tryCast<Pawn> __instance.Launcher
-    |> Option.bind Pawn.getEquipments
-    |> Option.bind (Seq.tryFind (fun e -> e.def.equipmentType = EquipmentType.Primary))
-    // get its infusions
+    |> Option.bind Pawn.getPrimaryEquipment
+    // get the primary's infusions
     |> Option.bind Thing.getComp<CompInfusion>
-    |> Option.filter (fun c -> c.EffectsEnabled)
-    |> Option.iter (fun c ->
+    |> Option.filter (fun comp -> comp.EffectsEnabled)
+    |> Option.iter (fun comp ->
       // execute OnHitWorkers
-      c.OnHits
+      comp.OnHits
       |> List.filter (fun onHit -> Rand.Chance onHit.chance)
       |> List.iter (fun onHit ->
         do

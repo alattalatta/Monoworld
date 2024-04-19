@@ -67,6 +67,7 @@
     <Compile Include="Harmonize\Pawn_EquipmentTracker.fs" />
     <Compile Include="Harmonize\VerbMeleeAttackDamage.fs" />
     <Compile Include="Harmonize\VerbProperties.fs" />
+    <Compile Include="Harmonize\MemoryUtility.fs" />
     <Compile Include="DefsForReading.fs" />
     <Compile Include="DebugActions.fs" />
     <Compile Include="Mod.fs" />

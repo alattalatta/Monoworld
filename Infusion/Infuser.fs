@@ -44,7 +44,7 @@ type Infuser() =
   member this.SetContent inf =
     do
       Comp.ofThing<CompInfusion> this
-      |> Option.iter (fun comp -> do comp.Infusions <- seq { yield inf })
+      |> Option.iter (fun comp -> do comp.SetInfusions(seq { yield inf }, false))
 
     do resetHP this
 
@@ -64,14 +64,16 @@ type Infuser() =
         | _ -> None)
       |> Option.iter (fun (comp, props) ->
         do
-          comp.Infusions <-
+          comp.SetInfusions(
             seq {
               yield
                 DefDatabase<InfusionDef>.AllDefs
                 |> Seq.filter (fun inf -> inf.tier = props.forcedTier)
                 |> Seq.filter InfusionDef.activeForUse
                 |> GenCollection.RandomElement
-            })
+            },
+            false
+          ))
 
   override this.SpawnSetup(map, respawningAfterLoad) =
     ``base``.SpawnSetup(map, respawningAfterLoad)
@@ -91,7 +93,7 @@ type Infuser() =
       |> Option.bind (fun inf ->
         Comp.ofThing<CompInfusion> otherOne
         |> Option.map (fun comp -> (comp, inf)))
-      |> Option.iter (fun (comp, inf) -> do comp.Infusions <- seq { yield inf })
+      |> Option.iter (fun (comp, inf) -> do comp.SetInfusions(seq { yield inf }, false))
 
     otherOne
 

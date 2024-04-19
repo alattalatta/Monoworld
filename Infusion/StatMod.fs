@@ -7,6 +7,7 @@ open RimWorld
 open Verse
 
 
+[<AllowNullLiteral>]
 type StatMod =
   val mutable offset: float32
   val mutable multiplier: float32

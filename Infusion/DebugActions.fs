@@ -107,7 +107,7 @@ let removeInfusion () =
 let removeAllInfusions () =
   pointedThings ()
   |> firstCompAtPointer
-  |> Option.iter CompInfusion.removeAllInfusions
+  |> Option.iter (CompInfusion.setInfusions Seq.empty)
 
 
 [<DebugAction("Infusion", "Reroll infusions", actionType = DebugActionType.ToolMap)>]
