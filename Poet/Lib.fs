@@ -42,6 +42,17 @@ let tryCast<'a> (o: obj) =
   | :? 'a as o' -> Some o'
   | _ -> None
 
+
+module Dict =
+  let get (key: 'a) (d: IDictionary<'a, 'b>) : 'b option =
+    let mutable value: 'b = null
+
+    if d.TryGetValue(key, &value) then
+      Some value
+    else
+      None
+
+
 module Option =
   let ofResult a =
     match a with
