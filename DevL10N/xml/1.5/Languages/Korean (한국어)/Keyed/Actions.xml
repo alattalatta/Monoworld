@@ -206,7 +206,7 @@
   <DebugAction_CompareLineOfSight>Line of sight 비교</DebugAction_CompareLineOfSight>
   <DebugAction_WoundDebug>상처 디버그 그리기 활성화</DebugAction_WoundDebug>
   <DebugAction_WoundDebugExport>상처 디버그 내보내기 (비인간형)</DebugAction_WoundDebugExport>
-  <DebugAction_EmergeMetalhorrors>메탈호러 등장</DebugAction_EmergeMetalhorrors>
+  <DebugAction_EmergeMetalhorrors>기생철충 등장</DebugAction_EmergeMetalhorrors>
   <DebugAction_AddSlave>노예 추가</DebugAction_AddSlave>
   <DebugAction_AddPrisoner>수감자 추가</DebugAction_AddPrisoner>
   <DebugAction_AddGuest>방문객 추가</DebugAction_AddGuest>
@@ -301,7 +301,7 @@
   <DebugAction_SetAsGhoul>구울로 설정</DebugAction_SetAsGhoul>
   <DebugAction_MaxGhoulUpgrades>구울 업그레이드 최대로</DebugAction_MaxGhoulUpgrades>
   <DebugAction_RaiseAsShambler>휘청이는 자로 일으키기</DebugAction_RaiseAsShambler>
-  <DebugAction_RevertMutant>Revert mutant</DebugAction_RevertMutant>
+  <DebugAction_RevertMutant>변이 되돌리기</DebugAction_RevertMutant>
   <DebugAction_CreateBabyFromParents>부모에서 아이 생성 (인간만)</DebugAction_CreateBabyFromParents>
   <DebugAction_OpenInfectionPathwayDebugger>감염 전파 경로 디버거</DebugAction_OpenInfectionPathwayDebugger>
   <DebugAction_AddInfectionPathway>감염 전파 경로 생성...</DebugAction_AddInfectionPathway>
