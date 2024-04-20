@@ -122,6 +122,7 @@
   <DebugAction_LockRotation>Lock rotation</DebugAction_LockRotation>
   <DebugAction_UnlockRotation>Unlock rotation</DebugAction_UnlockRotation>
   <DebugAction_RevealHiddenDefs>Reveal hidden Defs</DebugAction_RevealHiddenDefs>
+  <DebugAction_EndRevenantHypnosis>End Revenant hypnosis</DebugAction_EndRevenantHypnosis>
   <DebugAction_LoadedFilesForMod>List loaded files for mod...</DebugAction_LoadedFilesForMod>
   <DebugAction_GenerateQuest>Generate quest...</DebugAction_GenerateQuest>
   <DebugAction_GenerateQuests>Generate multiple quests...</DebugAction_GenerateQuests>

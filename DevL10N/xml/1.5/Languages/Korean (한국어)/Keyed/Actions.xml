@@ -121,6 +121,7 @@
   <DebugAction_LockRotation>회전 잠금</DebugAction_LockRotation>
   <DebugAction_UnlockRotation>회전 잠금 해제</DebugAction_UnlockRotation>
   <DebugAction_RevealHiddenDefs>숨겨진 Def 보이기</DebugAction_RevealHiddenDefs>
+  <DebugAction_EndRevenantHypnosis>망령 최면 끝내기</DebugAction_EndRevenantHypnosis>
   <DebugAction_LoadedFilesForMod>모드에서 불러온 파일 나열...</DebugAction_LoadedFilesForMod>
   <DebugAction_GenerateQuest>임무 생성...</DebugAction_GenerateQuest>
   <DebugAction_GenerateQuests>임무 다수 생성...</DebugAction_GenerateQuests>
