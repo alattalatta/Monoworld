@@ -3,7 +3,7 @@
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
     <TargetFramework>net472</TargetFramework>
     <Name>DevL10N</Name>
-    <Version>1.9.1</Version>
+    <Version>1.10.0</Version>
     <ProjectGuid>{c91c4841-f16c-4c16-808d-dc1779e08f0e}</ProjectGuid>
   </PropertyGroup>
   <ItemGroup>
@@ -20,7 +20,6 @@
   <ItemGroup>
     <Compile Include="Mod.fs" />
     <Compile Include="Lib.fs" />
-    <Compile Include="TranslationOutput\Utils\IDict.fs" />
     <Compile Include="TranslationOutput\Utils\List.fs" />
     <Compile Include="TranslationOutput\Utils\Option.fs" />
     <Compile Include="TranslationOutput\Utils\Seq.fs" />
@@ -28,6 +27,7 @@
     <Compile Include="TranslationOutput\Utils\Translation.fs" />
     <Compile Include="TranslationOutput\Injectable.fs" />
     <Compile Include="TranslationOutput\DefInjectionsOutput.fs" />
+    <Compile Include="TranslationOutput\Copier.fs" />
     <Compile Include="TranslationOutput\DebugAction.fs" />
     <Compile Include="Harmonize\ActionOptionHelper.fs" />
     <Compile Include="Harmonize\DebugTabMenu_Actions.fs" />
@@ -37,7 +37,6 @@
     <Compile Include="Harmonize\DebugWindowsOpener.fs" />
     <Compile Include="Harmonize\Dialog_Debug.fs" />
     <Compile Include="Harmonize\DevGUI.fs" />
-    <Compile Include="Harmonize\TranslationFilesCleaner.fs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Poet\Poet.fsproj">
