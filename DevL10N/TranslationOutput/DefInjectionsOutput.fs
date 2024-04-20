@@ -5,6 +5,7 @@ open System.Collections.Generic
 open System.IO
 open System.Xml.Linq
 
+open Poet.Lib
 open Poet.Lyric.Console
 open Verse
 
@@ -43,7 +44,7 @@ let private createInjectionsForCollection
     injectable: Injectable,
     canTranslateList: bool
   ) : XNode list =
-  let injection = IDict.get injectable.NormalizedPath injections
+  let injection = Dict.get injectable.NormalizedPath injections
 
   let englishList =
     injection
@@ -53,7 +54,7 @@ let private createInjectionsForCollection
     |> Option.defaultWith (fun () ->
       let rec collectListItemsRec (prev: string seq, i: int) =
         let key = injectable.NormalizedPath + "." + i.ToString()
-        let injectionIndexed = IDict.get key injections
+        let injectionIndexed = Dict.get key injections
 
         injectionIndexed
         |> Option.filter (fun injection -> injection.injected)
@@ -98,7 +99,7 @@ let private createInjectionsForCollection
 
 
 let private createInjection (injections: DefInjectionDictByNormPath, injectable: Injectable) =
-  let injection = IDict.get injectable.NormalizedPath injections
+  let injection = Dict.get injectable.NormalizedPath injections
 
   injection
   |> Option.filter (fun x -> x.injected)
@@ -204,9 +205,9 @@ let private writeForDefType (defInjectionDirPath: string, modData: ModMetaData) 
   |> Async.Parallel
 
 
-let write basePath (modData: ModMetaData) =
+let write destPath (modData: ModMetaData) =
   let defInjectionDirInfo =
-    Path.Combine(basePath, "DefInjected")
+    Path.Combine(destPath, "DefInjected")
     |> DirectoryInfo
 
   if not defInjectionDirInfo.Exists then

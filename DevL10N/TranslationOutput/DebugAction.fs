@@ -43,14 +43,18 @@ let private writeForMod (modData: ModMetaData) =
 
   Directory.CreateDirectory(dest) |> ignore
 
+  let copy = Copier.copy dest modData
+
   async {
     try
       do! DefInjectionsOutput.write dest modData
+      do copy "Keyed"
+      do copy "Strings"
       do Utils.pushMessage (translate1 "DevL10N.TranslationOutput.SavedTo" dest)
     with
     | ex ->
       Log.Error(
-        "Could not cleanup defInjected translations: "
+        "Could not output translation sources: "
         + ex.Message
       )
   }
