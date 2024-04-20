@@ -22,14 +22,30 @@ type StartupConstructor() =
 
       do HugsLib.Utils.InjectedDefHasher.GiveShortHashToDef(def, typeof<ThingDef>))
 
+    // Resolve references for filters
+    // ThingCategory itself (for stockpiles)
+    Option.ofObj (ThingCategoryDef.Named("Infusion_Infusers"))
+    |> Option.iter ((fun def -> def.ResolveReferences()))
+
+    // Storable buildings require separate calls
+    DefsForReading.allBuildings
+    |> Seq.collect (fun def ->
+      Option.ofObj def.building
+      |> Option.map (fun building ->
+        let defFilter = Option.ofObj building.defaultStorageSettings
+        let fixedFilter = Option.ofObj building.fixedStorageSettings
+
+        Seq.choose id ([ defFilter; fixedFilter ]))
+      |> Option.defaultValue Seq.empty)
+    |> Seq.iter (fun storage -> storage.filter.ResolveReferences())
+
 
 type ModBase() =
   inherit HugsLib.ModBase()
 
   override this.ModIdentifier = "latta.infusion"
 
-  override this.SceneLoaded _ =
-    CompInfusion.ClearCaches()
+  override this.SceneLoaded _ = CompInfusion.ClearCaches()
 
   override this.DefsLoaded() =
     do Settings.initialize ()
