@@ -63,8 +63,8 @@
     <Compile Include="Harmonize\CompBiocodable.fs" />
     <Compile Include="Harmonize\CompQuality.fs" />
     <Compile Include="Harmonize\StatWorker.fs" />
-    <Compile Include="Harmonize\Pawn.fs" />
     <Compile Include="Harmonize\Pawn_EquipmentTracker.fs" />
+    <Compile Include="Harmonize\Pawn_HealthTracker.fs" />
     <Compile Include="Harmonize\VerbMeleeAttackDamage.fs" />
     <Compile Include="Harmonize\VerbProperties.fs" />
     <Compile Include="Harmonize\MemoryUtility.fs" />
