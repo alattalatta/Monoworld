@@ -29,7 +29,7 @@
     <priority>100</priority>
     <color>(0.11, 1.0, 0.0)</color>
     <infuserValue>500</infuserValue>
-    <extractionChance>0.7</extractionChance>
+    <extractionChance>0.8</extractionChance>
     <weights>
       <normal>-2</normal>
       <good>0.8</good>
@@ -52,7 +52,7 @@
     <priority>200</priority>
     <color>(1, 1, 0)</color>
     <infuserValue>1000</infuserValue>
-    <extractionChance>0.3</extractionChance>
+    <extractionChance>0.5</extractionChance>
     <weights>
       <normal>-4</normal>
       <good>-2</good>
@@ -75,7 +75,7 @@
     <priority>300</priority>
     <color>(1.0, 0.5, 0.0)</color>
     <infuserValue>2000</infuserValue>
-    <extractionChance>0.1</extractionChance>
+    <extractionChance>0.25</extractionChance>
     <weights>
       <normal>-6</normal>
       <good>-5</good>
