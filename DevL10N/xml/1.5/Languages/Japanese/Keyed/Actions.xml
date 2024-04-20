@@ -122,6 +122,7 @@
   <DebugAction_LockRotation>回転を固定</DebugAction_LockRotation>
   <DebugAction_UnlockRotation>回転を自由化</DebugAction_UnlockRotation>
   <DebugAction_RevealHiddenDefs>非表示Defsを明示</DebugAction_RevealHiddenDefs>
+  <DebugAction_EndRevenantHypnosis>レヴナントの催眠を終了</DebugAction_EndRevenantHypnosis>
   <DebugAction_LoadedFilesForMod>Mod用読込ファイルをリスト...</DebugAction_LoadedFilesForMod>
   <DebugAction_GenerateQuest>クエスト生成...</DebugAction_GenerateQuest>
   <DebugAction_GenerateQuests>複数クエスト生成...</DebugAction_GenerateQuests>
