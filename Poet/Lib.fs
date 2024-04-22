@@ -3,6 +3,13 @@ module Poet.Lib
 open System
 open System.Collections.Generic
 
+open Verse
+
+
+let err format = Printf.ksprintf Log.Error format
+let log format = Printf.ksprintf Log.Message format
+let warn format = Printf.ksprintf Log.Warning format
+
 let (<&>) f g = (fun x -> f x && g x)
 
 let feq (a: float32) (b: float32) = (abs (a - b)) < 0.01f
