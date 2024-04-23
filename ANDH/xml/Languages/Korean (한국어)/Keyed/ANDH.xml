@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <ANDH.BondedDetectionChance>각별 탐지 확률</ANDH.BondedDetectionChance>
+  <ANDH.BondedDetectionChance.Description>각별한 동물이 주인애게 애교를 부릴 때 주위에서 메탈호러를 알아차릴 확률을 조절합니다. 0.0 ~ 1.0.</ANDH.BondedDetectionChance.Description>
+
+  <ANDH.CanTriggerEmerging>동물 애교로 등장 가능</ANDH.CanTriggerEmerging>
+  <ANDH.CanTriggerEmerging.Description>동물의 애교가 메탈호러 출현을 발동할 수 있습니다.</ANDH.CanTriggerEmerging.Description>
+
+  <ANDH.DetectionChance>탐지 확률</ANDH.DetectionChance>
+  <ANDH.DetectionChance.Description>동물이 주인이 아닌 사람에게 애교를 부릴 때 주위에서 메탈호러를 알아차릴 확률을 조절합니다. 0.0 ~ 1.0.</ANDH.DetectionChance.Description>
+
+  <ANDH.DetectionRadius>탐지 범위</ANDH.DetectionRadius>
+  <ANDH.DetectionRadius.Description>다른 정착민이 이상 반응을 알아차릴 수 있는 최대 거리를 조절합니다. 3.0 ~ 100.0.</ANDH.DetectionRadius.Description>
+
+  <ANDH.EmergenceChance>등장 확률</ANDH.EmergenceChance>
+  <ANDH.EmergenceChance.Description>동물의 애교가 메탈호러 출현을 발동할 확률을 조절합니다("동물 애교로 등장 가능" 필요). 0.0 ~ 1.0.</ANDH.EmergenceChance.Description>
+
+  <ANDH.MetalhorrorReasonNuzzled>{PAWN_nameDef}(이)가 {INFECTED_nameDef}에게 애교를 부릴 때 보인 이상 반응을 {NOTICED_nameDef}(이)가 눈치챈 것이 원인입니다.</ANDH.MetalhorrorReasonNuzzled>
+
+  <ANDH.NuzzleDetectedDesc>{NOTICED_nameDef}(이)가 {PAWN_nameDef}(와)과 {INFECTED_nameDef}의 상호작용에서 이상한 점을 알아챘습니다. {INFECTED_nameDef}(이)가 {PAWN_nameDef}의 애교에 반응하는 모습이 부자연스럽고, 목소리도 이상합니다. {NOTICED_nameDef}(은)는 {INFECTED_nameDef}(이)가 메탈호러에 감염되었다고 의심합니다.</ANDH.NuzzleDetectedDesc>
+</LanguageData>

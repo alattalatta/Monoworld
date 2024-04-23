@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <TargetFramework>net472</TargetFramework>
+    <Name>ANDH</Name>
+    <Version>1.0.0</Version>
+    <ProjectGuid>{03697a20-9381-4bc4-ace6-da339c6f7e3a}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="netstandard" />
+    <Reference Include="..\libs\Assembly-CSharp-firstpass.dll" />
+    <Reference Include="..\libs\Assembly-CSharp.dll" />
+    <Reference Include="..\libs\UnityEngine.CoreModule.dll" />
+    <Reference Include="..\libs\UnityEngine.dll" />
+    <Reference Include="..\libs\UnityEngine.IMGUIModule.dll" />
+    <Reference Include="..\libs\UnityEngine.TextCoreModule.dll" />
+    <Reference Include="..\libs\UnityEngine.TextRenderingModule.dll" />
+    <Reference Include="..\libs\UnityEngine.UIModule.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ResourceBank.fs" />
+    <Compile Include="Settings.fs" />
+    <Compile Include="Harmonize\InteractionWorker_Nuzzle.fs" />
+    <Compile Include="Mod.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Poet\Poet.fsproj">
+      <Name>Poet</Name>
+      <Project>{ffd3d706-a9ba-455c-a640-1f4bde05ea5f}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="..\.paket\Paket.Restore.targets" />
+</Project>

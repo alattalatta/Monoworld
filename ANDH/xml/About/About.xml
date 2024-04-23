@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <packageId>latta.petknowstrueyou</packageId>
+  <name>ANDH - Animals Nuzzling Detects Horrors</name>
+  <author>latta</author>
+  <url>https://github.com/alattalatta/Monoworld</url>
+  <supportedVersions>
+    <li>1.5</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>ludeon.rimworld.anomaly</packageId>
+      <displayName>Anomaly</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+    <li>
+      <packageId>UnlimitedHugs.HugsLib</packageId>
+      <displayName>HugsLib</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/818773962</steamWorkshopUrl>
+      <downloadUrl>https://github.com/UnlimitedHugs/RimworldHugsLib/releases</downloadUrl>
+    </li>
+    <li>
+      <packageId>latta.fsharp.core</packageId>
+      <displayName>FSharp.Core</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2059725183</steamWorkshopUrl>
+      <downloadUrl>https://github.com/alattalatta/Monoworld/releases</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>UnlimitedHugs.HugsLib</li>
+    <li>latta.fsharp.core</li>
+  </loadAfter>
+  <description>Give your cats and yorkies a chance! An animal nuzzling can reveal a metalhorror infection with a moderate chance. Bonded animals nuzzling their owners have much higher chance. Fully customizable.
+
+There must be at least one colonist near the metalhorror-infected colonist.
+The colonist must be able to hear or see. They must not be infected with a metalhorror, downed, or in a mental state.</description>
+</ModMetaData>

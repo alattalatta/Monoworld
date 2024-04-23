@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <ANDH.BondedDetectionChance>Bonded detection chance</ANDH.BondedDetectionChance>
+  <ANDH.BondedDetectionChance.Description>Adjust metalhorror detection chance by bonded animals nuzzling their owners. 0.0 ~ 1.0.</ANDH.BondedDetectionChance.Description>
+
+  <ANDH.CanTriggerEmerging>Can emerge from nuzzling</ANDH.CanTriggerEmerging>
+  <ANDH.CanTriggerEmerging.Description>Nuzzling can sometimes make metalhorrors emerge.</ANDH.CanTriggerEmerging.Description>
+
+  <ANDH.DetectionChance>Detection chance</ANDH.DetectionChance>
+  <ANDH.DetectionChance.Description>Adjust metalhorror detection chance by random pets nuzzling random people. 0.0 ~ 1.0.</ANDH.DetectionChance.Description>
+
+  <ANDH.DetectionRadius>Detection radius</ANDH.DetectionRadius>
+  <ANDH.DetectionRadius.Description>Adjust how far the other colonists can detect metalhorrors from nuzzling. 3.0 ~ 100.0.</ANDH.DetectionRadius.Description>
+
+  <ANDH.EmergenceChance>Emergence chance</ANDH.EmergenceChance>
+  <ANDH.EmergenceChance.Description>Adjust metalhorror emerging chance by pets nuzzling (Requires "Can emerge from nuzzling"). 0.0 ~ 1.0.</ANDH.EmergenceChance.Description>
+
+  <ANDH.MetalhorrorReasonNuzzled>{INFECTED_nameDef}'s metalhorror emerged because it was discovered by {NOTICED_nameDef} from an interaction with {PAWN_nameDef}.</ANDH.MetalhorrorReasonNuzzled>
+
+  <ANDH.NuzzleDetectedDesc>{NOTICED_nameDef} has noticed that something is unusual between {PAWN_nameDef} and {INFECTED_nameDef}. {INFECTED_pronoun} exhibited some combination of unnatural behavior or strange vocal sounds when responding to {PAWN_nameDef}'s nuzzling. {NOTICED_nameDef} suspects that {INFECTED_nameDef} is infected with a metalhorror.</ANDH.NuzzleDetectedDesc>
+</LanguageData>
