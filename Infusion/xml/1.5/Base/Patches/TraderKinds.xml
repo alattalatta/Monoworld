@@ -1,45 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <!-- exotic orbitals may get two empty infuser -->
   <Operation Class="PatchOperationAdd">
     <xpath>/Defs/TraderKindDef[defName="Orbital_Exotic"]/stockGenerators</xpath>
     <value>
       <li Class="StockGenerator_SingleDef">
         <thingDef>Infusion_InfuserEmpty</thingDef>
-        <countRange>0~2</countRange>
+        <countRange>3~8</countRange>
       </li>
     </value>
   </Operation>
 
-  <!-- outlander bases may get an empty infuser -->
   <Operation Class="PatchOperationAdd">
     <xpath>/Defs/TraderKindDef[defName="Base_Outlander_Standard"]/stockGenerators</xpath>
     <value>
       <li Class="StockGenerator_SingleDef">
         <thingDef>Infusion_InfuserEmpty</thingDef>
-        <countRange>0~1</countRange>
+        <countRange>1~2</countRange>
       </li>
     </value>
   </Operation>
 
-  <!-- combat orbitals may get up to three filled infusers -->
   <Operation Class="PatchOperationAdd">
     <xpath>/Defs/TraderKindDef[defName="Orbital_CombatSupplier"]/stockGenerators</xpath>
     <value>
       <li Class="Infusion.StockGeneratorInfuser">
-        <countRange>0~3</countRange>
+        <countRange>1~2</countRange>
         <tierPriorityLimit>299</tierPriorityLimit>
       </li>
     </value>
   </Operation>
 
-  <!-- shaman may get a filled infusers -->
   <Operation Class="PatchOperationAdd">
     <xpath>/Defs/TraderKindDef[defName="Caravan_Neolithic_ShamanMerchant"]/stockGenerators</xpath>
     <value>
-      <li Class="Infusion.StockGeneratorInfuser">
-        <countRange>0~1</countRange>
-        <tierPriorityLimit>299</tierPriorityLimit>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Infusion_InfuserEmpty</thingDef>
+        <countRange>1~3</countRange>
       </li>
     </value>
   </Operation>
