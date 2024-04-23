@@ -59,7 +59,7 @@
 
   <Spiked.label>가시박힌</Spiked.label>
   <Spiked.labelShort>가시</Spiked.labelShort>
-  <Spiked.extraDescriptions.0>80%의 추가 찌르기 피해를 입힙니다.</Spiked.extraDescriptions.0>
+  <Spiked.extraDescriptions.0>60%의 추가 찌르기 피해를 입힙니다.  이 피해량은 폭발 등 특수효과에는 적용되지 않습니다.</Spiked.extraDescriptions.0>
 
   <Taunting.label>위협적인</Taunting.label>
   <Taunting.labelShort>위협</Taunting.labelShort>
@@ -69,7 +69,7 @@
 
   <Blunt.label>뭉툭한</Blunt.label>
   <Blunt.labelShort>뭉툭</Blunt.labelShort>
-  <Blunt.extraDescriptions.0>500%의 추가 둔탁 피해를 입힙니다.</Blunt.extraDescriptions.0>
+  <Blunt.extraDescriptions.0>500%의 추가 둔탁 피해를 입힙니다. 이 피해량은 폭발 등 특수효과에는 적용되지 않습니다.</Blunt.extraDescriptions.0>
 
   <FlawlessRanged.label>뛰어난</FlawlessRanged.label>
   <FlawlessRanged.labelShort>뛰어남</FlawlessRanged.labelShort>
@@ -87,7 +87,7 @@
 
   <Poisonous.label>독성</Poisonous.label>
   <Poisonous.labelShort>독성</Poisonous.labelShort>
-  <Poisonous.extraDescriptions.0>대상을 피해량의 8%만큼 증독시킵니다.</Poisonous.extraDescriptions.0>
+  <Poisonous.extraDescriptions.0>대상을 피해량의 10%만큼 증독시킵니다.</Poisonous.extraDescriptions.0>
 
   <!-- everything -->
 

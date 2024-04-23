@@ -555,7 +555,7 @@
       </li>
     </onHits>
     <extraDescriptions>
-      <li>· Deals 550% extra blunt damage.</li>
+      <li>· Deals 550% extra blunt damage. This damage does not apply to special effects, such as explosions.</li>
       <li>· 10% chance to stun the target for 400% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
