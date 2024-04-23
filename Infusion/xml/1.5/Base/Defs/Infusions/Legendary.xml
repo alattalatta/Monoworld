@@ -27,6 +27,7 @@
     </stats>
   </Infusion.InfusionDef>
 
+  <!-- #region apparels -->
   <!-- armors must cover a body part-->
   <Infusion.InfusionDef Abstract="True" Name="LegendaryArmorBase" ParentName="LegendaryDefaultBase">
     <matches>
@@ -192,8 +193,8 @@
       </li>
     </stats>
   </Infusion.InfusionDef>
+  <!-- #endregion -->
 
-  <!-- weapons -->
   <Infusion.InfusionDef Abstract="True" Name="LegendaryAnyWeaponsBase" ParentName="LegendaryDefaultBase">
     <stats>
       <li>
@@ -206,7 +207,7 @@
     </stats>
   </Infusion.InfusionDef>
 
-  <!-- melee -->
+  <!-- #region melee -->
   <Infusion.InfusionDef Abstract="True" Name="LegendaryMeleeBase" ParentName="LegendaryAnyWeaponsBase">
     <matches>
       <li Class="Infusion.Matchers.EquipmentType">
@@ -388,8 +389,9 @@
       <li>· This effect cannot heal scars.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
+  <!-- #endregion -->
 
-  <!-- ranged -->
+  <!-- #region ranged -->
   <Infusion.InfusionDef Abstract="True" Name="LegendaryRangedBase" ParentName="LegendaryAnyWeaponsBase">
     <matches>
       <li Class="Infusion.Matchers.EquipmentType">
@@ -572,8 +574,9 @@
       <li>· Each explosion deals 50% of the damage within a radius of 1.4 cells.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
+  <!-- #endregion -->
 
-  <!-- weapons -->
+  <!-- #region weapons -->
   <Infusion.InfusionDef Abstract="True" Name="LegendaryWeaponsBase" ParentName="LegendaryAnyWeaponsBase">
     <matches>
       <li Class="Infusion.Matchers.EquipmentType">
