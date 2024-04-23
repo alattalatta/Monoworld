@@ -531,8 +531,6 @@ module CompInfusion =
         false
       )
 
-  let setInfusions infDefs (comp: CompInfusion) = do comp.SetInfusions(infDefs, false)
-
   /// Picks elligible `InfusionDef` for the `Thing`.
   let pickInfusions quality (comp: CompInfusion) =
     // chance
@@ -563,6 +561,8 @@ module CompInfusion =
     |> List.filter (fst >> checkChance)
     |> List.map fst
 
+  let setInfusions infDefs (comp: CompInfusion) = do comp.SetInfusions(infDefs, false)
+
   let rerollInfusions (comp: CompInfusion) =
     (pickInfusions comp.Quality comp |> setInfusions) comp
 
@@ -572,3 +572,9 @@ module CompInfusion =
 
   let removeInfusion def (comp: CompInfusion) =
     do comp.SetInfusions(Set.remove def comp.InfusionsRaw, false)
+
+  let forOnHitWorkers (thing: ThingWithComps) =
+    Comp.ofThing<CompInfusion> thing
+    |> Option.filter (fun comp -> comp.EffectsEnabled)
+    |> Option.map (fun comp ->
+      (comp.OnHits |> List.filter OnHitWorker.checkChance, comp))

@@ -46,5 +46,5 @@ type CreateExplosion =
         instigator = record.projectile.Launcher,
         intendedTarget = record.projectile.intendedTarget.Thing,
         projectile = record.projectile.def,
-        weapon = record.sourceDef
+        weapon = record.source.def
       )

@@ -19,18 +19,14 @@ module Impact =
 
     tryCast<Pawn> __instance.Launcher
     |> Option.bind Pawn.getPrimaryEquipment
-    // get the primary's infusions
-    |> Option.bind Thing.getComp<CompInfusion>
-    |> Option.filter (fun comp -> comp.EffectsEnabled)
-    |> Option.iter (fun comp ->
+    |> Option.bind CompInfusion.forOnHitWorkers
+    |> Option.iter (fun (workers, comp) ->
       // execute OnHitWorkers
-      comp.OnHits
-      |> List.filter (fun onHit -> Rand.Chance onHit.chance)
+      workers
       |> List.iter (fun onHit ->
-        do
-          onHit.BulletHit
-            { baseDamage = baseDamage
-              map = __state
-              projectile = __instance
-              target = Option.ofObj hitThing
-              sourceDef = __instance.EquipmentDef }))
+        onHit.BulletHit
+          { baseDamage = baseDamage
+            map = __state
+            projectile = __instance
+            source = comp.parent
+            target = Option.ofObj hitThing }))

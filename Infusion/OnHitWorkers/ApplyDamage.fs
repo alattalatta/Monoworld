@@ -58,5 +58,5 @@ type ApplyDamage() =
       angle = record.projectile.ExactRotation.eulerAngles.y,
       instigator = record.projectile.Launcher,
       intendedTarget = record.projectile.intendedTarget.Thing,
-      weapon = record.sourceDef
+      weapon = record.source.def
     )

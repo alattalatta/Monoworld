@@ -612,4 +612,16 @@
       </li>
     </stats>
   </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryWeaponsBase">
+    <defName>Reset</defName>
+    <label>reset</label>
+    <labelShort>reset</labelShort>
+    <position>Suffix</position>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.ResetCooldown" />
+    </onHits>
+  </Infusion.InfusionDef>
+  <!-- #endregion -->
+
 </Defs>

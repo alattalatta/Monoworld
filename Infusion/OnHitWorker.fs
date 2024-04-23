@@ -4,6 +4,12 @@ open RimWorld
 open Verse
 
 
+type AttackRecord =
+  { source: ThingWithComps
+    target: Thing
+    verb: Verb }
+
+
 type MeleeHitRecord =
   { baseDamage: float32
     source: ThingWithComps
@@ -15,8 +21,8 @@ type RangedHitRecord =
   { baseDamage: float32
     map: Map
     projectile: Bullet
-    target: Thing option
-    sourceDef: ThingDef }
+    source: ThingWithComps
+    target: Thing option }
 
 
 [<AllowNullLiteral>]
@@ -34,11 +40,19 @@ type OnHitWorker =
       chance = 1.0f
       selfCast = false }
 
+  abstract Chance: float32
+
+  abstract AfterAttack: AttackRecord -> unit
+
   abstract BulletHit: RangedHitRecord -> unit
 
   abstract MeleeHit: MeleeHitRecord -> unit
 
   abstract WearerDowned: Pawn -> Apparel -> bool
+
+  default this.Chance = this.chance
+
+  default this.AfterAttack _ = ()
 
   default this.BulletHit _ = ()
 
@@ -48,11 +62,11 @@ type OnHitWorker =
 
 
 module OnHitWorker =
-  let checkChance (worker: OnHitWorker) = Rand.Chance worker.chance
+  let checkChance (worker: OnHitWorker) = Rand.Chance worker.Chance
 
 
   /// Gets the melee effect target's current Map.
-  let mapMelee selfCast record =
+  let mapMelee selfCast (record: MeleeHitRecord) =
     if selfCast then
       record.source.MapHeld
     else
@@ -60,7 +74,7 @@ module OnHitWorker =
 
 
   /// Gets the ranged effect target's current Map.
-  let mapRanged selfCast record =
+  let mapRanged selfCast (record: RangedHitRecord) =
     if selfCast then
       record.projectile.Launcher.MapHeld
     else
@@ -68,7 +82,7 @@ module OnHitWorker =
 
 
   /// Gets the melee effect target's current position.
-  let posMelee selfCast record =
+  let posMelee selfCast (record: MeleeHitRecord) =
     if selfCast then
       record.source.PositionHeld
     else
@@ -76,7 +90,7 @@ module OnHitWorker =
 
 
   /// Gets the ranged effect target's current position.
-  let posRanged selfCast record =
+  let posRanged selfCast (record: RangedHitRecord) =
     if selfCast then
       record.projectile.Launcher.PositionHeld
     else

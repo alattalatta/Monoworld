@@ -34,6 +34,7 @@
     <Compile Include="Matchers\ProjectileBullet.fs" />
     <Compile Include="Matchers\ShieldBelt.fs" />
     <Compile Include="Matchers\WeaponClasses.fs" />
+    <Compile Include="Matchers\HasVerb_LaunchProjectile.fs" />
     <Compile Include="OnHitWorkers\ApplyHediff.fs" />
     <Compile Include="OnHitWorkers\DamageBase.fs" />
     <Compile Include="OnHitWorkers\CreateExplosion.fs" />
@@ -47,6 +48,7 @@
     <Compile Include="OnHitWorkers\ThrowFleck.fs" />
     <Compile Include="OnHitWorkers\ApplyDamage.fs" />
     <Compile Include="OnHitWorkers\Preservation.fs" />
+    <Compile Include="OnHitWorkers\ResetCooldown.fs" />
     <Compile Include="Settings.fs" />
     <Compile Include="CompInfusion.fs" />
     <Compile Include="Infuser.fs" />
@@ -62,12 +64,13 @@
     <Compile Include="Harmonize\Bullet.fs" />
     <Compile Include="Harmonize\CompBiocodable.fs" />
     <Compile Include="Harmonize\CompQuality.fs" />
-    <Compile Include="Harmonize\StatWorker.fs" />
+    <Compile Include="Harmonize\MemoryUtility.fs" />
     <Compile Include="Harmonize\Pawn_EquipmentTracker.fs" />
     <Compile Include="Harmonize\Pawn_HealthTracker.fs" />
+    <Compile Include="Harmonize\StatWorker.fs" />
+    <Compile Include="Harmonize\Verb.fs" />
     <Compile Include="Harmonize\VerbMeleeAttackDamage.fs" />
     <Compile Include="Harmonize\VerbProperties.fs" />
-    <Compile Include="Harmonize\MemoryUtility.fs" />
     <Compile Include="DefsForReading.fs" />
     <Compile Include="DebugActions.fs" />
     <Compile Include="Mod.fs" />
