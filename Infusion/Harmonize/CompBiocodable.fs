@@ -13,24 +13,23 @@ open VerseTools
 // separate flow for infusing biocodeds
 module CodeFor =
   let Prefix (__instance: CompBiocodable, p: Pawn) =
-    if (not (__instance :? CompBladelinkWeapon)) then
-      do
-        Comp.ofThing<CompInfusion> __instance.parent
-        |> Option.filter (fun _ -> Settings.BiocodeBonus.handle.Value)
-        |> Option.iter (fun comp ->
-          let qualityInt = byte (comp.Quality) + 2uy
+    // Exclude bladelink: It may cause infusions to change when a colonist equips a fresh one
+    if (not (__instance :? CompBladelinkWeapon)) && Settings.BiocodeBonus.handle.Value then
+      Comp.ofThing<CompInfusion> __instance.parent
+      |> Option.iter (fun comp ->
+        let qualityInt = byte (comp.Quality) + 2uy
 
-          // clamp!
-          let quality =
-            if qualityInt > byte (QualityCategory.Legendary) then
-              QualityCategory.Legendary
-            else
-              LanguagePrimitives.EnumOfValue qualityInt
+        // clamp!
+        let quality =
+          if qualityInt > byte (QualityCategory.Legendary) then
+            QualityCategory.Legendary
+          else
+            LanguagePrimitives.EnumOfValue qualityInt
 
-          do comp.Biocoder <- Some __instance
-          do comp.SlotCount <- comp.CalculateSlotCountFor quality
-          do comp.SetInfusions(CompInfusion.pickInfusions quality comp, false))
+        comp.Biocoder <- Some __instance
+        comp.SlotCount <- comp.CalculateSlotCountFor quality
+        comp.SetInfusions(CompInfusion.pickInfusions quality comp, false))
 
   let Postfix (__instance: CompQuality) =
     // See Harmonize.CompQuality.SetQuality:Postfix
-    do Comp.getParent __instance |> resetHP
+    Comp.getParent __instance |> resetHP
