@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+  <Infusion.InfusionDef ParentName="LegendaryApparelBase">
+    <defName>Amplifying</defName>
+    <label>amplifying</label>
+    <labelShort>ampl</labelShort>
+    <stats>
+      <li>
+        <key>MeditationFocusGain</key>
+        <value>
+          <multiplier>0.2</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>PsychicEntropyMax</key>
+        <value>
+          <multiplier>0.1</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>PsychicEntropyRecoveryRate</key>
+        <value>
+          <offset>0.1</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryRangedBase">
+    <defName>Invisibility</defName>
+    <label>invisibility</label>
+    <labelShort>invis</labelShort>
+    <position>Suffix</position>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.Sequence">
+        <chance>0.2</chance>
+        <onMeleeImpact>false</onMeleeImpact>
+        <onRangedImpact>false</onRangedImpact>
+        <value>
+          <li Class="Infusion.OnHitWorkers.ApplyHediff">
+            <def>PsychicInvisibility</def>
+            <amount>0.1</amount>
+            <selfCast>true</selfCast>
+          </li>
+          <li Class="Infusion.OnHitWorkers.PlaySound">
+            <def>PsycastPsychicEffect</def>
+            <selfCast>true</selfCast>
+          </li>
+        </value>
+      </li>
+    </onHits>
+    <extraDescriptions>
+      <li>Attack: 20% chance for psychic invisibility. Higher damage and burst count inflicts longer effects.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryWeaponsBase">
+    <defName>Chaotic</defName>
+    <label>chaotic</label>
+    <labelShort>chaos</labelShort>
+    <matches>
+      <li Class="Infusion.Matchers.ProjectileBullet" />
+    </matches>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.Sequence">
+        <onMeleeCast>false</onMeleeCast>
+        <onRangedCast>false</onRangedCast>
+        <value>
+          <li Class="Infusion.OnHitWorkers.ApplyHediff">
+            <def>PsychicBurden</def>
+            <amount>0.75</amount>
+            <chance>0.15</chance>
+            <severityScaleBy>PsychicSensitivity</severityScaleBy>
+          </li>
+          <li Class="Infusion.OnHitWorkers.ApplyHediff">
+            <def>PsychicBlindness</def>
+            <amount>0.75</amount>
+            <chance>0.05</chance>
+            <severityScaleBy>PsychicSensitivity</severityScaleBy>
+          </li>
+          <li Class="Infusion.OnHitWorkers.ApplyHediff">
+            <def>PsychicVertigo</def>
+            <amount>0.5</amount>
+            <chance>0.05</chance>
+            <severityScaleBy>PsychicSensitivity</severityScaleBy>
+          </li>
+        </value>
+      </li>
+    </onHits>
+    <extraDescriptions>
+      <li>Hit: Applies random psychic effects to the target. Higher damage inflicts longer effects.</li>
+      <li>· 15% chance for slowed movement.</li>
+      <li>· 5% chance for blindness.</li>
+      <li>· 5% chance for vertigo.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryRangedBase">
+    <defName>Stimulating</defName>
+    <label>stimulating</label>
+    <labelShort>stim</labelShort>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.Sequence">
+        <chance>0.25</chance>
+        <onMeleeImpact>false</onMeleeImpact>
+        <onRangedImpact>false</onRangedImpact>
+        <value>
+          <li Class="Infusion.OnHitWorkers.ApplyHediff">
+            <def>PsychicFocus</def>
+            <amount>0.2</amount>
+            <selfCast>true</selfCast>
+            <severityScaleBy>PsychicSensitivity</severityScaleBy>
+          </li>
+          <li Class="Infusion.OnHitWorkers.PlaySound">
+            <def>PsycastPsychicEffect</def>
+            <selfCast>true</selfCast>
+          </li>
+        </value>
+      </li>
+    </onHits>
+    <extraDescriptions>
+      <li>Attack: 25% chance for psychic focus. Higher damage and burst count inflicts longer effects.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+</Defs>

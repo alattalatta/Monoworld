@@ -43,6 +43,54 @@
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="UncommonApparelBase">
+    <defName>Cyclic</defName>
+    <label>cyclic</label>
+    <labelShort>cycl</labelShort>
+    <matches>
+      <li Class="Infusion.Matchers.ShieldBelt" />
+    </matches>
+    <stats>
+      <li>
+        <key>EnergyShieldRechargeRate</key>
+        <value>
+          <multiplier>0.05</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="UncommonApparelBase">
+    <defName>Enduring</defName>
+    <label>enduring</label>
+    <labelShort>endur</labelShort>
+    <stats>
+      <li>
+        <key>PainShockThreshold</key>
+        <value>
+          <offset>0.1</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="UncommonApparelBase">
+    <defName>Expanded</defName>
+    <label>expanded</label>
+    <labelShort>expn</labelShort>
+    <matches>
+      <li Class="Infusion.Matchers.ShieldBelt" />
+    </matches>
+    <stats>
+      <li>
+        <key>EnergyShieldEnergyMax</key>
+        <value>
+          <multiplier>0.2</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="UncommonApparelBase">
     <defName>Gathering</defName>
     <label>gathering</label>
     <labelShort>gather</labelShort>
@@ -168,12 +216,12 @@
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="UncommonApparelBase">
-    <defName>Quickening</defName>
-    <label>quickening</label>
-    <labelShort>quick</labelShort>
+    <defName>Tuning</defName>
+    <label>tuning</label>
+    <labelShort>tune</labelShort>
     <stats>
       <li>
-        <key>MoveSpeed</key>
+        <key>PsychicSensitivity</key>
         <value>
           <offset>0.05</offset>
         </value>
@@ -182,34 +230,14 @@
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="UncommonApparelBase">
-    <defName>Cyclic</defName>
-    <label>cyclic</label>
-    <labelShort>cycl</labelShort>
-    <matches>
-      <li Class="Infusion.Matchers.ShieldBelt" />
-    </matches>
+    <defName>Quickening</defName>
+    <label>quickening</label>
+    <labelShort>quick</labelShort>
     <stats>
       <li>
-        <key>EnergyShieldRechargeRate</key>
+        <key>MoveSpeed</key>
         <value>
-          <multiplier>0.06</multiplier>
-        </value>
-      </li>
-    </stats>
-  </Infusion.InfusionDef>
-
-  <Infusion.InfusionDef ParentName="UncommonApparelBase">
-    <defName>Expanded</defName>
-    <label>expanded</label>
-    <labelShort>expn</labelShort>
-    <matches>
-      <li Class="Infusion.Matchers.ShieldBelt" />
-    </matches>
-    <stats>
-      <li>
-        <key>EnergyShieldEnergyMax</key>
-        <value>
-          <multiplier>0.2</multiplier>
+          <offset>0.05</offset>
         </value>
       </li>
     </stats>
@@ -245,10 +273,11 @@
         <def>Burn</def>
         <amount>0.2</amount>
         <chance>0.3</chance>
+        <onMeleeCast>false</onMeleeCast>
       </li>
     </onHits>
     <extraDescriptions>
-      <li>30% chance to deal burn damage equal to 20% of the damage.</li>
+      <li>Hit: 30% chance to deal burn damage for 20% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -324,10 +353,11 @@
       <li Class="Infusion.OnHitWorkers.ApplyDamage">
         <def>Stab</def>
         <amount>0.6</amount>
+        <onMeleeCast>false</onMeleeCast>
       </li>
     </onHits>
     <extraDescriptions>
-      <li>Deals 60% extra sharp damage. This damage does not apply to special effects, such as explosions.</li>
+      <li>Hit: deals 60% extra sharp damage. Does not increase damage of other similar effects.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -338,12 +368,12 @@
     <onHits>
       <li Class="Infusion.OnHitWorkers.ApplyDamage">
         <def>Stun</def>
-        <amount>0.2</amount>
-        <chance>0.2</chance>
+        <amount>0.1</amount>
+        <chance>0.1</chance>
       </li>
     </onHits>
     <extraDescriptions>
-      <li>20% chance to stun the target for 20% of the damage.</li>
+      <li>Attack: 10% chance to stun the target for 10% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -375,7 +405,7 @@
       </li>
     </onHits>
     <extraDescriptions>
-      <li>Deals 500% extra blunt damage. This damage does not apply to special effects, such as explosions.</li>
+      <li>Hit: deals 500% extra blunt damage. Does not increase damage of other similar effects.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -387,7 +417,7 @@
       <li>
         <key>RangedWeapon_Cooldown</key>
         <value>
-          <multiplier>-0.1</multiplier>
+          <multiplier>-0.15</multiplier>
         </value>
       </li>
     </stats>
@@ -451,16 +481,25 @@
         <ranged>true</ranged>
       </li>
     </matches>
+    <stats>
+      <li>
+        <key>ToxicResistance</key>
+        <value>
+          <offset>0.05</offset>
+        </value>
+      </li>
+    </stats>
     <onHits>
       <li Class="Infusion.OnHitWorkers.ApplyHediff">
         <def>ToxicBuildup</def>
-        <amount>0.1</amount>
+        <amount>0.07</amount>
         <severityScaleBy>ToxicResistance</severityScaleBy>
         <inverseStatScaling>true</inverseStatScaling>
+        <onMeleeCast>false</onMeleeCast>
       </li>
     </onHits>
     <extraDescriptions>
-      <li>Increases toxic buildup of the target by 10% of the damage.</li>
+      <li>Hit: increases toxic buildup of the target by 10% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 

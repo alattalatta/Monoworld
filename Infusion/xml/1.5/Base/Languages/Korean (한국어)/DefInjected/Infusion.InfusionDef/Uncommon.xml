@@ -6,6 +6,15 @@
   <Calming.label>차분한</Calming.label>
   <Calming.labelShort>차분</Calming.labelShort>
 
+  <Cyclic.label>순환형</Cyclic.label>
+  <Cyclic.labelShort>순환</Cyclic.labelShort>
+
+  <Enduring.label>견디는</Enduring.label>
+  <Enduring.labelShort>견딤</Enduring.labelShort>
+
+  <Expanded.label>확장형</Expanded.label>
+  <Expanded.labelShort>확장</Expanded.labelShort>
+
   <Gathering.label>채집하는</Gathering.label>
   <Gathering.labelShort>채집</Gathering.labelShort>
 
@@ -33,20 +42,17 @@
   <Tough.label>질긴</Tough.label>
   <Tough.labelShort>질긴</Tough.labelShort>
 
+  <Tuning.label>조율된</Tuning.label>
+  <Tuning.labelShort>조율</Tuning.labelShort>
+
   <Quickening.label>빠른</Quickening.label>
   <Quickening.labelShort>빠름</Quickening.labelShort>
-
-  <Cyclic.label>순환형</Cyclic.label>
-  <Cyclic.labelShort>순환</Cyclic.labelShort>
-
-  <Expanded.label>확장형</Expanded.label>
-  <Expanded.labelShort>확장</Expanded.labelShort>
 
   <!-- melee -->
 
   <Fiery.label>불타는</Fiery.label>
   <Fiery.labelShort>불탐</Fiery.labelShort>
-  <Fiery.extraDescriptions.0>30% 확률로 대상에게 피해량의 20%만큼 화상 피해를 입힙니다.</Fiery.extraDescriptions.0>
+  <Fiery.extraDescriptions.0>명중: 30% 확률로 대상에게 피해량의 20%만큼 화상 피해를 입힙니다.</Fiery.extraDescriptions.0>
 
   <FlawlessMelee.label>뛰어난</FlawlessMelee.label>
   <FlawlessMelee.labelShort>뛰어남</FlawlessMelee.labelShort>
@@ -59,17 +65,17 @@
 
   <Spiked.label>가시박힌</Spiked.label>
   <Spiked.labelShort>가시</Spiked.labelShort>
-  <Spiked.extraDescriptions.0>60%의 추가 찌르기 피해를 입힙니다.  이 피해량은 폭발 등 특수효과에는 적용되지 않습니다.</Spiked.extraDescriptions.0>
+  <Spiked.extraDescriptions.0>명중: 60%의 추가 찌르기 피해를 입힙니다. 다른 유사 효과의 피해량은 증가하지 않습니다.</Spiked.extraDescriptions.0>
 
   <Taunting.label>위협적인</Taunting.label>
   <Taunting.labelShort>위협</Taunting.labelShort>
-  <Taunting.extraDescriptions.0>20% 확률로 대상을 피해량의 20%만큼 기절시킵니다.</Taunting.extraDescriptions.0>
+  <Taunting.extraDescriptions.0>공격: 10% 확률로 대상을 피해량의 10%만큼 기절시킵니다.</Taunting.extraDescriptions.0>
 
   <!-- ranged -->
 
   <Blunt.label>뭉툭한</Blunt.label>
   <Blunt.labelShort>뭉툭</Blunt.labelShort>
-  <Blunt.extraDescriptions.0>500%의 추가 둔탁 피해를 입힙니다. 이 피해량은 폭발 등 특수효과에는 적용되지 않습니다.</Blunt.extraDescriptions.0>
+  <Blunt.extraDescriptions.0>명중: 500%의 추가 둔탁 피해를 입힙니다. 다른 유사 효과의 피해량은 증가하지 않습니다.</Blunt.extraDescriptions.0>
 
   <FlawlessRanged.label>뛰어난</FlawlessRanged.label>
   <FlawlessRanged.labelShort>뛰어남</FlawlessRanged.labelShort>
@@ -87,7 +93,7 @@
 
   <Poisonous.label>독성</Poisonous.label>
   <Poisonous.labelShort>독성</Poisonous.labelShort>
-  <Poisonous.extraDescriptions.0>대상을 피해량의 10%만큼 증독시킵니다.</Poisonous.extraDescriptions.0>
+  <Poisonous.extraDescriptions.0>명중: 대상을 피해량의 7%만큼 증독시킵니다.</Poisonous.extraDescriptions.0>
 
   <!-- everything -->
 

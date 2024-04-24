@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Serene.label>고요한</Serene.label>
+  <Serene.labelShort>고요</Serene.labelShort>
+
+  <Crippling.label>불구의</Crippling.label>
+  <Crippling.labelShort>불구</Crippling.labelShort>
+  <Crippling.extraDescriptions.0>명중: 대상에게 무작위 정신적 효과를 적용합니다. 지속 시간은 피해량에 비례합니다.</Crippling.extraDescriptions.0>
+  <Crippling.extraDescriptions.1>· 10% 확률로 대상을 느리게 만듭니다.</Crippling.extraDescriptions.1>
+  <Crippling.extraDescriptions.2>· 5% 확률로 대상의 눈을 멀게 만듭니다.</Crippling.extraDescriptions.2>
+
+  <Encouraging.label>의욕적인</Encouraging.label>
+  <Encouraging.labelShort>의욕</Encouraging.labelShort>
+  <Encouraging.extraDescriptions.0>공격: 25% 확률로 착용자에게 집중 효과를 부여합니다. 지속 시간은 피해량과 연발 횟수에 비례합니다.</Encouraging.extraDescriptions.0>
+
+</LanguageData>

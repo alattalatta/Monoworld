@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+  <Infusion.InfusionDef ParentName="UncommonApparelBase">
+    <defName>Meditating</defName>
+    <label>meditating</label>
+    <labelShort>medi</labelShort>
+    <stats>
+      <li>
+        <key>MeditationFocusGain</key>
+        <value>
+          <multiplier>0.1</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+</Defs>

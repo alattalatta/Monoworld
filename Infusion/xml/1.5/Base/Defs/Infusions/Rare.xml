@@ -43,27 +43,6 @@
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="RareApparelBase">
-    <defName>Volition</defName>
-    <label>volition</label>
-    <labelShort>voli</labelShort>
-    <position>Suffix</position>
-    <stats>
-      <li>
-        <key>MentalBreakThreshold</key>
-        <value>
-          <offset>-0.06</offset>
-        </value>
-      </li>
-      <li>
-        <key>PainShockThreshold</key>
-        <value>
-          <offset>0.1</offset>
-        </value>
-      </li>
-    </stats>
-  </Infusion.InfusionDef>
-
-  <Infusion.InfusionDef ParentName="RareApparelBase">
     <defName>Accelerating</defName>
     <label>accelerating</label>
     <labelShort>accel</labelShort>
@@ -103,6 +82,35 @@
     </stats>
   </Infusion.InfusionDef>
 
+  <Infusion.InfusionDef ParentName="RareApparelCleanBase">
+    <defName>Auxiliary</defName>
+    <label>auxiliary</label>
+    <labelShort>aux</labelShort>
+    <matches>
+      <li Class="Infusion.Matchers.ShieldBelt" />
+    </matches>
+    <stats>
+      <li>
+        <key>MaxHitPoints</key>
+        <value>
+          <multiplier>0.3</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>EnergyShieldRechargeRate</key>
+        <value>
+          <multiplier>0.5</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>EnergyShieldEnergyMax</key>
+        <value>
+          <multiplier>-0.3</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
   <Infusion.InfusionDef ParentName="RareApparelBase">
     <defName>Beautiful</defName>
     <label>beautiful</label>
@@ -118,6 +126,29 @@
         <key>SocialImpact</key>
         <value>
           <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareApparelBase">
+    <defName>ChargedApparel</defName>
+    <label>charged</label>
+    <labelShort>chrg</labelShort>
+    <matches>
+      <li Class="Infusion.Matchers.ShieldBelt" />
+    </matches>
+    <stats>
+      <li>
+        <key>MoveSpeed</key>
+        <value>
+          <offset>0.1</offset>
+        </value>
+      </li>
+      <li>
+        <key>EnergyShieldEnergyMax</key>
+        <value>
+          <multiplier>0.3</multiplier>
         </value>
       </li>
     </stats>
@@ -150,13 +181,13 @@
       <li>
         <key>ImmunityGainSpeed</key>
         <value>
-          <offset>0.1</offset>
+          <offset>0.05</offset>
         </value>
       </li>
       <li>
         <key>ToxicResistance</key>
         <value>
-          <offset>0.6</offset>
+          <offset>0.5</offset>
         </value>
       </li>
     </stats>
@@ -216,78 +247,6 @@
     </stats>
   </Infusion.InfusionDef>
 
-  <Infusion.InfusionDef ParentName="RareApparelBase">
-    <defName>Weightless</defName>
-    <label>weightless</label>
-    <labelShort>wght</labelShort>
-    <stats>
-      <li>
-        <key>EquipDelay</key>
-        <value>
-          <multiplier>-0.6</multiplier>
-        </value>
-      </li>
-      <li>
-        <key>Mass</key>
-        <value>
-          <multiplier>-0.5</multiplier>
-        </value>
-      </li>
-    </stats>
-  </Infusion.InfusionDef>
-
-  <Infusion.InfusionDef ParentName="RareApparelCleanBase">
-    <defName>Auxiliary</defName>
-    <label>auxiliary</label>
-    <labelShort>aux</labelShort>
-    <matches>
-      <li Class="Infusion.Matchers.ShieldBelt" />
-    </matches>
-    <stats>
-      <li>
-        <key>MaxHitPoints</key>
-        <value>
-          <multiplier>0.25</multiplier>
-        </value>
-      </li>
-      <li>
-        <key>EnergyShieldRechargeRate</key>
-        <value>
-          <multiplier>1</multiplier>
-        </value>
-      </li>
-      <li>
-        <key>EnergyShieldEnergyMax</key>
-        <value>
-          <multiplier>-0.3</multiplier>
-        </value>
-      </li>
-    </stats>
-  </Infusion.InfusionDef>
-
-  <Infusion.InfusionDef ParentName="RareApparelBase">
-    <defName>ChargedApparel</defName>
-    <label>charged</label>
-    <labelShort>chrg</labelShort>
-    <matches>
-      <li Class="Infusion.Matchers.ShieldBelt" />
-    </matches>
-    <stats>
-      <li>
-        <key>MoveSpeed</key>
-        <value>
-          <offset>0.1</offset>
-        </value>
-      </li>
-      <li>
-        <key>EnergyShieldEnergyMax</key>
-        <value>
-          <multiplier>0.3</multiplier>
-        </value>
-      </li>
-    </stats>
-  </Infusion.InfusionDef>
-
   <Infusion.InfusionDef ParentName="RareApparelCleanBase">
     <defName>Overloaded</defName>
     <label>overloaded</label>
@@ -312,6 +271,67 @@
         <key>MaxHitPoints</key>
         <value>
           <multiplier>-0.2</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareApparelBase">
+    <defName>Synchronous</defName>
+    <label>synchronous</label>
+    <labelShort>sync</labelShort>
+    <stats>
+      <li>
+        <key>MentalBreakThreshold</key>
+        <value>
+          <offset>-0.06</offset>
+        </value>
+      </li>
+      <li>
+        <key>PsychicSensitivity</key>
+        <value>
+          <offset>0.08</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareApparelBase">
+    <defName>Volition</defName>
+    <label>volition</label>
+    <labelShort>voli</labelShort>
+    <position>Suffix</position>
+    <stats>
+      <li>
+        <key>MentalBreakThreshold</key>
+        <value>
+          <offset>-0.06</offset>
+        </value>
+      </li>
+      <li>
+        <key>PainShockThreshold</key>
+        <value>
+          <offset>0.15</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareApparelBase">
+    <defName>Weightless</defName>
+    <label>weightless</label>
+    <labelShort>wght</labelShort>
+    <stats>
+      <li>
+        <key>EquipDelay</key>
+        <value>
+          <multiplier>-0.5</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>Mass</key>
+        <value>
+          <multiplier>-0.7</multiplier>
         </value>
       </li>
     </stats>
@@ -373,7 +393,7 @@
       </li>
     </onHits>
     <extraDescriptions>
-      <li>Drains living flesh target's blood and restores wielder's for 10% of the damage.</li>
+      <li>Hit: For living targets, drains their blood and restores wielder's for 10% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -384,12 +404,13 @@
     <onHits>
       <li Class="Infusion.OnHitWorkers.ApplyDamage">
         <def>Flame</def>
-        <amount>0.5</amount>
-        <chance>0.2</chance>
+        <amount>0.4</amount>
+        <chance>0.3</chance>
+        <onMeleeImpact>false</onMeleeImpact>
       </li>
     </onHits>
     <extraDescriptions>
-      <li>20% chance to deal flame damage equal to 50% of the damage.</li>
+      <li>Attack: 30% chance to deal flame damage equal to 40% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -402,10 +423,11 @@
         <def>EMP</def>
         <amount>1</amount>
         <chance>0.25</chance>
+        <onMeleeImpact>false</onMeleeImpact>
       </li>
     </onHits>
     <extraDescriptions>
-      <li>25% chance to cause a small EMP explosion, stunning the machine target for 100% of the damage.</li>
+      <li>Attack: 25% chance to cause a small EMP explosion equal to 80% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -445,12 +467,13 @@
       <li Class="Infusion.OnHitWorkers.ApplyDamage">
         <def>Stab</def>
         <amount>0.25</amount>
-        <armorPenetration>1</armorPenetration>
+        <armorPenetration>0.75</armorPenetration>
         <chance>0.20</chance>
+        <onMeleeCast>false</onMeleeCast>
       </li>
     </onHits>
     <extraDescriptions>
-      <li>20% chance to deal sharp damage equal to 25% of the damage, with 100% armor penetration.</li>
+      <li>Hit: 20% chance to deal sharp damage equal to 25% of the damage, with 75% armor penetration.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -461,12 +484,13 @@
     <onHits>
       <li Class="Infusion.OnHitWorkers.CreateExplosion">
         <def>Bomb</def>
-        <amount>0.85</amount>
+        <amount>0.4</amount>
         <chance>0.2</chance>
+        <onMeleeImpact>false</onMeleeImpact>
       </li>
     </onHits>
     <extraDescriptions>
-      <li>20% chance to explode the target, dealing 80% of the damage.</li>
+      <li>Attack: 20% chance to explode the target, dealing 40% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -491,12 +515,13 @@
     <onHits>
       <li Class="Infusion.OnHitWorkers.ApplyDamage">
         <def>Stun</def>
-        <amount>0.3</amount>
-        <chance>0.2</chance>
+        <amount>0.1</amount>
+        <chance>0.25</chance>
+        <onMeleeImpact>false</onMeleeImpact>
       </li>
     </onHits>
     <extraDescriptions>
-      <li>20% chance to stun the target for 30% of the damage.</li>
+      <li>Attack: 25% chance to stun the target for 10% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -546,17 +571,17 @@
     <onHits>
       <li Class="Infusion.OnHitWorkers.ApplyDamage">
         <def>Blunt</def>
-        <amount>5.5</amount>
+        <amount>5</amount>
       </li>
       <li Class="Infusion.OnHitWorkers.ApplyDamage">
         <def>Stun</def>
-        <amount>4</amount>
+        <amount>0.5</amount>
         <chance>0.1</chance>
       </li>
     </onHits>
     <extraDescriptions>
-      <li>· Deals 550% extra blunt damage. This damage does not apply to special effects, such as explosions.</li>
-      <li>· 10% chance to stun the target for 400% of the damage.</li>
+      <li>Hit: deals 500% extra blunt damage. Does not increase damage of other similar effects.</li>
+      <li>Hit: 10% chance to stun the target for 50% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -570,13 +595,13 @@
     <onHits>
       <li Class="Infusion.OnHitWorkers.CreateExplosion">
         <def>Bomb</def>
-        <amount>1</amount>
+        <amount>0.5</amount>
         <chance>0.1</chance>
         <radius>1.4</radius>
       </li>
     </onHits>
     <extraDescriptions>
-      <li>10% chance to fire an explosive projectile, dealing 100% of the damage within a radius of 1.4 cells.</li>
+      <li>On impact, 10% chance to explode. Deals 50% of the damage within a radius of 1.4 cells.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -636,13 +661,13 @@
     <onHits>
       <li Class="Infusion.OnHitWorkers.ApplyDamage">
         <def>Stab</def>
-        <amount>0.25</amount>
-        <armorPenetration>0.7</armorPenetration>
+        <amount>0.5</amount>
+        <armorPenetration>0.75</armorPenetration>
         <chance>0.1</chance>
       </li>
     </onHits>
     <extraDescriptions>
-      <li>10% chance to fire an armor piercing projectile, dealing sharp damage equal to 25% of the damage with 70% armor penetration.</li>
+      <li>Hit: 10% chance to deal sharp damage equal to 50% of the damage with 75% armor penetration.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -661,7 +686,7 @@
       </li>
     </onHits>
     <extraDescriptions>
-      <li>10% chance to fire a projectile which explodes in flame, dealing 50% of the damage.</li>
+      <li>Hit: 10% chance to explode in fire. Deals 50% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -708,16 +733,25 @@
     <matches>
       <li Class="Infusion.Matchers.ProjectileBullet" />
     </matches>
+    <stats>
+      <li>
+        <key>ToxicResistance</key>
+        <value>
+          <offset>0.1</offset>
+        </value>
+      </li>
+    </stats>
     <onHits>
       <li Class="Infusion.OnHitWorkers.ApplyHediff">
         <def>ToxicBuildup</def>
-        <amount>0.15</amount>
+        <amount>0.12</amount>
         <severityScaleBy>ToxicResistance</severityScaleBy>
         <inverseStatScaling>true</inverseStatScaling>
+        <onMeleeCast>false</onMeleeCast>
       </li>
     </onHits>
     <extraDescriptions>
-      <li>Increases toxic buildup of the target by 15% of the damage.</li>
+      <li>Impact: Increases toxic buildup of the target by 12% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 </Defs>

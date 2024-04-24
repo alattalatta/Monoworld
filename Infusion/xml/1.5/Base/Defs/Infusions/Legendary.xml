@@ -72,13 +72,13 @@
       <li>
         <key>GlobalLearningFactor</key>
         <value>
-          <offset>0.2</offset>
+          <offset>0.15</offset>
         </value>
       </li>
       <li>
         <key>WorkSpeedGlobal</key>
         <value>
-          <offset>0.2</offset>
+          <offset>0.15</offset>
         </value>
       </li>
       <li>
@@ -124,19 +124,74 @@
       <li>
         <key>ImmunityGainSpeed</key>
         <value>
-          <offset>0.2</offset>
+          <offset>0.1</offset>
         </value>
       </li>
       <li>
         <key>MentalBreakThreshold</key>
         <value>
-          <offset>-0.05</offset>
+          <offset>-0.06</offset>
         </value>
       </li>
       <li>
         <key>ToxicResistance</key>
         <value>
-          <offset>1.0</offset>
+          <offset>0.8</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryApparelBase">
+    <defName>Repelling</defName>
+    <label>repelling</label>
+    <labelShort>repl</labelShort>
+    <matches>
+      <li Class="Infusion.Matchers.ShieldBelt" />
+    </matches>
+    <stats>
+      <li>
+        <key>EnergyShieldEnergyMax</key>
+        <value>
+          <multiplier>1.2</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>EnergyShieldRechargeRate</key>
+        <value>
+          <multiplier>0.5</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>MentalBreakThreshold</key>
+        <value>
+          <offset>-0.06</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="LegendaryApparelBase">
+    <defName>Resonating</defName>
+    <label>resonating</label>
+    <labelShort>reso</labelShort>
+    <stats>
+      <li>
+        <key>MentalBreakThreshold</key>
+        <value>
+          <offset>-0.06</offset>
+        </value>
+      </li>
+      <li>
+        <key>PsychicSensitivity</key>
+        <value>
+          <offset>0.15</offset>
+        </value>
+      </li>
+      <li>
+        <key>SocialImpact</key>
+        <value>
+          <offset>0.1</offset>
         </value>
       </li>
     </stats>
@@ -180,15 +235,15 @@
         </value>
       </li>
       <li>
-        <key>MentalBreakThreshold</key>
+        <key>NegotiationAbility</key>
         <value>
-          <offset>-0.05</offset>
+          <offset>0.3</offset>
         </value>
       </li>
       <li>
         <key>SocialImpact</key>
         <value>
-          <offset>0.3</offset>
+          <offset>0.2</offset>
         </value>
       </li>
     </stats>
@@ -259,10 +314,11 @@
         <def>Flame</def>
         <amount>0.4</amount>
         <chance>0.25</chance>
+        <onMeleeImpact>false</onMeleeImpact>
       </li>
     </onHits>
     <extraDescriptions>
-      <li>25% chance to cause a small flame explosion, dealing 40% of the damage.</li>
+      <li>Attack: 25% chance to cause a small flame explosion, dealing 40% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -281,12 +337,13 @@
     <onHits>
       <li Class="Infusion.OnHitWorkers.CreateExplosion">
         <def>Bomb</def>
-        <amount>2</amount>
-        <chance>0.08</chance>
+        <amount>1</amount>
+        <chance>0.1</chance>
+        <onMeleeImpact>false</onMeleeImpact>
       </li>
     </onHits>
     <extraDescriptions>
-      <li>8% chance to explode the target, dealing 200% of the damage.</li>
+      <li>Attack: 10% chance to explode the target, dealing 100% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -305,12 +362,13 @@
     <onHits>
       <li Class="Infusion.OnHitWorkers.ApplyDamage">
         <def>Stun</def>
-        <amount>0.5</amount>
+        <amount>0.25</amount>
         <chance>0.3</chance>
+        <onMeleeImpact>false</onMeleeImpact>
       </li>
     </onHits>
     <extraDescriptions>
-      <li>30% chance to stun the target for 50% of the damage.</li>
+      <li>Attack: 30% chance to stun the target for 25% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -332,10 +390,11 @@
         <amount>3</amount>
         <chance>0.8</chance>
         <radius>4</radius>
+        <onMeleeImpact>false</onMeleeImpact>
       </li>
     </onHits>
     <extraDescriptions>
-      <li>80% chance to cause a large EMP explosion, stunning machines within a radius of 4 cells for 300% of the damage.</li>
+      <li>Attack: 80% chance to cause a large EMP explosion, stunning machines within a radius of 4 cells for 300% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -383,9 +442,9 @@
       </li>
     </onHits>
     <extraDescriptions>
-      <li>Drains living flesh target's blood for 20% of the damage.</li>
-      <li>· Restores wielder's blood by the amount of the drained blood.</li>
-      <li>· Heals wielder's random injury for 7.5% of the damage</li>
+      <li>Hit: For living targets, drains their blood for 20% of the damage.</li>
+      <li>· Restores the wielder's blood by 10% of the damage.</li>
+      <li>· Heals random injury for 7.5% of the damage</li>
       <li>· This effect cannot heal scars.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
@@ -444,7 +503,7 @@
       </li>
     </onHits>
     <extraDescriptions>
-      <li>25% chance to fire a projectile which causes an EMP explosion, stunning machines within a radius of 1.4 cells for 100% of the damage</li>
+      <li>Impact: 25% chance to explode in EMP explosion. Deals 100% of the damage within a radius of 1.4 cells.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -530,12 +589,12 @@
     <onHits>
       <li Class="Infusion.OnHitWorkers.ApplyDamage">
         <def>Stun</def>
-        <amount>1</amount>
+        <amount>0.1</amount>
         <chance>0.1</chance>
       </li>
     </onHits>
     <extraDescriptions>
-      <li>10% chance to stun the target for 80% of the damage.</li>
+      <li>Hit: 10% chance to stun the target for 10% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -569,9 +628,8 @@
       </li>
     </onHits>
     <extraDescriptions>
-      <li>20% chance for an projectile to explode.</li>
-      <li>Another 10% chance for the projectile to explode in flame.</li>
-      <li>· Each explosion deals 50% of the damage within a radius of 1.4 cells.</li>
+      <li>Impact: 20% chance to explode. Deals 50% of the damage within a radius of 1.4 cells.</li>
+      <li>Impact: 10% chance to explode in flame. Deals 50% of the damage within a radius of 1.4 cells.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
   <!-- #endregion -->
@@ -614,13 +672,30 @@
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="LegendaryWeaponsBase">
-    <defName>Reset</defName>
-    <label>reset</label>
-    <labelShort>reset</labelShort>
+    <defName>Nature</defName>
+    <label>nature</label>
+    <labelShort>nature</labelShort>
     <position>Suffix</position>
-    <onHits>
-      <li Class="Infusion.OnHitWorkers.ResetCooldown" />
-    </onHits>
+    <stats>
+      <li>
+        <key>HuntingStealth</key>
+        <value>
+          <offset>0.6</offset>
+        </value>
+      </li>
+      <li>
+        <key>TameAnimalChance</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+      <li>
+        <key>TrainAnimalChance</key>
+        <value>
+          <offset>0.2</offset>
+        </value>
+      </li>
+    </stats>
   </Infusion.InfusionDef>
   <!-- #endregion -->
 

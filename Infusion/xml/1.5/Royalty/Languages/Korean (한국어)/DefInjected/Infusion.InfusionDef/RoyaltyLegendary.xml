@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Amplifying.label>증폭하는</Amplifying.label>
+  <Amplifying.labelShort>증폭</Amplifying.labelShort>
+
+  <Invisibility.label>투명화</Invisibility.label>
+  <Invisibility.labelShort>투명</Invisibility.labelShort>
+  <Invisibility.extraDescriptions.0>공격: 20% 확률로 착용자에게 투명화 효과를 부여합니다. 지속 시간은 피해량과 연발 횟수에 비례합니다.</Invisibility.extraDescriptions.0>
+
+  <Chaotic.label>혼돈의</Chaotic.label>
+  <Chaotic.labelShort>혼돈</Chaotic.labelShort>
+  <Chaotic.extraDescriptions.0>공격: 대상에게 무작위 정신적 효과를 적용합니다. 지속 시간은 피해량에 비례합니다.</Chaotic.extraDescriptions.0>
+  <Chaotic.extraDescriptions.1>· 15% 확률로 대상을 느리게 만듭니다.</Chaotic.extraDescriptions.1>
+  <Chaotic.extraDescriptions.2>· 5% 확률로 대상의 눈을 멀게 만듭니다.</Chaotic.extraDescriptions.2>
+  <Chaotic.extraDescriptions.3>· 5% 확률로 대상을 어지럽게 만듭니다.</Chaotic.extraDescriptions.3>
+
+  <Stimulating.label>자극성</Stimulating.label>
+  <Stimulating.labelShort>자극</Stimulating.labelShort>
+  <Stimulating.extraDescriptions.0>공격: 20% 확률로 착용자에게 집중 효과를 부여합니다. 지속 시간은 피해량과 연발 횟수에 비례합니다.</Stimulating.extraDescriptions.0>
+
+</LanguageData>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Defs>
+  <Infusion.InfusionDef ParentName="RareApparelBase">
+    <defName>Serene</defName>
+    <label>serene</label>
+    <labelShort>seren</labelShort>
+    <stats>
+      <li>
+        <key>MeditationFocusGain</key>
+        <value>
+          <multiplier>0.15</multiplier>
+        </value>
+      </li>
+      <li>
+        <key>PsychicEntropyRecoveryRate</key>
+        <value>
+          <multiplier>0.1</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareWeaponsBase">
+    <defName>Crippling</defName>
+    <label>crippling</label>
+    <labelShort>crippl</labelShort>
+    <matches>
+      <li Class="Infusion.Matchers.ProjectileBullet" />
+    </matches>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.Sequence">
+        <onMeleeCast>false</onMeleeCast>
+        <onRangedCast>false</onRangedCast>
+        <value>
+          <li Class="Infusion.OnHitWorkers.ApplyHediff">
+            <def>PsychicBurden</def>
+            <amount>0.75</amount>
+            <chance>0.1</chance>
+            <severityScaleBy>PsychicSensitivity</severityScaleBy>
+            <onMeleeImpact>true</onMeleeImpact>
+          </li>
+          <li Class="Infusion.OnHitWorkers.ApplyHediff">
+            <def>PsychicBlindness</def>
+            <amount>0.75</amount>
+            <chance>0.05</chance>
+            <severityScaleBy>PsychicSensitivity</severityScaleBy>
+            <onMeleeImpact>true</onMeleeImpact>
+          </li>
+        </value>
+      </li>
+    </onHits>
+    <extraDescriptions>
+      <li>Hit: Applies random psychic effects to the target. Higher damage inflicts longer effects.</li>
+      <li>· 10% chance for slowed movement.</li>
+      <li>· 5% chance for blindness.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareWeaponsBase">
+    <defName>Encouraging</defName>
+    <label>encouraging</label>
+    <labelShort>encrg</labelShort>
+    <onHits>
+      <li Class="Infusion.OnHitWorkers.Sequence">
+        <chance>0.15</chance>
+        <onMeleeImpact>false</onMeleeImpact>
+        <onRangedImpact>false</onRangedImpact>
+        <value>
+          <li Class="Infusion.OnHitWorkers.ApplyHediff">
+            <def>PsychicFocus</def>
+            <amount>0.15</amount>
+            <selfCast>true</selfCast>
+            <severityScaleBy>PsychicSensitivity</severityScaleBy>
+          </li>
+          <li Class="Infusion.OnHitWorkers.PlaySound">
+            <def>PsycastPsychicEffect</def>
+            <selfCast>true</selfCast>
+          </li>
+        </value>
+      </li>
+    </onHits>
+    <extraDescriptions>
+      <li>Attack: 15% chance for psychic focus. Higher damage and burst count inflicts longer effects.</li>
+    </extraDescriptions>
+  </Infusion.InfusionDef>
+</Defs>

@@ -69,9 +69,9 @@
       </li>
     </onHits>
     <extraDescriptions>
-      <li>When the wearer falls, trigger infused preservation.</li>
-      <li>· Infused preservation suppresses pain, slows blood loss, and increases movement speed for 15 seconds.</li>
-      <li>· This item will be destroyed in the process. Only one item will be used at a time.</li>
+      <li>Downed: Triggers infused preservation.</li>
+      <li>· Suppresses pain, slows blood loss, and increases movement speed for 15 seconds.</li>
+      <li>· Item will be destroyed in the process. Only one of similar effects will be triggered at a time.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 </Defs>
