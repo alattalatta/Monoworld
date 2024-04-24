@@ -51,3 +51,8 @@ module Pawn =
       tryCast<Pawn> thing
       |> Option.map (not << Pawn.isDead)
       |> Option.defaultValue false
+
+
+module Verb =
+  let getAdjustedMeleeDamage (verb: Verb) =
+    verb.verbProps.AdjustedMeleeDamageAmount(verb, verb.CasterPawn)

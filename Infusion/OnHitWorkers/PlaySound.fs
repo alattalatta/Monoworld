@@ -11,25 +11,46 @@ type PlaySound =
 
   val mutable def: SoundDef
 
-  new() = { def = null }
+  val mutable onMeleeCast: bool
+  val mutable onMeleeImpact: bool
+  val mutable onRangedCast: bool
+  val mutable onRangedImpact: bool
+
+  new() =
+    { inherit OnHitWorker()
+
+      def = null
+
+      onMeleeCast = true
+      onMeleeImpact = true
+      onRangedCast = true
+      onRangedImpact = true }
+
+  override this.AfterAttack record =
+    match record with
+    | VerbCastedRecordMelee r when this.onMeleeCast ->
+      this.MapPosOf(OnHitRecordMeleeCast r)
+      |> this.PlaySound
+    | VerbCastedRecordRanged r when this.onRangedCast ->
+      this.MapPosOf(OnHitRecordMeleeCast r)
+      |> this.PlaySound
+    | _ -> ()
 
   override this.BulletHit record =
-    let (map, pos) = OnHitWorker.mapPosRanged this.selfCast record
-
-    let ti = TargetInfo(pos, map)
-
-    this.def.PlayOneShot(SoundInfo.InMap(ti))
+    if this.onRangedImpact then
+      this.MapPosOf(OnHitRecordRangedImpact record)
+      |> this.PlaySound
 
   override this.MeleeHit record =
-    let (map, pos) = OnHitWorker.mapPosMelee this.selfCast record
+    if this.onMeleeImpact then
+      this.MapPosOf(OnHitRecordMeleeHit record)
+      |> this.PlaySound
 
-    let ti = TargetInfo(pos, map)
-
-    this.def.PlayOneShot(SoundInfo.InMap(ti))
-    
   override this.WearerDowned pawn _ =
-    let ti = TargetInfo(pawn.Position, pawn.Map)
-
-    this.def.PlayOneShot(SoundInfo.InMap(ti))
-
+    this.PlaySound(pawn.Map, pawn.Position)
     true
+
+  member private this.PlaySound((map, pos): (Map * IntVec3)) =
+    TargetInfo(pos, map)
+    |> SoundInfo.InMap
+    |> this.def.PlayOneShot

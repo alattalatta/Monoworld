@@ -17,28 +17,48 @@ type ApplyHediff =
   val mutable inverseStatScaling: bool
   val mutable severityScaleBy: StatDef
 
+  val mutable onMeleeCast: bool
+  val mutable onMeleeImpact: bool
+
   new() =
     { bodySizeMatters = true
       def = null
       inverseStatScaling = false
-      severityScaleBy = null }
+      severityScaleBy = null
+
+      onMeleeCast = true
+      onMeleeImpact = true }
+
+  override this.AfterAttack record =
+    match record with
+    | VerbCastedRecordMelee mr when this.onMeleeCast ->
+      if this.selfCast then
+        this.AddHediff mr.baseDamage mr.verb.CasterPawn
+      else
+        tryCast<Pawn> mr.target
+        |> Option.iter (this.AddHediff mr.baseDamage)
+    | VerbCastedRecordRanged mr ->
+      if this.selfCast then
+        this.AddHediff mr.baseDamage mr.verb.CasterPawn
+      else
+        tryCast<Pawn> mr.target
+        |> Option.iter (this.AddHediff mr.baseDamage)
+    | _ -> ()
 
   override this.BulletHit record =
     if this.selfCast then
-      do
-        tryCast<Pawn> record.projectile.Launcher
-        |> Option.iter (this.AddHediff record.baseDamage)
+      tryCast<Pawn> record.projectile.Launcher
+      |> Option.iter (this.AddHediff record.baseDamage)
     else
-      do
-        record.target
-        |> Option.bind tryCast<Pawn>
-        |> Option.iter (this.AddHediff record.baseDamage)
+      record.target
+      |> Option.bind tryCast<Pawn>
+      |> Option.iter (this.AddHediff record.baseDamage)
 
   override this.MeleeHit record =
-    if this.selfCast then
-      this.AddHediff record.baseDamage record.verb.CasterPawn
-    else
-      do
+    if this.onMeleeImpact then
+      if this.selfCast then
+        this.AddHediff record.baseDamage record.verb.CasterPawn
+      else
         tryCast<Pawn> record.target
         |> Option.iter (this.AddHediff record.baseDamage)
 
@@ -48,10 +68,10 @@ type ApplyHediff =
       let hediff = HediffMaker.MakeHediff(this.def, pawn)
 
       match Comp.ofHediff<HediffComp_Disappears> hediff with
-      | Some comp -> do comp.ticksToDisappear <- GenTicks.SecondsToTicks amount
-      | _ -> do hediff.Severity <- this.CalculateSeverity amount pawn
+      | Some comp -> comp.ticksToDisappear <- GenTicks.SecondsToTicks amount
+      | _ -> hediff.Severity <- this.CalculateSeverity amount pawn
 
-      do pawn.health.AddHediff hediff
+      pawn.health.AddHediff hediff
 
   member private this.CalculateSeverity amount (pawn: Pawn) =
     let statScale =

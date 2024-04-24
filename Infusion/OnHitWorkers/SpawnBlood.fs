@@ -12,20 +12,16 @@ type SpawnBlood() =
   inherit OnHitWorker()
 
   override this.BulletHit record =
-    do
-      record.target
-      |> Option.bind tryCast<Pawn>
-      |> Option.filter Pawn.isAliveAndWell
-      |> Option.iter (fun t ->
-        do
-          FilthMaker.TryMakeFilth(t.Position, t.Map, t.RaceProps.BloodDef, t.LabelIndefinite())
-          |> ignore)
+    record.target
+    |> Option.bind tryCast<Pawn>
+    |> Option.filter Pawn.isAliveAndWell
+    |> Option.iter (fun t ->
+      FilthMaker.TryMakeFilth(t.Position, t.Map, t.RaceProps.BloodDef, t.LabelIndefinite())
+      |> ignore)
 
   override this.MeleeHit record =
-    do
-      tryCast<Pawn> record.target
-      |> Option.filter Pawn.isAliveAndWell
-      |> Option.iter (fun t ->
-        do
-          FilthMaker.TryMakeFilth(t.Position, t.Map, t.RaceProps.BloodDef, t.LabelIndefinite())
-          |> ignore)
+    tryCast<Pawn> record.target
+    |> Option.filter Pawn.isAliveAndWell
+    |> Option.iter (fun t ->
+      FilthMaker.TryMakeFilth(t.Position, t.Map, t.RaceProps.BloodDef, t.LabelIndefinite())
+      |> ignore)

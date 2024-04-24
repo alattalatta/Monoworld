@@ -16,35 +16,36 @@ type ReduceSeverity =
   val mutable def: HediffDef
   val mutable severityScaleBy: StatDef
 
+  val mutable onMeleeCast: bool
+  val mutable onMeleeImpact: bool
+  val mutable onRangedCast: bool
+  val mutable onRangedImpact: bool
+
   new() =
     { bodySizeMatters = true
       def = null
-      severityScaleBy = null }
+      severityScaleBy = null
 
-  member this.SeverityScaleBy = Option.ofObj this.severityScaleBy
+      onMeleeCast = true
+      onMeleeImpact = true
+      onRangedCast = true
+      onRangedImpact = true }
+
+  override this.AfterAttack record =
+    match record with
+    | VerbCastedRecordMelee r when this.onMeleeCast -> this.ReduceSeverityBy r.baseDamage r.verb.Caster
+    | VerbCastedRecordRanged r when this.onRangedCast -> this.ReduceSeverityBy r.baseDamage r.verb.Caster
+    | _ -> ()
 
   override this.BulletHit record =
-    if this.selfCast then
-      do
-        tryCast<Pawn> record.projectile.Launcher
-        |> Option.iter (this.ReduceSeverityBy record.baseDamage)
-    else
-      do
-        record.target
-        |> Option.bind tryCast<Pawn>
-        |> Option.iter (this.ReduceSeverityBy record.baseDamage)
+    this.ReduceSeverityBy record.baseDamage record.projectile.Launcher
 
   override this.MeleeHit record =
-    if this.selfCast then
-      this.ReduceSeverityBy record.baseDamage record.verb.CasterPawn
-    else
-      do
-        tryCast<Pawn> record.target
-        |> Option.iter (this.ReduceSeverityBy record.baseDamage)
+    this.ReduceSeverityBy record.baseDamage record.verb.CasterPawn
 
   member private this.CalculateSeverity amount (pawn: Pawn) =
     let statScale =
-      this.SeverityScaleBy
+      Option.ofObj this.severityScaleBy
       |> Option.map pawn.GetStatValue
       |> Option.defaultValue 1.0f
 
@@ -56,10 +57,11 @@ type ReduceSeverity =
 
     amount * statScale / bodySizeScale / 100.0f
 
-  member private this.ReduceSeverityBy baseDamage (pawn: Pawn) =
-    if Pawn.isAliveAndWell pawn then
+  member private this.ReduceSeverityBy baseDamage (caster: Thing) =
+    tryCast<Pawn> caster
+    |> Option.filter Pawn.isAliveAndWell
+    |> Option.iter (fun pawn ->
       let amount = baseDamage * this.amount
 
-      do
-        Option.ofObj (pawn.health.hediffSet.GetFirstHediffOfDef this.def)
-        |> Option.iter (fun hediff -> do hediff.Heal(this.CalculateSeverity amount pawn))
+      Option.ofObj (pawn.health.hediffSet.GetFirstHediffOfDef this.def)
+      |> Option.iter (fun hediff -> hediff.Heal(this.CalculateSeverity amount pawn)))

@@ -4,25 +4,31 @@ open RimWorld
 open Verse
 
 
-type AttackRecord =
-  { source: ThingWithComps
-    target: Thing
-    verb: Verb }
+type private VerbRecordData =
+  {| baseDamage: float32
+     source: ThingWithComps
+     target: Thing
+     verb: Verb |}
+
+/// Records for verb finished. Used in AfterAttacks.
+type VerbCastedRecord =
+  | VerbCastedRecordMelee of VerbRecordData
+  | VerbCastedRecordRanged of VerbRecordData
 
 
-type MeleeHitRecord =
-  { baseDamage: float32
-    source: ThingWithComps
-    target: Thing
-    verb: Verb }
-
-
-type RangedHitRecord =
+type ProjectileRecord =
   { baseDamage: float32
     map: Map
     projectile: Bullet
     source: ThingWithComps
     target: Thing option }
+
+/// Records for every OnHitWorkers. Used in utilities.
+type OnHitRecord =
+  | OnHitRecordMeleeCast of VerbRecordData
+  | OnHitRecordMeleeHit of VerbRecordData
+  | OnHitRecordRangedCast of VerbRecordData
+  | OnHitRecordRangedImpact of ProjectileRecord
 
 
 [<AllowNullLiteral>]
@@ -30,9 +36,7 @@ type OnHitWorker =
   inherit Editable
 
   val mutable amount: float32
-
   val mutable chance: float32
-
   val mutable selfCast: bool
 
   new() =
@@ -42,11 +46,11 @@ type OnHitWorker =
 
   abstract Chance: float32
 
-  abstract AfterAttack: AttackRecord -> unit
+  abstract AfterAttack: VerbCastedRecord -> unit
 
-  abstract BulletHit: RangedHitRecord -> unit
+  abstract BulletHit: ProjectileRecord -> unit
 
-  abstract MeleeHit: MeleeHitRecord -> unit
+  abstract MeleeHit: VerbRecordData -> unit
 
   abstract WearerDowned: Pawn -> Apparel -> bool
 
@@ -60,48 +64,29 @@ type OnHitWorker =
 
   default this.WearerDowned _ _ = true
 
+  member this.MapOf (record: OnHitRecord) =
+    if this.selfCast then
+      match record with
+      | OnHitRecordMeleeCast r | OnHitRecordMeleeHit r | OnHitRecordRangedCast r -> r.source.MapHeld
+      | OnHitRecordRangedImpact r -> r.source.MapHeld
+    else
+      match record with
+      | OnHitRecordMeleeCast r | OnHitRecordMeleeHit r | OnHitRecordRangedCast r -> r.target.MapHeld
+      | OnHitRecordRangedImpact r -> r.map
+
+  member this.PosOf (record: OnHitRecord) =
+    if this.selfCast then
+      match record with
+      | OnHitRecordMeleeCast r | OnHitRecordMeleeHit r | OnHitRecordRangedCast r -> r.source.PositionHeld
+      | OnHitRecordRangedImpact r -> r.source.PositionHeld
+    else
+      match record with
+      | OnHitRecordMeleeCast r | OnHitRecordMeleeHit r | OnHitRecordRangedCast r -> r.target.PositionHeld
+      | OnHitRecordRangedImpact r -> r.projectile.Position
+
+  member this.MapPosOf (record: OnHitRecord) =
+    (this.MapOf record, this.PosOf record)
+
 
 module OnHitWorker =
   let checkChance (worker: OnHitWorker) = Rand.Chance worker.Chance
-
-
-  /// Gets the melee effect target's current Map.
-  let mapMelee selfCast (record: MeleeHitRecord) =
-    if selfCast then
-      record.source.MapHeld
-    else
-      record.target.MapHeld
-
-
-  /// Gets the ranged effect target's current Map.
-  let mapRanged selfCast (record: RangedHitRecord) =
-    if selfCast then
-      record.projectile.Launcher.MapHeld
-    else
-      record.map
-
-
-  /// Gets the melee effect target's current position.
-  let posMelee selfCast (record: MeleeHitRecord) =
-    if selfCast then
-      record.source.PositionHeld
-    else
-      record.target.PositionHeld
-
-
-  /// Gets the ranged effect target's current position.
-  let posRanged selfCast (record: RangedHitRecord) =
-    if selfCast then
-      record.projectile.Launcher.PositionHeld
-    else
-      record.projectile.Position
-
-
-  /// Gets the melee effect target's current (Map, position).
-  let mapPosMelee selfCast record =
-    (mapMelee selfCast record, posMelee selfCast record)
-
-
-  /// Gets the ranged effect target's current (Map, position).
-  let mapPosRanged selfCast record =
-    (mapRanged selfCast record, posRanged selfCast record)

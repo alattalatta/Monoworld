@@ -46,8 +46,8 @@ module RelevantGear =
       if isPawnStat || isArmorStat then
         let map = Dictionary<string, Thing>()
 
-        returned
-        |> Seq.iter (fun thing -> map.Add(thing.ThingID, thing))
+        for thing in returned do
+          map.Add(thing.ThingID, thing)
 
         let thingsToConsider =
           if isPawnStat then
@@ -109,12 +109,11 @@ module InfoTextLineFromGear =
       |> Option.map (fun c -> c.GetModForStat stat)
       |> Option.defaultValue (StatMod.empty)
 
-    do
-      __result <-
-        "    "
-        + gear.LabelCap
-        + ": "
-        + (stringForStat stat (baseMod + fromInfusion))
+    __result <-
+      "    "
+      + gear.LabelCap
+      + ": "
+      + (stringForStat stat (baseMod + fromInfusion))
 
     false
 
@@ -149,9 +148,9 @@ module GetExplanationUnfinalized =
 
       if inst.opcode = OpCodes.Ldfld
          && (inst.operand :?> FieldInfo) = statFI then
-        do inst.opcode <- OpCodes.Nop
+        inst.opcode <- OpCodes.Nop
       elif inst.opcode = OpCodes.Call
            && (inst.operand :?> MethodInfo) = gearAffectsStatMI then
-        do inst.operand <- gearOrInfusionAffectsStatMI
+        inst.operand <- gearOrInfusionAffectsStatMI
 
     Seq.ofList insts

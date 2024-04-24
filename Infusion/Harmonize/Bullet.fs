@@ -21,12 +21,10 @@ module Impact =
     |> Option.bind Pawn.getPrimaryEquipment
     |> Option.bind CompInfusion.forOnHitWorkers
     |> Option.iter (fun (workers, comp) ->
-      // execute OnHitWorkers
-      workers
-      |> List.iter (fun onHit ->
-        onHit.BulletHit
+      for worker in workers do
+        worker.BulletHit
           { baseDamage = baseDamage
             map = __state
             projectile = __instance
             source = comp.parent
-            target = Option.ofObj hitThing }))
+            target = Option.ofObj hitThing })

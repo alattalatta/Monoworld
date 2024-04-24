@@ -17,14 +17,14 @@ type DamageBase =
       armorPenetration = -1.0f
       def = null }
 
-  member this.MeleeArmorPen(record: MeleeHitRecord) =
+  member this.MeleeArmorPen(verb: Verb) =
     if this.armorPenetration < 0.0f then
-      record.verb.verbProps.AdjustedArmorPenetration(record.verb, record.verb.CasterPawn)
+      verb.verbProps.AdjustedArmorPenetration(verb, verb.CasterPawn)
     else
       this.armorPenetration
 
-  member this.RangedArmorPen(record: RangedHitRecord) =
+  member this.RangedArmorPen(projectile: Projectile) =
     if this.armorPenetration < 0.0f then
-      record.projectile.ArmorPenetration
+      projectile.ArmorPenetration
     else
       this.armorPenetration

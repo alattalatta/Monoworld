@@ -29,10 +29,9 @@ module MakeDowned =
             |> Option.map (fun comp -> (apparel, comp.OnHits))
             |> Option.filter (fun (_, onHits) -> onHits.Length > 0))
 
-        do
-          Lib.runUntilFalseFrom
-            0
-            ((fun ((apparel, onHits): (Apparel * OnHitWorker list)) ->
-              Lib.runUntilFalseFrom 0 ((fun (onHit: OnHitWorker) -> onHit.WearerDowned pawn apparel), onHits)),
-             apparelWorkerSets)
-          |> ignore)
+        Lib.runUntilFalseFrom
+          0
+          ((fun ((apparel, onHits): (Apparel * OnHitWorker list)) ->
+            Lib.runUntilFalseFrom 0 ((fun (onHit: OnHitWorker) -> onHit.WearerDowned pawn apparel), onHits)),
+           apparelWorkerSets)
+        |> ignore)

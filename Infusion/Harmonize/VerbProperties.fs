@@ -21,13 +21,11 @@ module GetHitChanceFactor =
         code.opcode = OpCodes.Ldc_R4
         && Convert.ToSingle code.operand = 1.0f)
 
-    do
-      match targetOpCodePos with
-      | Some s -> do insts.[s].operand <- 2.0f
-      | None ->
-        do
-          Log.Warning(
-            "[Infusion 2] Couldn't find matching opCode for VerbProperties.GetHitChanceFactor(). Can't apply accuracy overcapping."
-          )
+    match targetOpCodePos with
+    | Some s -> insts.[s].operand <- 2.0f
+    | None ->
+      Log.Warning(
+        "[Infusion 2] Couldn't find matching opCode for VerbProperties.GetHitChanceFactor(). Can't apply accuracy overcapping."
+      )
 
     seq insts

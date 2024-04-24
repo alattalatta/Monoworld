@@ -8,6 +8,4 @@ open Infusion
 
 [<HarmonyPatch(typeof<MemoryUtility>, "ClearAllMapsAndWorld")>]
 module ClearAllMapsAndWorld =
-  let Postfix () = 
-    Poet.Lyric.Console.log "disposing"
-    CompInfusion.ClearCaches()
+  let Postfix () = CompInfusion.ClearCaches()
