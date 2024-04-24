@@ -1,5 +1,6 @@
 namespace Infusion.OnHitWorkers
 
+open System
 open Verse
 
 open Infusion
@@ -9,6 +10,7 @@ open Infusion
 type CreateExplosion =
   inherit DamageBase
 
+  val mutable postExplosionGasType: Nullable<GasType>
   val mutable radius: float32
   val mutable onMeleeCast: bool
   val mutable onMeleeImpact: bool
@@ -16,6 +18,7 @@ type CreateExplosion =
   new() =
     { inherit DamageBase()
 
+      postExplosionGasType = Nullable()
       radius = 0.5f
 
       onMeleeCast = true
@@ -35,6 +38,7 @@ type CreateExplosion =
         damAmount = int (mr.baseDamage * this.amount),
         instigator = mr.source,
         intendedTarget = mr.target,
+        postExplosionGasType = this.postExplosionGasType,
         weapon = mr.source.def
       )
     | _ -> ()
@@ -51,6 +55,7 @@ type CreateExplosion =
       damAmount = int (record.baseDamage * this.amount),
       instigator = record.projectile.Launcher,
       intendedTarget = record.projectile.intendedTarget.Thing,
+      postExplosionGasType = this.postExplosionGasType,
       projectile = record.projectile.def,
       weapon = record.source.def
     )
@@ -68,5 +73,6 @@ type CreateExplosion =
         damAmount = int (record.baseDamage * this.amount),
         instigator = record.source,
         intendedTarget = record.target,
+        postExplosionGasType = this.postExplosionGasType,
         weapon = record.source.def
       )

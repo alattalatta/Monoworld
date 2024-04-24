@@ -68,7 +68,7 @@
         <value>
           <li Class="Infusion.OnHitWorkers.ApplyHediff">
             <def>PsychicFocus</def>
-            <amount>0.15</amount>
+            <amount>0.5</amount>
             <selfCast>true</selfCast>
             <severityScaleBy>PsychicSensitivity</severityScaleBy>
           </li>

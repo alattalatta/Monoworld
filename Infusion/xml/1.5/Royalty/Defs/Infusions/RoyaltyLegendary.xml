@@ -33,13 +33,13 @@
     <position>Suffix</position>
     <onHits>
       <li Class="Infusion.OnHitWorkers.Sequence">
-        <chance>0.2</chance>
+        <chance>0.25</chance>
         <onMeleeImpact>false</onMeleeImpact>
         <onRangedImpact>false</onRangedImpact>
         <value>
           <li Class="Infusion.OnHitWorkers.ApplyHediff">
             <def>PsychicInvisibility</def>
-            <amount>0.1</amount>
+            <amount>0.3</amount>
             <selfCast>true</selfCast>
           </li>
           <li Class="Infusion.OnHitWorkers.PlaySound">
@@ -50,7 +50,7 @@
       </li>
     </onHits>
     <extraDescriptions>
-      <li>Attack: 20% chance for psychic invisibility. Higher damage and burst count inflicts longer effects.</li>
+      <li>Attack: 25% chance for psychic invisibility. Higher damage and burst count inflicts longer effects.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 
@@ -101,13 +101,13 @@
     <labelShort>stim</labelShort>
     <onHits>
       <li Class="Infusion.OnHitWorkers.Sequence">
-        <chance>0.25</chance>
+        <chance>0.3</chance>
         <onMeleeImpact>false</onMeleeImpact>
         <onRangedImpact>false</onRangedImpact>
         <value>
           <li Class="Infusion.OnHitWorkers.ApplyHediff">
             <def>PsychicFocus</def>
-            <amount>0.2</amount>
+            <amount>0.5</amount>
             <selfCast>true</selfCast>
             <severityScaleBy>PsychicSensitivity</severityScaleBy>
           </li>
@@ -119,7 +119,7 @@
       </li>
     </onHits>
     <extraDescriptions>
-      <li>Attack: 25% chance for psychic focus. Higher damage and burst count inflicts longer effects.</li>
+      <li>Attack: 30% chance for psychic focus. Higher damage and burst count inflicts longer effects.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 </Defs>
