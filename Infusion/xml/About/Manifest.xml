@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Manifest>
-  <identifier>Infusion</identifier>
-  <version>6.0.4</version>
-  <manifestUri>https://raw.githubusercontent.com/alattalatta/Monoworld/main/Infusion/xml/About/Manifest.xml</manifestUri>
-  <downloadUri>https://github.com/alattalatta/Monoworld/releases</downloadUri>
-</Manifest>
