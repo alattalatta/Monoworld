@@ -17,5 +17,7 @@
 
   <ANDH.MetalhorrorReasonNuzzled>{PAWN_nameDef}(이)가 {INFECTED_nameDef}에게 애교를 부릴 때 보인 이상 반응을 {NOTICED_nameDef}(이)가 눈치챈 것이 원인입니다.</ANDH.MetalhorrorReasonNuzzled>
 
-  <ANDH.NuzzleDetectedDesc>{NOTICED_nameDef}(이)가 {PAWN_nameDef}(와)과 {INFECTED_nameDef}의 상호작용에서 이상한 점을 알아챘습니다. {INFECTED_nameDef}(이)가 {PAWN_nameDef}의 애교에 반응하는 모습이 부자연스럽고, 목소리도 이상합니다. {NOTICED_nameDef}(은)는 {INFECTED_nameDef}(이)가 메탈호러에 감염되었다고 의심합니다.</ANDH.NuzzleDetectedDesc>
+  <ANDH.NuzzleDetectedDesc>{NOTICED_nameDef}(은)는 {PAWN_nameDef}(이)가 {INFECTED_nameDef}의 주변에서 평소와 다르게 굴고 있다는 걸 알아챘습니다. 원래는 {INFECTED_nameDef}(와)과 잘 지내던 {PAWN_nameDef}(이)가 어쩐 일인지 갑자기 물러서는 것입니다. {NOTICED_nameDef}(이)가 곰곰이 생각해 보니, 얼마 전부터 {INFECTED_nameDef}(이)가 사소한 부분들에서 뭔가 좀 이상하게 행동했던 게 기억났습니다. {NOTICED_nameDef}(은)는 {INFECTED_nameDef}(이)가 메탈호러에 감염되었다고 의심합니다.</ANDH.NuzzleDetectedDesc>
+
+  <ANDH.NuzzleDetectedDesc>{NOTICED_nameDef}(은)는 {INFECTED_nameDef}의 믿음직한 친구여야 할 {PAWN_nameDef}의 주변에서 평소와 다른 행동을 보이는 걸 알아챘습니다. 평소에는 {INFECTED_nameDef}(와)과 함께 있길 좋아하던 {PAWN_nameDef}(이)가, 뭔가 이상한 걸 보기라도 한 듯 갑자기 물러서는 것입니다. 곰곰이 생각해 보니, 얼마 전부터 {INFECTED_nameDef}(이)가 사소한 부분들에서 뭔가 좀 이상하게 행동했던 게 기억났습니다. {NOTICED_nameDef}(은)는 {INFECTED_nameDef}(이)가 메탈호러에 감염되었다고 의심합니다.</ANDH.NuzzleDetectedDesc>
 </LanguageData>

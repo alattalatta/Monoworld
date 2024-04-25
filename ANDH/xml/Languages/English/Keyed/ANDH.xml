@@ -17,5 +17,7 @@
 
   <ANDH.MetalhorrorReasonNuzzled>{INFECTED_nameDef}'s metalhorror emerged because it was discovered by {NOTICED_nameDef} from an interaction with {PAWN_nameDef}.</ANDH.MetalhorrorReasonNuzzled>
 
-  <ANDH.NuzzleDetectedDesc>{NOTICED_nameDef} has noticed that something is unusual between {PAWN_nameDef} and {INFECTED_nameDef}. {INFECTED_pronoun} exhibited some combination of unnatural behavior or strange vocal sounds when responding to {PAWN_nameDef}'s nuzzling. {NOTICED_nameDef} suspects that {INFECTED_nameDef} is infected with a metalhorror.</ANDH.NuzzleDetectedDesc>
+  <ANDH.NuzzleDetectedDesc>{NOTICED_nameDef} has noticed {PAWN_nameDef}'s unusual behavior around {INFECTED_nameDef}. {PAWN_nameDef}, who would normally be comfortable around {INFECTED_nameDef}, suddenly withdrew as if sensing something was off. In hindsight, {PAWN_nameDef} could recall moments when {INFECTED_nameDef}'s behavior seemed slightly peculiar. {NOTICED_nameDef} suspects that {INFECTED_nameDef} might be infected with a metalhorror.</ANDH.NuzzleDetectedDesc>
+
+  <ANDH.NuzzleBondedDetectedDesc>{NOTICED_nameDef} has noticed {PAWN_nameDef} acting strangely around {PAWN_possessive} faithful friend, {INFECTED_nameDef}. {PAWN_nameDef}, who usually enjoyed {INFECTED_nameDef}'s company, suddenly withdrew as if something was amiss. In hindsight, {PAWN_nameDef} could recall moments when {INFECTED_nameDef}'s behavior seemed slightly peculiar. {NOTICED_nameDef} suspects that {INFECTED_nameDef} might be infected with a metalhorror.</ANDH.NuzzleBondedDetectedDesc>
 </LanguageData>
