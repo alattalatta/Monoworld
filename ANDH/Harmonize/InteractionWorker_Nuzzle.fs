@@ -4,11 +4,24 @@ open HarmonyLib
 open RimWorld
 open Verse
 
+#if DEBUG
+open Poet.Lib
+#endif
 
-[<HarmonyPatch(typeof<InteractionWorker_Nuzzle>, "AddNuzzledThought")>]
-module AddNuzzledThought =
-  let Postfix (initiator: Pawn, recipient: Pawn) =
-    if MetalhorrorUtility.IsInfected recipient then
+
+[<HarmonyPatch(typeof<InteractionWorker_Nuzzle>, "Interacted")>]
+module Interacted =
+  let Prefix
+    (
+      initiator: Pawn,
+      recipient: Pawn,
+      extraSentencePacks: System.Collections.Generic.List<RulePackDef>,
+      letterText: outref<string>,
+      letterLabel: outref<string>,
+      letterDef: outref<LetterDef>,
+      lookTargets: outref<LookTargets>
+    ) =
+    if MetalhorrorUtility.IsInfected recipient && initiator.NonHumanlikeOrWildMan() then
       let owner =
         Option.ofObj (initiator.relations)
         |> Option.bind (fun rel -> Option.ofObj (rel.GetFirstDirectRelationPawn(PawnRelationDefOf.Bond)))
@@ -17,8 +30,15 @@ module AddNuzzledThought =
         if owner
            |> Option.filter (fun o -> o = recipient)
            |> Option.isSome then
+
+          #if DEBUG
+          log "%A: nuzzled bonded one" initiator.Label
+          #endif
           Settings.BondedDetectionChance.handle
         else
+          #if DEBUG
+          log "%A: nuzzled random person" initiator.Label
+          #endif
           Settings.DetectionChance.handle
 
       if Rand.Chance detectionChance then
@@ -45,13 +65,18 @@ module AddNuzzledThought =
                   || MetalhorrorUtility.IsInfected(pawn)
                 )
                 // must be able to see or hear
-                && (pawn.health.capacities.CapableOf(PawnCapacityDefOf.Hearing) || pawn.health.capacities.CapableOf(PawnCapacityDefOf.Sight))
+                && (pawn.health.capacities.CapableOf(PawnCapacityDefOf.Hearing)
+                    || pawn.health.capacities.CapableOf(PawnCapacityDefOf.Sight))
                 // within certain radius
-                && pawn.Position.DistanceTo(recipient.Position) <= Settings.DetectionRadius.handle.Value
-              )
+                && pawn.Position.DistanceTo(recipient.Position)
+                   <= Settings.DetectionRadius.handle.Value)
               |> Seq.tryHead))
           |> Option.map (fun noticed -> noticed.Named("NOTICED"))
           
+        #if DEBUG
+        log "%A: noticed by %A" initiator.Label noticedArg
+        #endif
+
         // don't do anything when nobody noticed
         noticedArg
         |> Option.iter (fun noticed ->
@@ -78,3 +103,9 @@ module AddNuzzledThought =
             + subtleMessageExplainer,
             emergenceChance
           ))
+
+        false
+      else
+        true
+    else
+      true
