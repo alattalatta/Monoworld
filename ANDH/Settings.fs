@@ -37,7 +37,7 @@ module BondedDetectionChance =
   let mutable handle: SettingHandle<float32> = null
 
   let draw (pack: ModSettingsPack) =
-    handle <- getValidatingHandle 0.75f "bondedDetectionChance" (Validators.FloatRangeValidator(0.0f, 1.0f)) pack
+    handle <- getValidatingHandle 0.60f "bondedDetectionChance" (Validators.FloatRangeValidator(0.0f, 1.0f)) pack
     pack
 
 
@@ -53,7 +53,7 @@ module DetectionChance =
   let mutable handle: SettingHandle<float32> = null
 
   let draw (pack: ModSettingsPack) =
-    handle <- getValidatingHandle 0.4f "detectionChance" (Validators.FloatRangeValidator(0.0f, 1.0f)) pack
+    handle <- getValidatingHandle 0.25f "detectionChance" (Validators.FloatRangeValidator(0.0f, 1.0f)) pack
     pack
     
 
