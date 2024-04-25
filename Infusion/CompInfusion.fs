@@ -356,14 +356,11 @@ type CompInfusion() =
       let parent = this.parent
 
       let baseLabel =
-        let style = parent.StyleDef
+        Option.ofObj parent.StyleDef
+        |> Option.bind (fun def -> Option.ofObj def.overrideLabel)
+        |> Option.defaultWith (fun () -> GenLabel.ThingLabel(parent.def, parent.Stuff))
 
-        if isNull style || style.overrideLabel.NullOrEmpty() then
-          GenLabel.ThingLabel(parent.def, parent.Stuff)
-        else
-          style.overrideLabel
-
-      let translateKey =
+      let translationKey =
         if bestInf.position = Position.Prefix then
           "Infusion.Label.Prefixed"
         else
@@ -371,69 +368,24 @@ type CompInfusion() =
 
       let infusionLabel = this.MakeBestInfusionLabel Long
 
-      // without this extra call
-      // baseLabel will be missing
-      // [fixme] can't figure out why
-      translate2 translateKey infusionLabel baseLabel
-      |> ignore
-
       let sb =
-        translate2 translateKey infusionLabel baseLabel
+        translate2 translationKey infusionLabel baseLabel
         |> string
         |> StringBuilder
-
-      // components
-      // quality should never be None but let's be cautious
-      let quality =
-        Comp.ofThing<CompQuality> parent
-        |> Option.map (fun cq -> cq.Quality.GetLabel())
-
-      let hitPoints =
-        if parent.def.useHitPoints
-           && parent.HitPoints < parent.MaxHitPoints
-           && parent.def.stackLimit = 1 then
-          Some(
-            (float32 parent.HitPoints
-             / float32 parent.MaxHitPoints)
-              .ToStringPercent()
-          )
-        else
-          None
-
-      let tainted =
-        match parent with
-        | :? Apparel as apparel ->
-          if apparel.WornByCorpse then
-            Some(translate "WornByCorpseChar")
-          else
-            None
-        | _ -> None
 
       // infuser applicability
       let isInfuser =
         Option.ofObj parent.def.tradeTags
         |> Option.map (Seq.contains "Infusion_Infuser")
         |> Option.defaultValue false
+        
+      if isInfuser then
+        this.BestInfusion
+        |> Option.map InfusionDef.makeRequirementString
+        |> Option.iter (fun str -> sb.Append(" ").Append(str) |> ignore)
 
-      let applicability =
-        if isInfuser then
-          this.BestInfusion
-          |> Option.map InfusionDef.makeRequirementString
-        else
-          None
-
-      do
-        [ applicability
-          quality
-          hitPoints
-          tainted ]
-        |> List.choose id
-        |> String.concat " "
-        |> (fun str ->
-          if not (str.NullOrEmpty()) then
-            sb.Append(" (").Append(str).Append(")") |> ignore)
-
-      string sb
+      sb.Append (GenLabel.LabelExtras (parent, true, true))
+      |> string
     | None -> label
 
   override this.PostSpawnSetup(respawningAfterLoad) =
