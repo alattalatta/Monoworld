@@ -737,21 +737,21 @@
       <li>
         <key>ToxicResistance</key>
         <value>
-          <offset>0.1</offset>
+          <offset>0.2</offset>
         </value>
       </li>
     </stats>
     <onHits>
       <li Class="Infusion.OnHitWorkers.ApplyHediff">
         <def>ToxicBuildup</def>
-        <amount>0.12</amount>
+        <amount>0.075</amount>
         <severityScaleBy>ToxicResistance</severityScaleBy>
         <inverseStatScaling>true</inverseStatScaling>
         <onMeleeCast>false</onMeleeCast>
       </li>
     </onHits>
     <extraDescriptions>
-      <li>Impact: Increases toxic buildup of the target by 12% of the damage.</li>
+      <li>Impact: Increases toxic buildup of the target by 7.5% of the damage.</li>
     </extraDescriptions>
   </Infusion.InfusionDef>
 </Defs>
