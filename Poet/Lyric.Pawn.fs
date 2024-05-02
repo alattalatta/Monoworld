@@ -15,4 +15,5 @@ let getEquipments (pawn: Pawn) : option<list<ThingWithComps>> =
   |> Option.map (fun tracker -> List.ofSeq tracker.AllEquipmentListForReading)
 
 let getPrimaryEquipment (pawn: Pawn): ThingWithComps option =
-   Option.ofObj pawn.equipment.Primary
+  Option.ofObj pawn.equipment
+  |> Option.bind (fun eq -> Option.ofObj eq.Primary)
