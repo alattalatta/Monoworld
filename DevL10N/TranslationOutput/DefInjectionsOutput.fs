@@ -72,7 +72,7 @@ let private createInjectionsForCollection
     maybe {
       let mayProceed =
         englishList
-        |> List.exists (Translation.shouldInjectFor (injectable.Def, injectable.FieldInfo) injection)
+        |> List.exists (Translation.shouldInjectFor (injectable.Def, injectable.FieldInfo, injection))
 
       if mayProceed then
         return
@@ -85,7 +85,7 @@ let private createInjectionsForCollection
     englishList
     |> List.ofSeq
     |> List.collecti (fun (i, english) ->
-      if Translation.shouldInjectFor (injectable.Def, injectable.FieldInfo) injection english then
+      if Translation.shouldInjectFor (injectable.Def, injectable.FieldInfo, injection) english then
         let normPath = injectable.NormalizedPath + "." + i.ToString()
 
         let suggPath =
@@ -98,14 +98,20 @@ let private createInjectionsForCollection
         List.empty)
 
 
-let private createInjection (injections: DefInjectionDictByNormPath, injectable: Injectable) =
+let private createInjection (injections: DefInjectionDictByNormPath, injectable: Injectable, curValue: string) =
   let injection = Dict.get injectable.NormalizedPath injections
 
-  injection
-  |> Option.filter (fun x -> x.injected)
-  |> Option.bind (fun x -> Option.ofObj x.replacedString)
-  |> Option.filter (Translation.shouldInjectFor (injectable.Def, injectable.FieldInfo) injection)
-  |> Option.map (fun english -> createSingularXMLElement (injectable.SuggestedPath, english))
+  let english =
+    injection
+    |> Option.filter (fun x -> x.injected)
+    |> Option.bind (fun x -> Option.ofObj x.replacedString)
+    |> Option.defaultValue (curValue)
+
+  if Translation.shouldInjectFor (injectable.Def, injectable.FieldInfo, injection) english then
+    Some(createSingularXMLElement (injectable.SuggestedPath, english))
+  else
+    None
+
 
 let private writeFile
   (
@@ -130,20 +136,20 @@ let private writeFile
               match injectable.Value with
               | Injectable.Collection canTranslateList ->
                 createInjectionsForCollection (injections, injectable, canTranslateList)
-              | Injectable.Singular ->
-                createInjection (injections, injectable)
+              | Injectable.Singular curValue ->
+                curValue
+                |> Option.bind (fun cv -> createInjection (injections, injectable, cv))
                 |> Option.map List.singleton
                 |> Option.defaultValue List.empty
             with
             | ex ->
-              do
-                err
-                  "Could not write injection for %s in %s, path '%s': %s\nInjectable: %A"
-                  defType.Name
-                  fileName
-                  injectable.SuggestedPath
-                  ex.Message
-                  injectable
+              err
+                "Could not write injection for %s in %s, path '%s': %s\nInjectable: %A"
+                defType.Name
+                fileName
+                injectable.SuggestedPath
+                ex.Message
+                injectable
 
               List.empty))
         |> List.filter (List.isEmpty >> not)
@@ -169,9 +175,8 @@ let private writeFile
 
         let defTypeDirPath = Path.Combine(defInjectionDirPath, defTypeName)
 
-        do
-          Directory.CreateDirectory(defTypeDirPath)
-          |> ignore
+        Directory.CreateDirectory(defTypeDirPath)
+        |> ignore
 
         do!
           injectionsToWrite
@@ -200,7 +205,7 @@ let private writeForDefType (defInjectionDirPath: string, modData: ModMetaData) 
       try
         do! writeFile (injections, injectables, defType, defInjectionDirPath, fileName)
       with
-      | ex -> do err "Could not write defInjection for %s in %s: %s" defType.Name fileName ex.Message
+      | ex -> err "Could not write defInjection for %s in %s: %s" defType.Name fileName ex.Message
     })
   |> Async.Parallel
 
@@ -211,7 +216,7 @@ let write destPath (modData: ModMetaData) =
     |> DirectoryInfo
 
   if not defInjectionDirInfo.Exists then
-    do defInjectionDirInfo.Create()
+    defInjectionDirInfo.Create()
 
   async {
     do!

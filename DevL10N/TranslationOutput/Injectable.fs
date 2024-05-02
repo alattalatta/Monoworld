@@ -19,7 +19,7 @@ let private fieldsInDeterministicOrder (t: Type) =
 
 type InjectableValue =
   | Collection of bool // TranslationCanCahngeCount
-  | Singular
+  | Singular of string option // CurValue
 
 type Injectable =
   { Def: Def
@@ -79,7 +79,7 @@ let rec private collectInDefRecursive
                  FieldInfo = field
                  NormalizedPath = newNormPath
                  SuggestedPath = newSuggestedPath
-                 Value = InjectableValue.Singular }
+                 Value = InjectableValue.Singular(Option.ofObj (value :?> string)) }
              )
 
            // string collection

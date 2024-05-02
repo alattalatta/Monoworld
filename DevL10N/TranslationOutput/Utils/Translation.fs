@@ -26,8 +26,7 @@ let private additionalMustTranslateList = set [
 ]
  
 let shouldInjectFor
-  (def: Def, fieldInfo: FieldInfo)
-  (injectionMaybe: DefInjectionPackage.DefInjection option)
+  (def: Def, fieldInfo: FieldInfo, injectionMaybe: DefInjectionPackage.DefInjection option)
   (curValue: string)
   =
   Option.isSome injectionMaybe
