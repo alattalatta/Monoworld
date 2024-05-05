@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <HediffDef>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defName>ANDH_MetalhorrorImplant_FalseAlarm</defName>
+    <label>metalhorror implantation suspected</label>
+    <description>(hidden)</description>
+    <everCurableByItem>false</everCurableByItem>
+    <comps>
+      <li Class="ANDH.HediffCompProperties_SurgeryInspectableMetalHorrorFalseAlarm" />
+    </comps>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+  </HediffDef>
+</Defs>

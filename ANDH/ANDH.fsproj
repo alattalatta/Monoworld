@@ -21,6 +21,9 @@
     <Compile Include="ResourceBank.fs" />
     <Compile Include="Settings.fs" />
     <Compile Include="Harmonize\InteractionWorker_Nuzzle.fs" />
+    <Compile Include="Harmonize\MetalhorrorUtility.fs" />
+    <Compile Include="HediffComp_SurgeryInspectableMetalhorrorFalseAlarm.fs" />
+    <Compile Include="HediffCompProperties_SurgeryInspectableMetalHorrorFalseAlarm.fs" />
     <Compile Include="Mod.fs" />
   </ItemGroup>
   <ItemGroup>

@@ -73,6 +73,14 @@ module EmergenceChance =
     pack
 
 
+module StressedFalseAlarm =
+  let mutable handle: SettingHandle<float32> = null
+
+  let draw (pack: ModSettingsPack) =
+    handle <- getValidatingHandle 0.01f "stressedFalseAlarm" (Validators.FloatRangeValidator(0.0f, 1.0f)) pack
+    pack
+
+
 let initialize () =
   HugsLibController.SettingsManager.GetModSettings("latta.andh")
   |> DetectionChance.draw
@@ -80,4 +88,5 @@ let initialize () =
   |> DetectionRadius.draw
   |> CanTriggerEmerging.draw
   |> EmergenceChance.draw
+  |> StressedFalseAlarm.draw
   |> ignore

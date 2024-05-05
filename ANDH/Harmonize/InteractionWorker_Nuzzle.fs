@@ -9,6 +9,85 @@ open Poet.Lib
 #endif
 
 
+let private chooseNoticer weighter (candidates: Pawn seq, recipient: Pawn) =
+  // pick one who is...
+  let filtered =
+    candidates
+    |> Seq.filter (fun pawn ->
+      // not dead, not downed, not in a mental state and not infected
+      not (
+        pawn.DeadOrDowned
+        || pawn.InMentalState
+        || MetalhorrorUtility.IsInfected(pawn)
+      )
+      // must be able to see or hear
+      && (pawn.health.capacities.CapableOf(PawnCapacityDefOf.Hearing)
+          || pawn.health.capacities.CapableOf(PawnCapacityDefOf.Sight))
+      // within certain radius
+      && pawn.Position.DistanceTo(recipient.Position)
+         <= Settings.DetectionRadius.handle.Value)
+
+  let list = new System.Collections.Generic.List<Pawn>(filtered)
+
+  if list.Count > 0 then
+    Some(list.RandomElementByWeight weighter)
+  else
+    None
+
+
+let private doDetection (initiator: Pawn, recipient: Pawn, noticed: Pawn, recipientBonded: bool, falseAlarm: bool) =
+  #if DEBUG
+  log "initiator: %A\nrecipient: %A\nnoticed: %A" initiator recipient noticed
+  #endif
+
+  let initiatorArg = initiator.Named("PAWN")
+  let recipientArg = initiator.Named("INFECTED")
+  let noticedArg = noticed.Named("NOTICED")
+
+  let emergingReason =
+    ResourceBank.Strings.metalhorrorReasonNuzzled initiatorArg recipientArg noticedArg
+
+  let subtleMessageBody =
+    let resource =
+      if Settings.StressedFalseAlarm.handle.Value > 0.0f then
+        if recipientBonded then
+          ResourceBank.Strings.nuzzleDetectedDescFallible
+        else
+          ResourceBank.Strings.nuzzleDetectedDescFallible
+      else if recipientBonded then
+        ResourceBank.Strings.nuzzleDetectedDesc
+      else
+        ResourceBank.Strings.nuzzleDetectedDesc
+
+    resource initiatorArg recipientArg noticedArg
+
+  let subtleMessageExplainer =
+    ResourceBank.Strings.metalhorrorExplainer initiatorArg recipientArg
+
+  let emergenceChance =
+    if Settings.CanTriggerEmerging.handle.Value then
+      Settings.EmergenceChance.handle.Value
+    else
+      0f
+
+  let subtleMessage = 
+      subtleMessageBody
+      + "\n\n"
+      + subtleMessageExplainer
+
+  if falseAlarm then
+    if not (recipient.health.hediffSet.HasHediff(ResourceBank.Defs.ANDH_MetalhorrorImplant_FalseAlarm)) then
+      recipient.health.AddHediff(ResourceBank.Defs.ANDH_MetalhorrorImplant_FalseAlarm) |> ignore
+      Find.LetterStack.ReceiveLetter("MetalhorrorDetected".Translate(), subtleMessage, LetterDefOf.ThreatSmall)
+  else
+    MetalhorrorUtility.Detect(
+      recipient,
+      emergingReason,
+      subtleMessage,
+      emergenceChance
+    )
+
+
 [<HarmonyPatch(typeof<InteractionWorker_Nuzzle>, "Interacted")>]
 module Interacted =
   let Prefix
@@ -21,89 +100,129 @@ module Interacted =
       letterDef: outref<LetterDef>,
       lookTargets: outref<LookTargets>
     ) =
-    if MetalhorrorUtility.IsInfected recipient && initiator.NonHumanlikeOrWildMan() then
-      let owner =
-        Option.ofObj (initiator.relations)
-        |> Option.bind (fun rel -> Option.ofObj (rel.GetFirstDirectRelationPawn(PawnRelationDefOf.Bond)))
+    let initiatorIsAnimal = initiator.NonHumanlikeOrWildMan()
+    let recipientInfected = MetalhorrorUtility.IsInfected recipient
 
+    let bonded =
+      Option.ofObj (initiator.relations)
+      |> Option.bind (fun rel -> Option.ofObj (rel.GetFirstDirectRelationPawn(PawnRelationDefOf.Bond)))
+
+    let recipientIsBonded =
+      bonded
+      |> Option.filter (fun pb -> pb = recipient)
+      |> Option.isSome
+
+#if DEBUG
+    log "hasSeenGrayFlesh: %A\nrecipientInfected: %A" Find.Anomaly.hasSeenGrayFlesh recipientInfected
+#endif
+
+    if not initiatorIsAnimal then
+      true
+    // false alarm
+    else if Find.Anomaly.hasSeenGrayFlesh
+            && not recipientInfected
+            && Rand.Chance Settings.StressedFalseAlarm.handle then
+#if DEBUG
+      log "doing false alarm"
+#endif
+      let candidates =
+        Option.ofObj initiator.Map
+        |> Option.filter (fun m -> m.IsPlayerHome)
+        |> Option.map (fun m ->
+          seq m.mapPawns.FreeColonistsSpawned
+          |> Seq.filter (fun p ->
+            let mb = p.mindState.mentalBreaker
+            mb.CurMood <= mb.BreakThresholdMinor))
+        |> Option.defaultValue Seq.empty
+
+#if DEBUG
+      log "candidates: %A" candidates
+#endif
+
+      let weighter =
+        (fun (p: Pawn) ->
+          // prefer higher animal skill
+          let weightBySkill =
+            p.skills.GetSkill(SkillDefOf.Animals).Level
+            |> float32
+            |> (*) 2f
+
+          let mb = p.mindState.mentalBreaker
+
+          let weightByStress =
+            if mb.BreakExtremeIsImminent then 9f
+            elif mb.BreakMajorIsImminent then 3f
+            else 1f
+
+          weightBySkill * weightByStress)
+
+      let noticed = chooseNoticer weighter (candidates, recipient)
+
+#if DEBUG
+      log "%A: noticed (false) by %A" initiator.Label noticed
+#endif
+
+      // don't do anything when nobody "noticed"
+      noticed
+      |> Option.iter (fun noticed -> doDetection (initiator, recipient, noticed, recipientIsBonded, true))
+
+      // do not prevent interaction, the initiator actually nuzzled
+      true
+    // real alarm
+    else if recipientInfected then
       let detectionChance =
-        if owner
+        if bonded
            |> Option.filter (fun o -> o = recipient)
            |> Option.isSome then
-
-          #if DEBUG
+#if DEBUG
           log "%A: nuzzled bonded one" initiator.Label
-          #endif
+#endif
           Settings.BondedDetectionChance.handle
         else
-          #if DEBUG
+#if DEBUG
           log "%A: nuzzled random person" initiator.Label
-          #endif
+#endif
           Settings.DetectionChance.handle
 
       if Rand.Chance detectionChance then
-        let initiatorArg = initiator.Named("PAWN")
-        let recipientArg = recipient.Named("INFECTED")
+        let candidates =
+          Option.ofObj initiator.Map
+          |> Option.filter (fun m -> m.IsPlayerHome)
+          |> Option.map (fun m -> seq m.mapPawns.FreeColonistsSpawned)
+          |> Option.defaultValue (Seq.empty)
 
-        let noticedArg =
-          owner
-          // the owner should not be the infected one
-          |> Option.filter (fun owner -> owner <> recipient)
-          |> Option.orElseWith (fun () ->
-            // within current map...
-            Option.ofObj initiator.Map
-            // which is a player colony,
-            |> Option.filter (fun map -> map.IsPlayerHome)
-            |> Option.bind (fun map ->
-              // pick one who is...
-              map.mapPawns.FreeColonistsSpawned
-              |> Seq.filter (fun pawn ->
-                // not dead, not downed, not in a mental state and not infected
-                not (
-                  pawn.DeadOrDowned
-                  || pawn.InMentalState
-                  || MetalhorrorUtility.IsInfected(pawn)
-                )
-                // must be able to see or hear
-                && (pawn.health.capacities.CapableOf(PawnCapacityDefOf.Hearing)
-                    || pawn.health.capacities.CapableOf(PawnCapacityDefOf.Sight))
-                // within certain radius
-                && pawn.Position.DistanceTo(recipient.Position)
-                   <= Settings.DetectionRadius.handle.Value)
-              |> Seq.tryHead))
-          |> Option.map (fun noticed -> noticed.Named("NOTICED"))
-          
-        #if DEBUG
-        log "%A: noticed by %A" initiator.Label noticedArg
-        #endif
+#if DEBUG
+        log "candidates: %A" candidates
+#endif
+
+        let weighter =
+          (fun (p: Pawn) ->
+            // prefer higher animal skill
+            let weightBySkill =
+              p.skills.GetSkill(SkillDefOf.Animals).Level
+              |> float32
+              |> (*) 2f
+
+            // prefer bonded colonist
+            match bonded with
+            | Some pb ->
+              if p = pb then
+                weightBySkill * 5f
+              else
+                weightBySkill
+            | None -> weightBySkill)
+
+        let noticed = chooseNoticer weighter (candidates, recipient)
+
+#if DEBUG
+        log "%A: noticed by %A" initiator.Label noticed
+#endif
 
         // don't do anything when nobody noticed
-        noticedArg
-        |> Option.iter (fun noticed ->
-          let emergingReason =
-            ResourceBank.Strings.metalhorrorReasonNuzzled initiatorArg recipientArg noticed
+        noticed
+        |> Option.iter (fun noticed -> doDetection (initiator, recipient, noticed, recipientIsBonded, false))
 
-          let subtleMessageBody =
-            ResourceBank.Strings.nuzzleDetectedDesc initiatorArg recipientArg noticed
-
-          let subtleMessageExplainer =
-            ResourceBank.Strings.metalhorrorExplainer initiatorArg recipientArg
-
-          let emergenceChance =
-            if Settings.CanTriggerEmerging.handle.Value then
-              Settings.EmergenceChance.handle.Value
-            else
-              0f
-
-          MetalhorrorUtility.Detect(
-            recipient,
-            emergingReason,
-            subtleMessageBody
-            + "\n\n"
-            + subtleMessageExplainer,
-            emergenceChance
-          ))
-
+        // prevent interaction as the initiator didn't really nuzzle
         false
       else
         true

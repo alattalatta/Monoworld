@@ -15,9 +15,14 @@
   <ANDH.EmergenceChance>등장 확률</ANDH.EmergenceChance>
   <ANDH.EmergenceChance.Description>동물의 애교가 메탈호러 출현을 발동할 확률을 조절합니다("동물 애교로 등장 가능" 필요). 0.0 ~ 1.0.</ANDH.EmergenceChance.Description>
 
+  <ANDH.StressedFalseAlarm>스트레스성 거짓 탐지 확률</ANDH.StressedFalseAlarm>
+  <ANDH.StressedFalseAlarm.Description>스트레스를 받은 정착민이 잘못 판단할 확률을 조절합니다. 0.0 지정 시 비활성화합니다. 0.0 ~ 1.0.\n참고: 거짓 탐지는 회색 살점을 발견한 적이 있어야 발생합니다.</ANDH.StressedFalseAlarm.Description>
+
   <ANDH.MetalhorrorReasonNuzzled>{PAWN_nameDef}(이)가 {INFECTED_nameDef}에게 애교를 부릴 때 보인 이상 반응을 {NOTICED_nameDef}(이)가 눈치챈 것이 원인입니다.</ANDH.MetalhorrorReasonNuzzled>
 
   <ANDH.NuzzleDetectedDesc>{NOTICED_nameDef}(은)는 {INFECTED_nameDef}(을)를 대하는 {PAWN_nameDef}의 행동이 평소와 달리 살갑지 않은 걸 알아챘습니다. 오히려 이상한 걸 본 듯 뚫어져라 보는 것도 같습니다. {NOTICED_nameDef}(이)가 곰곰이 생각해 보니, 얼마 전부터 {INFECTED_nameDef}(이)가 사소한 부분들에서 뭔가 이상하게 행동했던 게 기억났습니다. {NOTICED_nameDef}(은)는 {INFECTED_nameDef}(이)가 메탈호러에 감염되었다고 의심합니다.</ANDH.NuzzleDetectedDesc>
+  <ANDH.NuzzleDetectedDescFallible>{NOTICED_nameDef}(은)는 {INFECTED_nameDef}(을)를 대하는 {PAWN_nameDef}의 행동이 평소와 달리 살갑지 않은 걸 알아챘습니다. 오히려 이상한 걸 본 듯 뚫어져라 보는 것도 같습니다. {NOTICED_nameDef}(이)가 곰곰이 생각해 보니, 얼마 전부터 {INFECTED_nameDef}(이)가 사소한 부분들에서 뭔가 이상하게 행동했던 게 기억났습니다... 하지만 지나친 스트레스 때문에 {NOTICED_nameDef}(이)가 잘못 본 것일 뿐일지도 모릅니다. 어쨌든, {NOTICED_nameDef}(은)는 {INFECTED_nameDef}(이)가 메탈호러에 감염되었다고 의심합니다.</ANDH.NuzzleDetectedDescFallible>
 
-  <ANDH.NuzzleDetectedDesc>{NOTICED_nameDef}(은)는 {INFECTED_nameDef}의 믿음직한 친구여야 할 {PAWN_nameDef}(이)가 {INFECTED_pronoun}의 주변에서 평소와 다른 행동을 보이는 걸 알아챘습니다. 오히려 이상한 걸 본 듯 뚫어져라 보는 것도 같습니다. {NOTICED_nameDef}(이)가 곰곰이 생각해 보니, 얼마 전부터 {INFECTED_nameDef}(이)가 사소한 부분들에서 뭔가 이상하게 행동했던 게 기억났습니다. {NOTICED_nameDef}(은)는 {INFECTED_nameDef}(이)가 메탈호러에 감염되었다고 의심합니다.</ANDH.NuzzleDetectedDesc>
+  <ANDH.NuzzleBondedDetectedDesc>{NOTICED_nameDef}(은)는 {INFECTED_nameDef}의 믿음직한 친구여야 할 {PAWN_nameDef}(이)가 {INFECTED_pronoun}의 주변에서 평소와 다른 행동을 보이는 걸 알아챘습니다. 오히려 이상한 걸 본 듯 뚫어져라 보는 것도 같습니다. {NOTICED_nameDef}(이)가 곰곰이 생각해 보니, 얼마 전부터 {INFECTED_nameDef}(이)가 사소한 부분들에서 뭔가 이상하게 행동했던 게 기억났습니다. {NOTICED_nameDef}(은)는 {INFECTED_nameDef}(이)가 메탈호러에 감염되었다고 의심합니다.</ANDH.NuzzleBondedDetectedDesc>
+  <ANDH.NuzzleBondedDetectedDescFallible>{NOTICED_nameDef}(은)는 {INFECTED_nameDef}의 믿음직한 친구여야 할 {PAWN_nameDef}(이)가 {INFECTED_pronoun}의 주변에서 평소와 다른 행동을 보이는 걸 알아챘습니다. 오히려 이상한 걸 본 듯 뚫어져라 보는 것도 같습니다. {NOTICED_nameDef}(이)가 곰곰이 생각해 보니, 얼마 전부터 {INFECTED_nameDef}(이)가 사소한 부분들에서 뭔가 이상하게 행동했던 게 기억났습니다... 하지만 지나친 스트레스 때문에 {NOTICED_nameDef}(이)가 잘못 본 것일 뿐일지도 모릅니다. 어쨌든,  {NOTICED_nameDef}(은)는 {INFECTED_nameDef}(이)가 메탈호러에 감염되었다고 의심합니다.</ANDH.NuzzleBondedDetectedDescFallible>
 </LanguageData>
