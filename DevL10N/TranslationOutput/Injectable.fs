@@ -5,6 +5,7 @@ open System.Collections.Generic
 open System.Reflection
 
 open HarmonyLib
+open Poet.Lib
 open Verse
 
 open DevL10N.TranslationOutput.Utils
@@ -65,6 +66,7 @@ let rec private collectInDefRecursive
          fieldsInDeterministicOrder (objType)
          |> Seq.collect (fun field ->
            let (newNormPath, newSuggestedPath) = makePath normPath suggestedPath field
+
            let value = field.GetValue(obj)
 
            if field.HasAttribute<NoTranslateAttribute>()
@@ -106,7 +108,7 @@ let rec private collectInDefRecursive
                else
                  let indexHandle =
                    TranslationHandleUtility.GetBestHandleWithIndexForListElement(value, collectionValue)
-                   |> Option.ofObj
+                   |> Option.ofString
                    |> Option.defaultValue index
 
                  collectInDefRecursive (
