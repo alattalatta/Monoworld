@@ -72,6 +72,12 @@ module Option =
     else
       Some s
 
+  let ofString (s: String) =
+    if s.NullOrEmpty() then
+      None
+    else
+      Some s
+
   let tap f a =
     match a with
     | Some a2 ->
