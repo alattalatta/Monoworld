@@ -3,7 +3,7 @@
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
     <TargetFramework>net472</TargetFramework>
     <Name>Poet</Name>
-    <Version>5.3.1</Version>
+    <Version>5.4.0</Version>
     <ProjectGuid>{ffd3d706-a9ba-455c-a640-1f4bde05ea5f}</ProjectGuid>
   </PropertyGroup>
   <ItemGroup>
