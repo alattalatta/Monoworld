@@ -3,7 +3,7 @@
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
     <TargetFramework>net472</TargetFramework>
     <Name>Infusion</Name>
-    <Version>6.1.1</Version>
+    <Version>6.1.2</Version>
     <ProjectGuid>{f7155e1b-2628-4b11-88eb-c06570257cc2}</ProjectGuid>
   </PropertyGroup>
   <ItemGroup>
