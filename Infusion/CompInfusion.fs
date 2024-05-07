@@ -32,7 +32,7 @@ type CompInfusion() =
   let mutable extractionSet = Set.empty<InfusionDef>
   let mutable removalSet = Set.empty<InfusionDef>
 
-  let mutable biocoder = None
+  let mutable biocoder: CompBiocodable option = None
   let mutable effectsEnabled = true
   let mutable slotCount = -1
   let mutable quality = QualityCategory.Normal
@@ -59,35 +59,34 @@ type CompInfusion() =
     removalCandidates <- Set.empty
 
   static member RegisterWantingCandidate comp =
-    do CompInfusion.WantingCandidates <- Set.add comp CompInfusion.WantingCandidates
+    CompInfusion.WantingCandidates <- Set.add comp CompInfusion.WantingCandidates
 
   static member RegisterExtractionCandidate comp =
-    do CompInfusion.ExtractionCandidates <- Set.add comp CompInfusion.ExtractionCandidates
+    CompInfusion.ExtractionCandidates <- Set.add comp CompInfusion.ExtractionCandidates
 
   static member RegisterRemovalCandidate comp =
-    do CompInfusion.RemovalCandidates <- Set.add comp CompInfusion.RemovalCandidates
+    CompInfusion.RemovalCandidates <- Set.add comp CompInfusion.RemovalCandidates
 
   static member UnregisterWantingCandidates comp =
-    do CompInfusion.WantingCandidates <- Set.remove comp CompInfusion.WantingCandidates
+    CompInfusion.WantingCandidates <- Set.remove comp CompInfusion.WantingCandidates
 
   static member UnregisterExtractionCandidates comp =
-    do CompInfusion.ExtractionCandidates <- Set.remove comp CompInfusion.ExtractionCandidates
+    CompInfusion.ExtractionCandidates <- Set.remove comp CompInfusion.ExtractionCandidates
 
   static member UnregisterRemovalCandidate comp =
-    do CompInfusion.RemovalCandidates <- Set.remove comp CompInfusion.RemovalCandidates
+    CompInfusion.RemovalCandidates <- Set.remove comp CompInfusion.RemovalCandidates
 
   member this.Biocoder
-    with get () = biocoder
-    and set (value: CompBiocodable option) = do biocoder <- value
+    with get () = biocoder |> Option.filter (fun b -> b.Biocodable)
+    and set (value: CompBiocodable option) = biocoder <- value
 
   member this.EffectsEnabled = effectsEnabled
 
   member this.Quality
     with get () = quality
     and set value =
-      do
-        quality <- value
-        slotCount <- this.CalculateSlotCountFor value
+      quality <- value
+      slotCount <- this.CalculateSlotCountFor value
 
   member this.Infusions = infusions |> Seq.sortDescending
 
@@ -122,7 +121,7 @@ type CompInfusion() =
 
   member this.SlotCount
     with get () = slotCount
-    and set value = do slotCount <- value
+    and set value = slotCount <- value
 
   member this.InfusionsByPosition =
     let (prefixes, suffixes) =
@@ -331,13 +330,12 @@ type CompInfusion() =
         originalHitPoints
         / float32 this.parent.MaxHitPoints
 
-      do
-        this.parent.HitPoints <-
-          (float32 this.parent.MaxHitPoints * hitPointsRatio)
-          |> round
-          |> int
-          |> max (originalHitPoints |> round |> int)
-          |> min this.parent.MaxHitPoints
+      this.parent.HitPoints <-
+        (float32 this.parent.MaxHitPoints * hitPointsRatio)
+        |> ceil
+        |> int
+        |> max (originalHitPoints |> round |> int)
+        |> min this.parent.MaxHitPoints
 
     do
       infusions <- value |> Set.ofSeq
@@ -378,13 +376,13 @@ type CompInfusion() =
         Option.ofObj parent.def.tradeTags
         |> Option.map (Seq.contains "Infusion_Infuser")
         |> Option.defaultValue false
-        
+
       if isInfuser then
         this.BestInfusion
         |> Option.map InfusionDef.makeRequirementString
         |> Option.iter (fun str -> sb.Append(" ").Append(str) |> ignore)
 
-      sb.Append (GenLabel.LabelExtras (parent, true, true))
+      sb.Append(GenLabel.LabelExtras(parent, true, true))
       |> string
     | None -> label
 
@@ -528,5 +526,4 @@ module CompInfusion =
   let forOnHitWorkers (thing: ThingWithComps) =
     Comp.ofThing<CompInfusion> thing
     |> Option.filter (fun comp -> comp.EffectsEnabled)
-    |> Option.map (fun comp ->
-      (comp.OnHits |> List.filter OnHitWorker.checkChance, comp))
+    |> Option.map (fun comp -> (comp.OnHits |> List.filter OnHitWorker.checkChance, comp))

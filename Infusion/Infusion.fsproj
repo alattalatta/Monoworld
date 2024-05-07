@@ -62,11 +62,11 @@
     <Compile Include="WorkGiver.fs" />
     <Compile Include="SpecialThingFilterWorkers\Everything.fs" />
     <Compile Include="Harmonize\Bullet.fs" />
-    <Compile Include="Harmonize\CompBiocodable.fs" />
     <Compile Include="Harmonize\CompQuality.fs" />
     <Compile Include="Harmonize\MemoryUtility.fs" />
     <Compile Include="Harmonize\Pawn_EquipmentTracker.fs" />
     <Compile Include="Harmonize\Pawn_HealthTracker.fs" />
+    <Compile Include="Harmonize\PawnGenerator.fs" />
     <Compile Include="Harmonize\StatWorker.fs" />
     <Compile Include="Harmonize\Verb.fs" />
     <Compile Include="Harmonize\VerbMeleeAttackDamage.fs" />
