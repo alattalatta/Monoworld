@@ -670,33 +670,6 @@
       </li>
     </stats>
   </Infusion.InfusionDef>
-
-  <Infusion.InfusionDef ParentName="LegendaryWeaponsBase">
-    <defName>Nature</defName>
-    <label>nature</label>
-    <labelShort>nature</labelShort>
-    <position>Suffix</position>
-    <stats>
-      <li>
-        <key>HuntingStealth</key>
-        <value>
-          <offset>0.6</offset>
-        </value>
-      </li>
-      <li>
-        <key>TameAnimalChance</key>
-        <value>
-          <offset>0.2</offset>
-        </value>
-      </li>
-      <li>
-        <key>TrainAnimalChance</key>
-        <value>
-          <offset>0.2</offset>
-        </value>
-      </li>
-    </stats>
-  </Infusion.InfusionDef>
   <!-- #endregion -->
 
 </Defs>

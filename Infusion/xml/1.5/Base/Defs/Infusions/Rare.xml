@@ -606,6 +606,27 @@
   </Infusion.InfusionDef>
 
   <Infusion.InfusionDef ParentName="RareRangedBase">
+    <defName>Nature</defName>
+    <label>nature</label>
+    <labelShort>nature</labelShort>
+    <position>Suffix</position>
+    <stats>
+      <li>
+        <key>HuntingStealth</key>
+        <value>
+          <offset>0.5</offset>
+        </value>
+      </li>
+      <li>
+        <key>TameAnimalChance</key>
+        <value>
+          <offset>0.1</offset>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef ParentName="RareRangedBase">
     <defName>Optimized</defName>
     <label>optimized</label>
     <labelShort>opti</labelShort>

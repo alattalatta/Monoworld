@@ -88,6 +88,9 @@
   <Explosive.labelShort>폭발형</Explosive.labelShort>
   <Explosive.extraDescriptions.0>명중: 10% 확률로 폭발합니다. 반경 1.4칸 내에 피해량의 50%만큼 피해를 입힙니다.</Explosive.extraDescriptions.0>
 
+  <Nature.label>자연의</Nature.label>
+  <Nature.labelShort>자연의</Nature.labelShort>
+
   <Optimized.label>최적화한</Optimized.label>
   <Optimized.labelShort>최적</Optimized.labelShort>
 
