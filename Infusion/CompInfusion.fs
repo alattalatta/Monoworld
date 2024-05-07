@@ -321,30 +321,28 @@ type CompInfusion() =
     | None -> ""
 
   member this.SetInfusions(value: InfusionDef seq, respawningAfterLoad: bool) =
+    let originalHitPoints = float32 this.parent.HitPoints
+    let hitPointsRatio =
+      originalHitPoints
+      / float32 this.parent.MaxHitPoints
+
+    infusions <- value |> Set.ofSeq
+    wantingSet <- Set.difference wantingSet infusions
+    extractionSet <- Set.intersect extractionSet infusions
+    removalSet <- Set.intersect removalSet infusions
+
+    this.InvalidateCache()
+    this.FinalizeSetMutations()
+
     // only increase HP along with max HP when already in game
     // the save contains both HP and max HP already
     if not respawningAfterLoad then
-      let originalHitPoints = float32 this.parent.HitPoints
-
-      let hitPointsRatio =
-        originalHitPoints
-        / float32 this.parent.MaxHitPoints
-
       this.parent.HitPoints <-
         (float32 this.parent.MaxHitPoints * hitPointsRatio)
         |> ceil
         |> int
         |> max (originalHitPoints |> round |> int)
         |> min this.parent.MaxHitPoints
-
-    do
-      infusions <- value |> Set.ofSeq
-      wantingSet <- Set.difference wantingSet infusions
-      extractionSet <- Set.intersect extractionSet infusions
-      removalSet <- Set.intersect removalSet infusions
-
-      this.InvalidateCache()
-      this.FinalizeSetMutations()
 
   // overrides parent label completely - expect conflicts
   // [todo] transpiler for GenLabel.ThingLabel
