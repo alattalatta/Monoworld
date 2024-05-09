@@ -14,20 +14,37 @@ open StatMod
 open VerseTools
 
 
-module StatWorker =
-  let apparelsAndEquipments (pawn: Pawn) =
-    let fromApparels =
-      match Pawn.getApparels pawn with
-      | Some apparels -> apparels |> List.map upcastToThing
-      | None -> List.empty
+let private apparelsAndEquipments (pawn: Pawn) =
+  let fromApparels =
+    match Pawn.getApparels pawn with
+    | Some apparels -> apparels |> List.map upcastToThing
+    | None -> List.empty
 
-    let fromEquipments =
-      match Pawn.getEquipments pawn with
-      | Some equipments -> equipments |> List.map upcastToThing
-      | None -> List.empty
+  let fromEquipments =
+    match Pawn.getEquipments pawn with
+    | Some equipments -> equipments |> List.map upcastToThing
+    | None -> List.empty
 
-    List.concat [ fromApparels
-                  fromEquipments ]
+  List.concat [ fromApparels
+                fromEquipments ]
+
+
+type StatEligibility = PawnStat | ArmorStat | Ineligible
+let private statsEligibilityMap = Dictionary<StatDef, StatEligibility>()
+
+
+let populateStatsEligibilityMap () =
+  DefDatabase<StatDef>.AllDefs
+  |> Seq.iter (fun stat ->
+    let statEligibility =
+      match stat.category with
+      | null -> Ineligible
+      | _ as s ->
+        if Set.contains s.defName pawnStatCategories then PawnStat
+        elif Set.contains s.defName armorStats then ArmorStat
+        else Ineligible
+    statsEligibilityMap.SetOrAdd(stat, statEligibility)
+  )
 
 
 [<HarmonyPatch(typeof<StatWorker>, "RelevantGear")>]
@@ -51,7 +68,7 @@ module RelevantGear =
 
         let thingsToConsider =
           if isPawnStat then
-            StatWorker.apparelsAndEquipments pawn
+            apparelsAndEquipments pawn
           else
             // armor stats = only weapons, no need to calculate
             match Pawn.getEquipments pawn with
@@ -75,20 +92,14 @@ module StatOffsetFromGear =
   /// Adds infusions to Core stat calculation.
   /// Note that we can only use `StatMod#offset` because it is "stat _offset_ from gear."
   let Postfix (returned: float32, gear: Thing, stat: StatDef) =
-    let isPawnStat =
-      // StatDef.category can be null in mods
-      Option.ofObj stat.category
-      |> Option.map (fun category -> Set.contains category.defName pawnStatCategories)
-      |> Option.defaultValue false
+    let statType = statsEligibilityMap.TryGetValue(stat, Ineligible)
 
-    let isArmorStat = Set.contains stat.defName armorStats
-
-    if isPawnStat || isArmorStat then
+    if statType <> Ineligible then
       match Comp.ofThing<CompInfusion> gear with
       | Some compInf ->
         // for general stats, considers both weapons and apparels into account
         // for armor stats, only checks weapons
-        if isPawnStat || (isArmorStat && gear.def.IsWeapon) then
+        if statType = PawnStat || (statType = ArmorStat && gear.def.IsWeapon) then
           (compInf.GetModForStat stat).offset + returned
         else
           returned

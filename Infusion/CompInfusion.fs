@@ -203,17 +203,17 @@ type CompInfusion() =
 
   member this.PopulateInfusionsStatModCache(stat: StatDef) =
     if not (infusionsStatModCache.ContainsKey stat) then
-      let elligibles =
+      let eligibles =
         infusions
         |> Seq.choose (fun inf -> Dict.get stat inf.stats)
 
       let statMod =
-        if Seq.isEmpty elligibles then
+        if Seq.isEmpty eligibles then
           None
         else
-          elligibles |> Seq.fold (+) StatMod.empty |> Some
+          eligibles |> Seq.fold (+) StatMod.empty |> Some
 
-      do infusionsStatModCache.Add(stat, statMod)
+      infusionsStatModCache.Add(stat, statMod)
 
   member this.CalculateSlotCountFor(qc: QualityCategory) =
     let apparelProps = Option.ofObj this.parent.def.apparel
@@ -242,30 +242,29 @@ type CompInfusion() =
     + layerBonus
 
   member this.GetModForStat(stat: StatDef) =
-    do this.PopulateInfusionsStatModCache(stat)
+    this.PopulateInfusionsStatModCache(stat)
 
     infusionsStatModCache.TryGetValue(stat, None)
     |> Option.defaultValue StatMod.empty
 
   member this.HasInfusionForStat(stat: StatDef) =
-    do this.PopulateInfusionsStatModCache(stat)
+    this.PopulateInfusionsStatModCache(stat)
 
     infusionsStatModCache.TryGetValue(stat, None)
     |> Option.isSome
 
   member this.InvalidateCache() =
-    do
-      infusionsStatModCache.Clear()
+    infusionsStatModCache.Clear()
 
-      bestInfusionCache <- this.Infusions |> Seq.tryHead
+    bestInfusionCache <- this.Infusions |> Seq.tryHead
 
-      onHitsCache <-
-        infusions
-        |> Seq.map (fun inf -> inf.OnHits)
-        |> Seq.choose id
-        |> Seq.concat
-        |> List.ofSeq
-        |> Some
+    onHitsCache <-
+      infusions
+      |> Seq.map (fun inf -> inf.OnHits)
+      |> Seq.choose id
+      |> Seq.concat
+      |> List.ofSeq
+      |> Some
 
 
   member this.MarkForInfuser(infDef: InfusionDef) =
