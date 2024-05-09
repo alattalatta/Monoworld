@@ -30,13 +30,14 @@
     <Compile Include="TranslationOutput\Copier.fs" />
     <Compile Include="TranslationOutput\DebugAction.fs" />
     <Compile Include="Harmonize\ActionOptionHelper.fs" />
+    <Compile Include="Harmonize\DebugActionsMapManagement.fs" />
     <Compile Include="Harmonize\DebugTabMenu_Actions.fs" />
-    <Compile Include="Harmonize\Dialog_DebugSettingsMenu.fs" />
     <Compile Include="Harmonize\DebugThingPlaceHelper.fs" />
+    <Compile Include="Harmonize\DebugTools_Health.fs" />
     <Compile Include="Harmonize\DebugToolsSpawning.fs" />
     <Compile Include="Harmonize\DebugWindowsOpener.fs" />
-    <Compile Include="Harmonize\Dialog_Debug.fs" />
     <Compile Include="Harmonize\DevGUI.fs" />
+    <Compile Include="Harmonize\Dialog_DebugSettingsMenu.fs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Poet\Poet.fsproj">

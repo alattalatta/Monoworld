@@ -2,6 +2,7 @@ module DevL10N.Harmonize.DebugWindowsOpener
 
 open System.Reflection.Emit
 
+open Poet.Lib
 open Poet.Lyric.Translation
 open HarmonyLib
 open Verse
@@ -27,12 +28,7 @@ module DrawButtons =
     | "Toggle the dev palette.\n\nAllows you to setup a palette of debug actions for ease of use." -> translate "DebugMenu_DevPalette"
     | "Pause the game when an error is logged." -> translate "DebugMenu_PauseOnError"
     | _ ->
-      do
-        Log.Warning(
-          "[Dev In Your Language] Cannot find key for the following string:\n"
-          + str
-        )
-
+      warn "[Dev In Your Language] Cannot find key for the following string:\n%A" str
       str
 
   let Transpiler (instructions: CodeInstruction seq) =
