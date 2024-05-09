@@ -313,21 +313,21 @@
   <DebugAction_GenerateCreeperJoiner>CreepJoiner 생성...</DebugAction_GenerateCreeperJoiner>
   <DebugAction_SpawnNewborn>신생아 생성...</DebugAction_SpawnNewborn>
   <DebugAction_SpawnChild>아이 생성...</DebugAction_SpawnChild>
+  <DebugAction_TryPlaceNearThing>Thing 생성...</DebugAction_TryPlaceNearThing>
+  <DebugAction_TryPlaceNearThingWithStyle>Thing 생성 (스타일 지정)...</DebugAction_TryPlaceNearThingWithStyle>
+  <DebugAction_TryPlaceMinifiedThing>Thing 생성 (포장됨)...</DebugAction_TryPlaceMinifiedThing>
+  <DebugAction_TryPlaceNearFullStack>Thing 생성 (꽉 찬 스택)...</DebugAction_TryPlaceNearFullStack>
+  <DebugAction_TryPlaceNearStacksOf25>Thing 생성 (x25 스택)...</DebugAction_TryPlaceNearStacksOf25>
+  <DebugAction_TryPlaceNearStacksOf75>Thing 생성 (x75 스택)...</DebugAction_TryPlaceNearStacksOf75>
+  <DebugAction_TryPlaceDirectThing>정확한 지점에 Thing 생성...</DebugAction_TryPlaceDirectThing>
+  <DebugAction_TryPlaceDirectFullStack>정확한 지점에 Thing 생성 (꽉 찬 스택)...</DebugAction_TryPlaceDirectFullStack>
+  <DebugAction_TryPlaceDirectStackOf25>정확한 지점에 Thing 생성 (x25 스택)...</DebugAction_TryPlaceDirectStackOf25>
   <DebugAction_SpawnWeapon>무기 생성...</DebugAction_SpawnWeapon>
   <DebugAction_SpawnApparel>의류 생성...</DebugAction_SpawnApparel>
-  <DebugAction_TryPlaceNearThing>인근에 Thing 생성 시도...</DebugAction_TryPlaceNearThing>
-  <DebugAction_TryPlaceNearThingWithStyle>인근에 스타일 지정 Thing 생성 시도...</DebugAction_TryPlaceNearThingWithStyle>
-  <DebugAction_TryPlaceMinifiedThing>포장된 Thing 생성 시도...</DebugAction_TryPlaceMinifiedThing>
-  <DebugAction_TryPlaceNearFullStack>인근에 꽉 찬 스택 생성 시도...</DebugAction_TryPlaceNearFullStack>
-  <DebugAction_TryPlaceNearStacksOf25>인근에 25스택 생성 시도...</DebugAction_TryPlaceNearStacksOf25>
-  <DebugAction_TryPlaceNearStacksOf75>인근에 75스택 생성 시도...</DebugAction_TryPlaceNearStacksOf75>
-  <DebugAction_TryPlaceDirectThing>정확한 지점에 Thing 생성 시도...</DebugAction_TryPlaceDirectThing>
-  <DebugAction_TryPlaceDirectFullStack>정확한 지점에 꽉 찬 스택 생성 시도...</DebugAction_TryPlaceDirectFullStack>
-  <DebugAction_TryPlaceDirectStackOf25>정확한 지점에 25스택 생성 시도...</DebugAction_TryPlaceDirectStackOf25>
-  <DebugAction_TryPlaceNearMarketValue>시장 가치만큼의 Thing 생성 시도...</DebugAction_TryPlaceNearMarketValue>
+  <DebugAction_TryPlaceNearMarketValue>Thing 생성 (시장 가치만큼)...</DebugAction_TryPlaceNearMarketValue>
   <DebugAction_CreateMealWithSpecifics>재료를 지정한 식사 생성...</DebugAction_CreateMealWithSpecifics>
-  <DebugAction_SpawnThingWithWipeMode>WipeMode 사용해 Thing 생성...</DebugAction_SpawnThingWithWipeMode>
-  <DebugAction_SpawnMechCluster>메카노이드 군락 생성</DebugAction_SpawnMechCluster>
+  <DebugAction_SpawnThingWithWipeMode>Thing 생성 (WipeMode 사용)...</DebugAction_SpawnThingWithWipeMode>
+  <DebugAction_SpawnMechCluster>메카노이드 전초기지 생성...</DebugAction_SpawnMechCluster>
   <DebugAction_MakeFilthx100>오물 생성 x100</DebugAction_MakeFilthx100>
   <DebugAction_SpawnFactionLeader>세력 지도자 생성</DebugAction_SpawnFactionLeader>
   <DebugAction_SpawnWorldPawn>세계 Pawn 생성...</DebugAction_SpawnWorldPawn>

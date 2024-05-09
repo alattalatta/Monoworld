@@ -314,21 +314,21 @@
   <DebugAction_GenerateCreeperJoiner>Generate CreepJoiner...</DebugAction_GenerateCreeperJoiner>
   <DebugAction_SpawnNewborn>Spawn newborn...</DebugAction_SpawnNewborn>
   <DebugAction_SpawnChild>Spawn child...</DebugAction_SpawnChild>
-  <DebugAction_TryPlaceNearThing>Try place near Thing...</DebugAction_TryPlaceNearThing>
-  <DebugAction_TryPlaceNearThingWithStyle>Try place near thing with style...</DebugAction_TryPlaceNearThingWithStyle>
-  <DebugAction_TryPlaceMinifiedThing>Try place minified Thing...</DebugAction_TryPlaceMinifiedThing>
-  <DebugAction_TryPlaceNearFullStack>Try place near full stack...</DebugAction_TryPlaceNearFullStack>
-  <DebugAction_TryPlaceNearStacksOf25>Try place near stack of 25...</DebugAction_TryPlaceNearStacksOf25>
-  <DebugAction_TryPlaceNearStacksOf75>Try place near stack of 75...</DebugAction_TryPlaceNearStacksOf75>
-  <DebugAction_TryPlaceDirectThing>Try place direct Thing...</DebugAction_TryPlaceDirectThing>
-  <DebugAction_TryPlaceDirectFullStack>Try place direct full stack...</DebugAction_TryPlaceDirectFullStack>
-  <DebugAction_TryPlaceDirectStackOf25>Try place direct stack of 25...</DebugAction_TryPlaceDirectStackOf25>
+  <DebugAction_TryPlaceNearThing>Spawn Thing...</DebugAction_TryPlaceNearThing>
+  <DebugAction_TryPlaceNearThingWithStyle>Spawn thing with style...</DebugAction_TryPlaceNearThingWithStyle>
+  <DebugAction_TryPlaceMinifiedThing>Spawn Thing, minified...</DebugAction_TryPlaceMinifiedThing>
+  <DebugAction_TryPlaceNearFullStack>Spawn Thing, full stack...</DebugAction_TryPlaceNearFullStack>
+  <DebugAction_TryPlaceNearStacksOf25>Spawn Thing, stack of 25...</DebugAction_TryPlaceNearStacksOf25>
+  <DebugAction_TryPlaceNearStacksOf75>Spawn Thing, stack of 75...</DebugAction_TryPlaceNearStacksOf75>
+  <DebugAction_TryPlaceDirectThing>Spawn Thing direct...</DebugAction_TryPlaceDirectThing>
+  <DebugAction_TryPlaceDirectFullStack>Spawn Thing direct, full stack...</DebugAction_TryPlaceDirectFullStack>
+  <DebugAction_TryPlaceDirectStackOf25>Spawn Thing direct, stack of 25...</DebugAction_TryPlaceDirectStackOf25>
   <DebugAction_SpawnWeapon>Spawn weapon...</DebugAction_SpawnWeapon>
   <DebugAction_SpawnApparel>Spawn apparel...</DebugAction_SpawnApparel>
-  <DebugAction_TryPlaceNearMarketValue>Try place stack of market value...</DebugAction_TryPlaceNearMarketValue>
+  <DebugAction_TryPlaceNearMarketValue>Spawn Thing, stacks of market value...</DebugAction_TryPlaceNearMarketValue>
   <DebugAction_CreateMealWithSpecifics>Create meal with specifics...</DebugAction_CreateMealWithSpecifics>
   <DebugAction_SpawnThingWithWipeMode>Spawn Thing with WipeMode...</DebugAction_SpawnThingWithWipeMode>
-  <DebugAction_SpawnMechCluster>Spawn mech cluster</DebugAction_SpawnMechCluster>
+  <DebugAction_SpawnMechCluster>Spawn mech cluster...</DebugAction_SpawnMechCluster>
   <DebugAction_MakeFilthx100>Make filth x100</DebugAction_MakeFilthx100>
   <DebugAction_SpawnFactionLeader>Spawn faction leader</DebugAction_SpawnFactionLeader>
   <DebugAction_SpawnWorldPawn>Spawn world Pawn...</DebugAction_SpawnWorldPawn>
