@@ -8,13 +8,13 @@
       <li>
         <key>MeditationFocusGain</key>
         <value>
-          <multiplier>0.15</multiplier>
+          <offset>0.075</offset>
         </value>
       </li>
       <li>
         <key>PsychicEntropyRecoveryRate</key>
         <value>
-          <multiplier>0.1</multiplier>
+          <offset>0.1</offset>
         </value>
       </li>
     </stats>
