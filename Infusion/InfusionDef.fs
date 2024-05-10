@@ -14,6 +14,7 @@ open UnityEngine
 
 open DefFields
 open StatMod
+open VerseTools
 open Infusion.Matchers
 
 
@@ -75,6 +76,28 @@ type InfusionDef =
   member this.OnHits = Option.ofObj this.onHits
 
   member this.WeightFor(quality: QualityCategory) = valueFor quality this.tier.weights
+
+  override this.ConfigErrors() =
+    let fromBase = base.ConfigErrors()
+    // pawn stats should not use multipliers
+    let pawnStats =
+      seq this.stats
+      |> Seq.map (fun kv -> (kv.Key, kv.Value))
+      |> Seq.filter (fun (k, v) ->
+        Set.contains k.category.defName pawnStatCategories
+        && v.multiplier <> 0.0f)
+
+    seq {
+      yield! fromBase
+      yield!
+        pawnStats
+        |> Seq.map (fun (k, v) ->
+          sprintf
+            "Infusion %s has a non-zero multiplier (%.3f) for stat %s which is a Pawn stat. Multipliers on Pawn stats don't work."
+            this.defName
+            v.multiplier
+            k.defName)
+    }
 
   override this.Equals(ob) = ``base``.Equals(ob)
 
