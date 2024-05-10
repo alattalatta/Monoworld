@@ -153,7 +153,7 @@
   <DebugAction_SetFaction>Set faction</DebugAction_SetFaction>
   <DebugAction_Discard>Discard</DebugAction_Discard>
   <DebugAction_Take10Damage>10 damage</DebugAction_Take10Damage>
-  <DebugAction_Take300Damage>3000 damage</DebugAction_Take300Damage>
+  <DebugAction_Take300Damage>300 damage</DebugAction_Take300Damage>
   <DebugAction_Take5000Damage>5000 damage</DebugAction_Take5000Damage>
   <DebugAction_ClearArea>Clear area</DebugAction_ClearArea>
   <DebugAction_SpawnFillArea>Spawn fill area...</DebugAction_SpawnFillArea>

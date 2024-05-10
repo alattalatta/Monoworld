@@ -153,7 +153,7 @@
   <DebugAction_SetFaction>設定 派閥</DebugAction_SetFaction>
   <DebugAction_Discard>破棄</DebugAction_Discard>
   <DebugAction_Take10Damage>10ダメージ</DebugAction_Take10Damage>
-  <DebugAction_Take300Damage>3000ダメージ</DebugAction_Take300Damage>
+  <DebugAction_Take300Damage>300ダメージ</DebugAction_Take300Damage>
   <DebugAction_Take5000Damage>5000ダメージ</DebugAction_Take5000Damage>
   <DebugAction_ClearArea>除去 (エリア)</DebugAction_ClearArea>
   <DebugAction_SpawnFillArea>生成 汚れ (エリア)...</DebugAction_SpawnFillArea>

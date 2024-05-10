@@ -152,7 +152,7 @@
   <DebugAction_SetFaction>세력 지정</DebugAction_SetFaction>
   <DebugAction_Discard>삭제</DebugAction_Discard>
   <DebugAction_Take10Damage>10 피해</DebugAction_Take10Damage>
-  <DebugAction_Take300Damage>3000 피해</DebugAction_Take300Damage>
+  <DebugAction_Take300Damage>300 피해</DebugAction_Take300Damage>
   <DebugAction_Take5000Damage>5000 피해</DebugAction_Take5000Damage>
   <DebugAction_ClearArea>영역 지우기</DebugAction_ClearArea>
   <DebugAction_SpawnFillArea>영역 가득 생성...</DebugAction_SpawnFillArea>
