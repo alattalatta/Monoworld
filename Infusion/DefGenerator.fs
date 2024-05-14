@@ -18,26 +18,27 @@ let makeInfuserDef (tier: TierDef) =
 
   let infuser =
     ThingDef(
-      defName = "Infusion_Infuser_" + tier.defName,
-      label = string (translate1 "Infusion.Infuser.Label" tier.label),
-      description = string (translate "Infusion.Infuser.Description"),
+      alwaysHaulable = true,
       category = ThingCategory.Item,
-      thingCategories =
-        new System.Collections.Generic.List<ThingCategoryDef>([ ThingCategoryDef.Named("Infusion_Infusers") ]),
-      selectable = true,
-      thingClass = typeof<Infuser>,
       comps = new System.Collections.Generic.List<CompProperties>(comps),
+      defName = "Infusion_Infuser_" + tier.defName,
+      description = string (translate "Infusion.Infuser.Description"),
+      drawGUIOverlay = true,
       graphicData = GraphicData(texPath = "Things/Infuser", graphicClass = typeof<Graphic_Single>),
+      label = string (translate1 "Infusion.Infuser.Label" tier.label),
+      pathCost = 15,
+      rotatable = false,
+      selectable = true,
       statBases = new System.Collections.Generic.List<StatModifier>(stats),
       techLevel = TechLevel.Ultra,
-      alwaysHaulable = true,
-      rotatable = false,
-      pathCost = 15,
+      thingCategories =
+        new System.Collections.Generic.List<ThingCategoryDef>([ ThingCategoryDef.Named("Infusion_Infusers") ]),
+      thingClass = typeof<Infuser>,
       tradeability = Tradeability.Buyable,
       tradeTags = new System.Collections.Generic.List<string>([ "Infusion_Infuser" ])
     )
 
-  do tier.infuser <- infuser
+  tier.infuser <- infuser
 
   infuser
 
