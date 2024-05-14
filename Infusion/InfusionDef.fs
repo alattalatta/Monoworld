@@ -69,11 +69,11 @@ type InfusionDef =
     else
       this.labelShort
 
-  member this.ChanceFor(quality: QualityCategory) = valueFor quality this.tier.chances
-
   member this.Migration = Option.ofObj this.migration
 
-  member this.OnHits = Option.ofObj this.onHits
+  member this.OnHits = Option.ofObj this.onHits |> Option.map List.ofSeq |> Option.defaultValue List.empty
+
+  member this.ChanceFor(quality: QualityCategory) = valueFor quality this.tier.chances
 
   member this.WeightFor(quality: QualityCategory) = valueFor quality this.tier.weights
 

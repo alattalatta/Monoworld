@@ -76,6 +76,8 @@ type CompInfusion() =
   static member UnregisterRemovalCandidate comp =
     CompInfusion.RemovalCandidates <- Set.remove comp CompInfusion.RemovalCandidates
 
+  member this.BestInfusion = bestInfusionCache
+
   member this.Biocoder
     with get () = biocoder |> Option.filter (fun b -> b.Biocodable)
     and set (value: CompBiocodable option) = biocoder <- value
@@ -111,18 +113,6 @@ type CompInfusion() =
 
   member this.FirstExtraction = Seq.tryHead extractionSet
 
-  member this.RemovalSet
-    with get () = removalSet
-    and set value =
-      do removalSet <- value
-      do extractionSet <- Set.difference extractionSet removalSet
-
-      this.FinalizeSetMutations()
-
-  member this.SlotCount
-    with get () = slotCount
-    and set value = slotCount <- value
-
   member this.InfusionsByPosition =
     let (prefixes, suffixes) =
       this.Infusions
@@ -135,18 +125,6 @@ type CompInfusion() =
            (List.empty, List.empty)
 
     (List.rev prefixes, List.rev suffixes)
-
-  member this.BestInfusion =
-    if Option.isNone bestInfusionCache then
-      do this.InvalidateCache()
-
-    bestInfusionCache
-
-  member this.OnHits =
-    if Option.isNone onHitsCache then
-      do this.InvalidateCache()
-
-    Option.defaultValue List.empty onHitsCache
 
   member this.Descriptions =
     this.Infusions
@@ -185,12 +163,10 @@ type CompInfusion() =
 
       prefixedPart.CapitalizeFirst()
 
-  member this.Size = Set.count infusions
-
   // can't use CompGetGizmosExtra, Pawn_EquipmentTracker do not use them for Pawn Gizmos.
   member this.EffectGizmo =
     onHitsCache
-    // List.length != 0
+    // List.length is not zero
     |> Option.filter (List.length >> (=) 0 >> not)
     |> Option.map (fun _ ->
       Command_Toggle(
@@ -198,8 +174,24 @@ type CompInfusion() =
         defaultDesc = ResourceBank.Strings.Gizmo.desc,
         icon = ResourceBank.Textures.Flame,
         isActive = (fun () -> effectsEnabled),
-        toggleAction = (fun () -> do effectsEnabled <- not effectsEnabled)
+        toggleAction = (fun () -> effectsEnabled <- not effectsEnabled)
       ))
+
+  member this.OnHits = Option.defaultValue List.empty onHitsCache
+
+  member this.RemovalSet
+    with get () = removalSet
+    and set value =
+      removalSet <- value
+      extractionSet <- Set.difference extractionSet removalSet
+
+      this.FinalizeSetMutations()
+
+  member this.Size = Set.count infusions
+
+  member this.SlotCount
+    with get () = slotCount
+    and set value = slotCount <- value
 
   member this.PopulateInfusionsStatModCache(stat: StatDef) =
     if not (infusionsStatModCache.ContainsKey stat) then
@@ -260,30 +252,28 @@ type CompInfusion() =
 
     onHitsCache <-
       infusions
-      |> Seq.map (fun inf -> inf.OnHits)
-      |> Seq.choose id
-      |> Seq.concat
       |> List.ofSeq
+      |> List.map (fun inf -> inf.OnHits)
+      |> List.concat
       |> Some
 
-
   member this.MarkForInfuser(infDef: InfusionDef) =
-    do this.WantingSet <- Set.add infDef wantingSet
+    this.WantingSet <- Set.add infDef wantingSet
 
   member this.MarkForExtractor(infDef: InfusionDef) =
-    do this.ExtractionSet <- Set.add infDef extractionSet
+    this.ExtractionSet <- Set.add infDef extractionSet
 
   member this.MarkForRemoval(infDef: InfusionDef) =
-    do this.RemovalSet <- Set.add infDef removalSet
+    this.RemovalSet <- Set.add infDef removalSet
 
   member this.UnmarkForInfuser(infDef: InfusionDef) =
-    do this.WantingSet <- Set.remove infDef wantingSet
+    this.WantingSet <- Set.remove infDef wantingSet
 
   member this.UnmarkForExtractor(infDef: InfusionDef) =
-    do this.ExtractionSet <- Set.remove infDef extractionSet
+    this.ExtractionSet <- Set.remove infDef extractionSet
 
   member this.UnmarkForRemoval(infDef: InfusionDef) =
-    do this.RemovalSet <- Set.remove infDef removalSet
+    this.RemovalSet <- Set.remove infDef removalSet
 
   member this.FinalizeSetMutations() =
     if Set.isEmpty wantingSet then
@@ -310,7 +300,7 @@ type CompInfusion() =
         | Short -> bestInf.LabelShort
 
       if this.Size > 1 then
-        StringBuilder(label)
+        StringBuilder(label, label.Length + 5)
           .Append("(+")
           .Append(this.Size - 1)
           .Append(")")
@@ -321,6 +311,7 @@ type CompInfusion() =
 
   member this.SetInfusions(value: InfusionDef seq, respawningAfterLoad: bool) =
     let originalHitPoints = float32 this.parent.HitPoints
+
     let hitPointsRatio =
       originalHitPoints
       / float32 this.parent.MaxHitPoints
@@ -342,6 +333,25 @@ type CompInfusion() =
         |> int
         |> max (originalHitPoints |> round |> int)
         |> min this.parent.MaxHitPoints
+
+  override this.DrawGUIOverlay() =
+    if Find.CameraDriver.CurrentZoom
+       <= CameraZoomRange.Close then
+      match this.BestInfusion with
+      | Some bestInf ->
+        let pos =
+          if Find.CameraDriver.CurrentZoom > CameraZoomRange.Closest
+             || this.parent.def.defName.StartsWith "Infusion_" then
+            -0.4f
+          else
+            -0.65f
+
+        GenMapUI.DrawThingLabel(
+          GenMapUI.LabelDrawPosFor(this.parent, pos),
+          this.MakeBestInfusionLabel Short,
+          bestInf.tier.color
+        )
+      | None -> ()
 
   // overrides parent label completely - expect conflicts
   // [todo] transpiler for GenLabel.ThingLabel
@@ -396,19 +406,6 @@ type CompInfusion() =
     do CompInfusion.UnregisterRemovalCandidate this
 
   override this.GetDescriptionPart() = this.Descriptions
-
-  override this.DrawGUIOverlay() =
-    if Find.CameraDriver.CurrentZoom
-       <= CameraZoomRange.Close then
-      match this.BestInfusion with
-      | Some bestInf ->
-        do
-          GenMapUI.DrawThingLabel(
-            GenMapUI.LabelDrawPosFor(this.parent, -0.6499999762f),
-            this.MakeBestInfusionLabel Short,
-            bestInf.tier.color
-          )
-      | None -> ()
 
   override this.PostExposeData() =
     Scribe.value "quality" this.Quality
