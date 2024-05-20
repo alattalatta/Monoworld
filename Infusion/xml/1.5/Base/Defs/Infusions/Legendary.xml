@@ -591,6 +591,8 @@
         <def>Stun</def>
         <amount>0.1</amount>
         <chance>0.1</chance>
+        <onMeleeCast>false</onMeleeCast>
+        <onMeleeImpact>false</onMeleeImpact>
       </li>
     </onHits>
     <extraDescriptions>

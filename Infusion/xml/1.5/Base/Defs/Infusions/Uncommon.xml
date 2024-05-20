@@ -370,6 +370,8 @@
         <def>Stun</def>
         <amount>0.1</amount>
         <chance>0.1</chance>
+        <onMeleeCast>false</onMeleeCast>
+        <onMeleeImpact>false</onMeleeImpact>
       </li>
     </onHits>
     <extraDescriptions>
@@ -402,6 +404,8 @@
       <li Class="Infusion.OnHitWorkers.ApplyDamage">
         <def>Blunt</def>
         <amount>5</amount>
+        <onMeleeCast>false</onMeleeCast>
+        <onMeleeImpact>false</onMeleeImpact>
       </li>
     </onHits>
     <extraDescriptions>
