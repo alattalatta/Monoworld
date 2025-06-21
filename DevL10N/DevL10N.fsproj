@@ -3,17 +3,17 @@
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
     <TargetFramework>net472</TargetFramework>
     <Name>DevL10N</Name>
-    <Version>1.11.1</Version>
+    <Version>1.11.2</Version>
     <ProjectGuid>{c91c4841-f16c-4c16-808d-dc1779e08f0e}</ProjectGuid>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="netstandard" />
     <Reference Include="..\libs\Assembly-CSharp-firstpass.dll" />
     <Reference Include="..\libs\Assembly-CSharp.dll" />
     <Reference Include="..\libs\UnityEngine.CoreModule.dll" />
     <Reference Include="..\libs\UnityEngine.dll" />
     <Reference Include="..\libs\UnityEngine.IMGUIModule.dll" />
-    <Reference Include="..\libs\UnityEngine.TextCoreModule.dll" />
+    <Reference Include="..\libs\UnityEngine.TextCoreFontEngineModule.dll" />
+    <Reference Include="..\libs\UnityEngine.TextCoreTextEngineModule.dll" />
     <Reference Include="..\libs\UnityEngine.TextRenderingModule.dll" />
     <Reference Include="..\libs\UnityEngine.UIModule.dll" />
   </ItemGroup>

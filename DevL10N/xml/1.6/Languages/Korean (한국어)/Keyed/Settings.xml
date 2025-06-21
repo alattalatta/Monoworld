@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <EnableDamage>피해 활성화</EnableDamage>
+  <EnablePlayerDamage>플레이어가 입는 피해 활성화</EnablePlayerDamage>
+  <EnableRandomMentalStates>무작위 정신 상태 활성화</EnableRandomMentalStates>
+  <EnableStoryteller>이야기꾼 활성화</EnableStoryteller>
+  <EnableRandomDiseases>무작위 질병 활성화</EnableRandomDiseases>
+  <EnableTranslationWindowInEnglish>영어에서 번역 안내창 활성화</EnableTranslationWindowInEnglish>
+  <GodMode>갓 모드</GodMode>
+  <DevPalette>개발자 팔레트</DevPalette>
+  <PauseOnError>오류 시 일시정지</PauseOnError>
+  <NoAnimals>동물 비활성화</NoAnimals>
+  <UnlimitedPower>전력 무제한</UnlimitedPower>
+  <PathThroughWalls>벽 무시 경로탐색</PathThroughWalls>
+  <InstantRecruit>즉시 포섭</InstantRecruit>
+  <AlwaysSocialFight>항상 사교적 다툼</AlwaysSocialFight>
+  <AlwaysDoLovin>항상 사랑 나눔</AlwaysDoLovin>
+  <DetectRegionListersBugs>RegionLister 버그 탐지</DetectRegionListersBugs>
+  <InstantVisitorsGift>즉시 방문객 선물</InstantVisitorsGift>
+  <LowFPS>낮은 FPS</LowFPS>
+  <AllowUndraftedMechOrders>징집되지 않은 메카노이드 명령 허용</AllowUndraftedMechOrders>
+  <EditableGlowerColors>연구 없는 조명 색 변경</EditableGlowerColors>
+  <ShowHiddenPawns>숨겨진 Pawn 보이기</ShowHiddenPawns>
+  <ShowHiddenInfo>숨겨진 정보 보이기</ShowHiddenInfo>
+  <AnomalyDarkeningFX>어노멀리 DarkeningFX</AnomalyDarkeningFX>
+  <FastResearch>빠른 연구</FastResearch>
+  <FastLearning>빠른 학습</FastLearning>
+  <FastEcology>빠른 생태계</FastEcology>
+  <FastEcologyRegrowRateOnly>빠른 생태계(식물 생성 주기만)</FastEcologyRegrowRateOnly>
+  <FastCrafting>빠른 제작</FastCrafting>
+  <FastCaravans>빠른 상단</FastCaravans>
+  <FastMapUnpollution>빠른 오염 정화</FastMapUnpollution>
+  <ActivateAllBuildingDemands>모든 건물 요구 활성화</ActivateAllBuildingDemands>
+  <ActivateAllIdeoRoles>모든 사상 보직 활성화</ActivateAllIdeoRoles>
+  <ShowLocomotionUrgency>LocomotionUrgency 표시</ShowLocomotionUrgency>
+  <PlayRitualAmbience>의식 배경음 재생</PlayRitualAmbience>
+  <SimulateUsingSteamDeck>Steam Deck 시뮬레이션</SimulateUsingSteamDeck>
+  <LogRaidInfo>습격 정보 기록</LogRaidInfo>
+  <LogTranslationLookupErrors>번역 룩업 오류 기록</LogTranslationLookupErrors>
+  <LogPsychicRitualTransitions>초정신 의식 전환 기록</LogPsychicRitualTransitions>
+  <FastMonolithRespawn>빠른 모노리스 리스폰</FastMonolithRespawn>
+  <SearchIgnoresRestrictions>검색 시 제한 무시</SearchIgnoresRestrictions>
+  <AlwaysRareCatches>낚시에서 항상 희귀한 어획물</AlwaysRareCatches>
+  <AlwaysNegativeCatches>낚시에서 항상 부정적 결과</AlwaysNegativeCatches>
+  <LogMismatchedLayoutFactions>레이아웃 불일치 세력 기록</LogMismatchedLayoutFactions>
+  <LoopGravshipCutscene>중력부양선 컷신 반복</LoopGravshipCutscene>
+  <SkipGravshipTileSelection>중력부양선 목적지 선택 생략</SkipGravshipTileSelection>
+  <IgnoreGravshipRange>중력부양선 최대 거리 무시</IgnoreGravshipRange>
+  <FastLavaFlow>빠른 용암 유입</FastLavaFlow>
+  <EvenFasterLavaFlow>더 빠른 용암 유입</EvenFasterLavaFlow>
+  <FastShuttleExit>빠른 왕복선 이탈</FastShuttleExit>
+  <DrawFog>안개 그리기</DrawFog>
+  <DrawSnow>눈 그리기</DrawSnow>
+  <DrawSand>모래 그리기</DrawSand>
+  <DrawTerrain>지형 그리기</DrawTerrain>
+  <DrawTerrainWater>물 그리기</DrawTerrainWater>
+  <DrawThingsDynamic>동적 Thing 그리기</DrawThingsDynamic>
+  <DrawThingsPrinted>프린팅 Things 그리기</DrawThingsPrinted>
+  <DrawShadows>그림자 그리기</DrawShadows>
+  <DrawLightingOverlay>조명 오버레이 그리기</DrawLightingOverlay>
+  <DrawWorldOverlays>세계 오버레이 그리기</DrawWorldOverlays>
+  <DrawGas>가스 그리기</DrawGas>
+  <SingleThreadedDrawing>싱글 스레드 렌더링</SingleThreadedDrawing>
+  <PlayGravshipCutscenes>중력부양선 컷신 재생</PlayGravshipCutscenes>
+  <DrawWorldObjects>WorldObjects 그리기</DrawWorldObjects>
+  <DrawPaths>경로 그리기</DrawPaths>
+  <DrawPatherState>경로 탐색자 상태 그리기</DrawPatherState>
+  <DrawCastPositionSearch>시전 위치 탐색 그리기</DrawCastPositionSearch>
+  <DrawDestSearch>목적지 탐색 그리기</DrawDestSearch>
+  <DrawStyleSearch>스타일 탐색 그리기</DrawStyleSearch>
+  <DrawSectionEdges>구획 테두리 그리기</DrawSectionEdges>
+  <DrawRiverDebug>강 디버그 그리기</DrawRiverDebug>
+  <DrawRiverFlowDebug>강 흐름 디버그 그리기</DrawRiverFlowDebug>
+  <DrawPawnDebug>Pawn 디버그 그리기</DrawPawnDebug>
+  <DrawPawnRotatorTarget>Pawn 회전 대상 그리기</DrawPawnRotatorTarget>
+  <DrawRegions>Region 그리기</DrawRegions>
+  <DrawRegionLinks>Region 링크 그리기</DrawRegionLinks>
+  <DrawRegionDirties>Region 변형 강조</DrawRegionDirties>
+  <DrawRegionTraversal>Region 순회 강조</DrawRegionTraversal>
+  <DrawRegionThings>Region 안의 Thing 강조</DrawRegionThings>
+  <DrawDistricts>District 그리기</DrawDistricts>
+  <DrawRooms>Room 그리기</DrawRooms>
+  <DrawPower>전력 그리기</DrawPower>
+  <DrawPowerNetGrid>PowerNetGrid 그리기</DrawPowerNetGrid>
+  <DrawOpportunisticJobs>기회기반 작업 그리기</DrawOpportunisticJobs>
+  <DrawTooltipEdges>툴팁 모서리 그리기</DrawTooltipEdges>
+  <DrawRecordedNoise>녹화한 노이즈 그리기</DrawRecordedNoise>
+  <DrawFoodSearchFromMouse>마우스 기준 음식 턈색 그리기</DrawFoodSearchFromMouse>
+  <DrawPreyInfo>사냥감 정보 그리기</DrawPreyInfo>
+  <DrawGlow>빛 정보 그리기</DrawGlow>
+  <DrawAvoidGrid>회피 그리드 그리기</DrawAvoidGrid>
+  <DrawBreachingGrid>돌파 습격 그리드 그리기</DrawBreachingGrid>
+  <DrawBreachingNoise>돌파 습격 노이즈 그리기</DrawBreachingNoise>
+  <DrawLords>Lord 그리기</DrawLords>
+  <DrawDuties>Duty 그리기</DrawDuties>
+  <DrawShooting>사격 그리기</DrawShooting>
+  <DrawInfestationChance>곤충 군락 확률 그리기</DrawInfestationChance>
+  <DrawFleshmassHeartChance>살덩이 심장 확률 그리기</DrawFleshmassHeartChance>
+  <DrawStealDebug>절도 디버그 그리기</DrawStealDebug>
+  <DrawDeepResources>심층 자원 그리기</DrawDeepResources>
+  <DrawAttackTargetScores>공격 대상 점수 그리기</DrawAttackTargetScores>
+  <DrawFOVSymmetry>시야 그리기</DrawFOVSymmetry>
+  <DrawNonCombatantTimer>비전투 타이머 그리기</DrawNonCombatantTimer>
+  <DrawInteractionCells>상호작용 칸 그리기</DrawInteractionCells>
+  <DrawDoorsDebug>문 디버그 그리기</DrawDoorsDebug>
+  <DrawDestReservations>목적지 예약 그리기</DrawDestReservations>
+  <DrawDamageRects>피해 Rect 그리기</DrawDamageRects>
+  <!-- Unused -->
+  <DrawDissolutionCells>Draw dissolution cells</DrawDissolutionCells>
+  <!-- Unused -->
+  <DrawUnpollutionCells>Draw unpollution cells</DrawUnpollutionCells>
+  <DrawHateChanterPositions>증오 찬송 위치 그리기</DrawHateChanterPositions>
+  <DrawDarknessOverlay>어둠 오버레이 그리기</DrawDarknessOverlay>
+  <DrawWoundAnchorsOnHover>호버 시 부상 기준점 그리기</DrawWoundAnchorsOnHover>
+  <DrawMapGraphs>지도 그래프 그리기</DrawMapGraphs>
+  <DrawMapRooms>지도 방 그리기</DrawMapRooms>
+  <DrawIndoorMask>실내 마스크 그리기</DrawIndoorMask>
+  <DrawOutdoorMask>실외 마스크 그리기</DrawOutdoorMask>
+  <DrawShamblerAlertMote>휘청이는 자 경고 Mote 그리기</DrawShamblerAlertMote>
+  <DrawWaterBodies>수역 그리기</DrawWaterBodies>
+  <DrawMeltingIce>녹는 얼음 그리기</DrawMeltingIce>
+  <DrawUsedRects>사용된 Rect 그리기</DrawUsedRects>
+  <DrawRoadPaths>도로 경로 그리기</DrawRoadPaths>
+  <DrawGravshipMask>중력부양선 마스크 그리기</DrawGravshipMask>
+  <DrawTerrainCurtain>지형 커튼 그리기</DrawTerrainCurtain>
+  <WriteGame>Game 검사</WriteGame>
+  <WriteSteamItems>Steam 항목 검사</WriteSteamItems>
+  <WriteConcepts>도우미 Concept 검사</WriteConcepts>
+  <WriteReservations>예약 검사</WriteReservations>
+  <WritePathCosts>경로 비용 검사</WritePathCosts>
+  <WriteFertility>비옥도 검사</WriteFertility>
+  <WriteLinkFlags>LinkFlags 검사</WriteLinkFlags>
+  <WriteCover>엄폐 검사</WriteCover>
+  <WriteCellContents>칸 내용물 검사</WriteCellContents>
+  <WriteMusicManagerPlay>MusicManager 재생 검사</WriteMusicManagerPlay>
+  <WriteStoryteller>이야기꾼 검사</WriteStoryteller>
+  <WritePlayingSounds>재생 중인 소리 검사</WritePlayingSounds>
+  <WriteSoundEventsRecord>소리 이벤트 기록 검사</WriteSoundEventsRecord>
+  <WriteMoteSaturation>Mote 포화도 검사</WriteMoteSaturation>
+  <WriteSnowDepth>눈 깊이 검사</WriteSnowDepth>
+  <WriteSandDepth>모래 깊이 검사</WriteSandDepth>
+  <WriteEcosystem>생태계 검사</WriteEcosystem>
+  <WriteRecentStrikes>최근 광맥 발견 검사</WriteRecentStrikes>
+  <WriteBeauty>미관 검사</WriteBeauty>
+  <WriteListRepairableBldgs>수리 가능한 건물 검사</WriteListRepairableBldgs>
+  <WriteListFilthInHomeArea>주거구역 내 오물 목록 검사</WriteListFilthInHomeArea>
+  <WriteListHaulables>운반 가능 목록 검사</WriteListHaulables>
+  <WriteListMergeables>병합 가능 목록 검사</WriteListMergeables>
+  <WriteTotalSnowDepth>총 눈 깊이 검사</WriteTotalSnowDepth>
+  <WriteCanReachColony>정착지 도달 가능 여부 검사</WriteCanReachColony>
+  <WriteMentalStateCalcs>정신불안 정보 검사</WriteMentalStateCalcs>
+  <WriteWind>바람 검사</WriteWind>
+  <WriteTerrain>지형 검사</WriteTerrain>
+  <WriteApparelScore>의류 점수 검사</WriteApparelScore>
+  <WriteWorkSettings>작업 설정 검사</WriteWorkSettings>
+  <WriteSkyManager>SkyManager 검사</WriteSkyManager>
+  <WriteMemoryUsage>메모리 사용량 검사</WriteMemoryUsage>
+  <WriteMapGameConditions>지도의 GameCondition 검사</WriteMapGameConditions>
+  <WriteAttackTargets>공격 대상 검사</WriteAttackTargets>
+  <WriteRopesAndPens>목줄과 우리 검사</WriteRopesAndPens>
+  <WriteRoomRoles>Room 역할 검사</WriteRoomRoles>
+  <LogIncapChance>Log incap chance (미사용)</LogIncapChance>
+  <LogInput>입력 기록</LogInput>
+  <LogApparelGeneration>의류 생성 기록</LogApparelGeneration>
+  <LogLordToilTransitions>Lord의 Toil 트랜지션 기록</LogLordToilTransitions>
+  <LogGrammarResolution>문법 이행 기록</LogGrammarResolution>
+  <LogCombatLogMouseover>전투 기록 마우스오버 기록</LogCombatLogMouseover>
+  <LogCauseOfDeath>사망 원인 기록</LogCauseOfDeath>
+  <LogMapLoad>지도 불러오기 기록</LogMapLoad>
+  <LogTutor>도우미 기록</LogTutor>
+  <LogSignals>Signal 기록</LogSignals>
+  <LogWorldPawnGC>WorldPawnGC 기록</LogWorldPawnGC>
+  <LogTaleRecording>이야기 저장 기록</LogTaleRecording>
+  <LogHourlyScreenshot>매 시간 스크린샷 기록</LogHourlyScreenshot>
+  <LogFilthSummary>오물 요약 기록</LogFilthSummary>
+  <LogCarriedBetweenJobs>Job 사이의 들쳐메기 기록</LogCarriedBetweenJobs>
+  <LogComplexGenPoints>Complex 생성 포인트 기록</LogComplexGenPoints>
+  <SaveGravshipRenders>중력부양선 렌더링 저장</SaveGravshipRenders>
+  <DebugApparelOptimize>의류 최적화 디버그</DebugApparelOptimize>
+  <DisableGravshipRenderShader>중력부양선 셰이더 비활성화</DisableGravshipRenderShader>
+  <ShowAllRoomStats>모든 방 능력치 보이기</ShowAllRoomStats>
+  <ShowFloatMenuWorkGivers>플로팅 메뉴에 WorkGiver 보이기</ShowFloatMenuWorkGivers>
+  <NeverForceNormalSpeed>보통 속도를 강제하지 않음</NeverForceNormalSpeed>
+  <ShowArchitectMenuOrder>구상 메뉴 버튼 순서 표시</ShowArchitectMenuOrder>
+  <ShowTpsCounter>TPS 표시</ShowTpsCounter>
+  <ShowFpsCounter>FPS 표시</ShowFpsCounter>
+  <ShowMemoryInfo>메모리 사용량 표시</ShowMemoryInfo>
+  <PrefabCopyTerrain>Prefab 지형 복사</PrefabCopyTerrain>
+  <PrefabCopyAllThings>Prefab 모든 것 복사</PrefabCopyAllThings>
+</LanguageData>
