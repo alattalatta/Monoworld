@@ -6,6 +6,7 @@
   <EnableStoryteller>有効 ストーリーテラー</EnableStoryteller>
   <EnableRandomDiseases>有効 ランダムな病気</EnableRandomDiseases>
   <EnableTranslationWindowInEnglish>英語の翻訳窓を有効化</EnableTranslationWindowInEnglish>
+  <GodMode>神モード</GodMode>
   <DevPalette>開発パレット</DevPalette>
   <PauseOnError>エラー時に一時停止</PauseOnError>
   <NoAnimals>動物なし</NoAnimals>
@@ -14,7 +15,7 @@
   <InstantRecruit>即時 勧誘</InstantRecruit>
   <AlwaysSocialFight>常時 喧嘩</AlwaysSocialFight>
   <AlwaysDoLovin>常時 ウフフアハハ</AlwaysDoLovin>
-  <DetectRegionListersBugs>RegionListersバグを検出</DetectRegionListersBugs>
+  <DetectRegionListersBugs>検出 RegionListersバグ</DetectRegionListersBugs>
   <InstantVisitorsGift>即時 訪問者の貢ぎ物</InstantVisitorsGift>
   <LowFPS>低FPS</LowFPS>
   <AllowUndraftedMechOrders>未徴兵メカノイドに命令を許可</AllowUndraftedMechOrders>
@@ -39,8 +40,18 @@
   <LogPsychicRitualTransitions>サイコ儀式の変遷をログに記録</LogPsychicRitualTransitions>
   <FastMonolithRespawn>高速化 モノリスの再生成</FastMonolithRespawn>
   <SearchIgnoresRestrictions>索敵は制限を無視</SearchIgnoresRestrictions>
+  <AlwaysRareCatches>釣り 常に珍しい魚</AlwaysRareCatches>
+  <AlwaysNegativeCatches>釣り 常にマイナス結果</AlwaysNegativeCatches>
+  <LogMismatchedLayoutFactions>記録 レイアウト不一致派閥</LogMismatchedLayoutFactions>
+  <LoopGravshipCutscene>ループ 重力船カットシーン</LoopGravshipCutscene>
+  <SkipGravshipTileSelection>スキップ 重力船の目的地選択</SkipGravshipTileSelection>
+  <IgnoreGravshipRange>無視 重力船の移動範囲</IgnoreGravshipRange>
+  <FastLavaFlow>高速化 溶岩の流れ</FastLavaFlow>
+  <EvenFasterLavaFlow>急加速 溶岩の流れ</EvenFasterLavaFlow>
+  <FastShuttleExit>高速化 シャトル退去</FastShuttleExit>
   <DrawFog>描画 戦場の霧</DrawFog>
   <DrawSnow>描画 雪</DrawSnow>
+  <DrawSand>描画 砂</DrawSand>
   <DrawTerrain>描画 地形</DrawTerrain>
   <DrawTerrainWater>描画 水域</DrawTerrainWater>
   <DrawThingsDynamic>描画 dynamic Things</DrawThingsDynamic>
@@ -49,7 +60,9 @@
   <DrawLightingOverlay>描画 照明効果</DrawLightingOverlay>
   <DrawWorldOverlays>描画 worldオーバーレイヤ</DrawWorldOverlays>
   <DrawGas>描画 ガス</DrawGas>
-  <SingleThreadedDrawing>シングルスレッド描画</SingleThreadedDrawing>
+  <SingleThreadedDrawing>描画 シングルスレッド</SingleThreadedDrawing>
+  <PlayGravshipCutscenes>再生 重力船のカットシーン</PlayGravshipCutscenes>
+  <DrawWorldObjects>描画 ワールドオブジェクト</DrawWorldObjects>
   <DrawPaths>描画 経路</DrawPaths>
   <DrawPatherState>描画 経路状態</DrawPatherState>
   <DrawCastPositionSearch>描画 Cast位置検索</DrawCastPositionSearch>
@@ -57,6 +70,7 @@
   <DrawStyleSearch>描画 スタイル検索</DrawStyleSearch>
   <DrawSectionEdges>描画 区分境界</DrawSectionEdges>
   <DrawRiverDebug>描画 川デバッグ</DrawRiverDebug>
+  <DrawRiverFlowDebug>描画 川の流れデバッグ</DrawRiverFlowDebug>
   <DrawPawnDebug>描画 ポーンデバッグ</DrawPawnDebug>
   <DrawPawnRotatorTarget>描画 ポーン切替目標</DrawPawnRotatorTarget>
   <DrawRegions>描画 地域</DrawRegions>
@@ -85,7 +99,7 @@
   <DrawStealDebug>描画 盗難 デバッグ</DrawStealDebug>
   <DrawDeepResources>描画 深部資源</DrawDeepResources>
   <DrawAttackTargetScores>描画 攻撃目標スコア</DrawAttackTargetScores>
-  <DrawFOVSymmetry>描画 FOV</DrawFOVSymmetry>
+  <DrawFOVSymmetry>描画 FOV(視界範囲)</DrawFOVSymmetry>
   <DrawNonCombatantTimer>描画 非戦闘員タイマー</DrawNonCombatantTimer>
   <DrawInteractionCells>描画 相互作用セル</DrawInteractionCells>
   <DrawDoorsDebug>描画 ドア デバッグ</DrawDoorsDebug>
@@ -101,8 +115,14 @@
   <DrawMapGraphs>描画 マップグラフ</DrawMapGraphs>
   <DrawMapRooms>描画 マップ部屋</DrawMapRooms>
   <DrawIndoorMask>描画 室内用マスク</DrawIndoorMask>
-  <DrawOutRoofedMask>描画 屋根付き屋外マスク</DrawOutRoofedMask>
+  <DrawOutdoorMask>描画 屋外マスク</DrawOutdoorMask>
   <DrawShamblerAlertMote>描画 ゾンビ警戒モード</DrawShamblerAlertMote>
+  <DrawWaterBodies>描画 水域</DrawWaterBodies>
+  <DrawMeltingIce>描画 溶けた氷</DrawMeltingIce>
+  <DrawUsedRects>描画 使用長方形</DrawUsedRects>
+  <DrawRoadPaths>描画 道路経路</DrawRoadPaths>
+  <DrawGravshipMask>描画 重力船マスク</DrawGravshipMask>
+  <DrawTerrainCurtain>描画 地形障壁</DrawTerrainCurtain>
   <WriteGame>検査 ゲーム</WriteGame>
   <WriteSteamItems>検査 Steamアイテム</WriteSteamItems>
   <WriteConcepts>検査 コンセプト</WriteConcepts>
@@ -118,6 +138,7 @@
   <WriteSoundEventsRecord>検査 イベント記録音</WriteSoundEventsRecord>
   <WriteMoteSaturation>検査 moteの飽和</WriteMoteSaturation>
   <WriteSnowDepth>検査 雪の深さ</WriteSnowDepth>
+  <WriteSandDepth>検査 砂の深さ</WriteSandDepth>
   <WriteEcosystem>検査 生態系</WriteEcosystem>
   <WriteRecentStrikes>検査 最近のストライキ</WriteRecentStrikes>
   <WriteBeauty>検査 美しさ</WriteBeauty>
@@ -154,9 +175,16 @@
   <LogFilthSummary>ログ 汚れ一覧</LogFilthSummary>
   <LogCarriedBetweenJobs>ログ 仕事中の運搬品</LogCarriedBetweenJobs>
   <LogComplexGenPoints>ログ 複合生成点</LogComplexGenPoints>
+  <SaveGravshipRenders>セーブ 重力船描画</SaveGravshipRenders>
   <DebugApparelOptimize>デバッグ アパレル最適化</DebugApparelOptimize>
+  <DisableGravshipRenderShader>無効 重力船シェーダー</DisableGravshipRenderShader>
   <ShowAllRoomStats>表示 全部屋のステータス</ShowAllRoomStats>
   <ShowFloatMenuWorkGivers>表示 WorkGiversメニュー</ShowFloatMenuWorkGivers>
   <NeverForceNormalSpeed>無効 強制低速度</NeverForceNormalSpeed>
   <ShowArchitectMenuOrder>表示 建設メニューボタン順番</ShowArchitectMenuOrder>
+  <ShowTpsCounter>表示 TPS</ShowTpsCounter>
+  <ShowFpsCounter>表示 FPS</ShowFpsCounter>
+  <ShowMemoryInfo>表示 メモリ使用量</ShowMemoryInfo>
+  <PrefabCopyTerrain>プレハブ 地形コピー</PrefabCopyTerrain>
+  <PrefabCopyAllThings>プレハブ 全thingsコピー</PrefabCopyAllThings>
 </LanguageData>
