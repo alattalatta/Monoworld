@@ -405,7 +405,7 @@
   <DebugAction_VolcanicDebris>화산탄</DebugAction_VolcanicDebris>
   <DebugAction_VolcanicDebrisDelayed>지연된 화산탄</DebugAction_VolcanicDebrisDelayed>
   <DebugAction_NuzzlePawn>애교 부리기</DebugAction_NuzzlePawn>
-  <DebugAction_AddHediff>Hediff 추가...</DebugAction_AddHediff>
+  <DebugAction_AddHediff>Hediff 부여...</DebugAction_AddHediff>
   <DebugAction_TendBleedingHediffs>출혈 Hediff 치료</DebugAction_TendBleedingHediffs>
   <DebugAction_DebugDrawBreachPath>돌파 습격 경로 그리기...</DebugAction_DebugDrawBreachPath>
   <DebugAction_outputTranslationSource>번역 원본 작성</DebugAction_outputTranslationSource>

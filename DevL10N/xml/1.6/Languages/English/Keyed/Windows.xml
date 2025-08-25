@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <GearTab_AddToInventory>Give an item...</GearTab_AddToInventory>
+  <GearTab_DamageRandomApparel>Damage random apparel</GearTab_DamageRandomApparel>
+  <GearTab_SetPrimary>Set primary equipment...</GearTab_SetPrimary>
+  <GearTab_Wear>Give an apparel...</GearTab_Wear>
+
+  <HealthTab_AddHediff>Add a Hediff...</HealthTab_AddHediff>
+  <HealthTab_DebugTooltip>Debug tooltip</HealthTab_DebugTooltip>
+  <HealthTab_DebugTooltipDesc>Hover over hediffs in the health window to get extra debug information about them.</HealthTab_DebugTooltipDesc>
+  <HealthTab_ShowHidden>Show hidden Hediffs</HealthTab_ShowHidden>
+</LanguageData>

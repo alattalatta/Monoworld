@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <DebugAction_DoIncident>Trigger incident...</DebugAction_DoIncident>
+  <DebugAction_DoIncidentX10>Trigger incident x10...</DebugAction_DoIncidentX10>
+  <DebugAction_DoIncidentPointed>Trigger incident w/ points...</DebugAction_DoIncidentPointed>
+</LanguageData>

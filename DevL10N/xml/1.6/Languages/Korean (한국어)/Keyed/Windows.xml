@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <GearTab_AddToInventory>물품 주기...</GearTab_AddToInventory>
+  <GearTab_DamageRandomApparel>무작위 의류 손상</GearTab_DamageRandomApparel>
+  <GearTab_SetPrimary>주무기 주기...</GearTab_SetPrimary>
+  <GearTab_Wear>의류 주기...</GearTab_Wear>
+
+  <HealthTab_AddHediff>Hediff 부여...</HealthTab_AddHediff>
+  <HealthTab_DebugTooltip>디버그 툴팁</HealthTab_DebugTooltip>
+  <HealthTab_DebugTooltipDesc>Hediff 위에 호버하면 추가 디버그 정보를 확인할 수 있습니다.</HealthTab_DebugTooltipDesc>
+  <HealthTab_ShowHidden>숨겨진 Hediff 표시</HealthTab_ShowHidden>
+</LanguageData>

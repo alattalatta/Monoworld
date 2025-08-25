@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <DebugAction_DoIncident>사건 발동...</DebugAction_DoIncident>
+  <DebugAction_DoIncidentX10>사건 x10 발동...</DebugAction_DoIncidentX10>
+  <DebugAction_DoIncidentPointed>사건 (고정 포인트) 발동...</DebugAction_DoIncidentPointed>
+</LanguageData>
