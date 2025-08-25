@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <DIYL.PseudoL10N>누락된 번역 강조</DIYL.PseudoL10N>
+  <DIYL.PseudoL10N.Description>개발자 도구를 활성화 시, 림월드는 현재 언어로 번역되지 않은 번역 키를 '이상한 문자'로 표시해서 강조합니다. 이 기능을 강제로 비활성화합니다. 아래 미리보기를 참고하세요.</DIYL.PseudoL10N.Description>
+</LanguageData>
