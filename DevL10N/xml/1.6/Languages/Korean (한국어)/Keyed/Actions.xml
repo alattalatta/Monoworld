@@ -146,6 +146,8 @@
   <DebugAction_LogCellGridResult>CellGrid 결과 기록</DebugAction_LogCellGridResult>
   <DebugAction_Breach>돌파 경로 탐색</DebugAction_Breach>
   <DebugAction_Goto>이동 경로 탐색</DebugAction_Goto>
+  <DebugAction_RetroactivelyAddLandmarksToWorld>세계 랜드마크 다시 생성</DebugAction_RetroactivelyAddLandmarksToWorld>
+  <DebugAction_RegenerateMapFeatures>지역 특징 다시 생성</DebugAction_RegenerateMapFeatures>
   <DebugAction_LoadedFilesForMod>모드에서 불러온 파일 나열...</DebugAction_LoadedFilesForMod>
   <DebugAction_RotatePrefabSpawn>Prefab 생성 회전</DebugAction_RotatePrefabSpawn>
   <DebugAction_CreatePrefab>Prefab 만들기</DebugAction_CreatePrefab>
@@ -201,6 +203,7 @@
   <DebugAction_PushHeat>열기 추가...</DebugAction_PushHeat>
   <DebugAction_Grow1Day>식물 1일 성장</DebugAction_Grow1Day>
   <DebugAction_GrowPlantToMaturity>식물 성숙</DebugAction_GrowPlantToMaturity>
+  <DebugAction_MakePlantLeafless>식물 이파리 제거</DebugAction_MakePlantLeafless>
   <DebugAction_Rotate>회전...</DebugAction_Rotate>
   <DebugAction_SetColor>색상 설정</DebugAction_SetColor>
   <DebugAction_Rot1Day>부패 1일</DebugAction_Rot1Day>
@@ -397,10 +400,7 @@
   <DebugAction_SpawnFlare>신호탄 생성...</DebugAction_SpawnFlare>
   <DebugAction_SpawnStatueCraftedBy>조각상 생성 (제작자 선택)</DebugAction_SpawnStatueCraftedBy>
   <DebugAction_SpawnFilth>오물 생성...</DebugAction_SpawnFilth>
-  <DebugAction_BirdFlyoff>Pawn 비행 트리거...</DebugAction_BirdFlyoff>
-  <DebugAction_MentalBreakDelay>지연된 정신이상...</DebugAction_MentalBreakDelay>
   <DebugAction_SwimAt>수영 시키기</DebugAction_SwimAt>
-  <DebugAction_StartLavaFlowAtEdge>방위에서 용암 유입...</DebugAction_StartLavaFlowAtEdge>
   <DebugAction_MeleeAttackTarget>대상 근접 공격</DebugAction_MeleeAttackTarget>
   <DebugAction_VolcanicDebris>화산탄</DebugAction_VolcanicDebris>
   <DebugAction_VolcanicDebrisDelayed>지연된 화산탄</DebugAction_VolcanicDebrisDelayed>

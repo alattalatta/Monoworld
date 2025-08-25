@@ -46,9 +46,6 @@
   <LoopGravshipCutscene>Loop gravship cutscene</LoopGravshipCutscene>
   <SkipGravshipTileSelection>Skip gravship destination selection</SkipGravshipTileSelection>
   <IgnoreGravshipRange>Ignore gravship travel range</IgnoreGravshipRange>
-  <FastLavaFlow>Fast lava flow</FastLavaFlow>
-  <EvenFasterLavaFlow>Even faster lava flow</EvenFasterLavaFlow>
-  <FastShuttleExit>Fast shuttle exit</FastShuttleExit>
   <DrawFog>Draw fog</DrawFog>
   <DrawSnow>Draw snow</DrawSnow>
   <DrawSand>Draw sand</DrawSand>
@@ -61,7 +58,6 @@
   <DrawWorldOverlays>Draw world overlays</DrawWorldOverlays>
   <DrawGas>Draw gas</DrawGas>
   <SingleThreadedDrawing>Single threaded drawing</SingleThreadedDrawing>
-  <PlayGravshipCutscenes>Play gravship cutscenes</PlayGravshipCutscenes>
   <DrawWorldObjects>Draw WorldObjects</DrawWorldObjects>
   <DrawPaths>Draw paths</DrawPaths>
   <DrawPatherState>Draw pather state</DrawPatherState>

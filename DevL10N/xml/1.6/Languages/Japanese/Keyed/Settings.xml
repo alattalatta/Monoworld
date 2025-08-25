@@ -46,9 +46,6 @@
   <LoopGravshipCutscene>ループ 重力船カットシーン</LoopGravshipCutscene>
   <SkipGravshipTileSelection>スキップ 重力船の目的地選択</SkipGravshipTileSelection>
   <IgnoreGravshipRange>無視 重力船の移動範囲</IgnoreGravshipRange>
-  <FastLavaFlow>高速化 溶岩の流れ</FastLavaFlow>
-  <EvenFasterLavaFlow>急加速 溶岩の流れ</EvenFasterLavaFlow>
-  <FastShuttleExit>高速化 シャトル退去</FastShuttleExit>
   <DrawFog>描画 戦場の霧</DrawFog>
   <DrawSnow>描画 雪</DrawSnow>
   <DrawSand>描画 砂</DrawSand>
@@ -61,7 +58,6 @@
   <DrawWorldOverlays>描画 worldオーバーレイヤ</DrawWorldOverlays>
   <DrawGas>描画 ガス</DrawGas>
   <SingleThreadedDrawing>描画 シングルスレッド</SingleThreadedDrawing>
-  <PlayGravshipCutscenes>再生 重力船のカットシーン</PlayGravshipCutscenes>
   <DrawWorldObjects>描画 ワールドオブジェクト</DrawWorldObjects>
   <DrawPaths>描画 経路</DrawPaths>
   <DrawPatherState>描画 経路状態</DrawPatherState>

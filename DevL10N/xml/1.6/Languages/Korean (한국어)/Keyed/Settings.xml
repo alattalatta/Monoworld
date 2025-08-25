@@ -46,9 +46,6 @@
   <LoopGravshipCutscene>중력부양선 컷신 반복</LoopGravshipCutscene>
   <SkipGravshipTileSelection>중력부양선 목적지 선택 생략</SkipGravshipTileSelection>
   <IgnoreGravshipRange>중력부양선 최대 거리 무시</IgnoreGravshipRange>
-  <FastLavaFlow>빠른 용암 유입</FastLavaFlow>
-  <EvenFasterLavaFlow>더 빠른 용암 유입</EvenFasterLavaFlow>
-  <FastShuttleExit>빠른 왕복선 이탈</FastShuttleExit>
   <DrawFog>안개 그리기</DrawFog>
   <DrawSnow>눈 그리기</DrawSnow>
   <DrawSand>모래 그리기</DrawSand>
@@ -61,7 +58,6 @@
   <DrawWorldOverlays>세계 오버레이 그리기</DrawWorldOverlays>
   <DrawGas>가스 그리기</DrawGas>
   <SingleThreadedDrawing>싱글 스레드 렌더링</SingleThreadedDrawing>
-  <PlayGravshipCutscenes>중력부양선 컷신 재생</PlayGravshipCutscenes>
   <DrawWorldObjects>WorldObjects 그리기</DrawWorldObjects>
   <DrawPaths>경로 그리기</DrawPaths>
   <DrawPatherState>경로 탐색자 상태 그리기</DrawPatherState>

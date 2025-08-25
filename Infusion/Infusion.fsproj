@@ -7,13 +7,13 @@
     <ProjectGuid>{f7155e1b-2628-4b11-88eb-c06570257cc2}</ProjectGuid>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="netstandard" />
     <Reference Include="..\libs\Assembly-CSharp-firstpass.dll" />
     <Reference Include="..\libs\Assembly-CSharp.dll" />
     <Reference Include="..\libs\UnityEngine.CoreModule.dll" />
     <Reference Include="..\libs\UnityEngine.dll" />
     <Reference Include="..\libs\UnityEngine.IMGUIModule.dll" />
-    <Reference Include="..\libs\UnityEngine.TextCoreModule.dll" />
+    <Reference Include="..\libs\UnityEngine.TextCoreFontEngineModule.dll" />
+    <Reference Include="..\libs\UnityEngine.TextCoreTextEngineModule.dll" />
     <Reference Include="..\libs\UnityEngine.TextRenderingModule.dll" />
     <Reference Include="..\libs\UnityEngine.UIModule.dll" />
   </ItemGroup>

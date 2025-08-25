@@ -397,10 +397,7 @@
   <DebugAction_SpawnFlare>生成 フレア...</DebugAction_SpawnFlare>
   <DebugAction_SpawnStatueCraftedBy>生成 statue created by</DebugAction_SpawnStatueCraftedBy>
   <DebugAction_SpawnFilth>生成 filth...</DebugAction_SpawnFilth>
-  <DebugAction_BirdFlyoff>切替 ポーン飛行オフ...</DebugAction_BirdFlyoff>
-  <DebugAction_MentalBreakDelay>精神崩壊 (遅延)...</DebugAction_MentalBreakDelay>
   <DebugAction_SwimAt>切替 水泳</DebugAction_SwimAt>
-  <DebugAction_StartLavaFlowAtEdge>開始 溶岩流の方向...</DebugAction_StartLavaFlowAtEdge>
   <DebugAction_MeleeAttackTarget>近接攻撃対象</DebugAction_MeleeAttackTarget>
   <DebugAction_VolcanicDebris>火山の灰</DebugAction_VolcanicDebris>
   <DebugAction_VolcanicDebrisDelayed>火山の灰 (遅延)...</DebugAction_VolcanicDebrisDelayed>
