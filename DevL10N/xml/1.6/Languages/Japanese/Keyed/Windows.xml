@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <GearTab_AddToInventory>アイテムを追加...</GearTab_AddToInventory>
+  <GearTab_DamageRandomApparel>ランダム衣服に損傷追加</GearTab_DamageRandomApparel>
+  <GearTab_SetPrimary>主装備を設定...</GearTab_SetPrimary>
+  <GearTab_Wear>衣服を追加...</GearTab_Wear>
+
+  <HealthTab_AddHediff>Hediffを追加...</HealthTab_AddHediff>
+  <HealthTab_DebugTooltip>デバッグ 情報</HealthTab_DebugTooltip>
+  <HealthTab_DebugTooltipDesc>健康タブの窓でhediffの上にマウスポインタ―を移動すると,それに関連する追加のデバッグ情報が表示されます.</HealthTab_DebugTooltipDesc>
+  <HealthTab_ShowHidden>非表示のHediff表示</HealthTab_ShowHidden>
+</LanguageData>

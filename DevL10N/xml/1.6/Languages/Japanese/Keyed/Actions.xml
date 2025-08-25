@@ -146,6 +146,8 @@
   <DebugAction_LogCellGridResult>記録 セルグリッド結果</DebugAction_LogCellGridResult>
   <DebugAction_Breach>記録 攻城経路</DebugAction_Breach>
   <DebugAction_Goto>記録 移動経路</DebugAction_Goto>
+  <DebugAction_RetroactivelyAddLandmarksToWorld>再生成 ランドマーク</DebugAction_RetroactivelyAddLandmarksToWorld>
+  <DebugAction_RegenerateMapFeatures>再生成 ワールドマップ特性</DebugAction_RegenerateMapFeatures>
   <DebugAction_LoadedFilesForMod>Mod用読込ファイルをリスト...</DebugAction_LoadedFilesForMod>
   <DebugAction_RotatePrefabSpawn>創造 回転プレハブ</DebugAction_RotatePrefabSpawn>
   <DebugAction_CreatePrefab>創造 プレハブ</DebugAction_CreatePrefab>
@@ -201,6 +203,7 @@
   <DebugAction_PushHeat>気温上昇...</DebugAction_PushHeat>
   <DebugAction_Grow1Day>植物成長 1日分</DebugAction_Grow1Day>
   <DebugAction_GrowPlantToMaturity>植物成長 100%まで</DebugAction_GrowPlantToMaturity>
+  <DebugAction_MakePlantLeafless>植物の葉を無くす</DebugAction_MakePlantLeafless>
   <DebugAction_Rotate>回転...</DebugAction_Rotate>
   <DebugAction_SetColor>設定 色</DebugAction_SetColor>
   <DebugAction_Rot1Day>1日分腐敗させる</DebugAction_Rot1Day>
